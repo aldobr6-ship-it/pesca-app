@@ -50,12 +50,43 @@
   </div>
 
   <script>
-    function showSpecie() {
-      alert("Qui inseriremo le specie");
-    }
-    function showMontature() {
-      alert("Qui inseriremo le montature");
-    }
-  </script>
+  function showSpecie() {
+    document.body.innerHTML = `
+      <header>🐟 Spigola (Branzino)</header>
+
+      <div style="padding:20px">
+
+        <h3>📍 Habitat</h3>
+        <p>Vive vicino a coste sabbiose, foci, porti e scogliere. Ama acque ossigenate e mare mosso.</p>
+
+        <h3>🪱 Esche migliori</h3>
+        <ul>
+          <li>Vermi: americano, coreano</li>
+          <li>Gambero vivo o morto</li>
+          <li>Artificiali: minnow, jerkbait</li>
+        </ul>
+
+        <h3>🪝 Montatura consigliata</h3>
+        <p>Piombo scorrevole o trave corto per pesca a fondo. Spinning leggero da riva.</p>
+
+        <h3>🎣 Tecnica</h3>
+        <p>Pesca a fondo con mare formato o spinning all’alba e al tramonto.</p>
+
+        <h3>📅 Periodo migliore</h3>
+        <p>Autunno e inverno, ottima anche in primavera.</p>
+
+        <h3>📏 Misura minima di legge</h3>
+        <p>42 cm (verificare sempre normative locali aggiornate).</p>
+
+        <button onclick="location.reload()">⬅ Torna indietro</button>
+      </div>
+    `;
+  }
+
+  function showMontature() {
+    alert("Qui inseriremo le montature");
+  }
+</script>
 </body>
 </html>
+
