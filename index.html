@@ -38,95 +38,67 @@
     .card:hover {
       background: #dce9f2;
     }
+    ul li {
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body>
-  <header>🎣 Assistente Pesca Mare</header>
 
-  <div class="menu">
-    <div class="card" onclick="showSpecie()">🐟 Specie</div>
-    <div class="card" onclick="showMontature()">🪝 Montature</div>
-  </div>
+<header>🎣 Assistente Pesca Mare</header>
 
-</script>
-  <script>
+<div class="menu">
+  <div class="card" onclick="showSpecie()">🐟 Specie</div>
+  <div class="card" onclick="showMontature()">🪝 Montature</div>
+</div>
+
+<script>
 function showSpecie() {
   document.body.innerHTML = `
     <header>🐟 Specie Marine</header>
-
     <div style="padding:20px">
       <ul style="list-style:none; padding:0; font-size:18px">
-        <li onclick="spigola()" style="padding:15px; border-bottom:1px solid #ccc; cursor:pointer">Spigola (Branzino)</li>
-        <li onclick="orata()" style="padding:15px; border-bottom:1px solid #ccc; cursor:pointer">Orata</li>
-        <li onclick="sarago()" style="padding:15px; border-bottom:1px solid #ccc; cursor:pointer">Sarago</li>
-        <li onclick="mormora()" style="padding:15px; border-bottom:1px solid #ccc; cursor:pointer">Mormora</li>
+        <li onclick="spigola()">Spigola</li>
+        <li onclick="orata()">Orata</li>
+        <li onclick="sarago()">Sarago</li>
+        <li onclick="mormora()">Mormora</li>
       </ul>
-
       <button onclick="location.reload()">⬅ Home</button>
     </div>
   `;
 }
 
 function spigola() {
-  document.body.innerHTML = `
-    <header>🐟 Spigola</header>
-    <div style="padding:20px">
-      <p><b>Habitat:</b> coste sabbiose, porti, foci.</p>
-      <p><b>Esche:</b> americano, coreano, gambero, artificiali.</p>
-      <p><b>Montatura:</b> piombo scorrevole, trave corto.</p>
-      <p><b>Periodo:</b> autunno – inverno.</p>
-      <p><b>Misura minima:</b> 42 cm.</p>
-      <button onclick="showSpecie()">⬅ Indietro</button>
-    </div>
-  `;
+  speciePage("Spigola", "Coste sabbiose, porti, foci", "Americano, coreano, gambero", "Piombo scorrevole", "Autunno – Inverno", "42 cm");
 }
-
 function orata() {
-  document.body.innerHTML = `
-    <header>🐟 Orata</header>
-    <div style="padding:20px">
-      <p><b>Habitat:</b> fondali sabbiosi e misti.</p>
-      <p><b>Esche:</b> bibi, americano, granchio.</p>
-      <p><b>Montatura:</b> trave o paternoster.</p>
-      <p><b>Periodo:</b> primavera – estate.</p>
-      <p><b>Misura minima:</b> 20 cm.</p>
-      <button onclick="showSpecie()">⬅ Indietro</button>
-    </div>
-  `;
+  speciePage("Orata", "Fondali sabbiosi e misti", "Bibi, americano, granchio", "Trave / paternoster", "Primavera – Estate", "20 cm");
 }
-
 function sarago() {
+  speciePage("Sarago", "Scogliere e rocce", "Verme, cozza", "Paternoster corto", "Tutto l’anno", "23 cm");
+}
+function mormora() {
+  speciePage("Mormora", "Spiagge sabbiose", "Arenicola, coreano", "Trave lungo", "Primavera – Autunno", "25 cm");
+}
+
+function speciePage(nome, habitat, esche, montatura, periodo, misura) {
   document.body.innerHTML = `
-    <header>🐟 Sarago</header>
+    <header>🐟 ${nome}</header>
     <div style="padding:20px">
-      <p><b>Habitat:</b> scogliere e fondali rocciosi.</p>
-      <p><b>Esche:</b> verme, gambero, cozza.</p>
-      <p><b>Montatura:</b> paternoster corto.</p>
-      <p><b>Periodo:</b> tutto l’anno.</p>
-      <p><b>Misura minima:</b> 23 cm.</p>
+      <p><b>Habitat:</b> ${habitat}</p>
+      <p><b>Esche:</b> ${esche}</p>
+      <p><b>Montatura:</b> ${montatura}</p>
+      <p><b>Periodo:</b> ${periodo}</p>
+      <p><b>Misura minima:</b> ${misura}</p>
       <button onclick="showSpecie()">⬅ Indietro</button>
     </div>
   `;
 }
 
-function mormora() {
-  document.body.innerHTML = `
-    <header>🐟 Mormora</header>
-    <div style="padding:20px">
-      <p><b>Habitat:</b> spiagge sabbiose.</p>
-      <p><b>Esche:</b> arenicola, coreano.</p>
-      <p><b>Montatura:</b> trave lungo.</p>
-      <p><b>Periodo:</b> primavera – autunno.</p>
-      <p><b>Misura minima:</b> 25 cm.</p>
-      <button onclick="showSpecie()">⬅ Indietro</button>
-    </div>
-  `;
-}
-  
 function showMontature() {
-    alert("Qui inseriremo le montature");
-  }
+  alert("Qui inseriremo le montature passo-passo");
+}
 </script>
 
 </body>
