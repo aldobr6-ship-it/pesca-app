@@ -95,101 +95,73 @@ function speciePage(nome, habitat, esche, montatura, periodo, misura) {
     </div>
   `;
 }
-
+<script>
 function showMontature() {
-  document.body.innerHTML = `
-    <header>🪝 Montature</header>
+  document.getElementById("content").innerHTML = `
+    <h1>Montature da Mare</h1>
+<section class="card">
+  <h2>Piombo Scorrevole</h2>
+  <p><strong>Tecnica:</strong> Surfcasting / Fondo</p>
+  <p><strong>Dove:</strong> Spiaggia, Porto</p>
+  <p><strong>Pesci:</strong> Orata, Mormora, Sarago</p>
 
-    <div style="padding:20px">
-      <ul style="list-style:none; padding:0; font-size:18px">
-        <li onclick="trave()">Montatura a Trave</li>
-        <li onclick="paternoster()">Paternoster</li>
-        <li onclick="scorrevole()">Piombo Scorrevole</li>
-        <li onclick="spinning()">Spinning Base</li>
-      </ul>
+  <h3>Materiali</h3>
+  <ul>
+    <li>Nylon 0,30–0,35</li>
+    <li>Piombo scorrevole 75–125 g</li>
+    <li>Perlina salva nodo</li>
+    <li>Girella rolling</li>
+    <li>Terminale fluorocarbon 0,22–0,28</li>
+  </ul>
 
-      <button onclick="location.reload()">⬅ Home</button>
-    </div>
-  `;
+  <p><strong>Perché funziona:</strong> il pesce non sente il peso del piombo.</p>
+
+  <a href="https://www.youtube.com/results?search_query=montatura+piombo+scorrevole+surfcasting" target="_blank">
+    ▶ Guarda il video
+  </a>
+</section>
+<section class="card">
+  <h2>Pater Noster</h2>
+  <p><strong>Tecnica:</strong> Fondo</p>
+  <p><strong>Dove:</strong> Scogliera, Porto</p>
+  <p><strong>Pesci:</strong> Sarago, Pagello</p>
+
+  <h3>Materiali</h3>
+  <ul>
+    <li>Trave nylon 0,40</li>
+    <li>2 braccioli fluorocarbon 0,22–0,26</li>
+    <li>Piombo fisso 100–150 g</li>
+  </ul>
+
+  <p><strong>Perché funziona:</strong> esche sollevate dal fondo, meno incagli.</p>
+
+  <a href="https://www.youtube.com/results?search_query=montatura+paternoster+pesca+mare" target="_blank">
+    ▶ Guarda il video
+  </a>
+</section>
+`;
 }
-function trave() {
-  document.body.innerHTML = `
-    <header>🪝 Montatura a Trave</header>
-    <div style="padding:20px">
+<script>
+  
+<section class="card">
+  <h2>Montatura Spigola (Mare Mosso)</h2>
+  <p><strong>Tecnica:</strong> Fondo</p>
+  <p><strong>Dove:</strong> Spiaggia, Foce</p>
 
-      <h3>🎣 Quando usarla</h3>
-      <p>Spiaggia e porto, mare calmo o poco mosso. Ideale per orate, mormore, saraghi.</p>
+  <h3>Materiali</h3>
+  <ul>
+    <li>Terminale fluorocarbon 0,30–0,35 (120–150 cm)</li>
+    <li>Amo 1 / 1-0</li>
+    <li>Piombo scorrevole</li>
+  </ul>
 
-      <h3>🧰 Materiali</h3>
-      <ul>
-        <li>Trave: nylon 0,40 – 0,50</li>
-        <li>Bracciolo: fluorocarbon 0,20 – 0,28</li>
-        <li>Ami: n°6 – n°2</li>
-        <li>Piombo: 75 – 150 g</li>
-      </ul>
+  <p><strong>Perché funziona:</strong> montatura naturale per spigole sospettose.</p>
 
-      <h3>📏 Misure</h3>
-      <p>Trave lungo 120–150 cm. Bracciolo 10–20 cm.</p>
+  <a href="https://www.youtube.com/results?search_query=montatura+spigola+mare+mosso" target="_blank">
+    ▶ Guarda il video
+  </a>
+</section>
 
-      <h3>❓ Perché funziona</h3>
-      <p>Mantiene l’esca sollevata dal fondo e riduce gli intrecci.</p>
-
-      <button onclick="showMontature()">⬅ Indietro</button>
-    </div>
-  `;
-}
-function paternoster() {
-  document.body.innerHTML = `
-    <header>🪝 Paternoster</header>
-    <div style="padding:20px">
-
-      <h3>🎣 Quando usarla</h3>
-      <p>Scogliera e fondali rocciosi, mare mosso.</p>
-
-      <h3>🧰 Materiali</h3>
-      <ul>
-        <li>Trave: nylon 0,45</li>
-        <li>Braccioli: fluorocarbon 0,25</li>
-        <li>Ami: n°4 – n°1</li>
-        <li>Piombo: 100 – 175 g</li>
-      </ul>
-
-      <h3>📏 Misure</h3>
-      <p>Braccioli corti (8–12 cm) per evitare incagli.</p>
-
-      <h3>❓ Perché funziona</h3>
-      <p>L’esca lavora sopra il fondo senza impigliarsi.</p>
-
-      <button onclick="showMontature()">⬅ Indietro</button>
-    </div>
-  `;
-}
-function scorrevole() {
-  document.body.innerHTML = `
-    <header>🪝 Piombo Scorrevole</header>
-    <div style="padding:20px">
-
-      <h3>🎣 Quando usarla</h3>
-      <p>Spigola e orata diffidenti.</p>
-
-      <h3>🧰 Materiali</h3>
-      <ul>
-        <li>Filo madre: nylon 0,30</li>
-        <li>Terminale: fluorocarbon 0,22 – 0,28</li>
-        <li>Ami: n°4 – n°1</li>
-        <li>Piombo: 75 – 125 g</li>
-      </ul>
-
-      <h3>📏 Misure</h3>
-      <p>Terminale lungo 60–120 cm.</p>
-
-      <h3>❓ Perché funziona</h3>
-      <p>Il pesce non sente il peso del piombo durante l’abboccata.</p>
-
-      <button onclick="showMontature()">⬅ Indietro</button>
-    </div>
-  `;
-}
 function spinning() {
   document.body.innerHTML = `
     <header>🪝 Spinning Base</header>
@@ -218,6 +190,7 @@ function spinning() {
 
 </body>
 </html>
+
 
 
 
