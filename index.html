@@ -8,71 +8,75 @@
   <style>
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(#06283D, #0A4D68);
-  color: #F1FAEE;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(#eaf4fb, #dbe9f4);
+  color: #0a2a43;
 }
 
 header {
-  background: #06283D;
-  padding: 15px;
+  background: #0a2a43;
+  color: white;
+  padding: 18px;
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
-  letter-spacing: 1px;
-}
-
-nav {
-  display: flex;
-  justify-content: space-around;
-  background: #0A4D68;
-  padding: 10px 0;
-  border-top: 1px solid #00B4D8;
-}
-
-nav button {
-  background: none;
-  border: none;
-  color: #F1FAEE;
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-nav button span {
-  font-size: 22px;
-}
-
-nav button:active {
-  color: #00B4D8;
 }
 
 #content {
-  padding: 15px;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  text-align: center;
 }
 
 .card h3 {
-  color: #EAD7A1;
-  margin-top: 0;
-}
-
-.card img {
-  border-radius: 10px;
   margin-top: 10px;
 }
 
-a {
-  color: #00B4D8;
-  font-weight: bold;
+button {
+  background: #1e88e5;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin: 6px;
+  font-size: 14px;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+}
+
+footer button {
+  background: none;
+  color: #0a2a43;
+  font-size: 13px;
 }
 </style>
 </head>
@@ -92,12 +96,37 @@ a {
 
 <script>
 /* HOME */
+<script>
 function showHome() {
-  document.getElementById("content").innerHTML =
-    "<h2>Benvenuto</h2>" +
-    "<p>Guida completa alla pesca a canna dal mare.</p>" +
-    "<p>Scegli una sezione dal menu.</p>";
+  document.getElementById("content").innerHTML = `
+    <div class="grid">
+      <div class="card" onclick="showTecniche()">
+        🏖️
+        <h3>Tecniche Mare</h3>
+        <p>Surfcasting, spinning, eging…</p>
+      </div>
+
+      <div class="card" onclick="showSpecie()">
+        🐟
+        <h3>Specie</h3>
+        <p>I pesci più pescati</p>
+      </div>
+
+      <div class="card" onclick="showMontature()">
+        🪝
+        <h3>Montature</h3>
+        <p>Pronte e spiegate</p>
+      </div>
+
+      <div class="card" onclick="showNodi()">
+        🧵
+        <h3>Nodi</h3>
+        <p>Con immagini</p>
+      </div>
+    </div>
+  `;
 }
+</script>
 
 /* SPECIE */
 function showSpecie() {
@@ -179,6 +208,7 @@ showHome();
 
 </body>
 </html>
+
 
 
 
