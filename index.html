@@ -2,102 +2,97 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assistente Pesca Mare</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(#eaf4fb, #dbe9f4);
-  color: #0a2a43;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(#eaf4fb, #dbe9f4);
+      color: #0a2a43;
+    }
 
-header {
-  background: #0a2a43;
-  color: white;
-  padding: 18px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-}
+    header {
+      background: #0a2a43;
+      color: white;
+      padding: 16px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-#content {
-  padding: 20px;
-}
+    #content {
+      padding: 20px;
+      padding-bottom: 90px;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
 
-.card {
-  background: white;
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-  text-align: center;
-}
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+      text-align: center;
+      cursor: pointer;
+    }
 
-.card h3 {
-  margin-top: 10px;
-}
+    .card h3 {
+      margin: 10px 0 6px;
+    }
 
-button {
-  background: #1e88e5;
-  color: white;
-  border: none;
-  padding: 12px 16px;
-  border-radius: 12px;
-  margin: 6px;
-  font-size: 14px;
-}
+    .card p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
 
-button:active {
-  transform: scale(0.97);
-}
+    h2 {
+      margin-top: 0;
+    }
 
-.section {
-  margin-bottom: 20px;
-}
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+    }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: white;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
-}
-
-footer button {
-  background: none;
-  color: #0a2a43;
-  font-size: 13px;
-}
-</style>
+    footer button {
+      background: none;
+      border: none;
+      font-size: 13px;
+      color: #0a2a43;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>🎣 Assistente Pesca Mare</header>
-
-<nav>
-  <button onclick="showHome()">Home</button>
-  <button onclick="showSpecie()">Specie</button>
-  <button onclick="showMontature()">Montature</button>
-  <button onclick="showNodi()">Nodi</button>
-</nav>
+<header>
+  🎣 Assistente Pesca Mare
+</header>
 
 <div id="content"></div>
 
+<footer>
+  <button onclick="showHome()">🏠 Home</button>
+  <button onclick="showTecniche()">🌊 Tecniche</button>
+  <button onclick="showSpecie()">🐟 Specie</button>
+  <button onclick="showMontature()">🪝 Montature</button>
+  <button onclick="showNodi()">🧵 Nodi</button>
+</footer>
+
 <script>
-  
 /* HOME */
-<script>
 function showHome() {
   document.getElementById("content").innerHTML = `
     <div class="grid">
@@ -116,7 +111,7 @@ function showHome() {
       <div class="card" onclick="showMontature()">
         🪝
         <h3>Montature</h3>
-        <p>Pronte e spiegate</p>
+        <p>Spiegate passo-passo</p>
       </div>
 
       <div class="card" onclick="showNodi()">
@@ -127,94 +122,77 @@ function showHome() {
     </div>
   `;
 }
-</script>
+
+/* TECNICHE */
+function showTecniche() {
+  document.getElementById("content").innerHTML = `
+    <h2>🌊 Tecniche di Pesca in Mare</h2>
+
+    <div class="card">
+      <b>Surfcasting</b><br>
+      Pesca dalla spiaggia con piombi pesanti
+    </div>
+
+    <div class="card">
+      <b>Spinning</b><br>
+      Esche artificiali da riva
+    </div>
+
+    <div class="card">
+      <b>Eging</b><br>
+      Pesca a seppie e calamari
+    </div>
+
+    <div class="card">
+      <b>Pesca a Fondo</b><br>
+      Porto e scogliera
+    </div>
+
+    <div class="card">
+      <b>Galleggiante</b><br>
+      Tecnica precisa e leggera
+    </div>
+  `;
+}
 
 /* SPECIE */
-  function showSpecie() {
-  document.getElementById("content").innerHTML =
-    "<h2>Specie Principali</h2>" +
+function showSpecie() {
+  document.getElementById("content").innerHTML = `
+    <h2>🐟 Specie Principali</h2>
 
-    "<div class='card'><h3>Spigola</h3>" +
-    "<p>Tecniche: Surfcasting, Spinning</p>" +
-    "<p>Montature: Piombo scorrevole</p>" +
-    "<p>Misura minima: 25 cm</p></div>" +
-
-    "<div class='card'><h3>Orata</h3>" +
-    "<p>Tecniche: Fondo</p>" +
-    "<p>Montature: Piombo scorrevole</p>" +
-    "<p>Misura minima: 20 cm</p></div>" +
-
-    "<div class='card'><h3>Sarago</h3>" +
-    "<p>Tecniche: Fondo</p>" +
-    "<p>Montature: Pater Noster</p>" +
-    "<p>Misura minima: 23 cm</p></div>";
+    <div class="card"><b>Spigola (Branzino)</b></div>
+    <div class="card"><b>Orata</b></div>
+    <div class="card"><b>Saraghi</b></div>
+    <div class="card"><b>Seppie e Calamari</b></div>
+  `;
 }
 
 /* MONTATURE */
 function showMontature() {
-  document.getElementById("content").innerHTML =
-    "<h2>Montature da Mare</h2>" +
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Montature</h2>
 
-    "<div class='card'><h3>Piombo Scorrevole</h3>" +
-    "<p>Tecnica: Surfcasting / Fondo</p>" +
-    "<p>Pesci: Orata, Mormora, Spigola</p>" +
-    "<p>Perché: il pesce non sente il peso</p>" +
-    "<a href='https://www.youtube.com/results?search_query=montatura+piombo+scorrevole+surfcasting' target='_blank'>▶ Video</a></div>" +
-
-    "<div class='card'><h3>Pater Noster</h3>" +
-    "<p>Tecnica: Fondo</p>" +
-    "<p>Pesci: Sarago, Pagello</p>" +
-    "<p>Perché: meno incagli</p>" +
-    "<a href='https://www.youtube.com/results?search_query=montatura+paternoster+pesca+mare' target='_blank'>▶ Video</a></div>" +
-
-    "<div class='card'><h3>Spinning</h3>" +
-    "<p>Tecnica: Artificiali</p>" +
-    "<p>Pesci: Spigola, Serra</p>" +
-    "<a href='https://www.youtube.com/results?search_query=spinning+mare+da+riva' target='_blank'>▶ Video</a></div>";
+    <div class="card">Montatura a Fondo</div>
+    <div class="card">Paternoster</div>
+    <div class="card">Piombo Scorrevole</div>
+    <div class="card">Montatura Surfcasting</div>
+    <div class="card">Montatura Spinning</div>
+  `;
 }
 
 /* NODI */
 function showNodi() {
-  document.getElementById("content").innerHTML =
-    "<h2>Nodi Principali</h2>" +
-
-    "<div class='card'><h3>Nodo Palomar</h3>" +
-    "<img src='img/nodo-palomar.png'>" +
-    "<p>Filo: Trecciato</p></div>" +
-
-    "<div class='card'><h3>Nodo Clinch Migliorato</h3>" +
-    "<img src='img/nodo-clinch.png'>" +
-    "<p>Filo: Nylon / Fluorocarbon</p></div>" +
-
-    "<div class='card'><h3>Nodo FG</h3>" +
-    "<img src='img/nodo-fg.png'>" +
-    "<p>Giunzione Treccia-Terminale</p></div>" +
-
-    "<div class='card'><h3>Nodo Albright</h3>" +
-    "<img src='img/nodo-albright.png'>" +
-    "<p>Giunzione fili diversi</p></div>" +
-
-    "<div class='card'><h3>Nodo di Sangue</h3>" +
-    "<img src='img/nodo-sangue.png'>" +
-    "<p>Giunzione diametri simili</p></div>" +
-
-    "<div class='card'><h3>Nodo Rapala</h3>" +
-    "<img src='img/nodo-rapala.png'>" +
-    "<p>Artificiali a nuoto libero</p></div>";
-}
-  
-function showTecniche() {
   document.getElementById("content").innerHTML = `
-    <h2>🎣 Tecniche di Pesca in Mare</h2>
+    <h2>🧵 Nodi Principali</h2>
 
-    <div class="card">🌊 <b>Surfcasting</b><br>Pesca da spiaggia con piombi pesanti</div>
-    <div class="card">🎯 <b>Spinning</b><br>Esche artificiali da riva</div>
-    <div class="card">🦑 <b>Eging</b><br>Seppie e calamari</div>
-    <div class="card">⚓ <b>Pesca a Fondo</b><br>Dal porto o scogliera</div>
-    <div class="card">🎈 <b>Galleggiante</b><br>Pesca tecnica e precisa</div>
+    <div class="card">Nodo Clinch</div>
+    <div class="card">Nodo Palomar</div>
+    <div class="card">Nodo FG</div>
+    <div class="card">Nodo Albright</div>
+    <div class="card">Nodo di Sangue</div>
+    <div class="card">Nodo Rapala</div>
   `;
 }
-</script>
 
 /* AVVIO */
 showHome();
@@ -222,6 +200,8 @@ showHome();
 
 </body>
 </html>
+
+
 
 
 
