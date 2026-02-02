@@ -128,8 +128,8 @@ function showTecniche() {
   document.getElementById("content").innerHTML = `
     <h2>🌊 Tecniche di Pesca in Mare</h2>
 
-    <div class="card">
-      <b>Surfcasting</b><br>
+    <div class="card" onclick="showSurfcasting()">
+      <b>Surfcasting</b><br> 
       Pesca dalla spiaggia con piombi pesanti
     </div>
 
@@ -193,6 +193,44 @@ function showNodi() {
     <div class="card">Nodo Rapala</div>
   `;
 }
+  function showSurfcasting() {
+  document.getElementById("content").innerHTML = `
+    <h2>🏖️ Surfcasting</h2>
+
+    <div class="card">
+      <b>Quando usarla</b><br>
+      Mare mosso o formato, spiagge sabbiose, alba e tramonto
+    </div>
+
+    <div class="card">
+      <b>Attrezzatura base</b><br>
+      Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40
+    </div>
+
+    <div class="card">
+      <b>Montature dedicate</b><br>
+      Trave • Paternoster • Long arm
+    </div>
+
+    <div class="card">
+      <b>Pro</b><br>
+      Raggiunge grandi distanze, ideale per grossi pesci
+    </div>
+
+    <div class="card">
+      <b>Contro</b><br>
+      Tecnica impegnativa, attrezzatura pesante
+    </div>
+
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=surfcasting+montatura"
+         target="_blank">Guarda su YouTube</a>
+    </div>
+
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
 
 /* AVVIO */
 showHome();
@@ -200,6 +238,7 @@ showHome();
 
 </body>
 </html>
+
 
 
 
