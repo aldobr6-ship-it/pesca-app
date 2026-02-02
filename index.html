@@ -207,10 +207,11 @@ function showNodi() {
       Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40
     </div>
 
-    <div class="card">
-      <b>Montature dedicate</b><br>
-      Trave • Paternoster • Long arm
-    </div>
+    <div class="card"><b>Montature dedicate</b><br><br>
+
+  <button onclick="showTrave()">Montatura a Trave</button><br><br>
+  <button onclick="showPaternoster()">Paternoster</button><br><br>
+  <button onclick="showLongArm()">Long Arm</button>
 
     <div class="card">
       <b>Pro</b><br>
@@ -232,12 +233,100 @@ function showNodi() {
   `;
 }
 
+  function showTrave() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Montatura a Trave</h2>
+
+    <div class="card">
+      <b>Quando usarla</b><br>
+      Mare mosso, surfcasting classico, spiaggia
+    </div>
+
+    <div class="card">
+      <b>Composizione</b><br>
+      Trave 120–150 cm • 1–2 braccioli • Piombo fisso
+    </div>
+
+    <div class="card">
+      <b>Esche consigliate</b><br>
+      Arenicola • Americano • Bibi
+    </div>
+
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+a+trave+surfcasting"
+         target="_blank">Guarda su YouTube</a>
+    </div>
+
+    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+  `;
+}
+
+function showPaternoster() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Paternoster</h2>
+
+    <div class="card">
+      <b>Quando usarla</b><br>
+      Fondali misti, pesce sospeso
+    </div>
+
+    <div class="card">
+      <b>Composizione</b><br>
+      Braccioli alti • Piombo finale • Terminali corti
+    </div>
+
+    <div class="card">
+      <b>Esche consigliate</b><br>
+      Coreano • Americano • Gambero
+    </div>
+
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+paternoster+pesca"
+         target="_blank">Guarda su YouTube</a>
+    </div>
+
+    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+  `;
+}
+
+function showLongArm() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Long Arm</h2>
+
+    <div class="card">
+      <b>Quando usarla</b><br>
+      Mare calmo, pesci sospettosi
+    </div>
+
+    <div class="card">
+      <b>Composizione</b><br>
+      Bracciolo lungo 120–200 cm • Piombo scorrevole
+    </div>
+
+    <div class="card">
+      <b>Esche consigliate</b><br>
+      Tremolina • Arenicola • Bibi
+    </div>
+
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+long+arm+surfcasting"
+         target="_blank">Guarda su YouTube</a>
+    </div>
+
+    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+  `;
+}
+  
 /* AVVIO */
 showHome();
 </script>
 
 </body>
 </html>
+
 
 
 
