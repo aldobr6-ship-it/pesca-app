@@ -57,15 +57,17 @@
 
     footer {
   position: fixed;
-  bottom: 40px;                 /* 🔼 alza il menu (~1 cm) */
+  bottom: 12px;                 /* altezza corretta */
   left: 0;
   width: 100%;
   background: white;
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
+  align-items: center;          /* 🔥 CENTRA verticalmente */
+  height: 64px;                 /* altezza fissa elegante */
   padding-bottom: env(safe-area-inset-bottom);
   box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 
     footer button {
@@ -363,6 +365,7 @@ showHome();
 
 </body>
 </html>
+
 
 
 
