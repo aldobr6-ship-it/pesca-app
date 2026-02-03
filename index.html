@@ -56,15 +56,17 @@
     }
 
     footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: white;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-      box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
-    }
+  position: fixed;
+  bottom: 12px;                 /* 🔼 alza il menu (~1 cm) */
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+}
 
     footer button {
       background: none;
@@ -361,6 +363,7 @@ showHome();
 
 </body>
 </html>
+
 
 
 
