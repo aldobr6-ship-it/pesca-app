@@ -1,82 +1,91 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Assistente Pesca Mare</title>
+<meta charset="UTF-8">
+<title>Assistente Pesca Mare</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0a2a43">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a2a43">
 
-  <link rel="manifest" href="manifest.json">
+<link rel="manifest" href="manifest.json">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(#e6f2f8, #ffffff);
-      color: #003049;
-    }
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(#cfe9f6,#ffffff);
+  color:#023047;
+}
 
-    header {
-      background: #0a2a43;
-      color: white;
-      text-align: center;
-      padding: 14px;
-      font-size: 18px;
-    }
+header{
+  background:#0a2a43;
+  color:white;
+  text-align:center;
+  padding:14px;
+  font-size:18px;
+}
 
-    #content {
-      padding: 16px;
-      padding-bottom: 90px;
-    }
+#content{
+  padding:16px;
+  padding-bottom:100px;
+}
 
-    h2 {
-      margin-top: 0;
-    }
+h2{
+  margin-top:0;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 14px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:14px;
+}
 
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 10px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+.card{
+  background:white;
+  border-radius:14px;
+  padding:10px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
 
-    .card img {
-      width: 100%;
-      max-height: 120px;
-      object-fit: contain;
-      margin-bottom: 6px;
-    }
+.card img{
+  width:100%;
+  max-height:130px;
+  object-fit:contain;
+  border-radius:10px;
+}
 
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: white;
-      display: flex;
-      justify-content: space-around;
-      padding: 8px 0;
-      box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
-    }
+footer{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:white;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  box-shadow:0 -3px 10px rgba(0,0,0,0.2);
+}
 
-    footer button {
-      background: none;
-      border: none;
-      font-size: 12px;
-      color: #003049;
-    }
+footer button{
+  background:none;
+  border:none;
+  font-size:12px;
+  color:#023047;
+}
 
-    footer button:active {
-      color: #0077b6;
-    }
-  </style>
+footer button:active{
+  color:#219ebc;
+}
+
+button.back{
+  margin-top:12px;
+  padding:8px 12px;
+  border:none;
+  border-radius:10px;
+  background:#219ebc;
+  color:white;
+}
+</style>
 </head>
 
 <body>
@@ -94,21 +103,22 @@
 </footer>
 
 <script>
-/* ===== HOME ===== */
-function showHome() {
+/* ================= HOME ================= */
+function showHome(){
   document.getElementById("content").innerHTML = `
     <h2>Benvenuto</h2>
     <p>Guida completa alla pesca in mare.</p>
     <ul>
       <li>Specie più pescate</li>
-      <li>Tecniche e montature</li>
+      <li>Tecniche di pesca</li>
+      <li>Montature professionali</li>
       <li>Nodi fondamentali</li>
     </ul>
   `;
 }
 
-/* ===== TECNICHE ===== */
-function showTecniche() {
+/* ================= TECNICHE ================= */
+function showTecniche(){
   document.getElementById("content").innerHTML = `
     <h2>Tecniche di pesca</h2>
     <ul>
@@ -122,79 +132,111 @@ function showTecniche() {
   `;
 }
 
-/* ===== SPECIE ===== */
-function showSpecie() {
+/* ================= SPECIE ================= */
+function showSpecie(){
   document.getElementById("content").innerHTML = `
     <h2>Specie principali</h2>
     <div class="grid">
-      <div class="card">
-        <img src="img/pesci/orata.jpg" alt="Orata">
-        <strong>Orata</strong>
-      </div>
-      <div class="card">
-        <img src="img/pesci/spigola.jpg" alt="Spigola">
-        <strong>Spigola</strong>
-      </div>
-      <div class="card">
-        <img src="img/pesci/sarago-maggiore.jpg" alt="Sarago">
-        <strong>Sarago</strong>
-      </div>
-      <div class="card">
-        <img src="img/pesci/cefalo.jpg" alt="Cefalo">
-        <strong>Cefalo</strong>
-      </div>
+      ${specieList()}
     </div>
   `;
 }
 
-/* ===== MONTATURE ===== */
-function showMontature() {
+function specieList(){
+  return Object.keys(specie).map(id => `
+    <div class="card" onclick="showSpecieDetail('${id}')">
+      <img src="${specie[id].img}">
+      <strong>${specie[id].nome}</strong>
+    </div>
+  `).join("");
+}
+
+function showSpecieDetail(id){
+  const p = specie[id];
+  document.getElementById("content").innerHTML = `
+    <h2>${p.nome}</h2>
+    <em>${p.scientifico}</em>
+    <img src="${p.img}" style="width:100%;margin:12px 0;border-radius:14px">
+    <p>${p.descrizione}</p>
+    <p><strong>Tecniche:</strong> ${p.tecniche}</p>
+    <button class="back" onclick="showSpecie()">⬅ Torna alle specie</button>
+  `;
+}
+
+/* ================= MONTATURE ================= */
+function showMontature(){
   document.getElementById("content").innerHTML = `
     <h2>Montature</h2>
     <div class="grid">
-      <div class="card">
-        <img src="img/montature/pater-noster.jpg">
-        <strong>Pater Noster</strong>
-      </div>
-      <div class="card">
-        <img src="img/montature/piombo-scorrevole.jpg">
-        <strong>Piombo scorrevole</strong>
-      </div>
-      <div class="card">
-        <img src="img/montature/long-arm.jpg">
-        <strong>Long Arm</strong>
-      </div>
+      ${montatureList()}
     </div>
   `;
 }
 
-/* ===== NODI ===== */
-function showNodi() {
+function montatureList(){
+  return montature.map(m => `
+    <div class="card">
+      <img src="img/montature/${m}.jpg">
+      <strong>${m.replace(/-/g," ")}</strong>
+    </div>
+  `).join("");
+}
+
+/* ================= NODI ================= */
+function showNodi(){
   document.getElementById("content").innerHTML = `
     <h2>Nodi principali</h2>
     <div class="grid">
-      <div class="card">
-        <img src="img/nodi/nodo-fg.jpg">
-        <strong>Nodo FG</strong>
-      </div>
-      <div class="card">
-        <img src="img/nodi/nodo-rapala.jpg">
-        <strong>Nodo Rapala</strong>
-      </div>
-      <div class="card">
-        <img src="img/nodi/nodo-palomar.jpg">
-        <strong>Nodo Palomar</strong>
-      </div>
+      ${nodi.map(n => `
+        <div class="card">
+          <img src="img/nodi/${n}.jpg">
+          <strong>${n.replace("nodo-","").toUpperCase()}</strong>
+        </div>
+      `).join("")}
     </div>
   `;
 }
 
-/* AVVIO */
+/* ================= DATI ================= */
+const specie = {
+  orata:{nome:"Orata",scientifico:"Sparus aurata",img:"img/pesci/orata.jpg",descrizione:"Pesce pregiato di fondali sabbiosi.",tecniche:"Fondo, Surfcasting"},
+  spigola:{nome:"Spigola",scientifico:"Dicentrarchus labrax",img:"img/pesci/spigola.jpg",descrizione:"Predatore costiero.",tecniche:"Spinning, Fondo"},
+  sarago-maggiore:{nome:"Sarago maggiore",scientifico:"Diplodus sargus",img:"img/pesci/sarago-maggiore.jpg",descrizione:"Tipico di fondali rocciosi.",tecniche:"Fondo"},
+  mormora:{nome:"Mormora",scientifico:"Lithognathus mormyrus",img:"img/pesci/mormora.jpg",descrizione:"Classica del surfcasting.",tecniche:"Surfcasting"},
+  cefalo:{nome:"Cefalo",scientifico:"Mugil cephalus",img:"img/pesci/cefalo.jpg",descrizione:"Vive in branchi nei porti.",tecniche:"Galleggiante"}
+};
+
+const montature = [
+  "bandiera",
+  "bandiera-pop-up",
+  "bum-bum",
+  "linea-longa",
+  "long-arm",
+  "minitrave-amo-pescatore",
+  "pater-noster",
+  "piombo-scorrevole",
+  "pulley",
+  "ravennate",
+  "short-rovesciato",
+  "tri-amo"
+];
+
+const nodi = [
+  "nodo-fg",
+  "nodo-albright",
+  "nodo-sangue",
+  "nodo-rapala",
+  "nodo-palomar",
+  "nodo-clinch"
+];
+
+/* ================= AVVIO ================= */
 showHome();
 </script>
 
 </body>
 </html>
+
 
 
 
