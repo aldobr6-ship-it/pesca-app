@@ -1,96 +1,89 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>Assistente Pesca Mare</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistente Pesca Mare</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a2a43">
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(#eaf4fb, #dbe9f4);
+      color: #0a2a43;
+    }
 
-<link rel="manifest" href="manifest.json">
+    header {
+      background: #0a2a43;
+      color: white;
+      padding: 16px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:linear-gradient(#cfe9f6,#ffffff);
-  color:#023047;
+    #content {
+      padding: 20px;
+      padding-bottom: 90px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .card h3 {
+      margin: 10px 0 6px;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    footer {
+  position: fixed;
+  bottom: 12px;                 /* altezza corretta */
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;          /* 🔥 CENTRA verticalmente */
+  height: 64px;                 /* altezza fissa elegante */
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 
-header{
-  background:#0a2a43;
-  color:white;
-  text-align:center;
-  padding:14px;
-  font-size:18px;
-}
-
-#content{
-  padding:16px;
-  padding-bottom:100px;
-}
-
-h2{
-  margin-top:0;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:14px;
-}
-
-.card{
-  background:white;
-  border-radius:14px;
-  padding:10px;
-  text-align:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.15);
-}
-
-.card img{
-  width:100%;
-  max-height:130px;
-  object-fit:contain;
-  border-radius:10px;
-}
-
-footer{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:white;
-  display:flex;
-  justify-content:space-around;
-  padding:10px 0;
-  box-shadow:0 -3px 10px rgba(0,0,0,0.2);
-}
-
-footer button{
-  background:none;
-  border:none;
-  font-size:12px;
-  color:#023047;
-}
-
-footer button:active{
-  color:#219ebc;
-}
-
-button.back{
-  margin-top:12px;
-  padding:8px 12px;
-  border:none;
-  border-radius:10px;
-  background:#219ebc;
-  color:white;
-}
-</style>
+    footer button {
+      background: none;
+      border: none;
+      font-size: 13px;
+      color: #0a2a43;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>🎣 Assistente Pesca Mare</header>
+<header>
+  🎣 Assistente Pesca Mare
+</header>
 
 <div id="content"></div>
 
@@ -103,139 +96,276 @@ button.back{
 </footer>
 
 <script>
-/* ================= HOME ================= */
-function showHome(){
+/* HOME */
+function showHome() {
   document.getElementById("content").innerHTML = `
-    <h2>Benvenuto</h2>
-    <p>Guida completa alla pesca in mare.</p>
-    <ul>
-      <li>Specie più pescate</li>
-      <li>Tecniche di pesca</li>
-      <li>Montature professionali</li>
-      <li>Nodi fondamentali</li>
-    </ul>
-  `;
-}
-
-/* ================= TECNICHE ================= */
-function showTecniche(){
-  document.getElementById("content").innerHTML = `
-    <h2>Tecniche di pesca</h2>
-    <ul>
-      <li>Surfcasting</li>
-      <li>Spinning</li>
-      <li>Eging</li>
-      <li>Bolognese</li>
-      <li>Pesca a fondo</li>
-      <li>Bolentino</li>
-    </ul>
-  `;
-}
-
-/* ================= SPECIE ================= */
-function showSpecie(){
-  document.getElementById("content").innerHTML = `
-    <h2>Specie principali</h2>
     <div class="grid">
-      ${specieList()}
+      <div class="card" onclick="showTecniche()">
+        🏖️
+        <h3>Tecniche Mare</h3>
+        <p>Surfcasting, spinning, eging…</p>
+      </div>
+
+      <div class="card" onclick="showSpecie()">
+        🐟
+        <h3>Specie</h3>
+        <p>I pesci più pescati</p>
+      </div>
+
+      <div class="card" onclick="showMontature()">
+        🪝
+        <h3>Montature</h3>
+        <p>Spiegate passo-passo</p>
+      </div>
+
+      <div class="card" onclick="showNodi()">
+        🧵
+        <h3>Nodi</h3>
+        <p>Con immagini</p>
+      </div>
     </div>
   `;
 }
 
-function specieList(){
-  return Object.keys(specie).map(id => `
-    <div class="card" onclick="showSpecieDetail('${id}')">
-      <img src="${specie[id].img}">
-      <strong>${specie[id].nome}</strong>
-    </div>
-  `).join("");
-}
-
-function showSpecieDetail(id){
-  const p = specie[id];
+/* TECNICHE */
+function showTecniche() {
   document.getElementById("content").innerHTML = `
-    <h2>${p.nome}</h2>
-    <em>${p.scientifico}</em>
-    <img src="${p.img}" style="width:100%;margin:12px 0;border-radius:14px">
-    <p>${p.descrizione}</p>
-    <p><strong>Tecniche:</strong> ${p.tecniche}</p>
-    <button class="back" onclick="showSpecie()">⬅ Torna alle specie</button>
-  `;
-}
+    <h2>🌊 Tecniche di Pesca in Mare</h2>
 
-/* ================= MONTATURE ================= */
-function showMontature(){
-  document.getElementById("content").innerHTML = `
-    <h2>Montature</h2>
-    <div class="grid">
-      ${montatureList()}
+    <div class="card" onclick="showSurfcasting()">
+      <b>Surfcasting</b><br> 
+      Pesca dalla spiaggia con piombi pesanti
     </div>
-  `;
-}
 
-function montatureList(){
-  return montature.map(m => `
     <div class="card">
-      <img src="img/montature/${m}.jpg">
-      <strong>${m.replace(/-/g," ")}</strong>
+      <b>Spinning</b><br>
+      Esche artificiali da riva
     </div>
-  `).join("");
-}
 
-/* ================= NODI ================= */
-function showNodi(){
-  document.getElementById("content").innerHTML = `
-    <h2>Nodi principali</h2>
-    <div class="grid">
-      ${nodi.map(n => `
-        <div class="card">
-          <img src="img/nodi/${n}.jpg">
-          <strong>${n.replace("nodo-","").toUpperCase()}</strong>
-        </div>
-      `).join("")}
+    <div class="card">
+      <b>Eging</b><br>
+      Pesca a seppie e calamari
+    </div>
+
+    <div class="card">
+      <b>Pesca a Fondo</b><br>
+      Porto e scogliera
+    </div>
+
+    <div class="card">
+      <b>Galleggiante</b><br>
+      Tecnica precisa e leggera
     </div>
   `;
 }
 
-/* ================= DATI ================= */
-const specie = {
-  orata:{nome:"Orata",scientifico:"Sparus aurata",img:"img/pesci/orata.jpg",descrizione:"Pesce pregiato di fondali sabbiosi.",tecniche:"Fondo, Surfcasting"},
-  spigola:{nome:"Spigola",scientifico:"Dicentrarchus labrax",img:"img/pesci/spigola.jpg",descrizione:"Predatore costiero.",tecniche:"Spinning, Fondo"},
-  sarago-maggiore:{nome:"Sarago maggiore",scientifico:"Diplodus sargus",img:"img/pesci/sarago-maggiore.jpg",descrizione:"Tipico di fondali rocciosi.",tecniche:"Fondo"},
-  mormora:{nome:"Mormora",scientifico:"Lithognathus mormyrus",img:"img/pesci/mormora.jpg",descrizione:"Classica del surfcasting.",tecniche:"Surfcasting"},
-  cefalo:{nome:"Cefalo",scientifico:"Mugil cephalus",img:"img/pesci/cefalo.jpg",descrizione:"Vive in branchi nei porti.",tecniche:"Galleggiante"}
-};
+/* SPECIE */
+function showSpecie() {
+  document.getElementById("content").innerHTML = `
+    <h2>🐟 Specie Principali</h2>
 
-const montature = [
-  "bandiera",
-  "bandiera-pop-up",
-  "bum-bum",
-  "linea-longa",
-  "long-arm",
-  "minitrave-amo-pescatore",
-  "pater-noster",
-  "piombo-scorrevole",
-  "pulley",
-  "ravennate",
-  "short-rovesciato",
-  "tri-amo"
-];
+    <div class="card"><b>Spigola (Branzino)</b></div>
+    <div class="card"><b>Orata</b></div>
+    <div class="card"><b>Saraghi</b></div>
+    <div class="card"><b>Seppie e Calamari</b></div>
+  `;
+}
 
-const nodi = [
-  "nodo-fg",
-  "nodo-albright",
-  "nodo-sangue",
-  "nodo-rapala",
-  "nodo-palomar",
-  "nodo-clinch"
-];
+/* MONTATURE */
+function showMontature() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Montature</h2>
 
-/* ================= AVVIO ================= */
+    <div class="card">Montatura a Fondo</div>
+    <div class="card">Paternoster</div>
+    <div class="card">Piombo Scorrevole</div>
+    <div class="card">Montatura Surfcasting</div>
+    <div class="card">Montatura Spinning</div>
+  `;
+}
+
+/* NODI */
+function showNodi() {
+  document.getElementById("content").innerHTML = `
+    <h2>🧵 Nodi da Pesca</h2>
+
+    <div class="card">
+      <b>Nodo Clinch</b><br><br>
+      <img src="./img/nodo-clinch.jpg" width="100%"><br><br>
+      <b>Uso:</b> Ami, girelle, moschettoni<br>
+      <b>Filo:</b> Nylon / Fluorocarbon
+    </div>
+
+    <div class="card">
+      <b>Nodo Palomar</b><br><br>
+      <img src="./img/nodo-palomar.jpg" width="100%"><br><br>
+      <b>Uso:</b> Ami e artificiali<br>
+      <b>Filo:</b> Trecciato (ottimo anche su nylon)
+    </div>
+
+    <div class="card">
+      <b>Nodo FG</b><br><br>
+      <img src="./img/nodo-fg.jpg" width="100%"><br><br>
+      <b>Uso:</b> Collegare treccia a fluorocarbon<br>
+      <b>Filo:</b> Treccia → Fluoro
+    </div>
+
+    <div class="card">
+      <b>Nodo Albright</b><br><br>
+      <img src="./img/nodo-albright.jpg" width="100%"><br><br>
+      <b>Uso:</b> Unire fili di diametro diverso<br>
+      <b>Filo:</b> Nylon / Treccia
+    </div>
+
+    <div class="card">
+      <b>Nodo di Sangue</b><br><br>
+      <img src="./img/nodo-sangue.jpg" width="100%"><br><br>
+      <b>Uso:</b> Unire due fili simili<br>
+      <b>Filo:</b> Nylon / Fluorocarbon
+    </div>
+
+    <div class="card">
+      <b>Nodo Rapala</b><br><br>
+      <img src="./img/nodo-rapala.jpg" width="100%"><br><br>
+      <b>Uso:</b> Artificiali con movimento libero<br>
+      <b>Filo:</b> Nylon / Fluorocarbon
+    </div>
+  `;
+}
+  function showSurfcasting() {
+  document.getElementById("content").innerHTML = `
+    <h2>🏖️ Surfcasting</h2>
+
+    <div class="card">
+      <b>Quando usarla</b><br>
+      Mare mosso o formato, spiagge sabbiose, alba e tramonto
+    </div>
+
+    <div class="card">
+      <b>Attrezzatura base</b><br>
+      Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40
+    </div>
+
+    <div class="card"><b>Montature dedicate</b><br><br>
+
+  <button onclick="showTrave()">Montatura a Trave</button><br><br>
+  <button onclick="showPaternoster()">Paternoster</button><br><br>
+  <button onclick="showLongArm()">Long Arm</button>
+
+    <div class="card">
+      <b>Pro</b><br>
+      Raggiunge grandi distanze, ideale per grossi pesci
+    </div>
+
+    <div class="card">
+      <b>Contro</b><br>
+      Tecnica impegnativa, attrezzatura pesante
+    </div>
+
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=surfcasting+montatura"
+         target="_blank">Guarda su YouTube</a>
+    </div>
+
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
+
+  function showTrave() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Montatura a Trave</h2>
+
+    <div class="card">
+      <b>Quando usarla</b><br>
+      Mare mosso, surfcasting classico, spiaggia
+    </div>
+
+    <div class="card">
+      <b>Composizione</b><br>
+      Trave 120–150 cm • 1–2 braccioli • Piombo fisso
+    </div>
+
+    <div class="card">
+      <b>Esche consigliate</b><br>
+      Arenicola • Americano • Bibi
+    </div>
+
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+a+trave+surfcasting"
+         target="_blank">Guarda su YouTube</a>
+    </div>
+
+    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+  `;
+}
+
+function showPaternoster() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Paternoster</h2>
+
+    <div class="card">
+      <b>Quando usarla</b><br>
+      Fondali misti, pesce sospeso
+    </div>
+
+    <div class="card">
+      <b>Composizione</b><br>
+      Braccioli alti • Piombo finale • Terminali corti
+    </div>
+
+    <div class="card">
+      <b>Esche consigliate</b><br>
+      Coreano • Americano • Gambero
+    </div>
+
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+paternoster+pesca"
+         target="_blank">Guarda su YouTube</a>
+    </div>
+
+    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+  `;
+}
+
+function showLongArm() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Long Arm</h2>
+
+    <div class="card">
+      <b>Quando usarla</b><br>
+      Mare calmo, pesci sospettosi
+    </div>
+
+    <div class="card">
+      <b>Composizione</b><br>
+      Bracciolo lungo 120–200 cm • Piombo scorrevole
+    </div>
+
+    <div class="card">
+      <b>Esche consigliate</b><br>
+      Tremolina • Arenicola • Bibi
+    </div>
+
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+long+arm+surfcasting"
+         target="_blank">Guarda su YouTube</a>
+    </div>
+
+    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+  `;
+}
+  
+/* AVVIO */
 showHome();
 </script>
 
 </body>
 </html>
+
 
 
 
