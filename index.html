@@ -169,6 +169,7 @@ document.getElementById("content").innerHTML = `
 <div class="card" onclick="showSpecieDetail('sarago-maggiore')">🐟 Sarago maggiore</div>
 <div class="card" onclick="showSpecieDetail('sarago-pizzuto')">🐟 Sarago pizzuto</div>
 <div class="card" onclick="showSpecieDetail('mormora')">🐟 Mormora</div>
+
 `;
 }
  
@@ -176,12 +177,22 @@ document.getElementById("content").innerHTML = `
 function showMontature() {
 document.getElementById("content").innerHTML = `
 <h2>🪝 Montature</h2>
- 
-<div class="card">Montatura a Fondo</div>
-<div class="card">Paternoster</div>
-<div class="card">Piombo Scorrevole</div>
-<div class="card">Montatura Surfcasting</div>
-<div class="card">Montatura Spinning</div>
+
+<div class="card">
+<img src="./img/pater-noster.jpg" width="100%">
+<b>Pater Noster</b>
+</div>
+
+<div class="card">
+<img src="./img/piombo-scorrevole.jpg" width="100%">
+<b>Piombo Scorrevole</b>
+</div>
+
+<div class="card">
+<img src="./img/long-arm.jpg" width="100%">
+<b>Long Arm</b>
+</div>
+
 `;
 }
  
@@ -423,6 +434,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
