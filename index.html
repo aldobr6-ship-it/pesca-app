@@ -136,23 +136,23 @@ document.getElementById("content").innerHTML = `
 <b>Surfcasting</b><br>
 Pesca dalla spiaggia con piombi pesanti
 </div>
- 
-<div class="card">
+
+<div class="card" onclick="alert('Tecnica Spinning in arrivo')">
 <b>Spinning</b><br>
 Esche artificiali da riva
 </div>
- 
-<div class="card">
+
+<div class="card" onclick="alert('Tecnica Eging in arrivo')">
 <b>Eging</b><br>
 Pesca a seppie e calamari
 </div>
- 
-<div class="card">
+
+<div class="card" onclick="alert('Pesca a fondo in arrivo')">
 <b>Pesca a Fondo</b><br>
 Porto e scogliera
 </div>
- 
-<div class="card">
+
+<div class="card" onclick="alert('Galleggiante in arrivo')">
 <b>Galleggiante</b><br>
 Tecnica precisa e leggera
 </div>
@@ -367,35 +367,35 @@ const specie = {
 orata: {
 nome: "Orata",
 scientifico: "Sparus aurata",
-img: "img/pesci/orata.jpg",
+img: "img/orata.jpg",
 descrizione: "Pesce pregiato di fondale sabbioso e misto.",
 tecniche: "Pesca a fondo, surfcasting"
 },
 spigola: {
 nome: "Spigola / Branzino",
 scientifico: "Dicentrarchus labrax",
-img: "img/pesci/spigola.jpg",
+img: "img/spigola.jpg",
 descrizione: "Predatore costiero molto combattivo.",
 tecniche: "Spinning, surfcasting, fondo"
 },
 "sarago-maggiore": {
 nome: "Sarago maggiore",
 scientifico: "Diplodus sargus",
-img: "img/pesci/sarago-maggiore.jpg",
+img: "img/sarago-maggiore.jpg",
 descrizione: "Tipico dei fondali rocciosi.",
 tecniche: "Pesca a fondo, bolognese"
 },
 "sarago-pizzuto": {
 nome: "Sarago pizzuto",
 scientifico: "Diplodus puntazzo",
-img: "img/pesci/sarago-pizzuto.jpg",
+img: "img/sarago-pizzuto.jpg",
 descrizione: "Sarago più affusolato e diffidente.",
 tecniche: "Pesca a fondo"
 },
 mormora: {
 nome: "Mormora",
 scientifico: "Lithognathus mormyrus",
-img: "img/pesci/mormora.jpg",
+img: "img/mormora.jpg",
 descrizione: "Classica preda del surfcasting.",
 tecniche: "Surfcasting"
 }
@@ -423,6 +423,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
