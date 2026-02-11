@@ -297,43 +297,28 @@ target="_blank">Guarda su YouTube</a>
 
   <div class="card">
     <b>Attrezzatura base</b><br>
-    Canna 2,40–2,60 m<br>
-    Mulinello 2500<br>
+    Canna 2,40–2,60 m • Mulinello 2500<br>
     Treccia sottile + finale fluorocarbon
   </div>
 
   <div class="card">
-    <b>Specie principali</b><br>
-    Seppia • Totano • Calamaro
-  </div>
-
-  <div class="card">
-    <b>Montature</b><br>
-    Totanara (Egi) collegata a finale fluoro
+    <b>Montature dedicate</b><br><br>
+    <button onclick="showTotanara()">Totanara / Egi</button>
   </div>
 
   <div class="card">
     <b>Pro</b><br>
-    Tecnica divertente e tecnica<br>
-    Molto efficace nei periodi giusti
+    Tecnica tecnica e divertente
   </div>
 
   <div class="card">
     <b>Contro</b><br>
-    Dipende molto dalla stagione<br>
-    Richiede sensibilità nel recupero
-  </div>
-
-  <div class="card">
-    <b>🎥 Video tutorial</b><br>
-    <a href="https://www.youtube.com/results?search_query=pesca+eging+mare"
-       target="_blank">Guarda su YouTube</a>
+    Molto stagionale
   </div>
 
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
- 
 function showTrave() {
 document.getElementById("content").innerHTML = `
 <h2>🪝 Montatura a Trave</h2>
@@ -420,6 +405,40 @@ target="_blank">Guarda su YouTube</a>
 <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
 `;
 }
+function showTotanara() {
+  document.getElementById("content").innerHTML = `
+  <h2>🦑 Totanara (Egi)</h2>
+
+  <div class="card">
+    <b>Quando usarla</b><br>
+    In presenza di seppie, totani e calamari<br>
+    Porti illuminati e fondali misti
+  </div>
+
+  <div class="card" style="display:flex; flex-direction:column; align-items:center;">
+    <b>Composizione</b><br><br>
+    Artificiale Egi collegato a finale fluorocarbon 0,25–0,35<br><br>
+    
+    <b>📷 Foto montatura</b><br><br>
+    <img src="./img/totanara.jpg" 
+         style="width:100%; max-width:250px; border-radius:12px; cursor:pointer;"
+         onclick="this.style.transform='scale(1.4)'; setTimeout(()=>this.style.transform='scale(1)',500);">
+  </div>
+
+  <div class="card">
+    <b>Recupero</b><br>
+    Lancio • Affondamento • 2–3 jerk • Pausa
+  </div>
+
+  <div class="card">
+    <b>🎥 Video tutorial</b><br>
+    <a href="https://www.youtube.com/results?search_query=montatura+eging+totanara"
+       target="_blank">Guarda su YouTube</a>
+  </div>
+
+  <button onclick="showEging()">⬅️ Torna a Eging</button>
+  `;
+}
  
 /* --- DATI SPECIE --- */
 const specie = {
@@ -482,6 +501,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
