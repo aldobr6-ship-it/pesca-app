@@ -142,7 +142,7 @@ Pesca dalla spiaggia con piombi pesanti
 Esche artificiali da riva
 </div>
 
-<div class="card" onclick="alert('Tecnica Eging in arrivo')">
+<div class="card" onclick="showEging()">
 <b>Eging</b><br>
 Pesca a seppie e calamari
 </div>
@@ -285,6 +285,53 @@ target="_blank">Guarda su YouTube</a>
  
 <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
 `;
+}
+ function showEging() {
+  document.getElementById("content").innerHTML = `
+  <h2>🦑 Eging</h2>
+
+  <div class="card">
+    <b>Quando usarla</b><br>
+    Mare calmo • Sera e notte • Porti e moli
+  </div>
+
+  <div class="card">
+    <b>Attrezzatura base</b><br>
+    Canna 2,40–2,60 m<br>
+    Mulinello 2500<br>
+    Treccia sottile + finale fluorocarbon
+  </div>
+
+  <div class="card">
+    <b>Specie principali</b><br>
+    Seppia • Totano • Calamaro
+  </div>
+
+  <div class="card">
+    <b>Montature</b><br>
+    Totanara (Egi) collegata a finale fluoro
+  </div>
+
+  <div class="card">
+    <b>Pro</b><br>
+    Tecnica divertente e tecnica<br>
+    Molto efficace nei periodi giusti
+  </div>
+
+  <div class="card">
+    <b>Contro</b><br>
+    Dipende molto dalla stagione<br>
+    Richiede sensibilità nel recupero
+  </div>
+
+  <div class="card">
+    <b>🎥 Video tutorial</b><br>
+    <a href="https://www.youtube.com/results?search_query=pesca+eging+mare"
+       target="_blank">Guarda su YouTube</a>
+  </div>
+
+  <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
 }
  
 function showTrave() {
@@ -435,6 +482,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
