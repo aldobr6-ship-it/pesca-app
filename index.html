@@ -147,7 +147,7 @@ Esche artificiali da riva
 Pesca a seppie e calamari
 </div>
 
-<div class="card" onclick="alert('Pesca a fondo in arrivo')">
+<div class="card" onclick="showFondo()">
 <b>Pesca a Fondo</b><br>
 Porto e scogliera
 </div>
@@ -245,7 +245,6 @@ document.getElementById("content").innerHTML = `
 </div>
 `;
 }
-
 function showSurfcasting() {
 document.getElementById("content").innerHTML = `
 <h2>🏖️ Surfcasting</h2>
@@ -349,7 +348,6 @@ target="_blank">Guarda su YouTube</a>
 <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
 `;
 }
- 
 function showPaternoster() {
 document.getElementById("content").innerHTML = `
 <h2>🪝 Paternoster</h2>
@@ -380,7 +378,6 @@ target="_blank">Guarda su YouTube</a>
 <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
 `;
 }
- 
 function showLongArm() {
 document.getElementById("content").innerHTML = `
 <h2>🪝 Long Arm</h2>
@@ -411,7 +408,6 @@ target="_blank">Guarda su YouTube</a>
 <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
 `;
 }
-
 function showTotanara() {
   document.getElementById("content").innerHTML = `
   <h2>🦑 Totanara (Egi)</h2>
@@ -446,6 +442,84 @@ function showTotanara() {
   <button onclick="showEging()">⬅️ Torna a Eging</button>
   `;
 }
+ function showFondo() {
+  document.getElementById("content").innerHTML = `
+  <h2>⚓ Pesca a Fondo</h2>
+
+  <div class="card">
+    <b>Quando usarla</b><br>
+    Tutto l'anno • Porto • Scogliera • Spiaggia
+  </div>
+
+  <div class="card">
+    <b>Attrezzatura base</b><br>
+    Canna 3–4 m • Mulinello 4000–6000<br>
+    Nylon 0,30–0,40
+  </div>
+
+  <div class="card">
+    <b>Specie principali</b><br>
+    Orata • Saraghi • Mormora • Scorfano • Pagello
+  </div>
+
+  <div class="card">
+    <b>Montature dedicate</b><br><br>
+    <button onclick="showPiomboScorrevole()">Piombo Scorrevole</button><br><br>
+    <button onclick="showPaternoster()">Paternoster</button><br><br>
+    <button onclick="showLongArm()">Long Arm</button>
+  </div>
+
+  <div class="card">
+    <b>Pro</b><br>
+    Tecnica semplice e versatile
+  </div>
+
+  <div class="card">
+    <b>Contro</b><br>
+    Rischio incagli • Meno selettiva
+  </div>
+
+  <div class="card">
+    <b>🎥 Video tutorial</b><br>
+    <a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare"
+       target="_blank">Guarda su YouTube</a>
+  </div>
+
+  <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
+ function showPiomboScorrevole() {
+  document.getElementById("content").innerHTML = `
+  <h2>🪝 Piombo Scorrevole</h2>
+
+  <div class="card">
+    <b>Quando usarla</b><br>
+    Mare calmo • Pesci diffidenti
+  </div>
+
+  <div class="card">
+    <b>Composizione</b><br><br>
+    Piombo scorrevole sulla lenza madre<br>
+    Girella • Finale 80–150 cm<br><br>
+    <img src="./img/piombo-scorrevole.jpg"
+         style="width:100%;max-width:280px;border-radius:12px;">
+  </div>
+
+  <div class="card">
+    <b>Esche consigliate</b><br>
+    Arenicola • Coreano • Gambero
+  </div>
+
+  <div class="card">
+    <b>🎥 Video tutorial</b><br>
+    <a href="https://www.youtube.com/results?search_query=montatura+piombo+scorrevole+mare"
+       target="_blank">Guarda su YouTube</a>
+  </div>
+
+  <button onclick="showFondo()">⬅️ Torna alla Pesca a Fondo</button>
+  `;
+}
+ 
  
 /* --- DATI SPECIE --- */
 const specie = {
@@ -508,6 +582,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
