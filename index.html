@@ -136,31 +136,31 @@ document.getElementById("content").innerHTML = `
 <b>Surfcasting</b><br>
 Pesca dalla spiaggia con piombi pesanti
 </div>
-${generaSpeciePerTecnica("surfcasting")}
+
 
 <div class="card" onclick="showSpinning()">
 <b>Spinning</b><br>
 Esche artificiali da riva
 </div>
-${generaSpeciePerTecnica("spinning")}
+
 
 <div class="card" onclick="showEging()">
 <b>Eging</b><br>
 Pesca a seppie e calamari
 </div>
-${generaSpeciePerTecnica("eging")}
+
 
 <div class="card" onclick="showFondo()">
 <b>Pesca a Fondo</b><br>
 Porto e scogliera
 </div>
-${generaSpeciePerTecnica("fondo")}
+
 
 <div class="card" onclick="showGalleggiante()">
 <b>Galleggiante</b><br>
 Tecnica precisa e leggera
 </div>
-${generaSpeciePerTecnica("galleggiante")}
+
 
 `;
 }
@@ -300,7 +300,7 @@ Tecnica impegnativa, attrezzatura pesante
 <a href="https://www.youtube.com/results?search_query=surfcasting+montatura"
 target="_blank">Guarda su YouTube</a>
 </div>
- 
+${generaSpeciePerTecnica("surfcasting")} 
 <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
 `;
 }
@@ -369,7 +369,7 @@ function showMontaturaGalleggiante() {
     <a href="https://www.youtube.com/results?search_query=montatura+galleggiante+mare"
        target="_blank">Guarda su YouTube</a>
   </div>
-
+${generaSpeciePerTecnica("galleggiante")}
   <button onclick="showGalleggiante()">⬅️ Torna al Galleggiante</button>
   `;
 }
@@ -417,7 +417,7 @@ function showSpinning() {
     <a href="https://www.youtube.com/results?search_query=pesca+spinning+mare"
        target="_blank">Guarda su YouTube</a>
   </div>
-
+${generaSpeciePerTecnica("spinning")}
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
@@ -450,7 +450,7 @@ function showSpinning() {
     <b>Contro</b><br>
     Molto stagionale
   </div>
-
+${generaSpeciePerTecnica("eging")}
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
@@ -620,7 +620,7 @@ function showTotanara() {
     <a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare"
        target="_blank">Guarda su YouTube</a>
   </div>
-
+${generaSpeciePerTecnica("fondo")}
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
@@ -824,6 +824,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
