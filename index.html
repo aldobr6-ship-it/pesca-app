@@ -137,7 +137,7 @@ document.getElementById("content").innerHTML = `
 Pesca dalla spiaggia con piombi pesanti
 </div>
 
-<div class="card" onclick="alert('Tecnica Spinning in arrivo')">
+<div class="card" onclick="showSpinning()">
 <b>Spinning</b><br>
 Esche artificiali da riva
 </div>
@@ -354,7 +354,54 @@ function showMontaturaGalleggiante() {
   <button onclick="showGalleggiante()">⬅️ Torna al Galleggiante</button>
   `;
 }
+function showSpinning() {
+  document.getElementById("content").innerHTML = `
+  <h2>🌀 Spinning</h2>
 
+  <div class="card">
+    <b>Quando usarla</b><br>
+    Mare calmo o poco mosso • Alba e tramonto • Scogliere, porti, foci
+  </div>
+
+  <div class="card">
+    <b>Attrezzatura base</b><br>
+    Canna 2,10–2,70 m<br>
+    Mulinello 2500–4000<br>
+    Treccia + finale fluorocarbon
+  </div>
+
+  <div class="card">
+    <b>Specie principali</b><br>
+    Spigola • Serra • Leccia stella • Palamita
+  </div>
+
+  <div class="card">
+    <b>Montature</b><br>
+    Nessuna montatura classica<br>
+    Artificiale collegato al finale
+  </div>
+
+  <div class="card">
+    <b>Pro</b><br>
+    Tecnica dinamica e divertente<br>
+    Ideale per predatori
+  </div>
+
+  <div class="card">
+    <b>Contro</b><br>
+    Richiede pratica<br>
+    Poco efficace con mare molto mosso
+  </div>
+
+  <div class="card">
+    <b>🎥 Video tutorial</b><br>
+    <a href="https://www.youtube.com/results?search_query=pesca+spinning+mare"
+       target="_blank">Guarda su YouTube</a>
+  </div>
+
+  <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
  function showEging() {
   document.getElementById("content").innerHTML = `
   <h2>🦑 Eging</h2>
@@ -652,6 +699,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
