@@ -136,26 +136,32 @@ document.getElementById("content").innerHTML = `
 <b>Surfcasting</b><br>
 Pesca dalla spiaggia con piombi pesanti
 </div>
+${generaSpeciePerTecnica("surfcasting")}
 
 <div class="card" onclick="showSpinning()">
 <b>Spinning</b><br>
 Esche artificiali da riva
 </div>
+${generaSpeciePerTecnica("spinning")}
 
 <div class="card" onclick="showEging()">
 <b>Eging</b><br>
 Pesca a seppie e calamari
 </div>
+${generaSpeciePerTecnica("eging")}
 
 <div class="card" onclick="showFondo()">
 <b>Pesca a Fondo</b><br>
 Porto e scogliera
 </div>
+${generaSpeciePerTecnica("fondo")}
 
 <div class="card" onclick="showGalleggiante()">
 <b>Galleggiante</b><br>
 Tecnica precisa e leggera
 </div>
+${generaSpeciePerTecnica("galleggiante")}
+
 `;
 }
  
@@ -794,6 +800,23 @@ document.getElementById("content").innerHTML = `
 </div>
 `;
 }
+ function generaSpeciePerTecnica(nomeTecnica) {
+  let html = "<div class='card'><b>🐟 Specie consigliate</b><br><br>";
+
+  for (let key in specie) {
+    if (specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase())) {
+      html += `
+        <div style="margin:6px 0; cursor:pointer; color:#0a2a43;"
+             onclick="showSpecieDetail('${key}')">
+             • ${specie[key].nome}
+        </div>
+      `;
+    }
+  }
+
+  html += "</div>";
+  return html;
+}
  
 /* --- AVVIO APP --- */
 showHome();
@@ -801,6 +824,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
