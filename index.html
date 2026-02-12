@@ -169,6 +169,19 @@ document.getElementById("content").innerHTML = `
 <div class="card" onclick="showSpecieDetail('sarago-maggiore')">🐟 Sarago maggiore</div>
 <div class="card" onclick="showSpecieDetail('sarago-pizzuto')">🐟 Sarago pizzuto</div>
 <div class="card" onclick="showSpecieDetail('mormora')">🐟 Mormora</div>
+<div class="card" onclick="showSpecieDetail('occhiata')">🐟 Occhiata</div>
+<div class="card" onclick="showSpecieDetail('sugarello')">🐟 Sugarello</div>
+<div class="card" onclick="showSpecieDetail('pagello')">🐟 Pagello</div>
+<div class="card" onclick="showSpecieDetail('scorfano')">🐟 Scorfano</div>
+<div class="card" onclick="showSpecieDetail('leccia')">🐟 Leccia</div>
+<div class="card" onclick="showSpecieDetail('palamita')">🐟 Palamita</div>
+<div class="card" onclick="showSpecieDetail('serra')">🐟 Serra</div>
+<div class="card" onclick="showSpecieDetail('cefalo')">🐟 Cefalo</div>
+<div class="card" onclick="showSpecieDetail('dentice')">🐟 Dentice</div>
+<div class="card" onclick="showSpecieDetail('ricciola')">🐟 Ricciola</div>
+<div class="card" onclick="showSpecieDetail('sarda')">🐟 Sarda</div>
+<div class="card" onclick="showSpecieDetail('totano')">🦑 Totano</div>
+<div class="card" onclick="showSpecieDetail('seppia')">🦑 Seppia</div>
 
 `;
 }
@@ -640,6 +653,83 @@ function showTotanara() {
  
 /* --- DATI SPECIE --- */
 const specie = {
+occhiata: {
+  nome: "Occhiata",
+  scientifico: "Oblada melanura",
+  img: "img/pesci/occhiata.jpg",
+  descrizione: "Pesce costiero che vive in branchi.",
+  tecniche: "Galleggiante, fondo leggero"
+},
+sugarello: {
+  nome: "Sugarello",
+  scientifico: "Trachurus trachurus",
+  img: "img/pesci/sugarello.jpg",
+  descrizione: "Pesce pelagico molto attivo.",
+  tecniche: "Spinning, bolentino"
+},
+pagello: {
+  nome: "Pagello",
+  scientifico: "Pagellus erythrinus",
+  img: "img/pesci/pagello.jpg",
+  descrizione: "Vive su fondali sabbiosi e misti.",
+  tecniche: "Fondo, bolentino"
+},
+scorfano: {
+  nome: "Scorfano",
+  scientifico: "Scorpaena scrofa",
+  img: "img/pesci/scorfano.jpg",
+  descrizione: "Pesce di scogliera, attenzione alle spine.",
+  tecniche: "Fondo, scogliera"
+},
+leccia: {
+  nome: "Leccia",
+  scientifico: "Lichia amia",
+  img: "img/pesci/leccia.jpg",
+  descrizione: "Grande predatore costiero.",
+  tecniche: "Spinning, vivo"
+},
+palamita: {
+  nome: "Palamita",
+  scientifico: "Sarda sarda",
+  img: "img/pesci/palamita.jpg",
+  descrizione: "Predatore veloce e combattivo.",
+  tecniche: "Spinning, traina"
+},
+serra: {
+  nome: "Pesce Serra",
+  scientifico: "Pomatomus saltatrix",
+  img: "img/pesci/serra.jpg",
+  descrizione: "Predatore aggressivo con dentatura affilata.",
+  tecniche: "Spinning, surfcasting"
+},
+cefalo: {
+  nome: "Cefalo",
+  scientifico: "Mugil cephalus",
+  img: "img/pesci/cefalo.jpg",
+  descrizione: "Molto diffuso in porto e laguna.",
+  tecniche: "Galleggiante"
+},
+dentice: {
+  nome: "Dentice",
+  scientifico: "Dentex dentex",
+  img: "img/pesci/dentice.jpg",
+  descrizione: "Predatore di fondale roccioso.",
+  tecniche: "Fondo, vivo"
+},
+ricciola: {
+  nome: "Ricciola",
+  scientifico: "Seriola dumerili",
+  img: "img/pesci/ricciola.jpg",
+  descrizione: "Grande predatore pelagico.",
+  tecniche: "Spinning, traina"
+},
+sarda: {
+  nome: "Sarda",
+  scientifico: "Sarda sarda",
+  img: "img/pesci/sarda.jpg",
+  descrizione: "Pesce azzurro molto combattivo.",
+  tecniche: "Spinning, bolentino"
+},
 orata: {
 nome: "Orata",
 scientifico: "Sparus aurata",
@@ -674,9 +764,22 @@ scientifico: "Lithognathus mormyrus",
 img: "img/mormora.jpg",
 descrizione: "Classica preda del surfcasting.",
 tecniche: "Surfcasting"
+ },
+totano: {
+  nome: "Totano",
+  scientifico: "Todarodes sagittatus",
+  img: "img/pesci/totano.jpg",
+  descrizione: "Cefalopode pescato in profondità.",
+  tecniche: "Eging, bolentino"
+},
+seppia: {
+  nome: "Seppia",
+  scientifico: "Sepia officinalis",
+  img: "img/pesci/seppia.jpg",
+  descrizione: "Cefalopode costiero molto diffuso.",
+  tecniche: "Eging"
 }
 };
- 
 function showSpecieDetail(id) {
 const p = specie[id];
 if (!p) return;
@@ -699,6 +802,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
