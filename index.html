@@ -152,7 +152,7 @@ Pesca a seppie e calamari
 Porto e scogliera
 </div>
 
-<div class="card" onclick="alert('Galleggiante in arrivo')">
+<div class="card" onclick="showGalleggiante()">
 <b>Galleggiante</b><br>
 Tecnica precisa e leggera
 </div>
@@ -285,6 +285,76 @@ target="_blank">Guarda su YouTube</a>
 <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
 `;
 }
+ function showGalleggiante() {
+  document.getElementById("content").innerHTML = `
+  <h2>🎈 Galleggiante</h2>
+
+  <div class="card">
+    <b>Quando usarla</b><br>
+    Mare calmo • Porto • Scogliera
+  </div>
+
+  <div class="card">
+    <b>Attrezzatura base</b><br>
+    Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole
+  </div>
+
+  <div class="card">
+    <b>Specie principali</b><br>
+    Cefalo • Sarago • Occhiata • Orata piccola
+  </div>
+
+  <div class="card">
+    <b>Montature dedicate</b><br><br>
+    <button onclick="showMontaturaGalleggiante()">Montatura a Galleggiante</button>
+  </div>
+
+  <div class="card">
+    <b>Pro</b><br>
+    Tecnica precisa e sensibile
+  </div>
+
+  <div class="card">
+    <b>Contro</b><br>
+    Poco efficace con mare mosso
+  </div>
+
+  <div class="card">
+    <b>🎥 Video tutorial</b><br>
+    <a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare"
+       target="_blank">Guarda su YouTube</a>
+  </div>
+
+  <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
+function showMontaturaGalleggiante() {
+  document.getElementById("content").innerHTML = `
+  <h2>🎈 Montatura Galleggiante</h2>
+
+  <div class="card">
+    <b>Composizione</b><br><br>
+    Galleggiante • Piombini distribuiti<br>
+    Finale 40–80 cm<br><br>
+    <img src="./img/ravennate.jpg"
+         style="width:100%;max-width:280px;border-radius:12px;">
+  </div>
+
+  <div class="card">
+    <b>Esche consigliate</b><br>
+    Bigattino • Pane • Coreano
+  </div>
+
+  <div class="card">
+    <b>🎥 Video tutorial</b><br>
+    <a href="https://www.youtube.com/results?search_query=montatura+galleggiante+mare"
+       target="_blank">Guarda su YouTube</a>
+  </div>
+
+  <button onclick="showGalleggiante()">⬅️ Torna al Galleggiante</button>
+  `;
+}
+
  function showEging() {
   document.getElementById("content").innerHTML = `
   <h2>🦑 Eging</h2>
@@ -582,6 +652,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
