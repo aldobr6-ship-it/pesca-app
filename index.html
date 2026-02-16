@@ -705,151 +705,171 @@ ${generaSpeciePerTecnica("fondo")}
  
 /* --- DATI SPECIE --- */
 const specie = {
+
 orata: {
-nome: "Orata",
-scientifico: "Sparus aurata",
-img: "img/orata.jpg",
-descrizione: "Pesce pregiato di fondale sabbioso e misto.",
-tecniche: "Pesca a fondo, surfcasting"
-montature: "pater-noster", "long-arm", "piombo-scorrevole"
+  nome: "Orata",
+  scientifico: "Sparus aurata",
+  img: "img/orata.jpg",
+  descrizione: "Pesce pregiato di fondale sabbioso e misto.",
+  tecniche: "Pesca a fondo, surfcasting",
+  montature: ["pater-noster", "long-arm", "piombo-scorrevole"]
 },
+
 spigola: {
-nome: "Spigola / Branzino",
-scientifico: "Dicentrarchus labrax",
-img: "img/spigola.jpg",
-descrizione: "Predatore costiero molto combattivo.",
-tecniche: "Spinning, surfcasting, fondo"
-montature: "long-arm", "piombo-scorrevole", "short-rovesciato"
+  nome: "Spigola / Branzino",
+  scientifico: "Dicentrarchus labrax",
+  img: "img/spigola.jpg",
+  descrizione: "Predatore costiero molto combattivo.",
+  tecniche: "Spinning, surfcasting, fondo",
+  montature: ["long-arm", "piombo-scorrevole", "short-rovesciato"]
 },
+
 "sarago-maggiore": {
-nome: "Sarago maggiore",
-scientifico: "Diplodus sargus",
-img: "img/sarago-maggiore.jpg",
-descrizione: "Tipico dei fondali rocciosi.",
-tecniche: "Pesca a fondo, bolognese"
-montature: "pater-noster", "piombo-scorrevole", "trave"
+  nome: "Sarago maggiore",
+  scientifico: "Diplodus sargus",
+  img: "img/sarago-maggiore.jpg",
+  descrizione: "Tipico dei fondali rocciosi.",
+  tecniche: "Pesca a fondo, bolognese",
+  montature: ["pater-noster", "piombo-scorrevole", "trave"]
 },
+
 "sarago-pizzuto": {
-nome: "Sarago pizzuto",
-scientifico: "Diplodus puntazzo",
-img: "img/sarago-pizzuto.jpg",
-descrizione: "Sarago più affusolato e diffidente.",
-tecniche: "Pesca a fondo"
-montature: "long-arm", "pater-noster"
+  nome: "Sarago pizzuto",
+  scientifico: "Diplodus puntazzo",
+  img: "img/sarago-pizzuto.jpg",
+  descrizione: "Sarago più affusolato e diffidente.",
+  tecniche: "Pesca a fondo",
+  montature: ["long-arm", "pater-noster"]
 },
+
 mormora: {
-nome: "Mormora",
-scientifico: "Lithognathus mormyrus",
-img: "img/mormora.jpg",
-descrizione: "Classica preda del surfcasting.",
-tecniche: "Surfcasting"
-montature: "long-arm", "pater-noster", "short-rovesciato"
- },
- occhiata: {
+  nome: "Mormora",
+  scientifico: "Lithognathus mormyrus",
+  img: "img/mormora.jpg",
+  descrizione: "Classica preda del surfcasting.",
+  tecniche: "Surfcasting",
+  montature: ["long-arm", "pater-noster", "short-rovesciato"]
+},
+
+occhiata: {
   nome: "Occhiata",
   scientifico: "Oblada melanura",
   img: "img/occhiata.jpg",
   descrizione: "Pesce costiero che vive in branchi.",
-  tecniche: "Galleggiante, fondo leggero"
-  montature: "pater-noster", "galleggiante-mare"
+  tecniche: "Galleggiante, fondo leggero",
+  montature: ["pater-noster", "galleggiante-mare"]
 },
+
 sugarello: {
   nome: "Sugarello",
   scientifico: "Trachurus trachurus",
   img: "img/sugarello.jpg",
   descrizione: "Pesce pelagico molto attivo.",
-  tecniche: "Spinning, bolentino"
- montature: "pater-noster", "trave"
+  tecniche: "Spinning, bolentino",
+  montature: ["pater-noster", "trave"]
 },
+
 pagello: {
   nome: "Pagello",
   scientifico: "Pagellus erythrinus",
   img: "img/pagello.jpg",
   descrizione: "Vive su fondali sabbiosi e misti.",
-  tecniche: "Fondo, bolentino"
- montature: "pater-noster", "trave"
+  tecniche: "Fondo, bolentino",
+  montature: ["pater-noster", "trave"]
 },
+
 scorfano: {
   nome: "Scorfano",
   scientifico: "Scorpaena scrofa",
   img: "img/scorfano.jpg",
   descrizione: "Pesce di scogliera, attenzione alle spine.",
-  tecniche: "Fondo, scogliera"
- montature: "pater-noster", "piombo-scorrevole", "trave"
+  tecniche: "Fondo, scogliera",
+  montature: ["pater-noster", "piombo-scorrevole", "trave"]
 },
+
 leccia: {
   nome: "Leccia",
   scientifico: "Lichia amia",
   img: "img/leccia.jpg",
   descrizione: "Grande predatore costiero.",
-  tecniche: "Spinning, vivo"
- montature: "long-arm", "piombo-scorrevole"
+  tecniche: "Spinning, vivo",
+  montature: ["long-arm", "piombo-scorrevole"]
 },
+
 palamita: {
   nome: "Palamita",
   scientifico: "Sarda sarda",
   img: "img/palamita.jpg",
   descrizione: "Predatore veloce e combattivo.",
-  tecniche: "Spinning, traina"
- montature: "long-arm", "piombo-scorrevole"
+  tecniche: "Spinning, traina",
+  montature: ["long-arm", "piombo-scorrevole"]
 },
+
 serra: {
   nome: "Pesce Serra",
   scientifico: "Pomatomus saltatrix",
   img: "img/serra.jpg",
   descrizione: "Predatore aggressivo con dentatura affilata.",
-  tecniche: "Spinning, surfcasting"
- montature: "long-arm", "piombo-scorrevole"
+  tecniche: "Spinning, surfcasting",
+  montature: ["long-arm", "piombo-scorrevole"]
 },
+
 cefalo: {
   nome: "Cefalo",
   scientifico: "Mugil cephalus",
   img: "img/cefalo.jpg",
   descrizione: "Molto diffuso in porto e laguna.",
-  tecniche: "Galleggiante"
- montature: "galleggiante-mare", "piombo-scorrevole"
+  tecniche: "Galleggiante",
+  montature: ["galleggiante-mare", "piombo-scorrevole"]
 },
+
 dentice: {
   nome: "Dentice",
   scientifico: "Dentex dentex",
   img: "img/dentice.jpg",
   descrizione: "Predatore di fondale roccioso.",
-  tecniche: "Fondo, vivo"
- montature: "long-arm", "trave"
+  tecniche: "Fondo, vivo",
+  montature: ["long-arm", "trave"]
 },
+
 ricciola: {
   nome: "Ricciola",
   scientifico: "Seriola dumerili",
   img: "img/ricciola.jpg",
   descrizione: "Grande predatore pelagico.",
-  tecniche: "Spinning, traina"
- montature: "long-arm", "piombo-scorrevole"
+  tecniche: "Spinning, traina",
+  montature: ["long-arm", "piombo-scorrevole"]
 },
+
 sarda: {
   nome: "Sarda",
   scientifico: "Sarda sarda",
   img: "img/sarda.jpg",
   descrizione: "Pesce azzurro molto combattivo.",
-  tecniche: "Spinning, bolentino"
- montature: "pater-noster", "trave", "galleggiante-mare"
+  tecniche: "Spinning, bolentino",
+  montature: ["pater-noster", "trave", "galleggiante-mare"]
 },
+
 totano: {
   nome: "Totano",
   scientifico: "Todarodes sagittatus",
   img: "img/totano.jpg",
   descrizione: "Cefalopode pescato in profondità.",
-  tecniche: "Eging, bolentino"
- montature: "pater-noster", "piombo-scorrevole"
-},   
+  tecniche: "Eging, bolentino",
+  montature: ["pater-noster", "piombo-scorrevole"]
+},
+
 seppia: {
   nome: "Seppia",
   scientifico: "Sepia officinalis",
   img: "img/seppia.jpg",
   descrizione: "Cefalopode costiero molto diffuso.",
-  tecniche: "Eging"
- montature: "piombo-scorrevole", "pater-noster"
+  tecniche: "Eging",
+  montature: ["piombo-scorrevole", "pater-noster"]
 }
+
 };
+
 function showSpecieDetail(id) {
 const p = specie[id];
 if (!p) return;
@@ -890,6 +910,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
