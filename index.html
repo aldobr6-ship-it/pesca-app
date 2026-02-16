@@ -167,8 +167,24 @@ Tecnica precisa e leggera
  
 /* SPECIE */
 function showSpecie() {
-document.getElementById("content").innerHTML = `
-<h2>🐟 Specie Principali</h2>
+  let html = `
+    <h2>🐟 Specie</h2>
+
+    <div class="card">
+      <input type="text" id="searchInput"
+        placeholder="Cerca specie..."
+        style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;"
+        onkeyup="filtraSpecie()">
+    </div>
+
+    <div id="listaSpecie"></div>
+  `;
+
+  document.getElementById("content").innerHTML = html;
+
+  mostraTutteLeSpecie();
+}
+
  
 <div class="card" onclick="showSpecieDetail('orata')">🐟 Orata</div>
 <div class="card" onclick="showSpecieDetail('spigola')">🐟 Spigola</div>
@@ -191,6 +207,33 @@ document.getElementById("content").innerHTML = `
 
 `;
 }
+function mostraTutteLeSpecie() {
+  let html = "";
+
+  for (let key in specie) {
+    html += `
+      <div class="card" onclick="showSpecieDetail('${key}')">
+        🐟 ${specie[key].nome}
+      </div>
+    `;
+  }
+
+  document.getElementById("listaSpecie").innerHTML = html;
+}
+function filtraSpecie() {
+  let filtro = document.getElementById("searchInput").value.toLowerCase();
+  let html = "";
+
+  for (let key in specie) {
+    if (specie[key].nome.toLowerCase().includes(filtro)) {
+      html += `
+        <div class="card" onclick="showSpecieDetail('${key}')">
+          🐟 ${specie[key].nome}
+        </div>
+      `;
+    }
+  }
+
  
 /* MONTATURE */
 function showMontature() {
@@ -824,6 +867,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
