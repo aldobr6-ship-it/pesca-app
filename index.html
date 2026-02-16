@@ -244,7 +244,25 @@ document.getElementById("content").innerHTML = `
 <button onclick="showMontature()">⬅️ Torna alle Montature</button>
 `;
 }
- 
+  function generaMontatureSpecie(listaMontature) {
+
+  if (!listaMontature || listaMontature.length === 0) return "";
+
+  let html = "<div class='card'><b>🪝 Montature consigliate</b><br><br>";
+
+  listaMontature.forEach(m => {
+    html += `
+      <div style="margin:6px 0; cursor:pointer; color:#0a2a43;"
+           onclick="showMontaturaDetail('${m}')">
+           • ${m.replaceAll("-", " ")}
+      </div>
+    `;
+  });
+
+  html += "</div>";
+
+  return html;
+}
 /* NODI */
 function showNodi() {
 document.getElementById("content").innerHTML = `
@@ -684,26 +702,6 @@ ${generaSpeciePerTecnica("fondo")}
   <button onclick="showFondo()">⬅️ Torna alla Pesca a Fondo</button>
   `;
 }
- function generaMontatureSpecie(listaMontature) {
-
-  if (!listaMontature || listaMontature.length === 0) return "";
-
-  let html = "<div class='card'><b>🪝 Montature consigliate</b><br><br>";
-
-  listaMontature.forEach(m => {
-    html += `
-      <div style="margin:6px 0; cursor:pointer; color:#0a2a43;"
-           onclick="showMontaturaDetail('${m}')">
-           • ${m.replaceAll("-", " ")}
-      </div>
-    `;
-  });
-
-  html += "</div>";
-
-  return html;
-}
-
  
 /* --- DATI SPECIE --- */
 const specie = {
@@ -892,6 +890,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
