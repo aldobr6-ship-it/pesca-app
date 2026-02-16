@@ -161,7 +161,6 @@ Porto e scogliera
 Tecnica precisa e leggera
 </div>
 
-
 `;
 }
  
@@ -184,6 +183,7 @@ function showSpecie() {
 
   mostraTutteLeSpecie();
 }
+
 function mostraTutteLeSpecie() {
   let html = "";
 
@@ -197,6 +197,7 @@ function mostraTutteLeSpecie() {
 
   document.getElementById("listaSpecie").innerHTML = html;
 }
+
 function filtraSpecie() {
   let filtro = document.getElementById("searchInput").value.toLowerCase();
   let html = "";
@@ -210,8 +211,10 @@ function filtraSpecie() {
       `;
     }
   }
- document.getElementById("listaSpecie").innerHTML = html;
+
+  document.getElementById("listaSpecie").innerHTML = html;
 }
+
  
 /* MONTATURE */
 function showMontature() {
@@ -845,6 +848,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
