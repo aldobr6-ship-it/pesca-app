@@ -930,11 +930,37 @@ document.getElementById("content").innerHTML = `
 <img src="${p.img}" style="width:50%;border-radius:12px;margin:12px 0;">
 <p>${p.descrizione}</p>
 ${generaMontatureSpecie(p.montature)}
+${generaMontatureSpecie(p.montature)}
+${generaCalendario(p.stagione)}
 <p><strong>Tecniche:</strong> ${p.tecniche}</p><p>${p.descrizione}</p>
 <p><strong>Stagione migliore:</strong> ${p.stagione ? p.stagione.join(", ") : "Non specificata"}</p>
 <button onclick="showSpecie()">⬅️ Torna alle specie</button>
 </div>
 `;
+}
+
+ function generaCalendario(stagione) {
+  if (!stagione) return "";
+  const mesi = ["Gen","Feb","Mar","Apr","Mag","Giu",
+                "Lug","Ago","Set","Ott","Nov","Dic"];
+  const meseCorrente = new Date().getMonth() + 1;
+  let html = "<div class='card'><b>📅 Calendario attività</b><br><br>";
+  html += "<div style='display:flex;flex-wrap:wrap;gap:6px;'>";
+  for (let i = 1; i <= 12; i++) {
+    let attivo = stagione.includes(i);
+    let stile = `
+      padding:6px 8px;
+      border-radius:6px;
+      font-size:12px;
+      text-align:center;
+      min-width:32px;
+      ${attivo ? "background:#2ecc71;color:white;" : "background:#eee;"}
+      ${i === meseCorrente ? "border:2px solid #007bff;" : ""}
+    `;
+    html += `<div style="${stile}">${mesi[i-1]}</div>`;
+  }
+  html += "</div></div>";
+  return html;
 }
  function generaSpeciePerTecnica(nomeTecnica) {
   let html = "<div class='card'><b>🐟 Specie consigliate</b><br><br>";
@@ -960,6 +986,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
