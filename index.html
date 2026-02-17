@@ -929,10 +929,9 @@ document.getElementById("content").innerHTML = `
 <em>${p.scientifico}</em>
 <img src="${p.img}" style="width:50%;border-radius:12px;margin:12px 0;">
 <p>${p.descrizione}</p>
-<p><strong>Tecniche:</strong> ${p.tecniche}</p>
-<p>${p.descrizione}</p>
 ${generaMontatureSpecie(p.montature)}
-<p><strong>Tecniche:</strong> ${p.tecniche}</p>
+<p><strong>Tecniche:</strong> ${p.tecniche}</p><p>${p.descrizione}</p>
+<p><strong>Stagione migliore:</strong> ${p.stagione ? p.stagione.join(", ") : "Non specificata"}</p>
 <button onclick="showSpecie()">⬅️ Torna alle specie</button>
 </div>
 `;
@@ -961,6 +960,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
