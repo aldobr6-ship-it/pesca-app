@@ -925,11 +925,11 @@ if (!p) return;
  
 document.getElementById("content").innerHTML = `
 <div class="card">
-<p>${p.descrizione}</p>
-<p><strong>Tecniche:</strong> ${p.tecniche}</p>
 <h2>${p.nome}</h2>
 <em>${p.scientifico}</em>
 <img src="${p.img}" style="width:50%;border-radius:12px;margin:12px 0;">
+<p>${p.descrizione}</p>
+<p><strong>Tecniche:</strong> ${p.tecniche}</p>
 <p>${p.descrizione}</p>
 ${generaMontatureSpecie(p.montature)}
 <p><strong>Tecniche:</strong> ${p.tecniche}</p>
@@ -961,6 +961,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
