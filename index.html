@@ -113,6 +113,22 @@ color: #0a2a43;
  
 <script>
 /* HOME */
+ function toggleTema() {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("tema", "dark");
+  } else {
+    localStorage.setItem("tema", "light");
+  }
+}
+
+function caricaTema() {
+  const temaSalvato = localStorage.getItem("tema");
+  if (temaSalvato === "dark") {
+    document.body.classList.add("dark");
+  }
+}
 function showHome() {
 document.getElementById("content").innerHTML = `
 <div class="grid">
@@ -139,23 +155,6 @@ document.getElementById("content").innerHTML = `
 <h3>Nodi</h3>
 <p>Con immagini</p>
 </div>
-
-function toggleTema() {
-  document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("tema", "dark");
-  } else {
-    localStorage.setItem("tema", "light");
-  }
-}
-
-function caricaTema() {
-  const temaSalvato = localStorage.getItem("tema");
-  if (temaSalvato === "dark") {
-    document.body.classList.add("dark");
-  }
-}
 </div>
 `;
 }
@@ -1015,6 +1014,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
