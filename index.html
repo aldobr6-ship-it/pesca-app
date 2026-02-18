@@ -12,7 +12,21 @@ font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 background: linear-gradient(#eaf4fb, #dbe9f4);
 color: #0a2a43;
 }
- 
+ body.dark {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+body.dark .card {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+body.dark button {
+  background: #334155;
+  color: white;
+}
+body.dark footer {
+  background: #1e293b;
+}
 header {
 background: #0a2a43;
 color: white;
@@ -41,20 +55,16 @@ box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 text-align: center;
 cursor: pointer;
 }
- 
-.card h3 {
+ .card h3 {
 margin: 10px 0 6px;
 }
- 
 .card p {
 font-size: 14px;
 opacity: 0.8;
 }
- 
-h2 {
+ h2 {
 margin-top: 0;
 }
- 
 footer {
 position: fixed;
 bottom: 12px;
@@ -98,6 +108,7 @@ color: #0a2a43;
 <button onclick="showSpecie()">🐟 Specie</button>
 <button onclick="showMontature()">🪝 Montature</button>
 <button onclick="showNodi()">🧵 Nodi</button>
+<button onclick="toggleTema()">🌙</button> 
 </footer>
  
 <script>
@@ -128,6 +139,23 @@ document.getElementById("content").innerHTML = `
 <h3>Nodi</h3>
 <p>Con immagini</p>
 </div>
+
+function toggleTema() {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("tema", "dark");
+  } else {
+    localStorage.setItem("tema", "light");
+  }
+}
+
+function caricaTema() {
+  const temaSalvato = localStorage.getItem("tema");
+  if (temaSalvato === "dark") {
+    document.body.classList.add("dark");
+  }
+}
 </div>
 `;
 }
@@ -986,6 +1014,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
