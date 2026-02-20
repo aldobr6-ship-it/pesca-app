@@ -482,42 +482,32 @@ function showMontaturaGalleggiante() {
     <img src="./img/ravennate.jpg"
          style="width:100%;max-width:280px;border-radius:12px;">
   </div>
-
   <div class="card">
     <b>Esche consigliate</b><br>
     Bigattino • Pane • Coreano
   </div>
-
   <div class="card">
     <b>🎥 Video tutorial</b><br>
     <a href="https://www.youtube.com/results?search_query=montatura+galleggiante+mare"
        target="_blank">Guarda su YouTube</a>
   </div>
-
   <button onclick="showGalleggiante()">⬅️ Torna al Galleggiante</button>
   `;
 }
 function showSpinning() {
-
   const dati = tecnicheData.spinning;
-
   document.getElementById("content").innerHTML = `
     <h2>🎣 Spinning</h2>
-
     <div class="card">
       Tecnica dinamica con artificiali per predatori costieri.
     </div>
-
     <h3>🪱 Esche consigliate</h3>
     ${generaAccordion(dati.esche, "spinning-esca")}
-
     <h3>🪨 Piombi consigliati</h3>
     ${generaAccordion(dati.piombi, "spinning-piombo")}
-
     <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
-
  function showEging() {
   document.getElementById("content").innerHTML = `
   <h2>🦑 Eging</h2>
@@ -986,7 +976,7 @@ const tecnicheData = {
         ▶ ${item.nome}
       </div>
       <div id="${tipo}-${index}" style="display:none;margin-top:10px;">
-        <img src="${item.img}" style="width:100%;border-radius:12px;margin-bottom:10px;">
+        <img src="${item.img}" style="width:50%;max-width:220px;border-radius:12px;margin-bottom:10px auto;display:block;">
         <p>${item.descrizione}</p>
         ${item.mare ? `<p><strong>Mare:</strong> ${item.mare}</p>` : ""}
         ${item.target ? `<p><strong>Target:</strong> ${item.target}</p>` : ""}
@@ -1001,8 +991,7 @@ function toggleAccordion(id) {
   const el = document.getElementById(id);
   el.style.display = el.style.display === "none" ? "block" : "none";
 }
- 
-function showSpecieDetail(id) {
+ function showSpecieDetail(id) {
 const p = specie[id];
 if (!p) return;
  document.getElementById("content").innerHTML = `
@@ -1069,6 +1058,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
