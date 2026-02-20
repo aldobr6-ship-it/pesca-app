@@ -71,6 +71,7 @@ cursor: pointer;
 }
 .mini-card:hover {
   transform: scale(1.05);
+ }
  .mini-card.active {
   background: linear-gradient(145deg, #0a2a43, #144d73);
 }
@@ -1063,7 +1064,6 @@ if (!p) return;
 <img src="${p.img}" style="width:50%;border-radius:12px;margin:12px 0;">
 <p>${p.descrizione}</p>
 ${generaMontatureSpecie(p.montature)}
-${generaMontatureSpecie(p.montature)}
 ${generaCalendario(p.stagione)}
 <p><strong>Tecniche:</strong> ${p.tecniche}</p><p>${p.descrizione}</p>
 <p><strong>Stagione migliore:</strong> ${p.stagione ? p.stagione.join(", ") : "Non specificata"}</p>
@@ -1120,6 +1120,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
