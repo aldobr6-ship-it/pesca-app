@@ -1010,12 +1010,13 @@ function generaMiniCard(lista, tipo) {
 }
 
 function apriDettaglio(tipo, index) {
-  
-  const lista = tecnicheData.spinning.esche;
+  const lista = tecnicheData[tipo].esche;
   const item = lista[index];
   const container = document.getElementById(tipo + "-detail");
 
-  // Se già aperto, chiudi
+  if (!item) return;
+
+  // Se già aperto → chiudi
   if (container.dataset.open == index) {
     container.innerHTML = "";
     container.dataset.open = "";
@@ -1119,6 +1120,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
