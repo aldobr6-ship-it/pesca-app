@@ -71,6 +71,9 @@ cursor: pointer;
 }
 .mini-card:hover {
   transform: scale(1.05);
+ .mini-card.active {
+  background: linear-gradient(145deg, #0a2a43, #144d73);
+}
 }
 .detail-box {
   background: white;
@@ -1008,8 +1011,31 @@ function generaMiniCard(lista, tipo) {
 }
 
 function apriDettaglio(tipo, index) {
+  function apriDettaglio(tipo, index) {
   const lista = tecnicheData.spinning.esche;
   const item = lista[index];
+  const container = document.getElementById(tipo + "-detail");
+
+  // Se già aperto, chiudi
+  if (container.dataset.open == index) {
+    container.innerHTML = "";
+    container.dataset.open = "";
+    return;
+  }
+
+  container.dataset.open = index;
+
+  container.innerHTML = `
+    <div class="detail-box">
+      <h3>${item.nome}</h3>
+      <img src="${item.img}" style="width:55%;max-width:200px;border-radius:12px;display:block;margin:10px auto;">
+      <p>${item.descrizione}</p>
+      <p><strong>Mare:</strong> ${item.mare}</p>
+      <p><strong>Target:</strong> ${item.target}</p>
+      <p><strong>Efficacia:</strong> ${"⭐".repeat(item.efficacia)}</p>
+    </div>
+  `;
+}
 
   document.getElementById(tipo + "-detail").innerHTML = `
     <div class="detail-box">
@@ -1094,6 +1120,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
