@@ -35,25 +35,54 @@ text-align: center;
 font-size: 20px;
 font-weight: bold;
 }
- 
-#content {
+ #content {
 padding: 20px;
 padding-bottom: 90px;
 }
- 
-.grid {
+ .grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 16px;
 }
- 
-.card {
+ .card {
 background: white;
 border-radius: 18px;
 padding: 18px;
 box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 text-align: center;
 cursor: pointer;
+}
+ .mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.mini-card {
+  background: linear-gradient(145deg, #1c6ea4, #2989d8);
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+.mini-card:hover {
+  transform: scale(1.05);
+}
+.detail-box {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
  .card h3 {
 margin: 10px 0 6px;
@@ -79,7 +108,6 @@ padding-bottom: env(safe-area-inset-bottom);
 box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
 z-index: 1000;
 }
- 
 footer button {
 background: none;
 border: none;
@@ -93,7 +121,6 @@ color: #0a2a43;
 }
 </style>
 </head>
- 
 <body>
  
 <header>
@@ -101,8 +128,7 @@ color: #0a2a43;
 </header>
  
 <div id="content"></div>
- 
-<footer>
+ <footer>
 <button onclick="showHome()">🏠 Home</button>
 <button onclick="showTecniche()">🌊 Tecniche</button>
 <button onclick="showSpecie()">🐟 Specie</button>
@@ -110,12 +136,10 @@ color: #0a2a43;
 <button onclick="showNodi()">🧵 Nodi</button>
 <button onclick="toggleTema()">🌙 Dark Mode</button> 
 </footer>
- 
 <script>
 /* HOME */
  function toggleTema() {
   document.body.classList.toggle("dark");
-
   if (document.body.classList.contains("dark")) {
     localStorage.setItem("tema", "dark");
   } else {
@@ -137,19 +161,16 @@ document.getElementById("content").innerHTML = `
 <h3>Tecniche Mare</h3>
 <p>Surfcasting, spinning, eging…</p>
 </div>
- 
 <div class="card" onclick="showSpecie()">
 🐟
 <h3>Specie</h3>
 <p>I pesci più pescati</p>
 </div>
- 
 <div class="card" onclick="showMontature()">
 🪝
 <h3>Montature</h3>
 <p>Spiegate passo-passo</p>
 </div>
- 
 <div class="card" onclick="showNodi()">
 🧵
 <h3>Nodi</h3>
@@ -158,7 +179,6 @@ document.getElementById("content").innerHTML = `
 </div>
 `;
 }
- 
 /* TECNICHE */
 function showTecniche() {
 document.getElementById("content").innerHTML = `
@@ -168,26 +188,18 @@ document.getElementById("content").innerHTML = `
 <b>Surfcasting</b><br>
 Pesca dalla spiaggia con piombi pesanti
 </div>
-
-
 <div class="card" onclick="showSpinning()">
 <b>Spinning</b><br>
 Esche artificiali da riva
 </div>
-
-
 <div class="card" onclick="showEging()">
 <b>Eging</b><br>
 Pesca a seppie e calamari
 </div>
-
-
 <div class="card" onclick="showFondo()">
 <b>Pesca a Fondo</b><br>
 Porto e scogliera
 </div>
-
-
 <div class="card" onclick="showGalleggiante()">
 <b>Galleggiante</b><br>
 Tecnica precisa e leggera
@@ -210,12 +222,9 @@ function showSpecie() {
 
     <div id="listaSpecie"></div>
   `;
-
   document.getElementById("content").innerHTML = html;
-
   mostraTutteLeSpecie();
 }
-
 function mostraTutteLeSpecie() {
   let html = "";
 
@@ -226,7 +235,6 @@ function mostraTutteLeSpecie() {
       </div>
     `;
   }
-
   document.getElementById("listaSpecie").innerHTML = html;
 }
 
@@ -502,7 +510,7 @@ function showSpinning() {
       Tecnica dinamica con artificiali per predatori costieri.
     </div>
     <h3>🪱 Esche consigliate</h3>
-    ${generaAccordion(dati.esche, "spinning-esca")}
+    ${generaMiniCard(dati.esche, "spinning")}
     <h3>🪨 Piombi consigliati</h3>
     ${generaAccordion(dati.piombi, "spinning-piombo")}
     <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
@@ -986,6 +994,34 @@ const tecnicheData = {
     </div>
   `).join("");
 }
+function generaMiniCard(lista, tipo) {
+  return `
+    <div class="mini-grid">
+      ${lista.map((item, index) => `
+        <div class="mini-card" onclick="apriDettaglio('${tipo}', ${index})">
+          ${item.nome}
+        </div>
+      `).join("")}
+    </div>
+    <div id="${tipo}-detail"></div>
+  `;
+}
+
+function apriDettaglio(tipo, index) {
+  const lista = tecnicheData.spinning.esche;
+  const item = lista[index];
+
+  document.getElementById(tipo + "-detail").innerHTML = `
+    <div class="detail-box">
+      <h3>${item.nome}</h3>
+      <img src="${item.img}" style="width:60%;max-width:220px;border-radius:12px;display:block;margin:10px auto;">
+      <p>${item.descrizione}</p>
+      <p><strong>Mare:</strong> ${item.mare}</p>
+      <p><strong>Target:</strong> ${item.target}</p>
+      <p><strong>Efficacia:</strong> ${"⭐".repeat(item.efficacia)}</p>
+    </div>
+  `;
+}
 
 function toggleAccordion(id) {
   const el = document.getElementById(id);
@@ -1058,6 +1094,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
