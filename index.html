@@ -498,53 +498,26 @@ function showMontaturaGalleggiante() {
   `;
 }
 function showSpinning() {
+
+  const dati = tecnicheData.spinning;
+
   document.getElementById("content").innerHTML = `
-  <h2>🌀 Spinning</h2>
+    <h2>🎣 Spinning</h2>
 
-  <div class="card">
-    <b>Quando usarla</b><br>
-    Mare calmo o poco mosso • Alba e tramonto • Scogliere, porti, foci
-  </div>
+    <div class="card">
+      Tecnica dinamica con artificiali per predatori costieri.
+    </div>
 
-  <div class="card">
-    <b>Attrezzatura base</b><br>
-    Canna 2,10–2,70 m<br>
-    Mulinello 2500–4000<br>
-    Treccia + finale fluorocarbon
-  </div>
+    <h3>🪱 Esche consigliate</h3>
+    ${generaAccordion(dati.esche, "spinning-esca")}
 
-  <div class="card">
-    <b>Specie principali</b><br>
-    Spigola • Serra • Leccia stella • Palamita
-  </div>
+    <h3>🪨 Piombi consigliati</h3>
+    ${generaAccordion(dati.piombi, "spinning-piombo")}
 
-  <div class="card">
-    <b>Montature</b><br>
-    Nessuna montatura classica<br>
-    Artificiale collegato al finale
-  </div>
-
-  <div class="card">
-    <b>Pro</b><br>
-    Tecnica dinamica e divertente<br>
-    Ideale per predatori
-  </div>
-
-  <div class="card">
-    <b>Contro</b><br>
-    Richiede pratica<br>
-    Poco efficace con mare molto mosso
-  </div>
-
-  <div class="card">
-    <b>🎥 Video tutorial</b><br>
-    <a href="https://www.youtube.com/results?search_query=pesca+spinning+mare"
-       target="_blank">Guarda su YouTube</a>
-  </div>
-${generaSpeciePerTecnica("spinning")}
-  <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
+
  function showEging() {
   document.getElementById("content").innerHTML = `
   <h2>🦑 Eging</h2>
@@ -1006,6 +979,29 @@ const tecnicheData = {
     ]
   }
 };
+ function generaAccordion(lista, tipo) {
+  return lista.map((item, index) => `
+    <div class="card">
+      <div onclick="toggleAccordion('${tipo}-${index}')" style="cursor:pointer;font-weight:bold;">
+        ▶ ${item.nome}
+      </div>
+      <div id="${tipo}-${index}" style="display:none;margin-top:10px;">
+        <img src="${item.img}" style="width:100%;border-radius:12px;margin-bottom:10px;">
+        <p>${item.descrizione}</p>
+        ${item.mare ? `<p><strong>Mare:</strong> ${item.mare}</p>` : ""}
+        ${item.target ? `<p><strong>Target:</strong> ${item.target}</p>` : ""}
+        ${item.efficacia ? `<p><strong>Efficacia:</strong> ${"⭐".repeat(item.efficacia)}</p>` : ""}
+        ${item.peso ? `<p><strong>Peso:</strong> ${item.peso}</p>` : ""}
+      </div>
+    </div>
+  `).join("");
+}
+
+function toggleAccordion(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === "none" ? "block" : "none";
+}
+ 
 function showSpecieDetail(id) {
 const p = specie[id];
 if (!p) return;
@@ -1073,6 +1069,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
