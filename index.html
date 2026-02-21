@@ -13,12 +13,10 @@ background: linear-gradient(135deg,#eaf4fb,#dbe9f4);
 color: #0a2a43;
 transition: background 0.3s ease;
 }
-
 body.dark {
 background: #0f172a;
 color: #e2e8f0;
 }
-
 header {
 background: linear-gradient(90deg,#0a2a43,#144d73);
 color: white;
@@ -29,19 +27,16 @@ font-weight: bold;
 letter-spacing: 1px;
 box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-
 #content {
 padding: 20px;
 padding-bottom: 90px;
 animation: fadeIn 0.4s ease;
 }
-
 .grid {
 display: grid;
 grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
 gap: 18px;
 }
-
 .card {
 background: white;
 border-radius: 22px;
@@ -50,7 +45,42 @@ box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 text-align: center;
 cursor: pointer;
 transition: all 0.25s ease;
+} 
+.mini-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
 }
+
+.mini-card {
+  background: #f1f6fa;
+  padding: 8px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.mini-card:hover {
+  transform: translateY(-3px);
+}
+
+.mini-card.active {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color: white;
+  transform: scale(1.05);
+}
+
+body.dark .mini-card {
+  background: #334155;
+  border: none;
+}
+
+body.dark .mini-card.active {
+  background: linear-gradient(90deg,#1e3a8a,#2563eb);
+} 
 
 .card:hover {
 transform: translateY(-6px);
@@ -1112,6 +1142,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
