@@ -1047,32 +1047,29 @@ function generaMiniCard(lista, tipo) {
 }
 
 function apriDettaglio(tipo, index) {
-  const lista = tecnicheData[tipo].esche;
+  const [tecnica, categoria] = tipo.split("-");
+  const lista = tecnicheData[tecnica][categoria];
   const item = lista[index];
   const container = document.getElementById(tipo + "-detail");
-
   if (!item) return;
-
   if (container.dataset.open == index) {
     container.innerHTML = "";
     container.dataset.open = "";
     return;
   }
-
   container.dataset.open = index;
-
   container.innerHTML = `
     <div class="detail-box">
       <h3>${item.nome}</h3>
       <img src="${item.img}" style="width:55%;max-width:200px;border-radius:12px;display:block;margin:10px auto;">
-      <p>${item.descrizione}</p>
-      <p><strong>Mare:</strong> ${item.mare}</p>
-      <p><strong>Target:</strong> ${item.target}</p>
-      <p><strong>Efficacia:</strong> ${"⭐".repeat(item.efficacia)}</p>
+      ${item.descrizione ? `<p>${item.descrizione}</p>` : ""}
+      ${item.peso ? `<p><strong>Peso:</strong> ${item.peso}</p>` : ""}
+      ${item.mare ? `<p><strong>Mare:</strong> ${item.mare}</p>` : ""}
+      ${item.target ? `<p><strong>Target:</strong> ${item.target}</p>` : ""}
+      ${item.efficacia ? `<p><strong>Efficacia:</strong> ${"⭐".repeat(item.efficacia)}</p>` : ""}
     </div>
   `;
 }
-
  function toggleAccordion(id) {
   const el = document.getElementById(id);
   el.style.display = el.style.display === "none" ? "block" : "none";
@@ -1143,6 +1140,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
