@@ -545,13 +545,14 @@ function showSpinning() {
   document.getElementById("content").innerHTML = `
     <h2>🎣 Spinning</h2>
     <div class="card">
-      Tecnica dinamica con artificiali per predatori costieri.
-    </div>
-    <h3>🪱 Esche consigliate</h3>
-    ${generaMiniCard(dati.esche, "spinning")}
-    <h3>🪨 Piombi consigliati</h3>
-    ${generaAccordion(dati.piombi, "spinning-piombo")}
-    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+<h3>🪱 Esche consigliate</h3>
+${generaMiniCard(dati.esche, "spinning")}
+</div>
+
+<div class="card" style="margin-top:20px;">
+<h3>⚖️ Piombi consigliati</h3>
+${generaMiniCard(dati.piombi, "spinning-piombo")}
+</div>
   `;
 }
  function showEging() {
@@ -1142,6 +1143,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
