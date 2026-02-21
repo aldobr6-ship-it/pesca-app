@@ -1047,17 +1047,22 @@ function generaMiniCard(lista, tipo) {
 }
 
 function apriDettaglio(tipo, index) {
+
   const [tecnica, categoria] = tipo.split("-");
   const lista = tecnicheData[tecnica][categoria];
   const item = lista[index];
   const container = document.getElementById(tipo + "-detail");
+
   if (!item) return;
+
   if (container.dataset.open == index) {
     container.innerHTML = "";
     container.dataset.open = "";
     return;
   }
+
   container.dataset.open = index;
+
   container.innerHTML = `
     <div class="detail-box">
       <h3>${item.nome}</h3>
@@ -1140,6 +1145,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
