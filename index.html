@@ -62,56 +62,45 @@ transition: all 0.25s ease;
   transition: all 0.25s ease;
   border: 1px solid rgba(0,0,0,0.05);
 }
-
 .mini-card:hover {
   transform: translateY(-3px);
 }
-
 .mini-card.active {
   background: linear-gradient(90deg,#0a2a43,#144d73);
   color: white;
   transform: scale(1.05);
 }
-
 body.dark .mini-card {
   background: #334155;
   border: none;
 }
-
 body.dark .mini-card.active {
   background: linear-gradient(90deg,#1e3a8a,#2563eb);
 } 
-
 .card:hover {
 transform: translateY(-6px);
 box-shadow: 0 14px 25px rgba(0,0,0,0.18);
 }
-
 .card:active {
 transform: scale(0.96);
 }
-
 .card h3 {
 margin: 12px 0 6px;
 font-size: 18px;
 }
-
 .card p {
 font-size: 14px;
 opacity: 0.75;
 }
-
 .home-icon {
 font-size: 42px;
 display: block;
 margin-bottom: 10px;
 }
-
 body.dark .card {
 background: #1e293b;
 color: #e2e8f0;
 }
-
 footer {
 position: fixed;
 bottom: 12px;
@@ -125,30 +114,87 @@ height: 64px;
 box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
 border-radius: 18px 18px 0 0;
 }
-
 body.dark footer {
 background: #1e293b;
 }
-
 footer button {
 background: none;
 border: none;
 font-size: 13px;
 color: #0a2a43;
 }
-
 body.dark footer button {
 color: white;
 }
-
 @keyframes fadeIn {
 from {opacity:0; transform:translateY(10px);}
 to {opacity:1; transform:translateY(0);}
 }
+.waves-bg{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:180px;
+overflow:hidden;
+z-index:-1;
+opacity:0.25;
+}
+.waves-bg svg{
+width:200%;
+height:100%;
+animation:waveMove 18s linear infinite;
+fill:#00b4d8;
+}
+@keyframes waveMove{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+} 
+
+#splash{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(180deg,#06283D,#0a2a43);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeOutSplash 1.2s ease forwards;
+animation-delay:2.2s;
+}
+
+.logo-anim{
+font-size:60px;
+animation:floatLogo 2s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+@keyframes fadeOutSplash{
+to{opacity:0;visibility:hidden;}
+} 
 </style>
 
 </head>
 <body>
+ <div id="splash">
+  <div class="logo-anim">
+    🌊
+  </div>
+  <h2>Mare Fishing App</h2>
+</div> 
+ <div class="waves-bg">
+  <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path d="M0,100 C300,180 900,20 1200,100 L1200,200 L0,200 Z"></path>
+  </svg>
+</div>
  
 <header>
 🎣 Assistente Pesca Mare
@@ -191,24 +237,40 @@ Seleziona una sezione per iniziare
 
 <div class="card" onclick="showTecniche()">
 <span class="home-icon">🌊</span>
+<svg width="42" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+<path d="M3 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+</svg>
+</span>
 <h3>Tecniche Mare</h3>
 <p>Surfcasting, spinning, eging…</p>
 </div>
 
 <div class="card" onclick="showSpecie()">
-<span class="home-icon">🐟</span>
+<span class="home-icon">
+<svg width="42" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+<path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z"/>
+</svg>
+</span>
 <h3>Specie</h3>
 <p>I pesci più pescati</p>
 </div>
 
 <div class="card" onclick="showMontature()">
-<span class="home-icon">🪝</span>
+<span class="home-icon">
+<svg width="42" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+<path d="M6 3v6a6 6 0 006 6 4 4 0 104-4"/>
+</svg>
+</span>
 <h3>Montature</h3>
 <p>Spiegate passo-passo</p>
 </div>
 
 <div class="card" onclick="showNodi()">
-<span class="home-icon">🧵</span>
+<span class="home-icon">
+<svg width="42" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+<circle cx="12" cy="12" r="6"/>
+</svg>
+</span>
 <h3>Nodi</h3>
 <p>Con immagini</p>
 </div>
@@ -292,7 +354,6 @@ function filtraSpecie() {
 
   document.getElementById("listaSpecie").innerHTML = html;
 }
-
  
 /* MONTATURE */
 function showMontature() {
@@ -1152,10 +1213,19 @@ ${generaCalendario(p.stagione)}
 /* --- AVVIO APP --- */
 caricaTema(); 
 showHome();
+ window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    const splash = document.getElementById("splash");
+    if(splash){
+      splash.style.display="none";
+    }
+  },3500);
+});
 </script>
  
 </body>
 </html>
+
 
 
 
