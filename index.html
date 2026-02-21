@@ -641,27 +641,6 @@ ${generaMiniCard(dati.esche, "spinning")}
 <h3>⚖️ Piombi consigliati</h3>
 ${generaMiniCard(dati.piombi, "spinning-piombo")}
 </div>
-Perfetto 👍 ora è chiarissimo.
-
-NO ❌
-Non devi creare un nuovo if(nome === "spinning").
-
-Tu hai già questa funzione:
-
-function showSpinning() {
-
-Quindi dobbiamo solo estendere quella esistente, senza creare nuove funzioni.
-
-🎯 COSA FARE ESATTAMENTE
-📍 Trova questa parte nel file:
-function showSpinning() {
-  const dati = tecnicheData.spinning;
-  document.getElementById("content").innerHTML = `
-    <h2>🎣 Spinning</h2>
-    <div class="card">
-<h3>🪱 Esche consigliate</h3>
-${generaMiniCard(dati.esche, "spinning")}
-</div>
 
 <div class="card">
   <h3>📅 Quando usarla</h3>
@@ -1300,6 +1279,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
