@@ -429,9 +429,7 @@ document.getElementById("content").innerHTML = `
 `;
 }
   function generaMontatureSpecie(listaMontature) {
-
   if (!listaMontature || listaMontature.length === 0) return "";
-
   let html = "<div class='card'><b>🪝 Montature consigliate</b><br><br>";
 
   listaMontature.forEach(m => {
@@ -535,6 +533,35 @@ ${generaSpeciePerTecnica("surfcasting")}
 <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
 `;
 }
+ spinning: {
+  quando: "Ideale con mare poco mosso o leggermente increspato. Perfetto all’alba, al tramonto e in presenza di mangianze o predatori in caccia.",
+
+  attrezzatura: "Canna 2.10m – 2.70m azione 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 con finale in fluorocarbon 0.30-0.40.",
+
+  montatura: "Trecciato collegato con nodo FG o doppio uni a finale in fluorocarbon. Esche artificiali come minnow, jerkbait, softbait, metal jig o popper in base alla profondità.",
+
+  pro: [
+    "Tecnica dinamica e divertente",
+    "Copre molta acqua rapidamente",
+    "Adatta a molte specie predatorie"
+  ],
+
+  contro: [
+    "Richiede movimento continuo",
+    "Attrezzatura più costosa rispetto al surfcasting",
+    "Meno efficace con mare molto mosso"
+  ],
+
+  specie: [
+    "Spigola",
+    "Serra",
+    "Barracuda",
+    "Palamita",
+    "Ricciola"
+  ],
+
+  video: "https://www.youtube.com/watch?v=5Zk7XKXh7eM"
+},
  function showGalleggiante() {
   document.getElementById("content").innerHTML = `
   <h2>🎈 Galleggiante</h2>
@@ -613,6 +640,54 @@ ${generaMiniCard(dati.esche, "spinning")}
 <div class="card" style="margin-top:20px;">
 <h3>⚖️ Piombi consigliati</h3>
 ${generaMiniCard(dati.piombi, "spinning-piombo")}
+</div>
+Perfetto 👍 ora è chiarissimo.
+
+NO ❌
+Non devi creare un nuovo if(nome === "spinning").
+
+Tu hai già questa funzione:
+
+function showSpinning() {
+
+Quindi dobbiamo solo estendere quella esistente, senza creare nuove funzioni.
+
+🎯 COSA FARE ESATTAMENTE
+📍 Trova questa parte nel file:
+function showSpinning() {
+  const dati = tecnicheData.spinning;
+  document.getElementById("content").innerHTML = `
+    <h2>🎣 Spinning</h2>
+    <div class="card">
+<h3>🪱 Esche consigliate</h3>
+${generaMiniCard(dati.esche, "spinning")}
+</div>
+
+<div class="card">
+  <h3>📅 Quando usarla</h3>
+  <p>${dati.quando}</p>
+
+  <h3>🎒 Attrezzatura base</h3>
+  <p>${dati.attrezzatura}</p>
+
+  <h3>🪢 Montatura dedicata</h3>
+  <p>${dati.montatura}</p>
+
+  <h3>✅ Pro</h3>
+  <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
+
+  <h3>❌ Contro</h3>
+  <ul>${dati.contro.map(c => `<li>${c}</li>`).join("")}</ul>
+
+  <h3>🐟 Specie consigliate</h3>
+  <ul>${dati.specie.map(s => `<li>${s}</li>`).join("")}</ul>
+
+  <h3>🎥 Video tutorial</h3>
+  <p>
+    <a href="${dati.video}" target="_blank">
+      Guarda su YouTube
+    </a>
+  </p>
 </div>
   `;
 }
@@ -1225,6 +1300,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
