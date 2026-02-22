@@ -631,10 +631,78 @@ function showMontaturaGalleggiante() {
 
     video: "https://www.youtube.com/watch?v=5Zk7XKXh7eM",
 
-    esche: [],
-    piombi: []
+    esche: [
+  {
+    nome: "Minnow",
+    img: "img/minnow.jpg",
+    descrizione: "Imita un piccolo pesce foraggio. Disponibile floating, suspending o sinking.",
+    mare: "Calmo / Poco mosso",
+    target: "Spigola, Serra, Leccia stella",
+    efficacia: 5
+  },
+  {
+    nome: "Jerkbait",
+    img: "img/jerkbait.jpg",
+    descrizione: "Movimento nervoso per attacchi aggressivi.",
+    mare: "Leggermente mosso",
+    target: "Serra, Palamita",
+    efficacia: 4
+  },
+  {
+    nome: "Soft Bait",
+    img: "img/softbait.jpg",
+    descrizione: "Esca in silicone montata su jig head.",
+    mare: "Calmo",
+    target: "Spigola, Sugarello",
+    efficacia: 4
+  },
+  {
+    nome: "Metal Jig",
+    img: "img/metal-jig.jpg",
+    descrizione: "Per lanci lunghi e profondità.",
+    mare: "Mosso / Corrente",
+    target: "Palamita, Serra",
+    efficacia: 5
+  },
+  {
+    nome: "Top Water / Popper",
+    img: "img/popper.jpg",
+    descrizione: "Lavora in superficie con attacchi spettacolari.",
+    mare: "Calmo",
+    target: "Leccia stella, Serra",
+    efficacia: 4
+  }
+],
+
+piombi: [
+  {
+    nome: "Jig Head",
+    img: "img/jig-head.jpg",
+    descrizione: "Testa piombata per soft bait.",
+    peso: "5g – 30g"
+  },
+  {
+    nome: "Piombo interno",
+    img: "img/piombo-interno.jpg",
+    descrizione: "Assetto naturale nel silicone.",
+    peso: "Variabile"
+  }
+]
   }
 };
+ function generaMiniCard(lista, tipo) {
+  if (!lista || lista.length === 0) {
+    return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
+  }
+
+  let html = "<div class='mini-container'>";
+  lista.forEach(item => {
+    html += `<div class="mini-card">${item}</div>`;
+  });
+  html += "</div>";
+
+  return html;
+}
 function showSpinning() {
   const dati = tecnicheData.spinning;
   document.getElementById("content").innerHTML = `
@@ -1075,62 +1143,6 @@ seppia: {
   tecniche: "Eging",
   montature: ["piombo-scorrevole", "pater-noster"],
  stagione: [4,5,10,11,12]
-}
-};
-   esche: [
-      {
-        nome: "Minnow",
-        img: "img/minnow.jpg",
-        descrizione: "Imita un piccolo pesce foraggio. Disponibile floating, suspending o sinking.",
-        mare: "Calmo / Poco mosso",
-        target: "Spigola, Serra, Leccia stella",
-        efficacia: 5
-      },
-      {
-        nome: "Jerkbait",
-        img: "img/jerkbait.jpg",
-        descrizione: "Artificiale dal movimento nervoso per stimolare attacchi aggressivi.",
-        mare: "Leggermente mosso",
-        target: "Serra, Palamita",
-        efficacia: 4
-      },
-      {
-      nome: "Soft Bait",
-        img: "img/softbait.jpg",
-        descrizione: "Esca in silicone montata su jig head, molto versatile.",
-        mare: "Calmo",
-        target: "Spigola, Sugarello",
-        efficacia: 4
-      },
-      {
-        nome: "Metal Jig",
-        img: "img/metal-jig.jpg",
-        descrizione: "Artificiale metallico per lanci lunghi e pesca in profondità.",
-        mare: "Mosso / Corrente",
-        target: "Palamita, Serra",
-        efficacia: 5
-      },
-      {
-        nome: "Top Water / Popper",
-        img: "img/popper.jpg",
-        descrizione: "Lavora in superficie. Attacchi spettacolari all’alba e tramonto.",
-        mare: "Calmo",
-        target: "Leccia stella, Serra",
-        efficacia: 4
-      }
-    ],
-    piombi: [
-      {
-        nome: "Jig Head",
-        img: "img/jig-head.jpg",
-        descrizione: "Testa piombata per soft bait.",
-        peso: "5g – 30g"
-      },
-      {
-        nome: "Piombo interno",
-        img: "img/piombo-interno.jpg",
-        descrizione: "Permette assetto naturale nel silicone.",
-        peso: "Variabile"
       }
     ]
   }
@@ -1283,6 +1295,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
