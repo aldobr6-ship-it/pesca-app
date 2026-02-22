@@ -600,6 +600,41 @@ function showMontaturaGalleggiante() {
   <button onclick="showGalleggiante()">⬅️ Torna al Galleggiante</button>
   `;
 }
+ const tecnicheData = {
+  spinning: {
+
+    quando: "Ideale con mare poco mosso o leggermente increspato. Perfetto all’alba e al tramonto.",
+
+    attrezzatura: "Canna 2.10-2.70m 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 + fluorocarbon 0.30-0.40.",
+
+    montatura: "Trecciato collegato con nodo FG al fluorocarbon. Artificiali come minnow, jerkbait, softbait e jig.",
+
+    pro: [
+      "Tecnica dinamica",
+      "Copre molta acqua",
+      "Adatta a molti predatori"
+    ],
+
+    contro: [
+      "Richiede movimento continuo",
+      "Attrezzatura più costosa",
+      "Meno efficace con mare molto mosso"
+    ],
+
+    specie: [
+      "Spigola",
+      "Serra",
+      "Barracuda",
+      "Palamita",
+      "Ricciola"
+    ],
+
+    video: "https://www.youtube.com/watch?v=5Zk7XKXh7eM",
+
+    esche: [],
+    piombi: []
+  }
+};
 function showSpinning() {
   const dati = tecnicheData.spinning;
   document.getElementById("content").innerHTML = `
@@ -1042,41 +1077,7 @@ seppia: {
  stagione: [4,5,10,11,12]
 }
 };
- 
-const tecnicheData = {
-    spinning: {
-    quando: "Ideale con mare poco mosso o leggermente increspato. Perfetto all’alba, al tramonto e in presenza di mangianze o predatori in caccia.",
-
-    attrezzatura: "Canna 2.10m – 2.70m azione 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 con finale in fluorocarbon 0.30-0.40.",
-
-    montatura: "Trecciato collegato con nodo FG o doppio uni a finale in fluorocarbon. Esche artificiali come minnow, jerkbait, softbait, metal jig o popper in base alla profondità.",
-
-    pro: [
-      "Tecnica dinamica e divertente",
-      "Copre molta acqua rapidamente",
-      "Adatta a molte specie predatorie"
-    ],
-
-    contro: [
-      "Richiede movimento continuo",
-      "Attrezzatura più costosa rispetto al surfcasting",
-      "Meno efficace con mare molto mosso"
-    ],
-
-    specie: [
-      "Spigola",
-      "Serra",
-      "Barracuda",
-      "Palamita",
-      "Ricciola"
-    ],
-
-    video: "https://www.youtube.com/watch?v=5Zk7XKXh7eM",
-  
-    ]
-  }
-};
-    esche: [
+   esche: [
       {
         nome: "Minnow",
         img: "img/minnow.jpg",
@@ -1282,6 +1283,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
