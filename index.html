@@ -680,14 +680,12 @@ const spinningData = {
       "Copre molta acqua",
       "Adatta a molti predatori"
     ],
-
     contro: [
       "Richiede movimento continuo",
       "Attrezzatura più costosa",
       "Meno efficace con mare molto mosso"
     ],
-
-    specie: [
+       specie: [
       "Spigola",
       "Serra",
       "Barracuda",
@@ -784,10 +782,15 @@ function showSpinning() {
   <p>${dati.attrezzatura}</p>
 </div>
 
-  <div class="card">
+montatura: "Trecciato collegato con nodo FG al fluorocarbon.",
+montaturaImg: "img/montatura-spinning.jpg",
+
+ <div class="card">
   <h3>🪢 Montatura dedicata</h3>
   <p>${dati.montatura}</p>
-   </div>
+  <img src="${dati.montaturaImg}" 
+       style="width:100%;max-width:280px;border-radius:12px;margin-top:10px;">
+</div>
    
  <div class="card">
   <h3>✅ Pro</h3>
@@ -799,11 +802,6 @@ function showSpinning() {
   <ul>${dati.contro.map(c => `<li>${c}</li>`).join("")}</ul>
   </div>
   
-<div class="card">
-  <h3>🐟 Specie consigliate</h3>
-  <ul>${dati.specie.map(s => `<li>${s}</li>`).join("")}</ul>
-  </div>
-
   <div class="card">
   <h3>🐟 Specie consigliate</h3>
   ${generaListaCliccabile(spinningData.specie)}
@@ -1395,6 +1393,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
