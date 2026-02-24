@@ -788,6 +788,7 @@ function showSpinning() {
   <img src="${dati.montaturaImg}" 
        style="width:100%;max-width:280px;border-radius:12px;margin-top:10px;">
 </div>
+montaturaImg: "img/montatura-spinning.jpg",
    
  <div class="card">
   <h3>✅ Pro</h3>
@@ -801,7 +802,7 @@ function showSpinning() {
   
   <div class="card">
   <h3>🐟 Specie consigliate</h3>
-  ${generaListaCliccabile(spinningData.specie)}
+  ${generaListaCliccabile(dati.specie)}
 </div>
 
 <div class="card" style="margin-top:20px;">
@@ -817,7 +818,6 @@ ${generaMiniCard(dati.piombi, "spinning-piombo")}
     </a>
   </p>
 </div>
-
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
@@ -1390,6 +1390,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
