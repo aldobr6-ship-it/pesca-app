@@ -639,12 +639,33 @@ function showMontaturaGalleggiante() {
   ]
 };
 const spinningData = {
-  specie: [
-    { nome: "Spigola", img: "img/spigola.jpg" },
-    { nome: "Serra", img: "img/serra.jpg" },
-    { nome: "Barracuda", img: "img/barracuda.jpg" },
-    { nome: "Palamita", img: "img/palamita.jpg" }
-  ],
+  sspecie: [
+  {
+    nome: "Spigola",
+    img: "img/spigola.jpg",
+    esca: "Minnow, Soft bait"
+  },
+  {
+    nome: "Serra",
+    img: "img/serra.jpg",
+    esca: "Jerkbait, Metal jig"
+  },
+  {
+    nome: "Barracuda",
+    img: "img/barracuda.jpg",
+    esca: "Minnow affondante"
+  },
+  {
+    nome: "Palamita",
+    img: "img/palamita.jpg",
+    esca: "Metal jig"
+  },
+  {
+    nome: "Ricciola",
+    img: "img/ricciola.jpg",
+    esca: "Popper, Jig"
+  }
+],
 
   esche: [
     { nome: "Minnow", img: "img/minnow.jpg" },
@@ -823,11 +844,16 @@ function showSpinning() {
   ${generaListaCliccabile(dati.specie)}
 </div>
 
+<div class="card">
+  <h3>🪱 Esche consigliate</h3>
+  ${generaListaCliccabile(dati.esche)}
+</div>
+
 <div class="card" style="margin-top:20px;">
 <h3>⚖️ Piombi consigliati</h3>
 ${generaMiniCard(dati.piombi, "spinning-piombo")}
 </div>
-
+ 
   <div class="card">
   <h3>🎥 Video tutorial</h3>
   <p>
@@ -1267,7 +1293,26 @@ function generaMiniCard(lista, tipo) {
     <div id="${tipo}-detail"></div>
   `;
 }
+function generaListaCliccabile(lista) {
+  let html = "";
 
+  lista.forEach(item => {
+    html += `
+      <div style="margin-bottom:10px;">
+        <span onclick="toggleImg(this)" 
+              style="cursor:pointer;font-weight:bold;color:#0077b6;">
+          ${item.nome}
+        </span>
+        <div style="display:none;margin-top:5px;">
+          <img src="${item.img}" 
+               style="width:100%;max-width:250px;border-radius:10px;">
+        </div>
+      </div>
+    `;
+  });
+
+  return html;
+}
 function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
   
@@ -1286,6 +1331,11 @@ function generaListaCliccabile(lista) {
   return html;
 }
 
+ function toggleImg(element) {
+  const imgBox = element.nextElementSibling;
+  imgBox.style.display = 
+    imgBox.style.display === "none" ? "block" : "none";
+}
 function toggleImg(id) {
   const el = document.getElementById(id);
   el.style.display = el.style.display === "none" ? "block" : "none";
@@ -1410,6 +1460,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
