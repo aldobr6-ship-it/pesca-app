@@ -626,6 +626,50 @@ function showMontaturaGalleggiante() {
     { nome: "Coreano", img: "img/coreano.jpg" }
   ]
 };
+const spinningData = {
+  specie: [
+    { nome: "Spigola", img: "img/spigola.jpg" },
+    { nome: "Serra", img: "img/serra.jpg" },
+    { nome: "Barracuda", img: "img/barracuda.jpg" },
+    { nome: "Palamita", img: "img/palamita.jpg" }
+  ],
+
+  esche: [
+    { nome: "Minnow", img: "img/minnow.jpg" },
+    { nome: "Jerkbait", img: "img/jerkbait.jpg" },
+    { nome: "Soft Bait", img: "img/softbait.jpg" },
+    { nome: "Metal Jig", img: "img/metal-jig.jpg" }
+  ]
+};
+
+ const galleggianteData = {
+  specie: [
+    { nome: "Cefalo", img: "img/cefalo.jpg" },
+    { nome: "Sarago", img: "img/sarago.jpg" },
+    { nome: "Occhiata", img: "img/occhiata.jpg" },
+    { nome: "Orata", img: "img/orata.jpg" }
+  ],
+
+  esche: [
+    { nome: "Bigattino", img: "img/bigattino.jpg" },
+    { nome: "Pane", img: "img/pane.jpg" },
+    { nome: "Coreano", img: "img/coreano.jpg" }
+  ]
+};
+
+ const egingData = {
+  specie: [
+    { nome: "Calamaro", img: "img/calamaro.jpg" },
+    { nome: "Seppia", img: "img/seppia.jpg" }
+  ],
+
+  esche: [
+    { nome: "Totanara 2.5", img: "img/egi25.jpg" },
+    { nome: "Totanara 3.0", img: "img/egi30.jpg" },
+    { nome: "Totanara 3.5", img: "img/egi35.jpg" }
+  ]
+};
+
  const tecnicheData = {
   spinning: {
     quando: "Ideale con mare poco mosso o leggermente increspato. Perfetto all’alba e al tramonto.",
@@ -761,8 +805,8 @@ function showSpinning() {
   </div>
 
   <div class="card">
-<h3>🪱 Esche consigliate</h3>
-${generaMiniCard(dati.esche, "spinning")}
+  <h3>🐟 Specie consigliate</h3>
+  ${generaListaCliccabile(spinningData.specie)}
 </div>
 
 <div class="card" style="margin-top:20px;">
@@ -770,6 +814,7 @@ ${generaMiniCard(dati.esche, "spinning")}
 ${generaMiniCard(dati.piombi, "spinning-piombo")}
 </div>
 
+  <div class="card">
   <h3>🎥 Video tutorial</h3>
   <p>
     <a href="${dati.video}" target="_blank">
@@ -777,7 +822,7 @@ ${generaMiniCard(dati.piombi, "spinning-piombo")}
     </a>
   </p>
 </div>
-${generaSpeciePerTecnica("spinning")}
+
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
@@ -1350,6 +1395,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
