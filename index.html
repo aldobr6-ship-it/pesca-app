@@ -675,7 +675,8 @@ const spinningData = {
     quando: "Ideale con mare poco mosso o leggermente increspato. Perfetto all’alba e al tramonto.",
     attrezzatura: "Canna 2.10-2.70m 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 + fluorocarbon 0.30-0.40.",
     montatura: "Trecciato collegato con nodo FG al fluorocarbon. Artificiali come minnow, jerkbait, softbait e jig.",
-    pro: [
+    montaturaImg: "img/montatura-spinning.jpg",
+   pro: [
       "Tecnica dinamica",
       "Copre molta acqua",
       "Adatta a molti predatori"
@@ -785,10 +786,15 @@ function showSpinning() {
  <div class="card">
   <h3>🪢 Montatura dedicata</h3>
   <p>${dati.montatura}</p>
+  <button onclick="toggleMontaturaImg()" class="btn-img">
+  📷 Mostra Montatura
+</button>
+
+<div id="montaturaBox" style="display:none;margin-top:10px;">
   <img src="${dati.montaturaImg}" 
-       style="width:100%;max-width:280px;border-radius:12px;margin-top:10px;">
+       style="width:100%;max-width:300px;border-radius:12px;cursor:pointer;"
+       onclick="toggleMontaturaImg()">
 </div>
-montaturaImg: "img/montatura-spinning.jpg",
    
  <div class="card">
   <h3>✅ Pro</h3>
@@ -1390,6 +1396,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
