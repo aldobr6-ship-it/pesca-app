@@ -703,17 +703,8 @@ function showSpinning() {
   const dati = tecnicheData.spinning;
   document.getElementById("content").innerHTML = `
     <h2>🎣 Spinning</h2>
+
     <div class="card">
-<h3>🪱 Esche consigliate</h3>
-${generaMiniCard(dati.esche, "spinning")}
-</div>
-
-<div class="card" style="margin-top:20px;">
-<h3>⚖️ Piombi consigliati</h3>
-${generaMiniCard(dati.piombi, "spinning-piombo")}
-</div>
-
-<div class="card">
   <h3>📅 Quando usarla</h3>
   <p>${dati.quando}</p>
 
@@ -722,7 +713,7 @@ ${generaMiniCard(dati.piombi, "spinning-piombo")}
 
   <h3>🪢 Montatura dedicata</h3>
   <p>${dati.montatura}</p>
-
+    
   <h3>✅ Pro</h3>
   <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
 
@@ -731,6 +722,16 @@ ${generaMiniCard(dati.piombi, "spinning-piombo")}
 
   <h3>🐟 Specie consigliate</h3>
   <ul>${dati.specie.map(s => `<li>${s}</li>`).join("")}</ul>
+
+  <div class="card">
+<h3>🪱 Esche consigliate</h3>
+${generaMiniCard(dati.esche, "spinning")}
+</div>
+
+<div class="card" style="margin-top:20px;">
+<h3>⚖️ Piombi consigliati</h3>
+${generaMiniCard(dati.piombi, "spinning-piombo")}
+</div>
 
   <h3>🎥 Video tutorial</h3>
   <p>
@@ -1290,6 +1291,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
