@@ -1278,8 +1278,11 @@ function toggleImg(id) {
   const el = document.getElementById(id);
   el.style.display = el.style.display === "none" ? "block" : "none";
 } 
+ function toggleMontaturaImg() {
+  const box = document.getElementById("montaturaBox");
+  box.style.display = box.style.display === "none" ? "block" : "none";
+}
 function apriDettaglio(tipo, index) {
-
   let tecnica;
   let categoria;
 
@@ -1308,7 +1311,6 @@ function apriDettaglio(tipo, index) {
   }
 
   container.dataset.open = index;
-
   container.innerHTML = `
     <div class="card">
       <h3>${item.nome}</h3>
@@ -1396,6 +1398,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
