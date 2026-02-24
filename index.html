@@ -707,18 +707,27 @@ function showSpinning() {
     <div class="card">
   <h3>📅 Quando usarla</h3>
   <p>${dati.quando}</p>
+</div>
 
+  <div class="card">
   <h3>🎒 Attrezzatura base</h3>
   <p>${dati.attrezzatura}</p>
+</div>
 
+  <div class="card">
   <h3>🪢 Montatura dedicata</h3>
   <p>${dati.montatura}</p>
-    
+   </div>
+   
+ <div class="card">
   <h3>✅ Pro</h3>
   <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
+</div>
 
+ <div class="card">
   <h3>❌ Contro</h3>
   <ul>${dati.contro.map(c => `<li>${c}</li>`).join("")}</ul>
+  </div>
   
 <div class="card">
   <h3>🐟 Specie consigliate</h3>
@@ -1293,6 +1302,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
