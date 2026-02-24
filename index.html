@@ -529,6 +529,16 @@ Tecnica impegnativa, attrezzatura pesante
 <a href="https://www.youtube.com/results?search_query=surfcasting+montatura"
 target="_blank">Guarda su YouTube</a>
 </div>
+
+<div class="card">
+  <h3>🐟 Specie consigliate</h3>
+  ${generaListaCliccabile(surfcastingData.specie)}
+</div>
+
+<div class="card">
+  <h3>🪱 Esche consigliate</h3>
+  ${generaListaCliccabile(surfcastingData.esche)}
+</div>
 ${generaSpeciePerTecnica("surfcasting")} 
 <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
 `;
@@ -1200,6 +1210,28 @@ function generaMiniCard(lista, tipo) {
   `;
 }
 
+function generaListaCliccabile(lista) {
+  let html = "<div class='mini-container'>";
+  
+  lista.forEach((item, index) => {
+    html += `
+      <div class="mini-card" onclick="toggleImg('img-${item.nome}-${index}')">
+        ${item.nome}
+        <div id="img-${item.nome}-${index}" style="display:none;margin-top:10px;">
+          <img src="${item.img}" style="width:100%;max-width:250px;border-radius:12px;">
+        </div>
+      </div>
+    `;
+  });
+
+  html += "</div>";
+  return html;
+}
+
+function toggleImg(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === "none" ? "block" : "none";
+} 
 function apriDettaglio(tipo, index) {
 
   let tecnica;
@@ -1318,6 +1350,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
