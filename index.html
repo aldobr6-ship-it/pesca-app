@@ -797,19 +797,18 @@ eging: {
     { nome: "Egi 3.5", img: "img/egi-3-5.jpg" }
   ],
   video: "https://www.youtube.com/results?search_query=eging+tecnica"
+ }
 }; 
 
  function generaMiniCard(lista, tipo) {
   if (!lista || lista.length === 0) {
     return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
   }
-
   let html = "<div class='mini-container'>";
   lista.forEach(item => {
     html += `<div class="mini-card">${item}</div>`;
   });
   html += "</div>";
-
   return html;
 }
 function showSpinning() {
@@ -1534,6 +1533,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
