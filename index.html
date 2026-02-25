@@ -1430,7 +1430,6 @@ function generaListaCliccabile(lista) {
   html += "</div>";
   return html;
 }
-
  function toggleImg(element) {
   const imgBox = element.nextElementSibling;
   imgBox.style.display = 
@@ -1503,7 +1502,6 @@ ${generaCalendario(p.stagione)}
 </div>
 `;
 }
-
  function generaCalendario(stagione) {
   if (!stagione) return "";
   const mesi = ["Gen","Feb","Mar","Apr","Mag","Giu",
@@ -1527,7 +1525,18 @@ ${generaCalendario(p.stagione)}
   html += "</div></div>";
   return html;
 }
- function generaSpeciePerTecnica(nomeTecnica) {
+function toggleMontatura(imgPath) {
+  const box = document.getElementById("montaturaBox");
+
+  if (box.innerHTML === "") {
+    box.innerHTML = `
+      <img src="${imgPath}" style="width:100%; max-width:400px; margin-top:10px; border-radius:10px;">
+    `;
+  } else {
+    box.innerHTML = "";
+  }
+}
+  function generaSpeciePerTecnica(nomeTecnica) {
   let html = "<div class='card'><b>🐟 Specie consigliate</b><br><br>";
 
   for (let key in specie) {
@@ -1560,6 +1569,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
