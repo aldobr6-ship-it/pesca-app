@@ -770,8 +770,7 @@ piombi: [
   }
 ]
  },
-  
-eging: {
+ eging: {
   quando: "Ideale di notte o al tramonto in porti, scogliere e moli con fondale misto.",
   attrezzatura: "Canna 2.30–2.60m azione 2.0–3.5 EGI • Mulinello 2500–3000 • Trecciato 0.6–0.8 PE + Fluorocarbon 0.28–0.33",
   montatura: "Trecciato collegato al fluorocarbon con nodo FG. Collegamento diretto all’egi con moschettone leggero.",
@@ -797,9 +796,24 @@ eging: {
     { nome: "Egi 3.5", img: "img/egi-3-5.jpg" }
   ],
   video: "https://www.youtube.com/results?search_query=eging+tecnica"
- }
-}; 
+ },
 
+fondo: {
+  specie: [
+    { nome: "Orata", img: "img/orata.jpg" },
+    { nome: "Sarago Maggiore", img: "img/sarago-maggiore.jpg" },
+    { nome: "Mormora", img: "img/mormora.jpg" },
+    { nome: "Scorfano", img: "img/scorfano.jpg" },
+    { nome: "Pagello", img: "img/pagello.jpg" }
+  ],
+  esche: [
+    { nome: "Arenicola", img: "img/arenicola.jpg" },
+    { nome: "Americano", img: "img/americano.jpg" },
+    { nome: "Bibi", img: "img/bibi.jpg" },
+    { nome: "Coreano", img: "img/coreano.jpg" },
+    { nome: "Cozza", img: "img/cozza.jpg" }
+  ]
+}, 
  function generaMiniCard(lista, tipo) {
   if (!lista || lista.length === 0) {
     return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
@@ -1110,15 +1124,11 @@ function showTotanara() {
   </div>
 
   <div class="card">
-    <b>Specie principali</b><br>
-    Orata • Saraghi • Mormora • Scorfano • Pagello
-  </div>
-
-  <div class="card">
     <b>Montature dedicate</b><br><br>
     <button onclick="showPiomboScorrevole()">Piombo Scorrevole</button><br><br>
     <button onclick="showPaternoster()">Paternoster</button><br><br>
     <button onclick="showLongArm()">Long Arm</button>
+    <button onclick="showBandiera()">Montatura a Bandiera</button>
   </div>
 
   <div class="card">
@@ -1130,13 +1140,22 @@ function showTotanara() {
     <b>Contro</b><br>
     Rischio incagli • Meno selettiva
   </div>
+  
+<div class="card">
+  <h3>🐟 Specie consigliate</h3>
+  ${generaListaCliccabile(tecnicheData.fondo.specie)}
+</div>
 
+<div class="card">
+  <h3>🪱 Esche consigliate</h3>
+  ${generaListaCliccabile(tecnicheData.fondo.esche)}
+</div>
   <div class="card">
     <b>🎥 Video tutorial</b><br>
     <a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare"
        target="_blank">Guarda su YouTube</a>
   </div>
-${generaSpeciePerTecnica("fondo")}
+
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
@@ -1169,6 +1188,27 @@ ${generaSpeciePerTecnica("fondo")}
   </div>
 
   <button onclick="showFondo()">⬅️ Torna alla Pesca a Fondo</button>
+  `;
+}
+ function showBandiera() {
+  document.getElementById("content").innerHTML = `
+    <h2>🎣 Montatura a Bandiera</h2>
+
+    <div class="card">
+      Ideale per fondali misti o con leggero moto ondoso.
+      Mantiene il bracciolo sollevato dal fondo.
+    </div>
+
+    <button onclick="toggleImg('bandieraImg')" class="btn-img">
+      📷 Mostra Montatura
+    </button>
+
+    <div id="bandieraImg" style="display:none;margin-top:15px;">
+      <img src="img/montatura-bandiera.jpg"
+           style="width:100%;max-width:320px;border-radius:12px;">
+    </div>
+
+    <button onclick="showFondo()">⬅️ Torna alla tecnica</button>
   `;
 }
  
@@ -1533,6 +1573,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
