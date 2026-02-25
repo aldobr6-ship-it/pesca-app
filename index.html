@@ -772,6 +772,42 @@ piombi: [
   ]
  }
 };
+eging: {
+
+  quando: "Ideale di notte o al tramonto in porti, scogliere e moli con fondale misto.",
+
+  attrezzatura: "Canna 2.30–2.60m azione 2.0–3.5 EGI • Mulinello 2500–3000 • Trecciato 0.6–0.8 PE + Fluorocarbon 0.28–0.33",
+
+  montatura: "Trecciato collegato al fluorocarbon con nodo FG. Collegamento diretto all’egi con moschettone leggero.",
+
+  montaturaImg: "img/montatura-eging.jpg",
+
+  pro: [
+    "Tecnica divertente e tecnica",
+    "Molto efficace sui cefalopodi",
+    "Attrezzatura leggera"
+  ],
+
+  contro: [
+    "Richiede sensibilità",
+    "Meno produttiva con mare molto mosso"
+  ],
+
+  specie: [
+    { nome: "Calamaro", img: "img/calamaro.jpg" },
+    { nome: "Seppia", img: "img/seppia.jpg" },
+    { nome: "Totano", img: "img/totano.jpg" }
+  ],
+
+  esche: [
+    { nome: "Egi 2.5", img: "img/egi-2-5.jpg" },
+    { nome: "Egi 3.0", img: "img/egi-3-0.jpg" },
+    { nome: "Egi 3.5", img: "img/egi-3-5.jpg" }
+  ],
+
+  video: "https://www.youtube.com/results?search_query=eging+tecnica"
+
+}, 
 
  function generaMiniCard(lista, tipo) {
   if (!lista || lista.length === 0) {
@@ -913,6 +949,69 @@ target="_blank">Guarda su YouTube</a>
 <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
 `;
 }
+
+ function showEging() {
+  const dati = tecnicheData.eging;
+
+  document.getElementById("content").innerHTML = `
+    <h2>🦑 Eging</h2>
+
+    <div class="card">
+      <h3>📅 Quando usarla</h3>
+      <p>${dati.quando}</p>
+    </div>
+
+    <div class="card">
+      <h3>🎒 Attrezzatura base</h3>
+      <p>${dati.attrezzatura}</p>
+    </div>
+
+    <div class="card">
+      <h3>🪢 Montatura dedicata</h3>
+      <p>${dati.montatura}</p>
+
+      <button onclick="toggleMontaturaImg()" class="btn-img">
+        📷 Mostra Montatura
+      </button>
+
+      <div id="montaturaBox" style="display:none;margin-top:10px;">
+        <img src="${dati.montaturaImg}"
+             style="width:100%;max-width:300px;border-radius:12px;cursor:pointer;"
+             onclick="toggleMontaturaImg()">
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✅ Pro</h3>
+      <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
+    </div>
+
+    <div class="card">
+      <h3>❌ Contro</h3>
+      <ul>${dati.contro.map(c => `<li>${c}</li>`).join("")}</ul>
+    </div>
+
+    <div class="card">
+      <h3>🦑 Specie consigliate</h3>
+      ${generaListaCliccabile(dati.specie)}
+    </div>
+
+    <div class="card">
+      <h3>🪱 Esche consigliate</h3>
+      ${generaListaCliccabile(dati.esche)}
+    </div>
+
+    <div class="card">
+      <h3>🎥 Video tutorial</h3>
+      <a href="${dati.video}" target="_blank">
+        Guarda su YouTube
+      </a>
+    </div>
+
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
+ 
 function showPaternoster() {
 document.getElementById("content").innerHTML = `
 <h2>🪝 Paternoster</h2>
@@ -1445,6 +1544,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
