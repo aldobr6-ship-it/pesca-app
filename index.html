@@ -797,7 +797,6 @@ piombi: [
   ],
   video: "https://www.youtube.com/results?search_query=eging+tecnica"
  },
-
 fondo: {
   specie: [
     { nome: "Orata", img: "img/orata.jpg" },
@@ -1183,10 +1182,13 @@ function showTotanara() {
   </div>
 
   <div class="card">
-    <b>🎥 Video tutorial</b><br>
-    <a href="https://www.youtube.com/results?search_query=montatura+piombo+scorrevole+mare"
-       target="_blank">Guarda su YouTube</a>
-  </div>
+      Montatura semplice con piombo libero sulla lenza madre.
+    </div>
+    <button onclick="toggleMontatura('img/piombo-scorrevole.jpg')">
+      📷 Vedi Montatura
+    </button>
+    <div id="montaturaBox"></div>
+    <br><br>
 
   <button onclick="showFondo()">⬅️ Torna alla Pesca a Fondo</button>
   `;
@@ -1574,6 +1576,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
