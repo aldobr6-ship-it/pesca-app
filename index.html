@@ -797,7 +797,31 @@ piombi: [
   ],
   video: "https://www.youtube.com/results?search_query=eging+tecnica"
  },
-fondo: {
+
+ fondo: {
+  montature: [
+    {
+      nome: "Piombo Scorrevole",
+      img: "img/piombo-scorrevole.jpg",
+      descrizione: "Piombo libero sulla lenza madre per maggiore sensibilità."
+    },
+    {
+      nome: "Paternoster",
+      img: "img/paternoster.jpg",
+      descrizione: "Finali laterali ideali per fondo misto."
+    },
+    {
+      nome: "Long Arm",
+      img: "img/long-arm.jpg",
+      descrizione: "Bracciolo lungo per mare calmo."
+    },
+    {
+      nome: "Bandiera",
+      img: "img/bandiera.jpg",
+      descrizione: "Ottima per evitare grovigli."
+    }
+  ],
+ }
   specie: [
     { nome: "Orata", img: "img/orata.jpg" },
     { nome: "Sarago Maggiore", img: "img/sarago-maggiore.jpg" },
@@ -1122,16 +1146,13 @@ function showTotanara() {
     Canna 3–4 m • Mulinello 4000–6000<br>
     Nylon 0,30–0,40
   </div>
+  
+<div class="card">
+  <h3>🎣 Montature</h3>
+  ${generaMiniCard(tecnicheData.fondo.montature, "fondo")}
+</div>
 
-  <div class="card">
-    <b>Montature dedicate</b><br><br>
-    <button onclick="showPiomboScorrevole()">Piombo Scorrevole</button><br><br>
-    <button onclick="showPaternoster()">Paternoster</button><br><br>
-    <button onclick="showLongArm()">Long Arm</button>
-    <button onclick="showBandiera()">Montatura a Bandiera</button>
-  </div>
-
-  <div class="card">
+   <div class="card">
     <b>Pro</b><br>
     Tecnica semplice e versatile
   </div>
@@ -1395,7 +1416,6 @@ function generaMiniCard(lista, tipo) {
 }
 function generaListaCliccabile(lista) {
   let html = "";
-
   lista.forEach(item => {
     html += `
       <div style="margin-bottom:10px;">
@@ -1569,6 +1589,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
