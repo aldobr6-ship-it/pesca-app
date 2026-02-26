@@ -822,6 +822,7 @@ piombi: [
     }
   ],
  }
+  specie: {
   specie: [
     { nome: "Orata", img: "img/orata.jpg" },
     { nome: "Sarago Maggiore", img: "img/sarago-maggiore.jpg" },
@@ -1181,6 +1182,7 @@ function showTotanara() {
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
+ 
 function apriDettaglio(tipo, index) {
   const detailBox = document.getElementById(`${tipo}-detail`);
   const item = tecnicheData[tipo].montature[index];
@@ -1612,6 +1614,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
