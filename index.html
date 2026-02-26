@@ -1506,27 +1506,31 @@ function toggleImg(id) {
   box.style.display = box.style.display === "none" ? "block" : "none";
 }
 function apriDettaglio(tipo, index) {
-  let tecnica;
-  let categoria;
-
-  if (tipo.includes("-")) {
-    const parti = tipo.split("-");
-    tecnica = parti[0];
-    categoria = parti[1] === "piombo" ? "piombi" : parti[1];
-  } else {
-    tecnica = tipo;
-    categoria = "esche";
-  }
-
-  const lista = tecnicheData[tecnica][categoria];
-  if (!lista) return;
-
-  const item = lista[index];
-  if (!item) return;
 
   const container = document.getElementById(tipo + "-detail");
   if (!container) return;
 
+  let item;
+
+  // Gestione montature
+  if (tecnicheData[tipo] && tecnicheData[tipo].montature) {
+    item = tecnicheData[tipo].montature[index];
+  }
+  // Gestione specie
+  else if (tecnicheData[tipo] && tecnicheData[tipo].specie) {
+    item = tecnicheData[tipo].specie[index];
+  }
+  // Gestione esche
+  else if (tecnicheData[tipo] && tecnicheData[tipo].esche) {
+    item = tecnicheData[tipo].esche[index];
+  }
+  else {
+    return;
+  }
+
+  if (!item) return;
+
+  // Toggle chiudi
   if (container.dataset.open == index) {
     container.innerHTML = "";
     container.dataset.open = "";
@@ -1534,16 +1538,13 @@ function apriDettaglio(tipo, index) {
   }
 
   container.dataset.open = index;
+
   container.innerHTML = `
     <div class="card">
       <h3>${item.nome}</h3>
       <img src="./${item.img}" 
-           style="width:55%;max-width:200px;border-radius:12px;display:block;margin:10px auto;">
+           style="width:60%;max-width:300px;border-radius:12px;display:block;margin:10px auto;">
       ${item.descrizione ? `<p>${item.descrizione}</p>` : ""}
-      ${item.peso ? `<p><strong>Peso:</strong> ${item.peso}</p>` : ""}
-      ${item.mare ? `<p><strong>Mare:</strong> ${item.mare}</p>` : ""}
-      ${item.target ? `<p><strong>Target:</strong> ${item.target}</p>` : ""}
-      ${item.efficacia ? `<p><strong>Efficacia:</strong> ${"⭐".repeat(item.efficacia)}</p>` : ""}
     </div>
   `;
 }
@@ -1631,6 +1632,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
