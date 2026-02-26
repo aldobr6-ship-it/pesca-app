@@ -1139,27 +1139,23 @@ function showTotanara() {
   const container = document.getElementById(tipo + "-detail");
   if (!container) return;
 
-  let item;
+  let tecnica;
+  let categoria;
 
-  // Gestione montature
-  if (tecnicheData[tipo] && tecnicheData[tipo].montature) {
-    item = tecnicheData[tipo].montature[index];
-  }
-  // Gestione specie
-  else if (tecnicheData[tipo] && tecnicheData[tipo].specie) {
-    item = tecnicheData[tipo].specie[index];
-  }
-  // Gestione esche
-  else if (tecnicheData[tipo] && tecnicheData[tipo].esche) {
-    item = tecnicheData[tipo].esche[index];
-  }
-  else {
-    return;
+  if (tipo.includes("-")) {
+    const parti = tipo.split("-");
+    tecnica = parti[0];
+    categoria = parti[1];
+  } else {
+    tecnica = tipo;
+    categoria = "esche";
   }
 
+  if (!tecnicheData[tecnica] || !tecnicheData[tecnica][categoria]) return;
+
+  const item = tecnicheData[tecnica][categoria][index];
   if (!item) return;
 
-  // Toggle chiudi
   if (container.dataset.open == index) {
     container.innerHTML = "";
     container.dataset.open = "";
@@ -1579,6 +1575,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
