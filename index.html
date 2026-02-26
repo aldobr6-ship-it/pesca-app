@@ -1146,13 +1146,13 @@ function showTotanara() {
     Canna 3–4 m • Mulinello 4000–6000<br>
     Nylon 0,30–0,40
   </div>
-  
-<div class="card">
-  <h3>🎣 Montature</h3>
-  ${generaMiniCard(tecnicheData.fondo.montature, "fondo")}
-</div>
 
-   <div class="card">
+  <div class="card">
+    <h3>🎣 Montature</h3>
+    ${generaMiniCard(tecnicheData.fondo.montature, "fondo")}
+  </div>
+
+  <div class="card">
     <b>Pro</b><br>
     Tecnica semplice e versatile
   </div>
@@ -1161,45 +1161,48 @@ function showTotanara() {
     <b>Contro</b><br>
     Rischio incagli • Meno selettiva
   </div>
-  
-<div class="card">
-  <h3>🐟 Specie consigliate</h3>
-  ${generaListaCliccabile(tecnicheData.fondo.specie)}
-</div>
 
-<div class="card">
-  <h3>🪱 Esche consigliate</h3>
-  ${generaListaCliccabile(tecnicheData.fondo.esche)}
-</div>
+  <div class="card">
+    <h3>🐟 Specie consigliate</h3>
+    ${generaListaCliccabile(tecnicheData.fondo.specie)}
+  </div>
+
+  <div class="card">
+    <h3>🪱 Esche consigliate</h3>
+    ${generaListaCliccabile(tecnicheData.fondo.esche)}
+  </div>
+
   <div class="card">
     <b>🎥 Video tutorial</b><br>
     <a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare"
        target="_blank">Guarda su YouTube</a>
   </div>
+
+  <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
 function apriDettaglio(tipo, index) {
   const detailBox = document.getElementById(`${tipo}-detail`);
   const item = tecnicheData[tipo].montature[index];
 
-  // Se è già aperto lo stesso elemento → chiudi
+  if (!detailBox || !item) return;
+
   if (detailBox.dataset.open == index) {
     detailBox.innerHTML = "";
     detailBox.dataset.open = "";
     return;
   }
 
-  // Altrimenti apri
+  detailBox.dataset.open = index;
   detailBox.innerHTML = `
     <div class="card">
-      <img src="${item.img}" style="width:100%; max-width:400px; border-radius:10px;">
-      <p>${item.descrizione}</p>
+      <img src="./${item.img}" 
+           style="width:55%;max-width:300px;border-radius:12px;display:block;margin:10px auto;">
+      <p>${item.descrizione || ""}</p>
     </div>
   `;
-
-  detailBox.dataset.open = index;
 }
-  <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
-  `;
-}
+ 
  function showPiomboScorrevole() {
    document.getElementById("content").innerHTML = `
     <h2>⚓ Piombo Scorrevole</h2>
@@ -1609,6 +1612,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
