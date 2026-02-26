@@ -1176,7 +1176,27 @@ function showTotanara() {
     <a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare"
        target="_blank">Guarda su YouTube</a>
   </div>
+function apriDettaglio(tipo, index) {
+  const detailBox = document.getElementById(`${tipo}-detail`);
+  const item = tecnicheData[tipo].montature[index];
 
+  // Se è già aperto lo stesso elemento → chiudi
+  if (detailBox.dataset.open == index) {
+    detailBox.innerHTML = "";
+    detailBox.dataset.open = "";
+    return;
+  }
+
+  // Altrimenti apri
+  detailBox.innerHTML = `
+    <div class="card">
+      <img src="${item.img}" style="width:100%; max-width:400px; border-radius:10px;">
+      <p>${item.descrizione}</p>
+    </div>
+  `;
+
+  detailBox.dataset.open = index;
+}
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
@@ -1589,6 +1609,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
