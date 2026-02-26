@@ -754,7 +754,6 @@ const surfcastingData = {
     efficacia: 4
   }
 ],
-
 piombi: [
   {
     nome: "Jig Head",
@@ -797,7 +796,6 @@ piombi: [
   ],
   video: "https://www.youtube.com/results?search_query=eging+tecnica"
  },
-
  fondo: {
   montature: [
     {
@@ -852,35 +850,29 @@ function showSpinning() {
   const dati = tecnicheData.spinning;
   document.getElementById("content").innerHTML = `
     <h2>🎣 Spinning</h2>
-
     <div class="card">
   <h3>📅 Quando usarla</h3>
   <p>${dati.quando}</p>
 </div>
-
   <div class="card">
   <h3>🎒 Attrezzatura base</h3>
   <p>${dati.attrezzatura}</p>
 </div>
-
  <div class="card">
   <h3>🪢 Montatura dedicata</h3>
   <p>${dati.montatura}</p>
   <button onclick="toggleMontaturaImg()" class="btn-img">
   📷 Mostra Montatura
 </button>
-
 <div id="montaturaBox" style="display:none;margin-top:10px;">
   <img src="${dati.montaturaImg}" 
        style="width:100%;max-width:300px;border-radius:12px;cursor:pointer;"
        onclick="toggleMontaturaImg()">
 </div>
-   
  <div class="card">
   <h3>✅ Pro</h3>
   <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
 </div>
-
  <div class="card">
   <h3>❌ Contro</h3>
   <ul>${dati.contro.map(c => `<li>${c}</li>`).join("")}</ul>
@@ -890,17 +882,14 @@ function showSpinning() {
   <h3>🐟 Specie consigliate</h3>
   ${generaListaCliccabile(dati.specie)}
 </div>
-
 <div class="card">
   <h3>🪱 Esche consigliate</h3>
   ${generaListaCliccabile(dati.esche)}
 </div>
-
 <div class="card" style="margin-top:20px;">
 <h3>⚖️ Piombi consigliati</h3>
 ${generaMiniCard(dati.piombi, "spinning-piombo")}
 </div>
- 
   <div class="card">
   <h3>🎥 Video tutorial</h3>
   <p>
@@ -915,28 +904,23 @@ ${generaMiniCard(dati.piombi, "spinning-piombo")}
  function showEging() {
   document.getElementById("content").innerHTML = `
   <h2>🦑 Eging</h2>
-
   <div class="card">
     <b>Quando usarla</b><br>
     Mare calmo • Sera e notte • Porti e moli
   </div>
-
   <div class="card">
     <b>Attrezzatura base</b><br>
     Canna 2,40–2,60 m • Mulinello 2500<br>
     Treccia sottile + finale fluorocarbon
   </div>
-
   <div class="card">
     <b>Montature dedicate</b><br><br>
     <button onclick="showTotanara()">Totanara / Egi</button>
   </div>
-
   <div class="card">
     <b>Pro</b><br>
     Tecnica tecnica e divertente
   </div>
-
   <div class="card">
     <b>Contro</b><br>
     Molto stagionale
@@ -948,7 +932,6 @@ ${generaSpeciePerTecnica("eging")}
 function showTrave() {
 document.getElementById("content").innerHTML = `
 <h2>🪝 Montatura a Trave</h2>
-
 <div class="card">
 <b>Quando usarla</b><br>
 Mare mosso • Surfcasting classico • Spiaggia
@@ -975,10 +958,8 @@ target="_blank">Guarda su YouTube</a>
 <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
 `;
 }
-
  function showEging() {
   const dati = tecnicheData.eging;
-
   document.getElementById("content").innerHTML = `
     <h2>🦑 Eging</h2>
 
@@ -991,37 +972,30 @@ target="_blank">Guarda su YouTube</a>
       <h3>🎒 Attrezzatura base</h3>
       <p>${dati.attrezzatura}</p>
     </div>
-
     <div class="card">
       <h3>🪢 Montatura dedicata</h3>
       <p>${dati.montatura}</p>
-
       <button onclick="toggleMontaturaImg()" class="btn-img">
         📷 Mostra Montatura
       </button>
-
       <div id="montaturaBox" style="display:none;margin-top:10px;">
         <img src="${dati.montaturaImg}"
              style="width:100%;max-width:300px;border-radius:12px;cursor:pointer;"
              onclick="toggleMontaturaImg()">
       </div>
     </div>
-
     <div class="card">
       <h3>✅ Pro</h3>
       <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
     </div>
-
     <div class="card">
       <h3>❌ Contro</h3>
       <ul>${dati.contro.map(c => `<li>${c}</li>`).join("")}</ul>
     </div>
-
     <div class="card">
       <h3>🦑 Specie consigliate</h3>
       ${generaListaCliccabile(dati.specie)}
     </div>
-
     <div class="card">
       <h3>🪱 Esche consigliate</h3>
       ${generaListaCliccabile(dati.esche)}
@@ -1033,7 +1007,6 @@ target="_blank">Guarda su YouTube</a>
         Guarda su YouTube
       </a>
     </div>
-
     <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
@@ -1046,62 +1019,52 @@ document.getElementById("content").innerHTML = `
 <b>Quando usarla</b><br>
 Fondali misti • Pesce sospeso
 </div>
-
 <div class="card">
 <b>Composizione</b><br><br>
 Braccioli alti • Piombo finale • Terminali corti<br><br>
 <img src="./img/pater-noster.jpg" 
 style="width:100%;max-width:280px;border-radius:12px;">
 </div>
-
 <div class="card">
 <b>Esche consigliate</b><br>
 Coreano • Americano • Gambero
 </div>
-
 <div class="card">
 <b>🎥 Video tutorial</b><br>
 <a href="https://www.youtube.com/results?search_query=montatura+paternoster+pesca"
 target="_blank">Guarda su YouTube</a>
 </div>
-
 <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
 `;
 }
 function showLongArm() {
 document.getElementById("content").innerHTML = `
 <h2>🪝 Long Arm</h2>
-
 <div class="card">
 <b>Quando usarla</b><br>
 Mare calmo • Pesci sospettosi
 </div>
-
 <div class="card">
 <b>Composizione</b><br><br>
 Bracciolo 120–200 cm • Piombo scorrevole<br><br>
 <img src="./img/long-arm.jpg" 
 style="width:100%;max-width:280px;border-radius:12px;">
 </div>
-
 <div class="card">
 <b>Esche consigliate</b><br>
 Tremolina • Arenicola • Bibi
 </div>
-
 <div class="card">
 <b>🎥 Video tutorial</b><br>
 <a href="https://www.youtube.com/results?search_query=montatura+long+arm+surfcasting"
 target="_blank">Guarda su YouTube</a>
 </div>
-
 <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
 `;
 }
 function showTotanara() {
   document.getElementById("content").innerHTML = `
   <h2>🦑 Totanara (Egi)</h2>
-
   <div class="card">
     <b>Quando usarla</b><br>
     In presenza di seppie, totani e calamari<br>
@@ -1111,13 +1074,11 @@ function showTotanara() {
   <div class="card" style="display:flex; flex-direction:column; align-items:center;">
     <b>Composizione</b><br><br>
     Artificiale Egi collegato a finale fluorocarbon 0,25–0,35<br><br>
-    
-    <b>📷 Foto montatura</b><br><br>
+     <b>📷 Foto montatura</b><br><br>
     <img src="./img/totanara.jpg" 
          style="width:100%; max-width:250px; border-radius:12px; cursor:pointer;"
          onclick="this.style.transform='scale(1.4)'; setTimeout(()=>this.style.transform='scale(1)',500);">
   </div>
-
   <div class="card">
     <b>Recupero</b><br>
     Lancio • Affondamento • 2–3 jerk • Pausa
@@ -1139,38 +1100,31 @@ function showTotanara() {
     <b>Quando usarla</b><br>
     Tutto l'anno • Porto • Scogliera • Spiaggia
   </div>
-
   <div class="card">
     <b>Attrezzatura base</b><br>
     Canna 3–4 m • Mulinello 4000–6000<br>
     Nylon 0,30–0,40
   </div>
-
   <div class="card">
     <h3>🎣 Montature</h3>
-    ${generaMiniCard(tecnicheData.fondo.montature, "fondo")}
+    ${generaMiniCard(tecnicheData.fondo.montature, "fondo-montature")}
   </div>
-
   <div class="card">
     <b>Pro</b><br>
     Tecnica semplice e versatile
   </div>
-
   <div class="card">
     <b>Contro</b><br>
     Rischio incagli • Meno selettiva
   </div>
-
   <div class="card">
     <h3>🐟 Specie consigliate</h3>
     ${generaListaCliccabile(tecnicheData.fondo.specie)}
   </div>
-
   <div class="card">
     <h3>🪱 Esche consigliate</h3>
     ${generaListaCliccabile(tecnicheData.fondo.esche)}
   </div>
-
   <div class="card">
     <b>🎥 Video tutorial</b><br>
     <a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare"
@@ -1180,30 +1134,28 @@ function showTotanara() {
   <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
- 
-function apriDettaglio(tipo, index) {
+ function apriDettaglio(tipo, index) {
 
   const container = document.getElementById(tipo + "-detail");
   if (!container) return;
 
-  let lista;
+  let tecnica;
+  let categoria;
 
-  // Se è fondo o spinning → montature
-  if (tecnicheData[tipo] && tecnicheData[tipo].montature) {
-    lista = tecnicheData[tipo].montature;
-  }
-  // Altrimenti esche
-  else if (tecnicheData[tipo] && tecnicheData[tipo].esche) {
-    lista = tecnicheData[tipo].esche;
-  }
-  else {
-    return;
+  if (tipo.includes("-")) {
+    const parti = tipo.split("-");
+    tecnica = parti[0];
+    categoria = parti[1];
+  } else {
+    tecnica = tipo;
+    categoria = "esche";
   }
 
-  const item = lista[index];
+  if (!tecnicheData[tecnica] || !tecnicheData[tecnica][categoria]) return;
+
+  const item = tecnicheData[tecnica][categoria][index];
   if (!item) return;
 
-  // Toggle chiusura
   if (container.dataset.open == index) {
     container.innerHTML = "";
     container.dataset.open = "";
@@ -1221,11 +1173,9 @@ function apriDettaglio(tipo, index) {
     </div>
   `;
 }
- 
  function showPiomboScorrevole() {
    document.getElementById("content").innerHTML = `
     <h2>⚓ Piombo Scorrevole</h2>
-
     <div class="card">
       Montatura semplice con piombo libero sulla lenza madre.
     </div>
@@ -1233,9 +1183,7 @@ function apriDettaglio(tipo, index) {
     <button onclick="toggleMontatura('img/piombo-scorrevole.jpg')">
       📷 Vedi Montatura
     </button>
-
     <div id="montaturaBox"></div>
-
     <br><br>
     <button onclick="showFondo()">⬅️ Torna alla Pesca a Fondo</button>
   `;
@@ -1243,25 +1191,20 @@ function apriDettaglio(tipo, index) {
  function showBandiera() {
   document.getElementById("content").innerHTML = `
     <h2>🎣 Montatura a Bandiera</h2>
-
     <div class="card">
       Ideale per fondali misti o con leggero moto ondoso.
       Mantiene il bracciolo sollevato dal fondo.
     </div>
-
     <button onclick="toggleImg('bandieraImg')" class="btn-img">
       📷 Mostra Montatura
     </button>
-
     <div id="bandieraImg" style="display:none;margin-top:15px;">
       <img src="img/montatura-bandiera.jpg"
            style="width:100%;max-width:320px;border-radius:12px;">
     </div>
-
     <button onclick="showFondo()">⬅️ Torna alla tecnica</button>
   `;
 }
- 
 /* --- DATI SPECIE --- */
 const specie = {
 orata: {
@@ -1632,6 +1575,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
