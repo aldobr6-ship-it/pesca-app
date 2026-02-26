@@ -1182,23 +1182,42 @@ function showTotanara() {
 }
  
 function apriDettaglio(tipo, index) {
-  const detailBox = document.getElementById(`${tipo}-detail`);
-  const item = tecnicheData[tipo].montature[index];
 
-  if (!detailBox || !item) return;
+  const container = document.getElementById(tipo + "-detail");
+  if (!container) return;
 
-  if (detailBox.dataset.open == index) {
-    detailBox.innerHTML = "";
-    detailBox.dataset.open = "";
+  let lista;
+
+  // Se è fondo o spinning → montature
+  if (tecnicheData[tipo] && tecnicheData[tipo].montature) {
+    lista = tecnicheData[tipo].montature;
+  }
+  // Altrimenti esche
+  else if (tecnicheData[tipo] && tecnicheData[tipo].esche) {
+    lista = tecnicheData[tipo].esche;
+  }
+  else {
     return;
   }
 
-  detailBox.dataset.open = index;
-  detailBox.innerHTML = `
+  const item = lista[index];
+  if (!item) return;
+
+  // Toggle chiusura
+  if (container.dataset.open == index) {
+    container.innerHTML = "";
+    container.dataset.open = "";
+    return;
+  }
+
+  container.dataset.open = index;
+
+  container.innerHTML = `
     <div class="card">
+      <h3>${item.nome}</h3>
       <img src="./${item.img}" 
-           style="width:55%;max-width:300px;border-radius:12px;display:block;margin:10px auto;">
-      <p>${item.descrizione || ""}</p>
+           style="width:60%;max-width:300px;border-radius:12px;display:block;margin:10px auto;">
+      ${item.descrizione ? `<p>${item.descrizione}</p>` : ""}
     </div>
   `;
 }
@@ -1612,6 +1631,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
