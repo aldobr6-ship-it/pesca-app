@@ -848,7 +848,7 @@ function apriDettaglio(tipo, index) {
 
   if (!item) return;
 
-  if (container.dataset.open == index) {
+ if (container.dataset.open === String(index)) {
     container.innerHTML = "";
     container.dataset.open = "";
     return;
@@ -1019,6 +1019,7 @@ window.addEventListener("load", () => {
  
 </body>
 </html>
+
 
 
 
