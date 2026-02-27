@@ -456,10 +456,9 @@ Mare mosso o formato, spiagge sabbiose, alba e tramonto
 Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40
 </div>
  
-<div class="card"><b>Montature dedicate</b><br><br>
-<button onclick="showMontaturaDetail('trave')">Montatura a Trave</button><br><br>
-<button onclick="showMontaturaDetail('paternoster')">Paternoster</button><br><br>
-<button onclick="showMontaturaDetail('long-arm')">Long Arm</button>
+<div class="card">
+  <h3>🪝 Montature dedicate</h3>
+  ${generaMiniCard(tecnicheData.fondo.montature, "surf")}
 </div>
  
 <div class="card">
@@ -839,12 +838,11 @@ function apriDettaglio(tipo, index) {
   const container = document.getElementById(tipo + "-detail");
   if (!container) return;
 
-  let item;
-  if (tecnicheData.fondo && tecnicheData.fondo.montature) {
-    item = tecnicheData.fondo.montature[index];
-  } else {
-    return;
-  }
+  if (tipo === "fondo") {
+  item = tecnicheData.fondo.montature[index];
+} else if (tipo === "surf") {
+  item = tecnicheData.fondo.montature[index];
+}
 
   if (!item) return;
 
@@ -1019,6 +1017,7 @@ window.addEventListener("load", () => {
  
 </body>
 </html>
+
 
 
 
