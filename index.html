@@ -835,32 +835,32 @@ function toggleImg(id) {
 }
 
 function apriDettaglio(tipo, index) {
+
   const container = document.getElementById(tipo + "-detail");
   if (!container) return;
 
-  if (tipo === "fondo") {
-  item = tecnicheData.fondo.montature[index];
-} else if (tipo === "surf") {
-  item = tecnicheData.fondo.montature[index];
-}
-
+  const lista = tecnicheData.fondo.montature;
+  const item = lista[index];
   if (!item) return;
 
- if (container.dataset.open === String(index)) {
+  // Toggle corretto con confronto stringa
+  if (container.dataset.open === String(index)) {
     container.innerHTML = "";
     container.dataset.open = "";
     return;
   }
 
-  container.dataset.open = index;
+  container.dataset.open = String(index);
+
   container.innerHTML = `
-    <div class="card">
+    <div class="card" style="margin-top:15px;">
       <h3>${item.nome}</h3>
+      <img src="${item.img}" 
+           style="width:100%;max-width:350px;border-radius:14px;margin:12px auto;display:block;">
       <p>${item.descrizione}</p>
     </div>
   `;
 }
-
 /* DATI */
 const surfcastingData = {
   specie: [
@@ -1017,6 +1017,7 @@ window.addEventListener("load", () => {
  
 </body>
 </html>
+
 
 
 
