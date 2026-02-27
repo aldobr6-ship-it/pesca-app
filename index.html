@@ -839,20 +839,30 @@ function apriDettaglio(tipo, index) {
   const container = document.getElementById(tipo + "-detail");
   if (!container) return;
 
-  // Determina tecnica e categoria
   let tecnica = tipo;
   let categoria = "montature";
 
-  // Se tipo contiene trattino (es: fondo-esche)
+  // Gestione tipo con categoria (es: fondo-esche, fondo-specie)
   if (tipo.includes("-")) {
     const parti = tipo.split("-");
     tecnica = parti[0];
     categoria = parti[1];
   }
 
-  if (!tecnicheData[tecnica] || !tecnicheData[tecnica][categoria]) return;
+  // Se la tecnica non ha montature ma ha direttamente array (es spinning semplice)
+  if (Array.isArray(tecnicheData[tecnica])) {
+    categoria = tecnica;
+  }
 
-  const lista = tecnicheData[tecnica][categoria];
+  let lista;
+
+  if (categoria === tecnica && Array.isArray(tecnicheData[tecnica])) {
+    lista = tecnicheData[tecnica];
+  } else {
+    if (!tecnicheData[tecnica] || !tecnicheData[tecnica][categoria]) return;
+    lista = tecnicheData[tecnica][categoria];
+  }
+
   const item = lista[index];
   if (!item) return;
 
@@ -871,6 +881,10 @@ function apriDettaglio(tipo, index) {
       ${item.img ? `<img src="${item.img}" 
         style="width:100%;max-width:350px;border-radius:14px;margin:12px auto;display:block;">` : ""}
       ${item.descrizione ? `<p>${item.descrizione}</p>` : ""}
+      ${item.peso ? `<p><strong>Peso:</strong> ${item.peso}</p>` : ""}
+      ${item.mare ? `<p><strong>Mare:</strong> ${item.mare}</p>` : ""}
+      ${item.target ? `<p><strong>Target:</strong> ${item.target}</p>` : ""}
+      ${item.efficacia ? `<p><strong>Efficacia:</strong> ${"⭐".repeat(item.efficacia)}</p>` : ""}
     </div>
   `;
 }
@@ -1046,6 +1060,7 @@ window.addEventListener("load", () => {
  
 </body>
 </html>
+
 
 
 
