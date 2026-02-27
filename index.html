@@ -839,11 +839,24 @@ function apriDettaglio(tipo, index) {
   const container = document.getElementById(tipo + "-detail");
   if (!container) return;
 
-  const lista = tecnicheData.fondo.montature;
+  // Determina tecnica e categoria
+  let tecnica = tipo;
+  let categoria = "montature";
+
+  // Se tipo contiene trattino (es: fondo-esche)
+  if (tipo.includes("-")) {
+    const parti = tipo.split("-");
+    tecnica = parti[0];
+    categoria = parti[1];
+  }
+
+  if (!tecnicheData[tecnica] || !tecnicheData[tecnica][categoria]) return;
+
+  const lista = tecnicheData[tecnica][categoria];
   const item = lista[index];
   if (!item) return;
 
-  // Toggle corretto con confronto stringa
+  // Toggle ON/OFF
   if (container.dataset.open === String(index)) {
     container.innerHTML = "";
     container.dataset.open = "";
@@ -855,9 +868,9 @@ function apriDettaglio(tipo, index) {
   container.innerHTML = `
     <div class="card" style="margin-top:15px;">
       <h3>${item.nome}</h3>
-      <img src="${item.img}" 
-           style="width:100%;max-width:350px;border-radius:14px;margin:12px auto;display:block;">
-      <p>${item.descrizione}</p>
+      ${item.img ? `<img src="${item.img}" 
+        style="width:100%;max-width:350px;border-radius:14px;margin:12px auto;display:block;">` : ""}
+      ${item.descrizione ? `<p>${item.descrizione}</p>` : ""}
     </div>
   `;
 }
@@ -1033,6 +1046,7 @@ window.addEventListener("load", () => {
  
 </body>
 </html>
+
 
 
 
