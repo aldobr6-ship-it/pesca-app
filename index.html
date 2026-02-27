@@ -986,8 +986,8 @@ function toggleImageBox(id, imgPath = null, button = null) {
 
 let currentlyOpenBox = null;
 
-function toggleImageBox(id, imgPath = null, button = null) {
-  const box = document.getElementById(id);
+function toggleImageBox(id, imgPath, button) {
+  var box = document.getElementById(id);
   if (!box) return;
 
   if (currentlyOpenBox && currentlyOpenBox !== box) {
@@ -1003,12 +1003,15 @@ function toggleImageBox(id, imgPath = null, button = null) {
     return;
   }
 
-  if (imgPath && box.innerHTML.trim() === "") {
-    box.innerHTML = `
-      <img src="${imgPath}"
-           style="width:100%;max-width:320px;border-radius:14px;"
-           onerror="this.style.display='none'">
-    `;
+  if (imgPath && box.innerHTML === "") {
+    var img = document.createElement("img");
+    img.src = imgPath;
+    img.style.width = "100%";
+    img.style.maxWidth = "320px";
+    img.style.borderRadius = "14px";
+    img.style.marginTop = "10px";
+    img.onerror = function() { this.style.display = "none"; };
+    box.appendChild(img);
   }
 
   box.style.display = "block";
@@ -1016,7 +1019,6 @@ function toggleImageBox(id, imgPath = null, button = null) {
 
   if (button) button.innerText = "❌ Chiudi";
 }
-
 /* ===== FUNZIONI COMPATIBILITÀ (NON CAUSANO ERRORI) ===== */
 
 function toggleImgById(id) {
@@ -1044,6 +1046,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
