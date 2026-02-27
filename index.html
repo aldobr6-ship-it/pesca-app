@@ -1173,7 +1173,7 @@ function showTotanara() {
   container.innerHTML = `
     <div class="card">
       <h3>${item.nome}</h3>
-      <img src="./${item.img}" 
+      <img src="${item.img}" 
            style="width:60%;max-width:300px;border-radius:12px;display:block;margin:10px auto;">
       ${item.descrizione ? `<p>${item.descrizione}</p>` : ""}
     </div>
@@ -1581,6 +1581,7 @@ showHome();
  
 </body>
 </html>
+
 
 
 
