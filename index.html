@@ -984,7 +984,52 @@ function toggleImageBox(id, imgPath = null, button = null) {
   if (button) button.innerText = "❌ Chiudi";
 }
 
+let currentlyOpenBox = null;
 
+function toggleImageBox(id, imgPath = null, button = null) {
+  const box = document.getElementById(id);
+  if (!box) return;
+
+  if (currentlyOpenBox && currentlyOpenBox !== box) {
+    currentlyOpenBox.style.display = "none";
+    currentlyOpenBox.innerHTML = "";
+  }
+
+  if (box.style.display === "block") {
+    box.style.display = "none";
+    box.innerHTML = "";
+    currentlyOpenBox = null;
+    if (button) button.innerText = "📷 Mostra";
+    return;
+  }
+
+  if (imgPath && box.innerHTML.trim() === "") {
+    box.innerHTML = `
+      <img src="${imgPath}"
+           style="width:100%;max-width:320px;border-radius:14px;"
+           onerror="this.style.display='none'">
+    `;
+  }
+
+  box.style.display = "block";
+  currentlyOpenBox = box;
+
+  if (button) button.innerText = "❌ Chiudi";
+}
+
+/* ===== FUNZIONI COMPATIBILITÀ (NON CAUSANO ERRORI) ===== */
+
+function toggleImgById(id) {
+  toggleImageBox(id);
+}
+
+function toggleMontaturaImg() {
+  toggleImageBox("montaturaBox");
+}
+
+function toggleMontatura(imgPath) {
+  toggleImageBox("montaturaBox", imgPath);
+}
 /* ===== AVVIO ===== */
 caricaTema();
 showHome();
@@ -999,6 +1044,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
