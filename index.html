@@ -582,28 +582,22 @@ const specie = {
 /* ===== FUNZIONI UTILITÀ ===== */
 
 // UNICA definizione: lista cliccabile con toggle immagine per ID
-
 function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
-  
   lista.forEach((item, index) => {
-    const safeId = "box-" + item.nome.replace(/[^a-zA-Z0-9]/g, "_") + "-" + index;
-
+    const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g, "_") + "-" + index;
     html += `
-      <div class="mini-card">
-        <div onclick="toggleImageBox('${safeId}','${item.img}', this)" 
-             style="font-weight:bold;">
-          ${item.nome}
+      <div class="mini-card" onclick="toggleImgById('${safeId}')">
+        ${item.nome}
+        <div id="${safeId}" style="display:none;margin-top:10px;">
+          <img src="${item.img}" style="width:100%;max-width:250px;border-radius:12px;" onerror="this.style.display='none'">
         </div>
-        <div id="${safeId}" style="display:none;margin-top:10px;"></div>
       </div>
     `;
   });
-
   html += "</div>";
   return html;
 }
-
 
 // UNICA definizione generaMiniCard: con oggetti {nome, img, descrizione}
 function generaMiniCard(lista, tipo) {
@@ -621,11 +615,21 @@ function generaMiniCard(lista, tipo) {
 }
 
 // UNICA definizione toggleImg: per ID stringa
+function toggleImgById(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === "none" ? "block" : "none";
+}
 
+function toggleMontaturaImg() {
+  const box = document.getElementById("montaturaBox");
+  if (box) box.style.display = box.style.display === "none" ? "block" : "none";
+}
 
-
-
-" style="width:100%;max-width:400px;margin-top:10px;border-radius:10px;" onerror="this.style.display='none'">`;
+function toggleMontatura(imgPath) {
+  const box = document.getElementById("montaturaBox");
+  if (!box) return;
+  if (box.innerHTML === "") {
+    box.innerHTML = `<img src="${imgPath}" style="width:100%;max-width:400px;margin-top:10px;border-radius:10px;" onerror="this.style.display='none'">`;
   } else {
     box.innerHTML = "";
   }
@@ -950,39 +954,8 @@ function showSpecieDetail(id) {
 }
 
 
-let currentlyOpenBox = null;
 
-function toggleImageBox(id, imgPath = null, button = null) {
-  const box = document.getElementById(id);
-  if (!box) return;
-
-  // Chiude eventuale box aperto diverso
-  if (currentlyOpenBox && currentlyOpenBox !== box) {
-    currentlyOpenBox.style.display = "none";
-    currentlyOpenBox.innerHTML = "";
-  }
-
-  // Se è già aperto → chiudi
-  if (box.style.display === "block") {
-    box.style.display = "none";
-    box.innerHTML = "";
-    currentlyOpenBox = null;
-    if (button) button.innerText = "📷 Mostra";
-    return;
-  }
-
-  if (imgPath) {
-    box.innerHTML = `
-      <img src="${imgPath}"
-           style="width:100%;max-width:320px;border-radius:14px;animation:fadeInImg 0.3s ease;"
-           onerror="this.style.display='none'">
-    `;
-  }
-
-  box.style.display = "block";
-  currentlyOpenBox = box;
-  if (button) button.innerText = "❌ Chiudi";
-}
+/* ===== TOGGLE IMMAGINI PROFESSIONALE ===== */
 
 let currentlyOpenBox = null;
 
@@ -1010,6 +983,7 @@ function toggleImageBox(id, imgPath, button) {
     img.style.maxWidth = "320px";
     img.style.borderRadius = "14px";
     img.style.marginTop = "10px";
+    img.style.animation = "fadeInImg 0.3s ease";
     img.onerror = function() { this.style.display = "none"; };
     box.appendChild(img);
   }
@@ -1019,7 +993,8 @@ function toggleImageBox(id, imgPath, button) {
 
   if (button) button.innerText = "❌ Chiudi";
 }
-/* ===== FUNZIONI COMPATIBILITÀ (NON CAUSANO ERRORI) ===== */
+
+/* Funzioni compatibilità */
 
 function toggleImgById(id) {
   toggleImageBox(id);
@@ -1032,6 +1007,8 @@ function toggleMontaturaImg() {
 function toggleMontatura(imgPath) {
   toggleImageBox("montaturaBox", imgPath);
 }
+
+
 /* ===== AVVIO ===== */
 caricaTema();
 showHome();
@@ -1046,6 +1023,176 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
