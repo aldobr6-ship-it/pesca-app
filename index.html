@@ -349,15 +349,35 @@ function showMontature() {
   `;
 }
 
-function generaMontatureSpecie(listaMontature) {
-  if (!listaMontature || listaMontature.length === 0) return "";
-  let html = "<div class='card'><b>🪝 Montature consigliate</b><br><br>";
-  listaMontature.forEach(m => {
-    html += `<div style="margin:6px 0;">• ${m.replaceAll("-", " ")}</div>`;
-  });
-  html += "</div>";
-  return html;
+function generaMontatureSpecie(montatureArray) {
+  if (!montatureArray || montatureArray.length === 0) return "";
+
+  return `
+    <div class="montature-specie">
+      <h3>Montature consigliate</h3>
+      <ul>
+        ${montatureArray.map(m => `
+          <li onclick="vaiAMontatura('${m}')">
+            ${formattaNomeMontatura(m)}
+          </li>
+        `).join("")}
+      </ul>
+    </div>
+  `;
 }
+
+function vaiAMontatura(id) {
+  window.location.hash = "montature";
+  setTimeout(() => {
+    mostraDettaglioMontatura(id);
+  }, 100);
+}
+
+function formattaNomeMontatura(nome) {
+  return nome
+    .replaceAll("-", " ")
+    .replace(/\b\w/g, l => l.toUpperCase());
+}  
 
 /* ===== NODI ===== */
 function showNodi() {
@@ -578,6 +598,8 @@ const specie = {
   totano: { nome: "Totano", scientifico: "Todarodes sagittatus", img: "img/totano.jpg", descrizione: "Cefalopode pescato in profondità.", tecniche: "Eging, bolentino", montature: ["paternoster", "piombo-scorrevole"], stagione: [1,2,10,11,12] },
   seppia: { nome: "Seppia", scientifico: "Sepia officinalis", img: "img/seppia.jpg", descrizione: "Cefalopode costiero molto diffuso.", tecniche: "Eging", montature: ["piombo-scorrevole", "paternoster"], stagione: [4,5,10,11,12] }
 };
+const specieOrdinate = Object.keys(specie)
+  .sort((a, b) => specie[a].nome.localeCompare(specie[b].nome));
 
 /* ===== FUNZIONI UTILITÀ ===== */
 
@@ -1023,6 +1045,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
