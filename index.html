@@ -371,26 +371,28 @@ function vaiAMontatura(id) {
   setTimeout(() => {
    
     function mostraDettaglioMontatura(id) {
-      const contenitore = document.getElementById("dettaglio-montatura");
+  const contenitore = document.getElementById("dettaglio-montatura");
 
-      // Se clicchi la stessa montatura → chiude
-      if (contenitore.dataset.attiva === id) {
-        contenitore.innerHTML = "";
-        contenitore.dataset.attiva = "";
-        return;
-      }
+  // Se clicchi la stessa montatura → chiude
+  if (contenitore.dataset.attiva === id) {
+    contenitore.innerHTML = "";
+    contenitore.dataset.attiva = "";
+    return;
+  }
 
-      const m = montature[id];
-      if (!m) return;
+  const m = montature[id];
+  if (!m) return;
 
-      // Uso template literal pulito
-      contenitore.innerHTML = `
-        ${m.nome}
-        ${m.descrizione}
-      `;
+  contenitore.innerHTML = `
+    <div class="card-dettaglio">
+      <h3>${m.nome}</h3>
+      <img src="${m.img}" alt="${m.nome}">
+      <p>${m.descrizione}</p>
+    </div>
+  `;
 
-      contenitore.dataset.attiva = id;
-    }
+  contenitore.dataset.attiva = id;
+}
      }, 100); // chiusura setTimeout
   
 /* ===== NODI ===== */
@@ -1059,6 +1061,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
