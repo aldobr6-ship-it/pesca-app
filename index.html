@@ -383,12 +383,10 @@ function vaiAMontatura(id) {
   const m = montature[id];
   if (!m) return;
 
+  // Uso template literal pulito
   contenitore.innerHTML = `
-    
-      ${m.nome}
-      
-      ${m.descrizione}
-    
+    <div class="nome">${m.nome}</div>
+    <div class="descrizione">${m.descrizione}</div>
   `;
 
   contenitore.dataset.attiva = id;
@@ -1060,6 +1058,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
