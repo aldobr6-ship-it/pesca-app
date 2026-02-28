@@ -369,16 +369,31 @@ function generaMontatureSpecie(montatureArray) {
 function vaiAMontatura(id) {
   window.location.hash = "montature";
   setTimeout(() => {
-    mostraDettaglioMontatura(id);
-  }, 100);
+    
+    function mostraDettaglioMontatura(id) {
+  const contenitore = document.getElementById("dettaglio-montatura");
+
+  // Se clicchi la stessa montatura → chiude
+  if (contenitore.dataset.attiva === id) {
+    contenitore.innerHTML = "";
+    contenitore.dataset.attiva = "";
+    return;
+  }
+
+  const m = montature[id];
+  if (!m) return;
+
+  contenitore.innerHTML = `
+    <div class="card-dettaglio">
+      <h3>${m.nome}</h3>
+      <img src="${m.img}" alt="${m.nome}">
+      <p>${m.descrizione}</p>
+    </div>
+  `;
+
+  contenitore.dataset.attiva = id;
 }
-
-function formattaNomeMontatura(nome) {
-  return nome
-    .replaceAll("-", " ")
-    .replace(/\b\w/g, l => l.toUpperCase());
-}  
-
+    
 /* ===== NODI ===== */
 function showNodi() {
   document.getElementById("content").innerHTML = `
@@ -1045,6 +1060,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
