@@ -384,11 +384,11 @@ function vaiAMontatura(id) {
   if (!m) return;
 
   contenitore.innerHTML = `
-    <div class="card-dettaglio">
-      <h3>${m.nome}</h3>
-      <img src="${m.img}" alt="${m.nome}">
-      <p>${m.descrizione}</p>
-    </div>
+    
+      ${m.nome}
+      
+      ${m.descrizione}
+    
   `;
 
   contenitore.dataset.attiva = id;
@@ -1060,6 +1060,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
