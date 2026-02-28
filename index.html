@@ -391,7 +391,9 @@ function vaiAMontatura(id) {
 
   contenitore.dataset.attiva = id;
 }
-    
+ }, 100); // chiusura setTimeout
+} // chiusura vaiAMontatura
+  
 /* ===== NODI ===== */
 function showNodi() {
   document.getElementById("content").innerHTML = `
@@ -1058,6 +1060,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
