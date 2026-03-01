@@ -519,22 +519,60 @@ function showGalleggiante() {
   `;
 }
 
-function showMontaturaGalleggiante() {
+function showGalleggiante() {
   document.getElementById("content").innerHTML = `
-    <h2>🎈 Montatura Galleggiante</h2>
+    <h2>🎈 Galleggiante</h2>
+
     <div class="card">
-      <b>Composizione</b><br><br>
-      Galleggiante • Piombini distribuiti<br>Finale 40–80 cm<br><br>
-      <img src="./img/ravennate.jpg" style="width:100%;max-width:280px;border-radius:12px;" onerror="this.style.display='none'">
+      <b>Quando usarla</b><br>
+      Mare calmo • Porto • Scogliera
     </div>
-    <div class="card"><b>Esche consigliate</b><br>Bigattino • Pane • Coreano</div>
+
+    <div class="card">
+      <b>Attrezzatura base</b><br>
+      Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole
+    </div>
+
+    <div class="card">
+      <h3>🪝 Montatura dedicata</h3>
+
+      <button 
+        onclick="toggleImageBox('galleggianteBox','img/ravennate.jpg',this)" 
+        class="btn-img">
+        📷 Montatura a Galleggiante
+      </button>
+
+      <div id="galleggianteBox" style="display:none;"></div>
+
+      <br><br>
+
+      <b>Esche consigliate</b><br>
+      Bigattino • Pane • Coreano
+    </div>
+
+    <div class="card">
+      <b>Pro</b><br>
+      Tecnica precisa e sensibile
+    </div>
+
+    <div class="card">
+      <b>Contro</b><br>
+      Poco efficace con mare mosso
+    </div>
+
     <div class="card">
       <b>🎥 Video tutorial</b><br>
-      <a href="https://www.youtube.com/results?search_query=montatura+galleggiante+mare" target="_blank">Guarda su YouTube</a>
+      <a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare" target="_blank">
+        Guarda su YouTube
+      </a>
     </div>
-    <button onclick="showGalleggiante()">⬅️ Torna al Galleggiante</button>
+
+    ${generaSpeciePerTecnica("galleggiante")}
+
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
   `;
 }
+
 
 /* ===== DATI ===== */
 const surfcastingData = {
@@ -1088,6 +1126,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
