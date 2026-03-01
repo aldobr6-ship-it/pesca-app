@@ -353,24 +353,26 @@ function generaMontatureSpecie(montatureArray) {
   if (!montatureArray || montatureArray.length === 0) return "";
 
   return `
-    <div class="montature-specie">
+    <div class="montature-consigliate">
       <h3>Montature consigliate</h3>
-      <ul>
-        ${montatureArray.map(m => `
-          <li onclick="vaiAMontatura('${m}')">
-            ${formattaNomeMontatura(m)}
-          </li>
-        `).join("")}
-      </ul>
+      ${montatureArray.map(m => `
+        <div class="montatura" onclick="vaiAMontatura('${m.id}')">
+          ${formattaNomeMontatura(m)}
+        </div>
+      `).join("")}
     </div>
   `;
 }
 
 function vaiAMontatura(id) {
   window.location.hash = "montature";
+
   setTimeout(() => {
-   
-    function mostraDettaglioMontatura(id) {
+    mostraDettaglioMontatura(id);
+  }, 100);
+}
+
+function mostraDettaglioMontatura(id) {
   const contenitore = document.getElementById("dettaglio-montatura");
 
   // Se clicchi la stessa montatura → chiude
@@ -384,16 +386,12 @@ function vaiAMontatura(id) {
   if (!m) return;
 
   contenitore.innerHTML = `
-    <div class="card-dettaglio">
-      <h3>${m.nome}</h3>
-      <img src="${m.img}" alt="${m.nome}">
-      <p>${m.descrizione}</p>
-    </div>
+    <h4>${m.nome}</h4>
+    <p>${m.descrizione}</p>
   `;
 
   contenitore.dataset.attiva = id;
 }
-     }, 100); // chiusura setTimeout
   
 /* ===== NODI ===== */
 function showNodi() {
@@ -1061,6 +1059,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
