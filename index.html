@@ -834,15 +834,17 @@ function showSpinning() {
       <p>${dati.attrezzatura}</p>
     </div>
     <div class="card">
-      <h3>🪢 Montatura dedicata</h3>
-      <p>${dati.montatura}</p>
-      <button 
-  onclick="toggleImageBox('montaturaBox','${dati.montaturaImg}',this)" 
-  class="btn-img">
-  📷 Mostra Montatura
-</button>
+  <h3>🪢 Montatura dedicata</h3>
+  <p>${dati.montatura}</p>
 
-    </div>
+  <button 
+    onclick="toggleImageBox('spinningMontaturaBox','${dati.montaturaImg}',this)" 
+    class="btn-img">
+    📷 Mostra Montatura
+  </button>
+
+  <div id="spinningMontaturaBox" style="display:none;"></div>
+</div>
     <div class="card">
       <h3>✅ Pro</h3>
       <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
@@ -885,17 +887,17 @@ function showEging() {
       <p>${dati.attrezzatura}</p>
     </div>
     <div class="card">
-      <h3>🪢 Montatura dedicata</h3>
-      <p>${dati.montatura}</p>
-     <button 
-  onclick="toggleImageBox('montaturaBox','${dati.montaturaImg}',this)" 
-  class="btn-img">
-  📷 Mostra Montatura
-</button>
+  <h3>🪢 Montatura dedicata</h3>
+  <p>${dati.montatura}</p>
 
-<div id="montaturaBox" style="display:none;"></div>
-      
-    </div>
+  <button 
+    onclick="toggleImageBox('egingMontaturaBox','${dati.montaturaImg}',this)" 
+    class="btn-img">
+    📷 Mostra Montatura
+  </button>
+
+  <div id="egingMontaturaBox" style="display:none;"></div>
+</div>
     <div class="card">
       <h3>✅ Pro</h3>
       <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
@@ -924,27 +926,52 @@ function showEging() {
 function showFondo() {
   document.getElementById("content").innerHTML = `
     <h2>⚓ Pesca a Fondo</h2>
-    <div class="card"><b>Quando usarla</b><br>Tutto l'anno • Porto • Scogliera • Spiaggia</div>
-    <div class="card"><b>Attrezzatura base</b><br>Canna 3–4 m • Mulinello 4000–6000 • Nylon 0,30–0,40</div>
+
+    <div class="card">
+      <b>Quando usarla</b><br>
+      Tutto l'anno • Porto • Scogliera • Spiaggia
+    </div>
+
+    <div class="card">
+      <b>Attrezzatura base</b><br>
+      Canna 3–4 m • Mulinello 4000–6000 • Nylon 0,30–0,40
+    </div>
+
     <div class="card">
       <h3>🎣 Montature</h3>
       ${generaMiniCard(tecnicheData.fondo.montature, "fondo-montature")}
     </div>
-    <div class="card"><b>Pro</b><br>Tecnica semplice e versatile</div>
-    <div class="card"><b>Contro</b><br>Rischio incagli • Meno selettiva</div>
+
+    <div class="card">
+      <b>Pro</b><br>
+      Tecnica semplice e versatile
+    </div>
+
+    <div class="card">
+      <b>Contro</b><br>
+      Rischio incagli • Meno selettiva
+    </div>
+
     <div class="card">
       <h3>🐟 Specie consigliate</h3>
       ${generaListaCliccabile(tecnicheData.fondo.specie)}
     </div>
+
     <div class="card">
       <h3>🪱 Esche consigliate</h3>
       ${generaListaCliccabile(tecnicheData.fondo.esche)}
     </div>
+
     <div class="card">
       <b>🎥 Video tutorial</b><br>
-      <a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">Guarda su YouTube</a>
+      <a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">
+        Guarda su YouTube
+      </a>
     </div>
-    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+
+    <button class="btn-img" onclick="showTecniche()">
+      ⬅️ Torna alle tecniche
+    </button>
   `;
 }
 
@@ -1142,6 +1169,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
