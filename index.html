@@ -836,10 +836,12 @@ function showSpinning() {
     <div class="card">
       <h3>🪢 Montatura dedicata</h3>
       <p>${dati.montatura}</p>
-      <button onclick="toggleMontaturaImg()" class="btn-img">📷 Mostra Montatura</button>
-      <div id="montaturaBox" style="display:none;margin-top:10px;">
-        <img src="${dati.montaturaImg}" style="width:100%;max-width:300px;border-radius:12px;cursor:pointer;" onclick="toggleMontaturaImg()" onerror="this.style.display='none'">
-      </div>
+      <button 
+  onclick="toggleImageBox('montaturaBox','${dati.montaturaImg}',this)" 
+  class="btn-img">
+  📷 Mostra Montatura
+</button>
+
     </div>
     <div class="card">
       <h3>✅ Pro</h3>
@@ -885,10 +887,14 @@ function showEging() {
     <div class="card">
       <h3>🪢 Montatura dedicata</h3>
       <p>${dati.montatura}</p>
-      <button onclick="toggleMontaturaImg()" class="btn-img">📷 Mostra Montatura</button>
-      <div id="montaturaBox" style="display:none;margin-top:10px;">
-        <img src="${dati.montaturaImg}" style="width:100%;max-width:300px;border-radius:12px;cursor:pointer;" onclick="toggleMontaturaImg()" onerror="this.style.display='none'">
-      </div>
+     <button 
+  onclick="toggleImageBox('montaturaBox','${dati.montaturaImg}',this)" 
+  class="btn-img">
+  📷 Mostra Montatura
+</button>
+
+<div id="montaturaBox" style="display:none;"></div>
+      
     </div>
     <div class="card">
       <h3>✅ Pro</h3>
@@ -1019,9 +1025,19 @@ function showTotanara() {
 function showPiomboScorrevole() {
   document.getElementById("content").innerHTML = `
     <h2>⚓ Piombo Scorrevole</h2>
-    <div class="card">Montatura semplice con piombo libero sulla lenza madre.</div>
-    <button onclick="toggleMontatura('img/piombo-scorrevole.jpg')">📷 Vedi Montatura</button>
-    <div id="montaturaBox"></div>
+
+    <div class="card">
+      Montatura semplice con piombo libero sulla lenza madre.
+    </div>
+
+    <button 
+      onclick="toggleImageBox('montaturaBox','img/piombo-scorrevole.jpg',this)" 
+      class="btn-img">
+      📷 Vedi Montatura
+    </button>
+
+    <div id="montaturaBox" style="display:none;"></div>
+
     <br>
     <button onclick="showFondo()">⬅️ Torna alla Pesca a Fondo</button>
   `;
@@ -1126,6 +1142,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
