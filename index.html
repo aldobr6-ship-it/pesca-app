@@ -836,13 +836,11 @@ function showSpinning() {
     <div class="card">
   <h3>🪢 Montatura dedicata</h3>
   <p>${dati.montatura}</p>
-
   <button 
     onclick="toggleImageBox('spinningMontaturaBox','${dati.montaturaImg}',this)" 
     class="btn-img">
     📷 Mostra Montatura
   </button>
-
   <div id="spinningMontaturaBox" style="display:none;"></div>
 </div>
     <div class="card">
@@ -924,6 +922,8 @@ function showEging() {
 
 /* ===== FONDO ===== */
 function showFondo() {
+  const montature = tecnicheData.fondo.montature;
+
   document.getElementById("content").innerHTML = `
     <h2>⚓ Pesca a Fondo</h2>
 
@@ -938,8 +938,20 @@ function showFondo() {
     </div>
 
     <div class="card">
-      <h3>🎣 Montature</h3>
-      ${generaMiniCard(tecnicheData.fondo.montature, "fondo-montature")}
+      <h3>🪝 Montature dedicate</h3>
+
+      ${montature.map((m, index) => `
+        <button 
+          onclick="toggleImageBox('fondoBox${index}','${m.img}',this)" 
+          class="btn-img">
+          📷 ${m.nome}
+        </button>
+
+        <div id="fondoBox${index}" style="display:none;"></div>
+
+        <br><br>
+      `).join("")}
+
     </div>
 
     <div class="card">
@@ -1169,6 +1181,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
