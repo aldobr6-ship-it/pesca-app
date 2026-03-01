@@ -369,11 +369,13 @@ function generaMontatureSpecie(montatureArray) {
 function vaiAMontatura(id) {
   window.location.hash = "montature";
   setTimeout(() => {
-   
-    function mostraDettaglioMontatura(id) {
+    mostraDettaglioMontatura(id);
+  }, 50);
+}
+
+function mostraDettaglioMontatura(id) {
   const contenitore = document.getElementById("dettaglio-montatura");
 
-  // Se clicchi la stessa montatura → chiude
   if (contenitore.dataset.attiva === id) {
     contenitore.innerHTML = "";
     contenitore.dataset.attiva = "";
@@ -1060,6 +1062,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
