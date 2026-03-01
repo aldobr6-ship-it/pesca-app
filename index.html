@@ -395,6 +395,11 @@ function mostraDettaglioMontatura(id) {
 
   contenitore.dataset.attiva = id;
 }
+  // Se vuoi eseguire subito la funzione:
+    mostraDettaglioMontatura(id);
+
+  }, 100); // chiusura setTimeout
+} // chiusura vaiAMontatura
   
 /* ===== NODI ===== */
 function showNodi() {
@@ -1062,6 +1067,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
