@@ -374,6 +374,8 @@ function vaiAMontatura(id) {
 }
 
 function mostraDettaglioMontatura(id) {
+  event.stopPropagation(); // 👈 AGGIUNGI QUESTA RIGA
+
   const contenitore = document.getElementById("dettaglio-montatura");
 
   if (contenitore.dataset.attiva === id) {
@@ -395,7 +397,6 @@ function mostraDettaglioMontatura(id) {
 
   contenitore.dataset.attiva = id;
 }
-
 /* ===== NODI ===== */
 function showNodi() {
   document.getElementById("content").innerHTML = `
@@ -465,7 +466,7 @@ function showSurfcasting() {
       <h3>🪱 Esche consigliate</h3>
       ${generaListaCliccabile(surfcastingData.esche)}
     </div>
-    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+    <button onclick="showTecniche()">👈 Torna alle tecniche</button>
   `;
 }
 
@@ -1062,6 +1063,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
