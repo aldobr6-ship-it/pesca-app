@@ -353,45 +353,50 @@ function generaMontatureSpecie(montatureArray) {
   if (!montatureArray || montatureArray.length === 0) return "";
 
   return `
-    <div class="montature-consigliate">
+    <div class="montature-specie">
       <h3>Montature consigliate</h3>
-      ${montatureArray.map(m => `
-        <div class="montatura" onclick="vaiAMontatura('${m.id}')">
-          ${formattaNomeMontatura(m)}
-        </div>
-      `).join("")}
+      <ul>
+        ${montatureArray.map(m => `
+          <li onclick="vaiAMontatura('${m}')">
+            ${formattaNomeMontatura(m)}
+          </li>
+        `).join("")}
+      </ul>
     </div>
   `;
 }
 
 function vaiAMontatura(id) {
   window.location.hash = "montature";
-
   setTimeout(() => {
+   
+    function mostraDettaglioMontatura(id) {
+      const contenitore = document.getElementById("dettaglio-montatura");
+
+      // Se clicchi la stessa montatura → chiude
+      if (contenitore.dataset.attiva === id) {
+        contenitore.innerHTML = "";
+        contenitore.dataset.attiva = "";
+        return;
+      }
+
+      const m = montature[id];
+      if (!m) return;
+
+      // Uso template literal pulito
+      contenitore.innerHTML = `
+        ${m.nome}
+        ${m.descrizione}
+      `;
+
+      contenitore.dataset.attiva = id;
+    }
+
+    // Se vuoi eseguire subito la funzione:
     mostraDettaglioMontatura(id);
-  }, 100);
-}
 
-function mostraDettaglioMontatura(id) {
-  const contenitore = document.getElementById("dettaglio-montatura");
-
-  // Se clicchi la stessa montatura → chiude
-  if (contenitore.dataset.attiva === id) {
-    contenitore.innerHTML = "";
-    contenitore.dataset.attiva = "";
-    return;
-  }
-
-  const m = montature[id];
-  if (!m) return;
-
-  contenitore.innerHTML = `
-    <h4>${m.nome}</h4>
-    <p>${m.descrizione}</p>
-  `;
-
-  contenitore.dataset.attiva = id;
-}
+  }, 100); // chiusura setTimeout
+} // chiusura vaiAMontatura
   
 /* ===== NODI ===== */
 function showNodi() {
@@ -1059,6 +1064,19 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
