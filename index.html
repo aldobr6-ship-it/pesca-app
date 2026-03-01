@@ -444,28 +444,55 @@ function showNodi() {
 function showSurfcasting() {
   document.getElementById("content").innerHTML = `
     <h2>🏖️ Surfcasting</h2>
+
     <div class="card"><b>Quando usarla</b><br>Mare mosso o formato, spiagge sabbiose, alba e tramonto</div>
+
     <div class="card"><b>Attrezzatura base</b><br>Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40</div>
+
     <div class="card">
-      <b>Montature dedicate</b><br><br>
-      <button onclick="showTrave()">Montatura a Trave</button>
-      <button onclick="showPaternoster()">Paternoster</button>
-      <button onclick="showLongArm()">Long Arm</button>
+      <h3>🪝 Montature dedicate</h3>
+
+      <button onclick="toggleImageBox('traveBox','img/bandiera.jpg',this)" class="btn-img">
+        📷 Montatura a Trave
+      </button>
+      <div id="traveBox" style="display:none;"></div>
+
+      <br><br>
+
+      <button onclick="toggleImageBox('paternosterBox','img/paternoster.jpg',this)" class="btn-img">
+        📷 Paternoster
+      </button>
+      <div id="paternosterBox" style="display:none;"></div>
+
+      <br><br>
+
+      <button onclick="toggleImageBox('longArmBox','img/long-arm.jpg',this)" class="btn-img">
+        📷 Long Arm
+      </button>
+      <div id="longArmBox" style="display:none;"></div>
     </div>
+
     <div class="card"><b>Pro</b><br>Raggiunge grandi distanze, ideale per grossi pesci</div>
+
     <div class="card"><b>Contro</b><br>Tecnica impegnativa, attrezzatura pesante</div>
+
     <div class="card">
       <b>🎥 Video tutorial</b><br>
-      <a href="https://www.youtube.com/results?search_query=surfcasting+montatura" target="_blank">Guarda su YouTube</a>
+      <a href="https://www.youtube.com/results?search_query=surfcasting+montatura" target="_blank">
+        Guarda su YouTube
+      </a>
     </div>
+
     <div class="card">
       <h3>🐟 Specie consigliate</h3>
       ${generaListaCliccabile(surfcastingData.specie)}
     </div>
+
     <div class="card">
       <h3>🪱 Esche consigliate</h3>
       ${generaListaCliccabile(surfcastingData.esche)}
     </div>
+
     <button onclick="showTecniche()">👈 Torna alle tecniche</button>
   `;
 }
@@ -1063,6 +1090,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
