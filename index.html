@@ -1030,19 +1030,30 @@ function toggleImageBox(id, imgPath, button) {
   var box = document.getElementById(id);
   if (!box) return;
 
+  // Se apro un'altra montatura chiudo la precedente
   if (currentlyOpenBox && currentlyOpenBox !== box) {
     currentlyOpenBox.style.display = "none";
     currentlyOpenBox.innerHTML = "";
   }
 
+  // SALVO il testo originale del bottone (solo la prima volta)
+  if (button && !button.dataset.originalText) {
+    button.dataset.originalText = button.innerText;
+  }
+
+  // Se è già aperta → chiudi
   if (box.style.display === "block") {
     box.style.display = "none";
     box.innerHTML = "";
     currentlyOpenBox = null;
-    if (button) button.innerText = "📷 Mostra";
+
+    if (button) {
+      button.innerText = button.dataset.originalText;
+    }
     return;
   }
 
+  // Se è chiusa → apri
   if (imgPath && box.innerHTML === "") {
     var img = document.createElement("img");
     img.src = imgPath;
@@ -1058,23 +1069,10 @@ function toggleImageBox(id, imgPath, button) {
   box.style.display = "block";
   currentlyOpenBox = box;
 
-  if (button) button.innerText = "❌ Chiudi";
+  if (button) {
+    button.innerText = "❌ Chiudi";
+  }
 }
-
-/* Funzioni compatibilità */
-
-function toggleImgById(id) {
-  toggleImageBox(id);
-}
-
-function toggleMontaturaImg() {
-  toggleImageBox("montaturaBox");
-}
-
-function toggleMontatura(imgPath) {
-  toggleImageBox("montaturaBox", imgPath);
-}
-
 
 /* ===== AVVIO ===== */
 caricaTema();
@@ -1090,6 +1088,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
