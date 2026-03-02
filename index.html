@@ -496,24 +496,37 @@ function showSurfcasting() {
     <div class="card">
       <h3>🪝 Montature dedicate</h3>
 
-      <button onclick="toggleImageBox('traveBox','img/bandiera.jpg',this)" class="btn-img">
-        📷 Montatura a Trave
-      </button>
-      <div id="traveBox" style="display:none;"></div>
+      <button 
+  onclick="toggleImageBox('traveBox','img/bandiera.jpg',this)" 
+  class="toggle-btn">
+  📷 Montatura a Trave
+  <span class="arrow">▼</span>
+</button>
+
+<div id="traveBox" class="image-box"></div>
 
       <br><br>
 
-      <button onclick="toggleImageBox('paternosterBox','img/paternoster.jpg',this)" class="btn-img">
-        📷 Paternoster
-      </button>
-      <div id="paternosterBox" style="display:none;"></div>
+     <button 
+  onclick="toggleImageBox('paternosterBox','img/paternoster.jpg',this)" 
+  class="toggle-btn">
+  📷 Paternoster
+  <span class="arrow">▼</span>
+</button>
+
+<div id="paternosterBox" class="image-box"></div>
 
       <br><br>
 
-      <button onclick="toggleImageBox('longArmBox','img/long-arm.jpg',this)" class="btn-img">
-        📷 Long Arm
-      </button>
-      <div id="longArmBox" style="display:none;"></div>
+<button 
+  onclick="toggleImageBox('longArmBox','img/long-arm.jpg',this)" 
+  class="toggle-btn">
+  📷 Long Arm
+  <span class="arrow">▼</span>
+</button>
+
+<div id="longArmBox" class="image-box"></div>
+
     </div>
 
     <div class="card"><b>Pro</b><br>Raggiunge grandi distanze, ideale per grossi pesci</div>
@@ -581,14 +594,15 @@ function showGalleggiante() {
       <h3>🪝 Montatura dedicata</h3>
 
       <button 
-        onclick="toggleImageBox('galleggianteBox','img/ravennate.jpg',this)" 
-        class="btn-img">
-        📷 Montatura a Galleggiante
-      </button>
+  onclick="toggleImageBox('galleggianteBox','img/ravennate.jpg',this)" 
+  class="toggle-btn">
+  📷 Montatura a Galleggiante
+  <span class="arrow">▼</span>
+</button>
 
-      <div id="galleggianteBox" style="display:none;"></div>
+<div id="galleggianteBox" class="image-box"></div
 
-      <br><br>
+<br><br>
 
       <b>Esche consigliate</b><br>
       Bigattino • Pane • Coreano
@@ -880,12 +894,16 @@ function showSpinning() {
     <div class="card">
   <h3>🪢 Montatura dedicata</h3>
   <p>${dati.montatura}</p>
+
   <button 
-    onclick="toggleImageBox('spinningMontaturaBox','${dati.montaturaImg}',this)" 
-    class="btn-img">
-    📷 Mostra Montatura
-  </button>
-  <div id="spinningMontaturaBox" style="display:none;"></div>
+  onclick="toggleImageBox('spinningMontaturaBox','img/spinningMontaturaBox',this)" 
+  class="toggle-btn">
+  📷 Montatura Spinning
+  <span class="arrow">▼</span>
+</button>
+
+<div id="spinningMontaturaBox" class="image-box"></div>
+  
 </div>
     <div class="card">
       <h3>✅ Pro</h3>
@@ -933,13 +951,15 @@ function showEging() {
   <p>${dati.montatura}</p>
 
   <button 
-    onclick="toggleImageBox('egingMontaturaBox','${dati.montaturaImg}',this)" 
-    class="btn-img">
-    📷 Mostra Montatura
-  </button>
+  onclick="toggleImageBox('egingMontaturaBox','egingMontaturaBox.jpg',this)" 
+  class="toggle-btn">
+  📷 Montatura Eging
+  <span class="arrow">▼</span>
+</button>
 
-  <div id="egingMontaturaBox" style="display:none;"></div>
-</div>
+<div id="egingMontaturaBox" class="image-box"></div>
+   
+ </div>
     <div class="card">
       <h3>✅ Pro</h3>
       <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
@@ -985,7 +1005,8 @@ function showFondo() {
       <h3>🪝 Montature dedicate</h3>
 
       ${montature.map((m, index) => `
-        <button 
+
+      <button 
           onclick="toggleImageBox('fondoBox${index}','${m.img}',this)" 
           class="btn-img">
           📷 ${m.nome}
@@ -1113,15 +1134,16 @@ function showPiomboScorrevole() {
       Montatura semplice con piombo libero sulla lenza madre.
     </div>
 
-    <button 
-      onclick="toggleImageBox('montaturaBox','img/piombo-scorrevole.jpg',this)" 
-      class="btn-img">
-      📷 Vedi Montatura
-    </button>
+   <button 
+  onclick="toggleImageBox('piombo-scorrevole','img/piombo-scorrevole',this)" 
+  class="toggle-btn">
+ 📷 Piombo Scorrevole
+  <span class="arrow">▼</span>
+</button>
 
-    <div id="montaturaBox" style="display:none;"></div>
-
-    <br>
+<div id="PiomboScorrevolebox" class="image-box"></div>
+    
+ <br>
     <button onclick="showFondo()">👈 Torna alla Pesca a Fondo</button>
   `;
 }
@@ -1219,6 +1241,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
