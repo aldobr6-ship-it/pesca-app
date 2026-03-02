@@ -214,6 +214,50 @@ button:hover {
   to {opacity:1; transform:scale(1);}
 }
 
+/* ===== TOGGLE PROFESSIONALE ===== */
+
+.toggle-btn {
+  background: linear-gradient(135deg,#0077b6,#00b4d8);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+.toggle-btn .arrow {
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* BOX ANIMATO */
+.image-box {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.image-box.open {
+  max-height: 500px;
+  opacity: 1;
+}  
+
 </style>
 </head>
 <body>
@@ -1118,55 +1162,49 @@ function showSpecieDetail(id) {
 /* ===== TOGGLE IMMAGINI PROFESSIONALE ===== */
 
 let currentlyOpenBox = null;
+let currentlyOpenButton = null;
 
 function toggleImageBox(id, imgPath, button) {
-  var box = document.getElementById(id);
+  const box = document.getElementById(id);
   if (!box) return;
 
   // Se apro un'altra montatura chiudo la precedente
   if (currentlyOpenBox && currentlyOpenBox !== box) {
-    currentlyOpenBox.style.display = "none";
+    currentlyOpenBox.classList.remove("open");
     currentlyOpenBox.innerHTML = "";
-  }
-
-  // SALVO il testo originale del bottone (solo la prima volta)
-  if (button && !button.dataset.originalText) {
-    button.dataset.originalText = button.innerText;
+    if (currentlyOpenButton) {
+      currentlyOpenButton.classList.remove("active");
+    }
   }
 
   // Se è già aperta → chiudi
-  if (box.style.display === "block") {
-    box.style.display = "none";
+  if (box.classList.contains("open")) {
+    box.classList.remove("open");
     box.innerHTML = "";
+    button.classList.remove("active");
     currentlyOpenBox = null;
-
-    if (button) {
-      button.innerText = button.dataset.originalText;
-    }
+    currentlyOpenButton = null;
     return;
   }
 
-  // Se è chiusa → apri
-  if (imgPath && box.innerHTML === "") {
-    var img = document.createElement("img");
+  // Inserisce immagine
+  if (box.innerHTML === "") {
+    const img = document.createElement("img");
     img.src = imgPath;
     img.style.width = "100%";
     img.style.maxWidth = "320px";
     img.style.borderRadius = "14px";
     img.style.marginTop = "10px";
-    img.style.animation = "fadeInImg 0.3s ease";
     img.onerror = function() { this.style.display = "none"; };
     box.appendChild(img);
   }
 
-  box.style.display = "block";
+  box.classList.add("open");
+  button.classList.add("active");
+
   currentlyOpenBox = box;
-
-  if (button) {
-    button.innerText = "❌ Chiudi";
-  }
+  currentlyOpenButton = button;
 }
-
 /* ===== AVVIO ===== */
 caricaTema();
 showHome();
@@ -1181,6 +1219,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
