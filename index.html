@@ -1005,18 +1005,17 @@ function showFondo() {
       <h3>🪝 Montature dedicate</h3>
 
       ${montature.map((m, index) => `
+        <div style="margin-bottom:15px;">
+          <button 
+            onclick="toggleImageBox('fondoBox${index}','${m.img}',this)" 
+            class="toggle-btn">
+            ${m.nome}
+            <span class="arrow">▼</span>
+          </button>
 
-      <button 
-          onclick="toggleImageBox('fondoBox${index}','${m.img}',this)" 
-          class="btn-img">
-          📷 ${m.nome}
-        </button>
-
-        <div id="fondoBox${index}" style="display:none;"></div>
-
-        <br><br>
+          <div id="fondoBox${index}" class="image-box"></div>
+        </div>
       `).join("")}
-
     </div>
 
     <div class="card">
@@ -1046,8 +1045,9 @@ function showFondo() {
       </a>
     </div>
 
-    <button class="btn-img" onclick="showTecniche()">
-      👈 Torna alle tecniche
+    <button class="toggle-btn" onclick="showTecniche()">
+      Torna alle tecniche
+      <span class="arrow">▼</span>
     </button>
   `;
 }
@@ -1241,6 +1241,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
