@@ -559,7 +559,7 @@ function showGalleggiante() {
       <a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare" target="_blank">Guarda su YouTube</a>
     </div>
     ${generaSpeciePerTecnica("galleggiante")}
-    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+    <button onclick="showTecniche()">👈 Torna alle tecniche</button>
   `;
 }
 
@@ -613,7 +613,7 @@ function showGalleggiante() {
 
     ${generaSpeciePerTecnica("galleggiante")}
 
-    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+    <button onclick="showTecniche()">👈 Torna alle tecniche</button>
   `;
 }
 
@@ -911,7 +911,7 @@ function showSpinning() {
       <h3>🎥 Video tutorial</h3>
       <a href="${dati.video}" target="_blank">Guarda su YouTube</a>
     </div>
-    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+    <button onclick="showTecniche()">👈 Torna alle tecniche</button>
   `;
 }
 
@@ -960,7 +960,7 @@ function showEging() {
       <h3>🎥 Video tutorial</h3>
       <a href="${dati.video}" target="_blank">Guarda su YouTube</a>
     </div>
-    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+    <button onclick="showTecniche()">👈 Torna alle tecniche</button>
   `;
 }
 
@@ -1026,7 +1026,7 @@ function showFondo() {
     </div>
 
     <button class="btn-img" onclick="showTecniche()">
-      ⬅️ Torna alle tecniche
+      👈 Torna alle tecniche
     </button>
   `;
 }
@@ -1046,7 +1046,7 @@ function showTrave() {
       <b>🎥 Video tutorial</b><br>
       <a href="https://www.youtube.com/results?search_query=montatura+a+trave+surfcasting" target="_blank">Guarda su YouTube</a>
     </div>
-    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+    <button onclick="showSurfcasting()">👈 Torna al Surfcasting</button>
   `;
 }
 
@@ -1064,7 +1064,7 @@ function showPaternoster() {
       <b>🎥 Video tutorial</b><br>
       <a href="https://www.youtube.com/results?search_query=montatura+paternoster+pesca" target="_blank">Guarda su YouTube</a>
     </div>
-    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+    <button onclick="showSurfcasting()">👈 Torna al Surfcasting</button>
   `;
 }
 
@@ -1082,7 +1082,7 @@ function showLongArm() {
       <b>🎥 Video tutorial</b><br>
       <a href="https://www.youtube.com/results?search_query=montatura+long+arm+surfcasting" target="_blank">Guarda su YouTube</a>
     </div>
-    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+    <button onclick="showSurfcasting()">👈 Torna al Surfcasting</button>
   `;
 }
 
@@ -1101,7 +1101,7 @@ function showTotanara() {
       <b>🎥 Video tutorial</b><br>
       <a href="https://www.youtube.com/results?search_query=montatura+eging+totanara" target="_blank">Guarda su YouTube</a>
     </div>
-    <button onclick="showEging()">⬅️ Torna a Eging</button>
+    <button onclick="showEging()">👈 Torna a Eging</button>
   `;
 }
 
@@ -1122,7 +1122,7 @@ function showPiomboScorrevole() {
     <div id="montaturaBox" style="display:none;"></div>
 
     <br>
-    <button onclick="showFondo()">⬅️ Torna alla Pesca a Fondo</button>
+    <button onclick="showFondo()">👈 Torna alla Pesca a Fondo</button>
   `;
 }
 
@@ -1134,7 +1134,7 @@ function showBandiera() {
     <div id="bandieraImg" style="display:none;margin-top:15px;">
       <img src="img/montatura-bandiera.jpg" style="width:100%;max-width:320px;border-radius:12px;" onerror="this.style.display='none'">
     </div>
-    <button onclick="showFondo()">⬅️ Torna alla tecnica</button>
+    <button onclick="showFondo()">👈 Torna alla tecnica</button>
   `;
 }
 
@@ -1152,7 +1152,7 @@ function showSpecieDetail(id) {
       ${generaMontatureSpecie(p.montature)}
       ${generaCalendario(p.stagione)}
       <p><strong>Stagione migliore (mesi):</strong> ${p.stagione ? p.stagione.join(", ") : "Non specificata"}</p>
-      <button onclick="showSpecie()">⬅️ Torna alle specie</button>
+      <button onclick="showSpecie()">👈 Torna alle specie</button>
     </div>
   `;
 }
@@ -1219,6 +1219,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
