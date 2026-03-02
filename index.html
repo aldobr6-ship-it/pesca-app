@@ -307,7 +307,7 @@ function showHome() {
       <div class="card" onclick="showTecniche()">
         <span class="home-icon">🌊</span>
         <h3>Tecniche Mare</h3>
-        <p>Surfcasting, , eging…</p>
+        <p>Surfcasting, spinning, eging…</p>
       </div>
       <div class="card" onclick="showSpecie()">
         <span class="home-icon">🐟</span>
@@ -333,7 +333,7 @@ function showTecniche() {
   document.getElementById("content").innerHTML = `
     <h2>🌊 Tecniche di Pesca in Mare</h2>
     <div class="card" onclick="showSurfcasting()"><b>Surfcasting</b><br>Pesca dalla spiaggia con piombi pesanti</div>
-    <div class="card" onclick="show()"><b></b><br>Esche artificiali da riva</div>
+    <div class="card" onclick="showSpinning()"><b>Spinning</b><br>Esche artificiali da riva</div>
     <div class="card" onclick="showEging()"><b>Eging</b><br>Pesca a seppie e calamari</div>
     <div class="card" onclick="showFondo()"><b>Pesca a Fondo</b><br>Porto e scogliera</div>
     <div class="card" onclick="showGalleggiante()"><b>Galleggiante</b><br>Tecnica precisa e leggera</div>
@@ -654,7 +654,7 @@ const tecnicheData = {
     quando: "Ideale con mare poco mosso o leggermente increspato. Perfetto all'alba e al tramonto.",
     attrezzatura: "Canna 2.10-2.70m 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 + fluorocarbon 0.30-0.40.",
     montatura: "Trecciato collegato con nodo FG al fluorocarbon. Artificiali come minnow, jerkbait, softbait e jig.",
-    montaturaImg: "img/montatura-.jpg",
+    montaturaImg: "img/montatura-spinning.jpg",
     pro: ["Tecnica dinamica", "Copre molta acqua", "Adatta a molti predatori"],
     contro: ["Richiede movimento continuo", "Attrezzatura più costosa", "Meno efficace con mare molto mosso"],
     specie: [
@@ -722,20 +722,20 @@ const tecnicheData = {
 
 const specie = {
   orata: { nome: "Orata", scientifico: "Sparus aurata", img: "img/orata.jpg", descrizione: "Pesce pregiato di fondale sabbioso e misto.", tecniche: "Pesca a fondo, surfcasting", montature: ["paternoster", "long-arm", "piombo-scorrevole"], stagione: [1,2,3,4,10,11,12] },
-  spigola: { nome: "Spigola / Branzino", scientifico: "Dicentrarchus labrax", img: "img/spigola.jpg", descrizione: "Predatore costiero molto combattivo.", tecniche: ", surfcasting, fondo", montature: ["long-arm", "piombo-scorrevole", "short-rovesciato"], stagione: [1,2,3,4,11,12] },
+  spigola: { nome: "Spigola / Branzino", scientifico: "Dicentrarchus labrax", img: "img/spigola.jpg", descrizione: "Predatore costiero molto combattivo.", tecniche: "Spinning, surfcasting, fondo", montature: ["long-arm", "piombo-scorrevole", "short-rovesciato"], stagione: [1,2,3,4,11,12] },
   "sarago-maggiore": { nome: "Sarago maggiore", scientifico: "Diplodus sargus", img: "img/sarago-maggiore.jpg", descrizione: "Tipico dei fondali rocciosi.", tecniche: "Pesca a fondo, bolognese", montature: ["paternoster", "piombo-scorrevole", "trave"], stagione: [1,2,3,4,5,6,7,8,9,10,11,12] },
   "sarago-pizzuto": { nome: "Sarago pizzuto", scientifico: "Diplodus puntazzo", img: "img/sarago-pizzuto.jpg", descrizione: "Sarago più affusolato e diffidente.", tecniche: "Pesca a fondo", montature: ["long-arm", "paternoster"], stagione: [1,2,3,4,5,6,7,8,9,10,11,12] },
   mormora: { nome: "Mormora", scientifico: "Lithognathus mormyrus", img: "img/mormora.jpg", descrizione: "Classica preda del surfcasting.", tecniche: "Surfcasting", montature: ["long-arm", "paternoster", "short-rovesciato"], stagione: [5,6,7,8,9,10] },
   occhiata: { nome: "Occhiata", scientifico: "Oblada melanura", img: "img/occhiata.jpg", descrizione: "Pesce costiero che vive in branchi.", tecniche: "Galleggiante, fondo leggero", montature: ["paternoster", "galleggiante-mare"], stagione: [5,6,9,10] },
-  sugarello: { nome: "Sugarello", scientifico: "Trachurus trachurus", img: "img/sugarello.jpg", descrizione: "Pesce pelagico molto attivo.", tecniche: ", bolentino", montature: ["paternoster", "trave"], stagione: [3,4,5,6,7,8,9] },
+  sugarello: { nome: "Sugarello", scientifico: "Trachurus trachurus", img: "img/sugarello.jpg", descrizione: "Pesce pelagico molto attivo.", tecniche: "Spinning, bolentino", montature: ["paternoster", "trave"], stagione: [3,4,5,6,7,8,9] },
   pagello: { nome: "Pagello", scientifico: "Pagellus erythrinus", img: "img/pagello.jpg", descrizione: "Vive su fondali sabbiosi e misti.", tecniche: "Fondo, bolentino", montature: ["paternoster", "trave"], stagione: [1,2,3,4,5,6,7,8,9,10,11,12] },
   scorfano: { nome: "Scorfano", scientifico: "Scorpaena scrofa", img: "img/scorfano.jpg", descrizione: "Pesce di scogliera, attenzione alle spine.", tecniche: "Fondo, scogliera", montature: ["paternoster", "piombo-scorrevole", "trave"], stagione: [1,2,3,4,5,6,7,8,9,10,11,12] },
-  leccia: { nome: "Leccia", scientifico: "Lichia amia", img: "img/leccia.jpg", descrizione: "Grande predatore costiero.", tecniche: ", vivo", montature: ["long-arm", "piombo-scorrevole"], stagione: [4,5,6] },
-  palamita: { nome: "Palamita", scientifico: "Sarda sarda", img: "img/palamita.jpg", descrizione: "Predatore veloce e combattivo.", tecniche: ", traina", montature: ["long-arm", "piombo-scorrevole"], stagione: [4,5,6,7,8,9,10] },
-  serra: { nome: "Pesce Serra", scientifico: "Pomatomus saltatrix", img: "img/serra.jpg", descrizione: "Predatore aggressivo con dentatura affilata.", tecniche: ", surfcasting", montature: ["long-arm", "piombo-scorrevole"], stagione: [7,8,9] },
+  leccia: { nome: "Leccia", scientifico: "Lichia amia", img: "img/leccia.jpg", descrizione: "Grande predatore costiero.", tecniche: "Spinning, vivo", montature: ["long-arm", "piombo-scorrevole"], stagione: [4,5,6] },
+  palamita: { nome: "Palamita", scientifico: "Sarda sarda", img: "img/palamita.jpg", descrizione: "Predatore veloce e combattivo.", tecniche: "Spinning, traina", montature: ["long-arm", "piombo-scorrevole"], stagione: [4,5,6,7,8,9,10] },
+  serra: { nome: "Pesce Serra", scientifico: "Pomatomus saltatrix", img: "img/serra.jpg", descrizione: "Predatore aggressivo con dentatura affilata.", tecniche: "Spinning, surfcasting", montature: ["long-arm", "piombo-scorrevole"], stagione: [7,8,9] },
   cefalo: { nome: "Cefalo", scientifico: "Mugil cephalus", img: "img/cefalo.jpg", descrizione: "Molto diffuso in porto e laguna.", tecniche: "Galleggiante", montature: ["galleggiante-mare", "piombo-scorrevole"], stagione: [3,4,5,6,7,8,9,10,11] },
   dentice: { nome: "Dentice", scientifico: "Dentex dentex", img: "img/dentice.jpg", descrizione: "Predatore di fondale roccioso.", tecniche: "Fondo, vivo", montature: ["long-arm", "trave"], stagione: [3,4,5,6,7,8,9,10] },
-  ricciola: { nome: "Ricciola", scientifico: "Seriola dumerili", img: "img/ricciola.jpg", descrizione: "Grande predatore pelagico.", tecniche: ", traina", montature: ["long-arm", "piombo-scorrevole"], stagione: [6,7,8,9,10] },
+  ricciola: { nome: "Ricciola", scientifico: "Seriola dumerili", img: "img/ricciola.jpg", descrizione: "Grande predatore pelagico.", tecniche: "Spinning, traina", montature: ["long-arm", "piombo-scorrevole"], stagione: [6,7,8,9,10] },
   totano: { nome: "Totano", scientifico: "Todarodes sagittatus", img: "img/totano.jpg", descrizione: "Cefalopode pescato in profondità.", tecniche: "Eging, bolentino", montature: ["paternoster", "piombo-scorrevole"], stagione: [1,2,10,11,12] },
   seppia: { nome: "Seppia", scientifico: "Sepia officinalis", img: "img/seppia.jpg", descrizione: "Cefalopode costiero molto diffuso.", tecniche: "Eging", montature: ["piombo-scorrevole", "paternoster"], stagione: [4,5,10,11,12] }
 };
@@ -1241,6 +1241,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
