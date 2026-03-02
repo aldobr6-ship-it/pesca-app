@@ -878,11 +878,11 @@ function generaSpeciePerTecnica(nomeTecnica) {
   return html;
 }
 
-/* ===== SPINNING ===== */
-function showSpinning() {
-  const dati = tecnicheData.spinning;
+/* =====  ===== */
+function show() {
+  const dati = tecnicheData.;
   document.getElementById("content").innerHTML = `
-    <h2>🎣 Spinning</h2>
+    <h2>🎣 </h2>
     <div class="card">
       <h3>📅 Quando usarla</h3>
       <p>${dati.quando}</p>
@@ -896,13 +896,13 @@ function showSpinning() {
   <p>${dati.montatura}</p>
 
   <button 
-  onclick="toggleImageBox('montaturaspinning','img/montatura-spinning',this)" 
+  onclick="toggleImageBox('spinning','img/montatura-spinning',this)" 
   class="toggle-btn">
   📷 Montatura Spinning
   <span class="arrow">▼</span>
 </button>
 
-<div id="montaturaspinningBox" class="image-box"></div>
+<div id="spinningBox" class="image-box"></div>
   
 </div>
     <div class="card">
@@ -1241,6 +1241,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
