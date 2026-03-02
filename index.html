@@ -1223,6 +1223,10 @@ function toggleImageBox(id, imgPath, button) {
 
   box.classList.add("open");
   button.classList.add("active");
+  
+  setTimeout(() => {
+  box.scrollIntoView({ behavior: "smooth", block: "center" });
+}, 200);
 
   currentlyOpenBox = box;
   currentlyOpenButton = button;
@@ -1241,6 +1245,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
