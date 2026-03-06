@@ -13,88 +13,215 @@ body {
   color: #0a2a43;
   transition: background 0.3s ease;
 }
-body.dark { background: #0f172a; color: #e2e8f0; }
+body.dark {
+  background: #0f172a;
+  color: #e2e8f0;
+}
 header {
   background: linear-gradient(90deg,#0a2a43,#144d73);
-  color: white; padding: 18px; text-align: center;
-  font-size: 22px; font-weight: bold; letter-spacing: 1px;
+  color: white;
+  padding: 18px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-#content { padding: 20px; padding-bottom: 90px; animation: fadeIn 0.4s ease; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 18px; }
-.card {
-  background: white; border-radius: 22px; padding: 22px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12); text-align: center;
-  cursor: pointer; transition: all 0.25s ease; margin-bottom: 14px;
+#content {
+  padding: 20px;
+  padding-bottom: 90px;
+  animation: fadeIn 0.4s ease;
 }
-.card:hover { transform: translateY(-6px); box-shadow: 0 14px 25px rgba(0,0,0,0.18); }
-.card:active { transform: scale(0.96); }
-.card h3 { margin: 12px 0 6px; font-size: 18px; }
-.card p { font-size: 14px; opacity: 0.75; }
-.home-icon { font-size: 42px; display: block; margin-bottom: 10px; }
-body.dark .card { background: #1e293b; color: #e2e8f0; }
-.mini-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+  gap: 18px;
+}
+.card {
+  background: white;
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-bottom: 14px;
+}
+.mini-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
 .mini-card {
-  background: #f1f6fa; padding: 8px 14px; border-radius: 14px;
-  font-size: 13px; cursor: pointer; transition: all 0.25s ease;
+  background: #f1f6fa;
+  padding: 8px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s ease;
   border: 1px solid rgba(0,0,0,0.05);
 }
-.mini-card:hover { transform: translateY(-3px); }
-.mini-card.active { background: linear-gradient(90deg,#0a2a43,#144d73); color: white; transform: scale(1.05); }
-body.dark .mini-card { background: #334155; border: none; }
-body.dark .mini-card.active { background: linear-gradient(90deg,#1e3a8a,#2563eb); }
-footer {
-  position: fixed; bottom: 0; left: 0; width: 100%;
-  background: white; display: flex; justify-content: space-around;
-  align-items: center; height: 64px;
-  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
-  border-radius: 18px 18px 0 0; z-index: 100;
+.mini-card:hover {
+  transform: translateY(-3px);
 }
-body.dark footer { background: #1e293b; }
-footer button { background: none; border: none; font-size: 13px; color: #0a2a43; cursor: pointer; padding: 8px 4px; }
-body.dark footer button { color: white; }
-button {
+.mini-card.active {
   background: linear-gradient(90deg,#0a2a43,#144d73);
-  border: none; padding: 10px 18px; border-radius: 20px;
-  color: white; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px;
+  color: white;
+  transform: scale(1.05);
 }
-button:hover { transform: scale(1.04); }
+body.dark .mini-card {
+  background: #334155;
+  border: none;
+}
+body.dark .mini-card.active {
+  background: linear-gradient(90deg,#1e3a8a,#2563eb);
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 25px rgba(0,0,0,0.18);
+}
+.card:active {
+  transform: scale(0.96);
+}
+.card h3 {
+  margin: 12px 0 6px;
+  font-size: 18px;
+}
+.card p {
+  font-size: 14px;
+  opacity: 0.75;
+}
+.home-icon {
+  font-size: 42px;
+  display: block;
+  margin-bottom: 10px;
+}
+body.dark .card {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 64px;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+  border-radius: 18px 18px 0 0;
+  z-index: 100;
+}
+body.dark footer {
+  background: #1e293b;
+}
+footer button {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #0a2a43;
+  cursor: pointer;
+  padding: 8px 4px;
+}
+body.dark footer button {
+  color: white;
+}
 .btn-img {
   background: linear-gradient(135deg,#0077b6,#00b4d8);
-  border: none; padding: 8px 14px; border-radius: 20px;
-  color: white; font-weight: bold; cursor: pointer; transition: 0.3s;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
-.btn-img:hover { transform: scale(1.05); }
-.toggle-btn {
-  background: linear-gradient(135deg,#0077b6,#00b4d8);
-  border: none; padding: 10px 16px; border-radius: 20px;
-  color: white; font-weight: bold; cursor: pointer; transition: 0.3s;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 10px; width: 100%; max-width: 320px; margin-top: 10px;
+.btn-img:hover {
+  transform: scale(1.05);
 }
-.toggle-btn:hover { transform: scale(1.03); }
-.toggle-btn .arrow { transition: transform 0.3s ease; }
-.toggle-btn.active .arrow { transform: rotate(180deg); }
-.image-box { overflow: hidden; max-height: 0; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0; }
-.image-box.open { max-height: 600px; opacity: 1; }
-.montatura-card { cursor: pointer; text-align: left; padding: 16px 20px; }
-.montatura-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.16); border-left: 4px solid #0a2a43; }
-body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
-@keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
-@keyframes fadeInImg { from{opacity:0;transform:scale(0.95);} to{opacity:1;transform:scale(1);} }
-.waves-bg { position:fixed; bottom:0; left:0; width:100%; height:180px; overflow:hidden; z-index:-1; opacity:0.25; pointer-events:none; }
-.waves-bg svg { width:200%; height:100%; animation:waveMove 18s linear infinite; fill:#00b4d8; }
-@keyframes waveMove { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+button {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+button:hover {
+  transform: scale(1.04);
+}
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(10px);}
+  to {opacity:1; transform:translateY(0);}
+}
+.waves-bg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.waves-bg svg {
+  width: 200%;
+  height: 100%;
+  animation: waveMove 18s linear infinite;
+  fill: #00b4d8;
+}
+@keyframes waveMove {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(-50%);}
+}
 #splash {
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background:linear-gradient(180deg,#06283D,#0a2a43);
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  z-index:9999; color:white;
-  animation:fadeOutSplash 1.2s ease forwards; animation-delay:2.2s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,#06283D,#0a2a43);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: white;
+  animation: fadeOutSplash 1.2s ease forwards;
+  animation-delay: 2.2s;
 }
-.logo-anim { font-size:60px; animation:floatLogo 2s ease-in-out infinite; }
-@keyframes floatLogo { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
-@keyframes fadeOutSplash { to{opacity:0;visibility:hidden;} }
+.logo-anim {
+  font-size: 60px;
+  animation: floatLogo 2s ease-in-out infinite;
+}
+@keyframes floatLogo {
+  0%,100% {transform: translateY(0);}
+  50% {transform: translateY(-12px);}
+}
+@keyframes fadeOutSplash {
+  to {opacity: 0; visibility: hidden;}
+}
+.montatura-card {
+  cursor: pointer;
+  text-align: left;
+  padding: 16px 20px;
+  transition: all 0.22s ease;
+}
+.montatura-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.16);
+  border-left: 4px solid #0a2a43;
+}
+body.dark .montatura-card:hover {
+  border-left: 4px solid #2563eb;
+}
 </style>
 </head>
 <body>
@@ -111,6 +238,7 @@ body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
 </div>
 
 <header>🎣 Assistente Pesca Mare</header>
+
 <div id="content"></div>
 
 <footer>
@@ -123,14 +251,15 @@ body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
 </footer>
 
 <script>
-
 /* ===== TEMA ===== */
 function toggleTema() {
   document.body.classList.toggle("dark");
   localStorage.setItem("tema", document.body.classList.contains("dark") ? "dark" : "light");
 }
 function caricaTema() {
-  if (localStorage.getItem("tema") === "dark") document.body.classList.add("dark");
+  if (localStorage.getItem("tema") === "dark") {
+    document.body.classList.add("dark");
+  }
 }
 
 /* ===== HOME ===== */
@@ -139,269 +268,40 @@ function showHome() {
     <h2 style="margin-top:0;">Benvenuto 🎣</h2>
     <p style="opacity:0.7;margin-bottom:20px;">Seleziona una sezione per iniziare</p>
     <div class="grid">
-      <div class="card" onclick="showTecniche()"><span class="home-icon">🌊</span><h3>Tecniche Mare</h3><p>Surfcasting, spinning, eging…</p></div>
-      <div class="card" onclick="showSpecie()"><span class="home-icon">🐟</span><h3>Specie</h3><p>I pesci più pescati</p></div>
-      <div class="card" onclick="showMontature()"><span class="home-icon">🪝</span><h3>Montature</h3><p>Spiegate passo-passo</p></div>
-      <div class="card" onclick="showNodi()"><span class="home-icon">🧵</span><h3>Nodi</h3><p>Con immagini</p></div>
-    </div>`;
+      <div class="card" onclick="showTecniche()">
+        <span class="home-icon">🌊</span>
+        <h3>Tecniche Mare</h3>
+        <p>Surfcasting, spinning, eging…</p>
+      </div>
+      <div class="card" onclick="showSpecie()">
+        <span class="home-icon">🐟</span>
+        <h3>Specie</h3>
+        <p>I pesci più pescati</p>
+      </div>
+      <div class="card" onclick="showMontature()">
+        <span class="home-icon">🪝</span>
+        <h3>Montature</h3>
+        <p>Spiegate passo-passo</p>
+      </div>
+      <div class="card" onclick="showNodi()">
+        <span class="home-icon">🧵</span>
+        <h3>Nodi</h3>
+        <p>Con immagini</p>
+      </div>
+    </div>
+  `;
 }
 
 /* ===== TECNICHE ===== */
 function showTecniche() {
   document.getElementById("content").innerHTML = `
     <h2>🌊 Tecniche di Pesca in Mare</h2>
-    <div class="card" onclick="showSurfcasting()"><b>🏖️ Surfcasting</b><br>Pesca dalla spiaggia con piombi pesanti</div>
-    <div class="card" onclick="showSpinning()"><b>🎣 Spinning</b><br>Esche artificiali da riva</div>
-    <div class="card" onclick="showEging()"><b>🦑 Eging</b><br>Pesca a seppie e calamari</div>
-    <div class="card" onclick="showFondo()"><b>⚓ Pesca a Fondo</b><br>Porto e scogliera</div>
-    <div class="card" onclick="showGalleggiante()"><b>🎈 Galleggiante</b><br>Tecnica precisa e leggera</div>`;
-}
-
-/* ===== NODI ===== */
-function showNodi() {
-  document.getElementById("content").innerHTML = `
-    <h2>🧵 Nodi da Pesca</h2>
-    <div class="card"><b>Nodo Clinch</b><br><br><img src="./img/nodo-clinch.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Ami, girelle, moschettoni<br><b>Filo:</b> Nylon / Fluorocarbon</div>
-    <div class="card"><b>Nodo Palomar</b><br><br><img src="./img/nodo-palomar.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Ami e artificiali<br><b>Filo:</b> Trecciato</div>
-    <div class="card"><b>Nodo FG</b><br><br><img src="./img/nodo-fg.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Collegare treccia a fluorocarbon<br><b>Filo:</b> Treccia → Fluoro</div>
-    <div class="card"><b>Nodo Albright</b><br><br><img src="./img/nodo-albright.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Unire fili di diametro diverso<br><b>Filo:</b> Nylon / Treccia</div>
-    <div class="card"><b>Nodo di Sangue</b><br><br><img src="./img/nodo-sangue.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Unire due fili simili<br><b>Filo:</b> Nylon / Fluorocarbon</div>
-    <div class="card"><b>Nodo Rapala</b><br><br><img src="./img/nodo-rapala.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Artificiali con movimento libero<br><b>Filo:</b> Nylon / Fluorocarbon</div>`;
-}
-
-/* ===== 17 MONTATURE ===== */
-const montatureData = [
-  { id:"short-rovesciato",          nome:"Short Rovesciato",           emoji:"🪝", img:"./img/montature/01_short_rovesciato.png",          desc:"Bracciolo corto orientato verso l'alto. Anti-aggroviglio su sabbia.",              quando:"Spiagge sabbiose • Mare mosso • Surfcasting",           esche:"Arenicola • Bibi • Americano",                  target:"Orata • Mormora • Sarago",            video:"https://www.youtube.com/results?search_query=short+rovesciato+surfcasting+montatura" },
-  { id:"short-rovesciato-clippato", nome:"Short Rovesciato Clippato",  emoji:"🪝", img:"./img/montature/02_short_rovesciato_clippato.png", desc:"Power-clip per lanci aerodinamici superiori a 120 m.",                             quando:"Spiagge ampie • Lanci estremi • Corrente",             esche:"Arenicola • Bibi • Coreano",                    target:"Orata • Mormora • Spigola",           video:"https://www.youtube.com/results?search_query=short+rovesciato+clippato+surfcasting" },
-  { id:"long-arm",                  nome:"Long Arm",                   emoji:"🪝", img:"./img/montature/03_long_arm.png",                  desc:"Bracciolo lungo 80–120 cm per massima naturalezza dell'esca.",                    quando:"Mare calmo • Pesci sospettosi • Alba/tramonto",        esche:"Gambero • Vermetto • Polpo piccolo",             target:"Orata grossa • Spigola • Dentice",     video:"https://www.youtube.com/results?search_query=long+arm+montatura+surfcasting" },
-  { id:"long-arm-clippato",         nome:"Long Arm Clippato",          emoji:"🪝", img:"./img/montature/04_long_arm_clippato.png",         desc:"Long arm con clip: bracciolo lungo e lancio da gara oltre 130 m.",                quando:"Fondali lontani • Gare • Spiagge aperte",             esche:"Gambero • Polpo • Arenicola",                   target:"Orata • Dentice • Spigola",           video:"https://www.youtube.com/results?search_query=long+arm+clippato+surfcasting+gara" },
-  { id:"biamo",                     nome:"Bi-Amo",                     emoji:"🎣", img:"./img/montature/05_biamo.png",                     desc:"Due braccioli indipendenti per presentare due esche diverse contemporaneamente.",  quando:"Porto e scogliera • Fondo misto",                      esche:"Bigattino • Coreano • Gambero",                 target:"Sarago • Occhiata • Spigola",          video:"https://www.youtube.com/results?search_query=bi+amo+montatura+pesca+mare" },
-  { id:"paternoster",               nome:"Paternoster",                emoji:"🪝", img:"./img/montature/06_paternoster.png",               desc:"Classico del surfcasting. Braccioli alti tenuti dalla girella tripla a 3 vie.",   quando:"Fondo misto • Pesce sospeso • Tuttofare",             esche:"Arenicola • Coreano • Gambero",                 target:"Orata • Sarago • Mormora • Corvina",  video:"https://www.youtube.com/results?search_query=paternoster+montatura+surfcasting+italiano" },
-  { id:"biamo-clippato",            nome:"Bi-Amo Clippato",            emoji:"🎣", img:"./img/montature/07_biamo_clippato.png",            desc:"Due ami clippati al piombo per lanci lunghi con doppia presentazione.",           quando:"Spiagge con fondali lontani • Gare",                  esche:"Arenicola • Bibi • Coreano",                    target:"Orata • Mormora • Sarago",            video:"https://www.youtube.com/results?search_query=biamo+clippato+surfcasting+montatura" },
-  { id:"triamo",                    nome:"Tri-Amo",                    emoji:"🎣", img:"./img/montature/08_triamo.png",                    desc:"Tre braccioli per massimizzare le catture sui pesci di branco.",                  quando:"Porto • Molo • Pesci in branco",                      esche:"Bigattino • Verme di mare • Pane",               target:"Occhiata • Sugarello • Saraghetto",    video:"https://www.youtube.com/results?search_query=tri+amo+tre+ami+pesca+porto" },
-  { id:"triamo-clippato",           nome:"Tri-Amo Clippato",           emoji:"🎣", img:"./img/montature/09_triamo_clippato.png",           desc:"Tre ami clippati: distanza e tripla efficacia su fondi lontani.",                 quando:"Spiagge ampie • Fondo distante",                      esche:"Bigattino • Coreano • Verme",                   target:"Occhiata • Sarago • Sugarello",        video:"https://www.youtube.com/results?search_query=tri+amo+clippato+surfcasting+tre+ami" },
-  { id:"pulley-rig",                nome:"Pulley Rig",                 emoji:"⚙️", img:"./img/montature/10_pulley_rig.png",                desc:"Sistema a puleggia: protegge l'esca durante il lancio, la libera in acqua.",     quando:"Esche grosse e delicate • Corrente",                  esche:"Polpo • Mazzancolla • Pezzo calamaro",           target:"Spigola • Orata • Corvina grossa",     video:"https://www.youtube.com/results?search_query=pulley+rig+surfcasting+montatura+italiana" },
-  { id:"pulley-rig-clippato",       nome:"Pulley Rig Clippato",        emoji:"⚙️", img:"./img/montature/11_pulley_rig_clippato.png",       desc:"Pulley + clip: montatura avanzata per esche grandi a lunga distanza.",           quando:"Spiagge lunghe • Esche grosse • Vento favore",        esche:"Polpo • Mazzancolla • Pezzo sgombro",            target:"Spigola XXL • Corvina • Orata",        video:"https://www.youtube.com/results?search_query=pulley+rig+clippato+surfcasting" },
-  { id:"scorrevole",                nome:"Scorrevole",                 emoji:"🎯", img:"./img/montature/12_scorrevole.png",                desc:"Piombo libero sulla lenza: il pesce non sente resistenza e abbocca sicuro.",     quando:"Mare calmo • Porto • Pesci sospettosi",               esche:"Gambero • Polpo • Vermetto",                    target:"Orata • Dentice • Spigola",           video:"https://www.youtube.com/results?search_query=montatura+scorrevole+pesca+fondo+mare" },
-  { id:"scorrevole-clippato",       nome:"Scorrevole Clippato",        emoji:"🎯", img:"./img/montature/13_scorrevole_clippato.png",       desc:"Scorrevole + clip: distanza e sensibilità massima insieme.",                     quando:"Spiagge con fondali lontani • Pesci sospettosi",      esche:"Gambero • Bibi • Arenicola",                    target:"Orata sospettosa • Dentice • Spigola", video:"https://www.youtube.com/results?search_query=scorrevole+clippato+surfcasting+montatura" },
-  { id:"minitrave",                 nome:"Minitrave",                  emoji:"📐", img:"./img/montature/14_minitrave.png",                 desc:"Trave orizzontale rigido che tiene i braccioli separati. Anti-aggroviglio.",    quando:"Sabbia con corrente • Surf classico",                 esche:"Arenicola • Bibi • Coreano",                    target:"Mormora • Sarago • Orata",            video:"https://www.youtube.com/results?search_query=minitrave+surfcasting+montatura+pesca" },
-  { id:"minitrave-divergente",      nome:"Minitrave con Divergente",   emoji:"📐", img:"./img/montature/15_minitrave_divergente.png",      desc:"Bracci angolati a 40–50° per portare le esche lontano dalla scia del piombo.",  quando:"Corrente forte • Posidonia • Fondo misto",            esche:"Arenicola • Gambero • Bibi",                    target:"Orata • Sarago • Mormora",            video:"https://www.youtube.com/results?search_query=minitrave+divergente+surfcasting+pesca" },
-  { id:"minitrave-snodato",         nome:"Minitrave Divergente 360°",  emoji:"🔄", img:"./img/montature/16_minitrave_snodato_360.png",     desc:"Snodo a rotazione totale: i divergenti seguono la corrente. Zero aggrovigli.",  quando:"Correnti variabili • Scogliera • Avanzata",           esche:"Gambero • Arenicola • Cozza",                   target:"Orata • Sarago • Mormora",            video:"https://www.youtube.com/results?search_query=minitrave+snodato+360+gradi+surfcasting" },
-  { id:"terminale-serra",           nome:"Terminale Pesce Serra",      emoji:"⚠️", img:"./img/montature/17_terminale_serra.png",           desc:"Terminale in acciaio multi-strand: i denti del serra tagliano qualsiasi filo!", quando:"Luglio–Settembre • Spinning • Surfcasting",           esche:"Minnow • Jerkbait • Metal jig • Pezzo sgombro",  target:"Pesce Serra",                         video:"https://www.youtube.com/results?search_query=pesce+serra+terminale+acciaio+pesca" }
-];
-
-function showMontature() {
-  const cards = montatureData.map(m => `
-    <div class="card montatura-card" onclick="showMontaturaDetail('${m.id}')">
-      <div style="display:flex;align-items:center;gap:12px;">
-        <span style="font-size:26px;">${m.emoji}</span>
-        <div style="text-align:left;flex:1;">
-          <div style="font-weight:700;font-size:15px;">${m.nome}</div>
-          <div style="font-size:12px;opacity:0.6;margin-top:2px;">${m.desc.substring(0,60)}…</div>
-        </div>
-        <span style="font-size:20px;opacity:0.35;">›</span>
-      </div>
-    </div>`).join("");
-  document.getElementById("content").innerHTML = `
-    <h2 style="margin-top:0;">🪝 Montature da Pesca</h2>
-    <p style="opacity:0.6;margin-bottom:16px;font-size:13px;">${montatureData.length} montature • Schema tecnico + video dimostrativo</p>
-    ${cards}`;
-}
-
-function showMontaturaDetail(id) {
-  const m = montatureData.find(x => x.id === id);
-  if (!m) return;
-  document.getElementById("content").innerHTML = `
-    <div style="animation:fadeIn 0.3s ease;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-        <span style="font-size:34px;">${m.emoji}</span>
-        <div>
-          <h2 style="margin:0;font-size:21px;">${m.nome}</h2>
-          <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p>
-        </div>
-      </div>
-      <div class="card" style="padding:0;overflow:hidden;cursor:default;">
-        <div style="background:linear-gradient(90deg,#0a2a43,#144d73);padding:10px 18px;">
-          <span style="color:white;font-size:13px;font-weight:600;">📐 Schema Tecnico</span>
-        </div>
-        <img src="${m.img}" alt="Schema ${m.nome}" style="width:100%;display:block;"
-          onerror="this.parentElement.innerHTML='<div style=padding:24px;opacity:0.4;text-align:center;>Immagine non disponibile</div>'">
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0;">
-        <div class="card" style="text-align:left;padding:14px;cursor:default;">
-          <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:5px;">🕐 Quando usare</div>
-          <div style="font-size:13px;line-height:1.7;">${m.quando.split(" • ").join("<br>")}</div>
-        </div>
-        <div class="card" style="text-align:left;padding:14px;cursor:default;">
-          <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:5px;">🐟 Target</div>
-          <div style="font-size:13px;line-height:1.7;">${m.target.split(" • ").join("<br>")}</div>
-        </div>
-      </div>
-      <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🪱 Esche consigliate</div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          ${m.esche.split(" • ").map(e=>`<span style="background:#eaf4fb;border-radius:20px;padding:5px 12px;font-size:13px;font-weight:500;">${e}</span>`).join("")}
-        </div>
-      </div>
-      <a href="${m.video}" target="_blank" style="text-decoration:none;">
-        <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:16px 20px;cursor:pointer;text-align:left;">
-          <div style="font-size:32px;line-height:1;">▶</div>
-          <div>
-            <div style="font-weight:700;font-size:15px;">Video Dimostrativo</div>
-            <div style="font-size:12px;opacity:0.85;margin-top:2px;">Guarda come si realizza su YouTube →</div>
-          </div>
-        </div>
-      </a>
-      <button onclick="showMontature()" style="width:100%;margin-top:4px;">⬅️ Torna alle Montature</button>
-    </div>`;
-}
-
-/* ===== TOGGLE IMMAGINI (identico all'originale, funziona) ===== */
-let currentlyOpenBox = null;
-let currentlyOpenButton = null;
-
-function toggleImageBox(id, imgPath, button) {
-  const box = document.getElementById(id);
-  if (!box) return;
-  if (currentlyOpenBox && currentlyOpenBox !== box) {
-    currentlyOpenBox.classList.remove("open");
-    currentlyOpenBox.innerHTML = "";
-    if (currentlyOpenButton) currentlyOpenButton.classList.remove("active");
-  }
-  if (box.classList.contains("open")) {
-    box.classList.remove("open");
-    box.innerHTML = "";
-    button.classList.remove("active");
-    currentlyOpenBox = null; currentlyOpenButton = null;
-    return;
-  }
-  if (box.innerHTML === "") {
-    const img = document.createElement("img");
-    img.src = imgPath;
-    img.style.cssText = "width:20%;border-radius:14px;margin-top:10px;display:block;";
-    img.onerror = function() { this.style.display = "none"; };
-    box.appendChild(img);
-  }
-  box.classList.add("open");
-  button.classList.add("active");
-  setTimeout(() => box.scrollIntoView({ behavior:"smooth", block:"center" }), 200);
-  currentlyOpenBox = box;
-  currentlyOpenButton = button;
-}
-
-/* ===== SURFCASTING — montature inline ===== */
-function showSurfcasting() {
-  document.getElementById("content").innerHTML = `
-    <h2>🏖️ Surfcasting</h2>
-    <div class="card"><b>Quando usarla</b><br>Mare mosso o formato, spiagge sabbiose, alba e tramonto</div>
-    <div class="card"><b>Attrezzatura base</b><br>Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40</div>
-    <div class="card" style="cursor:default;">
-      <h3>🪝 Montature dedicate</h3>
-      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
-      <button onclick="toggleImageBox('traveBox','img/montature/14_minitrave.png',this)" class="toggle-btn">📷 Montatura a Trave <span class="arrow">▼</span></button>
-      <div id="traveBox" class="image-box"></div>
-      <button onclick="toggleImageBox('paternosterBox','img/montature/06_paternoster.png',this)" class="toggle-btn">📷 Paternoster <span class="arrow">▼</span></button>
-      <div id="paternosterBox" class="image-box"></div>
-      <button onclick="toggleImageBox('longArmBox','img/montature/03_long_arm.png',this)" class="toggle-btn">📷 Long Arm <span class="arrow">▼</span></button>
-      <div id="longArmBox" class="image-box"></div>
-      <button onclick="toggleImageBox('shortRovBox','img/montature/01_short_rovesciato.png',this)" class="toggle-btn">📷 Short Rovesciato <span class="arrow">▼</span></button>
-      <div id="shortRovBox" class="image-box"></div>
-      <button onclick="toggleImageBox('pulleyBox','img/montature/10_pulley_rig.png',this)" class="toggle-btn">📷 Pulley Rig <span class="arrow">▼</span></button>
-      <div id="pulleyBox" class="image-box"></div>
-    </div>
-    <div class="card"><b>Pro</b><br>Raggiunge grandi distanze, ideale per grossi pesci</div>
-    <div class="card"><b>Contro</b><br>Tecnica impegnativa, attrezzatura pesante</div>
-    <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=surfcasting+tecnica+italiana" target="_blank">Guarda su YouTube</a></div>
-    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(surfcastingData.specie)}</div>
-    <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(surfcastingData.esche)}</div>
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`;
-}
-
-/* ===== GALLEGGIANTE — montature inline, tag corretti ===== */
-function showGalleggiante() {
-  document.getElementById("content").innerHTML = `
-    <h2>🎈 Galleggiante</h2>
-    <div class="card"><b>Quando usarla</b><br>Mare calmo • Porto • Scogliera</div>
-    <div class="card"><b>Attrezzatura base</b><br>Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole</div>
-    <div class="card"><b>Specie principali</b><br>Cefalo • Sarago • Occhiata • Orata piccola</div>
-    <div class="card" style="cursor:default;">
-      <h3>🪝 Montature dedicate</h3>
-      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
-      <button onclick="toggleImageBox('galleggFissoBox','img/ravennate.jpg',this)" class="toggle-btn">📷 Galleggiante Fisso <span class="arrow">▼</span></button>
-      <div id="galleggFissoBox" class="image-box"></div>
-      <button onclick="toggleImageBox('galleggScorrBox','img/ravennate.jpg',this)" class="toggle-btn">📷 Galleggiante Scorrevole <span class="arrow">▼</span></button>
-      <div id="galleggScorrBox" class="image-box"></div>
-      <p style="margin-top:14px;font-size:13px;text-align:left;"><b>Esche:</b> Bigattino • Pane • Coreano • Gambero</p>
-    </div>
-    <div class="card"><b>Pro</b><br>Tecnica precisa e sensibile</div>
-    <div class="card"><b>Contro</b><br>Poco efficace con mare mosso</div>
-    <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare" target="_blank">Guarda su YouTube</a></div>
-    ${generaSpeciePerTecnica("galleggiante")}
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`;
-}
-
-/* ===== SPINNING ===== */
-function showSpinning() {
-  const dati = tecnicheData.spinning;
-  document.getElementById("content").innerHTML = `
-    <h2>🎣 Spinning</h2>
-    <div class="card"><h3>📅 Quando usarla</h3><p>${dati.quando}</p></div>
-    <div class="card"><h3>🎒 Attrezzatura base</h3><p>${dati.attrezzatura}</p></div>
-    <div class="card" style="cursor:default;">
-      <h3>🪢 Montatura dedicata</h3><p>${dati.montatura}</p>
-      <button onclick="toggleImageBox('spinningMontaturaBox','img/montatura-spinning.jpg',this)" class="toggle-btn">📷 Montatura Spinning <span class="arrow">▼</span></button>
-      <div id="spinningMontaturaBox" class="image-box"></div>
-    </div>
-    <div class="card"><h3>✅ Pro</h3><ul>${dati.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
-    <div class="card"><h3>❌ Contro</h3><ul>${dati.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
-    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(dati.esche)}</div>
-    <div class="card"><h3>⚖️ Piombi consigliati</h3>${generaMiniCard(dati.piombi,"spinning-piombi")}</div>
-    <div class="card"><h3>🎥 Video tutorial</h3><a href="${dati.video}" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`;
-}
-
-/* ===== EGING ===== */
-function showEging() {
-  const dati = tecnicheData.eging;
-  document.getElementById("content").innerHTML = `
-    <h2>🦑 Eging</h2>
-    <div class="card"><h3>📅 Quando usarla</h3><p>${dati.quando}</p></div>
-    <div class="card"><h3>🎒 Attrezzatura base</h3><p>${dati.attrezzatura}</p></div>
-    <div class="card" style="cursor:default;">
-      <h3>🪢 Montatura dedicata</h3><p>${dati.montatura}</p>
-      <button onclick="toggleImageBox('egingMontaturaBox','img/montatura-eging.jpg',this)" class="toggle-btn">📷 Montatura Eging <span class="arrow">▼</span></button>
-      <div id="egingMontaturaBox" class="image-box"></div>
-    </div>
-    <div class="card"><h3>✅ Pro</h3><ul>${dati.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
-    <div class="card"><h3>❌ Contro</h3><ul>${dati.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
-    <div class="card"><h3>🦑 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>🪱 Esche consigliate (Egi)</h3>${generaListaCliccabile(dati.esche)}</div>
-    <div class="card"><h3>🎥 Video tutorial</h3><a href="${dati.video}" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`;
-}
-
-/* ===== FONDO ===== */
-function showFondo() {
-  const montature = tecnicheData.fondo.montature;
-  document.getElementById("content").innerHTML = `
-    <h2>⚓ Pesca a Fondo</h2>
-    <div class="card"><b>Quando usarla</b><br>Tutto l'anno • Porto • Scogliera • Spiaggia</div>
-    <div class="card"><b>Attrezzatura base</b><br>Canna 3–4 m • Mulinello 4000–6000 • Nylon 0,30–0,40</div>
-    <div class="card" style="cursor:default;">
-      <h3>🪝 Montature dedicate</h3>
-      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
-      ${montature.map((m,i)=>`
-        <button onclick="toggleImageBox('fondoBox${i}','${m.img}',this)" class="toggle-btn">📷 ${m.nome} <span class="arrow">▼</span></button>
-        <div id="fondoBox${i}" class="image-box"></div>
-      `).join("")}
-    </div>
-    <div class="card"><b>Pro</b><br>Tecnica semplice e versatile</div>
-    <div class="card"><b>Contro</b><br>Rischio incagli • Meno selettiva</div>
-    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.specie)}</div>
-    <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.esche)}</div>
-    <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`;
+    <div class="card" onclick="showSurfcasting()"><b>Surfcasting</b><br>Pesca dalla spiaggia con piombi pesanti</div>
+    <div class="card" onclick="showSpinning()"><b>Spinning</b><br>Esche artificiali da riva</div>
+    <div class="card" onclick="showEging()"><b>Eging</b><br>Pesca a seppie e calamari</div>
+    <div class="card" onclick="showFondo()"><b>Pesca a Fondo</b><br>Porto e scogliera</div>
+    <div class="card" onclick="showGalleggiante()"><b>Galleggiante</b><br>Tecnica precisa e leggera</div>
+  `;
 }
 
 /* ===== SPECIE ===== */
@@ -413,184 +313,993 @@ function showSpecie() {
         style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
         onkeyup="filtraSpecie()">
     </div>
-    <div id="listaSpecie"></div>`;
+    <div id="listaSpecie"></div>
+  `;
   mostraTutteLeSpecie();
 }
+
 function mostraTutteLeSpecie() {
   let html = "";
-  for (let key in specie) html += `<div class="card" onclick="showSpecieDetail('${key}')">🐟 ${specie[key].nome}</div>`;
+  for (let key in specie) {
+    html += `<div class="card" onclick="showSpecieDetail('${key}')">🐟 ${specie[key].nome}</div>`;
+  }
   document.getElementById("listaSpecie").innerHTML = html;
 }
+
 function filtraSpecie() {
   let filtro = document.getElementById("searchInput").value.toLowerCase();
   let html = "";
   for (let key in specie) {
-    if (specie[key].nome.toLowerCase().includes(filtro))
+    if (specie[key].nome.toLowerCase().includes(filtro)) {
       html += `<div class="card" onclick="showSpecieDetail('${key}')">🐟 ${specie[key].nome}</div>`;
+    }
   }
   document.getElementById("listaSpecie").innerHTML = html;
 }
+
+/* ===== MONTATURE ===== */
+
+// Dati delle 17 montature
+const montatureData = [
+  {
+    id: "short-rovesciato",
+    nome: "Short Rovesciato",
+    emoji: "🪝",
+    img: "./img/montature/01_short_rovesciato.png",
+    desc: "Bracciolo corto orientato verso l'alto. Anti-aggroviglio su sabbia.",
+    quando: "Spiagge sabbiose • Mare mosso • Surfcasting",
+    esche: "Arenicola • Bibi • Americano",
+    target: "Orata • Mormora • Sarago",
+    video: "https://www.youtube.com/results?search_query=short+rovesciato+surfcasting+montatura"
+  },
+  {
+    id: "short-rovesciato-clippato",
+    nome: "Short Rovesciato Clippato",
+    emoji: "🪝",
+    img: "./img/montature/02_short_rovesciato_clippato.png",
+    desc: "Versione con power-clip per lanci aerodinamici superiori a 120 m.",
+    quando: "Spiagge ampie • Lanci estremi • Corrente",
+    esche: "Arenicola • Bibi • Coreano",
+    target: "Orata • Mormora • Spigola",
+    video: "https://www.youtube.com/results?search_query=short+rovesciato+clippato+surfcasting"
+  },
+  {
+    id: "long-arm",
+    nome: "Long Arm",
+    emoji: "🪝",
+    img: "./img/montature/03_long_arm.png",
+    desc: "Bracciolo lungo 80–120 cm per massima naturalezza dell'esca.",
+    quando: "Mare calmo • Pesci sospettosi • Alba/tramonto",
+    esche: "Gambero • Vermetto • Polpo piccolo",
+    target: "Orata grossa • Spigola • Dentice",
+    video: "https://www.youtube.com/results?search_query=long+arm+montatura+surfcasting"
+  },
+  {
+    id: "long-arm-clippato",
+    nome: "Long Arm Clippato",
+    emoji: "🪝",
+    img: "./img/montature/04_long_arm_clippato.png",
+    desc: "Long arm con clip: bracciolo lungo + lancio da gara oltre 130 m.",
+    quando: "Fondali lontani • Gare • Spiagge aperte",
+    esche: "Gambero • Polpo • Arenicola",
+    target: "Orata • Dentice • Spigola",
+    video: "https://www.youtube.com/results?search_query=long+arm+clippato+surfcasting+gara"
+  },
+  {
+    id: "biamo",
+    nome: "Bi-Amo",
+    emoji: "🎣",
+    img: "./img/montature/05_biamo.png",
+    desc: "Due braccioli indipendenti per presentare due esche diverse contemporaneamente.",
+    quando: "Porto e scogliera • Fondo misto",
+    esche: "Bigattino • Coreano • Gambero",
+    target: "Sarago • Occhiata • Spigola",
+    video: "https://www.youtube.com/results?search_query=bi+amo+montatura+pesca+mare"
+  },
+  {
+    id: "paternoster",
+    nome: "Paternoster",
+    emoji: "🪝",
+    img: "./img/montature/06_paternoster.png",
+    desc: "Classico del surfcasting. Braccioli alti tenuti dalla girella tripla a 3 vie.",
+    quando: "Fondo misto • Pesce sospeso • Tuttofare",
+    esche: "Arenicola • Coreano • Gambero",
+    target: "Orata • Sarago • Mormora • Corvina",
+    video: "https://www.youtube.com/results?search_query=paternoster+montatura+surfcasting+italiano"
+  },
+  {
+    id: "biamo-clippato",
+    nome: "Bi-Amo Clippato",
+    emoji: "🎣",
+    img: "./img/montature/07_biamo_clippato.png",
+    desc: "Due ami clippati al piombo per lanci lunghi con doppia presentazione.",
+    quando: "Spiagge con fondali lontani • Gare",
+    esche: "Arenicola • Bibi • Coreano",
+    target: "Orata • Mormora • Sarago",
+    video: "https://www.youtube.com/results?search_query=biamo+clippato+surfcasting+montatura"
+  },
+  {
+    id: "triamo",
+    nome: "Tri-Amo",
+    emoji: "🎣",
+    img: "./img/montature/08_triamo.png",
+    desc: "Tre braccioli per massimizzare le catture sui pesci di branco.",
+    quando: "Porto • Molo • Pesci in branco",
+    esche: "Bigattino • Verme di mare • Pane",
+    target: "Occhiata • Sugarello • Saraghetto",
+    video: "https://www.youtube.com/results?search_query=tri+amo+tre+ami+pesca+porto"
+  },
+  {
+    id: "triamo-clippato",
+    nome: "Tri-Amo Clippato",
+    emoji: "🎣",
+    img: "./img/montature/09_triamo_clippato.png",
+    desc: "Tre ami clippati: distanza + tripla efficacia su fondi lontani.",
+    quando: "Spiagge ampie • Fondo distante",
+    esche: "Bigattino • Coreano • Verme",
+    target: "Occhiata • Sarago • Sugarello",
+    video: "https://www.youtube.com/results?search_query=tri+amo+clippato+surfcasting+tre+ami"
+  },
+  {
+    id: "pulley-rig",
+    nome: "Pulley Rig",
+    emoji: "⚙️",
+    img: "./img/montature/10_pulley_rig.png",
+    desc: "Sistema a puleggia: protegge l'esca durante il lancio, la libera perfettamente in acqua.",
+    quando: "Esche grosse e delicate • Corrente",
+    esche: "Polpo • Mazzancolla • Pezzo calamaro",
+    target: "Spigola • Orata • Corvina grossa",
+    video: "https://www.youtube.com/results?search_query=pulley+rig+surfcasting+montatura+italiana"
+  },
+  {
+    id: "pulley-rig-clippato",
+    nome: "Pulley Rig Clippato",
+    emoji: "⚙️",
+    img: "./img/montature/11_pulley_rig_clippato.png",
+    desc: "Pulley + clip: la montatura più avanzata per esche grandi a lunga distanza.",
+    quando: "Spiagge lunghe • Esche grosse • Vento favore",
+    esche: "Polpo • Mazzancolla • Pezzo sgombro",
+    target: "Spigola XXL • Corvina • Orata",
+    video: "https://www.youtube.com/results?search_query=pulley+rig+clippato+surfcasting"
+  },
+  {
+    id: "scorrevole",
+    nome: "Scorrevole",
+    emoji: "🎯",
+    img: "./img/montature/12_scorrevole.png",
+    desc: "Piombo libero sulla lenza: il pesce non sente resistenza e abbocca sicuro.",
+    quando: "Mare calmo • Porto • Pesci sospettosi",
+    esche: "Gambero • Polpo • Vermetto",
+    target: "Orata • Dentice • Spigola",
+    video: "https://www.youtube.com/results?search_query=montatura+scorrevole+pesca+fondo+mare"
+  },
+  {
+    id: "scorrevole-clippato",
+    nome: "Scorrevole Clippato",
+    emoji: "🎯",
+    img: "./img/montature/13_scorrevole_clippato.png",
+    desc: "Scorrevole + clip: il meglio dei due mondi — distanza e sensibilità massima.",
+    quando: "Spiagge con fondali lontani • Pesci sospettosi",
+    esche: "Gambero • Bibi • Arenicola",
+    target: "Orata sospettosa • Dentice • Spigola",
+    video: "https://www.youtube.com/results?search_query=scorrevole+clippato+surfcasting+montatura"
+  },
+  {
+    id: "minitrave",
+    nome: "Minitrave",
+    emoji: "📐",
+    img: "./img/montature/14_minitrave.png",
+    desc: "Trave orizzontale rigido che tiene i braccioli separati e anti-aggroviglio.",
+    quando: "Sabbia con corrente • Surf classico",
+    esche: "Arenicola • Bibi • Coreano",
+    target: "Mormora • Sarago • Orata",
+    video: "https://www.youtube.com/results?search_query=minitrave+surfcasting+montatura+pesca"
+  },
+  {
+    id: "minitrave-divergente",
+    nome: "Minitrave con Divergente",
+    emoji: "📐",
+    img: "./img/montature/15_minitrave_divergente.png",
+    desc: "Bracci angolati a 40–50° per portare le esche lontano dalla scia del piombo.",
+    quando: "Corrente forte • Posidonia • Fondo misto",
+    esche: "Arenicola • Gambero • Bibi",
+    target: "Orata • Sarago • Mormora",
+    video: "https://www.youtube.com/results?search_query=minitrave+divergente+surfcasting+pesca"
+  },
+  {
+    id: "minitrave-snodato",
+    nome: "Minitrave Divergente 360°",
+    emoji: "🔄",
+    img: "./img/montature/16_minitrave_snodato_360.png",
+    desc: "Snodo a rotazione totale: i divergenti seguono automaticamente la corrente. Zero aggrovigli.",
+    quando: "Correnti variabili • Scogliera • Avanzata",
+    esche: "Gambero • Arenicola • Cozza",
+    target: "Orata • Sarago • Mormora",
+    video: "https://www.youtube.com/results?search_query=minitrave+snodato+360+gradi+surfcasting"
+  },
+  {
+    id: "terminale-serra",
+    nome: "Terminale Pesce Serra",
+    emoji: "⚠️",
+    img: "./img/montature/17_terminale_serra.png",
+    desc: "Terminale in acciaio multi-strand obbligatorio: i denti del serra tagliano qualsiasi filo!",
+    quando: "Luglio–Settembre • Spinning • Surfcasting",
+    esche: "Minnow • Jerkbait • Metal jig • Pezzo sgombro",
+    target: "Pesce Serra",
+    video: "https://www.youtube.com/results?search_query=pesce+serra+terminale+acciaio+pesca"
+  }
+];
+
+function showMontature() {
+  let cards = montatureData.map(m => `
+    <div class="card montatura-card" onclick="showMontaturaDetail('${m.id}')">
+      <div style="display:flex;align-items:center;gap:12px;text-align:left;">
+        <span style="font-size:28px;">${m.emoji}</span>
+        <div>
+          <div style="font-weight:700;font-size:16px;">${m.nome}</div>
+          <div style="font-size:12px;opacity:0.65;margin-top:3px;">${m.desc.substring(0,60)}…</div>
+        </div>
+        <span style="margin-left:auto;font-size:20px;opacity:0.4;">›</span>
+      </div>
+    </div>
+  `).join("");
+
+  document.getElementById("content").innerHTML = `
+    <h2 style="margin-top:0;">🪝 Montature da Pesca</h2>
+    <p style="opacity:0.6;margin-bottom:18px;font-size:14px;">
+      ${montatureData.length} montature • Schema tecnico + video dimostrativo
+    </p>
+    ${cards}
+  `;
+}
+
+function showMontaturaDetail(id) {
+  const m = montatureData.find(x => x.id === id);
+  if (!m) return;
+
+  document.getElementById("content").innerHTML = `
+    <div style="animation:fadeIn 0.3s ease;">
+
+      <!-- Titolo -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+        <span style="font-size:36px;">${m.emoji}</span>
+        <div>
+          <h2 style="margin:0;font-size:22px;">${m.nome}</h2>
+          <p style="margin:4px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p>
+        </div>
+      </div>
+
+      <!-- Schema tecnico illustrato -->
+      <div class="card" style="padding:0;overflow:hidden;cursor:default;">
+        <div style="background:linear-gradient(90deg,#0a2a43,#144d73);padding:10px 18px;">
+          <span style="color:white;font-size:13px;font-weight:600;">📐 Schema Tecnico</span>
+        </div>
+        <img
+          src="${m.img}"
+          alt="Schema ${m.nome}"
+          style="width:100%;display:block;border-radius:0 0 22px 22px;"
+          onerror="this.parentElement.innerHTML='<div style=padding:30px;opacity:0.4;>Immagine non disponibile</div>'"
+        >
+      </div>
+
+      <!-- Info rapide -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0;">
+        <div class="card" style="text-align:left;padding:16px;cursor:default;">
+          <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">🕐 Quando usare</div>
+          <div style="font-size:13px;line-height:1.6;">${m.quando.split(" • ").join("<br>")}</div>
+        </div>
+        <div class="card" style="text-align:left;padding:16px;cursor:default;">
+          <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">🐟 Target</div>
+          <div style="font-size:13px;line-height:1.6;">${m.target.split(" • ").join("<br>")}</div>
+        </div>
+      </div>
+
+      <!-- Esche -->
+      <div class="card" style="text-align:left;padding:16px;cursor:default;">
+        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🪱 Esche consigliate</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          ${m.esche.split(" • ").map(e => `
+            <span style="background:#eaf4fb;border-radius:20px;padding:5px 12px;font-size:13px;font-weight:500;">
+              ${e}
+            </span>
+          `).join("")}
+        </div>
+      </div>
+
+      <!-- Video YouTube -->
+      <a href="http://${m.video}" target="_blank" style="text-decoration:none;">
+        <div class="card" style="
+          background: linear-gradient(135deg,#ff0000,#cc0000);
+          color: white;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 18px 22px;
+          cursor: pointer;
+          text-align: left;
+        ">
+          <div style="font-size:36px;line-height:1;">▶</div>
+          <div>
+            <div style="font-weight:700;font-size:15px;">Video Dimostrativo</div>
+            <div style="font-size:12px;opacity:0.85;margin-top:2px;">Guarda come si realizza su YouTube →</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Torna -->
+      <button onclick="showMontature()" style="width:100%;margin-top:4px;">
+        ⬅️ Torna alle Montature
+      </button>
+
+    </div>
+  `;
+}
+
+function generaMontatureSpecie(listaMontature) {
+  if (!listaMontature || listaMontature.length === 0) return "";
+  let html = "<div class='card'><b>🪝 Montature consigliate</b><br><br>";
+  listaMontature.forEach(m => {
+    html += `<div style="margin:6px 0;">• ${m.replaceAll("-", " ")}</div>`;
+  });
+  html += "</div>";
+  return html;
+}
+
+/* ===== NODI ===== */
+function showNodi() {
+  document.getElementById("content").innerHTML = `
+    <h2>🧵 Nodi da Pesca</h2>
+    <div class="card">
+      <b>Nodo Clinch</b><br><br>
+      <img src="./img/nodo-clinch.jpg" width="30%" onerror="this.style.display='none'"><br><br>
+      <b>Uso:</b> Ami, girelle, moschettoni<br>
+      <b>Filo:</b> Nylon / Fluorocarbon
+    </div>
+    <div class="card">
+      <b>Nodo Palomar</b><br><br>
+      <img src="./img/nodo-palomar.jpg" width="30%" onerror="this.style.display='none'"><br><br>
+      <b>Uso:</b> Ami e artificiali<br>
+      <b>Filo:</b> Trecciato (ottimo anche su nylon)
+    </div>
+    <div class="card">
+      <b>Nodo FG</b><br><br>
+      <img src="./img/nodo-fg.jpg" width="30%" onerror="this.style.display='none'"><br><br>
+      <b>Uso:</b> Collegare treccia a fluorocarbon<br>
+      <b>Filo:</b> Treccia → Fluoro
+    </div>
+    <div class="card">
+      <b>Nodo Albright</b><br><br>
+      <img src="./img/nodo-albright.jpg" width="30%" onerror="this.style.display='none'"><br><br>
+      <b>Uso:</b> Unire fili di diametro diverso<br>
+      <b>Filo:</b> Nylon / Treccia
+    </div>
+    <div class="card">
+      <b>Nodo di Sangue</b><br><br>
+      <img src="./img/nodo-sangue.jpg" width="30%" onerror="this.style.display='none'"><br><br>
+      <b>Uso:</b> Unire due fili simili<br>
+      <b>Filo:</b> Nylon / Fluorocarbon
+    </div>
+    <div class="card">
+      <b>Nodo Rapala</b><br><br>
+      <img src="./img/nodo-rapala.jpg" width="30%" onerror="this.style.display='none'"><br><br>
+      <b>Uso:</b> Artificiali con movimento libero<br>
+      <b>Filo:</b> Nylon / Fluorocarbon
+    </div>
+  `;
+}
+
+/* ===== ACCORDION MONTATURE INLINE ===== */
+function toggleAccordion(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const isOpen = el.style.display === 'block';
+  document.querySelectorAll('.accordion-body').forEach(e => e.style.display = 'none');
+  document.querySelectorAll('.accordion-arrow').forEach(e => e.textContent = '›');
+  if (!isOpen) {
+    el.style.display = 'block';
+    const arrow = document.getElementById('arrow-' + id);
+    if (arrow) arrow.textContent = '⌄';
+  }
+}
+
+function accordionCard(id, emoji, titolo, contenuto) {
+  return `
+    <div class="card" style="padding:0;overflow:hidden;cursor:default;margin-bottom:8px;">
+      <div onclick="toggleAccordion('${id}')"
+           style="display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;background:rgba(0,0,0,0.03);">
+        <span style="font-size:20px;">${emoji}</span>
+        <span style="font-weight:700;font-size:15px;flex:1;">${titolo}</span>
+        <span id="arrow-${id}" class="accordion-arrow" style="font-size:20px;opacity:0.4;">›</span>
+      </div>
+      <div id="${id}" class="accordion-body" style="display:none;padding:14px 18px;border-top:1px solid rgba(0,0,0,0.06);">
+        ${contenuto}
+      </div>
+    </div>`;
+}
+
+/* ===== SURFCASTING ===== */
+function showSurfcasting() {
+  const montatureSurf =
+    accordionCard('surf-trave','🪝','Montatura a Trave',
+      '<p style="margin:8px 0 4px;"><b>Quando:</b> Mare mosso • Surfcasting classico • Spiaggia</p>' +
+      '<p style="margin:4px 0;"><b>Composizione:</b> Trave 120–150 cm • 1–2 braccioli • Piombo fisso</p>' +
+      '<p style="margin:4px 0;"><b>Esche:</b> Arenicola • Americano • Bibi</p>' +
+      '<a href="https://www.youtube.com/results?search_query=montatura+a+trave+surfcasting" target="_blank" style="display:inline-block;margin-top:10px;padding:7px 14px;background:#cc0000;color:white;border-radius:10px;font-size:13px;text-decoration:none;">▶ Video YouTube</a>'
+    ) +
+    accordionCard('surf-paternoster','🪝','Paternoster',
+      '<p style="margin:8px 0 4px;"><b>Quando:</b> Fondali misti • Pesce sospeso</p>' +
+      '<p style="margin:4px 0;"><b>Composizione:</b> Braccioli alti • Piombo finale • Terminali corti</p>' +
+      '<p style="margin:4px 0;"><b>Esche:</b> Coreano • Americano • Gambero</p>' +
+      '<a href="https://www.youtube.com/results?search_query=montatura+paternoster+surfcasting" target="_blank" style="display:inline-block;margin-top:10px;padding:7px 14px;background:#cc0000;color:white;border-radius:10px;font-size:13px;text-decoration:none;">▶ Video YouTube</a>'
+    ) +
+    accordionCard('surf-longarm','🪝','Long Arm',
+      '<p style="margin:8px 0 4px;"><b>Quando:</b> Mare calmo • Pesci sospettosi</p>' +
+      '<p style="margin:4px 0;"><b>Composizione:</b> Bracciolo 120–200 cm • Piombo scorrevole</p>' +
+      '<p style="margin:4px 0;"><b>Esche:</b> Tremolina • Arenicola • Bibi</p>' +
+      '<a href="https://www.youtube.com/results?search_query=montatura+long+arm+surfcasting" target="_blank" style="display:inline-block;margin-top:10px;padding:7px 14px;background:#cc0000;color:white;border-radius:10px;font-size:13px;text-decoration:none;">▶ Video YouTube</a>'
+    );
+
+  document.getElementById("content").innerHTML = `
+    <h2>🏖️ Surfcasting</h2>
+    <div class="card"><b>Quando usarla</b><br>Mare mosso o formato, spiagge sabbiose, alba e tramonto</div>
+    <div class="card"><b>Attrezzatura base</b><br>Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40</div>
+    <div class="card" style="cursor:default;">
+      <b>🪝 Montature dedicate</b>
+      <p style="font-size:12px;opacity:0.55;margin:4px 0 10px;">Tocca per espandere</p>
+      ${montatureSurf}
+    </div>
+    <div class="card"><b>Pro</b><br>Raggiunge grandi distanze, ideale per grossi pesci</div>
+    <div class="card"><b>Contro</b><br>Tecnica impegnativa, attrezzatura pesante</div>
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=surfcasting+tecnica" target="_blank">Guarda su YouTube</a>
+    </div>
+    <div class="card">
+      <h3>🐟 Specie consigliate</h3>
+      ${generaListaCliccabile(surfcastingData.specie)}
+    </div>
+    <div class="card">
+      <h3>🪱 Esche consigliate</h3>
+      ${generaListaCliccabile(surfcastingData.esche)}
+    </div>
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
+
+/* ===== GALLEGGIANTE ===== */
+function showGalleggiante() {
+  const montatureGall =
+    accordionCard('gall-fisso','🎈','Galleggiante Fisso',
+      '<p style="margin:8px 0 4px;"><b>Composizione:</b> Galleggiante fisso • Piombini distribuiti • Finale 40–80 cm</p>' +
+      '<p style="margin:4px 0;"><b>Esche:</b> Bigattino • Pane • Coreano</p>' +
+      '<p style="margin:4px 0;"><b>Quando:</b> Porto • Scogliera • Mare calmo</p>' +
+      '<a href="https://www.youtube.com/results?search_query=montatura+galleggiante+fisso+mare" target="_blank" style="display:inline-block;margin-top:10px;padding:7px 14px;background:#cc0000;color:white;border-radius:10px;font-size:13px;text-decoration:none;">▶ Video YouTube</a>'
+    ) +
+    accordionCard('gall-scorrevole','🎈','Galleggiante Scorrevole',
+      '<p style="margin:8px 0 4px;"><b>Composizione:</b> Galleggiante libero su lenza • Stopper regolabile</p>' +
+      '<p style="margin:4px 0;"><b>Vantaggio:</b> Regola la profondità con precisione</p>' +
+      '<p style="margin:4px 0;"><b>Esche:</b> Bigattino • Gambero • Vermetto</p>' +
+      '<a href="https://www.youtube.com/results?search_query=galleggiante+scorrevole+pesca+mare" target="_blank" style="display:inline-block;margin-top:10px;padding:7px 14px;background:#cc0000;color:white;border-radius:10px;font-size:13px;text-decoration:none;">▶ Video YouTube</a>'
+    );
+
+  document.getElementById("content").innerHTML = `
+    <h2>🎈 Galleggiante</h2>
+    <div class="card"><b>Quando usarla</b><br>Mare calmo • Porto • Scogliera</div>
+    <div class="card"><b>Attrezzatura base</b><br>Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole</div>
+    <div class="card"><b>Specie principali</b><br>Cefalo • Sarago • Occhiata • Orata piccola</div>
+    <div class="card" style="cursor:default;">
+      <b>🎈 Montature dedicate</b>
+      <p style="font-size:12px;opacity:0.55;margin:4px 0 10px;">Tocca per espandere</p>
+      ${montatureGall}
+    </div>
+    <div class="card"><b>Pro</b><br>Tecnica precisa e sensibile</div>
+    <div class="card"><b>Contro</b><br>Poco efficace con mare mosso</div>
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare" target="_blank">Guarda su YouTube</a>
+    </div>
+    ${generaSpeciePerTecnica("galleggiante")}
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
+
+/* ===== DATI ===== */
+const surfcastingData = {
+  specie: [
+    { nome: "Orata", img: "img/orata.jpg" },
+    { nome: "Spigola", img: "img/spigola.jpg" },
+    { nome: "Mormora", img: "img/mormora.jpg" },
+    { nome: "Sarago Maggiore", img: "img/sarago-maggiore.jpg" },
+    { nome: "Sarago Pizzuto", img: "img/sarago-pizzuto.jpg" }
+  ],
+  esche: [
+    { nome: "Arenicola", img: "img/arenicola.jpg" },
+    { nome: "Americano", img: "img/americano.jpg" },
+    { nome: "Bibi", img: "img/bibi.jpg" },
+    { nome: "Coreano", img: "img/coreano.jpg" }
+  ]
+};
+
+const tecnicheData = {
+  spinning: {
+    quando: "Ideale con mare poco mosso o leggermente increspato. Perfetto all'alba e al tramonto.",
+    attrezzatura: "Canna 2.10-2.70m 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 + fluorocarbon 0.30-0.40.",
+    montatura: "Trecciato collegato con nodo FG al fluorocarbon. Artificiali come minnow, jerkbait, softbait e jig.",
+    montaturaImg: "img/montatura-spinning.jpg",
+    pro: ["Tecnica dinamica", "Copre molta acqua", "Adatta a molti predatori"],
+    contro: ["Richiede movimento continuo", "Attrezzatura più costosa", "Meno efficace con mare molto mosso"],
+    specie: [
+      { nome: "Spigola", img: "img/spigola.jpg" },
+      { nome: "Serra", img: "img/serra.jpg" },
+      { nome: "Barracuda", img: "img/barracuda.jpg" },
+      { nome: "Palamita", img: "img/palamita.jpg" },
+      { nome: "Ricciola", img: "img/ricciola.jpg" }
+    ],
+    esche: [
+      { nome: "Minnow", img: "img/minnow.jpg", descrizione: "Imita un piccolo pesce foraggio. Disponibile floating, suspending o sinking.", mare: "Calmo / Poco mosso", target: "Spigola, Serra, Leccia stella", efficacia: 5 },
+      { nome: "Jerkbait", img: "img/jerkbait.jpg", descrizione: "Movimento nervoso per attacchi aggressivi.", mare: "Leggermente mosso", target: "Serra, Palamita", efficacia: 4 },
+      { nome: "Soft Bait", img: "img/softbait.jpg", descrizione: "Esca in silicone montata su jig head.", mare: "Calmo", target: "Spigola, Sugarello", efficacia: 4 },
+      { nome: "Metal Jig", img: "img/metal-jig.jpg", descrizione: "Per lanci lunghi e profondità.", mare: "Mosso / Corrente", target: "Palamita, Serra", efficacia: 5 },
+      { nome: "Top Water / Popper", img: "img/popper.jpg", descrizione: "Lavora in superficie con attacchi spettacolari.", mare: "Calmo", target: "Leccia stella, Serra", efficacia: 4 }
+    ],
+    piombi: [
+      { nome: "Jig Head", img: "img/jig-head.jpg", descrizione: "Testa piombata per soft bait.", peso: "5g – 30g" },
+      { nome: "Piombo interno", img: "img/piombo-interno.jpg", descrizione: "Assetto naturale nel silicone.", peso: "Variabile" }
+    ],
+    video: "https://www.youtube.com/watch?v=5Zk7XKXh7eM"
+  },
+  eging: {
+    quando: "Ideale di notte o al tramonto in porti, scogliere e moli con fondale misto.",
+    attrezzatura: "Canna 2.30–2.60m azione 2.0–3.5 EGI • Mulinello 2500–3000 • Trecciato 0.6–0.8 PE + Fluorocarbon 0.28–0.33",
+    montatura: "Trecciato collegato al fluorocarbon con nodo FG. Collegamento diretto all'egi con moschettone leggero.",
+    montaturaImg: "img/montatura-eging.jpg",
+    pro: ["Tecnica divertente e tecnica", "Molto efficace sui cefalopodi", "Attrezzatura leggera"],
+    contro: ["Richiede sensibilità", "Meno produttiva con mare molto mosso"],
+    specie: [
+      { nome: "Calamaro", img: "img/calamaro.jpg" },
+      { nome: "Seppia", img: "img/seppia.jpg" },
+      { nome: "Totano", img: "img/totano.jpg" }
+    ],
+    esche: [
+      { nome: "Egi 2.5", img: "img/egi-2-5.jpg" },
+      { nome: "Egi 3.0", img: "img/egi-3-0.jpg" },
+      { nome: "Egi 3.5", img: "img/egi-3-5.jpg" }
+    ],
+    video: "https://www.youtube.com/results?search_query=eging+tecnica"
+  },
+  fondo: {
+    montature: [
+      { nome: "Piombo Scorrevole", img: "img/piombo-scorrevole.jpg", descrizione: "Piombo libero sulla lenza madre per maggiore sensibilità." },
+      { nome: "Paternoster", img: "img/paternoster.jpg", descrizione: "Finali laterali ideali per fondo misto." },
+      { nome: "Long Arm", img: "img/long-arm.jpg", descrizione: "Bracciolo lungo per mare calmo." },
+      { nome: "Bandiera", img: "img/bandiera.jpg", descrizione: "Ottima per evitare grovigli." }
+    ],
+    specie: [
+      { nome: "Orata", img: "img/orata.jpg" },
+      { nome: "Sarago Maggiore", img: "img/sarago-maggiore.jpg" },
+      { nome: "Mormora", img: "img/mormora.jpg" },
+      { nome: "Scorfano", img: "img/scorfano.jpg" },
+      { nome: "Pagello", img: "img/pagello.jpg" }
+    ],
+    esche: [
+      { nome: "Arenicola", img: "img/arenicola.jpg" },
+      { nome: "Americano", img: "img/americano.jpg" },
+      { nome: "Bibi", img: "img/bibi.jpg" },
+      { nome: "Coreano", img: "img/coreano.jpg" },
+      { nome: "Cozza", img: "img/cozza.jpg" }
+    ]
+  }
+};
+
+const specie = {
+  orata: { nome: "Orata", scientifico: "Sparus aurata", img: "img/orata.jpg", descrizione: "Pesce pregiato di fondale sabbioso e misto.", tecniche: "Pesca a fondo, surfcasting", montature: ["paternoster", "long-arm", "piombo-scorrevole"], stagione: [1,2,3,4,10,11,12] },
+  spigola: { nome: "Spigola / Branzino", scientifico: "Dicentrarchus labrax", img: "img/spigola.jpg", descrizione: "Predatore costiero molto combattivo.", tecniche: "Spinning, surfcasting, fondo", montature: ["long-arm", "piombo-scorrevole", "short-rovesciato"], stagione: [1,2,3,4,11,12] },
+  "sarago-maggiore": { nome: "Sarago maggiore", scientifico: "Diplodus sargus", img: "img/sarago-maggiore.jpg", descrizione: "Tipico dei fondali rocciosi.", tecniche: "Pesca a fondo, bolognese", montature: ["paternoster", "piombo-scorrevole", "trave"], stagione: [1,2,3,4,5,6,7,8,9,10,11,12] },
+  "sarago-pizzuto": { nome: "Sarago pizzuto", scientifico: "Diplodus puntazzo", img: "img/sarago-pizzuto.jpg", descrizione: "Sarago più affusolato e diffidente.", tecniche: "Pesca a fondo", montature: ["long-arm", "paternoster"], stagione: [1,2,3,4,5,6,7,8,9,10,11,12] },
+  mormora: { nome: "Mormora", scientifico: "Lithognathus mormyrus", img: "img/mormora.jpg", descrizione: "Classica preda del surfcasting.", tecniche: "Surfcasting", montature: ["long-arm", "paternoster", "short-rovesciato"], stagione: [5,6,7,8,9,10] },
+  occhiata: { nome: "Occhiata", scientifico: "Oblada melanura", img: "img/occhiata.jpg", descrizione: "Pesce costiero che vive in branchi.", tecniche: "Galleggiante, fondo leggero", montature: ["paternoster", "galleggiante-mare"], stagione: [5,6,9,10] },
+  sugarello: { nome: "Sugarello", scientifico: "Trachurus trachurus", img: "img/sugarello.jpg", descrizione: "Pesce pelagico molto attivo.", tecniche: "Spinning, bolentino", montature: ["paternoster", "trave"], stagione: [3,4,5,6,7,8,9] },
+  pagello: { nome: "Pagello", scientifico: "Pagellus erythrinus", img: "img/pagello.jpg", descrizione: "Vive su fondali sabbiosi e misti.", tecniche: "Fondo, bolentino", montature: ["paternoster", "trave"], stagione: [1,2,3,4,5,6,7,8,9,10,11,12] },
+  scorfano: { nome: "Scorfano", scientifico: "Scorpaena scrofa", img: "img/scorfano.jpg", descrizione: "Pesce di scogliera, attenzione alle spine.", tecniche: "Fondo, scogliera", montature: ["paternoster", "piombo-scorrevole", "trave"], stagione: [1,2,3,4,5,6,7,8,9,10,11,12] },
+  leccia: { nome: "Leccia", scientifico: "Lichia amia", img: "img/leccia.jpg", descrizione: "Grande predatore costiero.", tecniche: "Spinning, vivo", montature: ["long-arm", "piombo-scorrevole"], stagione: [4,5,6] },
+  palamita: { nome: "Palamita", scientifico: "Sarda sarda", img: "img/palamita.jpg", descrizione: "Predatore veloce e combattivo.", tecniche: "Spinning, traina", montature: ["long-arm", "piombo-scorrevole"], stagione: [4,5,6,7,8,9,10] },
+  serra: { nome: "Pesce Serra", scientifico: "Pomatomus saltatrix", img: "img/serra.jpg", descrizione: "Predatore aggressivo con dentatura affilata.", tecniche: "Spinning, surfcasting", montature: ["long-arm", "piombo-scorrevole"], stagione: [7,8,9] },
+  cefalo: { nome: "Cefalo", scientifico: "Mugil cephalus", img: "img/cefalo.jpg", descrizione: "Molto diffuso in porto e laguna.", tecniche: "Galleggiante", montature: ["galleggiante-mare", "piombo-scorrevole"], stagione: [3,4,5,6,7,8,9,10,11] },
+  dentice: { nome: "Dentice", scientifico: "Dentex dentex", img: "img/dentice.jpg", descrizione: "Predatore di fondale roccioso.", tecniche: "Fondo, vivo", montature: ["long-arm", "trave"], stagione: [3,4,5,6,7,8,9,10] },
+  ricciola: { nome: "Ricciola", scientifico: "Seriola dumerili", img: "img/ricciola.jpg", descrizione: "Grande predatore pelagico.", tecniche: "Spinning, traina", montature: ["long-arm", "piombo-scorrevole"], stagione: [6,7,8,9,10] },
+  totano: { nome: "Totano", scientifico: "Todarodes sagittatus", img: "img/totano.jpg", descrizione: "Cefalopode pescato in profondità.", tecniche: "Eging, bolentino", montature: ["paternoster", "piombo-scorrevole"], stagione: [1,2,10,11,12] },
+  seppia: { nome: "Seppia", scientifico: "Sepia officinalis", img: "img/seppia.jpg", descrizione: "Cefalopode costiero molto diffuso.", tecniche: "Eging", montature: ["piombo-scorrevole", "paternoster"], stagione: [4,5,10,11,12] }
+};
+
+/* ===== FUNZIONI UTILITÀ ===== */
+
+// UNICA definizione: lista cliccabile con toggle immagine per ID
+function generaListaCliccabile(lista) {
+  let html = "<div class='mini-container'>";
+  lista.forEach((item, index) => {
+    const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g, "_") + "-" + index;
+    html += `
+      <div class="mini-card" onclick="toggleImgById('${safeId}')">
+        ${item.nome}
+        <div id="${safeId}" style="display:none;margin-top:10px;">
+          <img src="${item.img}" style="width:100%;max-width:250px;border-radius:12px;" onerror="this.style.display='none'">
+        </div>
+      </div>
+    `;
+  });
+  html += "</div>";
+  return html;
+}
+
+// UNICA definizione generaMiniCard: con oggetti {nome, img, descrizione}
+function generaMiniCard(lista, tipo) {
+  if (!lista || lista.length === 0) return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
+  return `
+    <div class="mini-container">
+      ${lista.map((item, index) => `
+        <div class="mini-card" onclick="apriDettaglio('${tipo}', ${index})">
+          ${item.nome}
+        </div>
+      `).join("")}
+    </div>
+    <div id="${tipo}-detail"></div>
+  `;
+}
+
+// UNICA definizione toggleImg: per ID stringa
+function toggleImgById(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === "none" ? "block" : "none";
+}
+
+function toggleMontaturaImg() {
+  const box = document.getElementById("montaturaBox");
+  if (box) box.style.display = box.style.display === "none" ? "block" : "none";
+}
+
+function toggleMontatura(imgPath) {
+  const box = document.getElementById("montaturaBox");
+  if (!box) return;
+  if (box.innerHTML === "") {
+    box.innerHTML = `<img src="${imgPath}" style="width:100%;max-width:400px;margin-top:10px;border-radius:10px;" onerror="this.style.display='none'">`;
+  } else {
+    box.innerHTML = "";
+  }
+}
+
+// UNICA definizione apriDettaglio
+function apriDettaglio(tipo, index) {
+  const container = document.getElementById(tipo + "-detail");
+  if (!container) return;
+
+  const parti = tipo.split("-");
+  if (parti.length < 2) return;
+
+  const tecnica = parti[0];
+  const categoria = parti.slice(1).join("-");
+
+  if (!tecnicheData[tecnica] || !tecnicheData[tecnica][categoria]) return;
+
+  const item = tecnicheData[tecnica][categoria][index];
+  if (!item) return;
+
+  if (container.dataset.open == index) {
+    container.innerHTML = "";
+    container.dataset.open = "";
+    return;
+  }
+  container.dataset.open = index;
+  container.innerHTML = `
+    <div class="card">
+      <h3>${item.nome}</h3>
+      <img src="${item.img}" style="width:60%;max-width:300px;border-radius:12px;display:block;margin:10px auto;" onerror="this.style.display='none'">
+      ${item.descrizione ? `<p>${item.descrizione}</p>` : ""}
+      ${item.peso ? `<p><strong>Peso:</strong> ${item.peso}</p>` : ""}
+    </div>
+  `;
+}
+
+function generaAccordion(lista, tipo) {
+  return lista.map((item, index) => `
+    <div class="card">
+      <div onclick="toggleAccordion('${tipo}-${index}')" style="cursor:pointer;font-weight:bold;">
+        ▶ ${item.nome}
+      </div>
+      <div id="${tipo}-${index}" style="display:none;margin-top:10px;">
+        <img src="${item.img}" style="width:30%;max-width:220px;border-radius:12px;margin:10px auto;display:block;" onerror="this.style.display='none'">
+        <p>${item.descrizione || ""}</p>
+        ${item.mare ? `<p><strong>Mare:</strong> ${item.mare}</p>` : ""}
+        ${item.target ? `<p><strong>Target:</strong> ${item.target}</p>` : ""}
+        ${item.efficacia ? `<p><strong>Efficacia:</strong> ${"⭐".repeat(item.efficacia)}</p>` : ""}
+        ${item.peso ? `<p><strong>Peso:</strong> ${item.peso}</p>` : ""}
+      </div>
+    </div>
+  `).join("");
+}
+
+function toggleAccordion(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === "none" ? "block" : "none";
+}
+
+function generaCalendario(stagione) {
+  if (!stagione) return "";
+  const mesi = ["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
+  const meseCorrente = new Date().getMonth() + 1;
+  let html = "<div class='card'><b>📅 Calendario attività</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
+  for (let i = 1; i <= 12; i++) {
+    let attivo = stagione.includes(i);
+    let stile = `padding:6px 8px;border-radius:6px;font-size:12px;text-align:center;min-width:32px;${attivo ? "background:#2ecc71;color:white;" : "background:#eee;"}${i === meseCorrente ? "border:2px solid #007bff;" : ""}`;
+    html += `<div style="${stile}">${mesi[i-1]}</div>`;
+  }
+  html += "</div></div>";
+  return html;
+}
+
+function generaSpeciePerTecnica(nomeTecnica) {
+  let html = "<div class='card'><b>🐟 Specie consigliate</b><br><br>";
+  for (let key in specie) {
+    if (specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase())) {
+      html += `<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="showSpecieDetail('${key}')">• ${specie[key].nome}</div>`;
+    }
+  }
+  html += "</div>";
+  return html;
+}
+
+/* ===== SPINNING ===== */
+function showSpinning() {
+  const dati = tecnicheData.spinning;
+  document.getElementById("content").innerHTML = `
+    <h2>🎣 Spinning</h2>
+    <div class="card">
+      <h3>📅 Quando usarla</h3>
+      <p>${dati.quando}</p>
+    </div>
+    <div class="card">
+      <h3>🎒 Attrezzatura base</h3>
+      <p>${dati.attrezzatura}</p>
+    </div>
+    <div class="card">
+      <h3>🪢 Montatura dedicata</h3>
+      <p>${dati.montatura}</p>
+      <button onclick="toggleMontaturaImg()" class="btn-img">📷 Mostra Montatura</button>
+      <div id="montaturaBox" style="display:none;margin-top:10px;">
+        <img src="${dati.montaturaImg}" style="width:100%;max-width:300px;border-radius:12px;cursor:pointer;" onclick="toggleMontaturaImg()" onerror="this.style.display='none'">
+      </div>
+    </div>
+    <div class="card">
+      <h3>✅ Pro</h3>
+      <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
+    </div>
+    <div class="card">
+      <h3>❌ Contro</h3>
+      <ul>${dati.contro.map(c => `<li>${c}</li>`).join("")}</ul>
+    </div>
+    <div class="card">
+      <h3>🐟 Specie consigliate</h3>
+      ${generaListaCliccabile(dati.specie)}
+    </div>
+    <div class="card">
+      <h3>🪱 Esche consigliate</h3>
+      ${generaListaCliccabile(dati.esche)}
+    </div>
+    <div class="card">
+      <h3>⚖️ Piombi consigliati</h3>
+      ${generaMiniCard(dati.piombi, "spinning-piombi")}
+    </div>
+    <div class="card">
+      <h3>🎥 Video tutorial</h3>
+      <a href="http://${dati.video}" target="_blank">Guarda su YouTube</a>
+    </div>
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
+
+/* ===== EGING (unica definizione) ===== */
+function showEging() {
+  const dati = tecnicheData.eging;
+  document.getElementById("content").innerHTML = `
+    <h2>🦑 Eging</h2>
+    <div class="card">
+      <h3>📅 Quando usarla</h3>
+      <p>${dati.quando}</p>
+    </div>
+    <div class="card">
+      <h3>🎒 Attrezzatura base</h3>
+      <p>${dati.attrezzatura}</p>
+    </div>
+    <div class="card">
+      <h3>🪢 Montatura dedicata</h3>
+      <p>${dati.montatura}</p>
+      <button onclick="toggleMontaturaImg()" class="btn-img">📷 Mostra Montatura</button>
+      <div id="montaturaBox" style="display:none;margin-top:10px;">
+        <img src="${dati.montaturaImg}" style="width:100%;max-width:300px;border-radius:12px;cursor:pointer;" onclick="toggleMontaturaImg()" onerror="this.style.display='none'">
+      </div>
+    </div>
+    <div class="card">
+      <h3>✅ Pro</h3>
+      <ul>${dati.pro.map(p => `<li>${p}</li>`).join("")}</ul>
+    </div>
+    <div class="card">
+      <h3>❌ Contro</h3>
+      <ul>${dati.contro.map(c => `<li>${c}</li>`).join("")}</ul>
+    </div>
+    <div class="card">
+      <h3>🦑 Specie consigliate</h3>
+      ${generaListaCliccabile(dati.specie)}
+    </div>
+    <div class="card">
+      <h3>🪱 Esche consigliate (Egi)</h3>
+      ${generaListaCliccabile(dati.esche)}
+    </div>
+    <div class="card">
+      <h3>🎥 Video tutorial</h3>
+      <a href="http://${dati.video}" target="_blank">Guarda su YouTube</a>
+    </div>
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
+
+/* ===== FONDO ===== */
+function showFondo() {
+  document.getElementById("content").innerHTML = `
+    <h2>⚓ Pesca a Fondo</h2>
+    <div class="card"><b>Quando usarla</b><br>Tutto l'anno • Porto • Scogliera • Spiaggia</div>
+    <div class="card"><b>Attrezzatura base</b><br>Canna 3–4 m • Mulinello 4000–6000 • Nylon 0,30–0,40</div>
+    <div class="card">
+      <h3>🎣 Montature</h3>
+      ${generaMiniCard(tecnicheData.fondo.montature, "fondo-montature")}
+    </div>
+    <div class="card"><b>Pro</b><br>Tecnica semplice e versatile</div>
+    <div class="card"><b>Contro</b><br>Rischio incagli • Meno selettiva</div>
+    <div class="card">
+      <h3>🐟 Specie consigliate</h3>
+      ${generaListaCliccabile(tecnicheData.fondo.specie)}
+    </div>
+    <div class="card">
+      <h3>🪱 Esche consigliate</h3>
+      ${generaListaCliccabile(tecnicheData.fondo.esche)}
+    </div>
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">Guarda su YouTube</a>
+    </div>
+    <button onclick="showTecniche()">⬅️ Torna alle tecniche</button>
+  `;
+}
+
+/* ===== MONTATURE SPECIFICHE ===== */
+function showTrave() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Montatura a Trave</h2>
+    <div class="card"><b>Quando usarla</b><br>Mare mosso • Surfcasting classico • Spiaggia</div>
+    <div class="card">
+      <b>Composizione</b><br><br>
+      Trave 120–150 cm • 1–2 braccioli • Piombo fisso<br><br>
+      <img src="./img/bandiera.jpg" style="width:100%;max-width:280px;border-radius:12px;" onerror="this.style.display='none'">
+    </div>
+    <div class="card"><b>Esche consigliate</b><br>Arenicola • Americano • Bibi</div>
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+a+trave+surfcasting" target="_blank">Guarda su YouTube</a>
+    </div>
+    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+  `;
+}
+
+function showPaternoster() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Paternoster</h2>
+    <div class="card"><b>Quando usarla</b><br>Fondali misti • Pesce sospeso</div>
+    <div class="card">
+      <b>Composizione</b><br><br>
+      Braccioli alti • Piombo finale • Terminali corti<br><br>
+      <img src="./img/paternoster.jpg" style="width:100%;max-width:280px;border-radius:12px;" onerror="this.style.display='none'">
+    </div>
+    <div class="card"><b>Esche consigliate</b><br>Coreano • Americano • Gambero</div>
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+paternoster+pesca" target="_blank">Guarda su YouTube</a>
+    </div>
+    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+  `;
+}
+
+function showLongArm() {
+  document.getElementById("content").innerHTML = `
+    <h2>🪝 Long Arm</h2>
+    <div class="card"><b>Quando usarla</b><br>Mare calmo • Pesci sospettosi</div>
+    <div class="card">
+      <b>Composizione</b><br><br>
+      Bracciolo 120–200 cm • Piombo scorrevole<br><br>
+      <img src="./img/long-arm.jpg" style="width:100%;max-width:280px;border-radius:12px;" onerror="this.style.display='none'">
+    </div>
+    <div class="card"><b>Esche consigliate</b><br>Tremolina • Arenicola • Bibi</div>
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+long+arm+surfcasting" target="_blank">Guarda su YouTube</a>
+    </div>
+    <button onclick="showSurfcasting()">⬅️ Torna al Surfcasting</button>
+  `;
+}
+
+function showTotanara() {
+  document.getElementById("content").innerHTML = `
+    <h2>🦑 Totanara (Egi)</h2>
+    <div class="card"><b>Quando usarla</b><br>In presenza di seppie, totani e calamari<br>Porti illuminati e fondali misti</div>
+    <div class="card" style="display:flex;flex-direction:column;align-items:center;">
+      <b>Composizione</b><br><br>
+      Artificiale Egi collegato a finale fluorocarbon 0,25–0,35<br><br>
+      <img src="./img/totanara.jpg" style="width:100%;max-width:250px;border-radius:12px;cursor:pointer;" onerror="this.style.display='none'"
+        onclick="this.style.transform='scale(1.4)';setTimeout(()=>this.style.transform='scale(1)',500);">
+    </div>
+    <div class="card"><b>Recupero</b><br>Lancio • Affondamento • 2–3 jerk • Pausa</div>
+    <div class="card">
+      <b>🎥 Video tutorial</b><br>
+      <a href="https://www.youtube.com/results?search_query=montatura+eging+totanara" target="_blank">Guarda su YouTube</a>
+    </div>
+    <button onclick="showEging()">⬅️ Torna a Eging</button>
+  `;
+}
+
+function showPiomboScorrevole() {
+  document.getElementById("content").innerHTML = `
+    <h2>⚓ Piombo Scorrevole</h2>
+    <div class="card">Montatura semplice con piombo libero sulla lenza madre.</div>
+    <button onclick="toggleMontatura('img/piombo-scorrevole.jpg')">📷 Vedi Montatura</button>
+    <div id="montaturaBox"></div>
+    <br>
+    <button onclick="showFondo()">⬅️ Torna alla Pesca a Fondo</button>
+  `;
+}
+
+function showBandiera() {
+  document.getElementById("content").innerHTML = `
+    <h2>🎣 Montatura a Bandiera</h2>
+    <div class="card">Ideale per fondali misti o con leggero moto ondoso. Mantiene il bracciolo sollevato dal fondo.</div>
+    <button onclick="toggleImgById('bandieraImg')" class="btn-img">📷 Mostra Montatura</button>
+    <div id="bandieraImg" style="display:none;margin-top:15px;">
+      <img src="img/montatura-bandiera.jpg" style="width:100%;max-width:320px;border-radius:12px;" onerror="this.style.display='none'">
+    </div>
+    <button onclick="showFondo()">⬅️ Torna alla tecnica</button>
+  `;
+}
+
+/* ===== DETTAGLIO SPECIE ===== */
 function showSpecieDetail(id) {
   const p = specie[id];
   if (!p) return;
   document.getElementById("content").innerHTML = `
-    <div class="card" style="cursor:default;">
-      <h2>${p.nome}</h2><em>${p.scientifico}</em><br>
+    <div class="card">
+      <h2>${p.nome}</h2>
+      <em>${p.scientifico}</em><br>
       <img src="${p.img}" style="width:50%;border-radius:12px;margin:12px 0;" onerror="this.style.display='none'">
       <p>${p.descrizione}</p>
       <p><strong>Tecniche:</strong> ${p.tecniche}</p>
       ${generaMontatureSpecie(p.montature)}
       ${generaCalendario(p.stagione)}
-      <button onclick="showSpecie()">👈 Torna alle specie</button>
-    </div>`;
-}
-
-/* ===== DATI (identici all'originale) ===== */
-const surfcastingData = {
-  specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Sarago Pizzuto",img:"img/sarago-pizzuto.jpg"}],
-  esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"}]
-};
-const tecnicheData = {
-  spinning:{
-    quando:"Ideale con mare poco mosso o leggermente increspato. Perfetto all'alba e al tramonto.",
-    attrezzatura:"Canna 2.10-2.70m 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 + fluorocarbon 0.30-0.40.",
-    montatura:"Trecciato collegato con nodo FG al fluorocarbon. Artificiali come minnow, jerkbait, softbait e jig.",
-    pro:["Tecnica dinamica","Copre molta acqua","Adatta a molti predatori"],
-    contro:["Richiede movimento continuo","Attrezzatura più costosa","Meno efficace con mare molto mosso"],
-    specie:[{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Serra",img:"img/serra.jpg"},{nome:"Barracuda",img:"img/barracuda.jpg"},{nome:"Palamita",img:"img/palamita.jpg"},{nome:"Ricciola",img:"img/ricciola.jpg"}],
-    esche:[
-      {nome:"Minnow",img:"img/minnow.jpg",descrizione:"Imita un piccolo pesce foraggio. Disponibile floating, suspending o sinking.",mare:"Calmo / Poco mosso",target:"Spigola, Serra, Leccia stella",efficacia:5},
-      {nome:"Jerkbait",img:"img/jerkbait.jpg",descrizione:"Movimento nervoso per attacchi aggressivi.",mare:"Leggermente mosso",target:"Serra, Palamita",efficacia:4},
-      {nome:"Soft Bait",img:"img/softbait.jpg",descrizione:"Esca in silicone montata su jig head.",mare:"Calmo",target:"Spigola, Sugarello",efficacia:4},
-      {nome:"Metal Jig",img:"img/metal-jig.jpg",descrizione:"Per lanci lunghi e profondità.",mare:"Mosso / Corrente",target:"Palamita, Serra",efficacia:5},
-      {nome:"Top Water / Popper",img:"img/popper.jpg",descrizione:"Lavora in superficie con attacchi spettacolari.",mare:"Calmo",target:"Leccia stella, Serra",efficacia:4}
-    ],
-    piombi:[
-      {nome:"Jig Head",img:"img/jig-head.jpg",descrizione:"Testa piombata per soft bait.",peso:"5g – 30g"},
-      {nome:"Piombo interno",img:"img/piombo-interno.jpg",descrizione:"Assetto naturale nel silicone.",peso:"Variabile"}
-    ],
-    video:"https://www.youtube.com/watch?v=5Zk7XKXh7eM"
-  },
-  eging:{
-    quando:"Ideale di notte o al tramonto in porti, scogliere e moli con fondale misto.",
-    attrezzatura:"Canna 2.30–2.60m azione 2.0–3.5 EGI • Mulinello 2500–3000 • Trecciato 0.6–0.8 PE + Fluorocarbon 0.28–0.33",
-    montatura:"Trecciato collegato al fluorocarbon con nodo FG. Collegamento diretto all'egi con moschettone leggero.",
-    pro:["Tecnica divertente e tecnica","Molto efficace sui cefalopodi","Attrezzatura leggera"],
-    contro:["Richiede sensibilità","Meno produttiva con mare molto mosso"],
-    specie:[{nome:"Calamaro",img:"img/calamaro.jpg"},{nome:"Seppia",img:"img/seppia.jpg"},{nome:"Totano",img:"img/totano.jpg"}],
-    esche:[{nome:"Egi 2.5",img:"img/egi-2-5.jpg"},{nome:"Egi 3.0",img:"img/egi-3-0.jpg"},{nome:"Egi 3.5",img:"img/egi-3-5.jpg"}],
-    video:"https://www.youtube.com/results?search_query=eging+tecnica"
-  },
-  fondo:{
-    montature:[
-      {nome:"Piombo Scorrevole",img:"img/piombo-scorrevole.jpg",descrizione:"Piombo libero sulla lenza madre per maggiore sensibilità."},
-      {nome:"Paternoster",img:"img/montature/06_paternoster.png",descrizione:"Finali laterali ideali per fondo misto."},
-      {nome:"Long Arm",img:"img/montature/03_long_arm.png",descrizione:"Bracciolo lungo per mare calmo."},
-      {nome:"Bandiera",img:"img/bandiera.jpg",descrizione:"Ottima per evitare grovigli."}
-    ],
-    specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Scorfano",img:"img/scorfano.jpg"},{nome:"Pagello",img:"img/pagello.jpg"}],
-    esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Cozza",img:"img/cozza.jpg"}]
-  }
-};
-const specie = {
-  orata:{nome:"Orata",scientifico:"Sparus aurata",img:"img/orata.jpg",descrizione:"Pesce pregiato di fondale sabbioso e misto.",tecniche:"Pesca a fondo, surfcasting",montature:["paternoster","long-arm","piombo-scorrevole"],stagione:[1,2,3,4,10,11,12]},
-  spigola:{nome:"Spigola / Branzino",scientifico:"Dicentrarchus labrax",img:"img/spigola.jpg",descrizione:"Predatore costiero molto combattivo.",tecniche:"Spinning, surfcasting, fondo",montature:["long-arm","piombo-scorrevole","short-rovesciato"],stagione:[1,2,3,4,11,12]},
-  "sarago-maggiore":{nome:"Sarago maggiore",scientifico:"Diplodus sargus",img:"img/sarago-maggiore.jpg",descrizione:"Tipico dei fondali rocciosi.",tecniche:"Pesca a fondo, bolognese",montature:["paternoster","piombo-scorrevole","trave"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
-  "sarago-pizzuto":{nome:"Sarago pizzuto",scientifico:"Diplodus puntazzo",img:"img/sarago-pizzuto.jpg",descrizione:"Sarago più affusolato e diffidente.",tecniche:"Pesca a fondo",montature:["long-arm","paternoster"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
-  mormora:{nome:"Mormora",scientifico:"Lithognathus mormyrus",img:"img/mormora.jpg",descrizione:"Classica preda del surfcasting.",tecniche:"Surfcasting",montature:["long-arm","paternoster","short-rovesciato"],stagione:[5,6,7,8,9,10]},
-  occhiata:{nome:"Occhiata",scientifico:"Oblada melanura",img:"img/occhiata.jpg",descrizione:"Pesce costiero che vive in branchi.",tecniche:"Galleggiante, fondo leggero",montature:["paternoster","galleggiante-mare"],stagione:[5,6,9,10]},
-  sugarello:{nome:"Sugarello",scientifico:"Trachurus trachurus",img:"img/sugarello.jpg",descrizione:"Pesce pelagico molto attivo.",tecniche:"Spinning, bolentino",montature:["paternoster","trave"],stagione:[3,4,5,6,7,8,9]},
-  pagello:{nome:"Pagello",scientifico:"Pagellus erythrinus",img:"img/pagello.jpg",descrizione:"Vive su fondali sabbiosi e misti.",tecniche:"Fondo, bolentino",montature:["paternoster","trave"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
-  scorfano:{nome:"Scorfano",scientifico:"Scorpaena scrofa",img:"img/scorfano.jpg",descrizione:"Pesce di scogliera, attenzione alle spine.",tecniche:"Fondo, scogliera",montature:["paternoster","piombo-scorrevole","trave"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
-  leccia:{nome:"Leccia",scientifico:"Lichia amia",img:"img/leccia.jpg",descrizione:"Grande predatore costiero.",tecniche:"Spinning, vivo",montature:["long-arm","piombo-scorrevole"],stagione:[4,5,6]},
-  palamita:{nome:"Palamita",scientifico:"Sarda sarda",img:"img/palamita.jpg",descrizione:"Predatore veloce e combattivo.",tecniche:"Spinning, traina",montature:["long-arm","piombo-scorrevole"],stagione:[4,5,6,7,8,9,10]},
-  serra:{nome:"Pesce Serra",scientifico:"Pomatomus saltatrix",img:"img/serra.jpg",descrizione:"Predatore aggressivo con dentatura affilata.",tecniche:"Spinning, surfcasting",montature:["long-arm","piombo-scorrevole"],stagione:[7,8,9]},
-  cefalo:{nome:"Cefalo",scientifico:"Mugil cephalus",img:"img/cefalo.jpg",descrizione:"Molto diffuso in porto e laguna.",tecniche:"Galleggiante",montature:["galleggiante-mare","piombo-scorrevole"],stagione:[3,4,5,6,7,8,9,10,11]},
-  dentice:{nome:"Dentice",scientifico:"Dentex dentex",img:"img/dentice.jpg",descrizione:"Predatore di fondale roccioso.",tecniche:"Fondo, vivo",montature:["long-arm","trave"],stagione:[3,4,5,6,7,8,9,10]},
-  ricciola:{nome:"Ricciola",scientifico:"Seriola dumerili",img:"img/ricciola.jpg",descrizione:"Grande predatore pelagico.",tecniche:"Spinning, traina",montature:["long-arm","piombo-scorrevole"],stagione:[6,7,8,9,10]},
-  totano:{nome:"Totano",scientifico:"Todarodes sagittatus",img:"img/totano.jpg",descrizione:"Cefalopode pescato in profondità.",tecniche:"Eging, bolentino",montature:["paternoster","piombo-scorrevole"],stagione:[1,2,10,11,12]},
-  seppia:{nome:"Seppia",scientifico:"Sepia officinalis",img:"img/seppia.jpg",descrizione:"Cefalopode costiero molto diffuso.",tecniche:"Eging",montature:["piombo-scorrevole","paternoster"],stagione:[4,5,10,11,12]}
-};
-
-/* ===== UTILITÀ (identiche all'originale) ===== */
-function generaListaCliccabile(lista) {
-  let html = "<div class='mini-container'>";
-  lista.forEach((item, index) => {
-    const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
-    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}
-      <div id="${safeId}" style="display:none;margin-top:10px;">
-        <img src="${item.img}" style="width:100%;max-width:250px;border-radius:12px;" onerror="this.style.display='none'">
-      </div></div>`;
-  });
-  return html + "</div>";
-}
-function generaMiniCard(lista, tipo) {
-  if (!lista || lista.length === 0) return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
-  return `<div class="mini-container">
-    ${lista.map((item,index)=>`<div class="mini-card" onclick="apriDettaglio('${tipo}',${index})">${item.nome}</div>`).join("")}
-  </div><div id="${tipo}-detail"></div>`;
-}
-function toggleImgById(id) {
-  const el = document.getElementById(id);
-  if (el) el.style.display = el.style.display === "none" ? "block" : "none";
-}
-function apriDettaglio(tipo, index) {
-  const container = document.getElementById(tipo + "-detail");
-  if (!container) return;
-  const parti = tipo.split("-"); if (parti.length < 2) return;
-  const tecnica = parti[0]; const categoria = parti.slice(1).join("-");
-  if (!tecnicheData[tecnica] || !tecnicheData[tecnica][categoria]) return;
-  const item = tecnicheData[tecnica][categoria][index]; if (!item) return;
-  if (container.dataset.open == index) { container.innerHTML=""; container.dataset.open=""; return; }
-  container.dataset.open = index;
-  container.innerHTML = `<div class="card" style="cursor:default;">
-    <h3>${item.nome}</h3>
-    <img src="${item.img}" style="width:60%;max-width:300px;border-radius:12px;display:block;margin:10px auto;" onerror="this.style.display='none'">
-    ${item.descrizione?`<p>${item.descrizione}</p>`:""}
-    ${item.peso?`<p><strong>Peso:</strong> ${item.peso}</p>`:""}
-  </div>`;
-}
-function toggleAccordion(id) {
-  const el = document.getElementById(id);
-  if (el) el.style.display = el.style.display === "none" ? "block" : "none";
-}
-function generaCalendario(stagione) {
-  if (!stagione) return "";
-  const mesi = ["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
-  const meseCorrente = new Date().getMonth() + 1;
-  let html = "<div class='card' style='cursor:default;'><b>📅 Calendario attività</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
-  for (let i=1; i<=12; i++) {
-    const attivo = stagione.includes(i);
-    html += `<div style="padding:6px 8px;border-radius:6px;font-size:12px;text-align:center;min-width:32px;${attivo?"background:#2ecc71;color:white;":"background:#eee;"}${i===meseCorrente?"border:2px solid #007bff;":""}">${mesi[i-1]}</div>`;
-  }
-  return html + "</div></div>";
-}
-function generaSpeciePerTecnica(nomeTecnica) {
-  let html = "<div class='card' style='cursor:default;'><b>🐟 Specie consigliate</b><br><br>";
-  for (let key in specie) {
-    if (specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase()))
-      html += `<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="showSpecieDetail('${key}')">• ${specie[key].nome}</div>`;
-  }
-  return html + "</div>";
-}
-function generaMontatureSpecie(list) {
-  if (!list || list.length === 0) return "";
-  return `<div class="card" style="cursor:default;text-align:left;">
-    <b>🪝 Montature consigliate</b><br><br>
-    ${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="showMontaturaDetail('${m}')">${m.replace(/-/g," ")} →</div>`).join("")}
-  </div>`;
+      <p><strong>Stagione migliore (mesi):</strong> ${p.stagione ? p.stagione.join(", ") : "Non specificata"}</p>
+      <button onclick="showSpecie()">⬅️ Torna alle specie</button>
+    </div>
+  `;
 }
 
 /* ===== AVVIO ===== */
 caricaTema();
 showHome();
+
 window.addEventListener("load", () => {
-  setTimeout(() => { const s=document.getElementById("splash"); if(s) s.style.display="none"; }, 3500);
+  setTimeout(() => {
+    const splash = document.getElementById("splash");
+    if (splash) splash.style.display = "none";
+  }, 3500);
 });
 </script>
 
 </body>
 </html>
+
 
 
 
