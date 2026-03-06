@@ -70,7 +70,7 @@ button:hover { transform: scale(1.04); }
   border: none; padding: 10px 16px; border-radius: 20px;
   color: white; font-weight: bold; cursor: pointer; transition: 0.3s;
   display: flex; align-items: center; justify-content: space-between;
-  gap: 10px; width: 100%; max-width: 320px; margin-top: 10px;
+  gap: 10px; width: 100%; max-width: 64px; margin-top: 10px;
 }
 .toggle-btn:hover { transform: scale(1.03); }
 .toggle-btn .arrow { transition: transform 0.3s ease; }
@@ -278,7 +278,7 @@ function toggleImageBox(id, imgPath, button) {
   if (box.innerHTML === "") {
     const img = document.createElement("img");
     img.src = imgPath;
-    img.style.cssText = "width:100%;max-width:320px;border-radius:14px;margin-top:10px;display:block;";
+    img.style.cssText = "width:100%;max-width:64px;border-radius:14px;margin-top:10px;display:block;";
     img.onerror = function() { this.style.display = "none"; };
     box.appendChild(img);
   }
@@ -591,6 +591,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
