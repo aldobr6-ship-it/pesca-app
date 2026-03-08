@@ -159,14 +159,39 @@ function showTecniche() {
 
 /* ===== NODI ===== */
 function showNodi() {
+  const nodi = [
+    { nome:"Nodo Clinch",   img:"./img/nodo-clinch.jpg",   uso:"Ami, girelle, moschettoni",      filo:"Nylon / Fluorocarbon" },
+    { nome:"Nodo Palomar",  img:"./img/nodo-palomar.jpg",  uso:"Ami e artificiali",               filo:"Trecciato" },
+    { nome:"Nodo FG",       img:"./img/nodo-fg.jpg",       uso:"Treccia → Fluorocarbon",          filo:"Treccia → Fluoro" },
+    { nome:"Nodo Albright", img:"./img/nodo-albright.jpg", uso:"Unire fili di diametro diverso", filo:"Nylon / Treccia" },
+    { nome:"Nodo di Sangue",img:"./img/nodo-sangue.jpg",   uso:"Unire due fili simili",           filo:"Nylon / Fluorocarbon" },
+    { nome:"Nodo Rapala",   img:"./img/nodo-rapala.jpg",   uso:"Artificiali con movimento libero",filo:"Nylon / Fluorocarbon" }
+  ];
+  const cards = nodi.map((n,i) => `
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <button onclick="toggleNodo('nodo${i}')" style="
+        width:100%;padding:12px 6px;border-radius:16px;font-size:13px;font-weight:700;
+        background:linear-gradient(135deg,#0077b6,#00b4d8);
+        border:none;color:white;cursor:pointer;margin-bottom:6px;line-height:1.3;">
+        🧵 ${n.nome}
+      </button>
+      <div id="nodo${i}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
+        <img src="${n.img}" style="width:100%;border-radius:12px;margin-bottom:6px;" onerror="this.style.display='none'">
+        <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
+      </div>
+    </div>`).join("");
   document.getElementById("content").innerHTML = `
     <h2>🧵 Nodi da Pesca</h2>
-    <div class="card"><b>Nodo Clinch</b><br><br><img src="./img/nodo-clinch.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Ami, girelle, moschettoni<br><b>Filo:</b> Nylon / Fluorocarbon</div>
-    <div class="card"><b>Nodo Palomar</b><br><br><img src="./img/nodo-palomar.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Ami e artificiali<br><b>Filo:</b> Trecciato</div>
-    <div class="card"><b>Nodo FG</b><br><br><img src="./img/nodo-fg.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Collegare treccia a fluorocarbon<br><b>Filo:</b> Treccia → Fluoro</div>
-    <div class="card"><b>Nodo Albright</b><br><br><img src="./img/nodo-albright.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Unire fili di diametro diverso<br><b>Filo:</b> Nylon / Treccia</div>
-    <div class="card"><b>Nodo di Sangue</b><br><br><img src="./img/nodo-sangue.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Unire due fili simili<br><b>Filo:</b> Nylon / Fluorocarbon</div>
-    <div class="card"><b>Nodo Rapala</b><br><br><img src="./img/nodo-rapala.jpg" width="30%" onerror="this.style.display='none'"><br><br><b>Uso:</b> Artificiali con movimento libero<br><b>Filo:</b> Nylon / Fluorocarbon</div>`;
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+      ${cards}
+    </div>`;
+}
+function toggleNodo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const aperto = el.style.display === 'block';
+  document.querySelectorAll('[id^="nodo"]').forEach(e => e.style.display='none');
+  el.style.display = aperto ? 'none' : 'block';
 }
 
 /* ===== 17 MONTATURE ===== */
@@ -192,20 +217,20 @@ const montatureData = [
 
 function showMontature() {
   const cards = montatureData.map(m => `
-    <div class="card montatura-card" onclick="showMontaturaDetail('${m.id}')">
-      <div style="display:flex;align-items:center;gap:12px;">
-        <span style="font-size:26px;">${m.emoji}</span>
-        <div style="text-align:left;flex:1;">
-          <div style="font-weight:700;font-size:15px;">${m.nome}</div>
-          <div style="font-size:12px;opacity:0.6;margin-top:2px;">${m.desc.substring(0,60)}…</div>
-        </div>
-        <span style="font-size:20px;opacity:0.35;">›</span>
-      </div>
+    <div onclick="showMontaturaDetail('${m.id}')" style="
+      background:white;border-radius:18px;padding:14px 8px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.10);cursor:pointer;
+      text-align:center;transition:all 0.2s;display:flex;
+      flex-direction:column;align-items:center;gap:6px;">
+      <span style="font-size:28px;">${m.emoji}</span>
+      <div style="font-weight:700;font-size:13px;line-height:1.3;">${m.nome}</div>
     </div>`).join("");
   document.getElementById("content").innerHTML = `
     <h2 style="margin-top:0;">🪝 Montature da Pesca</h2>
-    <p style="opacity:0.6;margin-bottom:16px;font-size:13px;">${montatureData.length} montature • Schema tecnico + video dimostrativo</p>
-    ${cards}`;
+    <p style="opacity:0.6;margin-bottom:14px;font-size:13px;">${montatureData.length} montature • tocca per il dettaglio</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+      ${cards}
+    </div>`;
 }
 
 function showMontaturaDetail(id) {
@@ -416,18 +441,29 @@ function showSpecie() {
     <div id="listaSpecie"></div>`;
   mostraTutteLeSpecie();
 }
+function cardSpecie(key) {
+  return `<div onclick="showSpecieDetail('${key}')" style="
+    background:white;border-radius:18px;padding:14px 8px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.10);cursor:pointer;
+    text-align:center;transition:all 0.2s;display:flex;
+    flex-direction:column;align-items:center;gap:6px;">
+    <span style="font-size:26px;">🐟</span>
+    <div style="font-weight:700;font-size:13px;line-height:1.3;">${specie[key].nome}</div>
+  </div>`;
+}
 function mostraTutteLeSpecie() {
-  let html = "";
-  for (let key in specie) html += `<div class="card" onclick="showSpecieDetail('${key}')">🐟 ${specie[key].nome}</div>`;
+  let html = "<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>";
+  for (let key in specie) html += cardSpecie(key);
+  html += "</div>";
   document.getElementById("listaSpecie").innerHTML = html;
 }
 function filtraSpecie() {
   let filtro = document.getElementById("searchInput").value.toLowerCase();
-  let html = "";
+  let html = "<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>";
   for (let key in specie) {
-    if (specie[key].nome.toLowerCase().includes(filtro))
-      html += `<div class="card" onclick="showSpecieDetail('${key}')">🐟 ${specie[key].nome}</div>`;
+    if (specie[key].nome.toLowerCase().includes(filtro)) html += cardSpecie(key);
   }
+  html += "</div>";
   document.getElementById("listaSpecie").innerHTML = html;
 }
 function showSpecieDetail(id) {
@@ -591,6 +627,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
