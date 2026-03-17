@@ -1200,9 +1200,46 @@ const spotsItalia = [
   { name:"Castelsardo (SS)",           reg:"Sardegna",       coords:[40.915,8.712],  type:"Spinning",   target:"Dentici, Lecce",          tips:"Fondale misto, grotte e posidonia." },
   { name:"Golfo Aranci (SS)",          reg:"Sardegna",       coords:[40.992,9.615],  type:"Surfcasting", target:"Spigole, Orate",          tips:"Spiaggia Bianca per surfcasting, scogliera per bolognese." },
   { name:"Alghero - Lazzaretto (SS)", reg:"Sardegna",       coords:[40.592,8.243],  type:"Bolognese",   target:"Saraghi, Spigole",        tips:"Pesca a fondo su spiaggia e rocce." },
-  { name:"La Playa (CT)",              reg:"Sicilia",        coords:[37.472,15.088], type:"Surfcasting", target:"Orate, Mormore",          tips:"Spiaggia sabbiosa, lanci lunghi." },
-  { name:"Lago Pozzillo (EN)",         reg:"Sicilia",        coords:[37.643,14.629], type:"Bassfishing", target:"Black Bass",              tips:"Acque interne, spot principe per il bass." },
-  { name:"Gela (CL)",                  reg:"Sicilia",        coords:[37.066,14.250], type:"Surfcasting", target:"Orate XXL",               tips:"Litorale sabbioso profondo." }
+  // ── SICILIA — 9 PROVINCE ──
+
+  // MESSINA (ME)
+  { name:"Roccalumera (ME)",           reg:"Sicilia", coords:[37.981,15.397], type:"Surfcasting", target:"Mormore, Saraghi, Spigole, Pagelli", tips:"Fondale sabbioso grana grossa, sprofonda rapidamente. Primo gradino a 10-15m dalla riva. Campione mondiale surfcasting." },
+  { name:"Stretto di Messina (ME)",    reg:"Sicilia", coords:[38.180,15.553], type:"Spinning",    target:"Spigole, Ricciole, Lecce, Dentici",  tips:"Correnti fortissime e costanti. Usare piombi pesanti o jig affondanti. Alba e tramonto ideali per predatori di passo." },
+  { name:"Milazzo - Spiaggia Tono (ME)", reg:"Sicilia", coords:[38.222,15.245], type:"Surfcasting", target:"Mormore, Orate, Saraghi",          tips:"Fiumara presente con grossi ciottoli. Profondità 3m a 100m dalla riva. Corallino esca locale molto efficace." },
+
+  // PALERMO (PA)
+  { name:"Mondello (PA)",              reg:"Sicilia", coords:[38.208,13.328], type:"Spinning",    target:"Spigole, Barracuda, Saraghi",        tips:"Scogliere e vecchi moli. Ottimo in notturna per spigole. Usare minnow e jerkbait." },
+  { name:"Cefalù - Scogliera (PA)",    reg:"Sicilia", coords:[38.039,14.022], type:"Spinning",    target:"Saraghi, Dentici, Barracuda",        tips:"Scogliera calcarea con fondali profondi sotto costa. Ottimo per rockfishing con jig leggeri." },
+  { name:"Lago Rosamarina (PA)",       reg:"Sicilia", coords:[37.936,13.624], type:"Bassfishing", target:"Black Bass, Carassio",               tips:"Lago artificiale in collina. Principale spot bass della Sicilia occidentale. Usare soft bait e jig." },
+
+  // CATANIA (CT)
+  { name:"Scogliera di Ognina (CT)",   reg:"Sicilia", coords:[37.524,15.115], type:"Spinning",    target:"Saraghi, Barracuda, Spigole",        tips:"Rock fishing su scogliera lavica. Fondali mossi e ricchi. Porticciolo pittoresco, accesso facile." },
+  { name:"La Playa (CT)",              reg:"Sicilia", coords:[37.472,15.088], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Spiaggia sabbiosa lunga. Ottima in primavera e autunno. Lanci lunghi necessari. Vicino foce Simeto." },
+  { name:"Laghi di Lentini (SR/CT)",   reg:"Sicilia", coords:[37.279,14.978], type:"Bassfishing", target:"Black Bass, Carpe, Lucci",           tips:"Sistema di laghi artificiali tra Catania e Siracusa. Ottimo in primavera. Accesso da riva in diversi punti." },
+
+  // SIRACUSA (SR)
+  { name:"Marzamemi (SR)",             reg:"Sicilia", coords:[36.745,15.133], type:"Spinning",    target:"Tonno, Ricciole, Dentici, Barracuda", tips:"Hot spot storico. Isola delle Correnti a 300m. Usare jig pesanti e vivi. Luglio-Settembre per tonno." },
+  { name:"Portopalo di Capo Passero (SR)", reg:"Sicilia", coords:[36.681,15.148], type:"Spinning", target:"Tonno, Ricciole, Serra",           tips:"Punta più meridionale della Sicilia. Correnti dello Stretto di Sicilia. Spinning da scogliera con jig." },
+  { name:"Area Plemmirio (SR)",         reg:"Sicilia", coords:[37.002,15.319], type:"Spinning",    target:"Cernie, Dentici, Spigole",           tips:"Riserva Marina AMP: rispettare zone A (divieto) e B (solo no kill). Fondali eccezionali fuori zona protetta." },
+
+  // TRAPANI (TP)
+  { name:"San Vito Lo Capo (TP)",      reg:"Sicilia", coords:[38.175,12.732], type:"Spinning",    target:"Ricciole, Dentici, Saraghi, Caponi", tips:"Scogliere su canale di Sicilia. Ottobre famoso per Capone. Traina d'altura da porto per tonni e aguglie imperiali." },
+  { name:"Mazara del Vallo (TP)",      reg:"Sicilia", coords:[37.651,12.592], type:"Bolognese",   target:"Saraghi, Cefali, Spigole",           tips:"Light Shore Fishing da molo e diga foranea. Tecnica leggera galleggiante o bolognese. Acque calme del porto." },
+  { name:"Marsala - Stagnone (TP)",    reg:"Sicilia", coords:[37.803,12.440], type:"Bolognese",   target:"Cefali, Spigole, Orate",             tips:"Laguna bassa con fondale misto. Pesca con galleggiante leggero. Zona riserva: rispettare i confini." },
+
+  // AGRIGENTO (AG)
+  { name:"Sciacca - Porto (AG)",       reg:"Sicilia", coords:[37.507,13.082], type:"Surfcasting", target:"Orate XXL, Mormore, Saraghi",        tips:"Costa lunga 33km ideale per surfcasting. Porto con scogliera esterna per bolognese. Ottima tutto l'anno." },
+  { name:"Porto Palo di Menfi (AG)",   reg:"Sicilia", coords:[37.558,12.955], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Grandi spiagge sabbiose PAF e surfcasting. Borgo marinaro vicino Selinunte. Fondali degradanti con posidonia." },
+
+  // RAGUSA (RG)
+  { name:"Marina di Ragusa (RG)",      reg:"Sicilia", coords:[36.782,14.550], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Spiaggia sabbiosa lunga con fondale misto. Ottima tra settembre e aprile fuori stagione balneare." },
+  { name:"Pozzallo - Molo (RG)",       reg:"Sicilia", coords:[36.726,14.847], type:"Bolognese",   target:"Saraghi, Occhiate, Spigole",         tips:"Molo foraneo lungo. Accesso facile e gratuito. Ottimo per galleggiante e bolognese in ogni stagione." },
+
+  // CALTANISSETTA (CL)
+  { name:"Gela - Litorale (CL)",       reg:"Sicilia", coords:[37.066,14.250], type:"Surfcasting", target:"Orate XXL, Mormore, Saraghi",        tips:"Litorale sabbioso profondo lungo la costa meridionale. Fondale ricco. Orate di grossa taglia in autunno." },
+
+  // ENNA (EN)
+  { name:"Lago Pozzillo (EN)",         reg:"Sicilia", coords:[37.643,14.629], type:"Bassfishing", target:"Black Bass, Carpe, Persico",         tips:"Principale lago artificiale siciliano per il bass. Riva accessibile in più punti. Primavera e autunno ideali." }
 ];
 
 let spotItaliaMap = null;
@@ -1214,7 +1251,7 @@ function showCercaSpot() {
   document.getElementById("content").innerHTML = `
     <div class="spot-italia-header">
       <h3>🗺️ Spot Italia <span class="spot-count-badge" id="spotCount">${spotsItalia.length} spot</span></h3>
-      <p>30 spot selezionati in tutta Italia • Tocca un marker per i dettagli</p>
+      <p>${spotsItalia.length} spot in tutta Italia • Tocca un marker per i dettagli</p>
     </div>
 
     <!-- FILTRI -->
@@ -1358,11 +1395,10 @@ function chiudiDettaglioSpot(e) {
 }
 </script>
 
- <!-- ============================================================    
+<!-- ============================================================
  BLOCCO JS 10 — AVVIO APP
  Ultimo blocco: carica tema e mostra home
  ============================================================ -->
-
 <script>
 caricaTema();
 showHome();
