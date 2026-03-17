@@ -805,10 +805,119 @@ function generaMontatureSpecie(list) {
 </script>
 
 <!-- ============================================================
-     BLOCCO JS 9 — PREVISIONI PESCA (meteo + mappa + spot)
+<!-- ============================================================
+     BLOCCO CSS 4 — STILI SPOT ITALIA
+     Filtri, modale dettaglio, lista spot Italia
+     ============================================================ -->
+
+<style>
+/* Sezione Cerca Spot */
+.spot-italia-header {
+  background: linear-gradient(135deg,#0a2a43,#0077b6);
+  border-radius: 22px; padding: 18px 20px; color: white;
+  margin-bottom: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
+.spot-italia-header h3 { margin:0 0 4px; font-size:18px; }
+.spot-italia-header p  { margin:0; font-size:12px; opacity:0.75; }
+
+/* Filtri */
+.filtri-row {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px;
+}
+.filtro-select {
+  flex:1; min-width: 120px;
+  padding: 10px 12px; border-radius: 14px;
+  border: 1px solid #d0d7de; font-size: 13px; font-weight: 600;
+  background: white; color: #0a2a43; outline: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+body.dark .filtro-select { background:#1e293b; color:#e2e8f0; border-color:#4b5563; }
+
+.btn-via {
+  background: linear-gradient(90deg,#e67e22,#f39c12);
+  border: none; padding: 10px 20px; border-radius: 14px;
+  color: white; font-weight: 800; font-size: 14px;
+  cursor: pointer; letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(230,126,34,0.4);
+  transition: 0.2s;
+}
+.btn-via:hover { transform: scale(1.05); margin-top:0; }
+
+/* Lista spot Italia */
+.spot-italia-item {
+  background: white; border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: flex; align-items: center; gap:12px; cursor: pointer;
+  transition: all 0.2s;
+}
+.spot-italia-item:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.14); }
+body.dark .spot-italia-item { background: #1e293b; color:#e2e8f0; }
+.spot-italia-item .si-ico  { font-size:24px; flex-shrink:0; }
+.spot-italia-item .si-info { flex:1; }
+.spot-italia-item .si-nome { font-weight:700; font-size:14px; }
+.spot-italia-item .si-sub  { font-size:12px; opacity:0.6; margin-top:2px; }
+.spot-italia-item .si-badge {
+  background: #e0f2fe; color: #0369a1;
+  font-size: 10px; font-weight: 800; padding: 3px 8px;
+  border-radius: 6px; text-transform: uppercase; white-space:nowrap;
+}
+
+/* Modale dettaglio spot Italia */
+.modal-spot-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,0.55);
+  z-index:9000; display:flex; align-items:flex-end;
+  animation: fadeIn 0.2s ease;
+}
+.modal-spot-box {
+  background:white; width:100%; border-radius:24px 24px 0 0;
+  padding:24px 20px 40px; max-height:80vh; overflow-y:auto;
+}
+body.dark .modal-spot-box { background:#1e293b; color:#e2e8f0; }
+.modal-spot-box .msb-tag {
+  display:inline-block; background:#e0f2fe; color:#0369a1;
+  font-size:11px; font-weight:800; padding:4px 10px;
+  border-radius:8px; text-transform:uppercase; margin-bottom:12px;
+}
+.modal-spot-box h2 { margin:0 0 16px; font-size:22px; font-weight:900; }
+.modal-spot-row {
+  display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;
+}
+.modal-spot-cell {
+  background:#f8fafc; border-radius:14px; padding:12px;
+}
+body.dark .modal-spot-cell { background:#334155; }
+.modal-spot-cell .msc-lbl { font-size:10px; font-weight:700; opacity:0.5; text-transform:uppercase; margin-bottom:4px; }
+.modal-spot-cell .msc-val { font-size:13px; font-weight:700; }
+.modal-spot-tips {
+  background:#eff6ff; border-radius:16px; padding:14px 16px; margin-bottom:16px;
+}
+body.dark .modal-spot-tips { background:#1e3a5f; }
+.modal-spot-tips p { margin:0; font-size:13px; line-height:1.6; color:#1e40af; }
+body.dark .modal-spot-tips p { color:#93c5fd; }
+.btn-navigazione {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color:white; border:none; padding:14px; border-radius:16px;
+  font-size:15px; font-weight:700; width:100%; cursor:pointer; margin-top:0;
+}
+.btn-chiudi-spot {
+  background:#f0f0f0; color:#333; border:none; padding:12px;
+  border-radius:16px; font-size:14px; width:100%; cursor:pointer; margin-top:8px;
+}
+body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
+
+/* Mappa spot Italia */
+#spotItaliaMap { height: 300px; width:100%; border-radius:0; }
+.spot-count-badge {
+  display:inline-block; background:rgba(255,255,255,0.2);
+  border-radius:20px; padding:2px 10px; font-size:12px; margin-left:8px;
+}
+</style>
+
+<!-- ============================================================
+     BLOCCO JS 9 — PREVISIONI PESCA (meteo + mappa + spot personali)
      Dipende da: Leaflet (caricato nel BLOCCO CSS 1)
      API usate: open-meteo.com (gratuita, zero chiavi)
-     Dati spot: localStorage (zero server)
+     Dati spot personali: localStorage (zero server)
      ============================================================ -->
 
 <script>
@@ -859,7 +968,7 @@ function renderPrevisioni(lat, lon, marine, meteo) {
   const ventoNodi = (ventoKmh * 0.539957).toFixed(1);
   const analisi  = calcolaConsiglioCompleto(ondaH, ventoKmh, ora, wCode);
   const giorniHTML = generaGiorni(marine, meteo, ora);
-  const spots = caricaSpot();
+  const miei_spots = caricaSpot();
 
   document.getElementById("content").innerHTML = `
     <div class="prev-hero">
@@ -900,12 +1009,19 @@ function renderPrevisioni(lat, lon, marine, meteo) {
       <div id="prevMap"></div>
     </div>
 
-    <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">📌 I miei spot (${spots.length})</h3>
-    <div class="spot-list" id="spotList">${renderSpotList(spots)}</div>
+    <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">📌 I miei spot (${miei_spots.length})</h3>
+    <div class="spot-list" id="spotList">${renderSpotList(miei_spots)}</div>
+
+    <!-- BOTTONE CERCA SPOT ITALIA -->
+    <div style="margin:20px 0 10px;">
+      <button onclick="showCercaSpot()" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;">
+        🗺️ Cerca Spot Italia
+      </button>
+    </div>
 
     <button onclick="showPrevisioni()" style="width:100%;">🔄 Aggiorna previsioni</button><br>`;
 
-  setTimeout(() => initMappa(lat, lon, spots), 100);
+  setTimeout(() => initMappa(lat, lon, miei_spots), 100);
 }
 
 function calcolaConsiglioCompleto(ondaM, ventoKmh, ora, wCode) {
@@ -977,14 +1093,14 @@ function generaGiorni(marine, meteo, ora) {
   return html;
 }
 
-function initMappa(lat, lon, spots) {
+function initMappa(lat, lon, miei_spots) {
   if (prevMap) { prevMap.remove(); prevMap=null; }
   prevMap = L.map("prevMap",{zoomControl:true}).setView([lat,lon],13);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(prevMap);
   L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.8}).addTo(prevMap);
   const iconaGPS = L.divIcon({html:'<div style="font-size:28px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">📍</div>',iconSize:[32,32],iconAnchor:[16,32],className:""});
   L.marker([lat,lon],{icon:iconaGPS}).addTo(prevMap).bindPopup("<b>📍 Sei qui</b>").openPopup();
-  spots.forEach(s => {
+  miei_spots.forEach(s => {
     const iconaSpot = L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">📌</div>',iconSize:[30,30],iconAnchor:[15,30],className:""});
     L.marker([s.lat,s.lon],{icon:iconaSpot}).addTo(prevMap).bindPopup(`<b>📌 ${s.nome}</b><br>${s.specie||""}<br><small>${s.data}</small>`);
   });
@@ -1050,9 +1166,203 @@ function mostraErroreGPS(msg) { document.getElementById("content").innerHTML=`<d
 </script>
 
 <!-- ============================================================
-     BLOCCO JS 10 — AVVIO APP
-     Ultimo blocco: carica tema e mostra home
+     BLOCCO JS 9B — SPOT ITALIA (dati + filtri + mappa + dettaglio)
+     30 spot pre-caricati da tutta Italia
+     Icona: 🎣 (distinta da 📍 GPS e 📌 spot personali)
      ============================================================ -->
+
+<script>
+/* ── DATABASE SPOT ITALIA ── */
+const spotsItalia = [
+  { name:"Sestri Levante (GE)",       reg:"Liguria",        coords:[44.270,9.392],  type:"Spinning",   target:"Spigole, Serra",         tips:"Vicino foce torrente. Ottimo con mare mosso ed esca viva o jig." },
+  { name:"Celle Ligure (SV)",          reg:"Liguria",        coords:[44.341,8.547],  type:"Surfcasting", target:"Mormore, Orate",          tips:"Spiaggia sabbiosa, ottima in inverno dopo mareggiate." },
+  { name:"Sanremo - Diga (IM)",        reg:"Liguria",        coords:[43.815,7.785],  type:"Bolognese",   target:"Saraghi, Occhiate",       tips:"Scogliere profonde e riparate." },
+  { name:"Castiglioncello (LI)",       reg:"Toscana",        coords:[43.403,10.412], type:"Spinning",   target:"Barracuda, Serra",        tips:"Scogliera alta, acqua limpida." },
+  { name:"Foce dell'Ombrone (GR)",     reg:"Toscana",        coords:[42.662,11.002], type:"Surfcasting", target:"Orate, Spigole",          tips:"Ambiente naturale, predatori in caccia nei canali." },
+  { name:"Marina di Pisa (PI)",        reg:"Toscana",        coords:[43.673,10.272], type:"Bolognese",   target:"Spigole, Orate",          tips:"Variare grammatura in base a corrente e vento." },
+  { name:"Sabaudia (LT)",              reg:"Lazio",          coords:[41.298,13.003], type:"Surfcasting", target:"Orate, Mormore",          tips:"Spiaggia profonda, ottima visibilità." },
+  { name:"Santa Lucia (RM)",           reg:"Lazio",          coords:[42.062,11.785], type:"Surfcasting", target:"Saraghi, Spigole",        tips:"Spot misto tra foce e rocce. Posizionare canne verso vento." },
+  { name:"Molo Beverello (NA)",        reg:"Campania",       coords:[40.838,14.258], type:"Spinning",   target:"Predatori, Serra",        tips:"Fondo sabbioso/fango (1.5-5m). Spinning urbano." },
+  { name:"Porto di Acquamorta (NA)",   reg:"Campania",       coords:[40.806,14.043], type:"Spinning",   target:"Spigole, Barracuda",      tips:"Zona di transito predatori all'imboccatura del porto." },
+  { name:"Mergellina (NA)",            reg:"Campania",       coords:[40.828,14.221], type:"Bolognese",   target:"Occhiate, Saraghi",       tips:"Scogliera esterna profonda." },
+  { name:"Spiaggia Sabbia d'Oro (CS)", reg:"Calabria",       coords:[39.671,15.823], type:"Surfcasting", target:"Orate, Mormore",          tips:"Fondo ricco di crostacei al confine con Belvedere." },
+  { name:"Scilla - Chianalea (RC)",    reg:"Calabria",       coords:[38.256,15.717], type:"Spinning",   target:"Ricciole, Barracuda",     tips:"Punta rocciosa con correnti fortissime." },
+  { name:"Cirella (CS)",               reg:"Calabria",       coords:[39.718,15.811], type:"Surfcasting", target:"Mormore, Orate",          tips:"Punto d'ingresso lato mare prima della scogliera." },
+  { name:"Baia Verde (LE)",            reg:"Puglia",         coords:[40.038,18.008], type:"Surfcasting", target:"Orate, Saraghi",          tips:"Fondale misto con posidonia." },
+  { name:"Porto di Maratea (PZ)",      reg:"Basilicata",     coords:[39.991,15.708], type:"Bolognese",   target:"Spigole, Cefali",         tips:"Porto turistico con scogliere esterne profonde." },
+  { name:"Metaponto (MT)",             reg:"Basilicata",     coords:[40.355,16.832], type:"Surfcasting", target:"Mormore, Orate",          tips:"Lunga spiaggia bassa ionica." },
+  { name:"Termoli - Molo Sud (CB)",    reg:"Abruzzo-Molise", coords:[42.003,14.997], type:"Bolognese",   target:"Spigole, Cefali",         tips:"Spot iconico dell'Adriatico centrale." },
+  { name:"Trabocchi Pescara (CH)",     reg:"Abruzzo-Molise", coords:[42.471,14.214], type:"Spinning",   target:"Serra, Spigole",          tips:"Pesca tra le strutture storiche, predatori in caccia." },
+  { name:"Sassonia Fano (PU)",         reg:"Adriatico-Nord", coords:[43.844,13.023], type:"Surfcasting", target:"Mormore",                 tips:"Spiaggia di ciottoli/sabbia, ottima per l'apertura stagione." },
+  { name:"Porto Corsini (RA)",         reg:"Adriatico-Nord", coords:[44.492,12.285], type:"Bolognese",   target:"Orate, Spigole",          tips:"Diga Nord, molto lunga, richiede camminata." },
+  { name:"Diga Sottomarina (VE)",      reg:"Adriatico-Nord", coords:[45.218,12.302], type:"Spinning",   target:"Serra, Branzini",         tips:"Correnti forti, precisione nei lanci fondamentale." },
+  { name:"Trieste - Molo Audace (TS)", reg:"Adriatico-Nord", coords:[45.651,13.765], type:"Eging",      target:"Calamari, Seppie",        tips:"Spot tecnico urbano, ottimo in inverno." },
+  { name:"Castelsardo (SS)",           reg:"Sardegna",       coords:[40.915,8.712],  type:"Spinning",   target:"Dentici, Lecce",          tips:"Fondale misto, grotte e posidonia." },
+  { name:"Golfo Aranci (SS)",          reg:"Sardegna",       coords:[40.992,9.615],  type:"Surfcasting", target:"Spigole, Orate",          tips:"Spiaggia Bianca per surfcasting, scogliera per bolognese." },
+  { name:"Alghero - Lazzaretto (SS)", reg:"Sardegna",       coords:[40.592,8.243],  type:"Bolognese",   target:"Saraghi, Spigole",        tips:"Pesca a fondo su spiaggia e rocce." },
+  { name:"La Playa (CT)",              reg:"Sicilia",        coords:[37.472,15.088], type:"Surfcasting", target:"Orate, Mormore",          tips:"Spiaggia sabbiosa, lanci lunghi." },
+  { name:"Lago Pozzillo (EN)",         reg:"Sicilia",        coords:[37.643,14.629], type:"Bassfishing", target:"Black Bass",              tips:"Acque interne, spot principe per il bass." },
+  { name:"Gela (CL)",                  reg:"Sicilia",        coords:[37.066,14.250], type:"Surfcasting", target:"Orate XXL",               tips:"Litorale sabbioso profondo." }
+];
+
+let spotItaliaMap = null;
+let spotItaliaMarkers = [];
+let spotItaliaFiltrati = [...spotsItalia];
+
+/* ── SEZIONE CERCA SPOT ── */
+function showCercaSpot() {
+  document.getElementById("content").innerHTML = `
+    <div class="spot-italia-header">
+      <h3>🗺️ Spot Italia <span class="spot-count-badge" id="spotCount">${spotsItalia.length} spot</span></h3>
+      <p>30 spot selezionati in tutta Italia • Tocca un marker per i dettagli</p>
+    </div>
+
+    <!-- FILTRI -->
+    <div class="filtri-row">
+      <select class="filtro-select" id="filtroReg">
+        <option value="all">📍 Tutta Italia</option>
+        <option value="Liguria">Liguria</option>
+        <option value="Toscana">Toscana</option>
+        <option value="Lazio">Lazio</option>
+        <option value="Campania">Campania</option>
+        <option value="Calabria">Calabria</option>
+        <option value="Puglia">Puglia</option>
+        <option value="Basilicata">Basilicata</option>
+        <option value="Abruzzo-Molise">Abruzzo/Molise</option>
+        <option value="Adriatico-Nord">Adriatico Nord</option>
+        <option value="Sardegna">Sardegna</option>
+        <option value="Sicilia">Sicilia</option>
+      </select>
+      <select class="filtro-select" id="filtroTech">
+        <option value="all">🎣 Ogni tecnica</option>
+        <option value="Surfcasting">Surfcasting</option>
+        <option value="Spinning">Spinning</option>
+        <option value="Eging">Eging</option>
+        <option value="Bolognese">Bolognese/Fondo</option>
+        <option value="Bassfishing">Bassfishing</option>
+      </select>
+      <button class="btn-via" onclick="applicaFiltriSpot()">VIA →</button>
+    </div>
+
+    <!-- MAPPA SPOT ITALIA -->
+    <div class="mappa-card" style="margin-bottom:14px;">
+      <div class="mappa-header">
+        <span>🎣 Spot di Pesca Italia</span>
+        <span id="mappaSpotCount" style="color:rgba(255,255,255,0.7);font-size:12px;">${spotsItalia.length} visibili</span>
+      </div>
+      <div id="spotItaliaMap"></div>
+    </div>
+
+    <!-- LISTA SPOT -->
+    <div id="listaSpotItalia"></div>
+
+    <button onclick="showPrevisioni()" style="width:100%;margin-top:4px;">⬅️ Torna alle Previsioni</button><br>`;
+
+  spotItaliaFiltrati = [...spotsItalia];
+  setTimeout(() => {
+    initSpotItaliaMap();
+    renderListaSpotItalia(spotItaliaFiltrati);
+  }, 100);
+}
+
+/* ── FILTRI ── */
+function applicaFiltriSpot() {
+  const reg  = document.getElementById("filtroReg")?.value  || "all";
+  const tech = document.getElementById("filtroTech")?.value || "all";
+  spotItaliaFiltrati = spotsItalia.filter(s => {
+    const okReg  = reg  === "all" || s.reg  === reg;
+    const okTech = tech === "all" || s.type === tech;
+    return okReg && okTech;
+  });
+  aggiornaMappaSpotItalia(spotItaliaFiltrati);
+  renderListaSpotItalia(spotItaliaFiltrati);
+  const n = spotItaliaFiltrati.length;
+  if(document.getElementById("spotCount"))     document.getElementById("spotCount").textContent     = n + " spot";
+  if(document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent = n + " visibili";
+}
+
+/* ── MAPPA SPOT ITALIA ── */
+function initSpotItaliaMap() {
+  if (spotItaliaMap) { spotItaliaMap.remove(); spotItaliaMap = null; }
+  spotItaliaMap = L.map("spotItaliaMap",{zoomControl:true}).setView([41.871,12.567],6);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(spotItaliaMap);
+  L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.7}).addTo(spotItaliaMap);
+  aggiornaMappaSpotItalia(spotsItalia);
+}
+
+function aggiornaMappaSpotItalia(lista) {
+  spotItaliaMarkers.forEach(m => spotItaliaMap.removeLayer(m));
+  spotItaliaMarkers = [];
+  lista.forEach(spot => {
+    const icona = L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">🎣</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
+    const m = L.marker(spot.coords, {icon:icona}).addTo(spotItaliaMap);
+    m.on("click", () => {
+      spotItaliaMap.flyTo(spot.coords, 13);
+      apriDettaglioSpotItalia(spot);
+    });
+    spotItaliaMarkers.push(m);
+  });
+}
+
+/* ── LISTA SPOT ── */
+function renderListaSpotItalia(lista) {
+  const container = document.getElementById("listaSpotItalia");
+  if (!container) return;
+  if (lista.length === 0) {
+    container.innerHTML = `<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato con questi filtri.</p>`;
+    return;
+  }
+  container.innerHTML = lista.map((s,i) => `
+    <div class="spot-italia-item" onclick="apriDettaglioSpotItalia(spotsItalia[${spotsItalia.indexOf(s)}])">
+      <span class="si-ico">🎣</span>
+      <div class="si-info">
+        <div class="si-nome">${s.name}</div>
+        <div class="si-sub">🐟 ${s.target}</div>
+      </div>
+      <span class="si-badge">${s.type}</span>
+    </div>`).join("");
+}
+
+/* ── DETTAGLIO SPOT (modale dal basso) ── */
+function apriDettaglioSpotItalia(spot) {
+  document.getElementById("spotModalItalia")?.remove();
+  document.body.insertAdjacentHTML("beforeend",`
+    <div class="modal-spot-overlay" id="spotModalItalia" onclick="chiudiDettaglioSpot(event)">
+      <div class="modal-spot-box">
+        <span class="msb-tag">${spot.reg}</span>
+        <h2>${spot.name}</h2>
+        <div class="modal-spot-row">
+          <div class="modal-spot-cell">
+            <div class="msc-lbl">🎣 Tecnica</div>
+            <div class="msc-val">${spot.type}</div>
+          </div>
+          <div class="modal-spot-cell">
+            <div class="msc-lbl">🐟 Target</div>
+            <div class="msc-val">${spot.target}</div>
+          </div>
+        </div>
+        <div class="modal-spot-tips">
+          <p>💡 ${spot.tips}</p>
+        </div>
+        <button class="btn-navigazione"
+          onclick="window.open('https://www.google.com/maps?q=${spot.coords[0]},${spot.coords[1]}','_blank')">
+          🧭 Ottieni indicazioni →
+        </button>
+        <button class="btn-chiudi-spot" onclick="document.getElementById('spotModalItalia').remove()">Chiudi</button>
+      </div>
+    </div>`);
+}
+function chiudiDettaglioSpot(e) {
+  if(e.target.classList.contains("modal-spot-overlay"))
+    document.getElementById("spotModalItalia")?.remove();
+}
+</script>
+
+```
+ BLOCCO JS 10 — AVVIO APP
+ Ultimo blocco: carica tema e mostra home
+ ============================================================ -->
+```
 
 <script>
 caricaTema();
