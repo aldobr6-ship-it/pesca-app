@@ -1174,73 +1174,172 @@ function mostraErroreGPS(msg) { document.getElementById("content").innerHTML=`<d
 <script>
 /* ── DATABASE SPOT ITALIA ── */
 const spotsItalia = [
-  { name:"Sestri Levante (GE)",       reg:"Liguria",        coords:[44.270,9.392],  type:"Spinning",   target:"Spigole, Serra",         tips:"Vicino foce torrente. Ottimo con mare mosso ed esca viva o jig." },
-  { name:"Celle Ligure (SV)",          reg:"Liguria",        coords:[44.341,8.547],  type:"Surfcasting", target:"Mormore, Orate",          tips:"Spiaggia sabbiosa, ottima in inverno dopo mareggiate." },
-  { name:"Sanremo - Diga (IM)",        reg:"Liguria",        coords:[43.815,7.785],  type:"Bolognese",   target:"Saraghi, Occhiate",       tips:"Scogliere profonde e riparate." },
-  { name:"Castiglioncello (LI)",       reg:"Toscana",        coords:[43.403,10.412], type:"Spinning",   target:"Barracuda, Serra",        tips:"Scogliera alta, acqua limpida." },
-  { name:"Foce dell'Ombrone (GR)",     reg:"Toscana",        coords:[42.662,11.002], type:"Surfcasting", target:"Orate, Spigole",          tips:"Ambiente naturale, predatori in caccia nei canali." },
-  { name:"Marina di Pisa (PI)",        reg:"Toscana",        coords:[43.673,10.272], type:"Bolognese",   target:"Spigole, Orate",          tips:"Variare grammatura in base a corrente e vento." },
-  { name:"Sabaudia (LT)",              reg:"Lazio",          coords:[41.298,13.003], type:"Surfcasting", target:"Orate, Mormore",          tips:"Spiaggia profonda, ottima visibilità." },
-  { name:"Santa Lucia (RM)",           reg:"Lazio",          coords:[42.062,11.785], type:"Surfcasting", target:"Saraghi, Spigole",        tips:"Spot misto tra foce e rocce. Posizionare canne verso vento." },
-  { name:"Molo Beverello (NA)",        reg:"Campania",       coords:[40.838,14.258], type:"Spinning",   target:"Predatori, Serra",        tips:"Fondo sabbioso/fango (1.5-5m). Spinning urbano." },
-  { name:"Porto di Acquamorta (NA)",   reg:"Campania",       coords:[40.806,14.043], type:"Spinning",   target:"Spigole, Barracuda",      tips:"Zona di transito predatori all'imboccatura del porto." },
-  { name:"Mergellina (NA)",            reg:"Campania",       coords:[40.828,14.221], type:"Bolognese",   target:"Occhiate, Saraghi",       tips:"Scogliera esterna profonda." },
-  { name:"Spiaggia Sabbia d'Oro (CS)", reg:"Calabria",       coords:[39.671,15.823], type:"Surfcasting", target:"Orate, Mormore",          tips:"Fondo ricco di crostacei al confine con Belvedere." },
-  { name:"Scilla - Chianalea (RC)",    reg:"Calabria",       coords:[38.256,15.717], type:"Spinning",   target:"Ricciole, Barracuda",     tips:"Punta rocciosa con correnti fortissime." },
-  { name:"Cirella (CS)",               reg:"Calabria",       coords:[39.718,15.811], type:"Surfcasting", target:"Mormore, Orate",          tips:"Punto d'ingresso lato mare prima della scogliera." },
-  { name:"Baia Verde (LE)",            reg:"Puglia",         coords:[40.038,18.008], type:"Surfcasting", target:"Orate, Saraghi",          tips:"Fondale misto con posidonia." },
-  { name:"Porto di Maratea (PZ)",      reg:"Basilicata",     coords:[39.991,15.708], type:"Bolognese",   target:"Spigole, Cefali",         tips:"Porto turistico con scogliere esterne profonde." },
-  { name:"Metaponto (MT)",             reg:"Basilicata",     coords:[40.355,16.832], type:"Surfcasting", target:"Mormore, Orate",          tips:"Lunga spiaggia bassa ionica." },
-  { name:"Termoli - Molo Sud (CB)",    reg:"Abruzzo-Molise", coords:[42.003,14.997], type:"Bolognese",   target:"Spigole, Cefali",         tips:"Spot iconico dell'Adriatico centrale." },
-  { name:"Trabocchi Pescara (CH)",     reg:"Abruzzo-Molise", coords:[42.471,14.214], type:"Spinning",   target:"Serra, Spigole",          tips:"Pesca tra le strutture storiche, predatori in caccia." },
-  { name:"Sassonia Fano (PU)",         reg:"Adriatico-Nord", coords:[43.844,13.023], type:"Surfcasting", target:"Mormore",                 tips:"Spiaggia di ciottoli/sabbia, ottima per l'apertura stagione." },
-  { name:"Porto Corsini (RA)",         reg:"Adriatico-Nord", coords:[44.492,12.285], type:"Bolognese",   target:"Orate, Spigole",          tips:"Diga Nord, molto lunga, richiede camminata." },
-  { name:"Diga Sottomarina (VE)",      reg:"Adriatico-Nord", coords:[45.218,12.302], type:"Spinning",   target:"Serra, Branzini",         tips:"Correnti forti, precisione nei lanci fondamentale." },
-  { name:"Trieste - Molo Audace (TS)", reg:"Adriatico-Nord", coords:[45.651,13.765], type:"Eging",      target:"Calamari, Seppie",        tips:"Spot tecnico urbano, ottimo in inverno." },
-  { name:"Castelsardo (SS)",           reg:"Sardegna",       coords:[40.915,8.712],  type:"Spinning",   target:"Dentici, Lecce",          tips:"Fondale misto, grotte e posidonia." },
-  { name:"Golfo Aranci (SS)",          reg:"Sardegna",       coords:[40.992,9.615],  type:"Surfcasting", target:"Spigole, Orate",          tips:"Spiaggia Bianca per surfcasting, scogliera per bolognese." },
-  { name:"Alghero - Lazzaretto (SS)", reg:"Sardegna",       coords:[40.592,8.243],  type:"Bolognese",   target:"Saraghi, Spigole",        tips:"Pesca a fondo su spiaggia e rocce." },
-  // ── SICILIA — 9 PROVINCE ──
+
+  // ══════════════════════════════════════════════════
+  // LIGURIA (5 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Sestri Levante (GE)",         reg:"Liguria", coords:[44.270,9.392],  type:"Spinning",    target:"Spigole, Serra, Barracuda",     tips:"Vicino foce torrente. Ottimo con mare mosso ed esca viva o jig. Alba e tramonto ideali." },
+  { name:"Celle Ligure (SV)",            reg:"Liguria", coords:[44.341,8.547],  type:"Surfcasting", target:"Mormore, Orate, Saraghi",       tips:"Spiaggia sabbiosa profonda. Ottima in inverno dopo mareggiate con arenicola e americano." },
+  { name:"Sanremo - Diga Foranea (IM)", reg:"Liguria", coords:[43.815,7.785],  type:"Bolognese",   target:"Saraghi, Occhiate, Spigole",    tips:"Scogliere profonde e riparate dal vento. Galleggiante fisso con bigattino o gambero." },
+  { name:"Camogli - Scogliera (GE)",    reg:"Liguria", coords:[44.347,9.153],  type:"Spinning",    target:"Ricciole, Dentici, Barracuda",  tips:"Scogliera ripida con acque profonde. Jig medi e minnow per predatori. Ottimo in estate." },
+  { name:"La Spezia - Porto Venere (SP)",reg:"Liguria", coords:[44.052,9.838],  type:"Spinning",    target:"Saraghi, Spigole, Barracuda",   tips:"Scogliere del Golfo dei Poeti. Zona rinomata per spinning da riva. Acque pulite e profonde." },
+
+  // ══════════════════════════════════════════════════
+  // TOSCANA (6 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Castiglioncello (LI)",         reg:"Toscana", coords:[43.403,10.412], type:"Spinning",    target:"Barracuda, Serra, Spigole",     tips:"Scogliera alta con acqua limpida. Minnow e jig leggeri. Ottimo in estate al tramonto." },
+  { name:"Foce dell'Ombrone (GR)",       reg:"Toscana", coords:[42.662,11.002], type:"Surfcasting", target:"Orate, Spigole, Corvine",       tips:"Ambiente naturale protetto. Predatori in caccia nei canali di foce. Mattina presto ideale." },
+  { name:"Marina di Pisa (PI)",          reg:"Toscana", coords:[43.673,10.272], type:"Bolognese",   target:"Spigole, Orate, Cefali",        tips:"Scogliere e moli. Variare grammatura in base a corrente. Bigattino e gambero." },
+  { name:"Follonica - Puntone (GR)",     reg:"Toscana", coords:[42.921,10.753], type:"Spinning",    target:"Spigole, Serra, Orate",         tips:"Il Puntone è punto strategico per spigole con minnow bianchi. Scogliere proteggono il lancio." },
+  { name:"Livorno - Calafuria (LI)",     reg:"Toscana", coords:[43.472,10.360], type:"Bolognese",   target:"Saraghi, Spigole, Murene",      tips:"Scogli selvaggi a sud di Livorno. Accesso impegnativo ma ottimi risultati. Bolognese e fondo." },
+  { name:"Isola d'Elba - Capo Enfola",  reg:"Toscana", coords:[42.820,10.268], type:"Spinning",    target:"Ricciole, Dentici, Barracuda",  tips:"Punta estrema dell'isola con correnti forti. Jig pesanti. Estate per ricciole e dentici." },
+
+  // ══════════════════════════════════════════════════
+  // LAZIO (5 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Sabaudia (LT)",                reg:"Lazio",   coords:[41.298,13.003], type:"Surfcasting", target:"Orate, Mormore, Spigole",       tips:"Spiaggia profonda nel Parco Nazionale del Circeo. Fondali sabbiosi ideali. Notte per orate." },
+  { name:"Santa Marinella (RM)",         reg:"Lazio",   coords:[42.034,11.855], type:"Surfcasting", target:"Saraghi, Spigole, Mormore",     tips:"Spot misto tra foce e rocce. Piazzare le canne verso vento. Ottima per mormore in primavera." },
+  { name:"Gaeta - Serapo (LT)",          reg:"Lazio",   coords:[41.202,13.571], type:"Spinning",    target:"Spigole, Saraghi, Dentici",     tips:"Scogliera calcarea con acque cristalline. Ottimo per spinning e bolognese. Autunno ideale." },
+  { name:"Civitavecchia - Diga (RM)",    reg:"Lazio",   coords:[42.091,11.791], type:"Bolognese",   target:"Cefali, Orate, Spigole",        tips:"Diga foranea lunga, accesso gratuito. Bolognese con bigattino. Sera e notte per spigole." },
+  { name:"Isola di Ponza (LT)",          reg:"Lazio",   coords:[40.892,12.961], type:"Spinning",    target:"Ricciole, Dentici, Barracuda",  tips:"Isola pontina con scogliere profonde. Acque cristalline. Estate per pelagici di passo." },
+
+  // ══════════════════════════════════════════════════
+  // CAMPANIA (7 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Molo Beverello (NA)",          reg:"Campania",coords:[40.838,14.258], type:"Spinning",    target:"Serra, Spigole, Barracuda",     tips:"Fondo sabbioso/fango 1.5-5m. Spinning urbano efficace all'alba. Minnow e jig leggeri." },
+  { name:"Porto di Acquamorta (NA)",     reg:"Campania",coords:[40.806,14.043], type:"Spinning",    target:"Spigole, Barracuda, Ricciole",  tips:"Zona di transito predatori all'imboccatura del porto. Esca viva molto efficace." },
+  { name:"Mergellina (NA)",              reg:"Campania",coords:[40.828,14.221], type:"Bolognese",   target:"Occhiate, Saraghi, Spigole",    tips:"Scogliera esterna profonda. Bolognese con bigattino. Ottimo in autunno e inverno." },
+  { name:"Palinuro - Capo (SA)",         reg:"Campania",coords:[40.027,15.286], type:"Spinning",    target:"Ricciole, Dentici, Barracuda",  tips:"Capo roccioso nel Cilento. Jig pesanti e minnow. Estate per ricciole. Acque trasparenti." },
+  { name:"Agropoli - Molo (SA)",         reg:"Campania",coords:[40.349,14.993], type:"Bolognese",   target:"Saraghi, Orate, Spigole",       tips:"Porto e molo foraneo. Bolognese con gambero. Ottimo tutto l'anno nel Cilento." },
+  { name:"Ischia - Punta Imperatore",   reg:"Campania",coords:[40.708,13.853], type:"Spinning",    target:"Ricciole, Dentici, Lecce",      tips:"Punta meridionale di Ischia. Correnti forti. Jig e esca viva per grossi predatori." },
+  { name:"Capri - Faraglioni (NA)",      reg:"Campania",coords:[40.547,14.257], type:"Spinning",    target:"Dentici, Cernie, Barracuda",    tips:"Intorno ai Faraglioni in barca. Spinning e traina. Estate per pelagici di superficie." },
+
+  // ══════════════════════════════════════════════════
+  // CALABRIA (7 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Spiaggia Sabbia d'Oro (CS)",  reg:"Calabria",coords:[39.671,15.823], type:"Surfcasting", target:"Orate, Mormore, Saraghi",       tips:"Fondo ricco di crostacei. Primo gradino sabbioso a 80m. Autunno e inverno ideali." },
+  { name:"Scilla - Chianalea (RC)",      reg:"Calabria",coords:[38.256,15.717], type:"Spinning",    target:"Ricciole, Barracuda, Pesce Spada", tips:"Punta rocciosa con correnti dello Stretto. Jig pesanti. Estate per pesce spada." },
+  { name:"Cirella - Scogliera (CS)",     reg:"Calabria",coords:[39.718,15.811], type:"Surfcasting", target:"Mormore, Orate, Corvine",       tips:"Punto d'ingresso lato mare prima della scogliera. Fondale misto profondo." },
+  { name:"Capo Vaticano (VV)",           reg:"Calabria",coords:[38.620,15.829], type:"Spinning",    target:"Ricciole, Dentici, Serra",      tips:"Promontorio granitico sul Tirreno. Jig e popper per ricciole. Estate ottima." },
+  { name:"Crotone - Isola di Capo Rizzuto (KR)", reg:"Calabria",coords:[38.929,17.100], type:"Spinning", target:"Dentici, Barracuda, Saraghi", tips:"Area Marina Protetta: rispettare i confini. Fuori zona protetta fondali eccezionali." },
+  { name:"Tropea - Scogliera (VV)",      reg:"Calabria",coords:[38.676,15.897], type:"Bolognese",   target:"Saraghi, Spigole, Orate",       tips:"Scogliera sotto il borgo medievale. Bolognese e fondo. Acque cristalline tutto l'anno." },
+  { name:"Siderno - Spiaggia (RC)",      reg:"Calabria",coords:[38.270,16.300], type:"Surfcasting", target:"Orate, Mormore, Pagelli",       tips:"Spiaggia ionica lunga. Lanci lunghi con piombi da 100-150g. Primavera e autunno." },
+
+  // ══════════════════════════════════════════════════
+  // PUGLIA (8 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Baia Verde (LE)",              reg:"Puglia",  coords:[40.038,18.008], type:"Surfcasting", target:"Orate, Saraghi, Mormore",       tips:"Fondale misto con posidonia. Ottimo in autunno. Piombi da 80-120g con arenicola." },
+  { name:"Punta Pizzo (LE)",             reg:"Puglia",  coords:[39.952,18.354], type:"Spinning",    target:"Barracuda, Serra, Lecce",       tips:"Punta estrema del Salento. Correnti del Canale d'Otranto. Jig e minnow. Estate." },
+  { name:"Gallipoli - Molo (LE)",        reg:"Puglia",  coords:[40.056,17.993], type:"Bolognese",   target:"Saraghi, Occhiate, Spigole",    tips:"Molo del porto vecchio. Bolognese con bigattino. Acque profonde già a pochi metri." },
+  { name:"Otranto - Scogliera (LE)",     reg:"Puglia",  coords:[40.145,18.491], type:"Spinning",    target:"Dentici, Cernie, Barracuda",    tips:"Scogliere del Capo d'Otranto. Acque trasparenti. Jig pesanti per fondali profondi." },
+  { name:"Polignano a Mare (BA)",        reg:"Puglia",  coords:[40.993,17.221], type:"Spinning",    target:"Saraghi, Spigole, Barracuda",   tips:"Scogliere calcaree caratteristiche. Spinning da riva con jig leggeri. Autunno ideale." },
+  { name:"Gargano - Vieste (FG)",        reg:"Puglia",  coords:[41.881,16.174], type:"Spinning",    target:"Ricciole, Dentici, Barracuda",  tips:"Promontorio del Gargano. Fondali rocciosi. Jig e esca viva. Estate per pelagici." },
+  { name:"Manfredonia - Diga (FG)",      reg:"Puglia",  coords:[41.630,15.917], type:"Bolognese",   target:"Cefali, Saraghi, Spigole",      tips:"Diga foranea del Golfo. Bolognese con bigattino e pane. Cefali abbondanti in estate." },
+  { name:"Taranto - Mar Piccolo (TA)",   reg:"Puglia",  coords:[40.476,17.231], type:"Bolognese",   target:"Orate, Spigole, Cefali",        tips:"Mar Piccolo unico al mondo. Acque calme e ricche. Bolognese leggera. Tutto l'anno." },
+
+  // ══════════════════════════════════════════════════
+  // BASILICATA (3 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Porto di Maratea (PZ)",        reg:"Basilicata",coords:[39.991,15.708], type:"Bolognese", target:"Spigole, Cefali, Saraghi",      tips:"Porto turistico con scogliere esterne profonde. Bolognese e galleggiante." },
+  { name:"Metaponto - Lido (MT)",        reg:"Basilicata",coords:[40.355,16.832], type:"Surfcasting",target:"Mormore, Orate, Corvine",       tips:"Lunga spiaggia ionica. Fondali bassi e sabbiosi. Surfcasting con piombi medi." },
+  { name:"Marina di Policoro (MT)",      reg:"Basilicata",coords:[40.196,16.700], type:"Surfcasting",target:"Orate, Mormore, Pagelli",        tips:"Foce del Sinni. Predatori in caccia nelle acque miste. Alba e tramonto ideali." },
+
+  // ══════════════════════════════════════════════════
+  // ABRUZZO - MOLISE (5 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Termoli - Molo Sud (CB)",      reg:"Abruzzo-Molise",coords:[42.003,14.997], type:"Bolognese",   target:"Spigole, Cefali, Orate",        tips:"Spot iconico Adriatico centrale. Molo lungo, accesso gratuito. Bolognese e fondo." },
+  { name:"Trabocchi - Pescara (CH)",     reg:"Abruzzo-Molise",coords:[42.471,14.214], type:"Spinning",    target:"Serra, Spigole, Palamite",      tips:"Pesca tra le strutture storiche dei trabocchi. Predatori in caccia all'alba." },
+  { name:"Francavilla al Mare (CH)",     reg:"Abruzzo-Molise",coords:[42.419,14.289], type:"Surfcasting", target:"Mormore, Orate, Spigole",       tips:"Spiaggia adriatica profonda. Surfcasting classico con arenicola. Autunno ottimo." },
+  { name:"Alba Adriatica (TE)",          reg:"Abruzzo-Molise",coords:[42.831,13.935], type:"Surfcasting", target:"Mormore, Orate, Sogliole",      tips:"Spiaggia sabbiosa nordadriatica. Fondali degradanti. Notte per orate e mormore." },
+  { name:"Vasto - Marina (CH)",          reg:"Abruzzo-Molise",coords:[42.104,14.706], type:"Bolognese",   target:"Spigole, Saraghi, Occhiate",    tips:"Porto e scogliera artificiale. Bolognese con bigattino. Buona concentrazione di pesce." },
+
+  // ══════════════════════════════════════════════════
+  // MARCHE (4 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Sassonia di Fano (PU)",        reg:"Marche",  coords:[43.844,13.023], type:"Surfcasting", target:"Mormore, Orate, Saraghi",       tips:"Spiaggia ciottoli e sabbia. Ottima per apertura stagione. Piombo aerodynamico." },
+  { name:"Ancona - Molo Nord (AN)",      reg:"Marche",  coords:[43.618,13.508], type:"Bolognese",   target:"Cefali, Spigole, Orate",        tips:"Molo lungo con fondali profondi. Bolognese e galleggiante. Sera per spigole." },
+  { name:"San Benedetto del Tronto (AP)",reg:"Marche",  coords:[42.944,13.879], type:"Surfcasting", target:"Mormore, Orate, Corvine",       tips:"Spiaggia adriatica lunga. Surfcasting con piombi da 100-150g. Autunno ideale." },
+  { name:"Senigallia - Rotonda (AN)",    reg:"Marche",  coords:[43.718,13.218], type:"Spinning",    target:"Spigole, Serra, Sugarelli",     tips:"Pontile della Rotonda. Spinning e bolognese. Alba e tramonto ideali per spigole." },
+
+  // ══════════════════════════════════════════════════
+  // EMILIA ROMAGNA (4 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Porto Corsini (RA)",           reg:"Emilia-Romagna",coords:[44.492,12.285], type:"Bolognese",   target:"Orate, Spigole, Cefali",        tips:"Diga Nord molto lunga. Richiede camminata. Bolognese con bigattino. Tutto l'anno." },
+  { name:"Rimini - Molo di Levante (RN)",reg:"Emilia-Romagna",coords:[44.064,12.575], type:"Spinning",    target:"Serra, Spigole, Sugarelli",     tips:"Molo storico. Spinning con jig leggeri. Alba per spigole. Estate per serra." },
+  { name:"Lido di Spina (FE)",           reg:"Emilia-Romagna",coords:[44.727,12.271], type:"Surfcasting", target:"Orate, Mormore, Sogliole",      tips:"Delta del Po zona Comacchio. Fondali bassi e sabbiosi. Surfcasting leggero." },
+  { name:"Cesenatico - Diga (FC)",       reg:"Emilia-Romagna",coords:[44.201,12.396], type:"Bolognese",   target:"Orate, Spigole, Cefali",        tips:"Diga del porto. Bolognese con bigattino e gambero. Ottima tutto l'anno." },
+
+  // ══════════════════════════════════════════════════
+  // VENETO (4 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Diga Sottomarina (VE)",        reg:"Veneto",  coords:[45.218,12.302], type:"Spinning",    target:"Serra, Branzini, Palamite",     tips:"Correnti forti all'imboccatura della laguna. Precisione nei lanci fondamentale." },
+  { name:"Jesolo - Piave Vecchia (VE)", reg:"Veneto",  coords:[45.530,12.701], type:"Surfcasting", target:"Mormore, Orate, Sogliole",      tips:"Foce del Piave. Fondali misti. Surfcasting con arenicola. Autunno ottimo." },
+  { name:"Chioggia - Murazzi (VE)",      reg:"Veneto",  coords:[45.221,12.278], type:"Bolognese",   target:"Orate, Spigole, Cefali",        tips:"Lunga barriera di massi. Bolognese e fondo. Ottimo per pesce bianco e predatori." },
+  { name:"Porto Levante - Delta Po (RO)",reg:"Veneto",  coords:[45.000,12.353], type:"Surfcasting", target:"Orate, Mormore, Anguille",      tips:"Foci del Po. Zona selvaggia. Surfcasting in canali e scanni. Kayak utile." },
+
+  // ══════════════════════════════════════════════════
+  // FRIULI VENEZIA GIULIA (3 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Trieste - Molo Audace (TS)",   reg:"Friuli-VG",coords:[45.651,13.765], type:"Eging",      target:"Calamari, Seppie, Spigole",     tips:"Spot tecnico urbano. Ottimo eging in inverno. Alba e tramonto per spigole." },
+  { name:"Trieste - Barcola (TS)",       reg:"Friuli-VG",coords:[45.672,13.743], type:"Spinning",   target:"Spigole, Cefali, Saraghi",      tips:"Zona frequentata dai locali. Pesca notturna per spigole. Spinning leggero." },
+  { name:"Lignano - Foce Tagliamento (UD)", reg:"Friuli-VG",coords:[45.692,13.135], type:"Surfcasting", target:"Orate, Spigole, Mormore",  tips:"Foce del Tagliamento. Ottimo per orate e spigole in caccia. Attenzione alle correnti." },
+
+  // ══════════════════════════════════════════════════
+  // SARDEGNA (8 spot)
+  // ══════════════════════════════════════════════════
+  { name:"Castelsardo (SS)",             reg:"Sardegna",coords:[40.915,8.712],  type:"Spinning",    target:"Dentici, Lecce, Spigole",       tips:"Fondale misto con grotte e posidonia. Jig e minnow. Estate per dentici." },
+  { name:"Golfo Aranci - Spiaggia Bianca (SS)", reg:"Sardegna",coords:[40.992,9.615], type:"Surfcasting", target:"Spigole, Orate, Mormore", tips:"Spiaggia bianchissima a forma di mezzaluna. Fondale misto sabbia/roccia/posidonia." },
+  { name:"Alghero - Lazzaretto (SS)",   reg:"Sardegna",coords:[40.592,8.243],  type:"Bolognese",   target:"Saraghi, Spigole, Orate",       tips:"Pesca a fondo su spiaggia e rocce. Bolognese con bigattino e gambero." },
+  { name:"Cagliari - Poetto (CA)",       reg:"Sardegna",coords:[39.211,9.170],  type:"Surfcasting", target:"Mormore, Orate, Spigole",       tips:"Spiaggia lunga 8km. Fondali sabbiosi. Surfcasting in primavera e autunno." },
+  { name:"Villasimius - Capo Carbonara (CA)", reg:"Sardegna",coords:[39.122,9.511], type:"Spinning",    target:"Ricciole, Dentici, Barracuda",  tips:"Punta sudest della Sardegna. AMP: rispettare i confini. Fondali profondi fuori zona." },
+  { name:"Oristano - Sinis (OR)",        reg:"Sardegna",coords:[39.904,8.444],  type:"Surfcasting", target:"Spigole, Orate, Mormore",       tips:"Penisola del Sinis. Spiagge spettacolari e selvagge. Accesso regolamentato in zone AMP." },
+  { name:"Olbia - Golfo (OT)",           reg:"Sardegna",coords:[40.917,9.502],  type:"Spinning",    target:"Spigole, Barracuda, Serra",     tips:"Golfo di Olbia. Lagune e foci per spigole allo spinning. Alba ideale." },
+  { name:"Piscinas - Spiaggia (SU)",     reg:"Sardegna",coords:[39.432,8.429],  type:"Surfcasting", target:"Spigole, Orate, Mormore",       tips:"Spiaggia remota nel Sulcis. Dune di sabbia alte. Surfcasting su fondali profondi." },
+
+  // ══════════════════════════════════════════════════
+  // SICILIA — 9 PROVINCE (20 spot)
+  // ══════════════════════════════════════════════════
 
   // MESSINA (ME)
-  { name:"Roccalumera (ME)",           reg:"Sicilia", coords:[37.981,15.397], type:"Surfcasting", target:"Mormore, Saraghi, Spigole, Pagelli", tips:"Fondale sabbioso grana grossa, sprofonda rapidamente. Primo gradino a 10-15m dalla riva. Campione mondiale surfcasting." },
-  { name:"Stretto di Messina (ME)",    reg:"Sicilia", coords:[38.180,15.553], type:"Spinning",    target:"Spigole, Ricciole, Lecce, Dentici",  tips:"Correnti fortissime e costanti. Usare piombi pesanti o jig affondanti. Alba e tramonto ideali per predatori di passo." },
-  { name:"Milazzo - Spiaggia Tono (ME)", reg:"Sicilia", coords:[38.222,15.245], type:"Surfcasting", target:"Mormore, Orate, Saraghi",          tips:"Fiumara presente con grossi ciottoli. Profondità 3m a 100m dalla riva. Corallino esca locale molto efficace." },
+  { name:"Roccalumera (ME)",             reg:"Sicilia", coords:[37.981,15.397], type:"Surfcasting", target:"Mormore, Saraghi, Spigole, Pagelli", tips:"Fondale sabbioso grana grossa, sprofonda rapidamente. Primo gradino a 10-15m. Campione mondiale surfcasting." },
+  { name:"Stretto di Messina (ME)",      reg:"Sicilia", coords:[38.180,15.553], type:"Spinning",    target:"Spigole, Ricciole, Lecce, Dentici", tips:"Correnti fortissime e costanti. Usare piombi pesanti o jig affondanti. Alba e tramonto ideali." },
+  { name:"Milazzo - Spiaggia Tono (ME)", reg:"Sicilia", coords:[38.222,15.245], type:"Surfcasting", target:"Mormore, Orate, Saraghi",        tips:"Fiumara con grossi ciottoli. Profondità 3m a 100m dalla riva. Corallino esca locale efficace." },
 
   // PALERMO (PA)
-  { name:"Mondello (PA)",              reg:"Sicilia", coords:[38.208,13.328], type:"Spinning",    target:"Spigole, Barracuda, Saraghi",        tips:"Scogliere e vecchi moli. Ottimo in notturna per spigole. Usare minnow e jerkbait." },
-  { name:"Cefalù - Scogliera (PA)",    reg:"Sicilia", coords:[38.039,14.022], type:"Spinning",    target:"Saraghi, Dentici, Barracuda",        tips:"Scogliera calcarea con fondali profondi sotto costa. Ottimo per rockfishing con jig leggeri." },
-  { name:"Lago Rosamarina (PA)",       reg:"Sicilia", coords:[37.936,13.624], type:"Bassfishing", target:"Black Bass, Carassio",               tips:"Lago artificiale in collina. Principale spot bass della Sicilia occidentale. Usare soft bait e jig." },
+  { name:"Mondello (PA)",                reg:"Sicilia", coords:[38.208,13.328], type:"Spinning",    target:"Spigole, Barracuda, Saraghi",    tips:"Scogliere e vecchi moli. Ottimo in notturna per spigole. Minnow e jerkbait." },
+  { name:"Cefalù - Scogliera (PA)",      reg:"Sicilia", coords:[38.039,14.022], type:"Spinning",    target:"Saraghi, Dentici, Barracuda",    tips:"Scogliera calcarea con fondali profondi. Rockfishing con jig leggeri." },
+  { name:"Lago Rosamarina (PA)",         reg:"Sicilia", coords:[37.936,13.624], type:"Bassfishing", target:"Black Bass, Carassio",           tips:"Lago artificiale. Principale spot bass Sicilia occidentale. Soft bait e jig." },
 
   // CATANIA (CT)
-  { name:"Scogliera di Ognina (CT)",   reg:"Sicilia", coords:[37.524,15.115], type:"Spinning",    target:"Saraghi, Barracuda, Spigole",        tips:"Rock fishing su scogliera lavica. Fondali mossi e ricchi. Porticciolo pittoresco, accesso facile." },
-  { name:"La Playa (CT)",              reg:"Sicilia", coords:[37.472,15.088], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Spiaggia sabbiosa lunga. Ottima in primavera e autunno. Lanci lunghi necessari. Vicino foce Simeto." },
-  { name:"Laghi di Lentini (SR/CT)",   reg:"Sicilia", coords:[37.279,14.978], type:"Bassfishing", target:"Black Bass, Carpe, Lucci",           tips:"Sistema di laghi artificiali tra Catania e Siracusa. Ottimo in primavera. Accesso da riva in diversi punti." },
+  { name:"Scogliera di Ognina (CT)",     reg:"Sicilia", coords:[37.524,15.115], type:"Spinning",    target:"Saraghi, Barracuda, Spigole",    tips:"Rock fishing su scogliera lavica. Fondali mossi e ricchi. Porticciolo pittoresco." },
+  { name:"La Playa (CT)",                reg:"Sicilia", coords:[37.472,15.088], type:"Surfcasting", target:"Orate, Mormore, Spigole",        tips:"Spiaggia sabbiosa lunga. Ottima in primavera e autunno. Vicino foce Simeto." },
+  { name:"Laghi di Lentini (SR/CT)",     reg:"Sicilia", coords:[37.279,14.978], type:"Bassfishing", target:"Black Bass, Carpe, Lucci",       tips:"Sistema di laghi artificiali. Ottimo in primavera. Accesso da riva in più punti." },
 
   // SIRACUSA (SR)
-  { name:"Marzamemi (SR)",             reg:"Sicilia", coords:[36.745,15.133], type:"Spinning",    target:"Tonno, Ricciole, Dentici, Barracuda", tips:"Hot spot storico. Isola delle Correnti a 300m. Usare jig pesanti e vivi. Luglio-Settembre per tonno." },
-  { name:"Portopalo di Capo Passero (SR)", reg:"Sicilia", coords:[36.681,15.148], type:"Spinning", target:"Tonno, Ricciole, Serra",           tips:"Punta più meridionale della Sicilia. Correnti dello Stretto di Sicilia. Spinning da scogliera con jig." },
-  { name:"Area Plemmirio (SR)",         reg:"Sicilia", coords:[37.002,15.319], type:"Spinning",    target:"Cernie, Dentici, Spigole",           tips:"Riserva Marina AMP: rispettare zone A (divieto) e B (solo no kill). Fondali eccezionali fuori zona protetta." },
+  { name:"Marzamemi (SR)",               reg:"Sicilia", coords:[36.745,15.133], type:"Spinning",    target:"Tonno, Ricciole, Dentici, Barracuda", tips:"Hot spot storico. Isola delle Correnti a 300m. Luglio-Settembre per tonno." },
+  { name:"Portopalo di Capo Passero (SR)", reg:"Sicilia",coords:[36.681,15.148], type:"Spinning",  target:"Tonno, Ricciole, Serra",         tips:"Punta più meridionale della Sicilia. Correnti dello Stretto di Sicilia. Jig pesanti." },
+  { name:"Area Plemmirio (SR)",           reg:"Sicilia", coords:[37.002,15.319], type:"Spinning",    target:"Cernie, Dentici, Spigole",       tips:"AMP: rispettare zone A e B. Fondali eccezionali fuori zona protetta." },
 
   // TRAPANI (TP)
-  { name:"San Vito Lo Capo (TP)",      reg:"Sicilia", coords:[38.175,12.732], type:"Spinning",    target:"Ricciole, Dentici, Saraghi, Caponi", tips:"Scogliere su canale di Sicilia. Ottobre famoso per Capone. Traina d'altura da porto per tonni e aguglie imperiali." },
-  { name:"Mazara del Vallo (TP)",      reg:"Sicilia", coords:[37.651,12.592], type:"Bolognese",   target:"Saraghi, Cefali, Spigole",           tips:"Light Shore Fishing da molo e diga foranea. Tecnica leggera galleggiante o bolognese. Acque calme del porto." },
-  { name:"Marsala - Stagnone (TP)",    reg:"Sicilia", coords:[37.803,12.440], type:"Bolognese",   target:"Cefali, Spigole, Orate",             tips:"Laguna bassa con fondale misto. Pesca con galleggiante leggero. Zona riserva: rispettare i confini." },
+  { name:"San Vito Lo Capo (TP)",        reg:"Sicilia", coords:[38.175,12.732], type:"Spinning",    target:"Ricciole, Dentici, Saraghi, Caponi", tips:"Scogliere su canale di Sicilia. Ottobre famoso per Capone. Traina d'altura da porto." },
+  { name:"Mazara del Vallo (TP)",        reg:"Sicilia", coords:[37.651,12.592], type:"Bolognese",   target:"Saraghi, Cefali, Spigole",       tips:"Light Shore Fishing da molo e diga foranea. Tecnica leggera galleggiante." },
+  { name:"Marsala - Stagnone (TP)",      reg:"Sicilia", coords:[37.803,12.440], type:"Bolognese",   target:"Cefali, Spigole, Orate",         tips:"Laguna bassa con fondale misto. Galleggiante leggero. Zona riserva: rispettare confini." },
 
   // AGRIGENTO (AG)
-  { name:"Sciacca - Porto (AG)",       reg:"Sicilia", coords:[37.507,13.082], type:"Surfcasting", target:"Orate XXL, Mormore, Saraghi",        tips:"Costa lunga 33km ideale per surfcasting. Porto con scogliera esterna per bolognese. Ottima tutto l'anno." },
-  { name:"Porto Palo di Menfi (AG)",   reg:"Sicilia", coords:[37.558,12.955], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Grandi spiagge sabbiose PAF e surfcasting. Borgo marinaro vicino Selinunte. Fondali degradanti con posidonia." },
+  { name:"Sciacca - Porto (AG)",         reg:"Sicilia", coords:[37.507,13.082], type:"Surfcasting", target:"Orate XXL, Mormore, Saraghi",    tips:"Costa 33km ideale surfcasting. Porto con scogliera esterna per bolognese. Tutto l'anno." },
+  { name:"Porto Palo di Menfi (AG)",     reg:"Sicilia", coords:[37.558,12.955], type:"Surfcasting", target:"Orate, Mormore, Spigole",        tips:"Grandi spiagge sabbiose. PAF e surfcasting. Fondali degradanti con posidonia." },
 
   // RAGUSA (RG)
-  { name:"Marina di Ragusa (RG)",      reg:"Sicilia", coords:[36.782,14.550], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Spiaggia sabbiosa lunga con fondale misto. Ottima tra settembre e aprile fuori stagione balneare." },
-  { name:"Pozzallo - Molo (RG)",       reg:"Sicilia", coords:[36.726,14.847], type:"Bolognese",   target:"Saraghi, Occhiate, Spigole",         tips:"Molo foraneo lungo. Accesso facile e gratuito. Ottimo per galleggiante e bolognese in ogni stagione." },
+  { name:"Marina di Ragusa (RG)",        reg:"Sicilia", coords:[36.782,14.550], type:"Surfcasting", target:"Orate, Mormore, Spigole",        tips:"Spiaggia sabbiosa lunga con fondale misto. Ottima fuori stagione balneare." },
+  { name:"Pozzallo - Molo (RG)",         reg:"Sicilia", coords:[36.726,14.847], type:"Bolognese",   target:"Saraghi, Occhiate, Spigole",     tips:"Molo foraneo lungo. Accesso facile. Galleggiante e bolognese in ogni stagione." },
 
   // CALTANISSETTA (CL)
-  { name:"Gela - Litorale (CL)",       reg:"Sicilia", coords:[37.066,14.250], type:"Surfcasting", target:"Orate XXL, Mormore, Saraghi",        tips:"Litorale sabbioso profondo lungo la costa meridionale. Fondale ricco. Orate di grossa taglia in autunno." },
+  { name:"Gela - Litorale (CL)",         reg:"Sicilia", coords:[37.066,14.250], type:"Surfcasting", target:"Orate XXL, Mormore, Saraghi",    tips:"Litorale sabbioso profondo costa meridionale. Orate di grossa taglia in autunno." },
 
   // ENNA (EN)
-  { name:"Lago Pozzillo (EN)",         reg:"Sicilia", coords:[37.643,14.629], type:"Bassfishing", target:"Black Bass, Carpe, Persico",         tips:"Principale lago artificiale siciliano per il bass. Riva accessibile in più punti. Primavera e autunno ideali." }
-];
+  { name:"Lago Pozzillo (EN)",           reg:"Sicilia", coords:[37.643,14.629], type:"Bassfishing", target:"Black Bass, Carpe, Persico",     tips:"Principale lago artificiale siciliano per il bass. Primavera e autunno ideali." }
+
+];];
 
 let spotItaliaMap = null;
 let spotItaliaMarkers = [];
@@ -1266,7 +1365,10 @@ function showCercaSpot() {
         <option value="Puglia">Puglia</option>
         <option value="Basilicata">Basilicata</option>
         <option value="Abruzzo-Molise">Abruzzo/Molise</option>
-        <option value="Adriatico-Nord">Adriatico Nord</option>
+        <option value="Marche">Marche</option>
+        <option value="Emilia-Romagna">Emilia Romagna</option>
+        <option value="Veneto">Veneto</option>
+        <option value="Friuli-VG">Friuli V.G.</option>
         <option value="Sardegna">Sardegna</option>
         <option value="Sicilia">Sicilia</option>
       </select>
@@ -1399,6 +1501,7 @@ function chiudiDettaglioSpot(e) {
  BLOCCO JS 10 — AVVIO APP
  Ultimo blocco: carica tema e mostra home
  ============================================================ -->
+
 <script>
 caricaTema();
 showHome();
