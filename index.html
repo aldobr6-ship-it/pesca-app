@@ -1235,6 +1235,7 @@ const spotsItalia = [
 let spotItaliaMap    = null;
 let spotItaliaMarkers = [];
 let spotAttivo       = null; /* spot selezionato corrente */
+let spotTooltipAttivo = null; /* tooltip nome spot sulla mappa */
 const isMobile = () => window.innerWidth < 769;
 
 /* ── ENTRY POINT ── */
@@ -1334,7 +1335,6 @@ function aggiornaMappaSpotItalia(lista) {
     const ico = L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">🎣</div>',iconSize:[26,26],iconAnchor:[13,26],className:""});
     const m = L.marker(spot.coords, {icon:ico}).addTo(spotItaliaMap);
     m.on("click", () => {
-      spotItaliaMap.flyTo(spot.coords, 13, {duration:0.8});
       onSpotSelezionato(spot);
     });
     spotItaliaMarkers.push(m);
@@ -1380,7 +1380,7 @@ function mostraPannelloLista(lista, titolo) {
     /* Mobile: mostra lista come modale scorrevole dal basso */
     document.getElementById("spotModalLista")?.remove();
     const html = lista.map((s,i) => `
-      <div class="spot-italia-item" onclick="chiudiModaleListaMobile();onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
+      <div class="spot-italia-item" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
         <span class="si-ico">🎣</span>
         <div class="si-info">
           <div class="si-nome">${s.name}</div>
@@ -1421,20 +1421,43 @@ function chiudiModaleListaMobile(e) {
     document.getElementById("spotModalLista")?.remove();
 }
 
-/* ── SPOT SELEZIONATO (marker o lista) ── */
+/* ── SPOT SELEZIONATO (marker o lista) — stesso comportamento mobile e desktop ── */
 function onSpotSelezionato(spot) {
   spotAttivo = spot;
-  if (isMobile()) {
-    mostraModaleDettaglioMobile(spot);
-  } else {
-    mostraDettaglioPannello(spot);
-    /* Aggiorna stato active nella lista se presente */
-    document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
-    const idx = spotsItalia.indexOf(spot);
-    const items = document.querySelectorAll(".spot-italia-item");
-    /* cerca per nome per sicurezza */
-    items.forEach(el => { if(el.querySelector(".si-nome")?.textContent===spot.name) el.classList.add("active"); });
+
+  /* 1. Zoom mappa + tooltip fisso con nome */
+  if (spotItaliaMap) {
+    spotItaliaMap.flyTo(spot.coords, 14, { duration: 0.8 });
+    /* Rimuovi tooltip precedente */
+    if (spotTooltipAttivo) { spotTooltipAttivo.remove(); spotTooltipAttivo = null; }
+    /* Crea marker invisibile con tooltip fisso (permanent) */
+    const icoVuota = L.divIcon({ html:'', iconSize:[0,0], className:'' });
+    spotTooltipAttivo = L.marker(spot.coords, { icon: icoVuota, zIndexOffset: 1000 })
+      .addTo(spotItaliaMap)
+      .bindTooltip(`<b>${spot.name}</b>`, {
+        permanent: true, direction: 'top', offset: [0, -8],
+        className: 'spot-tooltip-label'
+      })
+      .openTooltip();
   }
+
+  /* 2. Dettaglio sempre nel pannello della pagina (mobile e desktop) */
+  mostraDettaglioPannello(spot);
+
+  /* 3. Su mobile: chiudi la lista modale se aperta e scrolla al pannello */
+  if (isMobile()) {
+    document.getElementById("spotModalLista")?.remove();
+    setTimeout(() => {
+      const panel = document.getElementById("spotPanelRight");
+      if (panel) panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300);
+  }
+
+  /* 4. Aggiorna active nella lista desktop */
+  document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
+  document.querySelectorAll(".spot-italia-item").forEach(el => {
+    if (el.querySelector(".si-nome")?.textContent === spot.name) el.classList.add("active");
+  });
 }
 
 /* ── DETTAGLIO NEL PANNELLO DESKTOP ── */
@@ -1470,30 +1493,7 @@ function tornaListaRegione(reg) {
   if(document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent=n+" visibili";
 }
 
-/* ── MODALE DETTAGLIO MOBILE ── */
-function mostraModaleDettaglioMobile(spot) {
-  document.getElementById("spotModalDettaglio")?.remove();
-  document.body.insertAdjacentHTML("beforeend",`
-    <div class="modal-spot-overlay" id="spotModalDettaglio" onclick="chiudiModaleDettaglioMobile(event)" style="z-index:9500;">
-      <div class="modal-spot-box">
-        <span class="msb-tag">${spot.reg}</span>
-        <h2>${spot.name}</h2>
-        <div class="modal-spot-row">
-          <div class="modal-spot-cell"><div class="msc-lbl">🎣 Tecnica</div><div class="msc-val">${spot.type}</div></div>
-          <div class="modal-spot-cell"><div class="msc-lbl">🐟 Target</div><div class="msc-val">${spot.target}</div></div>
-        </div>
-        <div class="modal-spot-tips"><p>💡 ${spot.tips}</p></div>
-        <button class="btn-navigazione" onclick="window.open('https://www.google.com/maps?q=${spot.coords[0]},${spot.coords[1]}','_blank')">
-          🧭 Ottieni indicazioni →
-        </button>
-        <button class="btn-chiudi-spot" onclick="document.getElementById('spotModalDettaglio').remove()">Chiudi</button>
-      </div>
-    </div>`);
-}
-function chiudiModaleDettaglioMobile(e) {
-  if(e.target.classList.contains("modal-spot-overlay"))
-    document.getElementById("spotModalDettaglio")?.remove();
-}
+/* mostraModaleDettaglioMobile rimossa: dettaglio ora sempre nel pannello pagina */
 </script>
 
 <!-- ============================================================
