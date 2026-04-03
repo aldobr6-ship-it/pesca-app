@@ -8,195 +8,494 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎣</text></svg>">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- ============================================================
+     BLOCCO CSS 2 — STILI BASE APP
+     ============================================================ -->
+
 <style>
-/* === BASE === */
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:linear-gradient(135deg,#eaf4fb,#dbe9f4);color:#0a2a43;transition:background .3s ease}
-body.dark{background:#0f172a;color:#e2e8f0}
-header{background:linear-gradient(90deg,#0a2a43,#144d73);color:white;padding:18px;text-align:center;font-size:22px;font-weight:bold;letter-spacing:1px;box-shadow:0 4px 12px rgba(0,0,0,.2)}
-#content{padding:20px;padding-bottom:90px;animation:fadeIn .4s ease}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px}
-.card{background:white;border-radius:22px;padding:22px;box-shadow:0 8px 20px rgba(0,0,0,.12);text-align:center;cursor:pointer;transition:all .25s ease;margin-bottom:14px}
-.card:hover{transform:translateY(-6px);box-shadow:0 14px 25px rgba(0,0,0,.18)}
-.card:active{transform:scale(.96)}
-.card h3{margin:12px 0 6px;font-size:18px}
-.card p{font-size:14px;opacity:.75}
-.home-icon{font-size:42px;display:block;margin-bottom:10px}
-body.dark .card{background:#1e293b;color:#e2e8f0}
-.mini-container{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
-.mini-card{background:#f1f6fa;padding:8px 14px;border-radius:14px;font-size:13px;cursor:pointer;transition:all .25s ease;border:1px solid rgba(0,0,0,.05)}
-.mini-card:hover{transform:translateY(-3px)}
-.mini-card.active{background:linear-gradient(90deg,#0a2a43,#144d73);color:white;transform:scale(1.05)}
-body.dark .mini-card{background:#334155;border:none}
-body.dark .mini-card.active{background:linear-gradient(90deg,#1e3a8a,#2563eb)}
-footer{position:fixed;bottom:0;left:0;width:100%;background:white;display:flex;justify-content:space-around;align-items:center;height:64px;box-shadow:0 -3px 10px rgba(0,0,0,.1);border-radius:18px 18px 0 0;z-index:100}
-body.dark footer{background:#1e293b}
-footer button{background:none;border:none;font-size:13px;color:#0a2a43;cursor:pointer;padding:8px 4px}
-body.dark footer button{color:white}
-button{background:linear-gradient(90deg,#0a2a43,#144d73);border:none;padding:10px 18px;border-radius:20px;color:white;font-weight:bold;cursor:pointer;transition:.3s;margin-top:10px}
-button:hover{transform:scale(1.04)}
-.toggle-btn{background:linear-gradient(135deg,#0077b6,#00b4d8);border:none;padding:10px 16px;border-radius:20px;color:white;font-weight:bold;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;max-width:320px;margin-top:10px}
-.toggle-btn:hover{transform:scale(1.03)}
-.toggle-btn .arrow{transition:transform .3s ease}
-.toggle-btn.active .arrow{transform:rotate(180deg)}
-.image-box{overflow:hidden;max-height:0;transition:max-height .4s ease,opacity .3s ease;opacity:0}
-.image-box.open{max-height:600px;opacity:1}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.waves-bg{position:fixed;bottom:0;left:0;width:100%;height:180px;overflow:hidden;z-index:-1;opacity:.25;pointer-events:none}
-.waves-bg svg{width:200%;height:100%;animation:waveMove 18s linear infinite;fill:#00b4d8}
-@keyframes waveMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-#splash{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,#06283D,#0a2a43);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;color:white;animation:fadeOutSplash 1.2s ease forwards;animation-delay:2.2s}
-.logo-anim{font-size:60px;animation:floatLogo 2s ease-in-out infinite}
-@keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@keyframes fadeOutSplash{to{opacity:0;visibility:hidden}}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#eaf4fb,#dbe9f4);
+  color: #0a2a43;
+  transition: background 0.3s ease;
+}
+body.dark { background: #0f172a; color: #e2e8f0; }
+header {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color: white; padding: 18px; text-align: center;
+  font-size: 22px; font-weight: bold; letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: sticky; top: 0; z-index: 200;
+}
+#content {
+  padding: 20px;
+  padding-bottom: 90px;
+  animation: fadeIn 0.35s ease;
+  /* FIX: sempre scroll dall'alto */
+  scroll-margin-top: 0;
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 16px; }
+.card {
+  background: white; border-radius: 20px; padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.10); text-align: center;
+  cursor: pointer; transition: all 0.22s ease; margin-bottom: 12px;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.16); }
+.card:active { transform: scale(0.97); }
+.card h3 { margin: 10px 0 5px; font-size: 17px; }
+.card p { font-size: 13px; opacity: 0.72; margin: 0; }
+.home-icon { font-size: 40px; display: block; margin-bottom: 8px; }
+body.dark .card { background: #1e293b; color: #e2e8f0; }
+.mini-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.mini-card {
+  background: #f1f6fa; padding: 7px 13px; border-radius: 12px;
+  font-size: 13px; cursor: pointer; transition: all 0.22s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.mini-card:hover { transform: translateY(-2px); }
+.mini-card.active { background: linear-gradient(90deg,#0a2a43,#144d73); color: white; transform: scale(1.04); }
+body.dark .mini-card { background: #334155; border: none; }
+body.dark .mini-card.active { background: linear-gradient(90deg,#1e3a8a,#2563eb); }
+footer {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  background: white; display: flex; justify-content: space-around;
+  align-items: center; height: 62px;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.10);
+  border-radius: 18px 18px 0 0; z-index: 300;
+}
+body.dark footer { background: #1e293b; }
+footer button {
+  background: none; border: none; font-size: 12px;
+  color: #0a2a43; cursor: pointer; padding: 6px 4px;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+body.dark footer button { color: #e2e8f0; }
+footer button:hover { color: #0077b6; }
+button {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  border: none; padding: 10px 18px; border-radius: 20px;
+  color: white; font-weight: bold; cursor: pointer; transition: 0.25s; margin-top: 10px;
+}
+button:hover { transform: scale(1.03); opacity: 0.92; }
+.btn-img {
+  background: linear-gradient(135deg,#0077b6,#00b4d8);
+  border: none; padding: 8px 14px; border-radius: 18px;
+  color: white; font-weight: bold; cursor: pointer; transition: 0.25s;
+}
+.toggle-btn {
+  background: linear-gradient(135deg,#0077b6,#00b4d8);
+  border: none; padding: 10px 16px; border-radius: 18px;
+  color: white; font-weight: bold; cursor: pointer; transition: 0.25s;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; width: 100%; max-width: 320px; margin-top: 10px;
+}
+.toggle-btn:hover { transform: scale(1.02); }
+.toggle-btn .arrow { transition: transform 0.3s ease; }
+.toggle-btn.active .arrow { transform: rotate(180deg); }
+.image-box { overflow: hidden; max-height: 0; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0; }
+.image-box.open { max-height: 600px; opacity: 1; }
+.montatura-card { cursor: pointer; text-align: left; padding: 14px 18px; }
+.montatura-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.14); border-left: 4px solid #0a2a43; }
+body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+@keyframes fadeInImg { from{opacity:0;transform:scale(0.95);} to{opacity:1;transform:scale(1);} }
+.waves-bg {
+  position: fixed; bottom: 0; left: 0; width: 100%; height: 160px;
+  overflow: hidden; z-index: -1; opacity: 0.22; pointer-events: none;
+}
+.waves-bg svg { width: 200%; height: 100%; animation: waveMove 18s linear infinite; fill: #00b4d8; }
+@keyframes waveMove { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+#splash {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg,#06283D,#0a2a43);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  z-index: 9999; color: white;
+  animation: fadeOutSplash 1.2s ease forwards; animation-delay: 2.2s;
+}
+.logo-anim { font-size: 64px; animation: floatLogo 2s ease-in-out infinite; }
+@keyframes floatLogo { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+@keyframes fadeOutSplash { to{opacity:0;visibility:hidden;} }
 </style>
+
+<!-- ============================================================
+     BLOCCO CSS 3 — STILI SEZIONE PREVISIONI
+     ============================================================ -->
+
 <style>
-/* === PREVISIONI === */
-.prev-hero{background:linear-gradient(135deg,#0a2a43,#0077b6);border-radius:22px;padding:20px;color:white;margin-bottom:14px;box-shadow:0 8px 24px rgba(0,0,0,.22)}
-.prev-hero h2{margin:0 0 4px;font-size:20px}
-.prev-hero .sub{opacity:.75;font-size:13px;margin-bottom:14px}
-.rating-bar{display:flex;gap:6px;align-items:center;margin:10px 0}
-.rating-bar .stelle{font-size:22px;letter-spacing:2px}
-.rating-bar .label{font-size:13px;font-weight:700;opacity:.9}
-.meteo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
-.meteo-cell{background:rgba(255,255,255,.12);border-radius:14px;padding:10px 6px;text-align:center}
-.meteo-cell .ico{font-size:22px;display:block;margin-bottom:4px}
-.meteo-cell .val{font-size:15px;font-weight:700;display:block}
-.meteo-cell .lbl{font-size:11px;opacity:.75;display:block}
-.giorni-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px;scrollbar-width:none}
-.giorni-scroll::-webkit-scrollbar{display:none}
-.giorno-card{flex:0 0 110px;background:white;border-radius:18px;padding:12px 8px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.10);cursor:default}
-body.dark .giorno-card{background:#1e293b;color:#e2e8f0}
-.giorno-card .giorno-nome{font-size:12px;font-weight:700;opacity:.6;margin-bottom:4px}
-.giorno-card .giorno-ico{font-size:26px;margin:4px 0}
-.giorno-card .giorno-val{font-size:13px;font-weight:700}
-.giorno-card .giorno-sub{font-size:11px;opacity:.6;margin-top:2px}
-.giorno-card .giorno-rate{font-size:14px;margin-top:4px}
-.consiglio-card{background:white;border-radius:22px;padding:18px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.10)}
-body.dark .consiglio-card{background:#1e293b;color:#e2e8f0}
-.consiglio-card h3{margin:0 0 12px;font-size:16px;color:#0a2a43}
-body.dark .consiglio-card h3{color:#7dd3fc}
-.consiglio-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(0,0,0,.07)}
-.consiglio-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.consiglio-row .ico-big{font-size:26px;flex-shrink:0}
-.consiglio-row .testo{flex:1}
-.consiglio-row .titolo{font-weight:700;font-size:13px;margin-bottom:2px}
-.consiglio-row .valore{font-size:13px;opacity:.75;line-height:1.5}
-.mappa-card{background:white;border-radius:22px;overflow:hidden;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.10)}
-.mappa-header{background:linear-gradient(90deg,#0a2a43,#144d73);padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
-.mappa-header span{color:white;font-weight:700;font-size:14px}
-.mappa-header button{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:white;font-size:12px;padding:4px 10px;border-radius:20px;cursor:pointer;margin-top:0}
-#prevMap{height:280px;width:100%}
-.spot-list{margin-bottom:14px}
-.spot-item{background:white;border-radius:16px;padding:14px 16px;margin-bottom:8px;box-shadow:0 4px 10px rgba(0,0,0,.08);display:flex;align-items:center;gap:12px;cursor:pointer}
-body.dark .spot-item{background:#1e293b;color:#e2e8f0}
-.spot-item .spot-ico{font-size:24px;flex-shrink:0}
-.spot-item .spot-info{flex:1}
-.spot-item .spot-nome{font-weight:700;font-size:14px}
-.spot-item .spot-sub{font-size:12px;opacity:.6;margin-top:2px}
-.spot-item .spot-del{background:none;border:none;color:#e74c3c;font-size:18px;cursor:pointer;margin-top:0;padding:4px}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9000;display:flex;align-items:flex-end;animation:fadeIn .2s ease}
-.modal-box{background:white;width:100%;border-radius:24px 24px 0 0;padding:24px 20px 40px;max-height:85vh;overflow-y:auto}
-body.dark .modal-box{background:#1e293b;color:#e2e8f0}
-.modal-box h3{margin:0 0 18px;font-size:18px}
-.modal-input{width:100%;padding:12px 14px;border-radius:14px;border:1px solid #d0d7de;font-size:14px;margin-bottom:12px;box-sizing:border-box;background:white;color:#0a2a43}
-body.dark .modal-input{background:#334155;border-color:#4b5563;color:#e2e8f0}
-.btn-salva-spot{background:linear-gradient(90deg,#0a2a43,#144d73);color:white;border:none;padding:14px;border-radius:16px;font-size:15px;font-weight:700;width:100%;cursor:pointer;margin-top:6px}
-.btn-chiudi-modal{background:#f0f0f0;color:#333;border:none;padding:12px;border-radius:16px;font-size:14px;width:100%;cursor:pointer;margin-top:8px}
-body.dark .btn-chiudi-modal{background:#334155;color:#e2e8f0}
-.prev-loader{text-align:center;padding:60px 20px}
-.prev-loader .spinner{font-size:48px;animation:floatLogo 1.5s ease-in-out infinite;display:block;margin-bottom:16px}
-.prev-loader p{opacity:.6;font-size:14px}
-.prev-errore{background:#fff3cd;border-radius:18px;padding:20px;text-align:center;margin-bottom:14px}
-.prev-errore .ico{font-size:40px;display:block;margin-bottom:10px}
-.prev-errore p{font-size:14px;color:#856404;margin:0 0 14px}
+.prev-hero {
+  background: linear-gradient(135deg,#0a2a43,#0077b6);
+  border-radius: 20px; padding: 20px; color: white;
+  margin-bottom: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
+.prev-hero h2 { margin: 0 0 4px; font-size: 20px; }
+.prev-hero .sub { opacity: 0.75; font-size: 13px; margin-bottom: 14px; }
+.rating-bar { display: flex; gap: 6px; align-items: center; margin: 10px 0; }
+.rating-bar .stelle { font-size: 20px; letter-spacing: 2px; }
+.rating-bar .label { font-size: 13px; font-weight: 700; opacity: 0.9; }
+.meteo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 14px; }
+.meteo-cell { background: rgba(255,255,255,0.13); border-radius: 14px; padding: 10px 6px; text-align: center; }
+.meteo-cell .ico { font-size: 22px; display:block; margin-bottom:4px; }
+.meteo-cell .val { font-size: 15px; font-weight: 700; display:block; }
+.meteo-cell .lbl { font-size: 11px; opacity: 0.75; display:block; }
+.giorni-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 14px; scrollbar-width: none; }
+.giorni-scroll::-webkit-scrollbar { display:none; }
+.giorno-card {
+  flex: 0 0 108px; background: white; border-radius: 16px;
+  padding: 12px 8px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.09); cursor: default;
+}
+body.dark .giorno-card { background: #1e293b; color: #e2e8f0; }
+.giorno-card .giorno-nome { font-size: 11px; font-weight:700; opacity:0.6; margin-bottom:4px; }
+.giorno-card .giorno-ico  { font-size: 26px; margin: 4px 0; }
+.giorno-card .giorno-val  { font-size: 13px; font-weight:700; }
+.giorno-card .giorno-sub  { font-size: 11px; opacity:0.6; margin-top:2px; }
+.giorno-card .giorno-rate { font-size:13px; margin-top:4px; }
+.consiglio-card {
+  background: white; border-radius: 20px; padding: 18px;
+  margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+}
+body.dark .consiglio-card { background: #1e293b; color: #e2e8f0; }
+.consiglio-card h3 { margin: 0 0 12px; font-size: 16px; color: #0a2a43; }
+body.dark .consiglio-card h3 { color: #7dd3fc; }
+.consiglio-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-bottom: 10px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.consiglio-row:last-child { border-bottom: none; margin-bottom:0; padding-bottom:0; }
+.consiglio-row .ico-big { font-size: 24px; flex-shrink:0; }
+.consiglio-row .testo { flex:1; }
+.consiglio-row .titolo { font-weight:700; font-size:13px; margin-bottom:2px; }
+.consiglio-row .valore { font-size:13px; opacity:0.75; line-height:1.5; }
+.mappa-card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.09); }
+.mappa-header {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  padding: 10px 16px; display: flex; align-items:center; justify-content:space-between;
+}
+.mappa-header span { color:white; font-weight:700; font-size:14px; }
+.mappa-header button {
+  background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35);
+  color: white; font-size:12px; padding:4px 10px; border-radius:18px; cursor:pointer; margin-top:0;
+}
+#prevMap { height: 280px; width:100%; }
+.spot-list { margin-bottom: 14px; }
+.spot-item {
+  background: white; border-radius: 14px; padding: 13px 15px;
+  margin-bottom: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  display: flex; align-items: center; gap:11px; cursor: pointer;
+}
+body.dark .spot-item { background: #1e293b; color:#e2e8f0; }
+.spot-item .spot-ico  { font-size:22px; flex-shrink:0; }
+.spot-item .spot-info { flex:1; }
+.spot-item .spot-nome { font-weight:700; font-size:14px; }
+.spot-item .spot-sub  { font-size:12px; opacity:0.6; margin-top:2px; }
+.spot-item .spot-del  { background:none; border:none; color:#e74c3c; font-size:18px; cursor:pointer; margin-top:0; padding:4px; }
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,0.55);
+  z-index:9000; display:flex; align-items:flex-end; animation: fadeIn 0.2s ease;
+}
+.modal-box {
+  background:white; width:100%; border-radius:22px 22px 0 0;
+  padding:24px 20px 40px; max-height:85vh; overflow-y:auto;
+}
+body.dark .modal-box { background:#1e293b; color:#e2e8f0; }
+.modal-box h3 { margin:0 0 18px; font-size:18px; }
+.modal-input {
+  width:100%; padding:12px 14px; border-radius:13px;
+  border:1px solid #d0d7de; font-size:14px; margin-bottom:12px;
+  box-sizing:border-box; background:white; color:#0a2a43;
+}
+body.dark .modal-input { background:#334155; border-color:#4b5563; color:#e2e8f0; }
+.btn-salva-spot {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color:white; border:none; padding:14px; border-radius:14px;
+  font-size:15px; font-weight:700; width:100%; cursor:pointer; margin-top:6px;
+}
+.btn-chiudi-modal { background:#f0f0f0; color:#333; border:none; padding:12px; border-radius:14px; font-size:14px; width:100%; cursor:pointer; margin-top:8px; }
+body.dark .btn-chiudi-modal { background:#334155; color:#e2e8f0; }
+.prev-loader { text-align:center; padding:60px 20px; }
+.prev-loader .spinner { font-size:48px; animation:floatLogo 1.5s ease-in-out infinite; display:block; margin-bottom:16px; }
+.prev-loader p { opacity:0.6; font-size:14px; }
+.prev-errore { background:#fff3cd; border-radius:16px; padding:20px; text-align:center; margin-bottom:14px; }
+.prev-errore .ico { font-size:40px; display:block; margin-bottom:10px; }
+.prev-errore p { font-size:14px; color:#856404; margin:0 0 14px; }
 </style>
+
+<!-- ============================================================
+     BLOCCO CSS 4 — STILI SPOT ITALIA + LAYOUT SPLIT
+     ============================================================ -->
+
 <style>
-/* === SPOT ITALIA === */
-.spot-italia-header{background:linear-gradient(135deg,#0a2a43,#0077b6);border-radius:22px;padding:18px 20px;color:white;margin-bottom:14px;box-shadow:0 8px 24px rgba(0,0,0,.22)}
-.spot-italia-header h3{margin:0 0 4px;font-size:18px}
-.spot-italia-header p{margin:0;font-size:12px;opacity:.75}
-.filtri-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.filtro-select{flex:1;min-width:120px;padding:10px 12px;border-radius:14px;border:1px solid #d0d7de;font-size:13px;font-weight:600;background:white;color:#0a2a43;outline:none;box-shadow:0 2px 8px rgba(0,0,0,.07)}
-body.dark .filtro-select{background:#1e293b;color:#e2e8f0;border-color:#4b5563}
-.btn-via{background:linear-gradient(90deg,#e67e22,#f39c12);border:none;padding:10px 20px;border-radius:14px;color:white;font-weight:800;font-size:14px;cursor:pointer;letter-spacing:1px;box-shadow:0 4px 12px rgba(230,126,34,.4);transition:.2s}
-.btn-via:hover{transform:scale(1.05);margin-top:0}
-.spot-italia-item{background:white;border-radius:16px;padding:14px 16px;margin-bottom:8px;box-shadow:0 4px 10px rgba(0,0,0,.08);display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .2s}
-.spot-italia-item:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.14)}
-body.dark .spot-italia-item{background:#1e293b;color:#e2e8f0}
-.spot-italia-item .si-ico{font-size:24px;flex-shrink:0}
-.spot-italia-item .si-info{flex:1}
-.spot-italia-item .si-nome{font-weight:700;font-size:14px}
-.spot-italia-item .si-sub{font-size:12px;opacity:.6;margin-top:2px}
-.spot-italia-item .si-badge{background:#e0f2fe;color:#0369a1;font-size:10px;font-weight:800;padding:3px 8px;border-radius:6px;text-transform:uppercase;white-space:nowrap}
-.modal-spot-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9000;display:flex;align-items:flex-end;animation:fadeIn .2s ease}
-.modal-spot-box{background:white;width:100%;border-radius:24px 24px 0 0;padding:24px 20px 40px;max-height:80vh;overflow-y:auto}
-body.dark .modal-spot-box{background:#1e293b;color:#e2e8f0}
-.modal-spot-box .msb-tag{display:inline-block;background:#e0f2fe;color:#0369a1;font-size:11px;font-weight:800;padding:4px 10px;border-radius:8px;text-transform:uppercase;margin-bottom:12px}
-.modal-spot-box h2{margin:0 0 16px;font-size:22px;font-weight:900}
-.modal-spot-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
-.modal-spot-cell{background:#f8fafc;border-radius:14px;padding:12px}
-body.dark .modal-spot-cell{background:#334155}
-.modal-spot-cell .msc-lbl{font-size:10px;font-weight:700;opacity:.5;text-transform:uppercase;margin-bottom:4px}
-.modal-spot-cell .msc-val{font-size:13px;font-weight:700}
-.modal-spot-tips{background:#eff6ff;border-radius:16px;padding:14px 16px;margin-bottom:16px}
-body.dark .modal-spot-tips{background:#1e3a5f}
-.modal-spot-tips p{margin:0;font-size:13px;line-height:1.6;color:#1e40af}
-body.dark .modal-spot-tips p{color:#93c5fd}
-.btn-navigazione{background:linear-gradient(90deg,#0a2a43,#144d73);color:white;border:none;padding:14px;border-radius:16px;font-size:15px;font-weight:700;width:100%;cursor:pointer;margin-top:0}
-.btn-chiudi-spot{background:#f0f0f0;color:#333;border:none;padding:12px;border-radius:16px;font-size:14px;width:100%;cursor:pointer;margin-top:8px}
-body.dark .btn-chiudi-spot{background:#334155;color:#e2e8f0}
-#spotItaliaMap{height:300px;width:100%;border-radius:0}
-.spot-count-badge{display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;padding:2px 10px;font-size:12px;margin-left:8px}
-.map-hint{text-align:center;padding:14px 16px;font-size:13px;opacity:.6;font-style:italic;border-top:1px solid rgba(0,0,0,.06)}
+/* ── Header sezione spot ── */
+.spot-italia-header {
+  background: linear-gradient(135deg,#0a2a43,#0077b6);
+  border-radius: 20px; padding: 16px 20px; color: white;
+  margin-bottom: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
+.spot-italia-header h3 { margin:0 0 3px; font-size:18px; }
+.spot-italia-header p  { margin:0; font-size:12px; opacity:0.75; }
+.spot-count-badge {
+  display:inline-block; background:rgba(255,255,255,0.2);
+  border-radius:20px; padding:2px 10px; font-size:12px; margin-left:8px;
+}
+
+/* ── Filtri ── */
+.filtri-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.filtro-select {
+  flex:1; min-width: 110px;
+  padding: 10px 12px; border-radius: 12px;
+  border: 1px solid #d0d7de; font-size: 13px; font-weight: 600;
+  background: white; color: #0a2a43; outline: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+body.dark .filtro-select { background:#1e293b; color:#e2e8f0; border-color:#4b5563; }
+.btn-via {
+  background: linear-gradient(90deg,#e67e22,#f39c12);
+  border: none; padding: 10px 22px; border-radius: 12px;
+  color: white; font-weight: 900; font-size: 14px; letter-spacing: 1px;
+  cursor: pointer; box-shadow: 0 4px 12px rgba(230,126,34,0.4); transition: 0.2s;
+  white-space: nowrap;
+}
+.btn-via:hover { transform: scale(1.05); margin-top:0; }
+
+/* ── Layout split desktop ── */
+.spot-split-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  position: relative;
+}
+@media (min-width: 769px) {
+  .spot-split-layout {
+    grid-template-columns: 2fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+}
+
+/* ── Mappa spot ── */
+.spot-mappa-wrap {
+  background: white; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: sticky;
+  top: 70px;
+}
+#spotItaliaMap {
+  height: 70vh;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  #spotItaliaMap { height: 55vw; min-height: 240px; }
+  .spot-mappa-wrap { position: relative; top: 0; margin-bottom: 14px; }
+}
+
+/* ── Pannello destro ── */
+.spot-panel-right {
+  background: white; border-radius: 20px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  overflow: hidden;
+  min-height: 200px;
+  display: flex; flex-direction: column;
+}
+body.dark .spot-panel-right { background: #1e293b; }
+.spot-panel-header {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  padding: 12px 16px; color: white; font-weight: 700; font-size: 14px;
+}
+.spot-panel-body { padding: 14px; flex: 1; overflow-y: auto; }
+.spot-panel-placeholder {
+  text-align: center; padding: 40px 20px; opacity: 0.45;
+}
+.spot-panel-placeholder .ph-ico { font-size: 40px; display:block; margin-bottom:10px; }
+.spot-panel-placeholder p { font-size: 13px; line-height: 1.6; }
+
+/* ── Lista spot ── */
+.spot-italia-item {
+  background: #f8fafc; border-radius: 12px; padding: 12px 14px;
+  margin-bottom: 8px; display: flex; align-items: center; gap:10px;
+  cursor: pointer; transition: all 0.2s; border: 1px solid rgba(0,0,0,0.04);
+}
+.spot-italia-item:hover { background: #e0f2fe; transform: translateX(3px); }
+.spot-italia-item.active { background: linear-gradient(90deg,#e0f2fe,#bae6fd); border-left: 3px solid #0077b6; }
+body.dark .spot-italia-item { background: #334155; border-color:transparent; }
+body.dark .spot-italia-item:hover { background: #1e3a5f; }
+body.dark .spot-italia-item.active { background: #1e3a5f; border-left: 3px solid #38bdf8; }
+.si-ico  { font-size:22px; flex-shrink:0; }
+.si-info { flex:1; min-width:0; }
+.si-nome { font-weight:700; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.si-sub  { font-size:11px; opacity:0.6; margin-top:2px; }
+.si-badge {
+  background: #e0f2fe; color: #0369a1;
+  font-size: 9px; font-weight: 800; padding: 2px 7px;
+  border-radius: 6px; text-transform: uppercase; white-space:nowrap; flex-shrink:0;
+}
+
+/* ── Dettaglio spot nel pannello ── */
+.spot-detail-panel { padding: 2px 0; }
+.spot-detail-panel .sdp-tag {
+  display:inline-block; background:#e0f2fe; color:#0369a1;
+  font-size:10px; font-weight:800; padding:3px 9px;
+  border-radius:6px; text-transform:uppercase; margin-bottom:10px;
+}
+.spot-detail-panel h3 { margin:0 0 12px; font-size:17px; font-weight:900; line-height:1.3; }
+.spot-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+.spot-detail-cell {
+  background:#f8fafc; border-radius:10px; padding:10px 12px;
+}
+body.dark .spot-detail-cell { background:#334155; }
+.sdc-lbl { font-size:9px; font-weight:700; opacity:0.5; text-transform:uppercase; margin-bottom:3px; }
+.sdc-val { font-size:12px; font-weight:700; line-height:1.4; }
+.spot-detail-tips {
+  background:#eff6ff; border-radius:12px; padding:12px 14px; margin-bottom:12px;
+}
+body.dark .spot-detail-tips { background:#1e3a5f; }
+.spot-detail-tips p { margin:0; font-size:12px; line-height:1.6; color:#1e40af; }
+body.dark .spot-detail-tips p { color:#93c5fd; }
+.btn-nav-spot {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color:white; border:none; padding:12px; border-radius:12px;
+  font-size:13px; font-weight:700; width:100%; cursor:pointer;
+  margin-top:0; display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.btn-nav-spot:hover { transform: scale(1.02); }
+.btn-back-lista {
+  background:#f0f4f8; color:#0a2a43; border:none; padding:10px; border-radius:12px;
+  font-size:13px; width:100%; cursor:pointer; margin-top:8px;
+}
+body.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
+
+/* ── Modale mobile spot dettaglio ── */
+.modal-spot-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,0.6);
+  z-index:9500; display:flex; align-items:flex-end; animation: fadeIn 0.2s ease;
+}
+.modal-spot-box {
+  background:white; width:100%; border-radius:22px 22px 0 0;
+  padding:22px 20px 44px; max-height:80vh; overflow-y:auto;
+}
+body.dark .modal-spot-box { background:#1e293b; color:#e2e8f0; }
+.msb-tag {
+  display:inline-block; background:#e0f2fe; color:#0369a1;
+  font-size:10px; font-weight:800; padding:3px 9px;
+  border-radius:6px; text-transform:uppercase; margin-bottom:10px;
+}
+.modal-spot-box h2 { margin:0 0 14px; font-size:20px; font-weight:900; }
+.modal-spot-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+.modal-spot-cell { background:#f8fafc; border-radius:12px; padding:12px; }
+body.dark .modal-spot-cell { background:#334155; }
+.msc-lbl { font-size:10px; font-weight:700; opacity:0.5; text-transform:uppercase; margin-bottom:4px; }
+.msc-val { font-size:13px; font-weight:700; }
+.modal-spot-tips { background:#eff6ff; border-radius:14px; padding:13px 15px; margin-bottom:14px; }
+body.dark .modal-spot-tips { background:#1e3a5f; }
+.modal-spot-tips p { margin:0; font-size:13px; line-height:1.6; color:#1e40af; }
+body.dark .modal-spot-tips p { color:#93c5fd; }
+.btn-navigazione {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color:white; border:none; padding:14px; border-radius:14px;
+  font-size:14px; font-weight:700; width:100%; cursor:pointer; margin-top:0;
+}
+.btn-chiudi-spot {
+  background:#f0f0f0; color:#333; border:none; padding:12px;
+  border-radius:14px; font-size:14px; width:100%; cursor:pointer; margin-top:8px;
+}
+body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
 </style>
+
 </head>
 <body>
-<div id="splash"><div class="logo-anim">🌊</div><h2>Mare Fishing App</h2></div>
-<div class="waves-bg"><svg viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,100 C300,180 900,20 1200,100 L1200,200 L0,200 Z"></path></svg></div>
+
+<!-- BLOCCO HTML 1 — SPLASH -->
+
+<div id="splash">
+  <div class="logo-anim">🌊</div>
+  <h2 style="margin:12px 0 4px;font-size:22px;">Mare Fishing App</h2>
+  <p style="opacity:0.6;font-size:14px;margin:0;">La tua guida alla pesca in mare</p>
+</div>
+
+<!-- BLOCCO HTML 2 — ONDE -->
+
+<div class="waves-bg">
+  <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path d="M0,100 C300,180 900,20 1200,100 L1200,200 L0,200 Z"></path>
+  </svg>
+</div>
+
+<!-- BLOCCO HTML 3 — HEADER -->
+
 <header>🎣 Assistente Pesca Mare</header>
+
+<!-- BLOCCO HTML 4 — CONTENUTO -->
+
 <div id="content"></div>
+
+<!-- BLOCCO HTML 5 — FOOTER -->
+
 <footer>
-  <button onclick="showHome()">🏠 Home</button>
-  <button onclick="showTecniche()">🌊 Tecniche</button>
-  <button onclick="showSpecie()">🐟 Specie</button>
-  <button onclick="showMontature()">🪝 Montature</button>
-  <button onclick="showNodi()">🧵 Nodi</button>
-  <button onclick="showPrevisioni()">⚓ Meteo</button>
-  <button onclick="toggleTema()">🌙 Dark</button>
+  <button onclick="goTo(showHome)">🏠<span>Home</span></button>
+  <button onclick="goTo(showTecniche)">🌊<span>Tecniche</span></button>
+  <button onclick="goTo(showSpecie)">🐟<span>Specie</span></button>
+  <button onclick="goTo(showMontature)">🪝<span>Montature</span></button>
+  <button onclick="goTo(showNodi)">🧵<span>Nodi</span></button>
+  <button onclick="goTo(showPrevisioni)">⚓<span>Meteo</span></button>
+  <button onclick="toggleTema()">🌙<span>Dark</span></button>
 </footer>
 
+<!-- ============================================================
+     BLOCCO JS 1 — NAVIGAZIONE + TEMA
+     ============================================================ -->
+
 <script>
-/* === TEMA === */
-function toggleTema(){document.body.classList.toggle("dark");localStorage.setItem("tema",document.body.classList.contains("dark")?"dark":"light")}
-function caricaTema(){if(localStorage.getItem("tema")==="dark")document.body.classList.add("dark")}
+/* FIX scroll-to-top su ogni cambio sezione */
+function goTo(fn) {
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  fn();
+}
+function toggleTema() {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("tema", document.body.classList.contains("dark") ? "dark" : "light");
+}
+function caricaTema() {
+  if (localStorage.getItem("tema") === "dark") document.body.classList.add("dark");
+}
+</script>
 
-/* === HOME === */
-function showHome(){
-  document.getElementById("content").innerHTML=`
+<!-- ============================================================
+     BLOCCO JS 2 — HOME
+     ============================================================ -->
+
+<script>
+function showHome() {
+  document.getElementById("content").innerHTML = `
     <h2 style="margin-top:0;">Benvenuto 🎣</h2>
-    <p style="opacity:0.7;margin-bottom:20px;">Seleziona una sezione per iniziare</p>
+    <p style="opacity:0.7;margin-bottom:20px;font-size:14px;">Seleziona una sezione per iniziare</p>
     <div class="grid">
-      <div class="card" onclick="showTecniche()"><span class="home-icon">🌊</span><h3>Tecniche Mare</h3><p>Surfcasting, spinning, eging…</p></div>
-      <div class="card" onclick="showSpecie()"><span class="home-icon">🐟</span><h3>Specie</h3><p>I pesci più pescati</p></div>
-      <div class="card" onclick="showMontature()"><span class="home-icon">🪝</span><h3>Montature</h3><p>Spiegate passo-passo</p></div>
-      <div class="card" onclick="showNodi()"><span class="home-icon">🧵</span><h3>Nodi</h3><p>Con immagini</p></div>
-      <div class="card" onclick="showPrevisioni()"><span class="home-icon">⚓</span><h3>Meteo & Spot</h3><p>Previsioni + mappa pesca</p></div>
-    </div>`
+      <div class="card" onclick="goTo(showTecniche)"><span class="home-icon">🌊</span><h3>Tecniche</h3><p>Surfcasting, spinning, eging…</p></div>
+      <div class="card" onclick="goTo(showSpecie)"><span class="home-icon">🐟</span><h3>Specie</h3><p>I pesci più pescati</p></div>
+      <div class="card" onclick="goTo(showMontature)"><span class="home-icon">🪝</span><h3>Montature</h3><p>Spiegate passo-passo</p></div>
+      <div class="card" onclick="goTo(showNodi)"><span class="home-icon">🧵</span><h3>Nodi</h3><p>Con immagini</p></div>
+      <div class="card" onclick="goTo(showPrevisioni)"><span class="home-icon">⚓</span><h3>Meteo & Spot</h3><p>Previsioni + mappa pesca</p></div>
+    </div>`;
 }
+</script>
 
-/* === TECNICHE === */
-function showTecniche(){
-  document.getElementById("content").innerHTML=`
+<!-- ============================================================
+     BLOCCO JS 3 — TECNICHE
+     ============================================================ -->
+
+<script>
+function showTecniche() {
+  document.getElementById("content").innerHTML = `
     <h2>🌊 Tecniche di Pesca in Mare</h2>
-    <div class="card" onclick="showSurfcasting()"><b>🏖️ Surfcasting</b><br>Pesca dalla spiaggia con piombi pesanti</div>
-    <div class="card" onclick="showSpinning()"><b>🎣 Spinning</b><br>Esche artificiali da riva</div>
-    <div class="card" onclick="showEging()"><b>🦑 Eging</b><br>Pesca a seppie e calamari</div>
-    <div class="card" onclick="showFondo()"><b>⚓ Pesca a Fondo</b><br>Porto e scogliera</div>
-    <div class="card" onclick="showGalleggiante()"><b>🎈 Galleggiante</b><br>Tecnica precisa e leggera</div>`
+    <div class="card" onclick="goTo(showSurfcasting)"><b>🏖️ Surfcasting</b><br>Pesca dalla spiaggia con piombi pesanti</div>
+    <div class="card" onclick="goTo(showSpinning)"><b>🎣 Spinning</b><br>Esche artificiali da riva</div>
+    <div class="card" onclick="goTo(showEging)"><b>🦑 Eging</b><br>Pesca a seppie e calamari</div>
+    <div class="card" onclick="goTo(showFondo)"><b>⚓ Pesca a Fondo</b><br>Porto e scogliera</div>
+    <div class="card" onclick="goTo(showGalleggiante)"><b>🎈 Galleggiante</b><br>Tecnica precisa e leggera</div>`;
 }
-
-function showSurfcasting(){
-  document.getElementById("content").innerHTML=`
+function showSurfcasting() {
+  document.getElementById("content").innerHTML = `
     <h2>🏖️ Surfcasting</h2>
     <div class="card"><b>Quando usarla</b><br>Mare mosso o formato, spiagge sabbiose, alba e tramonto</div>
     <div class="card"><b>Attrezzatura base</b><br>Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40</div>
@@ -209,214 +508,292 @@ function showSurfcasting(){
       <div id="paternosterBox" class="image-box"></div>
       <button onclick="toggleImageBox('longArmBox','img/montature/03_long_arm.jpg',this)" class="toggle-btn">📷 Long Arm <span class="arrow">▼</span></button>
       <div id="longArmBox" class="image-box"></div>
+      <button onclick="toggleImageBox('shortRovBox','img/montature/01_short_rovesciato.jpg',this)" class="toggle-btn">📷 Short Rovesciato <span class="arrow">▼</span></button>
+      <div id="shortRovBox" class="image-box"></div>
       <button onclick="toggleImageBox('pulleyBox','img/montature/10_pulley_rig.jpg',this)" class="toggle-btn">📷 Pulley Rig <span class="arrow">▼</span></button>
       <div id="pulleyBox" class="image-box"></div>
     </div>
     <div class="card"><b>Pro</b><br>Raggiunge grandi distanze, ideale per grossi pesci</div>
     <div class="card"><b>Contro</b><br>Tecnica impegnativa, attrezzatura pesante</div>
+    <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=surfcasting+tecnica+italiana" target="_blank">Guarda su YouTube</a></div>
     <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(surfcastingData.specie)}</div>
     <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(surfcastingData.esche)}</div>
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`
+    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
-
-function showGalleggiante(){
-  document.getElementById("content").innerHTML=`
+function showGalleggiante() {
+  document.getElementById("content").innerHTML = `
     <h2>🎈 Galleggiante</h2>
     <div class="card"><b>Quando usarla</b><br>Mare calmo • Porto • Scogliera</div>
     <div class="card"><b>Attrezzatura base</b><br>Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole</div>
     <div class="card"><b>Specie principali</b><br>Cefalo • Sarago • Occhiata • Orata piccola</div>
+    <div class="card" style="cursor:default;">
+      <h3>🪝 Montature dedicate</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
+      <button onclick="toggleImageBox('galleggFissoBox','img/ravennate.jpg',this)" class="toggle-btn">📷 Galleggiante Fisso <span class="arrow">▼</span></button>
+      <div id="galleggFissoBox" class="image-box"></div>
+      <button onclick="toggleImageBox('galleggScorrBox','img/ravennate.jpg',this)" class="toggle-btn">📷 Galleggiante Scorrevole <span class="arrow">▼</span></button>
+      <div id="galleggScorrBox" class="image-box"></div>
+      <p style="margin-top:14px;font-size:13px;text-align:left;"><b>Esche:</b> Bigattino • Pane • Coreano • Gambero</p>
+    </div>
     <div class="card"><b>Pro</b><br>Tecnica precisa e sensibile</div>
     <div class="card"><b>Contro</b><br>Poco efficace con mare mosso</div>
+    <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare" target="_blank">Guarda su YouTube</a></div>
     ${generaSpeciePerTecnica("galleggiante")}
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`
+    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
-
-function showSpinning(){
-  const d=tecnicheData.spinning
-  document.getElementById("content").innerHTML=`
+function showSpinning() {
+  const dati = tecnicheData.spinning;
+  document.getElementById("content").innerHTML = `
     <h2>🎣 Spinning</h2>
-    <div class="card"><h3>📅 Quando usarla</h3><p>${d.quando}</p></div>
-    <div class="card"><h3>🎒 Attrezzatura base</h3><p>${d.attrezzatura}</p></div>
-    <div class="card"><h3>✅ Pro</h3><ul>${d.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
-    <div class="card"><h3>❌ Contro</h3><ul>${d.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
-    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(d.specie)}</div>
-    <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(d.esche)}</div>
-    <div class="card"><h3>🎥 Video tutorial</h3><a href="${d.video}" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`
+    <div class="card"><h3>📅 Quando usarla</h3><p>${dati.quando}</p></div>
+    <div class="card"><h3>🎒 Attrezzatura base</h3><p>${dati.attrezzatura}</p></div>
+    <div class="card" style="cursor:default;">
+      <h3>🪢 Montatura dedicata</h3><p>${dati.montatura}</p>
+      <button onclick="toggleImageBox('spinningMontaturaBox','img/montatura-spinning.jpg',this)" class="toggle-btn">📷 Montatura Spinning <span class="arrow">▼</span></button>
+      <div id="spinningMontaturaBox" class="image-box"></div>
+    </div>
+    <div class="card"><h3>✅ Pro</h3><ul>${dati.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+    <div class="card"><h3>❌ Contro</h3><ul>${dati.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
+    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
+    <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(dati.esche)}</div>
+    <div class="card"><h3>⚖️ Piombi consigliati</h3>${generaMiniCard(dati.piombi,"spinning-piombi")}</div>
+    <div class="card"><h3>🎥 Video tutorial</h3><a href="${dati.video}" target="_blank">Guarda su YouTube</a></div>
+    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
-
-function showEging(){
-  const d=tecnicheData.eging
-  document.getElementById("content").innerHTML=`
+function showEging() {
+  const dati = tecnicheData.eging;
+  document.getElementById("content").innerHTML = `
     <h2>🦑 Eging</h2>
-    <div class="card"><h3>📅 Quando usarla</h3><p>${d.quando}</p></div>
-    <div class="card"><h3>🎒 Attrezzatura base</h3><p>${d.attrezzatura}</p></div>
-    <div class="card"><h3>✅ Pro</h3><ul>${d.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
-    <div class="card"><h3>❌ Contro</h3><ul>${d.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
-    <div class="card"><h3>🦑 Specie consigliate</h3>${generaListaCliccabile(d.specie)}</div>
-    <div class="card"><h3>🎥 Video tutorial</h3><a href="${d.video}" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`
+    <div class="card"><h3>📅 Quando usarla</h3><p>${dati.quando}</p></div>
+    <div class="card"><h3>🎒 Attrezzatura base</h3><p>${dati.attrezzatura}</p></div>
+    <div class="card" style="cursor:default;">
+      <h3>🪢 Montatura dedicata</h3><p>${dati.montatura}</p>
+      <button onclick="toggleImageBox('egingMontaturaBox','img/montatura-eging.jpg',this)" class="toggle-btn">📷 Montatura Eging <span class="arrow">▼</span></button>
+      <div id="egingMontaturaBox" class="image-box"></div>
+    </div>
+    <div class="card"><h3>✅ Pro</h3><ul>${dati.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+    <div class="card"><h3>❌ Contro</h3><ul>${dati.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
+    <div class="card"><h3>🦑 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
+    <div class="card"><h3>🪱 Esche (Egi)</h3>${generaListaCliccabile(dati.esche)}</div>
+    <div class="card"><h3>🎥 Video tutorial</h3><a href="${dati.video}" target="_blank">Guarda su YouTube</a></div>
+    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
-
-function showFondo(){
-  document.getElementById("content").innerHTML=`
+function showFondo() {
+  const montature = tecnicheData.fondo.montature;
+  document.getElementById("content").innerHTML = `
     <h2>⚓ Pesca a Fondo</h2>
     <div class="card"><b>Quando usarla</b><br>Tutto l'anno • Porto • Scogliera • Spiaggia</div>
     <div class="card"><b>Attrezzatura base</b><br>Canna 3–4 m • Mulinello 4000–6000 • Nylon 0,30–0,40</div>
+    <div class="card" style="cursor:default;">
+      <h3>🪝 Montature dedicate</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
+      ${montature.map((m,i)=>`
+        <button onclick="toggleImageBox('fondoBox${i}','${m.img}',this)" class="toggle-btn">📷 ${m.nome} <span class="arrow">▼</span></button>
+        <div id="fondoBox${i}" class="image-box"></div>
+      `).join("")}
+    </div>
+    <div class="card"><b>Pro</b><br>Tecnica semplice e versatile</div>
+    <div class="card"><b>Contro</b><br>Rischio incagli • Meno selettiva</div>
     <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.specie)}</div>
     <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.esche)}</div>
-    <button onclick="showTecniche()">👈 Torna alle tecniche</button>`
+    <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">Guarda su YouTube</a></div>
+    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
 </script>
 
+<!-- ============================================================
+     BLOCCO JS 4 — NODI
+     ============================================================ -->
+
 <script>
-/* === NODI === */
-function showNodi(){
-  const nodi=[
-    {nome:"Nodo Clinch",img:"./img/nodo-clinch.jpg",uso:"Ami, girelle, moschettoni",filo:"Nylon / Fluorocarbon"},
-    {nome:"Nodo Palomar",img:"./img/nodo-palomar.jpg",uso:"Ami e artificiali",filo:"Trecciato"},
-    {nome:"Nodo FG",img:"./img/nodo-fg.jpg",uso:"Treccia → Fluorocarbon",filo:"Treccia → Fluoro"},
-    {nome:"Nodo Albright",img:"./img/nodo-albright.jpg",uso:"Unire fili di diametro diverso",filo:"Nylon / Treccia"},
-    {nome:"Nodo di Sangue",img:"./img/nodo-sangue.jpg",uso:"Unire due fili simili",filo:"Nylon / Fluorocarbon"},
-    {nome:"Nodo Rapala",img:"./img/nodo-rapala.jpg",uso:"Artificiali con movimento libero",filo:"Nylon / Fluorocarbon"}
-  ]
-  const cards=nodi.map((n,i)=>`
+function showNodi() {
+  const nodi = [
+    { nome:"Nodo Clinch",    img:"./img/nodo-clinch.jpg",   uso:"Ami, girelle, moschettoni",       filo:"Nylon / Fluorocarbon" },
+    { nome:"Nodo Palomar",   img:"./img/nodo-palomar.jpg",  uso:"Ami e artificiali",                filo:"Trecciato" },
+    { nome:"Nodo FG",        img:"./img/nodo-fg.jpg",       uso:"Treccia → Fluorocarbon",           filo:"Treccia → Fluoro" },
+    { nome:"Nodo Albright",  img:"./img/nodo-albright.jpg", uso:"Unire fili di diametro diverso",  filo:"Nylon / Treccia" },
+    { nome:"Nodo di Sangue", img:"./img/nodo-sangue.jpg",   uso:"Unire due fili simili",            filo:"Nylon / Fluorocarbon" },
+    { nome:"Nodo Rapala",    img:"./img/nodo-rapala.jpg",   uso:"Artificiali con movimento libero", filo:"Nylon / Fluorocarbon" }
+  ];
+  const cards = nodi.map((n,i) => `
     <div style="display:flex;flex-direction:column;align-items:center;">
-      <button onclick="toggleNodo('nodo${i}')" style="width:100%;padding:10px 6px;border-radius:14px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#0077b6,#00b4d8);border:none;color:white;cursor:pointer;margin-bottom:6px;box-shadow:0 4px 12px rgba(0,0,0,.18);">
+      <button onclick="toggleNodo('nodo${i}')" style="
+        width:100%;padding:10px 6px;border-radius:13px;font-size:14px;font-weight:700;
+        background:linear-gradient(135deg,#0077b6,#00b4d8);
+        border:none;color:white;cursor:pointer;margin-bottom:6px;line-height:1.3;
+        box-shadow:0 4px 12px rgba(0,0,0,0.16);">
         🧵 ${n.nome}
       </button>
       <div id="nodo${i}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
         <img src="${n.img}" style="width:100%;border-radius:12px;margin-bottom:6px;" onerror="this.style.display='none'">
         <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
       </div>
-    </div>`).join("")
-  document.getElementById("content").innerHTML=`<h2>🧵 Nodi da Pesca</h2><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>`
+    </div>`).join("");
+  document.getElementById("content").innerHTML = `
+    <h2>🧵 Nodi da Pesca</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>`;
 }
-function toggleNodo(id){
-  const el=document.getElementById(id); if(!el)return
-  const aperto=el.style.display==="block"
-  document.querySelectorAll("[id^='nodo']").forEach(e=>e.style.display="none")
-  el.style.display=aperto?"none":"block"
+function toggleNodo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const aperto = el.style.display === "block";
+  document.querySelectorAll("[id^='nodo']").forEach(e => e.style.display="none");
+  el.style.display = aperto ? "none" : "block";
 }
 </script>
 
-<script>
-/* === MONTATURE === */
-const montatureData=[
-  {id:"short-rovesciato",nome:"Short Rovesciato",emoji:"🪝",img:"./img/montature/01_short_rovesciato.jpg",desc:"Bracciolo corto orientato verso l'alto. Anti-aggroviglio su sabbia.",quando:"Spiagge sabbiose • Mare mosso • Surfcasting",esche:"Arenicola • Bibi • Americano",target:"Orata • Mormora • Sarago",video:"https://www.youtube.com/results?search_query=short+rovesciato+surfcasting"},
-  {id:"short-rovesciato-clippato",nome:"Short Rovesciato Clippato",emoji:"🪝",img:"./img/montature/02_short_rovesciato_clippato.jpg",desc:"Power-clip per lanci aerodinamici superiori a 120 m.",quando:"Spiagge ampie • Lanci estremi • Corrente",esche:"Arenicola • Bibi • Coreano",target:"Orata • Mormora • Spigola",video:"https://www.youtube.com/results?search_query=short+rovesciato+clippato"},
-  {id:"long-arm",nome:"Long Arm",emoji:"🪝",img:"./img/montature/03_long_arm.jpg",desc:"Bracciolo lungo 80–120 cm per massima naturalezza dell'esca.",quando:"Mare calmo • Pesci sospettosi • Alba/tramonto",esche:"Gambero • Vermetto • Polpo piccolo",target:"Orata grossa • Spigola • Dentice",video:"https://www.youtube.com/results?search_query=long+arm+montatura+surfcasting"},
-  {id:"long-arm-clippato",nome:"Long Arm Clippato",emoji:"🪝",img:"./img/montature/04_long_arm_clippato.jpg",desc:"Long arm con clip: bracciolo lungo e lancio da gara oltre 130 m.",quando:"Fondali lontani • Gare • Spiagge aperte",esche:"Gambero • Polpo • Arenicola",target:"Orata • Dentice • Spigola",video:"https://www.youtube.com/results?search_query=long+arm+clippato+surfcasting"},
-  {id:"biamo",nome:"Bi-Amo",emoji:"🎣",img:"./img/montature/05_biamo.jpg",desc:"Due braccioli indipendenti per presentare due esche diverse.",quando:"Porto e scogliera • Fondo misto",esche:"Bigattino • Coreano • Gambero",target:"Sarago • Occhiata • Spigola",video:"https://www.youtube.com/results?search_query=bi+amo+montatura+pesca+mare"},
-  {id:"paternoster",nome:"Paternoster",emoji:"🪝",img:"./img/montature/06_paternoster.jpg",desc:"Classico del surfcasting. Braccioli alti tenuti dalla girella tripla.",quando:"Fondo misto • Pesce sospeso • Tuttofare",esche:"Arenicola • Coreano • Gambero",target:"Orata • Sarago • Mormora • Corvina",video:"https://www.youtube.com/results?search_query=paternoster+montatura+surfcasting"},
-  {id:"biamo-clippato",nome:"Bi-Amo Clippato",emoji:"🎣",img:"./img/montature/07_biamo_clippato.jpg",desc:"Due ami clippati al piombo per lanci lunghi con doppia presentazione.",quando:"Spiagge con fondali lontani • Gare",esche:"Arenicola • Bibi • Coreano",target:"Orata • Mormora • Sarago",video:"https://www.youtube.com/results?search_query=biamo+clippato+surfcasting"},
-  {id:"triamo",nome:"Tri-Amo",emoji:"🎣",img:"./img/montature/08_triamo.jpg",desc:"Tre braccioli per massimizzare le catture sui pesci di branco.",quando:"Porto • Molo • Pesci in branco",esche:"Bigattino • Verme di mare • Pane",target:"Occhiata • Sugarello • Saraghetto",video:"https://www.youtube.com/results?search_query=tri+amo+pesca+porto"},
-  {id:"triamo-clippato",nome:"Tri-Amo Clippato",emoji:"🎣",img:"./img/montature/09_triamo_clippato.jpg",desc:"Tre ami clippati: distanza e tripla efficacia su fondi lontani.",quando:"Spiagge ampie • Fondo distante",esche:"Bigattino • Coreano • Verme",target:"Occhiata • Sarago • Sugarello",video:"https://www.youtube.com/results?search_query=tri+amo+clippato+surfcasting"},
-  {id:"pulley-rig",nome:"Pulley Rig",emoji:"⚙️",img:"./img/montature/10_pulley_rig.jpg",desc:"Sistema a puleggia: protegge l'esca durante il lancio, la libera in acqua.",quando:"Esche grosse e delicate • Corrente",esche:"Polpo • Mazzancolla • Pezzo calamaro",target:"Spigola • Orata • Corvina grossa",video:"https://www.youtube.com/results?search_query=pulley+rig+surfcasting"},
-  {id:"pulley-rig-clippato",nome:"Pulley Rig Clippato",emoji:"⚙️",img:"./img/montature/11_pulley_rig_clippato.jpg",desc:"Pulley + clip: montatura avanzata per esche grandi a lunga distanza.",quando:"Spiagge lunghe • Esche grosse • Vento favore",esche:"Polpo • Mazzancolla • Pezzo sgombro",target:"Spigola XXL • Corvina • Orata",video:"https://www.youtube.com/results?search_query=pulley+rig+clippato+surfcasting"},
-  {id:"scorrevole",nome:"Scorrevole",emoji:"🎯",img:"./img/montature/12_scorrevole.jpg",desc:"Piombo libero sulla lenza: il pesce non sente resistenza e abbocca sicuro.",quando:"Mare calmo • Porto • Pesci sospettosi",esche:"Gambero • Polpo • Vermetto",target:"Orata • Dentice • Spigola",video:"https://www.youtube.com/results?search_query=montatura+scorrevole+pesca+fondo"},
-  {id:"scorrevole-clippato",nome:"Scorrevole Clippato",emoji:"🎯",img:"./img/montature/13_scorrevole_clippato.jpg",desc:"Scorrevole + clip: distanza e sensibilità massima insieme.",quando:"Spiagge con fondali lontani • Pesci sospettosi",esche:"Gambero • Bibi • Arenicola",target:"Orata sospettosa • Dentice • Spigola",video:"https://www.youtube.com/results?search_query=scorrevole+clippato+surfcasting"},
-  {id:"minitrave",nome:"Minitrave",emoji:"📐",img:"./img/montature/14_minitrave.jpg",desc:"Trave orizzontale rigido che tiene i braccioli separati. Anti-aggroviglio.",quando:"Sabbia con corrente • Surf classico",esche:"Arenicola • Bibi • Coreano",target:"Mormora • Sarago • Orata",video:"https://www.youtube.com/results?search_query=minitrave+surfcasting"},
-  {id:"minitrave-divergente",nome:"Minitrave con Divergente",emoji:"📐",img:"./img/montature/15_minitrave_divergente.jpg",desc:"Bracci angolati a 40–50° per portare le esche lontano dalla scia del piombo.",quando:"Corrente forte • Posidonia • Fondo misto",esche:"Arenicola • Gambero • Bibi",target:"Orata • Sarago • Mormora",video:"https://www.youtube.com/results?search_query=minitrave+divergente+surfcasting"},
-  {id:"minitrave-snodato",nome:"Minitrave Divergente 360°",emoji:"🔄",img:"./img/montature/16_minitrave_snodato_360.jpg",desc:"Snodo a rotazione totale: i divergenti seguono la corrente. Zero aggrovigli.",quando:"Correnti variabili • Scogliera • Avanzata",esche:"Gambero • Arenicola • Cozza",target:"Orata • Sarago • Mormora",video:"https://www.youtube.com/results?search_query=minitrave+snodato+360+surfcasting"},
-  {id:"terminale-serra",nome:"Terminale Pesce Serra",emoji:"⚠️",img:"./img/montature/17_terminale_serra.jpg",desc:"Terminale in acciaio multi-strand: i denti del serra tagliano qualsiasi filo!",quando:"Luglio–Settembre • Spinning • Surfcasting",esche:"Minnow • Jerkbait • Metal jig • Pezzo sgombro",target:"Pesce Serra",video:"https://www.youtube.com/results?search_query=pesce+serra+terminale+acciaio"}
-]
+<!-- ============================================================
+     BLOCCO JS 5 — MONTATURE
+     ============================================================ -->
 
-function showMontature(){
-  const cards=montatureData.map(m=>`
-    <div onclick="showMontaturaDetail('${m.id}')" style="background:linear-gradient(135deg,#a8d8ea,#6bbfd8);border-radius:14px;padding:10px 6px;box-shadow:0 4px 12px rgba(0,0,0,.18);cursor:pointer;text-align:center;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:4px;">
+<script>
+const montatureData = [
+  { id:"short-rovesciato",          nome:"Short Rovesciato",           emoji:"🪝", img:"./img/montature/01_short_rovesciato.jpg",          desc:"Bracciolo corto orientato verso l'alto. Anti-aggroviglio su sabbia.",              quando:"Spiagge sabbiose • Mare mosso • Surfcasting",           esche:"Arenicola • Bibi • Americano",                  target:"Orata • Mormora • Sarago",            video:"https://www.youtube.com/results?search_query=short+rovesciato+surfcasting+montatura" },
+  { id:"short-rovesciato-clippato", nome:"Short Rovesciato Clippato",  emoji:"🪝", img:"./img/montature/02_short_rovesciato_clippato.jpg", desc:"Power-clip per lanci aerodinamici superiori a 120 m.",                             quando:"Spiagge ampie • Lanci estremi • Corrente",             esche:"Arenicola • Bibi • Coreano",                    target:"Orata • Mormora • Spigola",           video:"https://www.youtube.com/results?search_query=short+rovesciato+clippato+surfcasting" },
+  { id:"long-arm",                  nome:"Long Arm",                   emoji:"🪝", img:"./img/montature/03_long_arm.jpg",                  desc:"Bracciolo lungo 80–120 cm per massima naturalezza dell'esca.",                    quando:"Mare calmo • Pesci sospettosi • Alba/tramonto",        esche:"Gambero • Vermetto • Polpo piccolo",             target:"Orata grossa • Spigola • Dentice",     video:"https://www.youtube.com/results?search_query=long+arm+montatura+surfcasting" },
+  { id:"long-arm-clippato",         nome:"Long Arm Clippato",          emoji:"🪝", img:"./img/montature/04_long_arm_clippato.jpg",         desc:"Long arm con clip: bracciolo lungo e lancio da gara oltre 130 m.",                quando:"Fondali lontani • Gare • Spiagge aperte",             esche:"Gambero • Polpo • Arenicola",                   target:"Orata • Dentice • Spigola",           video:"https://www.youtube.com/results?search_query=long+arm+clippato+surfcasting+gara" },
+  { id:"biamo",                     nome:"Bi-Amo",                     emoji:"🎣", img:"./img/montature/05_biamo.jpg",                     desc:"Due braccioli indipendenti per presentare due esche diverse contemporaneamente.",  quando:"Porto e scogliera • Fondo misto",                      esche:"Bigattino • Coreano • Gambero",                 target:"Sarago • Occhiata • Spigola",          video:"https://www.youtube.com/results?search_query=bi+amo+montatura+pesca+mare" },
+  { id:"paternoster",               nome:"Paternoster",                emoji:"🪝", img:"./img/montature/06_paternoster.jpg",               desc:"Classico del surfcasting. Braccioli alti tenuti dalla girella tripla a 3 vie.",   quando:"Fondo misto • Pesce sospeso • Tuttofare",             esche:"Arenicola • Coreano • Gambero",                 target:"Orata • Sarago • Mormora • Corvina",  video:"https://www.youtube.com/results?search_query=paternoster+montatura+surfcasting+italiano" },
+  { id:"biamo-clippato",            nome:"Bi-Amo Clippato",            emoji:"🎣", img:"./img/montature/07_biamo_clippato.jpg",            desc:"Due ami clippati al piombo per lanci lunghi con doppia presentazione.",           quando:"Spiagge con fondali lontani • Gare",                  esche:"Arenicola • Bibi • Coreano",                    target:"Orata • Mormora • Sarago",            video:"https://www.youtube.com/results?search_query=biamo+clippato+surfcasting+montatura" },
+  { id:"triamo",                    nome:"Tri-Amo",                    emoji:"🎣", img:"./img/montature/08_triamo.jpg",                    desc:"Tre braccioli per massimizzare le catture sui pesci di branco.",                  quando:"Porto • Molo • Pesci in branco",                      esche:"Bigattino • Verme di mare • Pane",               target:"Occhiata • Sugarello • Saraghetto",    video:"https://www.youtube.com/results?search_query=tri+amo+tre+ami+pesca+porto" },
+  { id:"triamo-clippato",           nome:"Tri-Amo Clippato",           emoji:"🎣", img:"./img/montature/09_triamo_clippato.jpg",           desc:"Tre ami clippati: distanza e tripla efficacia su fondi lontani.",                 quando:"Spiagge ampie • Fondo distante",                      esche:"Bigattino • Coreano • Verme",                   target:"Occhiata • Sarago • Sugarello",        video:"https://www.youtube.com/results?search_query=tri+amo+clippato+surfcasting+tre+ami" },
+  { id:"pulley-rig",                nome:"Pulley Rig",                 emoji:"⚙️", img:"./img/montature/10_pulley_rig.jpg",                desc:"Sistema a puleggia: protegge l'esca durante il lancio, la libera in acqua.",     quando:"Esche grosse e delicate • Corrente",                  esche:"Polpo • Mazzancolla • Pezzo calamaro",           target:"Spigola • Orata • Corvina grossa",     video:"https://www.youtube.com/results?search_query=pulley+rig+surfcasting+montatura+italiana" },
+  { id:"pulley-rig-clippato",       nome:"Pulley Rig Clippato",        emoji:"⚙️", img:"./img/montature/11_pulley_rig_clippato.jpg",       desc:"Pulley + clip: montatura avanzata per esche grandi a lunga distanza.",           quando:"Spiagge lunghe • Esche grosse • Vento favore",        esche:"Polpo • Mazzancolla • Pezzo sgombro",            target:"Spigola XXL • Corvina • Orata",        video:"https://www.youtube.com/results?search_query=pulley+rig+clippato+surfcasting" },
+  { id:"scorrevole",                nome:"Scorrevole",                 emoji:"🎯", img:"./img/montature/12_scorrevole.jpg",                desc:"Piombo libero sulla lenza: il pesce non sente resistenza e abbocca sicuro.",     quando:"Mare calmo • Porto • Pesci sospettosi",               esche:"Gambero • Polpo • Vermetto",                    target:"Orata • Dentice • Spigola",           video:"https://www.youtube.com/results?search_query=montatura+scorrevole+pesca+fondo+mare" },
+  { id:"scorrevole-clippato",       nome:"Scorrevole Clippato",        emoji:"🎯", img:"./img/montature/13_scorrevole_clippato.jpg",       desc:"Scorrevole + clip: distanza e sensibilità massima insieme.",                     quando:"Spiagge con fondali lontani • Pesci sospettosi",      esche:"Gambero • Bibi • Arenicola",                    target:"Orata sospettosa • Dentice • Spigola", video:"https://www.youtube.com/results?search_query=scorrevole+clippato+surfcasting+montatura" },
+  { id:"minitrave",                 nome:"Minitrave",                  emoji:"📐", img:"./img/montature/14_minitrave.jpg",                 desc:"Trave orizzontale rigido che tiene i braccioli separati. Anti-aggroviglio.",    quando:"Sabbia con corrente • Surf classico",                 esche:"Arenicola • Bibi • Coreano",                    target:"Mormora • Sarago • Orata",            video:"https://www.youtube.com/results?search_query=minitrave+surfcasting+montatura+pesca" },
+  { id:"minitrave-divergente",      nome:"Minitrave con Divergente",   emoji:"📐", img:"./img/montature/15_minitrave_divergente.jpg",      desc:"Bracci angolati a 40–50° per portare le esche lontano dalla scia del piombo.",  quando:"Corrente forte • Posidonia • Fondo misto",            esche:"Arenicola • Gambero • Bibi",                    target:"Orata • Sarago • Mormora",            video:"https://www.youtube.com/results?search_query=minitrave+divergente+surfcasting+pesca" },
+  { id:"minitrave-snodato",         nome:"Minitrave Divergente 360°",  emoji:"🔄", img:"./img/montature/16_minitrave_snodato_360.jpg",     desc:"Snodo a rotazione totale: i divergenti seguono la corrente. Zero aggrovigli.",  quando:"Correnti variabili • Scogliera • Avanzata",           esche:"Gambero • Arenicola • Cozza",                   target:"Orata • Sarago • Mormora",            video:"https://www.youtube.com/results?search_query=minitrave+snodato+360+gradi+surfcasting" },
+  { id:"terminale-serra",           nome:"Terminale Pesce Serra",      emoji:"⚠️", img:"./img/montature/17_terminale_serra.jpg",           desc:"Terminale in acciaio multi-strand: i denti del serra tagliano qualsiasi filo!", quando:"Luglio–Settembre • Spinning • Surfcasting",           esche:"Minnow • Jerkbait • Metal jig • Pezzo sgombro",  target:"Pesce Serra",                         video:"https://www.youtube.com/results?search_query=pesce+serra+terminale+acciaio+pesca" }
+];
+function showMontature() {
+  const cards = montatureData.map(m => `
+    <div onclick="goTo(()=>showMontaturaDetail('${m.id}'))" style="
+      background:linear-gradient(135deg,#a8d8ea,#6bbfd8);
+      border-radius:14px;padding:10px 6px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;
+      text-align:center;transition:all 0.2s;display:flex;
+      flex-direction:column;align-items:center;gap:4px;">
       <span style="font-size:22px;">${m.emoji}</span>
-      <div style="font-weight:700;font-size:14px;line-height:1.3;color:#0a2a43;">${m.nome}</div>
-    </div>`).join("")
-  document.getElementById("content").innerHTML=`
+      <div style="font-weight:700;font-size:13px;line-height:1.3;color:#0a2a43;">${m.nome}</div>
+    </div>`).join("");
+  document.getElementById("content").innerHTML = `
     <h2 style="margin-top:0;">🪝 Montature da Pesca</h2>
     <p style="opacity:0.6;margin-bottom:14px;font-size:13px;">${montatureData.length} montature • tocca per il dettaglio</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>`
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>`;
 }
-
-function showMontaturaDetail(id){
-  const m=montatureData.find(x=>x.id===id); if(!m)return
-  document.getElementById("content").innerHTML=`
-    <div style="animation:fadeIn .3s ease;">
+function showMontaturaDetail(id) {
+  const m = montatureData.find(x => x.id === id);
+  if (!m) return;
+  document.getElementById("content").innerHTML = `
+    <div style="animation:fadeIn 0.3s ease;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-        <span style="font-size:34px;">${m.emoji}</span>
-        <div><h2 style="margin:0;font-size:21px;">${m.nome}</h2><p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p></div>
+        <span style="font-size:32px;">${m.emoji}</span>
+        <div><h2 style="margin:0;font-size:20px;">${m.nome}</h2>
+        <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p></div>
       </div>
       <div class="card" style="padding:0;overflow:hidden;cursor:default;">
-        <div style="background:linear-gradient(90deg,#0a2a43,#144d73);padding:10px 18px;"><span style="color:white;font-size:13px;font-weight:600;">📐 Schema Tecnico</span></div>
-        <img src="${m.img}" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;" onerror="this.parentElement.innerHTML='<div style=padding:24px;opacity:0.4;text-align:center;>Immagine non disponibile</div>'">
+        <div style="background:linear-gradient(90deg,#0a2a43,#144d73);padding:10px 18px;">
+          <span style="color:white;font-size:13px;font-weight:600;">📐 Schema Tecnico</span>
+        </div>
+        <img src="${m.img}" alt="Schema ${m.nome}" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;"
+          onerror="this.parentElement.innerHTML='<div style=padding:24px;opacity:0.4;text-align:center;>Immagine non disponibile</div>'">
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0;">
         <div class="card" style="text-align:left;padding:14px;cursor:default;">
-          <div style="font-size:11px;font-weight:700;opacity:.5;text-transform:uppercase;margin-bottom:5px;">🕐 Quando usare</div>
+          <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:5px;">🕐 Quando usare</div>
           <div style="font-size:13px;line-height:1.7;">${m.quando.split(" • ").join("<br>")}</div>
         </div>
         <div class="card" style="text-align:left;padding:14px;cursor:default;">
-          <div style="font-size:11px;font-weight:700;opacity:.5;text-transform:uppercase;margin-bottom:5px;">🐟 Target</div>
+          <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:5px;">🐟 Target</div>
           <div style="font-size:13px;line-height:1.7;">${m.target.split(" • ").join("<br>")}</div>
         </div>
       </div>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:.5;text-transform:uppercase;margin-bottom:8px;">🪱 Esche consigliate</div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">${m.esche.split(" • ").map(e=>`<span style="background:#eaf4fb;border-radius:20px;padding:5px 12px;font-size:13px;">${e}</span>`).join("")}</div>
+        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🪱 Esche consigliate</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          ${m.esche.split(" • ").map(e=>`<span style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;">${e}</span>`).join("")}
+        </div>
       </div>
       <a href="${m.video}" target="_blank" style="text-decoration:none;">
-        <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:16px 20px;cursor:pointer;text-align:left;">
-          <div style="font-size:32px;line-height:1;">▶</div>
-          <div><div style="font-weight:700;font-size:15px;">Video Dimostrativo</div><div style="font-size:12px;opacity:.85;margin-top:2px;">Guarda come si realizza su YouTube →</div></div>
+        <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;text-align:left;">
+          <div style="font-size:30px;line-height:1;">▶</div>
+          <div>
+            <div style="font-weight:700;font-size:15px;">Video Dimostrativo</div>
+            <div style="font-size:12px;opacity:0.85;margin-top:2px;">Guarda come si realizza su YouTube →</div>
+          </div>
         </div>
       </a>
-      <button onclick="showMontature()" style="width:100%;margin-top:4px;">⬅️ Torna alle Montature</button>
-    </div>`
+      <button onclick="goTo(showMontature)" style="width:100%;margin-top:4px;">⬅️ Torna alle Montature</button>
+    </div>`;
 }
 </script>
 
+<!-- ============================================================
+     BLOCCO JS 6 — SPECIE
+     ============================================================ -->
+
 <script>
-/* === SPECIE === */
-const specie={
-  orata:{nome:"Orata",scientifico:"Sparus aurata",img:"img/orata.jpg",descrizione:"Pesce pregiato di fondale sabbioso e misto.",tecniche:"Pesca a fondo, surfcasting",montature:["paternoster","long-arm","scorrevole"],stagione:[1,2,3,4,10,11,12]},
-  spigola:{nome:"Spigola / Branzino",scientifico:"Dicentrarchus labrax",img:"img/spigola.jpg",descrizione:"Predatore costiero molto combattivo.",tecniche:"Spinning, surfcasting, fondo",montature:["long-arm","scorrevole","short-rovesciato"],stagione:[1,2,3,4,11,12]},
-  "sarago-maggiore":{nome:"Sarago maggiore",scientifico:"Diplodus sargus",img:"img/sarago-maggiore.jpg",descrizione:"Tipico dei fondali rocciosi.",tecniche:"Pesca a fondo, bolognese",montature:["paternoster","scorrevole"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
+const specie = {
+  orata:{nome:"Orata",scientifico:"Sparus aurata",img:"img/orata.jpg",descrizione:"Pesce pregiato di fondale sabbioso e misto.",tecniche:"Pesca a fondo, surfcasting",montature:["paternoster","long-arm","piombo-scorrevole"],stagione:[1,2,3,4,10,11,12]},
+  spigola:{nome:"Spigola / Branzino",scientifico:"Dicentrarchus labrax",img:"img/spigola.jpg",descrizione:"Predatore costiero molto combattivo.",tecniche:"Spinning, surfcasting, fondo",montature:["long-arm","piombo-scorrevole","short-rovesciato"],stagione:[1,2,3,4,11,12]},
+  "sarago-maggiore":{nome:"Sarago maggiore",scientifico:"Diplodus sargus",img:"img/sarago-maggiore.jpg",descrizione:"Tipico dei fondali rocciosi.",tecniche:"Pesca a fondo, bolognese",montature:["paternoster","piombo-scorrevole","trave"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
   "sarago-pizzuto":{nome:"Sarago pizzuto",scientifico:"Diplodus puntazzo",img:"img/sarago-pizzuto.jpg",descrizione:"Sarago più affusolato e diffidente.",tecniche:"Pesca a fondo",montature:["long-arm","paternoster"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
   mormora:{nome:"Mormora",scientifico:"Lithognathus mormyrus",img:"img/mormora.jpg",descrizione:"Classica preda del surfcasting.",tecniche:"Surfcasting",montature:["long-arm","paternoster","short-rovesciato"],stagione:[5,6,7,8,9,10]},
-  occhiata:{nome:"Occhiata",scientifico:"Oblada melanura",img:"img/occhiata.jpg",descrizione:"Pesce costiero che vive in branchi.",tecniche:"Galleggiante, fondo leggero",montature:["paternoster"],stagione:[5,6,9,10]},
-  sugarello:{nome:"Sugarello",scientifico:"Trachurus trachurus",img:"img/sugarello.jpg",descrizione:"Pesce pelagico molto attivo.",tecniche:"Spinning, bolentino",montature:["paternoster"],stagione:[3,4,5,6,7,8,9]},
-  pagello:{nome:"Pagello",scientifico:"Pagellus erythrinus",img:"img/pagello.jpg",descrizione:"Vive su fondali sabbiosi e misti.",tecniche:"Fondo, bolentino",montature:["paternoster"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
-  scorfano:{nome:"Scorfano",scientifico:"Scorpaena scrofa",img:"img/scorfano.jpg",descrizione:"Pesce di scogliera, attenzione alle spine.",tecniche:"Fondo, scogliera",montature:["paternoster","scorrevole"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
-  leccia:{nome:"Leccia",scientifico:"Lichia amia",img:"img/leccia.jpg",descrizione:"Grande predatore costiero.",tecniche:"Spinning, vivo",montature:["long-arm","scorrevole"],stagione:[4,5,6]},
-  palamita:{nome:"Palamita",scientifico:"Sarda sarda",img:"img/palamita.jpg",descrizione:"Predatore veloce e combattivo.",tecniche:"Spinning, traina",montature:["long-arm","scorrevole"],stagione:[4,5,6,7,8,9,10]},
-  serra:{nome:"Pesce Serra",scientifico:"Pomatomus saltatrix",img:"img/serra.jpg",descrizione:"Predatore aggressivo con dentatura affilata.",tecniche:"Spinning, surfcasting",montature:["terminale-serra"],stagione:[7,8,9]},
-  cefalo:{nome:"Cefalo",scientifico:"Mugil cephalus",img:"img/cefalo.jpg",descrizione:"Molto diffuso in porto e laguna.",tecniche:"Galleggiante",montature:["scorrevole"],stagione:[3,4,5,6,7,8,9,10,11]},
-  dentice:{nome:"Dentice",scientifico:"Dentex dentex",img:"img/dentice.jpg",descrizione:"Predatore di fondale roccioso.",tecniche:"Fondo, vivo",montature:["long-arm"],stagione:[3,4,5,6,7,8,9,10]},
-  ricciola:{nome:"Ricciola",scientifico:"Seriola dumerili",img:"img/ricciola.jpg",descrizione:"Grande predatore pelagico.",tecniche:"Spinning, traina",montature:["long-arm","scorrevole"],stagione:[6,7,8,9,10]},
-  totano:{nome:"Totano",scientifico:"Todarodes sagittatus",img:"img/totano.jpg",descrizione:"Cefalopode pescato in profondità.",tecniche:"Eging, bolentino",montature:["paternoster","scorrevole"],stagione:[1,2,10,11,12]},
-  seppia:{nome:"Seppia",scientifico:"Sepia officinalis",img:"img/seppia.jpg",descrizione:"Cefalopode costiero molto diffuso.",tecniche:"Eging",montature:["scorrevole","paternoster"],stagione:[4,5,10,11,12]}
-}
-
-function showSpecie(){
-  document.getElementById("content").innerHTML=`
+  occhiata:{nome:"Occhiata",scientifico:"Oblada melanura",img:"img/occhiata.jpg",descrizione:"Pesce costiero che vive in branchi.",tecniche:"Galleggiante, fondo leggero",montature:["paternoster","galleggiante-mare"],stagione:[5,6,9,10]},
+  sugarello:{nome:"Sugarello",scientifico:"Trachurus trachurus",img:"img/sugarello.jpg",descrizione:"Pesce pelagico molto attivo.",tecniche:"Spinning, bolentino",montature:["paternoster","trave"],stagione:[3,4,5,6,7,8,9]},
+  pagello:{nome:"Pagello",scientifico:"Pagellus erythrinus",img:"img/pagello.jpg",descrizione:"Vive su fondali sabbiosi e misti.",tecniche:"Fondo, bolentino",montature:["paternoster","trave"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
+  scorfano:{nome:"Scorfano",scientifico:"Scorpaena scrofa",img:"img/scorfano.jpg",descrizione:"Pesce di scogliera, attenzione alle spine.",tecniche:"Fondo, scogliera",montature:["paternoster","piombo-scorrevole","trave"],stagione:[1,2,3,4,5,6,7,8,9,10,11,12]},
+  leccia:{nome:"Leccia",scientifico:"Lichia amia",img:"img/leccia.jpg",descrizione:"Grande predatore costiero.",tecniche:"Spinning, vivo",montature:["long-arm","piombo-scorrevole"],stagione:[4,5,6]},
+  palamita:{nome:"Palamita",scientifico:"Sarda sarda",img:"img/palamita.jpg",descrizione:"Predatore veloce e combattivo.",tecniche:"Spinning, traina",montature:["long-arm","piombo-scorrevole"],stagione:[4,5,6,7,8,9,10]},
+  serra:{nome:"Pesce Serra",scientifico:"Pomatomus saltatrix",img:"img/serra.jpg",descrizione:"Predatore aggressivo con dentatura affilata.",tecniche:"Spinning, surfcasting",montature:["long-arm","piombo-scorrevole"],stagione:[7,8,9]},
+  cefalo:{nome:"Cefalo",scientifico:"Mugil cephalus",img:"img/cefalo.jpg",descrizione:"Molto diffuso in porto e laguna.",tecniche:"Galleggiante",montature:["galleggiante-mare","piombo-scorrevole"],stagione:[3,4,5,6,7,8,9,10,11]},
+  dentice:{nome:"Dentice",scientifico:"Dentex dentex",img:"img/dentice.jpg",descrizione:"Predatore di fondale roccioso.",tecniche:"Fondo, vivo",montature:["long-arm","trave"],stagione:[3,4,5,6,7,8,9,10]},
+  ricciola:{nome:"Ricciola",scientifico:"Seriola dumerili",img:"img/ricciola.jpg",descrizione:"Grande predatore pelagico.",tecniche:"Spinning, traina",montature:["long-arm","piombo-scorrevole"],stagione:[6,7,8,9,10]},
+  totano:{nome:"Totano",scientifico:"Todarodes sagittatus",img:"img/totano.jpg",descrizione:"Cefalopode pescato in profondità.",tecniche:"Eging, bolentino",montature:["paternoster","piombo-scorrevole"],stagione:[1,2,10,11,12]},
+  seppia:{nome:"Seppia",scientifico:"Sepia officinalis",img:"img/seppia.jpg",descrizione:"Cefalopode costiero molto diffuso.",tecniche:"Eging",montature:["piombo-scorrevole","paternoster"],stagione:[4,5,10,11,12]}
+};
+function showSpecie() {
+  document.getElementById("content").innerHTML = `
     <h2>🐟 Specie</h2>
-    <div class="card"><input type="text" id="searchInput" placeholder="Cerca specie..." style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;" onkeyup="filtraSpecie()"></div>
-    <div id="listaSpecie"></div>`
-  mostraTutteLeSpecie()
+    <div class="card">
+      <input type="text" id="searchInput" placeholder="Cerca specie..."
+        style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
+        onkeyup="filtraSpecie()">
+    </div>
+    <div id="listaSpecie"></div>`;
+  mostraTutteLeSpecie();
 }
-function cardSpecie(key){
-  return `<div onclick="showSpecieDetail('${key}')" style="background:linear-gradient(135deg,#e8d5a3,#d4b97a);border-radius:14px;padding:10px 6px;box-shadow:0 4px 12px rgba(0,0,0,.18);cursor:pointer;text-align:center;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="font-size:22px;">🐟</span><div style="font-weight:700;font-size:14px;line-height:1.3;color:#3d2b0a;">${specie[key].nome}</div></div>`
+function cardSpecie(key) {
+  return `<div onclick="goTo(()=>showSpecieDetail('${key}'))" style="
+    background:linear-gradient(135deg,#e8d5a3,#d4b97a);
+    border-radius:14px;padding:10px 6px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;
+    text-align:center;transition:all 0.2s;display:flex;
+    flex-direction:column;align-items:center;gap:4px;">
+    <span style="font-size:22px;">🐟</span>
+    <div style="font-weight:700;font-size:13px;line-height:1.3;color:#3d2b0a;">${specie[key].nome}</div>
+  </div>`;
 }
-function mostraTutteLeSpecie(){
-  let html="<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>"
-  for(let k in specie)html+=cardSpecie(k)
-  document.getElementById("listaSpecie").innerHTML=html+"</div>"
+function mostraTutteLeSpecie() {
+  let html = "<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>";
+  for (let key in specie) html += cardSpecie(key);
+  html += "</div>";
+  document.getElementById("listaSpecie").innerHTML = html;
 }
-function filtraSpecie(){
-  let filtro=document.getElementById("searchInput").value.toLowerCase()
-  let html="<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>"
-  for(let k in specie)if(specie[k].nome.toLowerCase().includes(filtro))html+=cardSpecie(k)
-  document.getElementById("listaSpecie").innerHTML=html+"</div>"
+function filtraSpecie() {
+  let filtro = document.getElementById("searchInput").value.toLowerCase();
+  let html = "<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>";
+  for (let key in specie) {
+    if (specie[key].nome.toLowerCase().includes(filtro)) html += cardSpecie(key);
+  }
+  html += "</div>";
+  document.getElementById("listaSpecie").innerHTML = html;
 }
-function showSpecieDetail(id){
-  const p=specie[id]; if(!p)return
-  document.getElementById("content").innerHTML=`
+function showSpecieDetail(id) {
+  const p = specie[id];
+  if (!p) return;
+  document.getElementById("content").innerHTML = `
     <div class="card" style="cursor:default;">
       <h2>${p.nome}</h2><em>${p.scientifico}</em><br>
       <img src="${p.img}" style="width:50%;border-radius:12px;margin:12px 0;" onerror="this.style.display='none'">
@@ -424,131 +801,202 @@ function showSpecieDetail(id){
       <p><strong>Tecniche:</strong> ${p.tecniche}</p>
       ${generaMontatureSpecie(p.montature)}
       ${generaCalendario(p.stagione)}
-      <button onclick="showSpecie()">👈 Torna alle specie</button>
-    </div>`
+      <button onclick="goTo(showSpecie)">👈 Torna alle specie</button>
+    </div>`;
 }
 </script>
 
+<!-- ============================================================
+     BLOCCO JS 7 — DATI
+     ============================================================ -->
+
 <script>
-/* === DATI === */
-const surfcastingData={
-  specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"}],
+const surfcastingData = {
+  specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Sarago Pizzuto",img:"img/sarago-pizzuto.jpg"}],
   esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"}]
-}
-const tecnicheData={
+};
+const tecnicheData = {
   spinning:{
-    quando:"Ideale con mare poco mosso. Perfetto all'alba e al tramonto.",
-    attrezzatura:"Canna 2.10-2.70m 10-40g • Mulinello 3000-4000 • Trecciato 0.12-0.18 + fluorocarbon 0.30-0.40",
+    quando:"Ideale con mare poco mosso o leggermente increspato. Perfetto all'alba e al tramonto.",
+    attrezzatura:"Canna 2.10-2.70m 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 + fluorocarbon 0.30-0.40.",
+    montatura:"Trecciato collegato con nodo FG al fluorocarbon. Artificiali come minnow, jerkbait, softbait e jig.",
     pro:["Tecnica dinamica","Copre molta acqua","Adatta a molti predatori"],
-    contro:["Richiede movimento continuo","Attrezzatura più costosa","Meno efficace con mare mosso"],
-    specie:[{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Serra",img:"img/serra.jpg"},{nome:"Palamita",img:"img/palamita.jpg"},{nome:"Ricciola",img:"img/ricciola.jpg"}],
-    esche:[{nome:"Minnow",img:"img/minnow.jpg"},{nome:"Jerkbait",img:"img/jerkbait.jpg"},{nome:"Soft Bait",img:"img/softbait.jpg"},{nome:"Metal Jig",img:"img/metal-jig.jpg"}],
-    video:"https://www.youtube.com/results?search_query=spinning+mare+tecnica"
+    contro:["Richiede movimento continuo","Attrezzatura più costosa","Meno efficace con mare molto mosso"],
+    specie:[{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Serra",img:"img/serra.jpg"},{nome:"Barracuda",img:"img/barracuda.jpg"},{nome:"Palamita",img:"img/palamita.jpg"},{nome:"Ricciola",img:"img/ricciola.jpg"}],
+    esche:[
+      {nome:"Minnow",img:"img/minnow.jpg",descrizione:"Imita un piccolo pesce foraggio.",mare:"Calmo / Poco mosso",target:"Spigola, Serra",efficacia:5},
+      {nome:"Jerkbait",img:"img/jerkbait.jpg",descrizione:"Movimento nervoso per attacchi aggressivi.",mare:"Leggermente mosso",target:"Serra, Palamita",efficacia:4},
+      {nome:"Soft Bait",img:"img/softbait.jpg",descrizione:"Esca in silicone montata su jig head.",mare:"Calmo",target:"Spigola, Sugarello",efficacia:4},
+      {nome:"Metal Jig",img:"img/metal-jig.jpg",descrizione:"Per lanci lunghi e profondità.",mare:"Mosso / Corrente",target:"Palamita, Serra",efficacia:5},
+      {nome:"Top Water / Popper",img:"img/popper.jpg",descrizione:"Lavora in superficie con attacchi spettacolari.",mare:"Calmo",target:"Leccia stella, Serra",efficacia:4}
+    ],
+    piombi:[
+      {nome:"Jig Head",img:"img/jig-head.jpg",descrizione:"Testa piombata per soft bait.",peso:"5g – 30g"},
+      {nome:"Piombo interno",img:"img/piombo-interno.jpg",descrizione:"Assetto naturale nel silicone.",peso:"Variabile"}
+    ],
+    video:"https://www.youtube.com/watch?v=5Zk7XKXh7eM"
   },
   eging:{
-    quando:"Ideale di notte o al tramonto in porti, scogliere e moli.",
-    attrezzatura:"Canna 2.30–2.60m • Mulinello 2500–3000 • Trecciato 0.6–0.8 PE + Fluorocarbon 0.28–0.33",
-    pro:["Tecnica divertente","Molto efficace sui cefalopodi","Attrezzatura leggera"],
+    quando:"Ideale di notte o al tramonto in porti, scogliere e moli con fondale misto.",
+    attrezzatura:"Canna 2.30–2.60m azione 2.0–3.5 EGI • Mulinello 2500–3000 • Trecciato 0.6–0.8 PE + Fluorocarbon 0.28–0.33",
+    montatura:"Trecciato collegato al fluorocarbon con nodo FG. Collegamento diretto all'egi con moschettone leggero.",
+    pro:["Tecnica divertente e tecnica","Molto efficace sui cefalopodi","Attrezzatura leggera"],
     contro:["Richiede sensibilità","Meno produttiva con mare molto mosso"],
     specie:[{nome:"Calamaro",img:"img/calamaro.jpg"},{nome:"Seppia",img:"img/seppia.jpg"},{nome:"Totano",img:"img/totano.jpg"}],
     esche:[{nome:"Egi 2.5",img:"img/egi-2-5.jpg"},{nome:"Egi 3.0",img:"img/egi-3-0.jpg"},{nome:"Egi 3.5",img:"img/egi-3-5.jpg"}],
     video:"https://www.youtube.com/results?search_query=eging+tecnica"
   },
   fondo:{
+    montature:[
+      {nome:"Piombo Scorrevole",img:"img/piombo-scorrevole.jpg",descrizione:"Piombo libero sulla lenza madre per maggiore sensibilità."},
+      {nome:"Paternoster",img:"img/montature/06_paternoster.jpg",descrizione:"Finali laterali ideali per fondo misto."},
+      {nome:"Long Arm",img:"img/montature/03_long_arm.jpg",descrizione:"Bracciolo lungo per mare calmo."},
+      {nome:"Bandiera",img:"img/bandiera.jpg",descrizione:"Ottima per evitare grovigli."}
+    ],
     specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Scorfano",img:"img/scorfano.jpg"},{nome:"Pagello",img:"img/pagello.jpg"}],
     esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Cozza",img:"img/cozza.jpg"}]
   }
-}
-
-/* === UTILITÀ === */
-let _openBox=null, _openBtn=null
-function toggleImageBox(id,imgPath,button){
-  const box=document.getElementById(id); if(!box)return
-  if(_openBox&&_openBox!==box){_openBox.classList.remove("open");_openBox.innerHTML="";if(_openBtn)_openBtn.classList.remove("active")}
-  if(box.classList.contains("open")){box.classList.remove("open");box.innerHTML="";button.classList.remove("active");_openBox=null;_openBtn=null;return}
-  if(box.innerHTML===""){const img=document.createElement("img");img.src=imgPath;img.style.cssText="width:100%;border-radius:14px;margin-top:10px;display:block;";img.onerror=function(){this.style.display="none"};box.appendChild(img)}
-  box.classList.add("open");button.classList.add("active")
-  setTimeout(()=>box.scrollIntoView({behavior:"smooth",block:"center"}),200)
-  _openBox=box;_openBtn=button
-}
-function generaListaCliccabile(lista){
-  let html="<div class='mini-container'>"
-  lista.forEach((item,i)=>{
-    const sid="img-"+item.nome.replace(/[^a-zA-Z0-9]/g,"_")+"-"+i
-    html+=`<div class="mini-card" onclick="toggleImgById('${sid}')">${item.nome}<div id="${sid}" style="display:none;margin-top:10px;"><img src="${item.img}" style="width:100%;max-width:250px;border-radius:12px;" onerror="this.style.display='none'"></div></div>`
-  })
-  return html+"</div>"
-}
-function toggleImgById(id){const el=document.getElementById(id);if(el)el.style.display=el.style.display==="none"?"block":"none"}
-function generaCalendario(stagione){
-  if(!stagione)return""
-  const mesi=["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"]
-  const mc=new Date().getMonth()+1
-  let html="<div class='card' style='cursor:default;'><b>📅 Calendario attività</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>"
-  for(let i=1;i<=12;i++){
-    const a=stagione.includes(i)
-    html+=`<div style="padding:6px 8px;border-radius:6px;font-size:12px;text-align:center;min-width:32px;${a?"background:#2ecc71;color:white;":"background:#eee;"}${i===mc?"border:2px solid #007bff;":""}">${mesi[i-1]}</div>`
-  }
-  return html+"</div></div>"
-}
-function generaSpeciePerTecnica(n){
-  let html="<div class='card' style='cursor:default;'><b>🐟 Specie consigliate</b><br><br>"
-  for(let k in specie)if(specie[k].tecniche.toLowerCase().includes(n.toLowerCase()))html+=`<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="showSpecieDetail('${k}')">• ${specie[k].nome}</div>`
-  return html+"</div>"
-}
-function generaMontatureSpecie(list){
-  if(!list||list.length===0)return""
-  return`<div class="card" style="cursor:default;text-align:left;"><b>🪝 Montature consigliate</b><br><br>${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="showMontaturaDetail('${m}')">${m.replace(/-/g," ")} →</div>`).join("")}</div>`
-}
-function trovaIndiceOra(times,ora){const s=ora.toISOString().slice(0,13);const i=times.findIndex(t=>t&&t.startsWith(s));return i>=0?i:0}
-function stelleRating(r){return"⭐".repeat(r)+"☆".repeat(5-r)}
-function direzioneVento(deg){return["N","NE","E","SE","S","SO","O","NO"][Math.round(deg/45)%8]||"—"}
-function iconaMeteo(c){if(c===0)return"☀️";if(c<=2)return"🌤️";if(c<=3)return"☁️";if(c<=49)return"🌫️";if(c<=55)return"🌦️";if(c<=65)return"🌧️";if(c<=77)return"❄️";if(c<=82)return"🌦️";if(c<=99)return"⛈️";return"🌡️"}
-function descrizioneMeteo(c){if(c===0)return"Sereno";if(c<=2)return"Poco nuv.";if(c<=3)return"Coperto";if(c<=49)return"Nebbia";if(c<=55)return"Pioggerella";if(c<=65)return"Pioggia";if(c<=77)return"Neve";if(c<=82)return"Rovesci";if(c<=99)return"Temporale";return"—"}
-function formatOra(s){if(!s)return"--:--";try{return s.slice(11,16)}catch(e){return"--:--"}}
-function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div class="prev-errore"><span class="ico">📡</span><p>${msg}</p><button onclick="showPrevisioni()">🔄 Riprova</button></div>`}
+};
 </script>
 
+<!-- ============================================================
+     BLOCCO JS 8 — FUNZIONI UTILITÀ CONDIVISE
+     ============================================================ -->
+
 <script>
-/* === PREVISIONI === */
-let prevMap=null, prevCoords=null
+let currentlyOpenBox = null;
+let currentlyOpenButton = null;
+function toggleImageBox(id, imgPath, button) {
+  const box = document.getElementById(id);
+  if (!box) return;
+  if (currentlyOpenBox && currentlyOpenBox !== box) {
+    currentlyOpenBox.classList.remove("open"); currentlyOpenBox.innerHTML = "";
+    if (currentlyOpenButton) currentlyOpenButton.classList.remove("active");
+  }
+  if (box.classList.contains("open")) {
+    box.classList.remove("open"); box.innerHTML = "";
+    button.classList.remove("active"); currentlyOpenBox = null; currentlyOpenButton = null; return;
+  }
+  if (box.innerHTML === "") {
+    const img = document.createElement("img");
+    img.src = imgPath; img.style.cssText = "width:20%;border-radius:12px;margin-top:10px;display:block;";
+    img.onerror = function() { this.style.display = "none"; };
+    box.appendChild(img);
+  }
+  box.classList.add("open"); button.classList.add("active");
+  setTimeout(() => box.scrollIntoView({ behavior:"smooth", block:"center" }), 200);
+  currentlyOpenBox = box; currentlyOpenButton = button;
+}
+function generaListaCliccabile(lista) {
+  let html = "<div class='mini-container'>";
+  lista.forEach((item, index) => {
+    const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
+    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}
+      <div id="${safeId}" style="display:none;margin-top:8px;">
+        <img src="${item.img}" style="width:100%;max-width:240px;border-radius:10px;" onerror="this.style.display='none'">
+      </div></div>`;
+  });
+  return html + "</div>";
+}
+function generaMiniCard(lista, tipo) {
+  if (!lista || lista.length === 0) return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
+  return `<div class="mini-container">
+    ${lista.map((item,index)=>`<div class="mini-card" onclick="apriDettaglio('${tipo}',${index})">${item.nome}</div>`).join("")}
+  </div><div id="${tipo}-detail"></div>`;
+}
+function toggleImgById(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === "none" ? "block" : "none";
+}
+function apriDettaglio(tipo, index) {
+  const container = document.getElementById(tipo + "-detail");
+  if (!container) return;
+  const parti = tipo.split("-"); if (parti.length < 2) return;
+  const tecnica = parti[0]; const categoria = parti.slice(1).join("-");
+  if (!tecnicheData[tecnica] || !tecnicheData[tecnica][categoria]) return;
+  const item = tecnicheData[tecnica][categoria][index]; if (!item) return;
+  if (container.dataset.open == index) { container.innerHTML=""; container.dataset.open=""; return; }
+  container.dataset.open = index;
+  container.innerHTML = `<div class="card" style="cursor:default;">
+    <h3>${item.nome}</h3>
+    <img src="${item.img}" style="width:60%;max-width:280px;border-radius:10px;display:block;margin:10px auto;" onerror="this.style.display='none'">
+    ${item.descrizione?`<p>${item.descrizione}</p>`:""}
+    ${item.peso?`<p><strong>Peso:</strong> ${item.peso}</p>`:""}
+  </div>`;
+}
+function toggleAccordion(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === "none" ? "block" : "none";
+}
+function generaCalendario(stagione) {
+  if (!stagione) return "";
+  const mesi = ["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
+  const meseCorrente = new Date().getMonth() + 1;
+  let html = "<div class='card' style='cursor:default;'><b>📅 Calendario attività</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
+  for (let i=1; i<=12; i++) {
+    const attivo = stagione.includes(i);
+    html += `<div style="padding:6px 8px;border-radius:6px;font-size:12px;text-align:center;min-width:32px;${attivo?"background:#2ecc71;color:white;":"background:#eee;"}${i===meseCorrente?"border:2px solid #007bff;":""}">${mesi[i-1]}</div>`;
+  }
+  return html + "</div></div>";
+}
+function generaSpeciePerTecnica(nomeTecnica) {
+  let html = "<div class='card' style='cursor:default;'><b>🐟 Specie consigliate</b><br><br>";
+  for (let key in specie) {
+    if (specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase()))
+      html += `<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="goTo(()=>showSpecieDetail('${key}'))">• ${specie[key].nome}</div>`;
+  }
+  return html + "</div>";
+}
+function generaMontatureSpecie(list) {
+  if (!list || list.length === 0) return "";
+  return `<div class="card" style="cursor:default;text-align:left;">
+    <b>🪝 Montature consigliate</b><br><br>
+    ${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${m}'))">${m.replace(/-/g," ")} →</div>`).join("")}
+  </div>`;
+}
+</script>
 
-function showPrevisioni(){
-  document.getElementById("content").innerHTML=`<div class="prev-loader"><span class="spinner">🎣</span><p>Rilevamento posizione in corso…</p></div>`
-  if(!navigator.geolocation){mostraErroreGPS("Il tuo browser non supporta la geolocalizzazione.");return}
+<!-- ============================================================
+     BLOCCO JS 9 — PREVISIONI METEO + SPOT PERSONALI
+     ============================================================ -->
+
+<script>
+let prevMap = null;
+let prevCoords = null;
+
+function showPrevisioni() {
+  document.getElementById("content").innerHTML = `
+    <div class="prev-loader"><span class="spinner">🎣</span><p>Rilevamento posizione in corso…</p></div>`;
+  if (!navigator.geolocation) { mostraErroreGPS("Il tuo browser non supporta la geolocalizzazione."); return; }
   navigator.geolocation.getCurrentPosition(
-    pos=>{prevCoords={lat:pos.coords.latitude,lon:pos.coords.longitude};caricaPrevisioni(prevCoords.lat,prevCoords.lon)},
-    ()=>mostraErroreGPS("Impossibile rilevare la posizione. Verifica che il GPS sia attivo."),
-    {enableHighAccuracy:true,timeout:10000}
-  )
+    pos => { prevCoords = { lat: pos.coords.latitude, lon: pos.coords.longitude }; caricaPrevisioni(prevCoords.lat, prevCoords.lon); },
+    () => mostraErroreGPS("Impossibile rilevare la posizione. Verifica che il GPS sia attivo."),
+    { enableHighAccuracy: true, timeout: 10000 }
+  );
 }
-
-async function caricaPrevisioni(lat,lon){
-  try{
-    const[marineRes,meteoRes]=await Promise.all([
-      fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height,wave_period&daily=wave_height_max&timezone=Europe%2FRome&forecast_days=4`),
-      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,sunrise,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4`)
-    ])
-    const marine=await marineRes.json(), meteo=await meteoRes.json()
-    renderPrevisioni(lat,lon,marine,meteo)
-  }catch(e){mostraErroreGPS("Errore nel caricamento dati meteo. Controlla la connessione.")}
+async function caricaPrevisioni(lat, lon) {
+  try {
+    const [marineRes, meteoRes] = await Promise.all([
+      fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4`),
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4`)
+    ]);
+    renderPrevisioni(lat, lon, await marineRes.json(), await meteoRes.json());
+  } catch(e) { mostraErroreGPS("Errore nel caricamento dati meteo. Controlla la connessione."); }
 }
-
-function renderPrevisioni(lat,lon,marine,meteo){
-  const ora=new Date()
-  const hIdx=trovaIndiceOra(marine.hourly?.time||[],ora)
-  const ondaH=marine.hourly?.wave_height?.[hIdx]??0
-  const ondaP=marine.hourly?.wave_period?.[hIdx]??0
-  const ventoKmh=meteo.current?.wind_speed_10m??0
-  const ventoDir=meteo.current?.wind_direction_10m??0
-  const tempC=meteo.current?.temperature_2m??"--"
-  const wCode=meteo.current?.weather_code??0
-  const ventoNodi=(ventoKmh*0.539957).toFixed(1)
-  const analisi=calcolaConsiglioCompleto(ondaH,ventoKmh,ora,wCode)
-  const giorniHTML=generaGiorni(marine,meteo,ora)
-  const miei_spots=caricaSpot()
-
-  document.getElementById("content").innerHTML=`
+function renderPrevisioni(lat, lon, marine, meteo) {
+  const ora  = new Date();
+  const hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
+  const ondaH    = marine.hourly?.wave_height?.[hIdx]  ?? 0;
+  const ondaP    = marine.hourly?.wave_period?.[hIdx]  ?? 0;
+  const ventoKmh = meteo.current?.wind_speed_10m       ?? 0;
+  const ventoDir = meteo.current?.wind_direction_10m   ?? 0;
+  const tempC    = meteo.current?.temperature_2m       ?? "--";
+  const wCode    = meteo.current?.weather_code         ?? 0;
+  const ventoNodi = (ventoKmh * 0.539957).toFixed(1);
+  const analisi  = calcolaConsiglioCompleto(ondaH, ventoKmh, ora, wCode);
+  const giorniHTML = generaGiorni(marine, meteo, ora);
+  const miei_spots = caricaSpot();
+  document.getElementById("content").innerHTML = `
     <div class="prev-hero">
       <h2>⚓ Previsioni Pesca</h2>
       <div class="sub">📍 ${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E • Aggiornato ora</div>
@@ -580,72 +1028,65 @@ function renderPrevisioni(lat,lon,marine,meteo){
     <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">📌 I miei spot (${miei_spots.length})</h3>
     <div class="spot-list" id="spotList">${renderSpotList(miei_spots)}</div>
     <div style="margin:20px 0 10px;">
-      <button onclick="showCercaSpot()" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;">🗺️ Cerca Spot Italia</button>
+      <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
+        🗺️ Cerca Spot Italia
+      </button>
     </div>
-    <button onclick="showPrevisioni()" style="width:100%;">🔄 Aggiorna previsioni</button><br>`
-
-  setTimeout(()=>initMappa(lat,lon,miei_spots),100)
+    <button onclick="goTo(showPrevisioni)" style="width:100%;">🔄 Aggiorna previsioni</button><br>`;
+  setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
 }
-
-function calcolaConsiglioCompleto(ondaM,ventoKmh,ora,wCode){
-  const ventoNodi=ventoKmh*0.539957, h=ora.getHours(), mese=ora.getMonth()+1
-  const isAlba=h>=5&&h<=8, isMattina=h>=8&&h<=12, isTramonto=h>=17&&h<=20, isNotte=h>=21||h<=4
-  const isPrimavera=mese>=3&&mese<=5, isEstate=mese>=6&&mese<=8, isAutunno=mese>=9&&mese<=11, isInverno=mese===12||mese<=2
-  const mareCalmo=ondaM<0.5&&ventoNodi<10, mareMosso=ondaM>=0.5&&ondaM<1.2, mareFormato=ondaM>=1.2
-  const ventoForte=ventoNodi>20, maltempo=wCode>=61
-  let rating=5
-  if(mareFormato)rating-=2; else if(mareMosso)rating-=1
-  if(ventoForte)rating-=1
-  if(maltempo)rating-=2
-  if(isAlba||isTramonto)rating=Math.min(5,rating+1)
-  rating=Math.max(1,Math.min(5,rating))
-  const labelRating=["","Scarsa","Bassa","Discreta","Buona","Ottima"][rating]
-  let tecnica,specie,montatura,attrezzatura,esche,avviso=""
-  if(maltempo||(ventoNodi>25&&ondaM>1.5)){tecnica="Sconsigliato uscire";specie="Condizioni troppo avverse";montatura="—";attrezzatura="Attendi miglioramento";esche="—";avviso="Vento e mare eccessivi. Rischio sicurezza."}
-  else if(isNotte&&!mareFormato){tecnica="Eging / Pesca notturna";specie="Seppia • Calamaro • Totano";montatura="Egi 2.5–3.5 con fluorocarbon 0.28–0.33";attrezzatura="Canna 2.3–2.6m • Mulinello 2500–3000 • Trecciato 0.8 PE";esche="Egi arancione / rosa al tramonto, bianco di notte"}
-  else if(mareCalmo&&(isAlba||isTramonto)){tecnica="Spinning da riva";specie=isEstate||isPrimavera?"Spigola • Leccia • Serra • Palamita":"Spigola • Sarago • Orata";montatura="Long Arm / Scorrevole";attrezzatura="Canna 2.4–2.7m 10-40g • Mulinello 3000-4000 • Trecciato 0.12 + fluoro 0.35";esche="Minnow • Jerkbait • Popper • Metal Jig"}
-  else if(mareCalmo&&!isNotte){tecnica=isMattina?"Galleggiante / Fondo leggero":"Surfcasting leggero";specie="Orata • Sarago • Occhiata • Cefalo";montatura=ondaM<0.3?"Galleggiante fisso":"Long Arm";attrezzatura="Canna 4–6m • Nylon 0.22–0.28 • Mulinello 4000";esche="Gambero • Bigattino • Coreano • Pane"}
-  else if(mareMosso&&!ventoForte){tecnica="Surfcasting";specie=isAutunno||isInverno?"Mormora • Orata • Sarago pizzuto":"Orata • Mormora • Corvina";montatura=ondaM>0.8?"Short Rovesciato / Paternoster":"Paternoster";attrezzatura="Canna 4–4.5m • Mulinello 8000-10000 • Nylon 0.35-0.40";esche="Arenicola • Americano • Bibi • Coreano";if(isEstate)avviso="Controlla il tramonto: ottimo per Serra e Spigola."}
-  else{tecnica="Pesca a fondo pesante";specie="Scorfano • Pagello • Gronco";montatura="Paternoster pesante / Tri-Amo";attrezzatura="Canna da fondo 3–4m • Mulinello 6000 • Nylon 0.45";esche="Polpo • Cozza • Sardina • Calamaro";if(ventoForte)avviso="Vento forte: attenzione sulla scogliera."}
-  if(isInverno&&!maltempo)avviso=avviso||"Inverno: pesca mattutina nelle ore più calde."
-  return{rating,labelRating,tecnica,specie,montatura,attrezzatura,esche,avviso}
+function calcolaConsiglioCompleto(ondaM, ventoKmh, ora, wCode) {
+  const ventoNodi = ventoKmh * 0.539957;
+  const h = ora.getHours(); const mese = ora.getMonth() + 1;
+  const isAlba=h>=5&&h<=8, isMattina=h>=8&&h<=12, isTramonto=h>=17&&h<=20, isNotte=h>=21||h<=4;
+  const isPrimavera=mese>=3&&mese<=5, isEstate=mese>=6&&mese<=8, isAutunno=mese>=9&&mese<=11, isInverno=mese===12||mese<=2;
+  const mareCalmo=ondaM<0.5&&ventoNodi<10, mareMosso=ondaM>=0.5&&ondaM<1.2, mareFormato=ondaM>=1.2;
+  const ventoForte=ventoNodi>20, maltempo=wCode>=61;
+  let rating=5;
+  if(mareFormato)rating-=2; else if(mareMosso)rating-=1;
+  if(ventoForte)rating-=1; if(maltempo)rating-=2;
+  if(isAlba||isTramonto)rating=Math.min(5,rating+1);
+  rating=Math.max(1,Math.min(5,rating));
+  const labelRating=["","Scarsa","Bassa","Discreta","Buona","Ottima"][rating];
+  let tecnica,specie,montatura,attrezzatura,esche,avviso="";
+  if(maltempo||(ventoNodi>25&&ondaM>1.5)){tecnica="Sconsigliato uscire";specie="Condizioni troppo avverse";montatura="—";attrezzatura="Attendi miglioramento";esche="—";avviso="Vento e mare eccessivi. Rischio sicurezza.";}
+  else if(isNotte&&!mareFormato){tecnica="Eging / Pesca notturna";specie="Seppia • Calamaro • Totano";montatura="Egi 2.5–3.5 con fluorocarbon 0.28–0.33";attrezzatura="Canna 2.3–2.6m • Mulinello 2500–3000 • Trecciato 0.8 PE";esche="Egi arancione / rosa al tramonto, bianco di notte";}
+  else if(mareCalmo&&(isAlba||isTramonto)){tecnica="Spinning da riva";specie=isEstate||isPrimavera?"Spigola • Leccia • Serra • Palamita":"Spigola • Sarago • Orata";montatura="Long Arm / Piombo Scorrevole";attrezzatura="Canna 2.4–2.7m 10-40g • Mulinello 3000-4000 • Trecciato 0.12 + fluoro 0.35";esche="Minnow • Jerkbait • Popper • Metal Jig";}
+  else if(mareCalmo&&!isNotte){tecnica=isMattina?"Galleggiante / Fondo leggero":"Surfcasting leggero";specie="Orata • Sarago • Occhiata • Cefalo";montatura=ondaM<0.3?"Galleggiante fisso":"Long Arm";attrezzatura="Canna 4–6m • Nylon 0.22–0.28 • Mulinello 4000";esche="Gambero • Bigattino • Coreano • Pane";}
+  else if(mareMosso&&!ventoForte){tecnica="Surfcasting";specie=isAutunno||isInverno?"Mormora • Orata • Sarago pizzuto":"Orata • Mormora • Corvina";montatura=ondaM>0.8?"Short Rovesciato / Paternoster":"Paternoster";attrezzatura="Canna 4–4.5m • Mulinello 8000-10000 • Nylon 0.35-0.40";esche="Arenicola • Americano • Bibi • Coreano";if(isEstate)avviso="Controlla il tramonto: ottimo per Serra e Spigola.";}
+  else{tecnica="Pesca a fondo pesante";specie="Scorfano • Pagello • Gronco";montatura="Paternoster pesante / Tri-Amo";attrezzatura="Canna da fondo 3–4m • Mulinello 6000 • Nylon 0.45";esche="Polpo • Cozza • Sardina • Calamaro";if(ventoForte)avviso="Vento forte: attenzione sulla scogliera.";}
+  if(isInverno&&!maltempo)avviso=avviso||"Inverno: pesca mattutina nelle ore più calde.";
+  return{rating,labelRating,tecnica,specie,montatura,attrezzatura,esche,avviso};
 }
-
-function generaGiorni(marine,meteo,ora){
-  const giorni=["Dom","Lun","Mar","Mer","Gio","Ven","Sab"]; let html=""
+function generaGiorni(marine, meteo, ora) {
+  const giorni=["Dom","Lun","Mar","Mer","Gio","Ven","Sab"]; let html="";
   for(let i=1;i<=3;i++){
-    const d=new Date(ora); d.setDate(d.getDate()+i)
-    const nome=i===1?"Domani":giorni[d.getDay()]
-    const tMax=meteo.daily?.temperature_2m_max?.[i]??"--"
-    const tMin=meteo.daily?.temperature_2m_min?.[i]??"--"
-    const wCode=meteo.daily?.weather_code?.[i]??0
-    const vento=meteo.daily?.wind_speed_10m_max?.[i]??0
-    const ondaMax=marine.daily?.wave_height_max?.[i]??0
-    const ventoN=(vento*0.539957).toFixed(0)
-    let r=5; if(ondaMax>1.2)r-=2; else if(ondaMax>0.5)r-=1; if(vento>37)r-=1; if(wCode>=61)r-=2; r=Math.max(1,Math.min(5,r))
-    html+=`<div class="giorno-card"><div class="giorno-nome">${nome}</div><div class="giorno-ico">${iconaMeteo(wCode)}</div><div class="giorno-val">${tMax}° / ${tMin}°</div><div class="giorno-sub">🌊 ${ondaMax.toFixed(1)}m</div><div class="giorno-sub">💨 ${ventoN} nodi</div><div class="giorno-rate">${stelleRating(r)}</div></div>`
+    const d=new Date(ora); d.setDate(d.getDate()+i);
+    const nome=i===1?"Domani":giorni[d.getDay()];
+    const tMax=meteo.daily?.temperature_2m_max?.[i]??"--", tMin=meteo.daily?.temperature_2m_min?.[i]??"--";
+    const wCode=meteo.daily?.weather_code?.[i]??0, vento=meteo.daily?.wind_speed_10m_max?.[i]??0;
+    const ondaMax=marine.daily?.wave_height_max?.[i]??0, ventoN=(vento*0.539957).toFixed(0);
+    let r=5; if(ondaMax>1.2)r-=2; else if(ondaMax>0.5)r-=1; if(vento>37)r-=1; if(wCode>=61)r-=2; r=Math.max(1,Math.min(5,r));
+    html+=`<div class="giorno-card"><div class="giorno-nome">${nome}</div><div class="giorno-ico">${iconaMeteo(wCode)}</div><div class="giorno-val">${tMax}° / ${tMin}°</div><div class="giorno-sub">🌊 ${ondaMax.toFixed(1)}m</div><div class="giorno-sub">💨 ${ventoN} nodi</div><div class="giorno-rate">${stelleRating(r)}</div></div>`;
   }
-  return html
+  return html;
 }
-
-function initMappa(lat,lon,miei_spots){
-  if(prevMap){prevMap.remove();prevMap=null}
-  prevMap=L.map("prevMap",{zoomControl:true}).setView([lat,lon],13)
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(prevMap)
-  L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.8}).addTo(prevMap)
-  const iGPS=L.divIcon({html:'<div style="font-size:28px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));">📍</div>',iconSize:[32,32],iconAnchor:[16,32],className:""})
-  L.marker([lat,lon],{icon:iGPS}).addTo(prevMap).bindPopup("<b>📍 Sei qui</b>").openPopup()
+function initMappaPrevisioni(lat, lon, miei_spots) {
+  if (prevMap) { prevMap.remove(); prevMap=null; }
+  prevMap = L.map("prevMap",{zoomControl:true}).setView([lat,lon],13);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(prevMap);
+  L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.8}).addTo(prevMap);
+  const iconaGPS = L.divIcon({html:'<div style="font-size:28px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[32,32],iconAnchor:[16,32],className:""});
+  L.marker([lat,lon],{icon:iconaGPS}).addTo(prevMap).bindPopup("<b>📍 Sei qui</b>").openPopup();
   miei_spots.forEach(s=>{
-    const iSpot=L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));">📌</div>',iconSize:[30,30],iconAnchor:[15,30],className:""})
-    L.marker([s.lat,s.lon],{icon:iSpot}).addTo(prevMap).bindPopup(`<b>📌 ${s.nome}</b><br>${s.specie||""}<br><small>${s.data}</small>`)
-  })
+    const ico=L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">📌</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
+    L.marker([s.lat,s.lon],{icon:ico}).addTo(prevMap).bindPopup(`<b>📌 ${s.nome}</b><br>${s.specie||""}<br><small>${s.data}</small>`);
+  });
 }
-
-function caricaSpot(){try{return JSON.parse(localStorage.getItem("pescaSpot")||"[]")}catch(e){return[]}}
-function salvaSpot(spots){localStorage.setItem("pescaSpot",JSON.stringify(spots))}
-
+function caricaSpot(){try{return JSON.parse(localStorage.getItem("pescaSpot")||"[]");}catch(e){return[];}}
+function salvaSpot(spots){localStorage.setItem("pescaSpot",JSON.stringify(spots));}
 function aggiungiSpot(){
-  if(!prevCoords){alert("Posizione non disponibile.");return}
+  if(!prevCoords){alert("Posizione non disponibile.");return;}
   document.body.insertAdjacentHTML("beforeend",`
     <div class="modal-overlay" id="spotModal" onclick="chiudiModalSpot(event)">
       <div class="modal-box">
@@ -657,140 +1098,155 @@ function aggiungiSpot(){
         <button class="btn-salva-spot" onclick="confermaSpot()">💾 Salva spot</button>
         <button class="btn-chiudi-modal" onclick="document.getElementById('spotModal').remove()">Annulla</button>
       </div>
-    </div>`)
+    </div>`);
 }
-function chiudiModalSpot(e){if(e.target.classList.contains("modal-overlay"))document.getElementById("spotModal")?.remove()}
+function chiudiModalSpot(e){if(e.target.classList.contains("modal-overlay"))document.getElementById("spotModal")?.remove();}
 function confermaSpot(){
-  const nome=document.getElementById("spotNome").value.trim()||"Spot senza nome"
-  const spot={id:Date.now(),nome,specie:document.getElementById("spotSpecie").value.trim(),montatura:document.getElementById("spotMontatura").value.trim(),note:document.getElementById("spotNote").value.trim(),lat:prevCoords.lat,lon:prevCoords.lon,data:new Date().toLocaleDateString("it-IT")}
-  const spots=caricaSpot(); spots.unshift(spot); salvaSpot(spots)
-  document.getElementById("spotModal")?.remove()
-  document.getElementById("spotList").innerHTML=renderSpotList(spots)
-  if(prevMap){const iSpot=L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));">📌</div>',iconSize:[30,30],iconAnchor:[15,30],className:""});L.marker([spot.lat,spot.lon],{icon:iSpot}).addTo(prevMap).bindPopup(`<b>📌 ${spot.nome}</b><br>${spot.specie}<br><small>${spot.data}</small>`).openPopup()}
+  const nome=document.getElementById("spotNome").value.trim()||"Spot senza nome";
+  const spot={id:Date.now(),nome,specie:document.getElementById("spotSpecie").value.trim(),montatura:document.getElementById("spotMontatura").value.trim(),note:document.getElementById("spotNote").value.trim(),lat:prevCoords.lat,lon:prevCoords.lon,data:new Date().toLocaleDateString("it-IT")};
+  const spots=caricaSpot(); spots.unshift(spot); salvaSpot(spots);
+  document.getElementById("spotModal")?.remove();
+  document.getElementById("spotList").innerHTML=renderSpotList(spots);
+  if(prevMap){const ico=L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">📌</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});L.marker([spot.lat,spot.lon],{icon:ico}).addTo(prevMap).bindPopup(`<b>📌 ${spot.nome}</b><br>${spot.specie}<br><small>${spot.data}</small>`).openPopup();}
 }
-function eliminaSpot(id){const spots=caricaSpot().filter(s=>s.id!==id);salvaSpot(spots);document.getElementById("spotList").innerHTML=renderSpotList(spots)}
+function eliminaSpot(id){const spots=caricaSpot().filter(s=>s.id!==id);salvaSpot(spots);document.getElementById("spotList").innerHTML=renderSpotList(spots);}
 function renderSpotList(spots){
-  if(spots.length===0)return`<p style="opacity:0.5;font-size:13px;text-align:center;padding:10px;">Nessuno spot salvato.<br>Vai sul posto e tocca 📌 Salva spot!</p>`
+  if(spots.length===0)return`<p style="opacity:0.5;font-size:13px;text-align:center;padding:10px;">Nessuno spot salvato.<br>Vai sul posto e tocca 📌 Salva spot!</p>`;
   return spots.map(s=>`
     <div class="spot-item" onclick="centraMappa(${s.lat},${s.lon})">
       <span class="spot-ico">📌</span>
-      <div class="spot-info">
-        <div class="spot-nome">${s.nome}</div>
-        <div class="spot-sub">${s.specie?"🐟 "+s.specie:""} ${s.montatura?"• 🪝 "+s.montatura:""}</div>
-        <div class="spot-sub" style="opacity:.45;">${s.data} ${s.note?"• "+s.note:""}</div>
-      </div>
+      <div class="spot-info"><div class="spot-nome">${s.nome}</div>
+      <div class="spot-sub">${s.specie?"🐟 "+s.specie:""} ${s.montatura?"• 🪝 "+s.montatura:""}</div>
+      <div class="spot-sub" style="opacity:0.45;">${s.data} ${s.note?"• "+s.note:""}</div></div>
       <button class="spot-del" onclick="event.stopPropagation();eliminaSpot(${s.id})">🗑️</button>
-    </div>`).join("")
+    </div>`).join("");
 }
-function centraMappa(lat,lon){
-  if(prevMap)prevMap.setView([lat,lon],15)
-  const el=document.getElementById("prevMap")
-  if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,behavior:"smooth"})
-}
+function centraMappa(lat,lon){if(prevMap)prevMap.setView([lat,lon],15);const el=document.getElementById("prevMap");if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,behavior:"smooth"});}
+function trovaIndiceOra(times,ora){const s=ora.toISOString().slice(0,13);const i=times.findIndex(t=>t&&t.startsWith(s));return i>=0?i:0;}
+function stelleRating(r){return"⭐".repeat(r)+"☆".repeat(5-r);}
+function direzioneVento(deg){return["N","NE","E","SE","S","SO","O","NO"][Math.round(deg/45)%8]||"—";}
+function iconaMeteo(c){if(c===0)return"☀️";if(c<=2)return"🌤️";if(c<=3)return"☁️";if(c<=49)return"🌫️";if(c<=55)return"🌦️";if(c<=65)return"🌧️";if(c<=77)return"❄️";if(c<=82)return"🌦️";if(c<=99)return"⛈️";return"🌡️";}
+function descrizioneMeteo(c){if(c===0)return"Sereno";if(c<=2)return"Poco nuv.";if(c<=3)return"Coperto";if(c<=49)return"Nebbia";if(c<=55)return"Pioggerella";if(c<=65)return"Pioggia";if(c<=77)return"Neve";if(c<=82)return"Rovesci";if(c<=99)return"Temporale";return"—";}
+function formatOra(s){if(!s)return"--:--";try{return s.slice(11,16);}catch(e){return"--:--";}}
+function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div class="prev-errore"><span class="ico">📡</span><p>${msg}</p><button onclick="goTo(showPrevisioni)">🔄 Riprova</button></div>`;}
 </script>
 
+<!-- ============================================================
+     BLOCCO JS 9B — SPOT ITALIA
+     Layout: split desktop (2/3 mappa + 1/3 pannello)
+              modale mobile (dal basso)
+     ============================================================ -->
+
 <script>
-/* === SPOT ITALIA (array corretto, senza ];]; bug) === */
-const spotsItalia=[
-  {name:"Sestri Levante (GE)",reg:"Liguria",coords:[44.270,9.392],type:"Spinning",target:"Spigole, Serra, Barracuda",tips:"Vicino foce torrente. Ottimo con mare mosso. Alba e tramonto ideali."},
-  {name:"Celle Ligure (SV)",reg:"Liguria",coords:[44.341,8.547],type:"Surfcasting",target:"Mormore, Orate, Saraghi",tips:"Spiaggia sabbiosa profonda. Ottima in inverno con arenicola e americano."},
-  {name:"Sanremo - Diga Foranea (IM)",reg:"Liguria",coords:[43.815,7.785],type:"Bolognese",target:"Saraghi, Occhiate, Spigole",tips:"Scogliere profonde e riparate. Galleggiante fisso con bigattino o gambero."},
-  {name:"Camogli - Scogliera (GE)",reg:"Liguria",coords:[44.347,9.153],type:"Spinning",target:"Ricciole, Dentici, Barracuda",tips:"Scogliera ripida con acque profonde. Jig medi e minnow. Estate ottima."},
-  {name:"La Spezia - Porto Venere (SP)",reg:"Liguria",coords:[44.052,9.838],type:"Spinning",target:"Saraghi, Spigole, Barracuda",tips:"Scogliere del Golfo dei Poeti. Acque pulite e profonde."},
-  {name:"Castiglioncello (LI)",reg:"Toscana",coords:[43.403,10.412],type:"Spinning",target:"Barracuda, Serra, Spigole",tips:"Scogliera alta con acqua limpida. Minnow e jig leggeri. Estate al tramonto."},
-  {name:"Foce dell'Ombrone (GR)",reg:"Toscana",coords:[42.662,11.002],type:"Surfcasting",target:"Orate, Spigole, Corvine",tips:"Predatori in caccia nei canali di foce. Mattina presto ideale."},
-  {name:"Marina di Pisa (PI)",reg:"Toscana",coords:[43.673,10.272],type:"Bolognese",target:"Spigole, Orate, Cefali",tips:"Scogliere e moli. Bigattino e gambero efficaci."},
-  {name:"Follonica - Puntone (GR)",reg:"Toscana",coords:[42.921,10.753],type:"Spinning",target:"Spigole, Serra, Orate",tips:"Il Puntone è punto strategico per spigole con minnow bianchi."},
-  {name:"Livorno - Calafuria (LI)",reg:"Toscana",coords:[43.472,10.360],type:"Bolognese",target:"Saraghi, Spigole, Murene",tips:"Scogli selvaggi a sud di Livorno. Accesso impegnativo ma ottimi risultati."},
-  {name:"Isola d'Elba - Capo Enfola",reg:"Toscana",coords:[42.820,10.268],type:"Spinning",target:"Ricciole, Dentici, Barracuda",tips:"Correnti forti. Jig pesanti. Estate per ricciole e dentici."},
-  {name:"Sabaudia (LT)",reg:"Lazio",coords:[41.298,13.003],type:"Surfcasting",target:"Orate, Mormore, Spigole",tips:"Parco Nazionale del Circeo. Fondali sabbiosi ideali. Notte per orate."},
-  {name:"Santa Marinella (RM)",reg:"Lazio",coords:[42.034,11.855],type:"Surfcasting",target:"Saraghi, Spigole, Mormore",tips:"Spot misto tra foce e rocce. Ottima per mormore in primavera."},
-  {name:"Gaeta - Serapo (LT)",reg:"Lazio",coords:[41.202,13.571],type:"Spinning",target:"Spigole, Saraghi, Dentici",tips:"Scogliera calcarea con acque cristalline. Autunno ideale."},
-  {name:"Civitavecchia - Diga (RM)",reg:"Lazio",coords:[42.091,11.791],type:"Bolognese",target:"Cefali, Orate, Spigole",tips:"Diga foranea lunga. Bolognese con bigattino. Sera e notte per spigole."},
-  {name:"Isola di Ponza (LT)",reg:"Lazio",coords:[40.892,12.961],type:"Spinning",target:"Ricciole, Dentici, Barracuda",tips:"Scogliere profonde. Estate per pelagici di passo."},
-  {name:"Molo Beverello (NA)",reg:"Campania",coords:[40.838,14.258],type:"Spinning",target:"Serra, Spigole, Barracuda",tips:"Spinning urbano efficace all'alba. Minnow e jig leggeri."},
-  {name:"Mergellina (NA)",reg:"Campania",coords:[40.828,14.221],type:"Bolognese",target:"Occhiate, Saraghi, Spigole",tips:"Scogliera esterna profonda. Bolognese con bigattino."},
-  {name:"Palinuro - Capo (SA)",reg:"Campania",coords:[40.027,15.286],type:"Spinning",target:"Ricciole, Dentici, Barracuda",tips:"Capo roccioso nel Cilento. Jig pesanti. Estate per ricciole."},
-  {name:"Agropoli - Molo (SA)",reg:"Campania",coords:[40.349,14.993],type:"Bolognese",target:"Saraghi, Orate, Spigole",tips:"Porto e molo foraneo. Bolognese con gambero. Ottimo tutto l'anno."},
-  {name:"Ischia - Punta Imperatore",reg:"Campania",coords:[40.708,13.853],type:"Spinning",target:"Ricciole, Dentici, Lecce",tips:"Correnti forti. Jig e esca viva per grossi predatori."},
-  {name:"Capri - Faraglioni (NA)",reg:"Campania",coords:[40.547,14.257],type:"Spinning",target:"Dentici, Cernie, Barracuda",tips:"Estate per pelagici di superficie."},
-  {name:"Spiaggia Sabbia d'Oro (CS)",reg:"Calabria",coords:[39.671,15.823],type:"Surfcasting",target:"Orate, Mormore, Saraghi",tips:"Fondo ricco di crostacei. Autunno e inverno ideali."},
-  {name:"Scilla - Chianalea (RC)",reg:"Calabria",coords:[38.256,15.717],type:"Spinning",target:"Ricciole, Barracuda, Pesce Spada",tips:"Correnti dello Stretto. Jig pesanti. Estate per pesce spada."},
-  {name:"Capo Vaticano (VV)",reg:"Calabria",coords:[38.620,15.829],type:"Spinning",target:"Ricciole, Dentici, Serra",tips:"Promontorio granitico sul Tirreno. Estate ottima."},
-  {name:"Tropea - Scogliera (VV)",reg:"Calabria",coords:[38.676,15.897],type:"Bolognese",target:"Saraghi, Spigole, Orate",tips:"Scogliera sotto il borgo medievale. Acque cristalline."},
-  {name:"Siderno - Spiaggia (RC)",reg:"Calabria",coords:[38.270,16.300],type:"Surfcasting",target:"Orate, Mormore, Pagelli",tips:"Spiaggia ionica lunga. Primavera e autunno ideali."},
-  {name:"Crotone - Isola Capo Rizzuto",reg:"Calabria",coords:[38.929,17.100],type:"Spinning",target:"Dentici, Barracuda, Saraghi",tips:"AMP: rispettare i confini. Fuori zona protetta fondali eccezionali."},
-  {name:"Cirella - Scogliera (CS)",reg:"Calabria",coords:[39.718,15.811],type:"Surfcasting",target:"Mormore, Orate, Corvine",tips:"Fondale misto profondo. Punto d'ingresso lato mare."},
-  {name:"Baia Verde (LE)",reg:"Puglia",coords:[40.038,18.008],type:"Surfcasting",target:"Orate, Saraghi, Mormore",tips:"Fondale misto con posidonia. Ottimo in autunno."},
-  {name:"Punta Pizzo (LE)",reg:"Puglia",coords:[39.952,18.354],type:"Spinning",target:"Barracuda, Serra, Lecce",tips:"Correnti del Canale d'Otranto. Jig e minnow. Estate."},
-  {name:"Gallipoli - Molo (LE)",reg:"Puglia",coords:[40.056,17.993],type:"Bolognese",target:"Saraghi, Occhiate, Spigole",tips:"Molo del porto vecchio. Acque profonde già a pochi metri."},
-  {name:"Otranto - Scogliera (LE)",reg:"Puglia",coords:[40.145,18.491],type:"Spinning",target:"Dentici, Cernie, Barracuda",tips:"Acque trasparenti. Jig pesanti per fondali profondi."},
-  {name:"Polignano a Mare (BA)",reg:"Puglia",coords:[40.993,17.221],type:"Spinning",target:"Saraghi, Spigole, Barracuda",tips:"Scogliere calcaree. Spinning da riva con jig leggeri."},
-  {name:"Gargano - Vieste (FG)",reg:"Puglia",coords:[41.881,16.174],type:"Spinning",target:"Ricciole, Dentici, Barracuda",tips:"Promontorio del Gargano. Estate per pelagici."},
-  {name:"Manfredonia - Diga (FG)",reg:"Puglia",coords:[41.630,15.917],type:"Bolognese",target:"Cefali, Saraghi, Spigole",tips:"Diga foranea del Golfo. Cefali abbondanti in estate."},
-  {name:"Taranto - Mar Piccolo (TA)",reg:"Puglia",coords:[40.476,17.231],type:"Bolognese",target:"Orate, Spigole, Cefali",tips:"Mar Piccolo unico al mondo. Acque calme e ricche."},
-  {name:"Porto di Maratea (PZ)",reg:"Basilicata",coords:[39.991,15.708],type:"Bolognese",target:"Spigole, Cefali, Saraghi",tips:"Porto turistico con scogliere esterne profonde."},
-  {name:"Metaponto - Lido (MT)",reg:"Basilicata",coords:[40.355,16.832],type:"Surfcasting",target:"Mormore, Orate, Corvine",tips:"Lunga spiaggia ionica. Fondali bassi e sabbiosi."},
-  {name:"Marina di Policoro (MT)",reg:"Basilicata",coords:[40.196,16.700],type:"Surfcasting",target:"Orate, Mormore, Pagelli",tips:"Foce del Sinni. Alba e tramonto ideali."},
-  {name:"Termoli - Molo Sud (CB)",reg:"Abruzzo-Molise",coords:[42.003,14.997],type:"Bolognese",target:"Spigole, Cefali, Orate",tips:"Spot iconico Adriatico centrale. Molo lungo."},
-  {name:"Trabocchi - Pescara (CH)",reg:"Abruzzo-Molise",coords:[42.471,14.214],type:"Spinning",target:"Serra, Spigole, Palamite",tips:"Strutture storiche dei trabocchi. Predatori all'alba."},
-  {name:"Francavilla al Mare (CH)",reg:"Abruzzo-Molise",coords:[42.419,14.289],type:"Surfcasting",target:"Mormore, Orate, Spigole",tips:"Spiaggia adriatica profonda. Autunno ottimo."},
-  {name:"Alba Adriatica (TE)",reg:"Abruzzo-Molise",coords:[42.831,13.935],type:"Surfcasting",target:"Mormore, Orate, Sogliole",tips:"Spiaggia sabbiosa nordadriatica. Notte per orate."},
-  {name:"Vasto - Marina (CH)",reg:"Abruzzo-Molise",coords:[42.104,14.706],type:"Bolognese",target:"Spigole, Saraghi, Occhiate",tips:"Porto e scogliera artificiale."},
-  {name:"Sassonia di Fano (PU)",reg:"Marche",coords:[43.844,13.023],type:"Surfcasting",target:"Mormore, Orate, Saraghi",tips:"Spiaggia ciottoli e sabbia. Apertura stagione."},
-  {name:"Ancona - Molo Nord (AN)",reg:"Marche",coords:[43.618,13.508],type:"Bolognese",target:"Cefali, Spigole, Orate",tips:"Molo lungo con fondali profondi. Sera per spigole."},
-  {name:"San Benedetto del Tronto (AP)",reg:"Marche",coords:[42.944,13.879],type:"Surfcasting",target:"Mormore, Orate, Corvine",tips:"Spiaggia adriatica lunga. Autunno ideale."},
-  {name:"Senigallia - Rotonda (AN)",reg:"Marche",coords:[43.718,13.218],type:"Spinning",target:"Spigole, Serra, Sugarelli",tips:"Pontile della Rotonda. Alba e tramonto ideali."},
-  {name:"Porto Corsini (RA)",reg:"Emilia-Romagna",coords:[44.492,12.285],type:"Bolognese",target:"Orate, Spigole, Cefali",tips:"Diga Nord molto lunga. Bolognese con bigattino."},
-  {name:"Rimini - Molo di Levante (RN)",reg:"Emilia-Romagna",coords:[44.064,12.575],type:"Spinning",target:"Serra, Spigole, Sugarelli",tips:"Molo storico. Alba per spigole. Estate per serra."},
-  {name:"Lido di Spina (FE)",reg:"Emilia-Romagna",coords:[44.727,12.271],type:"Surfcasting",target:"Orate, Mormore, Sogliole",tips:"Delta del Po zona Comacchio. Fondali bassi."},
-  {name:"Cesenatico - Diga (FC)",reg:"Emilia-Romagna",coords:[44.201,12.396],type:"Bolognese",target:"Orate, Spigole, Cefali",tips:"Diga del porto. Ottima tutto l'anno."},
-  {name:"Diga Sottomarina (VE)",reg:"Veneto",coords:[45.218,12.302],type:"Spinning",target:"Serra, Branzini, Palamite",tips:"Correnti forti all'imboccatura della laguna."},
-  {name:"Jesolo - Piave Vecchia (VE)",reg:"Veneto",coords:[45.530,12.701],type:"Surfcasting",target:"Mormore, Orate, Sogliole",tips:"Foce del Piave. Autunno ottimo."},
-  {name:"Chioggia - Murazzi (VE)",reg:"Veneto",coords:[45.221,12.278],type:"Bolognese",target:"Orate, Spigole, Cefali",tips:"Lunga barriera di massi. Ottimo per predatori."},
-  {name:"Porto Levante - Delta Po (RO)",reg:"Veneto",coords:[45.000,12.353],type:"Surfcasting",target:"Orate, Mormore, Anguille",tips:"Foci del Po. Zona selvaggia."},
-  {name:"Trieste - Molo Audace (TS)",reg:"Friuli-VG",coords:[45.651,13.765],type:"Eging",target:"Calamari, Seppie, Spigole",tips:"Ottimo eging in inverno. Alba e tramonto per spigole."},
-  {name:"Trieste - Barcola (TS)",reg:"Friuli-VG",coords:[45.672,13.743],type:"Spinning",target:"Spigole, Cefali, Saraghi",tips:"Pesca notturna per spigole. Spinning leggero."},
-  {name:"Lignano - Foce Tagliamento",reg:"Friuli-VG",coords:[45.692,13.135],type:"Surfcasting",target:"Orate, Spigole, Mormore",tips:"Foce del Tagliamento. Attenzione alle correnti."},
-  {name:"Castelsardo (SS)",reg:"Sardegna",coords:[40.915,8.712],type:"Spinning",target:"Dentici, Lecce, Spigole",tips:"Fondale misto con grotte e posidonia. Estate per dentici."},
-  {name:"Golfo Aranci - Spiaggia Bianca",reg:"Sardegna",coords:[40.992,9.615],type:"Surfcasting",target:"Spigole, Orate, Mormore",tips:"Spiaggia bianchissima. Fondale misto sabbia/roccia."},
-  {name:"Alghero - Lazzaretto (SS)",reg:"Sardegna",coords:[40.592,8.243],type:"Bolognese",target:"Saraghi, Spigole, Orate",tips:"Pesca a fondo su spiaggia e rocce."},
-  {name:"Cagliari - Poetto (CA)",reg:"Sardegna",coords:[39.211,9.170],type:"Surfcasting",target:"Mormore, Orate, Spigole",tips:"Spiaggia lunga 8km. Primavera e autunno."},
-  {name:"Villasimius - Capo Carbonara",reg:"Sardegna",coords:[39.122,9.511],type:"Spinning",target:"Ricciole, Dentici, Barracuda",tips:"AMP: rispettare i confini. Fondali profondi fuori zona."},
-  {name:"Oristano - Sinis (OR)",reg:"Sardegna",coords:[39.904,8.444],type:"Surfcasting",target:"Spigole, Orate, Mormore",tips:"Penisola del Sinis. Spiagge selvagge."},
-  {name:"Olbia - Golfo (OT)",reg:"Sardegna",coords:[40.917,9.502],type:"Spinning",target:"Spigole, Barracuda, Serra",tips:"Lagune e foci per spigole allo spinning."},
-  {name:"Piscinas - Spiaggia (SU)",reg:"Sardegna",coords:[39.432,8.429],type:"Surfcasting",target:"Spigole, Orate, Mormore",tips:"Spiaggia remota nel Sulcis. Dune di sabbia alte."},
-  {name:"Roccalumera (ME)",reg:"Sicilia",coords:[37.981,15.397],type:"Surfcasting",target:"Mormore, Saraghi, Spigole, Pagelli",tips:"Fondale sabbioso grana grossa. Campione mondiale surfcasting."},
-  {name:"Stretto di Messina (ME)",reg:"Sicilia",coords:[38.180,15.553],type:"Spinning",target:"Spigole, Ricciole, Lecce, Dentici",tips:"Correnti fortissime. Usare jig affondanti. Alba e tramonto ideali."},
-  {name:"Milazzo - Spiaggia Tono (ME)",reg:"Sicilia",coords:[38.222,15.245],type:"Surfcasting",target:"Mormore, Orate, Saraghi",tips:"Fiumara con grossi ciottoli. Profondità 3m a 100m dalla riva."},
-  {name:"Mondello (PA)",reg:"Sicilia",coords:[38.208,13.328],type:"Spinning",target:"Spigole, Barracuda, Saraghi",tips:"Scogliere e vecchi moli. Ottimo in notturna per spigole."},
-  {name:"Cefalù - Scogliera (PA)",reg:"Sicilia",coords:[38.039,14.022],type:"Spinning",target:"Saraghi, Dentici, Barracuda",tips:"Scogliera calcarea con fondali profondi."},
-  {name:"Lago Rosamarina (PA)",reg:"Sicilia",coords:[37.936,13.624],type:"Bassfishing",target:"Black Bass, Carassio",tips:"Lago artificiale. Principale spot bass Sicilia occidentale."},
-  {name:"Scogliera di Ognina (CT)",reg:"Sicilia",coords:[37.524,15.115],type:"Spinning",target:"Saraghi, Barracuda, Spigole",tips:"Rock fishing su scogliera lavica. Fondali mossi e ricchi."},
-  {name:"La Playa (CT)",reg:"Sicilia",coords:[37.472,15.088],type:"Surfcasting",target:"Orate, Mormore, Spigole",tips:"Spiaggia sabbiosa lunga. Primavera e autunno. Vicino foce Simeto."},
-  {name:"Laghi di Lentini (SR-CT)",reg:"Sicilia",coords:[37.279,14.978],type:"Bassfishing",target:"Black Bass, Carpe, Lucci",tips:"Sistema di laghi artificiali. Ottimo in primavera."},
-  {name:"Marzamemi (SR)",reg:"Sicilia",coords:[36.745,15.133],type:"Spinning",target:"Tonno, Ricciole, Dentici, Barracuda",tips:"Hot spot storico. Luglio-Settembre per tonno."},
-  {name:"Portopalo di Capo Passero (SR)",reg:"Sicilia",coords:[36.681,15.148],type:"Spinning",target:"Tonno, Ricciole, Serra",tips:"Punta più meridionale della Sicilia. Jig pesanti."},
-  {name:"Area Plemmirio (SR)",reg:"Sicilia",coords:[37.002,15.319],type:"Spinning",target:"Cernie, Dentici, Spigole",tips:"AMP: rispettare zone A e B. Fondali eccezionali fuori zona."},
-  {name:"San Vito Lo Capo (TP)",reg:"Sicilia",coords:[38.175,12.732],type:"Spinning",target:"Ricciole, Dentici, Saraghi, Caponi",tips:"Scogliere su canale di Sicilia. Ottobre famoso per Capone."},
-  {name:"Mazara del Vallo (TP)",reg:"Sicilia",coords:[37.651,12.592],type:"Bolognese",target:"Saraghi, Cefali, Spigole",tips:"Light Shore Fishing da molo e diga foranea."},
-  {name:"Marsala - Stagnone (TP)",reg:"Sicilia",coords:[37.803,12.440],type:"Bolognese",target:"Cefali, Spigole, Orate",tips:"Laguna bassa. Galleggiante leggero. Rispettare confini riserva."},
-  {name:"Sciacca - Porto (AG)",reg:"Sicilia",coords:[37.507,13.082],type:"Surfcasting",target:"Orate XXL, Mormore, Saraghi",tips:"Costa 33km ideale surfcasting. Tutto l'anno."},
-  {name:"Porto Palo di Menfi (AG)",reg:"Sicilia",coords:[37.558,12.955],type:"Surfcasting",target:"Orate, Mormore, Spigole",tips:"Grandi spiagge sabbiose. Fondali degradanti con posidonia."},
-  {name:"Marina di Ragusa (RG)",reg:"Sicilia",coords:[36.782,14.550],type:"Surfcasting",target:"Orate, Mormore, Spigole",tips:"Spiaggia sabbiosa lunga. Ottima fuori stagione balneare."},
-  {name:"Pozzallo - Molo (RG)",reg:"Sicilia",coords:[36.726,14.847],type:"Bolognese",target:"Saraghi, Occhiate, Spigole",tips:"Molo foraneo lungo. Accesso facile. Ogni stagione."},
-  {name:"Gela - Litorale (CL)",reg:"Sicilia",coords:[37.066,14.250],type:"Surfcasting",target:"Orate XXL, Mormore, Saraghi",tips:"Litorale sabbioso profondo. Orate di grossa taglia in autunno."},
-  {name:"Lago Pozzillo (EN)",reg:"Sicilia",coords:[37.643,14.629],type:"Bassfishing",target:"Black Bass, Carpe, Persico",tips:"Principale lago artificiale siciliano. Primavera e autunno."}
-]
+const spotsItalia = [
+  { name:"Sestri Levante (GE)",         reg:"Liguria",        coords:[44.270,9.392],  type:"Spinning",    target:"Spigole, Serra, Barracuda",         tips:"Vicino foce torrente. Ottimo con mare mosso ed esca viva o jig. Alba e tramonto ideali." },
+  { name:"Celle Ligure (SV)",            reg:"Liguria",        coords:[44.341,8.547],  type:"Surfcasting", target:"Mormore, Orate, Saraghi",            tips:"Spiaggia sabbiosa profonda. Ottima in inverno dopo mareggiate con arenicola e americano." },
+  { name:"Sanremo - Diga Foranea (IM)", reg:"Liguria",        coords:[43.815,7.785],  type:"Bolognese",   target:"Saraghi, Occhiate, Spigole",         tips:"Scogliere profonde e riparate dal vento. Galleggiante fisso con bigattino o gambero." },
+  { name:"Camogli - Scogliera (GE)",    reg:"Liguria",        coords:[44.347,9.153],  type:"Spinning",    target:"Ricciole, Dentici, Barracuda",       tips:"Scogliera ripida con acque profonde. Jig medi e minnow per predatori. Ottimo in estate." },
+  { name:"La Spezia - Porto Venere (SP)",reg:"Liguria",        coords:[44.052,9.838],  type:"Spinning",    target:"Saraghi, Spigole, Barracuda",        tips:"Scogliere del Golfo dei Poeti. Zona rinomata per spinning da riva. Acque pulite e profonde." },
+  { name:"Castiglioncello (LI)",         reg:"Toscana",        coords:[43.403,10.412], type:"Spinning",    target:"Barracuda, Serra, Spigole",          tips:"Scogliera alta con acqua limpida. Minnow e jig leggeri. Ottimo in estate al tramonto." },
+  { name:"Foce dell'Ombrone (GR)",       reg:"Toscana",        coords:[42.662,11.002], type:"Surfcasting", target:"Orate, Spigole, Corvine",            tips:"Ambiente naturale protetto. Predatori in caccia nei canali di foce. Mattina presto ideale." },
+  { name:"Marina di Pisa (PI)",          reg:"Toscana",        coords:[43.673,10.272], type:"Bolognese",   target:"Spigole, Orate, Cefali",             tips:"Scogliere e moli. Variare grammatura in base a corrente. Bigattino e gambero." },
+  { name:"Follonica - Puntone (GR)",     reg:"Toscana",        coords:[42.921,10.753], type:"Spinning",    target:"Spigole, Serra, Orate",              tips:"Il Puntone è punto strategico per spigole con minnow bianchi. Scogliere proteggono il lancio." },
+  { name:"Livorno - Calafuria (LI)",     reg:"Toscana",        coords:[43.472,10.360], type:"Bolognese",   target:"Saraghi, Spigole, Murene",           tips:"Scogli selvaggi a sud di Livorno. Accesso impegnativo ma ottimi risultati." },
+  { name:"Isola d'Elba - Capo Enfola",  reg:"Toscana",        coords:[42.820,10.268], type:"Spinning",    target:"Ricciole, Dentici, Barracuda",       tips:"Punta estrema dell'isola con correnti forti. Jig pesanti. Estate per ricciole e dentici." },
+  { name:"Sabaudia (LT)",                reg:"Lazio",          coords:[41.298,13.003], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Spiaggia nel Parco Nazionale del Circeo. Fondali sabbiosi ideali. Notte per orate." },
+  { name:"Santa Marinella (RM)",         reg:"Lazio",          coords:[42.034,11.855], type:"Surfcasting", target:"Saraghi, Spigole, Mormore",          tips:"Spot misto tra foce e rocce. Piazzare le canne verso vento. Ottima per mormore in primavera." },
+  { name:"Gaeta - Serapo (LT)",          reg:"Lazio",          coords:[41.202,13.571], type:"Spinning",    target:"Spigole, Saraghi, Dentici",          tips:"Scogliera calcarea con acque cristalline. Ottimo per spinning e bolognese. Autunno ideale." },
+  { name:"Civitavecchia - Diga (RM)",    reg:"Lazio",          coords:[42.091,11.791], type:"Bolognese",   target:"Cefali, Orate, Spigole",             tips:"Diga foranea lunga, accesso gratuito. Bolognese con bigattino. Sera e notte per spigole." },
+  { name:"Isola di Ponza (LT)",          reg:"Lazio",          coords:[40.892,12.961], type:"Spinning",    target:"Ricciole, Dentici, Barracuda",       tips:"Isola pontina con scogliere profonde. Acque cristalline. Estate per pelagici di passo." },
+  { name:"Molo Beverello (NA)",          reg:"Campania",       coords:[40.838,14.258], type:"Spinning",    target:"Serra, Spigole, Barracuda",          tips:"Fondo sabbioso 1.5-5m. Spinning urbano efficace all'alba. Minnow e jig leggeri." },
+  { name:"Porto di Acquamorta (NA)",     reg:"Campania",       coords:[40.806,14.043], type:"Spinning",    target:"Spigole, Barracuda, Ricciole",       tips:"Zona di transito predatori all'imboccatura del porto. Esca viva molto efficace." },
+  { name:"Mergellina (NA)",              reg:"Campania",       coords:[40.828,14.221], type:"Bolognese",   target:"Occhiate, Saraghi, Spigole",         tips:"Scogliera esterna profonda. Bolognese con bigattino. Ottimo in autunno e inverno." },
+  { name:"Palinuro - Capo (SA)",         reg:"Campania",       coords:[40.027,15.286], type:"Spinning",    target:"Ricciole, Dentici, Barracuda",       tips:"Capo roccioso nel Cilento. Jig pesanti e minnow. Estate per ricciole. Acque trasparenti." },
+  { name:"Agropoli - Molo (SA)",         reg:"Campania",       coords:[40.349,14.993], type:"Bolognese",   target:"Saraghi, Orate, Spigole",            tips:"Porto e molo foraneo. Bolognese con gambero. Ottimo tutto l'anno nel Cilento." },
+  { name:"Ischia - Punta Imperatore",   reg:"Campania",       coords:[40.708,13.853], type:"Spinning",    target:"Ricciole, Dentici, Lecce",           tips:"Punta meridionale di Ischia. Correnti forti. Jig e esca viva per grossi predatori." },
+  { name:"Capri - Faraglioni (NA)",      reg:"Campania",       coords:[40.547,14.257], type:"Spinning",    target:"Dentici, Cernie, Barracuda",         tips:"Intorno ai Faraglioni. Spinning e traina. Estate per pelagici di superficie." },
+  { name:"Spiaggia Sabbia d'Oro (CS)",  reg:"Calabria",       coords:[39.671,15.823], type:"Surfcasting", target:"Orate, Mormore, Saraghi",            tips:"Fondo ricco di crostacei. Primo gradino sabbioso a 80m. Autunno e inverno ideali." },
+  { name:"Scilla - Chianalea (RC)",      reg:"Calabria",       coords:[38.256,15.717], type:"Spinning",    target:"Ricciole, Barracuda, Pesce Spada",   tips:"Punta rocciosa con correnti dello Stretto. Jig pesanti. Estate per pesce spada." },
+  { name:"Cirella - Scogliera (CS)",     reg:"Calabria",       coords:[39.718,15.811], type:"Surfcasting", target:"Mormore, Orate, Corvine",            tips:"Punto d'ingresso lato mare prima della scogliera. Fondale misto profondo." },
+  { name:"Capo Vaticano (VV)",           reg:"Calabria",       coords:[38.620,15.829], type:"Spinning",    target:"Ricciole, Dentici, Serra",           tips:"Promontorio granitico sul Tirreno. Jig e popper per ricciole. Estate ottima." },
+  { name:"Crotone - Capo Rizzuto (KR)", reg:"Calabria",       coords:[38.929,17.100], type:"Spinning",    target:"Dentici, Barracuda, Saraghi",        tips:"Area Marina Protetta: rispettare i confini. Fuori zona protetta fondali eccezionali." },
+  { name:"Tropea - Scogliera (VV)",      reg:"Calabria",       coords:[38.676,15.897], type:"Bolognese",   target:"Saraghi, Spigole, Orate",            tips:"Scogliera sotto il borgo medievale. Acque cristalline tutto l'anno." },
+  { name:"Siderno - Spiaggia (RC)",      reg:"Calabria",       coords:[38.270,16.300], type:"Surfcasting", target:"Orate, Mormore, Pagelli",            tips:"Spiaggia ionica lunga. Lanci lunghi con piombi da 100-150g. Primavera e autunno." },
+  { name:"Baia Verde (LE)",              reg:"Puglia",         coords:[40.038,18.008], type:"Surfcasting", target:"Orate, Saraghi, Mormore",            tips:"Fondale misto con posidonia. Ottimo in autunno. Piombi da 80-120g con arenicola." },
+  { name:"Punta Pizzo (LE)",             reg:"Puglia",         coords:[39.952,18.354], type:"Spinning",    target:"Barracuda, Serra, Lecce",            tips:"Punta estrema del Salento. Correnti del Canale d'Otranto. Jig e minnow. Estate." },
+  { name:"Gallipoli - Molo (LE)",        reg:"Puglia",         coords:[40.056,17.993], type:"Bolognese",   target:"Saraghi, Occhiate, Spigole",         tips:"Molo del porto vecchio. Bolognese con bigattino. Acque profonde già a pochi metri." },
+  { name:"Otranto - Scogliera (LE)",     reg:"Puglia",         coords:[40.145,18.491], type:"Spinning",    target:"Dentici, Cernie, Barracuda",         tips:"Scogliere del Capo d'Otranto. Acque trasparenti. Jig pesanti per fondali profondi." },
+  { name:"Polignano a Mare (BA)",        reg:"Puglia",         coords:[40.993,17.221], type:"Spinning",    target:"Saraghi, Spigole, Barracuda",        tips:"Scogliere calcaree caratteristiche. Spinning da riva con jig leggeri. Autunno ideale." },
+  { name:"Gargano - Vieste (FG)",        reg:"Puglia",         coords:[41.881,16.174], type:"Spinning",    target:"Ricciole, Dentici, Barracuda",       tips:"Promontorio del Gargano. Fondali rocciosi. Jig e esca viva. Estate per pelagici." },
+  { name:"Manfredonia - Diga (FG)",      reg:"Puglia",         coords:[41.630,15.917], type:"Bolognese",   target:"Cefali, Saraghi, Spigole",           tips:"Diga foranea del Golfo. Bolognese con bigattino e pane. Cefali abbondanti in estate." },
+  { name:"Taranto - Mar Piccolo (TA)",   reg:"Puglia",         coords:[40.476,17.231], type:"Bolognese",   target:"Orate, Spigole, Cefali",             tips:"Mar Piccolo unico al mondo. Acque calme e ricche. Bolognese leggera. Tutto l'anno." },
+  { name:"Porto di Maratea (PZ)",        reg:"Basilicata",     coords:[39.991,15.708], type:"Bolognese",   target:"Spigole, Cefali, Saraghi",           tips:"Porto turistico con scogliere esterne profonde. Bolognese e galleggiante." },
+  { name:"Metaponto - Lido (MT)",        reg:"Basilicata",     coords:[40.355,16.832], type:"Surfcasting", target:"Mormore, Orate, Corvine",            tips:"Lunga spiaggia ionica. Fondali bassi e sabbiosi. Surfcasting con piombi medi." },
+  { name:"Marina di Policoro (MT)",      reg:"Basilicata",     coords:[40.196,16.700], type:"Surfcasting", target:"Orate, Mormore, Pagelli",            tips:"Foce del Sinni. Predatori in caccia nelle acque miste. Alba e tramonto ideali." },
+  { name:"Termoli - Molo Sud (CB)",      reg:"Abruzzo-Molise", coords:[42.003,14.997], type:"Bolognese",   target:"Spigole, Cefali, Orate",             tips:"Spot iconico Adriatico centrale. Molo lungo, accesso gratuito. Bolognese e fondo." },
+  { name:"Trabocchi - Pescara (CH)",     reg:"Abruzzo-Molise", coords:[42.471,14.214], type:"Spinning",    target:"Serra, Spigole, Palamite",           tips:"Pesca tra le strutture storiche dei trabocchi. Predatori in caccia all'alba." },
+  { name:"Francavilla al Mare (CH)",     reg:"Abruzzo-Molise", coords:[42.419,14.289], type:"Surfcasting", target:"Mormore, Orate, Spigole",            tips:"Spiaggia adriatica profonda. Surfcasting classico con arenicola. Autunno ottimo." },
+  { name:"Alba Adriatica (TE)",          reg:"Abruzzo-Molise", coords:[42.831,13.935], type:"Surfcasting", target:"Mormore, Orate, Sogliole",           tips:"Spiaggia sabbiosa nordadriatica. Fondali degradanti. Notte per orate e mormore." },
+  { name:"Vasto - Marina (CH)",          reg:"Abruzzo-Molise", coords:[42.104,14.706], type:"Bolognese",   target:"Spigole, Saraghi, Occhiate",         tips:"Porto e scogliera artificiale. Bolognese con bigattino. Buona concentrazione di pesce." },
+  { name:"Sassonia di Fano (PU)",        reg:"Marche",         coords:[43.844,13.023], type:"Surfcasting", target:"Mormore, Orate, Saraghi",            tips:"Spiaggia ciottoli e sabbia. Ottima per apertura stagione. Piombo aerodynamico." },
+  { name:"Ancona - Molo Nord (AN)",      reg:"Marche",         coords:[43.618,13.508], type:"Bolognese",   target:"Cefali, Spigole, Orate",             tips:"Molo lungo con fondali profondi. Bolognese e galleggiante. Sera per spigole." },
+  { name:"San Benedetto del Tronto (AP)",reg:"Marche",         coords:[42.944,13.879], type:"Surfcasting", target:"Mormore, Orate, Corvine",            tips:"Spiaggia adriatica lunga. Surfcasting con piombi da 100-150g. Autunno ideale." },
+  { name:"Senigallia - Rotonda (AN)",    reg:"Marche",         coords:[43.718,13.218], type:"Spinning",    target:"Spigole, Serra, Sugarelli",          tips:"Pontile della Rotonda. Spinning e bolognese. Alba e tramonto ideali per spigole." },
+  { name:"Porto Corsini (RA)",           reg:"Emilia-Romagna", coords:[44.492,12.285], type:"Bolognese",   target:"Orate, Spigole, Cefali",             tips:"Diga Nord molto lunga. Richiede camminata. Bolognese con bigattino. Tutto l'anno." },
+  { name:"Rimini - Molo di Levante (RN)",reg:"Emilia-Romagna", coords:[44.064,12.575], type:"Spinning",    target:"Serra, Spigole, Sugarelli",          tips:"Molo storico. Spinning con jig leggeri. Alba per spigole. Estate per serra." },
+  { name:"Lido di Spina (FE)",           reg:"Emilia-Romagna", coords:[44.727,12.271], type:"Surfcasting", target:"Orate, Mormore, Sogliole",           tips:"Delta del Po zona Comacchio. Fondali bassi e sabbiosi. Surfcasting leggero." },
+  { name:"Cesenatico - Diga (FC)",       reg:"Emilia-Romagna", coords:[44.201,12.396], type:"Bolognese",   target:"Orate, Spigole, Cefali",             tips:"Diga del porto. Bolognese con bigattino e gambero. Ottima tutto l'anno." },
+  { name:"Diga Sottomarina (VE)",        reg:"Veneto",         coords:[45.218,12.302], type:"Spinning",    target:"Serra, Branzini, Palamite",          tips:"Correnti forti all'imboccatura della laguna. Precisione nei lanci fondamentale." },
+  { name:"Jesolo - Piave Vecchia (VE)", reg:"Veneto",         coords:[45.530,12.701], type:"Surfcasting", target:"Mormore, Orate, Sogliole",           tips:"Foce del Piave. Fondali misti. Surfcasting con arenicola. Autunno ottimo." },
+  { name:"Chioggia - Murazzi (VE)",      reg:"Veneto",         coords:[45.221,12.278], type:"Bolognese",   target:"Orate, Spigole, Cefali",             tips:"Lunga barriera di massi. Bolognese e fondo. Ottimo per pesce bianco e predatori." },
+  { name:"Porto Levante - Delta Po (RO)",reg:"Veneto",         coords:[45.000,12.353], type:"Surfcasting", target:"Orate, Mormore, Anguille",           tips:"Foci del Po. Zona selvaggia. Surfcasting in canali e scanni. Kayak utile." },
+  { name:"Trieste - Molo Audace (TS)",   reg:"Friuli-VG",      coords:[45.651,13.765], type:"Eging",       target:"Calamari, Seppie, Spigole",          tips:"Spot tecnico urbano. Ottimo eging in inverno. Alba e tramonto per spigole." },
+  { name:"Trieste - Barcola (TS)",       reg:"Friuli-VG",      coords:[45.672,13.743], type:"Spinning",    target:"Spigole, Cefali, Saraghi",           tips:"Zona frequentata dai locali. Pesca notturna per spigole. Spinning leggero." },
+  { name:"Lignano - Foce Tagliamento (UD)",reg:"Friuli-VG",    coords:[45.692,13.135], type:"Surfcasting", target:"Orate, Spigole, Mormore",            tips:"Foce del Tagliamento. Ottimo per orate e spigole in caccia. Attenzione alle correnti." },
+  { name:"Castelsardo (SS)",             reg:"Sardegna",       coords:[40.915,8.712],  type:"Spinning",    target:"Dentici, Lecce, Spigole",            tips:"Fondale misto con grotte e posidonia. Jig e minnow. Estate per dentici." },
+  { name:"Golfo Aranci - Spiaggia Bianca",reg:"Sardegna",      coords:[40.992,9.615],  type:"Surfcasting", target:"Spigole, Orate, Mormore",            tips:"Spiaggia bianchissima. Fondale misto sabbia/roccia/posidonia." },
+  { name:"Alghero - Lazzaretto (SS)",   reg:"Sardegna",       coords:[40.592,8.243],  type:"Bolognese",   target:"Saraghi, Spigole, Orate",            tips:"Pesca a fondo su spiaggia e rocce. Bolognese con bigattino e gambero." },
+  { name:"Cagliari - Poetto (CA)",       reg:"Sardegna",       coords:[39.211,9.170],  type:"Surfcasting", target:"Mormore, Orate, Spigole",            tips:"Spiaggia lunga 8km. Fondali sabbiosi. Surfcasting in primavera e autunno." },
+  { name:"Villasimius - Capo Carbonara", reg:"Sardegna",       coords:[39.122,9.511],  type:"Spinning",    target:"Ricciole, Dentici, Barracuda",       tips:"Punta sudest della Sardegna. AMP: rispettare i confini. Fondali profondi fuori zona." },
+  { name:"Oristano - Sinis (OR)",        reg:"Sardegna",       coords:[39.904,8.444],  type:"Surfcasting", target:"Spigole, Orate, Mormore",            tips:"Penisola del Sinis. Spiagge spettacolari e selvagge. Accesso regolamentato in AMP." },
+  { name:"Olbia - Golfo (OT)",           reg:"Sardegna",       coords:[40.917,9.502],  type:"Spinning",    target:"Spigole, Barracuda, Serra",          tips:"Golfo di Olbia. Lagune e foci per spigole allo spinning. Alba ideale." },
+  { name:"Piscinas - Spiaggia (SU)",     reg:"Sardegna",       coords:[39.432,8.429],  type:"Surfcasting", target:"Spigole, Orate, Mormore",            tips:"Spiaggia remota nel Sulcis. Dune di sabbia alte. Surfcasting su fondali profondi." },
+  { name:"Roccalumera (ME)",             reg:"Sicilia",        coords:[37.981,15.397], type:"Surfcasting", target:"Mormore, Saraghi, Spigole, Pagelli", tips:"Fondale sabbioso grana grossa. Primo gradino a 10-15m. Campione mondiale surfcasting." },
+  { name:"Stretto di Messina (ME)",      reg:"Sicilia",        coords:[38.180,15.553], type:"Spinning",    target:"Spigole, Ricciole, Lecce, Dentici",  tips:"Correnti fortissime e costanti. Usare jig affondanti. Alba e tramonto ideali." },
+  { name:"Milazzo - Spiaggia Tono (ME)", reg:"Sicilia",        coords:[38.222,15.245], type:"Surfcasting", target:"Mormore, Orate, Saraghi",            tips:"Fiumara con grossi ciottoli. Profondità 3m a 100m dalla riva. Corallino efficace." },
+  { name:"Mondello (PA)",                reg:"Sicilia",        coords:[38.208,13.328], type:"Spinning",    target:"Spigole, Barracuda, Saraghi",        tips:"Scogliere e vecchi moli. Ottimo in notturna per spigole. Minnow e jerkbait." },
+  { name:"Cefalù - Scogliera (PA)",      reg:"Sicilia",        coords:[38.039,14.022], type:"Spinning",    target:"Saraghi, Dentici, Barracuda",        tips:"Scogliera calcarea con fondali profondi. Rockfishing con jig leggeri." },
+  { name:"Lago Rosamarina (PA)",         reg:"Sicilia",        coords:[37.936,13.624], type:"Bassfishing", target:"Black Bass, Carassio",               tips:"Lago artificiale. Principale spot bass Sicilia occidentale. Soft bait e jig." },
+  { name:"Scogliera di Ognina (CT)",     reg:"Sicilia",        coords:[37.524,15.115], type:"Spinning",    target:"Saraghi, Barracuda, Spigole",        tips:"Rock fishing su scogliera lavica. Fondali mossi e ricchi. Porticciolo pittoresco." },
+  { name:"La Playa (CT)",                reg:"Sicilia",        coords:[37.472,15.088], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Spiaggia sabbiosa lunga. Ottima in primavera e autunno. Vicino foce Simeto." },
+  { name:"Laghi di Lentini (SR/CT)",     reg:"Sicilia",        coords:[37.279,14.978], type:"Bassfishing", target:"Black Bass, Carpe, Lucci",           tips:"Sistema di laghi artificiali. Ottimo in primavera. Accesso da riva in più punti." },
+  { name:"Marzamemi (SR)",               reg:"Sicilia",        coords:[36.745,15.133], type:"Spinning",    target:"Tonno, Ricciole, Dentici, Barracuda",tips:"Hot spot storico. Isola delle Correnti a 300m. Luglio-Settembre per tonno." },
+  { name:"Portopalo di Capo Passero (SR)",reg:"Sicilia",       coords:[36.681,15.148], type:"Spinning",    target:"Tonno, Ricciole, Serra",             tips:"Punta più meridionale della Sicilia. Correnti dello Stretto di Sicilia. Jig pesanti." },
+  { name:"Area Plemmirio (SR)",           reg:"Sicilia",        coords:[37.002,15.319], type:"Spinning",    target:"Cernie, Dentici, Spigole",           tips:"AMP: rispettare zone A e B. Fondali eccezionali fuori zona protetta." },
+  { name:"San Vito Lo Capo (TP)",        reg:"Sicilia",        coords:[38.175,12.732], type:"Spinning",    target:"Ricciole, Dentici, Saraghi, Caponi", tips:"Scogliere su canale di Sicilia. Ottobre famoso per Capone. Traina d'altura da porto." },
+  { name:"Mazara del Vallo (TP)",        reg:"Sicilia",        coords:[37.651,12.592], type:"Bolognese",   target:"Saraghi, Cefali, Spigole",           tips:"Light Shore Fishing da molo e diga foranea. Tecnica leggera galleggiante." },
+  { name:"Marsala - Stagnone (TP)",      reg:"Sicilia",        coords:[37.803,12.440], type:"Bolognese",   target:"Cefali, Spigole, Orate",             tips:"Laguna bassa con fondale misto. Galleggiante leggero. Zona riserva: rispettare confini." },
+  { name:"Sciacca - Porto (AG)",         reg:"Sicilia",        coords:[37.507,13.082], type:"Surfcasting", target:"Orate XXL, Mormore, Saraghi",        tips:"Costa 33km ideale surfcasting. Porto con scogliera esterna. Ottimo tutto l'anno." },
+  { name:"Porto Palo di Menfi (AG)",     reg:"Sicilia",        coords:[37.558,12.955], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Grandi spiagge sabbiose. PAF e surfcasting. Fondali degradanti con posidonia." },
+  { name:"Marina di Ragusa (RG)",        reg:"Sicilia",        coords:[36.782,14.550], type:"Surfcasting", target:"Orate, Mormore, Spigole",            tips:"Spiaggia sabbiosa lunga. Ottima fuori stagione balneare." },
+  { name:"Pozzallo - Molo (RG)",         reg:"Sicilia",        coords:[36.726,14.847], type:"Bolognese",   target:"Saraghi, Occhiate, Spigole",         tips:"Molo foraneo lungo. Accesso facile. Galleggiante e bolognese in ogni stagione." },
+  { name:"Gela - Litorale (CL)",         reg:"Sicilia",        coords:[37.066,14.250], type:"Surfcasting", target:"Orate XXL, Mormore, Saraghi",        tips:"Litorale sabbioso profondo costa meridionale. Orate di grossa taglia in autunno." },
+  { name:"Lago Pozzillo (EN)",           reg:"Sicilia",        coords:[37.643,14.629], type:"Bassfishing", target:"Black Bass, Carpe, Persico",         tips:"Principale lago artificiale siciliano per il bass. Primavera e autunno ideali." }
+];
 
-let spotItaliaMap=null, spotItaliaMarkers=[], spotItaliaFiltrati=[], listaVisibile=false
+/* ── stato locale sezione spot ── */
+let spotItaliaMap    = null;
+let spotItaliaMarkers = [];
+let spotAttivo       = null; /* spot selezionato corrente */
+let spotTooltipAttivo = null; /* tooltip nome spot sulla mappa */
+const isMobile = () => window.innerWidth < 769;
 
-function showCercaSpot(){
-  document.getElementById("content").innerHTML=`
+/* ── ENTRY POINT ── */
+function showCercaSpot() {
+  const n = spotsItalia.length;
+  document.getElementById("content").innerHTML = `
     <div class="spot-italia-header">
-      <h3>🗺️ Spot Italia <span class="spot-count-badge" id="spotCount">${spotsItalia.length} spot</span></h3>
-      <p>Seleziona regione e/o tecnica, poi premi VIA →</p>
+      <h3>🗺️ Spot Italia <span class="spot-count-badge" id="spotCount">${n} spot</span></h3>
+      <p>Seleziona regione e/o tecnica, poi premi VIA → per filtrare</p>
     </div>
+
     <div class="filtri-row">
       <select class="filtro-select" id="filtroReg">
         <option value="all">📍 Tutta Italia</option>
@@ -801,7 +1257,7 @@ function showCercaSpot(){
         <option value="Calabria">Calabria</option>
         <option value="Puglia">Puglia</option>
         <option value="Basilicata">Basilicata</option>
-        <option value="Abruzzo-Molise">Abruzzo/Molise</option>
+        <option value="Abruzzo-Molise">Abruzzo / Molise</option>
         <option value="Marche">Marche</option>
         <option value="Emilia-Romagna">Emilia Romagna</option>
         <option value="Veneto">Veneto</option>
@@ -819,106 +1275,243 @@ function showCercaSpot(){
       </select>
       <button class="btn-via" onclick="applicaFiltriSpot()">VIA →</button>
     </div>
-    <div class="mappa-card" style="margin-bottom:14px;">
-      <div class="mappa-header">
-        <span>🎣 Spot di Pesca Italia</span>
-        <span id="mappaSpotCount" style="color:rgba(255,255,255,.7);font-size:12px;">Usa i filtri per cercare</span>
-      </div>
-      <div id="spotItaliaMap"></div>
-      <div class="map-hint" id="mapHint">👆 Seleziona regione e/o tecnica e premi <b>VIA →</b></div>
-    </div>
-    <div id="listaSpotItalia"></div>
-    <button onclick="showPrevisioni()" style="width:100%;margin-top:4px;">⬅️ Torna alle Previsioni</button><br>`
 
-  listaVisibile=false; spotItaliaFiltrati=[]; spotItaliaMarkers=[]
-  setTimeout(()=>initSpotItaliaMap(),100)
-}
-
-function applicaFiltriSpot(){
-  const reg=document.getElementById("filtroReg")?.value||"all"
-  const tech=document.getElementById("filtroTech")?.value||"all"
-  spotItaliaFiltrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech))
-  const n=spotItaliaFiltrati.length
-  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot"
-  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili"
-  const hint=document.getElementById("mapHint"); if(hint)hint.style.display="none"
-  aggiornaMappaSpotItalia(spotItaliaFiltrati)
-  renderListaSpotItalia(spotItaliaFiltrati)
-  listaVisibile=true
-  if(spotItaliaMap&&spotItaliaFiltrati.length>0){
-    const bounds=L.latLngBounds(spotItaliaFiltrati.map(s=>s.coords))
-    spotItaliaMap.fitBounds(bounds,{padding:[30,30]})
-  } else if(spotItaliaMap){spotItaliaMap.setView([41.871,12.567],6)}
-}
-
-function initSpotItaliaMap(){
-  if(spotItaliaMap){spotItaliaMap.remove();spotItaliaMap=null}
-  spotItaliaMarkers=[]
-  spotItaliaMap=L.map("spotItaliaMap",{zoomControl:true}).setView([41.871,12.567],6)
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(spotItaliaMap)
-  L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.7}).addTo(spotItaliaMap)
-}
-
-function aggiornaMappaSpotItalia(lista){
-  spotItaliaMarkers.forEach(m=>spotItaliaMap.removeLayer(m)); spotItaliaMarkers=[]
-  lista.forEach(spot=>{
-    const icona=L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));">🎣</div>',iconSize:[28,28],iconAnchor:[14,28],className:""})
-    const m=L.marker(spot.coords,{icon:icona}).addTo(spotItaliaMap)
-    m.on("click",()=>{
-      spotItaliaMap.flyTo(spot.coords,13)
-      apriDettaglioSpotItalia(spot)
-      if(!listaVisibile){renderListaSpotItalia(spotsItalia.filter(s=>s.reg===spot.reg));listaVisibile=true}
-    })
-    spotItaliaMarkers.push(m)
-  })
-}
-
-function renderListaSpotItalia(lista){
-  const c=document.getElementById("listaSpotItalia"); if(!c)return
-  if(lista.length===0){c.innerHTML=`<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato con questi filtri.</p>`;return}
-  c.innerHTML=lista.map(s=>`
-    <div class="spot-italia-item" onclick="apriDettaglioSpotItalia(spotsItalia[${spotsItalia.indexOf(s)}])">
-      <span class="si-ico">🎣</span>
-      <div class="si-info">
-        <div class="si-nome">${s.name}</div>
-        <div class="si-sub">🐟 ${s.target}</div>
-      </div>
-      <span class="si-badge">${s.type}</span>
-    </div>`).join("")
-}
-
-function apriDettaglioSpotItalia(spot){
-  if(!spot)return
-  document.getElementById("spotModalItalia")?.remove()
-  document.body.insertAdjacentHTML("beforeend",`
-    <div class="modal-spot-overlay" id="spotModalItalia" onclick="chiudiDettaglioSpot(event)">
-      <div class="modal-spot-box">
-        <span class="msb-tag">${spot.reg}</span>
-        <h2>${spot.name}</h2>
-        <div class="modal-spot-row">
-          <div class="modal-spot-cell"><div class="msc-lbl">🎣 Tecnica</div><div class="msc-val">${spot.type}</div></div>
-          <div class="modal-spot-cell"><div class="msc-lbl">🐟 Target</div><div class="msc-val">${spot.target}</div></div>
+    <div class="spot-split-layout">
+      <!-- MAPPA (sinistra / sopra) -->
+      <div class="spot-mappa-wrap">
+        <div class="mappa-header">
+          <span>🎣 Spot di Pesca Italia</span>
+          <span id="mappaSpotCount" style="color:rgba(255,255,255,0.7);font-size:12px;">${n} visibili</span>
         </div>
-        <div class="modal-spot-tips"><p>💡 ${spot.tips}</p></div>
-        <button class="btn-navigazione" onclick="window.open('https://www.google.com/maps?q=${spot.coords[0]},${spot.coords[1]}','_blank')">🧭 Ottieni indicazioni →</button>
-        <button class="btn-chiudi-spot" onclick="document.getElementById('spotModalItalia').remove()">Chiudi</button>
+        <div id="spotItaliaMap"></div>
       </div>
-    </div>`)
+
+      <!-- PANNELLO DESTRO (desktop) / Modale (mobile gestito JS) -->
+      <div class="spot-panel-right" id="spotPanelRight">
+        <div class="spot-panel-header" id="spotPanelHeader">📋 Dettaglio spot</div>
+        <div class="spot-panel-body" id="spotPanelBody">
+          <div class="spot-panel-placeholder">
+            <span class="ph-ico">🗺️</span>
+            <p>Usa i filtri e premi<br><strong>VIA →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="goTo(showPrevisioni)" style="width:100%;margin-top:14px;">⬅️ Torna alle Previsioni</button><br>`;
+
+  spotAttivo = null;
+  setTimeout(() => initSpotItaliaMap(), 80);
 }
-function chiudiDettaglioSpot(e){if(e.target.classList.contains("modal-spot-overlay"))document.getElementById("spotModalItalia")?.remove()}
+
+/* ── INIT MAPPA ── */
+function initSpotItaliaMap() {
+  if (spotItaliaMap) { spotItaliaMap.remove(); spotItaliaMap = null; }
+  spotItaliaMap = L.map("spotItaliaMap", { zoomControl: true }).setView([41.871,12.567], 6);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(spotItaliaMap);
+  L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.65}).addTo(spotItaliaMap);
+
+  /* Tenta GPS per centrare */
+  if (prevCoords) {
+    spotItaliaMap.setView([prevCoords.lat, prevCoords.lon], 9);
+    const icoMe = L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
+    L.marker([prevCoords.lat, prevCoords.lon],{icon:icoMe}).addTo(spotItaliaMap).bindPopup("<b>📍 Sei qui</b>");
+  } else if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(pos => {
+      spotItaliaMap.setView([pos.coords.latitude, pos.coords.longitude], 9);
+      const icoMe = L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
+      L.marker([pos.coords.latitude, pos.coords.longitude],{icon:icoMe}).addTo(spotItaliaMap).bindPopup("<b>📍 Sei qui</b>");
+    }, ()=>{}, {timeout:5000});
+  }
+
+  aggiornaMappaSpotItalia(spotsItalia);
+}
+
+/* ── AGGIORNA MARKERS ── */
+function aggiornaMappaSpotItalia(lista) {
+  spotItaliaMarkers.forEach(m => spotItaliaMap.removeLayer(m));
+  spotItaliaMarkers = [];
+  lista.forEach(spot => {
+    const ico = L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">🎣</div>',iconSize:[26,26],iconAnchor:[13,26],className:""});
+    const m = L.marker(spot.coords, {icon:ico}).addTo(spotItaliaMap);
+    m.on("click", () => {
+      onSpotSelezionato(spot);
+    });
+    spotItaliaMarkers.push(m);
+  });
+}
+
+/* ── FILTRI VIA → ── */
+function applicaFiltriSpot() {
+  const reg  = document.getElementById("filtroReg")?.value  || "all";
+  const tech = document.getElementById("filtroTech")?.value || "all";
+  const filtrati = spotsItalia.filter(s => {
+    return (reg==="all"||s.reg===reg) && (tech==="all"||s.type===tech);
+  });
+  aggiornaMappaSpotItalia(filtrati);
+  const n = filtrati.length;
+  if(document.getElementById("spotCount")) document.getElementById("spotCount").textContent = n+" spot";
+  if(document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent = n+" visibili";
+
+  /* Se filtri attivi → mostra lista nel pannello (no modale) */
+  if (reg!=="all" || tech!=="all") {
+    mostraPannelloLista(filtrati, reg!=="all" ? reg : "Risultati filtro");
+    /* Zoom sulla regione filtrata */
+    if (filtrati.length > 0) {
+      const bounds = L.latLngBounds(filtrati.map(s=>s.coords));
+      spotItaliaMap.fitBounds(bounds, {padding:[30,30]});
+    }
+  } else {
+    /* Nessun filtro → solo aggiorna markers, pannello placeholder */
+    if (document.getElementById("spotPanelBody")) {
+      document.getElementById("spotPanelHeader").textContent = "📋 Dettaglio spot";
+      document.getElementById("spotPanelBody").innerHTML = `
+        <div class="spot-panel-placeholder">
+          <span class="ph-ico">🗺️</span>
+          <p>Usa i filtri e premi<br><strong>VIA →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
+        </div>`;
+    }
+  }
+}
+
+/* ── PANNELLO LISTA (desktop destra / mobile intera) ── */
+function mostraPannelloLista(lista, titolo) {
+  if (isMobile()) {
+    /* Mobile: mostra lista come modale scorrevole dal basso */
+    document.getElementById("spotModalLista")?.remove();
+    const html = lista.map((s,i) => `
+      <div class="spot-italia-item" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
+        <span class="si-ico">🎣</span>
+        <div class="si-info">
+          <div class="si-nome">${s.name}</div>
+          <div class="si-sub">🐟 ${s.target}</div>
+        </div>
+        <span class="si-badge">${s.type}</span>
+      </div>`).join("");
+    document.body.insertAdjacentHTML("beforeend",`
+      <div class="modal-spot-overlay" id="spotModalLista" onclick="chiudiModaleListaMobile(event)" style="z-index:9400;">
+        <div class="modal-spot-box" style="max-height:70vh;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <span style="font-weight:900;font-size:17px;">🎣 ${titolo} <span style="opacity:0.5;font-size:13px;">(${lista.length})</span></span>
+            <button onclick="chiudiModaleListaMobile()" style="background:none;border:none;font-size:22px;cursor:pointer;margin:0;padding:0;color:#666;">✕</button>
+          </div>
+          ${html || '<p style="opacity:0.5;text-align:center;padding:20px;">Nessuno spot trovato.</p>'}
+        </div>
+      </div>`);
+  } else {
+    /* Desktop: pannello destro */
+    const header = document.getElementById("spotPanelHeader");
+    const body   = document.getElementById("spotPanelBody");
+    if (!header||!body) return;
+    header.textContent = `🎣 ${titolo} (${lista.length})`;
+    if (lista.length === 0) { body.innerHTML = `<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato.</p>`; return; }
+    body.innerHTML = lista.map(s => `
+      <div class="spot-italia-item${spotAttivo===s?" active":""}" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
+        <span class="si-ico">🎣</span>
+        <div class="si-info">
+          <div class="si-nome">${s.name}</div>
+          <div class="si-sub">🐟 ${s.target}</div>
+        </div>
+        <span class="si-badge">${s.type}</span>
+      </div>`).join("");
+  }
+}
+function chiudiModaleListaMobile(e) {
+  if (!e || e.target.classList.contains("modal-spot-overlay"))
+    document.getElementById("spotModalLista")?.remove();
+}
+
+/* ── SPOT SELEZIONATO (marker o lista) — stesso comportamento mobile e desktop ── */
+function onSpotSelezionato(spot) {
+  spotAttivo = spot;
+
+  /* 1. Zoom mappa + tooltip fisso con nome */
+  if (spotItaliaMap) {
+    spotItaliaMap.flyTo(spot.coords, 14, { duration: 0.8 });
+    /* Rimuovi tooltip precedente */
+    if (spotTooltipAttivo) { spotTooltipAttivo.remove(); spotTooltipAttivo = null; }
+    /* Crea marker invisibile con tooltip fisso (permanent) */
+    const icoVuota = L.divIcon({ html:'', iconSize:[0,0], className:'' });
+    spotTooltipAttivo = L.marker(spot.coords, { icon: icoVuota, zIndexOffset: 1000 })
+      .addTo(spotItaliaMap)
+      .bindTooltip(`<b>${spot.name}</b>`, {
+        permanent: true, direction: 'top', offset: [0, -8],
+        className: 'spot-tooltip-label'
+      })
+      .openTooltip();
+  }
+
+  /* 2. Dettaglio sempre nel pannello della pagina (mobile e desktop) */
+  mostraDettaglioPannello(spot);
+
+  /* 3. Su mobile: chiudi la lista modale se aperta e scrolla al pannello */
+  if (isMobile()) {
+    document.getElementById("spotModalLista")?.remove();
+    setTimeout(() => {
+      const panel = document.getElementById("spotPanelRight");
+      if (panel) panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300);
+  }
+
+  /* 4. Aggiorna active nella lista desktop */
+  document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
+  document.querySelectorAll(".spot-italia-item").forEach(el => {
+    if (el.querySelector(".si-nome")?.textContent === spot.name) el.classList.add("active");
+  });
+}
+
+/* ── DETTAGLIO NEL PANNELLO DESKTOP ── */
+function mostraDettaglioPannello(spot) {
+  const header = document.getElementById("spotPanelHeader");
+  const body   = document.getElementById("spotPanelBody");
+  if (!header||!body) return;
+  header.textContent = "📍 " + spot.reg;
+  body.innerHTML = `
+    <div class="spot-detail-panel">
+      <span class="sdp-tag">${spot.reg}</span>
+      <h3>${spot.name}</h3>
+      <div class="spot-detail-grid">
+        <div class="spot-detail-cell"><div class="sdc-lbl">🎣 Tecnica</div><div class="sdc-val">${spot.type}</div></div>
+        <div class="spot-detail-cell"><div class="sdc-lbl">🐟 Target</div><div class="sdc-val">${spot.target}</div></div>
+      </div>
+      <div class="spot-detail-tips"><p>💡 ${spot.tips}</p></div>
+      <button class="btn-nav-spot" onclick="window.open('https://www.google.com/maps?q=${spot.coords[0]},${spot.coords[1]}','_blank')">
+        🧭 Ottieni indicazioni →
+      </button>
+      <button class="btn-back-lista" onclick="tornaListaRegione('${spot.reg}')">
+        ← Tutti gli spot di ${spot.reg}
+      </button>
+    </div>`;
+}
+function tornaListaRegione(reg) {
+  const lista = spotsItalia.filter(s=>s.reg===reg);
+  mostraPannelloLista(lista, reg);
+  aggiornaMappaSpotItalia(lista);
+  if(lista.length>0){ const bounds=L.latLngBounds(lista.map(s=>s.coords)); spotItaliaMap.fitBounds(bounds,{padding:[30,30]}); }
+  const n=lista.length;
+  if(document.getElementById("spotCount")) document.getElementById("spotCount").textContent=n+" spot";
+  if(document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent=n+" visibili";
+}
+
+/* mostraModaleDettaglioMobile rimossa: dettaglio ora sempre nel pannello pagina */
 </script>
 
+<!-- ============================================================
+     BLOCCO JS 10 — AVVIO APP
+     ============================================================ -->
+
 <script>
-/* === AVVIO APP === */
-caricaTema()
-showHome()
-window.addEventListener("load",()=>{
-  setTimeout(()=>{const s=document.getElementById("splash");if(s)s.style.display="none"},3500)
-})
+caricaTema();
+showHome();
+window.addEventListener("load", () => {
+  setTimeout(() => { const s=document.getElementById("splash"); if(s) s.style.display="none"; }, 3500);
+});
 </script>
 
 </body>
 </html>
+
+
 
 
 
