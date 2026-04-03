@@ -251,14 +251,14 @@ body.dark .btn-chiudi-modal { background:#334155; color:#e2e8f0; }
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 body.dark .filtro-select { background:#1e293b; color:#e2e8f0; border-color:#4b5563; }
-.btn-via {
+.btn-Carica {
   background: linear-gradient(90deg,#e67e22,#f39c12);
   border: none; padding: 10px 22px; border-radius: 12px;
   color: white; font-weight: 900; font-size: 14px; letter-spacing: 1px;
   cursor: pointer; box-shadow: 0 4px 12px rgba(230,126,34,0.4); transition: 0.2s;
   white-space: nowrap;
 }
-.btn-via:hover { transform: scale(1.05); margin-top:0; }
+.btn-Carica:hover { transform: scale(1.05); margin-top:0; }
 
 /* ── Layout split desktop ── */
 .spot-split-layout {
@@ -1244,7 +1244,7 @@ function showCercaSpot() {
   document.getElementById("content").innerHTML = `
     <div class="spot-italia-header">
       <h3>🗺️ Spot Italia <span class="spot-count-badge" id="spotCount">${n} spot</span></h3>
-      <p>Seleziona regione e/o tecnica, poi premi VIA → per filtrare</p>
+      <p>Seleziona regione e/o tecnica, poi premi Carica → per filtrare</p>
     </div>
 
     <div class="filtri-row">
@@ -1273,7 +1273,7 @@ function showCercaSpot() {
         <option value="Bolognese">Bolognese/Fondo</option>
         <option value="Bassfishing">Bassfishing</option>
       </select>
-      <button class="btn-via" onclick="applicaFiltriSpot()">VIA →</button>
+      <button class="btn-Carica" onclick="applicaFiltriSpot()">Carica →</button>
     </div>
 
     <div class="spot-split-layout">
@@ -1292,7 +1292,7 @@ function showCercaSpot() {
         <div class="spot-panel-body" id="spotPanelBody">
           <div class="spot-panel-placeholder">
             <span class="ph-ico">🗺️</span>
-            <p>Usa i filtri e premi<br><strong>VIA →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
+            <p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
           </div>
         </div>
       </div>
@@ -1341,7 +1341,7 @@ function aggiornaMappaSpotItalia(lista) {
   });
 }
 
-/* ── FILTRI VIA → ── */
+/* ── FILTRI Carica → ── */
 function applicaFiltriSpot() {
   const reg  = document.getElementById("filtroReg")?.value  || "all";
   const tech = document.getElementById("filtroTech")?.value || "all";
@@ -1368,7 +1368,7 @@ function applicaFiltriSpot() {
       document.getElementById("spotPanelBody").innerHTML = `
         <div class="spot-panel-placeholder">
           <span class="ph-ico">🗺️</span>
-          <p>Usa i filtri e premi<br><strong>VIA →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
+          <p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
         </div>`;
     }
   }
