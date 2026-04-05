@@ -8,11 +8,6 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎣</text></svg>">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<!-- ============================================================
-     BLOCCO CSS 2 — STILI BASE APP
-     ============================================================ -->
-
 <style>
 * { box-sizing: border-box; }
 body {
@@ -34,7 +29,6 @@ header {
   padding: 20px;
   padding-bottom: 90px;
   animation: fadeIn 0.35s ease;
-  /* FIX: sempre scroll dall'alto */
   scroll-margin-top: 0;
 }
 .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 16px; }
@@ -119,12 +113,8 @@ body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
 @keyframes floatLogo { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
 @keyframes fadeOutSplash { to{opacity:0;visibility:hidden;} }
 </style>
-
-<!-- ============================================================
-     BLOCCO CSS 3 — STILI SEZIONE PREVISIONI
-     ============================================================ -->
-
 <style>
+/* === PREVISIONI === */
 .prev-hero {
   background: linear-gradient(135deg,#0a2a43,#0077b6);
   border-radius: 20px; padding: 20px; color: white;
@@ -221,14 +211,21 @@ body.dark .btn-chiudi-modal { background:#334155; color:#e2e8f0; }
 .prev-errore { background:#fff3cd; border-radius:16px; padding:20px; text-align:center; margin-bottom:14px; }
 .prev-errore .ico { font-size:40px; display:block; margin-bottom:10px; }
 .prev-errore p { font-size:14px; color:#856404; margin:0 0 14px; }
+/* Esporta/Importa spot */
+.spot-io-row { display:flex; gap:8px; margin-bottom:14px; }
+.btn-esporta {
+  flex:1; background:linear-gradient(90deg,#059669,#10b981);
+  color:white; border:none; padding:11px; border-radius:14px;
+  font-size:13px; font-weight:700; cursor:pointer; margin-top:0;
+}
+.btn-importa {
+  flex:1; background:linear-gradient(90deg,#7c3aed,#a78bfa);
+  color:white; border:none; padding:11px; border-radius:14px;
+  font-size:13px; font-weight:700; cursor:pointer; margin-top:0;
+}
 </style>
-
-<!-- ============================================================
-     BLOCCO CSS 4 — STILI SPOT ITALIA + LAYOUT SPLIT
-     ============================================================ -->
-
 <style>
-/* ── Header sezione spot ── */
+/* === SPOT ITALIA === */
 .spot-italia-header {
   background: linear-gradient(135deg,#0a2a43,#0077b6);
   border-radius: 20px; padding: 16px 20px; color: white;
@@ -240,8 +237,6 @@ body.dark .btn-chiudi-modal { background:#334155; color:#e2e8f0; }
   display:inline-block; background:rgba(255,255,255,0.2);
   border-radius:20px; padding:2px 10px; font-size:12px; margin-left:8px;
 }
-
-/* ── Filtri ── */
 .filtri-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
 .filtro-select {
   flex:1; min-width: 110px;
@@ -259,45 +254,25 @@ body.dark .filtro-select { background:#1e293b; color:#e2e8f0; border-color:#4b55
   white-space: nowrap;
 }
 .btn-Carica:hover { transform: scale(1.05); margin-top:0; }
-
-/* ── Layout split desktop ── */
 .spot-split-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  position: relative;
+  display: grid; grid-template-columns: 1fr; gap: 0; position: relative;
 }
 @media (min-width: 769px) {
-  .spot-split-layout {
-    grid-template-columns: 2fr 1fr;
-    gap: 14px;
-    align-items: start;
-  }
+  .spot-split-layout { grid-template-columns: 2fr 1fr; gap: 14px; align-items: start; }
 }
-
-/* ── Mappa spot ── */
 .spot-mappa-wrap {
   background: white; border-radius: 20px; overflow: hidden;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: sticky;
-  top: 70px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: sticky; top: 70px;
 }
-#spotItaliaMap {
-  height: 70vh;
-  width: 100%;
-}
+#spotItaliaMap { height: 70vh; width: 100%; }
 @media (max-width: 768px) {
   #spotItaliaMap { height: 55vw; min-height: 240px; }
   .spot-mappa-wrap { position: relative; top: 0; margin-bottom: 14px; }
 }
-
-/* ── Pannello destro ── */
 .spot-panel-right {
   background: white; border-radius: 20px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  overflow: hidden;
-  min-height: 200px;
-  display: flex; flex-direction: column;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12); overflow: hidden;
+  min-height: 200px; display: flex; flex-direction: column;
 }
 body.dark .spot-panel-right { background: #1e293b; }
 .spot-panel-header {
@@ -305,13 +280,9 @@ body.dark .spot-panel-right { background: #1e293b; }
   padding: 12px 16px; color: white; font-weight: 700; font-size: 14px;
 }
 .spot-panel-body { padding: 14px; flex: 1; overflow-y: auto; }
-.spot-panel-placeholder {
-  text-align: center; padding: 40px 20px; opacity: 0.45;
-}
+.spot-panel-placeholder { text-align: center; padding: 40px 20px; opacity: 0.45; }
 .spot-panel-placeholder .ph-ico { font-size: 40px; display:block; margin-bottom:10px; }
 .spot-panel-placeholder p { font-size: 13px; line-height: 1.6; }
-
-/* ── Lista spot ── */
 .spot-italia-item {
   background: #f8fafc; border-radius: 12px; padding: 12px 14px;
   margin-bottom: 8px; display: flex; align-items: center; gap:10px;
@@ -331,8 +302,6 @@ body.dark .spot-italia-item.active { background: #1e3a5f; border-left: 3px solid
   font-size: 9px; font-weight: 800; padding: 2px 7px;
   border-radius: 6px; text-transform: uppercase; white-space:nowrap; flex-shrink:0;
 }
-
-/* ── Dettaglio spot nel pannello ── */
 .spot-detail-panel { padding: 2px 0; }
 .spot-detail-panel .sdp-tag {
   display:inline-block; background:#e0f2fe; color:#0369a1;
@@ -341,15 +310,11 @@ body.dark .spot-italia-item.active { background: #1e3a5f; border-left: 3px solid
 }
 .spot-detail-panel h3 { margin:0 0 12px; font-size:17px; font-weight:900; line-height:1.3; }
 .spot-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
-.spot-detail-cell {
-  background:#f8fafc; border-radius:10px; padding:10px 12px;
-}
+.spot-detail-cell { background:#f8fafc; border-radius:10px; padding:10px 12px; }
 body.dark .spot-detail-cell { background:#334155; }
 .sdc-lbl { font-size:9px; font-weight:700; opacity:0.5; text-transform:uppercase; margin-bottom:3px; }
 .sdc-val { font-size:12px; font-weight:700; line-height:1.4; }
-.spot-detail-tips {
-  background:#eff6ff; border-radius:12px; padding:12px 14px; margin-bottom:12px;
-}
+.spot-detail-tips { background:#eff6ff; border-radius:12px; padding:12px 14px; margin-bottom:12px; }
 body.dark .spot-detail-tips { background:#1e3a5f; }
 .spot-detail-tips p { margin:0; font-size:12px; line-height:1.6; color:#1e40af; }
 body.dark .spot-detail-tips p { color:#93c5fd; }
@@ -360,13 +325,19 @@ body.dark .spot-detail-tips p { color:#93c5fd; }
   margin-top:0; display:flex; align-items:center; justify-content:center; gap:8px;
 }
 .btn-nav-spot:hover { transform: scale(1.02); }
+/* ---- NUOVO: btn salva spot italia ---- */
+.btn-salva-spot-italia {
+  background: linear-gradient(90deg,#059669,#10b981);
+  color:white; border:none; padding:11px; border-radius:12px;
+  font-size:13px; font-weight:700; width:100%; cursor:pointer; margin-top:8px;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+}
+.btn-salva-spot-italia:hover { transform: scale(1.02); }
 .btn-back-lista {
   background:#f0f4f8; color:#0a2a43; border:none; padding:10px; border-radius:12px;
   font-size:13px; width:100%; cursor:pointer; margin-top:8px;
 }
 body.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
-
-/* ── Modale mobile spot dettaglio ── */
 .modal-spot-overlay {
   position:fixed; inset:0; background:rgba(0,0,0,0.6);
   z-index:9500; display:flex; align-items:flex-end; animation: fadeIn 0.2s ease;
@@ -402,36 +373,20 @@ body.dark .modal-spot-tips p { color:#93c5fd; }
 }
 body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
 </style>
-
 </head>
 <body>
-
-<!-- BLOCCO HTML 1 — SPLASH -->
-
 <div id="splash">
   <div class="logo-anim">🌊</div>
   <h2 style="margin:12px 0 4px;font-size:22px;">Mare Fishing App</h2>
   <p style="opacity:0.6;font-size:14px;margin:0;">La tua guida alla pesca in mare</p>
 </div>
-
-<!-- BLOCCO HTML 2 — ONDE -->
-
 <div class="waves-bg">
   <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
     <path d="M0,100 C300,180 900,20 1200,100 L1200,200 L0,200 Z"></path>
   </svg>
 </div>
-
-<!-- BLOCCO HTML 3 — HEADER -->
-
 <header>🎣 Assistente Pesca Mare</header>
-
-<!-- BLOCCO HTML 4 — CONTENUTO -->
-
 <div id="content"></div>
-
-<!-- BLOCCO HTML 5 — FOOTER -->
-
 <footer>
   <button onclick="goTo(showHome)">🏠<span>Home</span></button>
   <button onclick="goTo(showTecniche)">🌊<span>Tecniche</span></button>
@@ -439,15 +394,11 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   <button onclick="goTo(showMontature)">🪝<span>Montature</span></button>
   <button onclick="goTo(showNodi)">🧵<span>Nodi</span></button>
   <button onclick="goTo(showPrevisioni)">⚓<span>Meteo</span></button>
-  <button onclick="toggleTema()">🌙<span>Dark</span></button>
+  <button onclick="chiudiApp()">❌<span>Esci</span></button>
 </footer>
 
-<!-- ============================================================
-     BLOCCO JS 1 — NAVIGAZIONE + TEMA
-     ============================================================ -->
-
 <script>
-/* FIX scroll-to-top su ogni cambio sezione */
+/* === NAVIGAZIONE + TEMA + CHIUDI APP === */
 function goTo(fn) {
   window.scrollTo({ top: 0, behavior: 'instant' });
   fn();
@@ -459,13 +410,19 @@ function toggleTema() {
 function caricaTema() {
   if (localStorage.getItem("tema") === "dark") document.body.classList.add("dark");
 }
+/* MODIFICA 4 — Chiudi app con conferma */
+function chiudiApp() {
+  if (confirm("Vuoi uscire dall'app?\n\nSe non si chiude automaticamente, chiudi la scheda del browser manualmente.")) {
+    window.close();
+    setTimeout(() => {
+      alert("Il browser non ha permesso la chiusura automatica.\nChiudi manualmente questa scheda.");
+    }, 400);
+  }
+}
 </script>
 
-<!-- ============================================================
-     BLOCCO JS 2 — HOME
-     ============================================================ -->
-
 <script>
+/* === HOME === */
 function showHome() {
   document.getElementById("content").innerHTML = `
     <h2 style="margin-top:0;">Benvenuto 🎣</h2>
@@ -480,11 +437,8 @@ function showHome() {
 }
 </script>
 
-<!-- ============================================================
-     BLOCCO JS 3 — TECNICHE
-     ============================================================ -->
-
 <script>
+/* === TECNICHE === */
 function showTecniche() {
   document.getElementById("content").innerHTML = `
     <h2>🌊 Tecniche di Pesca in Mare</h2>
@@ -601,11 +555,8 @@ function showFondo() {
 }
 </script>
 
-<!-- ============================================================
-     BLOCCO JS 4 — NODI
-     ============================================================ -->
-
 <script>
+/* === NODI === */
 function showNodi() {
   const nodi = [
     { nome:"Nodo Clinch",    img:"./img/nodo-clinch.jpg",   uso:"Ami, girelle, moschettoni",       filo:"Nylon / Fluorocarbon" },
@@ -617,11 +568,7 @@ function showNodi() {
   ];
   const cards = nodi.map((n,i) => `
     <div style="display:flex;flex-direction:column;align-items:center;">
-      <button onclick="toggleNodo('nodo${i}')" style="
-        width:100%;padding:10px 6px;border-radius:13px;font-size:14px;font-weight:700;
-        background:linear-gradient(135deg,#0077b6,#00b4d8);
-        border:none;color:white;cursor:pointer;margin-bottom:6px;line-height:1.3;
-        box-shadow:0 4px 12px rgba(0,0,0,0.16);">
+      <button onclick="toggleNodo('nodo${i}')" style="width:100%;padding:10px 6px;border-radius:13px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#0077b6,#00b4d8);border:none;color:white;cursor:pointer;margin-bottom:6px;line-height:1.3;box-shadow:0 4px 12px rgba(0,0,0,0.16);">
         🧵 ${n.nome}
       </button>
       <div id="nodo${i}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
@@ -634,19 +581,15 @@ function showNodi() {
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>`;
 }
 function toggleNodo(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
+  const el = document.getElementById(id); if (!el) return;
   const aperto = el.style.display === "block";
   document.querySelectorAll("[id^='nodo']").forEach(e => e.style.display="none");
   el.style.display = aperto ? "none" : "block";
 }
 </script>
 
-<!-- ============================================================
-     BLOCCO JS 5 — MONTATURE
-     ============================================================ -->
-
 <script>
+/* === MONTATURE === */
 const montatureData = [
   { id:"short-rovesciato",          nome:"Short Rovesciato",           emoji:"🪝", img:"./img/montature/01_short_rovesciato.jpg",          desc:"Bracciolo corto orientato verso l'alto. Anti-aggroviglio su sabbia.",              quando:"Spiagge sabbiose • Mare mosso • Surfcasting",           esche:"Arenicola • Bibi • Americano",                  target:"Orata • Mormora • Sarago",            video:"https://www.youtube.com/results?search_query=short+rovesciato+surfcasting+montatura" },
   { id:"short-rovesciato-clippato", nome:"Short Rovesciato Clippato",  emoji:"🪝", img:"./img/montature/02_short_rovesciato_clippato.jpg", desc:"Power-clip per lanci aerodinamici superiori a 120 m.",                             quando:"Spiagge ampie • Lanci estremi • Corrente",             esche:"Arenicola • Bibi • Coreano",                    target:"Orata • Mormora • Spigola",           video:"https://www.youtube.com/results?search_query=short+rovesciato+clippato+surfcasting" },
@@ -668,12 +611,7 @@ const montatureData = [
 ];
 function showMontature() {
   const cards = montatureData.map(m => `
-    <div onclick="goTo(()=>showMontaturaDetail('${m.id}'))" style="
-      background:linear-gradient(135deg,#a8d8ea,#6bbfd8);
-      border-radius:14px;padding:10px 6px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;
-      text-align:center;transition:all 0.2s;display:flex;
-      flex-direction:column;align-items:center;gap:4px;">
+    <div onclick="goTo(()=>showMontaturaDetail('${m.id}'))" style="background:linear-gradient(135deg,#a8d8ea,#6bbfd8);border-radius:14px;padding:10px 6px;box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px;">
       <span style="font-size:22px;">${m.emoji}</span>
       <div style="font-weight:700;font-size:13px;line-height:1.3;color:#0a2a43;">${m.nome}</div>
     </div>`).join("");
@@ -683,8 +621,7 @@ function showMontature() {
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>`;
 }
 function showMontaturaDetail(id) {
-  const m = montatureData.find(x => x.id === id);
-  if (!m) return;
+  const m = montatureData.find(x => x.id === id); if (!m) return;
   document.getElementById("content").innerHTML = `
     <div style="animation:fadeIn 0.3s ease;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
@@ -718,10 +655,8 @@ function showMontaturaDetail(id) {
       <a href="${m.video}" target="_blank" style="text-decoration:none;">
         <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;text-align:left;">
           <div style="font-size:30px;line-height:1;">▶</div>
-          <div>
-            <div style="font-weight:700;font-size:15px;">Video Dimostrativo</div>
-            <div style="font-size:12px;opacity:0.85;margin-top:2px;">Guarda come si realizza su YouTube →</div>
-          </div>
+          <div><div style="font-weight:700;font-size:15px;">Video Dimostrativo</div>
+          <div style="font-size:12px;opacity:0.85;margin-top:2px;">Guarda come si realizza su YouTube →</div></div>
         </div>
       </a>
       <button onclick="goTo(showMontature)" style="width:100%;margin-top:4px;">⬅️ Torna alle Montature</button>
@@ -729,11 +664,8 @@ function showMontaturaDetail(id) {
 }
 </script>
 
-<!-- ============================================================
-     BLOCCO JS 6 — SPECIE
-     ============================================================ -->
-
 <script>
+/* === SPECIE === */
 const specie = {
   orata:{nome:"Orata",scientifico:"Sparus aurata",img:"img/orata.jpg",descrizione:"Pesce pregiato di fondale sabbioso e misto.",tecniche:"Pesca a fondo, surfcasting",montature:["paternoster","long-arm","piombo-scorrevole"],stagione:[1,2,3,4,10,11,12]},
   spigola:{nome:"Spigola / Branzino",scientifico:"Dicentrarchus labrax",img:"img/spigola.jpg",descrizione:"Predatore costiero molto combattivo.",tecniche:"Spinning, surfcasting, fondo",montature:["long-arm","piombo-scorrevole","short-rovesciato"],stagione:[1,2,3,4,11,12]},
@@ -765,15 +697,7 @@ function showSpecie() {
   mostraTutteLeSpecie();
 }
 function cardSpecie(key) {
-  return `<div onclick="goTo(()=>showSpecieDetail('${key}'))" style="
-    background:linear-gradient(135deg,#e8d5a3,#d4b97a);
-    border-radius:14px;padding:10px 6px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;
-    text-align:center;transition:all 0.2s;display:flex;
-    flex-direction:column;align-items:center;gap:4px;">
-    <span style="font-size:22px;">🐟</span>
-    <div style="font-weight:700;font-size:13px;line-height:1.3;color:#3d2b0a;">${specie[key].nome}</div>
-  </div>`;
+  return `<div onclick="goTo(()=>showSpecieDetail('${key}'))" style="background:linear-gradient(135deg,#e8d5a3,#d4b97a);border-radius:14px;padding:10px 6px;box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="font-size:22px;">🐟</span><div style="font-weight:700;font-size:13px;line-height:1.3;color:#3d2b0a;">${specie[key].nome}</div></div>`;
 }
 function mostraTutteLeSpecie() {
   let html = "<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>";
@@ -784,15 +708,12 @@ function mostraTutteLeSpecie() {
 function filtraSpecie() {
   let filtro = document.getElementById("searchInput").value.toLowerCase();
   let html = "<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>";
-  for (let key in specie) {
-    if (specie[key].nome.toLowerCase().includes(filtro)) html += cardSpecie(key);
-  }
+  for (let key in specie) { if (specie[key].nome.toLowerCase().includes(filtro)) html += cardSpecie(key); }
   html += "</div>";
   document.getElementById("listaSpecie").innerHTML = html;
 }
 function showSpecieDetail(id) {
-  const p = specie[id];
-  if (!p) return;
+  const p = specie[id]; if (!p) return;
   document.getElementById("content").innerHTML = `
     <div class="card" style="cursor:default;">
       <h2>${p.nome}</h2><em>${p.scientifico}</em><br>
@@ -806,11 +727,8 @@ function showSpecieDetail(id) {
 }
 </script>
 
-<!-- ============================================================
-     BLOCCO JS 7 — DATI
-     ============================================================ -->
-
 <script>
+/* === DATI + UTILITÀ === */
 const surfcastingData = {
   specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Sarago Pizzuto",img:"img/sarago-pizzuto.jpg"}],
   esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"}]
@@ -857,18 +775,10 @@ const tecnicheData = {
     esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Cozza",img:"img/cozza.jpg"}]
   }
 };
-</script>
 
-<!-- ============================================================
-     BLOCCO JS 8 — FUNZIONI UTILITÀ CONDIVISE
-     ============================================================ -->
-
-<script>
-let currentlyOpenBox = null;
-let currentlyOpenButton = null;
+let currentlyOpenBox = null, currentlyOpenButton = null;
 function toggleImageBox(id, imgPath, button) {
-  const box = document.getElementById(id);
-  if (!box) return;
+  const box = document.getElementById(id); if (!box) return;
   if (currentlyOpenBox && currentlyOpenBox !== box) {
     currentlyOpenBox.classList.remove("open"); currentlyOpenBox.innerHTML = "";
     if (currentlyOpenButton) currentlyOpenButton.classList.remove("active");
@@ -891,87 +801,63 @@ function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
   lista.forEach((item, index) => {
     const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
-    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}
-      <div id="${safeId}" style="display:none;margin-top:8px;">
-        <img src="${item.img}" style="width:100%;max-width:240px;border-radius:10px;" onerror="this.style.display='none'">
-      </div></div>`;
+    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;"><img src="${item.img}" style="width:100%;max-width:240px;border-radius:10px;" onerror="this.style.display='none'"></div></div>`;
   });
   return html + "</div>";
 }
 function generaMiniCard(lista, tipo) {
   if (!lista || lista.length === 0) return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
-  return `<div class="mini-container">
-    ${lista.map((item,index)=>`<div class="mini-card" onclick="apriDettaglio('${tipo}',${index})">${item.nome}</div>`).join("")}
-  </div><div id="${tipo}-detail"></div>`;
+  return `<div class="mini-container">${lista.map((item,index)=>`<div class="mini-card" onclick="apriDettaglio('${tipo}',${index})">${item.nome}</div>`).join("")}</div><div id="${tipo}-detail"></div>`;
 }
-function toggleImgById(id) {
-  const el = document.getElementById(id);
-  if (el) el.style.display = el.style.display === "none" ? "block" : "none";
-}
+function toggleImgById(id) { const el=document.getElementById(id); if(el)el.style.display=el.style.display==="none"?"block":"none"; }
 function apriDettaglio(tipo, index) {
-  const container = document.getElementById(tipo + "-detail");
-  if (!container) return;
-  const parti = tipo.split("-"); if (parti.length < 2) return;
-  const tecnica = parti[0]; const categoria = parti.slice(1).join("-");
-  if (!tecnicheData[tecnica] || !tecnicheData[tecnica][categoria]) return;
-  const item = tecnicheData[tecnica][categoria][index]; if (!item) return;
-  if (container.dataset.open == index) { container.innerHTML=""; container.dataset.open=""; return; }
-  container.dataset.open = index;
-  container.innerHTML = `<div class="card" style="cursor:default;">
-    <h3>${item.nome}</h3>
-    <img src="${item.img}" style="width:60%;max-width:280px;border-radius:10px;display:block;margin:10px auto;" onerror="this.style.display='none'">
-    ${item.descrizione?`<p>${item.descrizione}</p>`:""}
-    ${item.peso?`<p><strong>Peso:</strong> ${item.peso}</p>`:""}
-  </div>`;
-}
-function toggleAccordion(id) {
-  const el = document.getElementById(id);
-  if (el) el.style.display = el.style.display === "none" ? "block" : "none";
+  const container=document.getElementById(tipo+"-detail"); if(!container)return;
+  const parti=tipo.split("-"); if(parti.length<2)return;
+  const tecnica=parti[0]; const categoria=parti.slice(1).join("-");
+  if(!tecnicheData[tecnica]||!tecnicheData[tecnica][categoria])return;
+  const item=tecnicheData[tecnica][categoria][index]; if(!item)return;
+  if(container.dataset.open==index){container.innerHTML="";container.dataset.open="";return;}
+  container.dataset.open=index;
+  container.innerHTML=`<div class="card" style="cursor:default;"><h3>${item.nome}</h3><img src="${item.img}" style="width:60%;max-width:280px;border-radius:10px;display:block;margin:10px auto;" onerror="this.style.display='none'">${item.descrizione?`<p>${item.descrizione}</p>`:""}${item.peso?`<p><strong>Peso:</strong> ${item.peso}</p>`:""}</div>`;
 }
 function generaCalendario(stagione) {
-  if (!stagione) return "";
-  const mesi = ["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
-  const meseCorrente = new Date().getMonth() + 1;
-  let html = "<div class='card' style='cursor:default;'><b>📅 Calendario attività</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
-  for (let i=1; i<=12; i++) {
-    const attivo = stagione.includes(i);
-    html += `<div style="padding:6px 8px;border-radius:6px;font-size:12px;text-align:center;min-width:32px;${attivo?"background:#2ecc71;color:white;":"background:#eee;"}${i===meseCorrente?"border:2px solid #007bff;":""}">${mesi[i-1]}</div>`;
-  }
-  return html + "</div></div>";
+  if(!stagione)return"";
+  const mesi=["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
+  const mc=new Date().getMonth()+1;
+  let html="<div class='card' style='cursor:default;'><b>📅 Calendario attività</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
+  for(let i=1;i<=12;i++){const a=stagione.includes(i);html+=`<div style="padding:6px 8px;border-radius:6px;font-size:12px;text-align:center;min-width:32px;${a?"background:#2ecc71;color:white;":"background:#eee;"}${i===mc?"border:2px solid #007bff;":""}">${mesi[i-1]}</div>`;}
+  return html+"</div></div>";
 }
 function generaSpeciePerTecnica(nomeTecnica) {
-  let html = "<div class='card' style='cursor:default;'><b>🐟 Specie consigliate</b><br><br>";
-  for (let key in specie) {
-    if (specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase()))
-      html += `<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="goTo(()=>showSpecieDetail('${key}'))">• ${specie[key].nome}</div>`;
-  }
-  return html + "</div>";
+  let html="<div class='card' style='cursor:default;'><b>🐟 Specie consigliate</b><br><br>";
+  for(let key in specie){if(specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase()))html+=`<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="goTo(()=>showSpecieDetail('${key}'))">• ${specie[key].nome}</div>`;}
+  return html+"</div>";
 }
 function generaMontatureSpecie(list) {
-  if (!list || list.length === 0) return "";
-  return `<div class="card" style="cursor:default;text-align:left;">
-    <b>🪝 Montature consigliate</b><br><br>
-    ${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${m}'))">${m.replace(/-/g," ")} →</div>`).join("")}
-  </div>`;
+  if(!list||list.length===0)return"";
+  return`<div class="card" style="cursor:default;text-align:left;"><b>🪝 Montature consigliate</b><br><br>${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${m}'))">${m.replace(/-/g," ")} →</div>`).join("")}</div>`;
 }
+function trovaIndiceOra(times,ora){const s=ora.toISOString().slice(0,13);const i=times.findIndex(t=>t&&t.startsWith(s));return i>=0?i:0;}
+function stelleRating(r){return"⭐".repeat(r)+"☆".repeat(5-r);}
+function direzioneVento(deg){return["N","NE","E","SE","S","SO","O","NO"][Math.round(deg/45)%8]||"—";}
+function iconaMeteo(c){if(c===0)return"☀️";if(c<=2)return"🌤️";if(c<=3)return"☁️";if(c<=49)return"🌫️";if(c<=55)return"🌦️";if(c<=65)return"🌧️";if(c<=77)return"❄️";if(c<=82)return"🌦️";if(c<=99)return"⛈️";return"🌡️";}
+function descrizioneMeteo(c){if(c===0)return"Sereno";if(c<=2)return"Poco nuv.";if(c<=3)return"Coperto";if(c<=49)return"Nebbia";if(c<=55)return"Pioggerella";if(c<=65)return"Pioggia";if(c<=77)return"Neve";if(c<=82)return"Rovesci";if(c<=99)return"Temporale";return"—";}
+function formatOra(s){if(!s)return"--:--";try{return s.slice(11,16);}catch(e){return"--:--";}}
+function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div class="prev-errore"><span class="ico">📡</span><p>${msg}</p><button onclick="goTo(showPrevisioni)">🔄 Riprova</button></div>`;}
 </script>
 
-<!-- ============================================================
-     BLOCCO JS 9 — PREVISIONI METEO + SPOT PERSONALI
-     ============================================================ -->
-
 <script>
-let prevMap = null;
-let prevCoords = null;
+/* === PREVISIONI + SPOT PERSONALI === */
+/* MODIFICA 3 — Esporta/Importa JSON aggiunto a renderPrevisioni */
+let prevMap = null, prevCoords = null;
 
 function showPrevisioni() {
-  document.getElementById("content").innerHTML = `
-    <div class="prev-loader"><span class="spinner">🎣</span><p>Rilevamento posizione in corso…</p></div>`;
+  document.getElementById("content").innerHTML = `<div class="prev-loader"><span class="spinner">🎣</span><p>Rilevamento posizione in corso…</p></div>`;
   if (!navigator.geolocation) { mostraErroreGPS("Il tuo browser non supporta la geolocalizzazione."); return; }
   navigator.geolocation.getCurrentPosition(
-    pos => { prevCoords = { lat: pos.coords.latitude, lon: pos.coords.longitude }; caricaPrevisioni(prevCoords.lat, prevCoords.lon); },
+    pos => { prevCoords={lat:pos.coords.latitude,lon:pos.coords.longitude}; caricaPrevisioni(prevCoords.lat,prevCoords.lon); },
     () => mostraErroreGPS("Impossibile rilevare la posizione. Verifica che il GPS sia attivo."),
-    { enableHighAccuracy: true, timeout: 10000 }
+    { enableHighAccuracy:true, timeout:10000 }
   );
 }
 async function caricaPrevisioni(lat, lon) {
@@ -984,18 +870,17 @@ async function caricaPrevisioni(lat, lon) {
   } catch(e) { mostraErroreGPS("Errore nel caricamento dati meteo. Controlla la connessione."); }
 }
 function renderPrevisioni(lat, lon, marine, meteo) {
-  const ora  = new Date();
-  const hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
-  const ondaH    = marine.hourly?.wave_height?.[hIdx]  ?? 0;
-  const ondaP    = marine.hourly?.wave_period?.[hIdx]  ?? 0;
-  const ventoKmh = meteo.current?.wind_speed_10m       ?? 0;
-  const ventoDir = meteo.current?.wind_direction_10m   ?? 0;
-  const tempC    = meteo.current?.temperature_2m       ?? "--";
-  const wCode    = meteo.current?.weather_code         ?? 0;
-  const ventoNodi = (ventoKmh * 0.539957).toFixed(1);
-  const analisi  = calcolaConsiglioCompleto(ondaH, ventoKmh, ora, wCode);
-  const giorniHTML = generaGiorni(marine, meteo, ora);
-  const miei_spots = caricaSpot();
+  const ora=new Date(), hIdx=trovaIndiceOra(meteo.hourly?.time||[],ora);
+  const ondaH=marine.hourly?.wave_height?.[hIdx]??0;
+  const ondaP=marine.hourly?.wave_period?.[hIdx]??0;
+  const ventoKmh=meteo.current?.wind_speed_10m??0;
+  const ventoDir=meteo.current?.wind_direction_10m??0;
+  const tempC=meteo.current?.temperature_2m??"--";
+  const wCode=meteo.current?.weather_code??0;
+  const ventoNodi=(ventoKmh*0.539957).toFixed(1);
+  const analisi=calcolaConsiglioCompleto(ondaH,ventoKmh,ora,wCode);
+  const giorniHTML=generaGiorni(marine,meteo,ora);
+  const miei_spots=caricaSpot();
   document.getElementById("content").innerHTML = `
     <div class="prev-hero">
       <h2>⚓ Previsioni Pesca</h2>
@@ -1025,7 +910,13 @@ function renderPrevisioni(lat, lon, marine, meteo) {
       <div class="mappa-header"><span>🗺️ La tua posizione & Spot</span><button onclick="aggiungiSpot()">📌 Salva spot</button></div>
       <div id="prevMap"></div>
     </div>
-    <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">📌 I miei spot (${miei_spots.length})</h3>
+    <h3 style="margin:0 0 6px;font-size:15px;opacity:0.7;">📌 I miei spot (${miei_spots.length})</h3>
+    <!-- MODIFICA 3: Esporta / Importa -->
+    <div class="spot-io-row">
+      <button class="btn-esporta" onclick="esportaSpot()">⬇️ Esporta JSON</button>
+      <button class="btn-importa" onclick="document.getElementById('importInput').click()">⬆️ Importa JSON</button>
+      <input type="file" id="importInput" accept=".json" style="display:none" onchange="importaSpot(event)">
+    </div>
     <div class="spot-list" id="spotList">${renderSpotList(miei_spots)}</div>
     <div style="margin:20px 0 10px;">
       <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
@@ -1035,16 +926,16 @@ function renderPrevisioni(lat, lon, marine, meteo) {
     <button onclick="goTo(showPrevisioni)" style="width:100%;">🔄 Aggiorna previsioni</button><br>`;
   setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
 }
-function calcolaConsiglioCompleto(ondaM, ventoKmh, ora, wCode) {
-  const ventoNodi = ventoKmh * 0.539957;
-  const h = ora.getHours(); const mese = ora.getMonth() + 1;
-  const isAlba=h>=5&&h<=8, isMattina=h>=8&&h<=12, isTramonto=h>=17&&h<=20, isNotte=h>=21||h<=4;
-  const isPrimavera=mese>=3&&mese<=5, isEstate=mese>=6&&mese<=8, isAutunno=mese>=9&&mese<=11, isInverno=mese===12||mese<=2;
-  const mareCalmo=ondaM<0.5&&ventoNodi<10, mareMosso=ondaM>=0.5&&ondaM<1.2, mareFormato=ondaM>=1.2;
-  const ventoForte=ventoNodi>20, maltempo=wCode>=61;
+
+function calcolaConsiglioCompleto(ondaM,ventoKmh,ora,wCode){
+  const ventoNodi=ventoKmh*0.539957,h=ora.getHours(),mese=ora.getMonth()+1;
+  const isAlba=h>=5&&h<=8,isMattina=h>=8&&h<=12,isTramonto=h>=17&&h<=20,isNotte=h>=21||h<=4;
+  const isPrimavera=mese>=3&&mese<=5,isEstate=mese>=6&&mese<=8,isAutunno=mese>=9&&mese<=11,isInverno=mese===12||mese<=2;
+  const mareCalmo=ondaM<0.5&&ventoNodi<10,mareMosso=ondaM>=0.5&&ondaM<1.2,mareFormato=ondaM>=1.2;
+  const ventoForte=ventoNodi>20,maltempo=wCode>=61;
   let rating=5;
-  if(mareFormato)rating-=2; else if(mareMosso)rating-=1;
-  if(ventoForte)rating-=1; if(maltempo)rating-=2;
+  if(mareFormato)rating-=2;else if(mareMosso)rating-=1;
+  if(ventoForte)rating-=1;if(maltempo)rating-=2;
   if(isAlba||isTramonto)rating=Math.min(5,rating+1);
   rating=Math.max(1,Math.min(5,rating));
   const labelRating=["","Scarsa","Bassa","Discreta","Buona","Ottima"][rating];
@@ -1058,31 +949,33 @@ function calcolaConsiglioCompleto(ondaM, ventoKmh, ora, wCode) {
   if(isInverno&&!maltempo)avviso=avviso||"Inverno: pesca mattutina nelle ore più calde.";
   return{rating,labelRating,tecnica,specie,montatura,attrezzatura,esche,avviso};
 }
-function generaGiorni(marine, meteo, ora) {
-  const giorni=["Dom","Lun","Mar","Mer","Gio","Ven","Sab"]; let html="";
+function generaGiorni(marine,meteo,ora){
+  const giorni=["Dom","Lun","Mar","Mer","Gio","Ven","Sab"];let html="";
   for(let i=1;i<=3;i++){
-    const d=new Date(ora); d.setDate(d.getDate()+i);
+    const d=new Date(ora);d.setDate(d.getDate()+i);
     const nome=i===1?"Domani":giorni[d.getDay()];
-    const tMax=meteo.daily?.temperature_2m_max?.[i]??"--", tMin=meteo.daily?.temperature_2m_min?.[i]??"--";
-    const wCode=meteo.daily?.weather_code?.[i]??0, vento=meteo.daily?.wind_speed_10m_max?.[i]??0;
-    const ondaMax=marine.daily?.wave_height_max?.[i]??0, ventoN=(vento*0.539957).toFixed(0);
-    let r=5; if(ondaMax>1.2)r-=2; else if(ondaMax>0.5)r-=1; if(vento>37)r-=1; if(wCode>=61)r-=2; r=Math.max(1,Math.min(5,r));
+    const tMax=meteo.daily?.temperature_2m_max?.[i]??"--",tMin=meteo.daily?.temperature_2m_min?.[i]??"--";
+    const wCode=meteo.daily?.weather_code?.[i]??0,vento=meteo.daily?.wind_speed_10m_max?.[i]??0;
+    const ondaMax=marine.daily?.wave_height_max?.[i]??0,ventoN=(vento*0.539957).toFixed(0);
+    let r=5;if(ondaMax>1.2)r-=2;else if(ondaMax>0.5)r-=1;if(vento>37)r-=1;if(wCode>=61)r-=2;r=Math.max(1,Math.min(5,r));
     html+=`<div class="giorno-card"><div class="giorno-nome">${nome}</div><div class="giorno-ico">${iconaMeteo(wCode)}</div><div class="giorno-val">${tMax}° / ${tMin}°</div><div class="giorno-sub">🌊 ${ondaMax.toFixed(1)}m</div><div class="giorno-sub">💨 ${ventoN} nodi</div><div class="giorno-rate">${stelleRating(r)}</div></div>`;
   }
   return html;
 }
-function initMappaPrevisioni(lat, lon, miei_spots) {
-  if (prevMap) { prevMap.remove(); prevMap=null; }
-  prevMap = L.map("prevMap",{zoomControl:true}).setView([lat,lon],13);
+function initMappaPrevisioni(lat,lon,miei_spots){
+  if(prevMap){prevMap.remove();prevMap=null;}
+  prevMap=L.map("prevMap",{zoomControl:true}).setView([lat,lon],13);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(prevMap);
   L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.8}).addTo(prevMap);
-  const iconaGPS = L.divIcon({html:'<div style="font-size:28px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[32,32],iconAnchor:[16,32],className:""});
+  const iconaGPS=L.divIcon({html:'<div style="font-size:28px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[32,32],iconAnchor:[16,32],className:""});
   L.marker([lat,lon],{icon:iconaGPS}).addTo(prevMap).bindPopup("<b>📍 Sei qui</b>").openPopup();
   miei_spots.forEach(s=>{
     const ico=L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">📌</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
     L.marker([s.lat,s.lon],{icon:ico}).addTo(prevMap).bindPopup(`<b>📌 ${s.nome}</b><br>${s.specie||""}<br><small>${s.data}</small>`);
   });
 }
+
+/* Spot personali localStorage */
 function caricaSpot(){try{return JSON.parse(localStorage.getItem("pescaSpot")||"[]");}catch(e){return[];}}
 function salvaSpot(spots){localStorage.setItem("pescaSpot",JSON.stringify(spots));}
 function aggiungiSpot(){
@@ -1103,8 +996,8 @@ function aggiungiSpot(){
 function chiudiModalSpot(e){if(e.target.classList.contains("modal-overlay"))document.getElementById("spotModal")?.remove();}
 function confermaSpot(){
   const nome=document.getElementById("spotNome").value.trim()||"Spot senza nome";
-  const spot={id:Date.now(),nome,specie:document.getElementById("spotSpecie").value.trim(),montatura:document.getElementById("spotMontatura").value.trim(),note:document.getElementById("spotNote").value.trim(),lat:prevCoords.lat,lon:prevCoords.lon,data:new Date().toLocaleDateString("it-IT")};
-  const spots=caricaSpot(); spots.unshift(spot); salvaSpot(spots);
+  const spot={id:Date.now(),nome,specie:document.getElementById("spotSpecie").value.trim(),montatura:document.getElementById("spotMontatura").value.trim(),note:document.getElementById("spotNote").value.trim(),lat:prevCoords.lat,lon:prevCoords.lon,data:new Date().toLocaleDateString("it-IT"),fonte:"gps"};
+  const spots=caricaSpot();spots.unshift(spot);salvaSpot(spots);
   document.getElementById("spotModal")?.remove();
   document.getElementById("spotList").innerHTML=renderSpotList(spots);
   if(prevMap){const ico=L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">📌</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});L.marker([spot.lat,spot.lon],{icon:ico}).addTo(prevMap).bindPopup(`<b>📌 ${spot.nome}</b><br>${spot.specie}<br><small>${spot.data}</small>`).openPopup();}
@@ -1114,30 +1007,53 @@ function renderSpotList(spots){
   if(spots.length===0)return`<p style="opacity:0.5;font-size:13px;text-align:center;padding:10px;">Nessuno spot salvato.<br>Vai sul posto e tocca 📌 Salva spot!</p>`;
   return spots.map(s=>`
     <div class="spot-item" onclick="centraMappa(${s.lat},${s.lon})">
-      <span class="spot-ico">📌</span>
-      <div class="spot-info"><div class="spot-nome">${s.nome}</div>
-      <div class="spot-sub">${s.specie?"🐟 "+s.specie:""} ${s.montatura?"• 🪝 "+s.montatura:""}</div>
-      <div class="spot-sub" style="opacity:0.45;">${s.data} ${s.note?"• "+s.note:""}</div></div>
+      <span class="spot-ico">${s.fonte==="italia"?"🎣":"📌"}</span>
+      <div class="spot-info">
+        <div class="spot-nome">${s.nome}</div>
+        <div class="spot-sub">${s.specie?"🐟 "+s.specie:""} ${s.montatura?"• 🪝 "+s.montatura:""}</div>
+        <div class="spot-sub" style="opacity:0.45;">${s.data} ${s.note?"• "+s.note:""}</div>
+      </div>
       <button class="spot-del" onclick="event.stopPropagation();eliminaSpot(${s.id})">🗑️</button>
     </div>`).join("");
 }
 function centraMappa(lat,lon){if(prevMap)prevMap.setView([lat,lon],15);const el=document.getElementById("prevMap");if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,behavior:"smooth"});}
-function trovaIndiceOra(times,ora){const s=ora.toISOString().slice(0,13);const i=times.findIndex(t=>t&&t.startsWith(s));return i>=0?i:0;}
-function stelleRating(r){return"⭐".repeat(r)+"☆".repeat(5-r);}
-function direzioneVento(deg){return["N","NE","E","SE","S","SO","O","NO"][Math.round(deg/45)%8]||"—";}
-function iconaMeteo(c){if(c===0)return"☀️";if(c<=2)return"🌤️";if(c<=3)return"☁️";if(c<=49)return"🌫️";if(c<=55)return"🌦️";if(c<=65)return"🌧️";if(c<=77)return"❄️";if(c<=82)return"🌦️";if(c<=99)return"⛈️";return"🌡️";}
-function descrizioneMeteo(c){if(c===0)return"Sereno";if(c<=2)return"Poco nuv.";if(c<=3)return"Coperto";if(c<=49)return"Nebbia";if(c<=55)return"Pioggerella";if(c<=65)return"Pioggia";if(c<=77)return"Neve";if(c<=82)return"Rovesci";if(c<=99)return"Temporale";return"—";}
-function formatOra(s){if(!s)return"--:--";try{return s.slice(11,16);}catch(e){return"--:--";}}
-function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div class="prev-errore"><span class="ico">📡</span><p>${msg}</p><button onclick="goTo(showPrevisioni)">🔄 Riprova</button></div>`;}
+
+/* MODIFICA 3 — Esporta e Importa JSON */
+function esportaSpot() {
+  const spots = caricaSpot();
+  if (spots.length === 0) { alert("Nessuno spot da esportare."); return; }
+  const json = JSON.stringify(spots, null, 2);
+  const blob = new Blob([json], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "miei-spot-pesca.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+function importaSpot(event) {
+  const file = event.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const importati = JSON.parse(e.target.result);
+      if (!Array.isArray(importati)) { alert("File non valido."); return; }
+      const esistenti = caricaSpot();
+      const idEsistenti = new Set(esistenti.map(s => s.id));
+      const nuovi = importati.filter(s => !idEsistenti.has(s.id));
+      const tutti = [...nuovi, ...esistenti];
+      salvaSpot(tutti);
+      document.getElementById("spotList").innerHTML = renderSpotList(tutti);
+      alert(`✅ Importati ${nuovi.length} spot (${importati.length - nuovi.length} già presenti ignorati).`);
+    } catch(err) { alert("Errore nella lettura del file JSON."); }
+  };
+  reader.readAsText(file);
+  event.target.value = "";
+}
 </script>
 
-<!-- ============================================================
-     BLOCCO JS 9B — SPOT ITALIA
-     Layout: split desktop (2/3 mappa + 1/3 pannello)
-              modale mobile (dal basso)
-     ============================================================ -->
-
 <script>
+/* === SPOT ITALIA — MODIFICA 1 (mappa vuota) + MODIFICA 2 (salva spot) === */
 const spotsItalia = [
   { name:"Sestri Levante (GE)",         reg:"Liguria",        coords:[44.270,9.392],  type:"Spinning",    target:"Spigole, Serra, Barracuda",         tips:"Vicino foce torrente. Ottimo con mare mosso ed esca viva o jig. Alba e tramonto ideali." },
   { name:"Celle Ligure (SV)",            reg:"Liguria",        coords:[44.341,8.547],  type:"Surfcasting", target:"Mormore, Orate, Saraghi",            tips:"Spiaggia sabbiosa profonda. Ottima in inverno dopo mareggiate con arenicola e americano." },
@@ -1231,62 +1147,44 @@ const spotsItalia = [
   { name:"Lago Pozzillo (EN)",           reg:"Sicilia",        coords:[37.643,14.629], type:"Bassfishing", target:"Black Bass, Carpe, Persico",         tips:"Principale lago artificiale siciliano per il bass. Primavera e autunno ideali." }
 ];
 
-/* ── stato locale sezione spot ── */
-let spotItaliaMap    = null;
-let spotItaliaMarkers = [];
-let spotAttivo       = null; /* spot selezionato corrente */
-let spotTooltipAttivo = null; /* tooltip nome spot sulla mappa */
-const isMobile = () => window.innerWidth < 769;
+let spotItaliaMap=null, spotItaliaMarkers=[], spotAttivo=null, spotTooltipAttivo=null;
+const isMobile=()=>window.innerWidth<769;
 
-/* ── ENTRY POINT ── */
+/* MODIFICA 1: mappa vuota all'avvio, marker solo dopo Carica → */
 function showCercaSpot() {
-  const n = spotsItalia.length;
-  document.getElementById("content").innerHTML = `
+  const n=spotsItalia.length;
+  document.getElementById("content").innerHTML=`
     <div class="spot-italia-header">
       <h3>🗺️ Spot Italia <span class="spot-count-badge" id="spotCount">${n} spot</span></h3>
       <p>Seleziona regione e/o tecnica, poi premi Carica → per filtrare</p>
     </div>
-
     <div class="filtri-row">
       <select class="filtro-select" id="filtroReg">
         <option value="all">📍 Tutta Italia</option>
-        <option value="Liguria">Liguria</option>
-        <option value="Toscana">Toscana</option>
-        <option value="Lazio">Lazio</option>
-        <option value="Campania">Campania</option>
-        <option value="Calabria">Calabria</option>
-        <option value="Puglia">Puglia</option>
-        <option value="Basilicata">Basilicata</option>
-        <option value="Abruzzo-Molise">Abruzzo / Molise</option>
-        <option value="Marche">Marche</option>
-        <option value="Emilia-Romagna">Emilia Romagna</option>
-        <option value="Veneto">Veneto</option>
-        <option value="Friuli-VG">Friuli V.G.</option>
-        <option value="Sardegna">Sardegna</option>
-        <option value="Sicilia">Sicilia</option>
+        <option value="Liguria">Liguria</option><option value="Toscana">Toscana</option>
+        <option value="Lazio">Lazio</option><option value="Campania">Campania</option>
+        <option value="Calabria">Calabria</option><option value="Puglia">Puglia</option>
+        <option value="Basilicata">Basilicata</option><option value="Abruzzo-Molise">Abruzzo / Molise</option>
+        <option value="Marche">Marche</option><option value="Emilia-Romagna">Emilia Romagna</option>
+        <option value="Veneto">Veneto</option><option value="Friuli-VG">Friuli V.G.</option>
+        <option value="Sardegna">Sardegna</option><option value="Sicilia">Sicilia</option>
       </select>
       <select class="filtro-select" id="filtroTech">
         <option value="all">🎣 Ogni tecnica</option>
-        <option value="Surfcasting">Surfcasting</option>
-        <option value="Spinning">Spinning</option>
-        <option value="Eging">Eging</option>
-        <option value="Bolognese">Bolognese/Fondo</option>
+        <option value="Surfcasting">Surfcasting</option><option value="Spinning">Spinning</option>
+        <option value="Eging">Eging</option><option value="Bolognese">Bolognese/Fondo</option>
         <option value="Bassfishing">Bassfishing</option>
       </select>
       <button class="btn-Carica" onclick="applicaFiltriSpot()">Carica →</button>
     </div>
-
     <div class="spot-split-layout">
-      <!-- MAPPA (sinistra / sopra) -->
       <div class="spot-mappa-wrap">
         <div class="mappa-header">
           <span>🎣 Spot di Pesca Italia</span>
-          <span id="mappaSpotCount" style="color:rgba(255,255,255,0.7);font-size:12px;">${n} visibili</span>
+          <span id="mappaSpotCount" style="color:rgba(255,255,255,0.7);font-size:12px;">Premi Carica →</span>
         </div>
         <div id="spotItaliaMap"></div>
       </div>
-
-      <!-- PANNELLO DESTRO (desktop) / Modale (mobile gestito JS) -->
       <div class="spot-panel-right" id="spotPanelRight">
         <div class="spot-panel-header" id="spotPanelHeader">📋 Dettaglio spot</div>
         <div class="spot-panel-body" id="spotPanelBody">
@@ -1297,95 +1195,70 @@ function showCercaSpot() {
         </div>
       </div>
     </div>
-
     <button onclick="goTo(showPrevisioni)" style="width:100%;margin-top:14px;">⬅️ Torna alle Previsioni</button><br>`;
-
-  spotAttivo = null;
-  setTimeout(() => initSpotItaliaMap(), 80);
+  spotAttivo=null;
+  /* MODIFICA 1: mappa vuota — nessun marker caricato */
+  setTimeout(()=>initSpotItaliaMap(), 80);
 }
 
-/* ── INIT MAPPA ── */
-function initSpotItaliaMap() {
-  if (spotItaliaMap) { spotItaliaMap.remove(); spotItaliaMap = null; }
-  spotItaliaMap = L.map("spotItaliaMap", { zoomControl: true }).setView([41.871,12.567], 6);
+function initSpotItaliaMap(){
+  if(spotItaliaMap){spotItaliaMap.remove();spotItaliaMap=null;}
+  spotItaliaMarkers=[];
+  spotItaliaMap=L.map("spotItaliaMap",{zoomControl:true}).setView([41.871,12.567],6);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(spotItaliaMap);
   L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.65}).addTo(spotItaliaMap);
-
-  /* Tenta GPS per centrare */
-  if (prevCoords) {
-    spotItaliaMap.setView([prevCoords.lat, prevCoords.lon], 9);
-    const icoMe = L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
-    L.marker([prevCoords.lat, prevCoords.lon],{icon:icoMe}).addTo(spotItaliaMap).bindPopup("<b>📍 Sei qui</b>");
-  } else if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(pos => {
-      spotItaliaMap.setView([pos.coords.latitude, pos.coords.longitude], 9);
-      const icoMe = L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
-      L.marker([pos.coords.latitude, pos.coords.longitude],{icon:icoMe}).addTo(spotItaliaMap).bindPopup("<b>📍 Sei qui</b>");
-    }, ()=>{}, {timeout:5000});
+  /* GPS per centrare, senza aggiungere marker degli spot */
+  if(prevCoords){
+    spotItaliaMap.setView([prevCoords.lat,prevCoords.lon],9);
+    const icoMe=L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
+    L.marker([prevCoords.lat,prevCoords.lon],{icon:icoMe}).addTo(spotItaliaMap).bindPopup("<b>📍 Sei qui</b>");
+  } else if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(pos=>{
+      spotItaliaMap.setView([pos.coords.latitude,pos.coords.longitude],9);
+      const icoMe=L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
+      L.marker([pos.coords.latitude,pos.coords.longitude],{icon:icoMe}).addTo(spotItaliaMap).bindPopup("<b>📍 Sei qui</b>");
+    },()=>{},{timeout:5000});
   }
-
-  aggiornaMappaSpotItalia(spotsItalia);
+  /* Nessun marker all'avvio */
 }
 
-/* ── AGGIORNA MARKERS ── */
-function aggiornaMappaSpotItalia(lista) {
-  spotItaliaMarkers.forEach(m => spotItaliaMap.removeLayer(m));
-  spotItaliaMarkers = [];
-  lista.forEach(spot => {
-    const ico = L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">🎣</div>',iconSize:[26,26],iconAnchor:[13,26],className:""});
-    const m = L.marker(spot.coords, {icon:ico}).addTo(spotItaliaMap);
-    m.on("click", () => {
-      onSpotSelezionato(spot);
-    });
+function aggiornaMappaSpotItalia(lista){
+  spotItaliaMarkers.forEach(m=>spotItaliaMap.removeLayer(m));
+  spotItaliaMarkers=[];
+  lista.forEach(spot=>{
+    const ico=L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">🎣</div>',iconSize:[26,26],iconAnchor:[13,26],className:""});
+    const m=L.marker(spot.coords,{icon:ico}).addTo(spotItaliaMap);
+    m.on("click",()=>onSpotSelezionato(spot));
     spotItaliaMarkers.push(m);
   });
 }
 
-/* ── FILTRI Carica → ── */
-function applicaFiltriSpot() {
-  const reg  = document.getElementById("filtroReg")?.value  || "all";
-  const tech = document.getElementById("filtroTech")?.value || "all";
-  const filtrati = spotsItalia.filter(s => {
-    return (reg==="all"||s.reg===reg) && (tech==="all"||s.type===tech);
-  });
+function applicaFiltriSpot(){
+  const reg=document.getElementById("filtroReg")?.value||"all";
+  const tech=document.getElementById("filtroTech")?.value||"all";
+  const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
   aggiornaMappaSpotItalia(filtrati);
-  const n = filtrati.length;
-  if(document.getElementById("spotCount")) document.getElementById("spotCount").textContent = n+" spot";
-  if(document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent = n+" visibili";
-
-  /* Se filtri attivi → mostra lista nel pannello (no modale) */
-  if (reg!=="all" || tech!=="all") {
-    mostraPannelloLista(filtrati, reg!=="all" ? reg : "Risultati filtro");
-    /* Zoom sulla regione filtrata */
-    if (filtrati.length > 0) {
-      const bounds = L.latLngBounds(filtrati.map(s=>s.coords));
-      spotItaliaMap.fitBounds(bounds, {padding:[30,30]});
-    }
+  const n=filtrati.length;
+  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
+  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
+  if(reg!=="all"||tech!=="all"){
+    mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
+    if(filtrati.length>0){const bounds=L.latLngBounds(filtrati.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
   } else {
-    /* Nessun filtro → solo aggiorna markers, pannello placeholder */
-    if (document.getElementById("spotPanelBody")) {
-      document.getElementById("spotPanelHeader").textContent = "📋 Dettaglio spot";
-      document.getElementById("spotPanelBody").innerHTML = `
-        <div class="spot-panel-placeholder">
-          <span class="ph-ico">🗺️</span>
-          <p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
-        </div>`;
+    if(document.getElementById("spotPanelBody")){
+      document.getElementById("spotPanelHeader").textContent="📋 Dettaglio spot";
+      document.getElementById("spotPanelBody").innerHTML=`<div class="spot-panel-placeholder"><span class="ph-ico">🗺️</span><p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p></div>`;
     }
   }
 }
 
-/* ── PANNELLO LISTA (desktop destra / mobile intera) ── */
-function mostraPannelloLista(lista, titolo) {
-  if (isMobile()) {
-    /* Mobile: mostra lista come modale scorrevole dal basso */
+function mostraPannelloLista(lista,titolo){
+  if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
-    const html = lista.map((s,i) => `
+    const html=lista.map(s=>`
       <div class="spot-italia-item" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
         <span class="si-ico">🎣</span>
-        <div class="si-info">
-          <div class="si-nome">${s.name}</div>
-          <div class="si-sub">🐟 ${s.target}</div>
-        </div>
+        <div class="si-info"><div class="si-nome">${s.name}</div><div class="si-sub">🐟 ${s.target}</div></div>
         <span class="si-badge">${s.type}</span>
       </div>`).join("");
     document.body.insertAdjacentHTML("beforeend",`
@@ -1395,78 +1268,49 @@ function mostraPannelloLista(lista, titolo) {
             <span style="font-weight:900;font-size:17px;">🎣 ${titolo} <span style="opacity:0.5;font-size:13px;">(${lista.length})</span></span>
             <button onclick="chiudiModaleListaMobile()" style="background:none;border:none;font-size:22px;cursor:pointer;margin:0;padding:0;color:#666;">✕</button>
           </div>
-          ${html || '<p style="opacity:0.5;text-align:center;padding:20px;">Nessuno spot trovato.</p>'}
+          ${html||'<p style="opacity:0.5;text-align:center;padding:20px;">Nessuno spot trovato.</p>'}
         </div>
       </div>`);
   } else {
-    /* Desktop: pannello destro */
-    const header = document.getElementById("spotPanelHeader");
-    const body   = document.getElementById("spotPanelBody");
-    if (!header||!body) return;
-    header.textContent = `🎣 ${titolo} (${lista.length})`;
-    if (lista.length === 0) { body.innerHTML = `<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato.</p>`; return; }
-    body.innerHTML = lista.map(s => `
+    const header=document.getElementById("spotPanelHeader"),body=document.getElementById("spotPanelBody");
+    if(!header||!body)return;
+    header.textContent=`🎣 ${titolo} (${lista.length})`;
+    if(lista.length===0){body.innerHTML=`<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato.</p>`;return;}
+    body.innerHTML=lista.map(s=>`
       <div class="spot-italia-item${spotAttivo===s?" active":""}" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
         <span class="si-ico">🎣</span>
-        <div class="si-info">
-          <div class="si-nome">${s.name}</div>
-          <div class="si-sub">🐟 ${s.target}</div>
-        </div>
+        <div class="si-info"><div class="si-nome">${s.name}</div><div class="si-sub">🐟 ${s.target}</div></div>
         <span class="si-badge">${s.type}</span>
       </div>`).join("");
   }
 }
-function chiudiModaleListaMobile(e) {
-  if (!e || e.target.classList.contains("modal-spot-overlay"))
-    document.getElementById("spotModalLista")?.remove();
-}
+function chiudiModaleListaMobile(e){if(!e||e.target.classList.contains("modal-spot-overlay"))document.getElementById("spotModalLista")?.remove();}
 
-/* ── SPOT SELEZIONATO (marker o lista) — stesso comportamento mobile e desktop ── */
-function onSpotSelezionato(spot) {
-  spotAttivo = spot;
-
-  /* 1. Zoom mappa + tooltip fisso con nome */
-  if (spotItaliaMap) {
-    spotItaliaMap.flyTo(spot.coords, 14, { duration: 0.8 });
-    /* Rimuovi tooltip precedente */
-    if (spotTooltipAttivo) { spotTooltipAttivo.remove(); spotTooltipAttivo = null; }
-    /* Crea marker invisibile con tooltip fisso (permanent) */
-    const icoVuota = L.divIcon({ html:'', iconSize:[0,0], className:'' });
-    spotTooltipAttivo = L.marker(spot.coords, { icon: icoVuota, zIndexOffset: 1000 })
-      .addTo(spotItaliaMap)
-      .bindTooltip(`<b>${spot.name}</b>`, {
-        permanent: true, direction: 'top', offset: [0, -8],
-        className: 'spot-tooltip-label'
-      })
-      .openTooltip();
+function onSpotSelezionato(spot){
+  spotAttivo=spot;
+  if(spotItaliaMap){
+    spotItaliaMap.flyTo(spot.coords,14,{duration:0.8});
+    if(spotTooltipAttivo){spotTooltipAttivo.remove();spotTooltipAttivo=null;}
+    const icoVuota=L.divIcon({html:'',iconSize:[0,0],className:''});
+    spotTooltipAttivo=L.marker(spot.coords,{icon:icoVuota,zIndexOffset:1000}).addTo(spotItaliaMap)
+      .bindTooltip(`<b>${spot.name}</b>`,{permanent:true,direction:'top',offset:[0,-8],className:'spot-tooltip-label'}).openTooltip();
   }
-
-  /* 2. Dettaglio sempre nel pannello della pagina (mobile e desktop) */
   mostraDettaglioPannello(spot);
-
-  /* 3. Su mobile: chiudi la lista modale se aperta e scrolla al pannello */
-  if (isMobile()) {
+  if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
-    setTimeout(() => {
-      const panel = document.getElementById("spotPanelRight");
-      if (panel) panel.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 300);
+    setTimeout(()=>{const panel=document.getElementById("spotPanelRight");if(panel)panel.scrollIntoView({behavior:"smooth",block:"start"});},300);
   }
-
-  /* 4. Aggiorna active nella lista desktop */
-  document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
-  document.querySelectorAll(".spot-italia-item").forEach(el => {
-    if (el.querySelector(".si-nome")?.textContent === spot.name) el.classList.add("active");
-  });
+  document.querySelectorAll(".spot-italia-item").forEach(el=>el.classList.remove("active"));
+  document.querySelectorAll(".spot-italia-item").forEach(el=>{if(el.querySelector(".si-nome")?.textContent===spot.name)el.classList.add("active");});
 }
 
-/* ── DETTAGLIO NEL PANNELLO DESKTOP ── */
-function mostraDettaglioPannello(spot) {
-  const header = document.getElementById("spotPanelHeader");
-  const body   = document.getElementById("spotPanelBody");
-  if (!header||!body) return;
-  header.textContent = "📍 " + spot.reg;
-  body.innerHTML = `
+/* MODIFICA 2: btn salva spot nel dettaglio */
+function mostraDettaglioPannello(spot){
+  const header=document.getElementById("spotPanelHeader"),body=document.getElementById("spotPanelBody");
+  if(!header||!body)return;
+  header.textContent="📍 "+spot.reg;
+  const idx=spotsItalia.indexOf(spot);
+  body.innerHTML=`
     <div class="spot-detail-panel">
       <span class="sdp-tag">${spot.reg}</span>
       <h3>${spot.name}</h3>
@@ -1478,33 +1322,65 @@ function mostraDettaglioPannello(spot) {
       <button class="btn-nav-spot" onclick="window.open('https://www.google.com/maps?q=${spot.coords[0]},${spot.coords[1]}','_blank')">
         🧭 Ottieni indicazioni →
       </button>
+      <button class="btn-salva-spot-italia" id="btnSalvaItalia${idx}" onclick="salvaSpotItalia(${idx})">
+        📌 Salva nei miei spot
+      </button>
       <button class="btn-back-lista" onclick="tornaListaRegione('${spot.reg}')">
         ← Tutti gli spot di ${spot.reg}
       </button>
     </div>`;
-}
-function tornaListaRegione(reg) {
-  const lista = spotsItalia.filter(s=>s.reg===reg);
-  mostraPannelloLista(lista, reg);
-  aggiornaMappaSpotItalia(lista);
-  if(lista.length>0){ const bounds=L.latLngBounds(lista.map(s=>s.coords)); spotItaliaMap.fitBounds(bounds,{padding:[30,30]}); }
-  const n=lista.length;
-  if(document.getElementById("spotCount")) document.getElementById("spotCount").textContent=n+" spot";
-  if(document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent=n+" visibili";
+  /* Aggiorna label se già salvato */
+  aggiornaLabelSalva(idx);
 }
 
-/* mostraModaleDettaglioMobile rimossa: dettaglio ora sempre nel pannello pagina */
+/* MODIFICA 2: salva spot Italia in localStorage */
+function salvaSpotItalia(idx){
+  const spot=spotsItalia[idx];
+  const spots=caricaSpot();
+  const giaSalvato=spots.find(s=>s.fonte==="italia"&&s.nome===spot.name);
+  if(giaSalvato){alert("Spot già salvato nei tuoi spot! Puoi trovarlo nella sezione Meteo.");return;}
+  const nuovoSpot={
+    id:Date.now(),
+    nome:spot.name,
+    specie:spot.target,
+    montatura:spot.type,
+    note:spot.tips.slice(0,80),
+    lat:spot.coords[0],
+    lon:spot.coords[1],
+    data:new Date().toLocaleDateString("it-IT"),
+    fonte:"italia"
+  };
+  spots.unshift(nuovoSpot);
+  salvaSpot(spots);
+  aggiornaLabelSalva(idx);
+  alert("✅ Spot salvato! Trovi tutti i tuoi spot nella sezione Meteo.");
+}
+
+function aggiornaLabelSalva(idx){
+  const btn=document.getElementById("btnSalvaItalia"+idx); if(!btn)return;
+  const spot=spotsItalia[idx];
+  const spots=caricaSpot();
+  const giaSalvato=spots.find(s=>s.fonte==="italia"&&s.nome===spot.name);
+  if(giaSalvato){btn.textContent="✅ Già salvato";btn.style.opacity="0.6";btn.style.cursor="default";}
+}
+
+function tornaListaRegione(reg){
+  const lista=spotsItalia.filter(s=>s.reg===reg);
+  mostraPannelloLista(lista,reg);
+  aggiornaMappaSpotItalia(lista);
+  if(lista.length>0){const bounds=L.latLngBounds(lista.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
+  const n=lista.length;
+  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
+  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
+}
 </script>
 
-<!-- ============================================================
-     BLOCCO JS 10 — AVVIO APP
-     ============================================================ -->
-
 <script>
+/* === AVVIO === */
 caricaTema();
 showHome();
-window.addEventListener("load", () => {
-  setTimeout(() => { const s=document.getElementById("splash"); if(s) s.style.display="none"; }, 3500);
+window.addEventListener("load",()=>{
+  setTimeout(()=>{const s=document.getElementById("splash");if(s)s.style.display="none";},3500);
 });
 </script>
 
