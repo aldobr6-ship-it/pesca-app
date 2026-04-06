@@ -264,7 +264,7 @@ body.dark .filtro-select { background:#1e293b; color:#e2e8f0; border-color:#4b55
   background: white; border-radius: 20px; overflow: hidden;
   box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: sticky; top: 70px;
 }
-#spotItaliaMap { height: 70vh; width: 100%; }
+#spotItaliaMap { height: 82vh; width: 100%; }
 @media (max-width: 768px) {
   #spotItaliaMap { height: 55vw; min-height: 240px; }
   .spot-mappa-wrap { position: relative; top: 0; margin-bottom: 14px; }
@@ -412,11 +412,8 @@ function caricaTema() {
 }
 /* MODIFICA 4 — Chiudi app con conferma */
 function chiudiApp() {
-  if (confirm("Vuoi uscire dall'app?\n\nSe non si chiude automaticamente, chiudi la scheda del browser manualmente.")) {
-    window.close();
-    setTimeout(() => {
-      alert("Il browser non ha permesso la chiusura automatica.\nChiudi manualmente questa scheda.");
-    }, 400);
+  if (confirm("Vuoi uscire dall'app?\n\nVerrai riportato alla home del browser.")) {
+    window.location.href = "about:blank";
   }
 }
 </script>
@@ -1204,7 +1201,7 @@ function showCercaSpot() {
 function initSpotItaliaMap(){
   if(spotItaliaMap){spotItaliaMap.remove();spotItaliaMap=null;}
   spotItaliaMarkers=[];
-  spotItaliaMap=L.map("spotItaliaMap",{zoomControl:true}).setView([41.871,12.567],6);
+  spotItaliaMap=L.map("spotItaliaMap",{zoomControl:true}).setView([41.871,12.567],5);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(spotItaliaMap);
   L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.65}).addTo(spotItaliaMap);
   /* GPS per centrare, senza aggiungere marker degli spot */
