@@ -412,10 +412,14 @@ function caricaTema() {
 }
 /* MODIFICA 4 — Chiudi app con conferma */
 function chiudiApp() {
-  if (confirm("Vuoi uscire dall'app?\n\nVerrai riportato alla home del browser.")) {
-    window.location.href = "about:blank";
+ if (confirm("Vuoi uscire dall'app?\n\nSe non si chiude automaticamente, chiudi la scheda del browser manualmente.")) {
+    window.close();
+    setTimeout(() => {
+      alert("Il browser non ha permesso la chiusura automatica.\nChiudi manualmente questa scheda.");
+    }, 400);
   }
 }
+
 </script>
 
 <script>
