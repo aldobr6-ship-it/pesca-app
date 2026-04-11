@@ -1211,15 +1211,8 @@ function initSpotItaliaMap(){
   L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.65}).addTo(spotItaliaMap);
   /* GPS per centrare, senza aggiungere marker degli spot */
   if(prevCoords){
-    spotItaliaMap.setView([prevCoords.lat,prevCoords.lon],9);
     const icoMe=L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
     L.marker([prevCoords.lat,prevCoords.lon],{icon:icoMe}).addTo(spotItaliaMap).bindPopup("<b>📍 Sei qui</b>");
-  } else if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(pos=>{
-      spotItaliaMap.setView([pos.coords.latitude,pos.coords.longitude],9);
-      const icoMe=L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
-      L.marker([pos.coords.latitude,pos.coords.longitude],{icon:icoMe}).addTo(spotItaliaMap).bindPopup("<b>📍 Sei qui</b>");
-    },()=>{},{timeout:5000});
   }
   /* Nessun marker all'avvio */
 }
