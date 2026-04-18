@@ -434,6 +434,7 @@ function showHome() {
       <div class="card" onclick="goTo(showMontature)"><span class="home-icon">🪝</span><h3>Montature</h3><p>Spiegate passo-passo</p></div>
       <div class="card" onclick="goTo(showNodi)"><span class="home-icon">🧵</span><h3>Nodi</h3><p>Con immagini</p></div>
       <div class="card" onclick="goTo(showPrevisioni)"><span class="home-icon">⚓</span><h3>Meteo & Spot</h3><p>Previsioni + mappa pesca</p></div>
+      <div class="card" onclick="goTo(showQuandoPescare)"><span class="home-icon">🌙</span><h3>Quando Pescare</h3><p>Solunar, maree, luna</p></div>
     </div>`;
 }
 </script>
@@ -1367,6 +1368,378 @@ function tornaListaRegione(reg){
   const n=lista.length;
   if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
   if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
+}
+</script>
+
+<!-- ============================================================
+     BLOCCO CSS — QUANDO PESCARE (Solunar + Maree + Luna)
+     ============================================================ -->
+
+<style>
+/* Hero quando pescare */
+.qp-hero {
+  background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  border-radius: 20px; padding: 20px; color: white;
+  margin-bottom: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  text-align: center;
+}
+.qp-hero h2 { margin:0 0 4px; font-size:20px; }
+.qp-hero .qp-sub { opacity:0.7; font-size:13px; margin-bottom:16px; }
+.qp-luna-ico { font-size:52px; display:block; margin:8px auto; }
+.qp-luna-nome { font-size:15px; font-weight:700; margin-bottom:2px; }
+.qp-luna-pct  { font-size:12px; opacity:0.7; }
+.qp-rating-bar { display:flex; gap:6px; align-items:center; justify-content:center; margin:12px 0 0; }
+.qp-rating-bar .stelle { font-size:22px; letter-spacing:2px; }
+.qp-rating-bar .label  { font-size:14px; font-weight:700; }
+
+/* Card solunar momenti */
+.qp-card {
+  background: white; border-radius: 20px; padding: 18px;
+  margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+}
+body.dark .qp-card { background:#1e293b; color:#e2e8f0; }
+.qp-card h3 { margin:0 0 14px; font-size:16px; color:#0a2a43; }
+body.dark .qp-card h3 { color:#7dd3fc; }
+
+/* Fasce orarie solunar */
+.sol-fasce { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.sol-fascia {
+  border-radius:14px; padding:12px 10px; text-align:center;
+  border: 2px solid transparent;
+}
+.sol-fascia.major {
+  background: linear-gradient(135deg,#fef9c3,#fde68a);
+  border-color: #f59e0b;
+}
+.sol-fascia.minor {
+  background: linear-gradient(135deg,#e0f2fe,#bae6fd);
+  border-color: #38bdf8;
+}
+body.dark .sol-fascia.major { background:linear-gradient(135deg,#78350f,#92400e); border-color:#f59e0b; }
+body.dark .sol-fascia.minor { background:linear-gradient(135deg,#0c4a6e,#075985); border-color:#38bdf8; }
+.sol-fascia .sf-tipo  { font-size:10px; font-weight:800; text-transform:uppercase; opacity:0.6; margin-bottom:4px; }
+.sol-fascia .sf-ora   { font-size:20px; font-weight:900; }
+.sol-fascia .sf-dur   { font-size:11px; opacity:0.65; margin-top:2px; }
+.sol-fascia .sf-ico   { font-size:22px; display:block; margin-bottom:4px; }
+
+/* Maree */
+.marea-row {
+  display:flex; align-items:center; gap:12px;
+  padding:10px 0; border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.marea-row:last-child { border-bottom:none; }
+.marea-ico  { font-size:26px; flex-shrink:0; }
+.marea-info { flex:1; }
+.marea-tipo { font-weight:700; font-size:14px; }
+.marea-ora  { font-size:13px; opacity:0.65; }
+.marea-h    { font-size:13px; font-weight:700; color:#0077b6; }
+body.dark .marea-h { color:#38bdf8; }
+
+/* Giorni scroll solunar */
+.qp-giorni-scroll { display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; margin-bottom:14px; scrollbar-width:none; }
+.qp-giorni-scroll::-webkit-scrollbar { display:none; }
+.qp-giorno-card {
+  flex:0 0 100px; background:white; border-radius:16px;
+  padding:12px 8px; text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.09); cursor:default;
+}
+body.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
+.qp-giorno-card .qgc-nome  { font-size:11px; font-weight:700; opacity:0.6; margin-bottom:4px; }
+.qp-giorno-card .qgc-luna  { font-size:26px; margin:4px 0; }
+.qp-giorno-card .qgc-fase  { font-size:10px; opacity:0.6; margin-bottom:4px; }
+.qp-giorno-card .qgc-rate  { font-size:13px; }
+.qp-giorno-card .qgc-major { font-size:11px; opacity:0.75; margin-top:3px; }
+
+/* Loader */
+.qp-loader { text-align:center; padding:60px 20px; }
+.qp-loader .spinner { font-size:48px; animation:floatLogo 1.5s ease-in-out infinite; display:block; margin-bottom:16px; }
+.qp-loader p { opacity:0.6; font-size:14px; }
+</style>
+
+<!-- ============================================================
+     BLOCCO JS — QUANDO PESCARE (Solunar + Maree + Luna)
+     ============================================================ -->
+
+<script>
+/* === QUANDO PESCARE OGGI === */
+
+function showQuandoPescare() {
+  document.getElementById("content").innerHTML = `
+    <div class="qp-loader">
+      <span class="spinner">🌙</span>
+      <p>Calcolo condizioni di pesca…</p>
+    </div>`;
+
+  /* Chiede conferma GPS */
+  if (!navigator.geolocation) {
+    renderQuandoPescare(41.9, 12.5); return;
+  }
+  const usa = confirm("📍 Per calcolare solunar e maree precise\nposso usare la tua posizione GPS?\n\nOK = usa GPS\nAnnulla = usa posizione centrale Italia");
+  if (!usa) { renderQuandoPescare(41.9, 12.5); return; }
+  navigator.geolocation.getCurrentPosition(
+    pos => renderQuandoPescare(pos.coords.latitude, pos.coords.longitude),
+    ()  => renderQuandoPescare(41.9, 12.5),
+    { enableHighAccuracy: true, timeout: 8000 }
+  );
+}
+
+async function renderQuandoPescare(lat, lon) {
+  const ora = new Date();
+
+  /* Fetch maree dall'API Marine Open-Meteo */
+  let mareeOggi = [];
+  try {
+    const res = await fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=sea_level_height_msl&timezone=Europe%2FRome&forecast_days=1`);
+    const dati = await res.json();
+    mareeOggi = calcolaMareeDaHourly(dati.hourly?.sea_level_height_msl || [], dati.hourly?.time || []);
+  } catch(e) { mareeOggi = []; }
+
+  /* Calcoli solunar e luna */
+  const lunaInfo   = calcolaFaseLuna(ora);
+  const solunar    = calcolaSolunar(lat, lon, ora);
+  const giorniHTML = generaGiorniSolunar(lat, lon, ora);
+
+  /* Rating giornaliero complessivo */
+  const ratingGiorno = calcolaRatingSolunar(lunaInfo.illuminazione, ora);
+
+  document.getElementById("content").innerHTML = `
+
+    <!-- HERO LUNA -->
+    <div class="qp-hero">
+      <h2>🌙 Quando Pescare Oggi</h2>
+      <div class="qp-sub">📍 ${lat.toFixed(3)}°N, ${lon.toFixed(3)}°E • ${ora.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"})}</div>
+      <span class="qp-luna-ico">${lunaInfo.icona}</span>
+      <div class="qp-luna-nome">${lunaInfo.fase}</div>
+      <div class="qp-luna-pct">Illuminazione: ${lunaInfo.illuminazione}%</div>
+      <div class="qp-rating-bar">
+        <span class="stelle">${stelleRating(ratingGiorno)}</span>
+        <span class="label">${["","Scarsa","Bassa","Discreta","Buona","Ottima"][ratingGiorno]} per pescare</span>
+      </div>
+    </div>
+
+    <!-- SCROLL 3 GIORNI -->
+    <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">📅 Prossimi 3 giorni</h3>
+    <div class="qp-giorni-scroll">${giorniHTML}</div>
+
+    <!-- SOLUNAR OGGI -->
+    <div class="qp-card">
+      <h3>🎯 Momenti Migliori Oggi</h3>
+      <div class="sol-fasce">
+        ${solunar.map(s=>`
+          <div class="sol-fascia ${s.tipo}">
+            <span class="sf-ico">${s.ico}</span>
+            <div class="sf-tipo">${s.tipo === "major" ? "⭐ MAJOR" : "● minor"}</div>
+            <div class="sf-ora">${s.ora}</div>
+            <div class="sf-dur">${s.tipo === "major" ? "~2 ore" : "~1 ora"}</div>
+          </div>`).join("")}
+      </div>
+      <p style="font-size:12px;opacity:0.55;margin:14px 0 0;text-align:center;">
+        Major = transito lunare (picco attività) • Minor = alba/tramonto luna
+      </p>
+    </div>
+
+    <!-- MAREE -->
+    <div class="qp-card">
+      <h3>🌊 Maree Oggi</h3>
+      ${mareeOggi.length > 0 ? mareeOggi.map(m=>`
+        <div class="marea-row">
+          <span class="marea-ico">${m.tipo === "alta" ? "⬆️" : "⬇️"}</span>
+          <div class="marea-info">
+            <div class="marea-tipo">Marea ${m.tipo === "alta" ? "Alta" : "Bassa"}</div>
+            <div class="marea-ora">${m.ora}</div>
+          </div>
+          <div class="marea-h">${m.altezza} m</div>
+        </div>`).join("") :
+        `<p style="opacity:0.5;font-size:13px;text-align:center;padding:10px 0;">
+          Dati maree non disponibili per questa posizione.<br>
+          <small>Le maree sono significative solo in mare aperto.</small>
+        </p>`}
+    </div>
+
+    <!-- CONSIGLI -->
+    <div class="qp-card">
+      <h3>💡 Consiglio del Giorno</h3>
+      ${generaConsiglioPesca(lunaInfo, solunar, ora)}
+    </div>
+
+    <button onclick="goTo(showQuandoPescare)" style="width:100%;">🔄 Aggiorna</button><br>`;
+}
+
+/* ── CALCOLO FASE LUNA ── */
+function calcolaFaseLuna(data) {
+  /* Ciclo sinodico 29.53059 giorni */
+  const riferimento = new Date("2000-01-06T18:14:00Z"); /* Luna nuova di riferimento */
+  const diffGiorni  = (data - riferimento) / 86400000;
+  const ciclo       = 29.53059;
+  const etaLuna     = ((diffGiorni % ciclo) + ciclo) % ciclo;
+  const illuminazione = Math.round(50 * (1 - Math.cos(2 * Math.PI * etaLuna / ciclo)));
+
+  let fase, icona;
+  if      (etaLuna < 1.85)  { fase="Luna Nuova";        icona="🌑"; }
+  else if (etaLuna < 7.38)  { fase="Quarto Crescente";  icona="🌒"; }
+  else if (etaLuna < 9.22)  { fase="Primo Quarto";      icona="🌓"; }
+  else if (etaLuna < 14.77) { fase="Gibbosa Crescente"; icona="🌔"; }
+  else if (etaLuna < 16.61) { fase="Luna Piena";        icona="🌕"; }
+  else if (etaLuna < 22.15) { fase="Gibbosa Calante";   icona="🌖"; }
+  else if (etaLuna < 23.99) { fase="Ultimo Quarto";     icona="🌗"; }
+  else if (etaLuna < 29.53) { fase="Quarto Calante";    icona="🌘"; }
+  else                       { fase="Luna Nuova";        icona="🌑"; }
+
+  return { fase, icona, illuminazione, etaLuna };
+}
+
+/* ── CALCOLO SOLUNAR ── */
+function calcolaSolunar(lat, lon, data) {
+  const JD = dataToJD(data);
+  const risultati = [];
+
+  /* Transiti lunari: luna al meridiano e anti-meridiano */
+  const trasitoPrincipale = calcolaTransitoLuna(JD, lon);
+  const trasitoOposto = (trasitoPrincipale + 12 * 3600000) % 86400000;
+
+  /* Alba e tramonto luna (minor periods) */
+  const albeLuna = calcolaAlbaTramonto(JD, lat, lon, "luna");
+
+  const fasce = [
+    { ms: trasitoPrincipale,  tipo:"major", ico:"🌕" },
+    { ms: trasitoOposto,       tipo:"major", ico:"🌑" },
+    { ms: albeLuna.alba,       tipo:"minor", ico:"🌙" },
+    { ms: albeLuna.tramonto,   tipo:"minor", ico:"🌛" },
+  ];
+
+  fasce.sort((a,b) => a.ms - b.ms);
+
+  return fasce.map(f => ({
+    tipo: f.tipo,
+    ico:  f.ico,
+    ora:  msToOra(f.ms)
+  }));
+}
+
+function dataToJD(data) {
+  return data.getTime() / 86400000 + 2440587.5;
+}
+
+function calcolaTransitoLuna(JD, lon) {
+  /* Anomalia media della luna */
+  const T  = (JD - 2451545.0) / 36525;
+  const L0 = (218.3164477 + 481267.88123421 * T) % 360;
+  const M  = (134.9633964 + 477198.8675055  * T) % 360;
+  const Mrad = M * Math.PI / 180;
+  const lambda = L0 + 6.289 * Math.sin(Mrad);
+  /* Ora del transito in ms dal mezzanotte locale */
+  const raLuna = ((lambda % 360) + 360) % 360;
+  const oraDecimale = (raLuna / 15 - lon / 15 + 24) % 24;
+  return Math.round(oraDecimale * 3600000);
+}
+
+function calcolaAlbaTramonto(JD, lat, lon, corpo) {
+  /* Approssimazione alba/tramonto luna */
+  const T = (JD - 2451545.0) / 36525;
+  const M = (134.9633964 + 477198.8675055 * T) * Math.PI / 180;
+  const L = (218.3164477 + 481267.88123421 * T) * Math.PI / 180;
+  const dec = Math.asin(Math.sin(0.0898) * Math.sin(L + 0.1098 * Math.sin(M)));
+  const latRad = lat * Math.PI / 180;
+  const cosH = -Math.tan(latRad) * Math.tan(dec);
+  const H = cosH >= 1 ? 0 : cosH <= -1 ? Math.PI : Math.acos(cosH);
+  const HDeg = H * 180 / Math.PI;
+  const transito = ((218.3164477 + 481267.88123421 * T) / 15 - lon / 15 + 24) % 24;
+  const alba     = ((transito - HDeg / 15) + 24) % 24;
+  const tramonto = ((transito + HDeg / 15) + 24) % 24;
+  return {
+    alba:     Math.round(alba     * 3600000),
+    tramonto: Math.round(tramonto * 3600000)
+  };
+}
+
+function msToOra(ms) {
+  const tot = ((ms % 86400000) + 86400000) % 86400000;
+  const h   = Math.floor(tot / 3600000);
+  const m   = Math.floor((tot % 3600000) / 60000);
+  return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`;
+}
+
+/* ── RATING SOLUNAR GIORNALIERO ── */
+function calcolaRatingSolunar(illuminazione, data) {
+  let r = 3;
+  if (illuminazione > 85 || illuminazione < 10) r = 5;      /* Luna piena o nuova */
+  else if (illuminazione > 65 || illuminazione < 25) r = 4;
+  else if (illuminazione > 45 && illuminazione < 55) r = 3;
+  /* Bonus weekend */
+  const g = data.getDay();
+  return Math.min(5, r);
+}
+
+/* ── MAREE DA HOURLY ── */
+function calcolaMareeDaHourly(valori, tempi) {
+  if (!valori || valori.length === 0) return [];
+  const maree = [];
+  for (let i = 1; i < valori.length - 1; i++) {
+    const prev = valori[i-1], curr = valori[i], next = valori[i+1];
+    if (curr === null || prev === null || next === null) continue;
+    const isAlta  = curr > prev && curr > next;
+    const isBassa = curr < prev && curr < next;
+    if (isAlta || isBassa) {
+      const ora = tempi[i] ? tempi[i].slice(11,16) : "--:--";
+      maree.push({
+        tipo:    isAlta ? "alta" : "bassa",
+        ora,
+        altezza: curr.toFixed(2)
+      });
+    }
+  }
+  return maree.slice(0, 4);
+}
+
+/* ── GIORNI SOLUNAR SCROLL ── */
+function generaGiorniSolunar(lat, lon, ora) {
+  const giorni = ["Dom","Lun","Mar","Mer","Gio","Ven","Sab"];
+  let html = "";
+  for (let i = 1; i <= 3; i++) {
+    const d = new Date(ora); d.setDate(d.getDate() + i);
+    const nome  = i === 1 ? "Domani" : giorni[d.getDay()];
+    const luna  = calcolaFaseLuna(d);
+    const rating = calcolaRatingSolunar(luna.illuminazione, d);
+    const sol   = calcolaSolunar(lat, lon, d);
+    const major1 = sol.filter(s=>s.tipo==="major")[0];
+    html += `
+      <div class="qp-giorno-card">
+        <div class="qgc-nome">${nome}</div>
+        <div class="qgc-luna">${luna.icona}</div>
+        <div class="qgc-fase">${luna.fase.split(" ").slice(0,2).join(" ")}</div>
+        <div class="qgc-rate">${stelleRating(rating)}</div>
+        ${major1 ? `<div class="qgc-major">⭐ ${major1.ora}</div>` : ""}
+      </div>`;
+  }
+  return html;
+}
+
+/* ── CONSIGLIO TESTO ── */
+function generaConsiglioPesca(luna, solunar, ora) {
+  const h = ora.getHours();
+  const major = solunar.filter(s=>s.tipo==="major");
+  const prossimo = solunar.find(s => {
+    const [hh,mm] = s.ora.split(":").map(Number);
+    return (hh * 60 + mm) > (h * 60 + ora.getMinutes());
+  });
+
+  let consiglio = "";
+  const ill = luna.illuminazione;
+
+  if (ill > 85)       consiglio += "<b>🌕 Luna Piena</b> — periodo d'oro per la pesca. I pesci sono attivi tutto il giorno, specialmente di notte. Ideale per spigole e saraghi. ";
+  else if (ill < 10)  consiglio += "<b>🌑 Luna Nuova</b> — eccellente per la pesca diurna. Le acque scure di notte rendono le esche più visibili. Ottimo per pesca a fondo. ";
+  else if (ill > 60)  consiglio += "<b>🌔 Luna in crescita</b> — buone condizioni. I pesci tendono ad alimentarsi di più. ";
+  else                consiglio += "<b>🌘 Luna calante</b> — condizioni nella media. Concentrati sui periodi major. ";
+
+  if (prossimo) {
+    consiglio += `Il prossimo momento <b>${prossimo.tipo === "major" ? "⭐ MAJOR" : "● minor"}</b> è alle <b>${prossimo.ora}</b>. `;
+    if (prossimo.tipo === "major") consiglio += "Preparati con anticipo e tieni la canna in mano!";
+    else consiglio += "Può dare buoni risultati, specialmente nelle prime e ultime ore di luce.";
+  } else {
+    consiglio += "I momenti migliori per oggi sono già passati. Pianifica l'uscita di domani!";
+  }
+
+  return `<p style="font-size:13px;line-height:1.8;margin:0;">${consiglio}</p>`;
 }
 </script>
 
