@@ -29,6 +29,7 @@ header {
   font-size: 22px; font-weight: bold; letter-spacing: 1px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   position: sticky; top: 0; z-index: 200;
+  position: relative; /* aggiunta */
 }
 #content {
   padding: 20px;
@@ -390,7 +391,10 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
     <path d="M0,100 C300,180 900,20 1200,100 L1200,200 L0,200 Z"></path>
   </svg>
 </div>
-<header>🎣 AdelTechnic-FISH</header>
+<header>
+  🎣 AdelTechnic-FISH
+  <button onclick="toggleTema()" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); background:none; padding:6px; margin:0; font-size:20px; box-shadow:none;">🌓</button>
+</header>
 <div id="content"></div>
 <footer>
   <button onclick="goTo(showHome)">🏠<span>Home</span></button>
@@ -400,6 +404,17 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   <button onclick="goTo(showNodi)">🧵<span>Nodi</span></button>
   <button onclick="goTo(showPrevisioni)">⚓<span>Meteo</span></button>
   <button onclick="chiudiApp()">❌<span>Esci</span></button>
+</footer>
+<div id="content"></div>
+<footer>
+  <button onclick="goTo(showHome)">🏠<span>Home</span></button>
+  <button onclick="goTo(showTecniche)">🌊<span>Tecniche</span></button>
+  <button onclick="goTo(showSpecie)">🐟<span>Specie</span></button>
+  <button onclick="goTo(showMontature)">🪝<span>Montature</span></button>
+  <button onclick="goTo(showNodi)">🧵<span>Nodi</span></button>
+  <button onclick="goTo(showPrevisioni)">⚓<span>Meteo</span></button>
+  <button onclick="chiudiApp()">❌<span>Esci</span></button>
+  
 </footer>
 
 <script>
