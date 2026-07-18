@@ -393,7 +393,10 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
 </div>
 <header>
   🎣 AdelTechnic-FISH
-  <button onclick="toggleTema()" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); background:none; padding:6px; margin:0; font-size:20px; box-shadow:none;">🌓</button>
+  <div style="position:absolute; right:14px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; gap:2px;">
+    <button onclick="toggleTema()" style="background:none; padding:6px; margin:0; font-size:20px; box-shadow:none;">🌓</button>
+    <span id="temaLabel" style="font-size:10px; opacity:0.85; font-weight:normal; letter-spacing:normal;">Tema Scuro</span>
+  </div>
 </header>
 <div id="content"></div>
 <footer>
@@ -413,10 +416,19 @@ function goTo(fn) {
 }
 function toggleTema() {
   document.body.classList.toggle("dark");
-  localStorage.setItem("tema", document.body.classList.contains("dark") ? "dark" : "light");
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("tema", isDark ? "dark" : "light");
+  aggiornaLabelTema();
 }
 function caricaTema() {
   if (localStorage.getItem("tema") === "dark") document.body.classList.add("dark");
+  aggiornaLabelTema();
+}
+function aggiornaLabelTema() {
+  const label = document.getElementById("temaLabel");
+  if (label) {
+    label.textContent = document.body.classList.contains("dark") ? "Tema Chiaro" : "Tema Scuro";
+  }
 }
 /* MODIFICA 4 — Chiudi app con conferma */
 function chiudiApp() {
