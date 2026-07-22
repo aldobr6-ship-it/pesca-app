@@ -662,6 +662,7 @@ function mostraEscaPopup(nome) {
         <img src="${img}" alt="${nome}" class="esca-popup-img" onclick="mostraEscaFullscreen(event,'${img}','${nome}')"
           style="cursor:zoom-in;"
           onerror="this.outerHTML='<div style=padding:24px;opacity:0.4;>Immagine non disponibile</div>'">
+        <p style="font-size:11px;opacity:0.5;margin:-6px 0 12px;">🔍 Tocca per ingrandire</p>
         <button class="btn-chiudi-modal" onclick="chiudiEscaPopup(event)">Chiudi</button>
       </div>
     </div>`);
@@ -708,6 +709,7 @@ function showMontaturaDetail(id) {
         </div>
         <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;"
   onerror="this.parentElement.innerHTML='<div style=padding:24px;opacity:0.4;text-align:center;>Immagine non disponibile</div>'">
+<p style="text-align:center;font-size:11px;opacity:0.5;margin:6px 0 10px;">🔍 Tocca per ingrandire</p>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0;">
         <div class="card" style="text-align:left;padding:14px;cursor:default;">
