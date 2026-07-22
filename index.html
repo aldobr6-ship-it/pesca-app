@@ -41,6 +41,21 @@ header {
   max-width: 260px; width: 100%; display: block;
   margin: 0 auto 14px; border-radius: 14px;
 }
+  .fullscreen-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+  z-index: 9800; display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+.fullscreen-img {
+  max-width: 94vw; max-height: 90vh; border-radius: 8px;
+  object-fit: contain;
+}
+.fullscreen-close {
+  position: absolute; top: 20px; right: 20px;
+  background: rgba(255,255,255,0.15); border: none; color: white;
+  font-size: 22px; width: 40px; height: 40px; border-radius: 50%;
+  cursor: pointer; margin: 0; display: flex; align-items: center; justify-content: center;
+}
 .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 16px; }
 .card {
   background: white; border-radius: 20px; padding: 20px;
@@ -644,7 +659,8 @@ function mostraEscaPopup(nome) {
     <div class="modal-overlay" onclick="chiudiEscaPopup(event)">
       <div class="modal-box" style="text-align:center;">
         <h3>${nome}</h3>
-        <img src="${img}" alt="${nome}" class="esca-popup-img"
+        <img src="${img}" alt="${nome}" class="esca-popup-img" onclick="mostraEscaFullscreen(event,'${img}','${nome}')"
+          style="cursor:zoom-in;"
           onerror="this.outerHTML='<div style=padding:24px;opacity:0.4;>Immagine non disponibile</div>'">
         <button class="btn-chiudi-modal" onclick="chiudiEscaPopup(event)">Chiudi</button>
       </div>
@@ -652,6 +668,18 @@ function mostraEscaPopup(nome) {
 }
 function chiudiEscaPopup(event) {
   const overlay = event.target.closest(".modal-overlay") || document.querySelector(".modal-overlay");
+  if (overlay) overlay.remove();
+}
+function mostraEscaFullscreen(event, img, nome) {
+  event.stopPropagation();
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="fullscreen-overlay" onclick="chiudiEscaFullscreen(event)">
+      <button class="fullscreen-close" onclick="chiudiEscaFullscreen(event)">✕</button>
+      <img src="${img}" alt="${nome}" class="fullscreen-img">
+    </div>`);
+}
+function chiudiEscaFullscreen(event) {
+  const overlay = event.target.closest(".fullscreen-overlay") || document.querySelector(".fullscreen-overlay");
   if (overlay) overlay.remove();
 }
 function showMontature() {
