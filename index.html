@@ -37,6 +37,10 @@ header {
   animation: fadeIn 0.35s ease;
   scroll-margin-top: 0;
 }
+  .esca-popup-img {
+  max-width: 260px; width: 100%; display: block;
+  margin: 0 auto 14px; border-radius: 14px;
+}
 .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 16px; }
 .card {
   background: white; border-radius: 20px; padding: 20px;
@@ -631,6 +635,25 @@ const montatureData = [
   { id:"minitrave-snodato",         nome:"Minitrave Divergente 360°",  emoji:"🔄", img:"./img/montature/16_minitrave_snodato_360.jpg",     desc:"Snodo a rotazione totale: i divergenti seguono la corrente. Zero aggrovigli.",  quando:"Correnti variabili • Scogliera • Avanzata",           esche:"Gambero • Arenicola • Cozza",                   target:"Orata • Sarago • Mormora",            video:"https://www.youtube.com/results?search_query=minitrave+snodato+360+gradi+surfcasting" },
   { id:"terminale-serra",           nome:"Terminale Pesce Serra",      emoji:"⚠️", img:"./img/montature/17_terminale_serra.jpg",           desc:"Terminale in acciaio multi-strand: i denti del serra tagliano qualsiasi filo!", quando:"Luglio–Settembre • Spinning • Surfcasting",           esche:"Minnow • Jerkbait • Metal jig • Pezzo sgombro",  target:"Pesce Serra",                         video:"https://www.youtube.com/results?search_query=pesce+serra+terminale+acciaio+pesca" }
 ];
+  function slugEsca(nome) {
+  return nome.toLowerCase().trim().replace(/\s+/g, "_");
+}
+function mostraEscaPopup(nome) {
+  const img = `./img/${slugEsca(nome)}.jpg`;
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="modal-overlay" onclick="chiudiEscaPopup(event)">
+      <div class="modal-box" style="text-align:center;">
+        <h3>${nome}</h3>
+        <img src="${img}" alt="${nome}" class="esca-popup-img"
+          onerror="this.outerHTML='<div style=padding:24px;opacity:0.4;>Immagine non disponibile</div>'">
+        <button class="btn-chiudi-modal" onclick="chiudiEscaPopup(event)">Chiudi</button>
+      </div>
+    </div>`);
+}
+function chiudiEscaPopup(event) {
+  const overlay = event.target.closest(".modal-overlay") || document.querySelector(".modal-overlay");
+  if (overlay) overlay.remove();
+}
 function showMontature() {
   const cards = montatureData.map(m => `
     <div onclick="goTo(()=>showMontaturaDetail('${m.id}'))" style="background:linear-gradient(135deg,#a8d8ea,#6bbfd8);border-radius:14px;padding:10px 6px;box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px;">
@@ -671,7 +694,7 @@ function showMontaturaDetail(id) {
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
         <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🪱 Esche consigliate</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          ${m.esche.split(" • ").map(e=>`<span style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;">${e}</span>`).join("")}
+          ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
         </div>
       </div>
       <a href="${m.video}" target="_blank" style="text-decoration:none;">
