@@ -706,8 +706,8 @@ function showMontaturaDetail(id) {
         <div style="background:linear-gradient(90deg,#0a2a43,#144d73);padding:10px 18px;">
           <span style="color:white;font-size:13px;font-weight:600;">📐 Schema Tecnico</span>
         </div>
-        <img src="${m.img}" alt="Schema ${m.nome}" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;"
-          onerror="this.parentElement.innerHTML='<div style=padding:24px;opacity:0.4;text-align:center;>Immagine non disponibile</div>'">
+        <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;"
+  onerror="this.parentElement.innerHTML='<div style=padding:24px;opacity:0.4;text-align:center;>Immagine non disponibile</div>'">
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0;">
         <div class="card" style="text-align:left;padding:14px;cursor:default;">
