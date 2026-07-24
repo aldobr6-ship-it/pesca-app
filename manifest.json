@@ -1,6 +1,7 @@
 {
   "name": "AdelTechnic-FISH",
   "short_name": "AdelTechnic-FISH",
+  "id": "/pesca-app/",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -8,7 +9,6 @@
   "theme_color": "#0a2a43",
   "orientation": "portrait",
   "description": "AdelTechnic FISH App",
-
   "icons": [
     {
       "src": "icon-192-192.png",
