@@ -606,25 +606,25 @@ function showFondo() {
 <script>
 /* === NODI === */
 function showNodi() {
-  const nodi = [
-    { nome:"Nodo Clinch",    img:"./img/nodo-clinch.jpg",   uso:"Ami, girelle, moschettoni",       filo:"Nylon / Fluorocarbon" },
-    { nome:"Nodo Palomar",   img:"./img/nodo-palomar.jpg",  uso:"Ami e artificiali",                filo:"Trecciato" },
-    { nome:"Nodo FG",        img:"./img/nodo-fg.jpg",       uso:"Treccia → Fluorocarbon",           filo:"Treccia → Fluoro" },
-    { nome:"Nodo Albright",  img:"./img/nodo-albright.jpg", uso:"Unire fili di diametro diverso",  filo:"Nylon / Treccia" },
-    { nome:"Nodo di Sangue", img:"./img/nodo-sangue.jpg",   uso:"Unire due fili simili",            filo:"Nylon / Fluorocarbon" },
-    { nome:"Nodo Rapala",    img:"./img/nodo-rapala.jpg",   uso:"Artificiali con movimento libero", filo:"Nylon / Fluorocarbon" },
-    { nome:"Nodo Doppio Uni", img:"./img/nodo-doppio-uni.jpg", uso:"Doppio Nodo unire due fili",  filo:"Treccia → Nylon" }
-  ];
+  cconst nodi = [
+  { nome:"Nodo Clinch",    img:"./img/nodo-clinch.jpg",   uso:"Ami, girelle, moschettoni",       filo:"Nylon / Fluorocarbon", video:"https://www.youtube.com/watch?v=WYE1A0xq8CU" },
+  { nome:"Nodo Palomar",   img:"./img/nodo-palomar.jpg",  uso:"Ami e artificiali",                filo:"Trecciato", video:"..." },
+  { nome:"Nodo FG",        img:"./img/nodo-fg.jpg",       uso:"Treccia → Fluorocarbon",           filo:"Treccia → Fluoro", video:"..." },
+  { nome:"Nodo Albright",  img:"./img/nodo-albright.jpg", uso:"Unire fili di diametro diverso",  filo:"Nylon / Treccia", video:"..." },
+  { nome:"Nodo di Sangue", img:"./img/nodo-sangue.jpg",   uso:"Unire due fili simili",            filo:"Nylon / Fluorocarbon", video:"..." },
+  { nome:"Nodo Rapala",    img:"./img/nodo-rapala.jpg",   uso:"Artificiali con movimento libero", filo:"Nylon / Fluorocarbon", video:"..." },
+  { nome:"Nodo Doppio Uni", img:"./img/nodo-doppio-uni.jpg", uso:"Doppio Nodo unire due fili",  filo:"Treccia → Nylon", video:"..." }
+];
   const cards = nodi.map((n,i) => `
     <div style="display:flex;flex-direction:column;align-items:center;">
       <button onclick="toggleNodo('nodo${i}')" style="width:100%;padding:10px 6px;border-radius:13px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#0077b6,#00b4d8);border:none;color:white;cursor:pointer;margin-bottom:6px;line-height:1.3;box-shadow:0 4px 12px rgba(0,0,0,0.16);">
         🧵 ${n.nome}
       </button>
       <div id="nodo${i}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
-        <img src="${n.img}" style="width:100%;border-radius:12px;margin-bottom:6px;" onerror="this.style.display='none'">
-        <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
-      </div>
-    </div>`).join("");
+  <img src="${n.img}" style="width:100%;border-radius:12px;margin-bottom:6px;" onerror="this.style.display='none'">
+  <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
+  ${n.video ? `<a href="${n.video}" target="_blank" style="text-decoration:none;"><div style="margin-top:8px;background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:8px;border-radius:10px;font-size:12px;font-weight:700;">▶ Video Tutorial</div></a>` : ""}
+</div>`).join("");
   document.getElementById("content").innerHTML = `
     <h2>🧵 Nodi da Pesca</h2>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>`;
