@@ -409,11 +409,13 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
 </head>
 <body>
 <div id="splash">
-<video autoplay muted loop playsinline class="splash-video-full">
-  <source src="./img/splash-anim.mp4" type="video/mp4">
-</video>
-  <h2 style="margin:120px 0 4px;font-size:22px;">AdelTechnic-FISH</h2>
-<p style="opacity:0.6;font-size:14px;margin:0;">La tua guida alla pesca in mare</p>
+  <video autoplay muted loop playsinline preload="auto" class="splash-video-full">
+    <source src="./img/splash-anim.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute; bottom:80px; left:0; width:100%; text-align:center;">
+    <h2 style="margin:0 0 4px;font-size:22px;">AdelTechnic-FISH</h2>
+    <p style="opacity:0.6;font-size:14px;margin:0;">La tua guida alla pesca in mare</p>
+  </div>
 </div>
 <header>
   🎣 AdelTechnic-FISH
