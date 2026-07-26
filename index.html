@@ -134,6 +134,14 @@ body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   z-index: 9999; color: white;
   animation: fadeOutSplash 1.2s ease forwards; animation-delay: 2.2s;
+  overflow: hidden;
+}
+.splash-video-full {
+  position: absolute; top: 50%; left: 50%;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover; z-index: -1;
 }
 .logo-anim { font-size: 64px; animation: floatLogo 2s ease-in-out infinite; }
 @keyframes floatLogo { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
@@ -402,10 +410,10 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
 </head>
 <body>
 <div id="splash">
- <video autoplay muted loop playsinline style="width:250px;height:250px;object-fit:contain;">
+<video autoplay muted loop playsinline class="splash-video-full">
   <source src="./img/splash-anim.mp4" type="video/mp4">
 </video>
-  <h2 style="margin:12px 0 4px;font-size:22px;">AdelTechnic-FISH</h2>
+   <h2 style="margin:12px 0 4px;font-size:22px;">AdelTechnic-FISH</h2>
   <p style="opacity:0.6;font-size:14px;margin:0;">La tua guida alla pesca in mare</p>
 </div>
 <header>
