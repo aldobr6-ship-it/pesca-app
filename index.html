@@ -623,7 +623,7 @@ function showNodi() {
         🧵 ${n.nome}
       </button>
       <div id="nodo${i}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
-  <img src="${n.img}" style="width:100%;border-radius:12px;margin-bottom:6px;" onerror="this.style.display='none'">
+ <img src="${n.img}" style="width:100%;height:140px;object-fit:contain;background:#f1f6fa;border-radius:12px;margin-bottom:6px;" onerror="this.style.display='none'">
   <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
  ${n.video ? `<a href="${n.video}" target="_blank" style="text-decoration:none;"><div style="margin-top:8px;background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:8px;border-radius:10px;font-size:12px;font-weight:700;">▶ Video Tutorial</div></a>` : ""}
 </div>
