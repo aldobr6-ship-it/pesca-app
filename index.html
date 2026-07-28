@@ -679,7 +679,7 @@ const montatureData = [
   if (el.style.height) div.style.height = el.style.height;
   if (el.style.width) div.style.width = el.style.width;
   if (el.style.margin) div.style.margin = el.style.margin;
- div.innerHTML = `<span class="ph-ico">X</span><span>${testo || "Immagine non disponibile"}</span>`;
+ div.innerHTML = `<span class="ph-ico">⚠️</span><span>${testo || "Immagine non disponibile"}</span>`;
   el.replaceWith(div);
 }
 function mostraEscaPopup(nome) {
