@@ -679,8 +679,7 @@ const montatureData = [
   if (el.style.height) div.style.height = el.style.height;
   if (el.style.width) div.style.width = el.style.width;
   if (el.style.margin) div.style.margin = el.style.margin;
- div.innerHTML = `<span class="ph-ico">⚠️</span><span>${testo || "Immagine non disponibile"}</span>`;
-  el.replaceWith(div);
+ div.innerHTML = `<span class="ph-ico">📷</span><span>${testo || "Immagine non disponibile"}</span>`;
 }
 function mostraEscaPopup(nome) {
   const img = `./img/${slugEsca(nome)}.jpg`;
@@ -737,7 +736,7 @@ function showMontaturaDetail(id) {
           <span style="color:white;font-size:13px;font-weight:600;">📐 Schema Tecnico</span>
         </div>
         <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;"
-  onerror="this.parentElement.innerHTML='<div style=padding:24px;opacity:0.4;text-align:center;>Immagine non disponibile</div>'">
+  onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
 <p style="text-align:center;font-size:11px;opacity:0.5;margin:6px 0 10px;">🔍 Tocca per ingrandire</p>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0;">
