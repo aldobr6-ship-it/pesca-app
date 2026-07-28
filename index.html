@@ -142,6 +142,14 @@ body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
   transform: translate(-50%, -50%);
   object-fit: cover; z-index: -1;
 }
+  .img-placeholder {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:6px; background:#f1f6fa; color:#0a2a43; opacity:0.5;
+  border-radius:12px; font-size:12px; text-align:center; padding:20px;
+  min-height:100px;
+}
+body.dark .img-placeholder { background:#334155; color:#e2e8f0; }
+.img-placeholder .ph-ico { font-size:28px; }
 .logo-anim { font-size: 64px; animation: floatLogo 2s ease-in-out infinite; }
 @keyframes floatLogo { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
 @keyframes fadeOutSplash { to{opacity:0;visibility:hidden;} }
@@ -623,7 +631,7 @@ function showNodi() {
         🧵 ${n.nome}
       </button>
       <div id="nodo${i}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
- <img src="${n.img}" onclick="mostraEscaFullscreen(event,'${n.img}','${n.nome}')" style="width:100%;height:140px;object-fit:contain;background:#f1f6fa;border-radius:12px;margin-bottom:6px;cursor:zoom-in;" onerror="this.style.display='none'">
+ <img src="${n.img}" onclick="mostraEscaFullscreen(event,'${n.img}','${n.nome}')" style="width:100%;height:140px;object-fit:contain;background:#f1f6fa;border-radius:12px;margin-bottom:6px;cursor:zoom-in;" onerror="imgFallback(this,'${n.nome} non disponibile')"
  <p style="font-size:10px;opacity:0.5;margin:-4px 0 6px;">🔍 Tocca per ingrandire</p>
   <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
  ${n.video ? `<a href="${n.video}" target="_blank" style="text-decoration:none;"><div style="margin-top:8px;background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:8px;border-radius:10px;font-size:12px;font-weight:700;">▶ Video Tutorial</div></a>` : ""}
@@ -665,6 +673,15 @@ const montatureData = [
   function slugEsca(nome) {
   return nome.toLowerCase().trim().replace(/\s+/g, "_");
 }
+  function imgFallback(el, testo) {
+  const div = document.createElement("div");
+  div.className = "img-placeholder";
+  if (el.style.height) div.style.height = el.style.height;
+  if (el.style.width) div.style.width = el.style.width;
+  if (el.style.margin) div.style.margin = el.style.margin;
+  div.innerHTML = `<span class="ph-ico">📷</span><span>${testo || "Immagine non disponibile"}</span>`;
+  el.replaceWith(div);
+}
 function mostraEscaPopup(nome) {
   const img = `./img/${slugEsca(nome)}.jpg`;
   document.body.insertAdjacentHTML("beforeend", `
@@ -673,7 +690,7 @@ function mostraEscaPopup(nome) {
         <h3>${nome}</h3>
         <img src="${img}" alt="${nome}" class="esca-popup-img" onclick="mostraEscaFullscreen(event,'${img}','${nome}')"
           style="cursor:zoom-in;"
-          onerror="this.outerHTML='<div style=padding:24px;opacity:0.4;>Immagine non disponibile</div>'">
+          onerror="imgFallback(this,'${nome} non disponibile')">
         <p style="font-size:11px;opacity:0.5;margin:-6px 0 12px;">🔍 Tocca per ingrandire</p>
         <button class="btn-chiudi-modal" onclick="chiudiEscaPopup(event)">Chiudi</button>
       </div>
