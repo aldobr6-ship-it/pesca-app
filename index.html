@@ -673,13 +673,14 @@ const montatureData = [
   function slugEsca(nome) {
   return nome.toLowerCase().trim().replace(/\s+/g, "_");
 }
-  function imgFallback(el, testo) {
+ function imgFallback(el, testo) {
   const div = document.createElement("div");
   div.className = "img-placeholder";
   if (el.style.height) div.style.height = el.style.height;
   if (el.style.width) div.style.width = el.style.width;
   if (el.style.margin) div.style.margin = el.style.margin;
- div.innerHTML = `<span class="ph-ico">📷</span><span>${testo || "Immagine non disponibile"}</span>`;
+  div.innerHTML = `<span class="ph-ico">📷</span><span>${testo || "Immagine non disponibile"}</span>`;
+  el.replaceWith(div);
 }
 function mostraEscaPopup(nome) {
   const img = `./img/${slugEsca(nome)}.jpg`;
