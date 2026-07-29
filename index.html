@@ -923,7 +923,7 @@ function apriDettaglio(tipo, index) {
   const item=tecnicheData[tecnica][categoria][index]; if(!item)return;
   if(container.dataset.open==index){container.innerHTML="";container.dataset.open="";return;}
   container.dataset.open=index;
- <img src="${p.img}" onclick="mostraEscaFullscreen(event,'${p.img}','${p.nome}')" style="width:100%;max-width:280px;border-radius:12px;margin:12px 0 4px;cursor:zoom-in;" onerror="imgFallback(this,'${p.nome} non disponibile')">
+  container.innerHTML=`<div class="card" style="cursor:default;"><h3>${item.nome}</h3><img src="${item.img}" style="width:60%;max-width:280px;border-radius:10px;display:block;margin:10px auto;" onerror="imgFallback(this,'${item.nome} non disponibile')">${item.descrizione?`<p>${item.descrizione}</p>`:""}${item.peso?`<p><strong>Peso:</strong> ${item.peso}</p>`:""}</div>`;
 }
 function generaCalendario(stagione) {
   if(!stagione)return"";
