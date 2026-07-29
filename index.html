@@ -906,7 +906,7 @@ function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
   lista.forEach((item, index) => {
     const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
-    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;"><img src="${item.img}" style="width:100%;max-width:240px;border-radius:10px;" onerror="this.style.display='none'"></div></div>`;
+    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;"><img src="${item.img}" style="width:100%;max-width:240px;border-radius:10px;" onerror="imgFallback(this,'${item.nome} non disponibile')"></div></div>`;
   });
   return html + "</div>";
 }
@@ -923,7 +923,7 @@ function apriDettaglio(tipo, index) {
   const item=tecnicheData[tecnica][categoria][index]; if(!item)return;
   if(container.dataset.open==index){container.innerHTML="";container.dataset.open="";return;}
   container.dataset.open=index;
-  container.innerHTML=`<div class="card" style="cursor:default;"><h3>${item.nome}</h3><img src="${item.img}" style="width:60%;max-width:280px;border-radius:10px;display:block;margin:10px auto;" onerror="this.style.display='none'">${item.descrizione?`<p>${item.descrizione}</p>`:""}${item.peso?`<p><strong>Peso:</strong> ${item.peso}</p>`:""}</div>`;
+ <img src="${p.img}" onclick="mostraEscaFullscreen(event,'${p.img}','${p.nome}')" style="width:100%;max-width:280px;border-radius:12px;margin:12px 0 4px;cursor:zoom-in;" onerror="imgFallback(this,'${p.nome} non disponibile')">
 }
 function generaCalendario(stagione) {
   if(!stagione)return"";
