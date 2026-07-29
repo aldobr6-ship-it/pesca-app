@@ -821,7 +821,7 @@ function showSpecieDetail(id) {
   document.getElementById("content").innerHTML = `
     <div class="card" style="cursor:default;">
       <h2>${p.nome}</h2><em>${p.scientifico}</em><br>
-      <img src="${p.img}" onclick="mostraEscaFullscreen(event,'${p.img}','${p.nome}')" style="width:100%;max-width:280px;border-radius:12px;margin:12px 0 4px;cursor:zoom-in;" onerror="this.style.display='none'">
+      <img src="${p.img}" onclick="mostraEscaFullscreen(event,'${p.img}','${p.nome}')" style="width:100%;max-width:280px;border-radius:12px;margin:12px 0 4px;cursor:zoom-in;" onerror="imgFallback(this,'${p.nome} non disponibile')">
       <p style="font-size:11px;opacity:0.5;margin:0 0 12px;">🔍 Tocca per ingrandire</p>
       <p>${p.descrizione}</p>
       <p><strong>Tecniche:</strong> ${p.tecniche}</p>
