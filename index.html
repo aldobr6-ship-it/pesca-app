@@ -759,16 +759,56 @@ function chiudiEscaFullscreen(event) {
   const overlay = event.target.closest(".fullscreen-overlay") || document.querySelector(".fullscreen-overlay");
   if (overlay) overlay.remove();
 }
-function showMontature() {
-  const cards = montatureData.map(m => `
+function cardMontatura(m) {
+  return `
     <div onclick="goTo(()=>showMontaturaDetail('${m.id}'))" style="background:linear-gradient(135deg,#a8d8ea,#6bbfd8);border-radius:14px;padding:10px 6px;box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px;">
       <span style="font-size:22px;">${m.emoji}</span>
       <div style="font-weight:700;font-size:13px;line-height:1.3;color:#0a2a43;">${m.nome}</div>
-    </div>`).join("");
+    </div>`;
+}
+
+function nessunRisultatoMontatura(query) {
+  const q = encodeURIComponent(query + " montatura pesca surfcasting");
+  return `
+    <div class="card" style="text-align:center;cursor:default;">
+      <p style="opacity:0.6;margin-bottom:14px;">Nessuna montatura trovata per "${query}" nell'app.</p>
+      <a href="https://www.google.com/search?q=${q}" target="_blank" style="text-decoration:none;">
+        <div class="btn-img" style="margin-bottom:8px;">🔎 Cerca su Google</div>
+      </a>
+      <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="text-decoration:none;">
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">▶ Cerca su YouTube</div>
+      </a>
+      <button onclick="goTo(showMontature)" style="width:100%;">⬅️ Torna a tutte le montature</button>
+    </div>`;
+}
+
+function renderMontature(lista, query) {
+  const box = document.getElementById("listaMontature");
+  if (!box) return;
+  if (lista.length === 0) {
+    box.innerHTML = nessunRisultatoMontatura(query || "");
+    return;
+  }
+  box.innerHTML = `
+    <p style="opacity:0.6;margin-bottom:14px;font-size:13px;">${lista.length} montature • tocca per il dettaglio</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${lista.map(cardMontatura).join("")}</div>`;
+}
+
+function filtraMontature() {
+  const q = document.getElementById("searchMontature").value.toLowerCase();
+  const filtrate = montatureData.filter(m => m.nome.toLowerCase().includes(q));
+  renderMontature(filtrate, document.getElementById("searchMontature").value);
+}
+function showMontature() {
   document.getElementById("content").innerHTML = `
     <h2 style="margin-top:0;">🪝 Montature da Pesca</h2>
-    <p style="opacity:0.6;margin-bottom:14px;font-size:13px;">${montatureData.length} montature • tocca per il dettaglio</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>`;
+    <div class="card">
+      <input type="text" id="searchMontature" placeholder="Cerca montatura..."
+        style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
+        onkeyup="filtraMontature()">
+    </div>
+    <div id="listaMontature"></div>`;
+  renderMontature(montatureData);
 }
 function showMontaturaDetail(id) {
   const m = montatureData.find(x => x.id === id); if (!m) return;
@@ -856,10 +896,30 @@ function mostraTutteLeSpecie() {
   html += "</div>";
   document.getElementById("listaSpecie").innerHTML = html;
 }
+function nessunRisultatoSpecie(query) {
+  const q = encodeURIComponent(query + " pesce specie pesca mare");
+  return `
+    <div class="card" style="text-align:center;cursor:default;">
+      <p style="opacity:0.6;margin-bottom:14px;">Nessuna specie trovata per "${query}" nell'app.</p>
+      <a href="https://www.google.com/search?q=${q}" target="_blank" style="text-decoration:none;">
+        <div class="btn-img" style="margin-bottom:8px;">🔎 Cerca su Google</div>
+      </a>
+      <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="text-decoration:none;">
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">▶ Cerca su YouTube</div>
+      </a>
+      <button onclick="goTo(showSpecie)" style="width:100%;">⬅️ Torna a tutte le specie</button>
+    </div>`;
+}
 function filtraSpecie() {
   let filtro = document.getElementById("searchInput").value.toLowerCase();
+  let trovate = [];
+  for (let key in specie) { if (specie[key].nome.toLowerCase().includes(filtro)) trovate.push(key); }
+  if (trovate.length === 0) {
+    document.getElementById("listaSpecie").innerHTML = nessunRisultatoSpecie(document.getElementById("searchInput").value);
+    return;
+  }
   let html = "<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>";
-  for (let key in specie) { if (specie[key].nome.toLowerCase().includes(filtro)) html += cardSpecie(key); }
+  trovate.forEach(key => html += cardSpecie(key));
   html += "</div>";
   document.getElementById("listaSpecie").innerHTML = html;
 }
