@@ -613,8 +613,7 @@ function showFondo() {
 
 <script>
 /* === NODI === */
-function showNodi() {
-  const nodi = [
+const nodiData = [
   { nome:"Nodo Clinch",    img:"./img/nodo-clinch.jpg",   uso:"Ami, girelle, moschettoni",        filo:"Nylon / Fluorocarbon", video:"https://www.youtube.com/watch?v=zEwc7y_QKc4" },
   { nome:"Nodo Palomar",   img:"./img/nodo-palomar.jpg",  uso:"Ami e artificiali",                filo:"Trecciato", video:"https://www.youtube.com/watch?v=ERuJt0UVp90" },
   { nome:"Nodo FG",        img:"./img/nodo-fg.jpg",       uso:"Treccia → Fluorocarbon",           filo:"Treccia → Fluoro", video:"https://www.youtube.com/watch?v=DsoOcAgzatA" },
@@ -625,26 +624,73 @@ function showNodi() {
   { nome:"Nodo Tony Pegna", img:"./img/nodo-tonypena.jpg", uso:"Treccia → nylon ",                filo:"Nylon / Fluorocarbon / Treccia", video:"https://www.youtube.com/watch?v=0OC1Yh1O43I" },
   { nome:"Nodo Doppio Uni", img:"./img/nodo-doppio-uni.jpg", uso:"Doppio Nodo unire due fili",    filo:"Treccia → Nylon", video:"https://www.youtube.com/watch?v=WYE1A0xq8CU" }
 ];
-  const cards = nodi.map((n,i) => `
+
+function slugNodo(nome) {
+  return nome.toLowerCase().trim().replace(/\s+/g, "_");
+}
+
+function cardNodo(n) {
+  const id = "nodo-" + slugNodo(n.nome);
+  return `
     <div style="display:flex;flex-direction:column;align-items:center;">
-      <button onclick="toggleNodo('nodo${i}')" style="width:100%;padding:10px 6px;border-radius:13px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#0077b6,#00b4d8);border:none;color:white;cursor:pointer;margin-bottom:6px;line-height:1.3;box-shadow:0 4px 12px rgba(0,0,0,0.16);">
+      <button onclick="toggleNodo('${id}')" style="width:100%;padding:10px 6px;border-radius:13px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#0077b6,#00b4d8);border:none;color:white;cursor:pointer;margin-bottom:6px;line-height:1.3;box-shadow:0 4px 12px rgba(0,0,0,0.16);">
         🧵 ${n.nome}
       </button>
-      <div id="nodo${i}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
- <img src="${n.img}" onclick="mostraEscaFullscreen(event,'${n.img}','${n.nome}')" style="width:100%;height:140px;object-fit:contain;background:#f1f6fa;border-radius:12px;margin-bottom:6px;cursor:zoom-in;" onerror="imgFallback(this,'${n.nome} non disponibile')"
- <p style="font-size:10px;opacity:0.5;margin:-4px 0 6px;">🔍 Tocca per ingrandire</p>
-  <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
- ${n.video ? `<a href="${n.video}" target="_blank" style="text-decoration:none;"><div style="margin-top:8px;background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:8px;border-radius:10px;font-size:12px;font-weight:700;">▶ Video Tutorial</div></a>` : ""}
-</div>
-</div>`).join("");
+      <div id="${id}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
+        <img src="${n.img}" onclick="mostraEscaFullscreen(event,'${n.img}','${n.nome}')" style="width:100%;height:140px;object-fit:contain;background:#f1f6fa;border-radius:12px;margin-bottom:6px;cursor:zoom-in;" onerror="imgFallback(this,'${n.nome} non disponibile')">
+        <p style="font-size:10px;opacity:0.5;margin:-4px 0 6px;">🔍 Tocca per ingrandire</p>
+        <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
+        ${n.video ? `<a href="${n.video}" target="_blank" style="text-decoration:none;"><div style="margin-top:8px;background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:8px;border-radius:10px;font-size:12px;font-weight:700;">▶ Video Tutorial</div></a>` : ""}
+      </div>
+    </div>`;
+}
+
+function nessunRisultatoNodo(query) {
+  const q = encodeURIComponent(query + " nodo pesca");
+  return `
+    <div class="card" style="text-align:center;cursor:default;">
+      <p style="opacity:0.6;margin-bottom:14px;">Nessun nodo trovato per "${query}" nell'app.</p>
+      <a href="https://www.google.com/search?q=${q}" target="_blank" style="text-decoration:none;">
+        <div class="btn-img" style="margin-bottom:8px;">🔎 Cerca su Google</div>
+      </a>
+      <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="text-decoration:none;">
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;">▶ Cerca su YouTube</div>
+      </a>
+    </div>`;
+}
+
+function renderNodi(lista, query) {
+  const box = document.getElementById("listaNodi");
+  if (!box) return;
+  if (lista.length === 0) {
+    box.innerHTML = nessunRisultatoNodo(query || "");
+    return;
+  }
+  box.innerHTML = `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${lista.map(cardNodo).join("")}</div>`;
+}
+
+function filtraNodi() {
+  const q = document.getElementById("searchNodi").value.toLowerCase();
+  const filtrati = nodiData.filter(n => n.nome.toLowerCase().includes(q));
+  renderNodi(filtrati, document.getElementById("searchNodi").value);
+}
+
+function showNodi() {
   document.getElementById("content").innerHTML = `
     <h2>🧵 Nodi da Pesca</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>`;
+    <div class="card">
+      <input type="text" id="searchNodi" placeholder="Cerca nodo..."
+        style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
+        onkeyup="filtraNodi()">
+    </div>
+    <div id="listaNodi"></div>`;
+  renderNodi(nodiData);
 }
+
 function toggleNodo(id) {
   const el = document.getElementById(id); if (!el) return;
   const aperto = el.style.display === "block";
-  document.querySelectorAll("[id^='nodo']").forEach(e => e.style.display="none");
+  document.querySelectorAll("[id^='nodo-']").forEach(e => e.style.display="none");
   el.style.display = aperto ? "none" : "block";
 }
 </script>
