@@ -1,4 +1,4 @@
-const CACHE_NAME = "pesca-app-v7";
+const CACHE_NAME = "pesca-app-v8";
 const urlsToCache = [
   "./",
   "./index.html",
