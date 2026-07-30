@@ -444,7 +444,7 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   <button onclick="goTo(showHome)">🏠<span>Home</span></button>
   <button onclick="goTo(showTecniche)">🌊<span>Tecniche</span></button>
   <button onclick="goTo(showSpecie)">🐟<span>Specie</span></button>
-  <button onclick="goTo(showMontature)">🪝<span>Montature</span></button>
+  <button onclick="goTo(showMontature)">🎣<span>Montature</span></button>
   <button onclick="goTo(showNodi)">🧵<span>Nodi</span></button>
   <button onclick="goTo(showPrevisioni)">⚓<span>Meteo</span></button>
   <button onclick="chiudiApp()">❌<span>Esci</span></button>
@@ -492,7 +492,7 @@ function showHome() {
     <div class="grid">
       <div class="card" onclick="goTo(showTecniche)"><span class="home-icon">🌊</span><h3>Tecniche</h3><p>Surfcasting, spinning, eging…</p></div>
       <div class="card" onclick="goTo(showSpecie)"><span class="home-icon">🐟</span><h3>Specie</h3><p>I pesci più pescati</p></div>
-      <div class="card" onclick="goTo(showMontature)"><span class="home-icon">🪝</span><h3>Montature</h3><p>Spiegate passo-passo</p></div>
+      <div class="card" onclick="goTo(showMontature)"><span class="home-icon">🎣</span><h3>Montature</h3><p>Spiegate passo-passo</p></div>
       <div class="card" onclick="goTo(showNodi)"><span class="home-icon">🧵</span><h3>Nodi</h3><p>Con immagini</p></div>
       <div class="card" onclick="goTo(showPrevisioni)"><span class="home-icon">⚓</span><h3>Meteo & Spot</h3><p>Previsioni + mappa pesca</p></div>
       <div class="card" onclick="goTo(showQuandoPescare)"><span class="home-icon">🌙</span><h3>Quando Pescare</h3><p>Solunar, maree, luna</p></div>
@@ -534,7 +534,7 @@ function showSurfcasting() {
     <div class="card"><b>Contro</b><br>Tecnica impegnativa, attrezzatura pesante</div>
     <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=surfcasting+tecnica+italiana" target="_blank">Guarda su YouTube</a></div>
     <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(surfcastingData.specie)}</div>
-    <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(surfcastingData.esche)}</div>
+    <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(surfcastingData.esche)}</div>
     <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
 function showGalleggiante() {
@@ -572,7 +572,7 @@ function showSpinning() {
     <div class="card"><h3>✅ Pro</h3><ul>${dati.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
     <div class="card"><h3>❌ Contro</h3><ul>${dati.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
     <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(dati.esche)}</div>
+    <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(dati.esche)}</div>
     <div class="card"><h3>⚖️ Piombi consigliati</h3>${generaMiniCard(dati.piombi,"spinning-piombi")}</div>
     <div class="card"><h3>🎥 Video tutorial</h3><a href="${dati.video}" target="_blank">Guarda su YouTube</a></div>
     <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
@@ -591,7 +591,7 @@ function showEging() {
     <div class="card"><h3>✅ Pro</h3><ul>${dati.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
     <div class="card"><h3>❌ Contro</h3><ul>${dati.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
     <div class="card"><h3>🦑 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>🪱 Esche (Egi)</h3>${generaListaCliccabile(dati.esche)}</div>
+    <div class="card"><h3>🐛 Esche (Egi)</h3>${generaListaCliccabile(dati.esche)}</div>
     <div class="card"><h3>🎥 Video tutorial</h3><a href="${dati.video}" target="_blank">Guarda su YouTube</a></div>
     <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
@@ -612,7 +612,7 @@ function showFondo() {
     <div class="card"><b>Pro</b><br>Tecnica semplice e versatile</div>
     <div class="card"><b>Contro</b><br>Rischio incagli • Meno selettiva</div>
     <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.specie)}</div>
-    <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.esche)}</div>
+    <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.esche)}</div>
     <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">Guarda su YouTube</a></div>
     <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
@@ -1117,7 +1117,7 @@ function renderPrevisioni(lat, lon, marine, meteo) {
         <div class="meteo-cell"><span class="ico">💨</span><span class="val">${ventoNodi} nodi</span><span class="lbl">Vento ${direzioneVento(ventoDir)}</span></div>
         <div class="meteo-cell"><span class="ico">🌡️</span><span class="val">${tempC}°C</span><span class="lbl">Temperatura</span></div>
         <div class="meteo-cell"><span class="ico">⏱️</span><span class="val">${ondaP.toFixed(0)} s</span><span class="lbl">Periodo onda</span></div>
-        <div class="meteo-cell"><span class="ico">${iconaMeteo(wCode)}</span><span class="val">${descrizioneMeteo(wCode)}</span><span class="lbl">Cielo</span></div>
+        <div class="meteo-cell"><span class="ico">🌦{iconaMeteo(wCode)}</span><span class="val">${descrizioneMeteo(wCode)}</span><span class="lbl">Cielo</span></div>
         <div class="meteo-cell"><span class="ico">🌅</span><span class="val">${formatOra(meteo.daily?.sunrise?.[0])}</span><span class="lbl">Alba</span></div>
       </div>
     </div>
@@ -1129,7 +1129,7 @@ function renderPrevisioni(lat, lon, marine, meteo) {
       <div class="consiglio-row"><span class="ico-big">🐟</span><div class="testo"><div class="titolo">Specie probabili</div><div class="valore">${analisi.specie}</div></div></div>
       <div class="consiglio-row"><span class="ico-big">🪝</span><div class="testo"><div class="titolo">Montatura</div><div class="valore">${analisi.montatura}</div></div></div>
       <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">Attrezzatura</div><div class="valore">${analisi.attrezzatura}</div></div></div>
-      <div class="consiglio-row"><span class="ico-big">🪱</span><div class="testo"><div class="titolo">Esche consigliate</div><div class="valore">${analisi.esche}</div></div></div>
+      <div class="consiglio-row"><span class="ico-big">🐛</span><div class="testo"><div class="titolo">Esche consigliate</div><div class="valore">${analisi.esche}</div></div></div>
       ${analisi.avviso?`<div class="consiglio-row"><span class="ico-big">⚠️</span><div class="testo"><div class="titolo">Attenzione</div><div class="valore">${analisi.avviso}</div></div></div>`:""}
     </div>
     <div class="mappa-card">
