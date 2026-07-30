@@ -56,6 +56,13 @@ header {
   font-size: 22px; width: 40px; height: 40px; border-radius: 50%;
   cursor: pointer; margin: 0; display: flex; align-items: center; justify-content: center;
 }
+  .fullscreen-spinner {
+  position: absolute; font-size: 40px; color: white;
+  animation: floatLogo 1.2s ease-in-out infinite;
+}
+.fullscreen-img { opacity: 0; transition: opacity 0.3s ease; }
+.fullscreen-img.loaded { opacity: 1;
+}
 .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 16px; }
 .card {
   background: white; border-radius: 20px; padding: 20px;
@@ -751,8 +758,9 @@ function mostraEscaFullscreen(event, img, nome) {
   event.stopPropagation();
   document.body.insertAdjacentHTML("beforeend", `
     <div class="fullscreen-overlay" onclick="chiudiEscaFullscreen(event)">
+      <span class="fullscreen-spinner">🎣</span>
       <button class="fullscreen-close" onclick="chiudiEscaFullscreen(event)">✕</button>
-      <img src="${img}" alt="${nome}" class="fullscreen-img">
+      <img src="${img}" alt="${nome}" class="fullscreen-img" onload="this.classList.add('loaded');this.previousElementSibling.previousElementSibling.style.display='none'" onerror="this.previousElementSibling.previousElementSibling.style.display='none';imgFallback(this,'${nome} non disponibile')">
     </div>`);
 }
 function chiudiEscaFullscreen(event) {
