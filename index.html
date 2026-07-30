@@ -1044,7 +1044,7 @@ function apriDettaglio(tipo, index) {
   const item=tecnicheData[tecnica][categoria][index]; if(!item)return;
   if(container.dataset.open==index){container.innerHTML="";container.dataset.open="";return;}
   container.dataset.open=index;
-  container.innerHTML=`<div class="card" style="cursor:default;"><h3>${item.nome}</h3><img src="${item.img}" style="width:60%;max-width:280px;border-radius:10px;display:block;margin:10px auto;" onerror="imgFallback(this,'${item.nome} non disponibile')">${item.descrizione?`<p>${item.descrizione}</p>`:""}${item.peso?`<p><strong>Peso:</strong> ${item.peso}</p>`:""}</div>`;
+  container.innerHTML=`<div class="card" style="cursor:default;text-align:center;"><h3>${item.nome}</h3><img src="${item.img}" onclick="mostraEscaFullscreen(event,'${item.img}','${item.nome}')" style="width:100%;max-width:260px;height:180px;object-fit:contain;background:#f1f6fa;border-radius:10px;display:block;margin:10px auto;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:-4px 0 10px;">🔍 Tocca per ingrandire</p>${item.descrizione?`<p style="text-align:left;">${item.descrizione}</p>`:""}${item.peso?`<p style="text-align:left;"><strong>Peso:</strong> ${item.peso}</p>`:""}</div>`;
 }
 function generaCalendario(stagione) {
   if(!stagione)return"";
