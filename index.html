@@ -1009,9 +1009,15 @@ function toggleImageBox(id, imgPath, button) {
   }
   if (box.innerHTML === "") {
     const img = document.createElement("img");
-    img.src = imgPath; img.style.cssText = "width:20%;border-radius:12px;margin-top:10px;display:block;";
-    img.onerror = function() { this.style.display = "none"; };
+    img.src = imgPath;
+    img.style.cssText = "width:100%;max-width:260px;height:180px;object-fit:contain;background:#f1f6fa;border-radius:12px;margin-top:10px;display:block;cursor:zoom-in;";
+    img.onclick = (e) => mostraEscaFullscreen(e, imgPath, "Schema montatura");
+    img.onerror = function() { imgFallback(this, "Schema non disponibile"); };
     box.appendChild(img);
+    const hint = document.createElement("p");
+    hint.style.cssText = "text-align:center;font-size:10px;opacity:0.5;margin:4px 0 0;";
+    hint.textContent = "🔍 Tocca per ingrandire";
+    box.appendChild(hint);
   }
   box.classList.add("open"); button.classList.add("active");
   setTimeout(() => box.scrollIntoView({ behavior:"smooth", block:"center" }), 200);
