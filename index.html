@@ -546,12 +546,16 @@ function showGalleggiante() {
     <div class="card" style="cursor:default;">
       <h3>🪝 Montature dedicate</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
-     <div style="display:flex;gap:8px;">
-  <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;">📷 Fisso <span class="arrow">▼</span></button>
-  <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;">📷 Scorrevole <span class="arrow">▼</span></button>
+     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+  <div>
+    <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 Galleggiante Fisso <span class="arrow">▼</span></button>
+    <div id="galleggFissoBox" class="image-box"></div>
   </div>
-  <div id="galleggFissoBox" class="image-box"></div>
-  <div id="galleggScorrBox" class="image-box"></div>
+  <div>
+    <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 Galleggiante Scorrevole <span class="arrow">▼</span></button>
+    <div id="galleggScorrBox" class="image-box"></div>
+  </div>
+</div>
     </div>
     <div class="card"><b>Pro</b><br>Tecnica precisa e sensibile</div>
     <div class="card"><b>Contro</b><br>Poco efficace con mare mosso</div>
