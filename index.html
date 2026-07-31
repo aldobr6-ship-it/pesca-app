@@ -538,24 +538,24 @@ function showSurfcasting() {
     <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
 function showGalleggiante() {
+  const dati = tecnicheData.galleggiante;
   document.getElementById("content").innerHTML = `
     <h2>🎈 Galleggiante</h2>
     <div class="card"><b>Quando usarla</b><br>Mare calmo • Porto • Scogliera</div>
     <div class="card"><b>Attrezzatura base</b><br>Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole</div>
-    <div class="card"><b>Specie principali</b><br>Cefalo • Sarago • Occhiata • Orata piccola</div>
     <div class="card" style="cursor:default;">
       <h3>🪝 Montature dedicate</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
-      <button onclick="toggleImageBox('galleggFissoBox','img/ravennate.jpg',this)" class="toggle-btn">📷 Galleggiante Fisso <span class="arrow">▼</span></button>
+      <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn">📷 Galleggiante Fisso <span class="arrow">▼</span></button>
       <div id="galleggFissoBox" class="image-box"></div>
-      <button onclick="toggleImageBox('galleggScorrBox','img/ravennate.jpg',this)" class="toggle-btn">📷 Galleggiante Scorrevole <span class="arrow">▼</span></button>
+      <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn">📷 Galleggiante Scorrevole <span class="arrow">▼</span></button>
       <div id="galleggScorrBox" class="image-box"></div>
-      <p style="margin-top:14px;font-size:13px;text-align:left;"><b>Esche:</b> Bigattino • Pane • Coreano • Gambero</p>
     </div>
     <div class="card"><b>Pro</b><br>Tecnica precisa e sensibile</div>
     <div class="card"><b>Contro</b><br>Poco efficace con mare mosso</div>
+    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
+    <div class="card"><h3>🪱 Esche consigliate</h3>${generaListaCliccabile(dati.esche)}</div>
     <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare" target="_blank">Guarda su YouTube</a></div>
-    ${generaSpeciePerTecnica("galleggiante")}
     <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
 function showSpinning() {
@@ -993,6 +993,10 @@ const tecnicheData = {
     ],
     specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Scorfano",img:"img/scorfano.jpg"},{nome:"Pagello",img:"img/pagello.jpg"}],
     esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Cozza",img:"img/cozza.jpg"}]
+  },
+  galleggiante:{
+    specie:[{nome:"Cefalo",img:"img/cefalo.jpg"},{nome:"Sarago",img:"img/sarago-maggiore.jpg"},{nome:"Occhiata",img:"img/occhiata.jpg"},{nome:"Orata piccola",img:"img/orata.jpg"}],
+    esche:[{nome:"Bigattino",img:"img/bigattino.jpg"},{nome:"Pane",img:"img/pane.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Gambero",img:"img/gambero.jpg"}]
   }
 };
 
