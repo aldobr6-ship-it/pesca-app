@@ -37,6 +37,9 @@ header {
   animation: fadeIn 0.35s ease;
   scroll-margin-top: 0;
 }
+  .img-box-bg { background:#f1f6fa; }
+body.dark .img-box-bg { background:#334155; }
+  
   .esca-popup-img {
   max-width: 260px; width: 100%; display: block;
   margin: 0 auto 14px; border-radius: 14px;
@@ -650,7 +653,7 @@ function cardNodo(n) {
         🧵 ${n.nome}
       </button>
       <div id="${id}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
-        <img src="${n.img}" onclick="mostraEscaFullscreen(event,'${n.img}','${n.nome}')" style="width:100%;height:140px;object-fit:contain;background:#f1f6fa;border-radius:12px;margin-bottom:6px;cursor:zoom-in;" onerror="imgFallback(this,'${n.nome} non disponibile')">
+       <img src="${n.img}" onclick="mostraEscaFullscreen(event,'${n.img}','${n.nome}')" class="img-box-bg" style="width:100%;height:140px;object-fit:contain;border-radius:12px;margin-bottom:6px;cursor:zoom-in;" onerror="imgFallback(this,'${n.nome} non disponibile')">
         <p style="font-size:10px;opacity:0.5;margin:-4px 0 6px;">🔍 Tocca per ingrandire</p>
         <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
         ${n.video ? `<a href="${n.video}" target="_blank" style="text-decoration:none;"><div style="margin-top:8px;background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:8px;border-radius:10px;font-size:12px;font-weight:700;">▶ Video Tutorial</div></a>` : ""}
@@ -1036,8 +1039,8 @@ function toggleImageBox(id, imgPath, button) {
 function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
   lista.forEach((item, index) => {
-    const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
-    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;text-align:center;"><img src="${item.img}" onclick="event.stopPropagation();mostraEscaFullscreen(event,'${item.img}','${item.nome}')" style="width:100%;max-width:260px;height:180px;object-fit:contain;background:#f1f6fa;border-radius:12px;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:4px 0 0;">🔍 Tocca per ingrandire</p></div></div>`;
+   const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
+    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;text-align:center;"><img src="${item.img}" onclick="event.stopPropagation();mostraEscaFullscreen(event,'${item.img}','${item.nome}')" class="img-box-bg" style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:4px 0 0;">🔍 Tocca per ingrandire</p></div></div>`;
   });
   return html + "</div>";
 }
@@ -1054,7 +1057,7 @@ function apriDettaglio(tipo, index) {
   const item=tecnicheData[tecnica][categoria][index]; if(!item)return;
   if(container.dataset.open==index){container.innerHTML="";container.dataset.open="";return;}
   container.dataset.open=index;
-  container.innerHTML=`<div class="card" style="cursor:default;text-align:center;"><h3>${item.nome}</h3><img src="${item.img}" onclick="mostraEscaFullscreen(event,'${item.img}','${item.nome}')" style="width:100%;max-width:260px;height:180px;object-fit:contain;background:#f1f6fa;border-radius:10px;display:block;margin:10px auto;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:-4px 0 10px;">🔍 Tocca per ingrandire</p>${item.descrizione?`<p style="text-align:left;">${item.descrizione}</p>`:""}${item.peso?`<p style="text-align:left;"><strong>Peso:</strong> ${item.peso}</p>`:""}</div>`;
+  container.innerHTML=`<div class="card" style="cursor:default;text-align:center;"><h3>${item.nome}</h3><img src="${item.img}" onclick="mostraEscaFullscreen(event,'${item.img}','${item.nome}')" class="img-box-bg" style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:10px;display:block;margin:10px auto;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:-4px 0 10px;">🔍 Tocca per ingrandire</p>${item.descrizione?`<p style="text-align:left;">${item.descrizione}</p>`:""}${item.peso?`<p style="text-align:left;"><strong>Peso:</strong> ${item.peso}</p>`:""}</div>`;
 }
 function generaCalendario(stagione) {
   if(!stagione)return"";
