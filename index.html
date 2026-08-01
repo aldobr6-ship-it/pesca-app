@@ -544,7 +544,7 @@ function showGalleggiante() {
     <div class="card"><b>Quando usarla</b><br>Mare calmo • Porto • Scogliera</div>
     <div class="card"><b>Attrezzatura base</b><br>Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole</div>
     <div class="card" style="cursor:default;">
-      <h3>✅ Montature dedicate</h3>
+      <h3>🎣 Montature dedicate</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
   <div>
@@ -608,7 +608,7 @@ function showFondo() {
     <div class="card"><b>Quando usarla</b><br>Tutto l'anno • Porto • Scogliera • Spiaggia</div>
     <div class="card"><b>Attrezzatura base</b><br>Canna 3–4 m • Mulinello 4000–6000 • Nylon 0,30–0,40</div>
     <div class="card" style="cursor:default;">
-      <h3>✅ Montature dedicate</h3>
+      <h3>🎣 Montature dedicate</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
       ${montature.map((m,i)=>`
         <button onclick="toggleImageBox('fondoBox${i}','${m.img}',this)" class="toggle-btn">📷 ${m.nome} <span class="arrow">▼</span></button>
@@ -815,7 +815,7 @@ function filtraMontature() {
 }
 function showMontature() {
   document.getElementById("content").innerHTML = `
-    <h2 style="margin-top:0;">🪝 Montature da Pesca</h2>
+    <h2 style="margin-top:0;">🎣 Montature da Pesca</h2>
     <div class="card">
       <input type="text" id="searchMontature" placeholder="Cerca montatura..."
         style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
@@ -1071,7 +1071,7 @@ function generaSpeciePerTecnica(nomeTecnica) {
 }
 function generaMontatureSpecie(list) {
   if(!list||list.length===0)return"";
-  return`<div class="card" style="cursor:default;text-align:left;"><b>🪝 Montature consigliate</b><br><br>${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${m}'))">${m.replace(/-/g," ")} →</div>`).join("")}</div>`;
+  return`<div class="card" style="cursor:default;text-align:left;"><b>🎣 Montature consigliate</b><br><br>${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${m}'))">${m.replace(/-/g," ")} →</div>`).join("")}</div>`;
 }
 function trovaIndiceOra(times,ora){const s=ora.toISOString().slice(0,13);const i=times.findIndex(t=>t&&t.startsWith(s));return i>=0?i:0;}
 function stelleRating(r){return"⭐".repeat(r)+"☆".repeat(5-r);}
