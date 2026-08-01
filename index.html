@@ -1049,7 +1049,12 @@ function generaMiniCard(lista, tipo) {
   if (!lista || lista.length === 0) return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
   return `<div class="mini-container">${lista.map((item,index)=>`<div class="mini-card" onclick="apriDettaglio('${tipo}',${index})">${item.nome}</div>`).join("")}</div><div id="${tipo}-detail"></div>`;
 }
-function toggleImgById(id) { const el=document.getElementById(id); if(el)el.style.display=el.style.display==="none"?"block":"none"; }
+function toggleImgById(id) {
+  const el = document.getElementById(id); if (!el) return;
+  const aperto = el.style.display === "block";
+  document.querySelectorAll("[id^='img-']").forEach(e => e.style.display = "none");
+  el.style.display = aperto ? "none" : "block";
+}
 function apriDettaglio(tipo, index) {
   const container=document.getElementById(tipo+"-detail"); if(!container)return;
   const parti=tipo.split("-"); if(parti.length<2)return;
