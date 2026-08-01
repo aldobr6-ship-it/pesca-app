@@ -517,7 +517,7 @@ function showSurfcasting() {
     <div class="card"><b>Quando usarla</b><br>Mare mosso o formato, spiagge sabbiose, alba e tramonto</div>
     <div class="card"><b>Attrezzatura base</b><br>Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40</div>
     <div class="card" style="cursor:default;">
-      <h3>✅ Montature dedicate</h3>
+      <h3>🎣 Montature dedicate</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
       <button onclick="toggleImageBox('traveBox','img/montature/14_minitrave.jpg',this)" class="toggle-btn">📷 Montatura a Trave <span class="arrow">▼</span></button>
       <div id="traveBox" class="image-box"></div>
@@ -852,7 +852,7 @@ function showMontaturaDetail(id) {
         </div>
       </div>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🪱 Esche consigliate</div>
+        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🐛 Esche consigliate</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
           ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
         </div>
@@ -1247,7 +1247,7 @@ function renderSpotList(spots){
       <div class="spot-info">
         <div class="spot-nome">${s.nome}</div>
         <div class="spot-sub">${s.specie?"🐟 "+s.specie:""} ${s.montatura?"• 🎣 "+s.montatura:""}</div>
-        <div class="spot-sub" style="opacity:0.45;">${s.data} ${s.note?"• "+s.note:""}</div>
+        <div class="spot-sub" style="opacity:0.45;">${s.data} ${s.note?"• 🗺️ "+s.note:""}</div>
       </div>
       <button class="spot-del" onclick="event.stopPropagation();eliminaSpot(${s.id})">🗑️</button>
     </div>`).join("");
