@@ -629,7 +629,7 @@ function showFondo() {
 
 <script>
 /* === NODI === */
-const nodiData = [
+let nodiData = [];
   { nome:"Nodo Clinch",    img:"./img/nodo-clinch.jpg",   uso:"Ami, girelle, moschettoni",        filo:"Nylon / Fluorocarbon", video:"https://www.youtube.com/watch?v=zEwc7y_QKc4" },
   { nome:"Nodo Palomar",   img:"./img/nodo-palomar.jpg",  uso:"Ami e artificiali",                filo:"Trecciato", video:"https://www.youtube.com/watch?v=ERuJt0UVp90" },
   { nome:"Nodo FG",        img:"./img/nodo-fg.jpg",       uso:"Treccia → Fluorocarbon",           filo:"Treccia → Fluoro", video:"https://www.youtube.com/watch?v=DsoOcAgzatA" },
@@ -1988,8 +1988,17 @@ function generaConsiglioPesca(luna, solunar, ora) {
 
 <script>
 /* === AVVIO === */
-caricaTema();
-showHome();
+async function avviaApp() {
+  try {
+    const res = await fetch("./data/nodi.json");
+    nodiData = await res.json();
+  } catch(e) {
+    console.error("Errore caricamento nodi:", e);
+  }
+  caricaTema();
+  showHome();
+}
+avviaApp();
 window.addEventListener("load",()=>{
   setTimeout(()=>{const s=document.getElementById("splash");if(s)s.style.display="none";},3500);
 });
