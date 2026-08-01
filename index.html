@@ -1020,10 +1020,11 @@ function toggleImageBox(id, imgPath, button) {
     box.classList.remove("open"); box.innerHTML = "";
     button.classList.remove("active"); currentlyOpenBox = null; currentlyOpenButton = null; return;
   }
-  if (box.innerHTML === "") {
+ if (box.innerHTML === "") {
     const img = document.createElement("img");
     img.src = imgPath;
-    img.style.cssText = "width:100%;max-width:260px;height:180px;object-fit:contain;background:#f1f6fa;border-radius:12px;margin-top:10px;display:block;cursor:zoom-in;";
+    img.className = "img-box-bg";
+    img.style.cssText = "width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;margin-top:10px;display:block;cursor:zoom-in;";
     img.onclick = (e) => mostraEscaFullscreen(e, imgPath, "Schema montatura");
     img.onerror = function() { imgFallback(this, "Schema non disponibile"); };
     box.appendChild(img);
