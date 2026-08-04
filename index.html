@@ -852,9 +852,9 @@ function showMontaturaDetail(id) {
         onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
       <p style="text-align:center;font-size:11px;opacity:0.5;margin:6px 0 10px;">🔍 Tocca per ingrandire</p>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:5px;">🕐 Quando usare</div>
-        <div style="font-size:13px;line-height:1.7;">${m.quando.split(" • ").join("<br>")}</div>
-      </div>
+  <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🕐 Quando usare</div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
+</div>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
         <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🐛 Esche consigliate</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
