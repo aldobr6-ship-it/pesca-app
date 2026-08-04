@@ -510,7 +510,8 @@ const tecnicheList = [
   { nome:"Spinning",       emoji:"🎣", desc:"Esche artificiali da riva", fn:"showSpinning" },
   { nome:"Eging",          emoji:"🦑", desc:"Seppie e calamari", fn:"showEging" },
   { nome:"Pesca a Fondo",  emoji:"⚓", desc:"Porto e scogliera", fn:"showFondo" },
-  { nome:"Galleggiante",   emoji:"🎈", desc:"Tecnica precisa e leggera", fn:"showGalleggiante" }
+  { nome:"Galleggiante",   emoji:"🎈", desc:"Tecnica precisa e leggera", fn:"showGalleggiante" },
+  { nome:"Beach Ledgering", emoji:"🎣", desc:"Spiaggia, mare calmo", fn:"showBeachLedgering" }
 ];
 
 function showTecniche() {
@@ -634,6 +635,31 @@ function showFondo() {
     <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.specie)}</div>
     <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.esche)}</div>
     <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">Guarda su YouTube</a></div>
+    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
+}
+  function showBeachLedgering() {
+  const dati = tecnicheData.beachledgering;
+  const montatureHtml = dati.montature.map((m,i) => `
+    <div class="card" style="text-align:left;cursor:default;">
+      <h3 style="margin:0 0 8px;font-size:15px;">${m.nome}</h3>
+      <button onclick="toggleImageBox('beachBox${i}','${m.img}',this)" class="toggle-btn">📷 Vedi schema <span class="arrow">▼</span></button>
+      <div id="beachBox${i}" class="image-box"></div>
+      <div style="margin-top:10px;font-size:13px;">
+        <b>✅ Pro</b>
+        <ul style="margin:4px 0 10px;padding-left:18px;">${m.pro.map(p=>`<li>${p}</li>`).join("")}</ul>
+        <b>❌ Contro</b>
+        <ul style="margin:4px 0 0;padding-left:18px;">${m.contro.map(c=>`<li>${c}</li>`).join("")}</ul>
+      </div>
+    </div>`).join("");
+  document.getElementById("content").innerHTML = `
+    <h2>🏖️ Beach Ledgering</h2>
+    <div class="card"><b>📅 Quando usarla</b><br>${dati.quando}</div>
+    <div class="card"><b>🎒 Attrezzatura base</b><br>${dati.attrezzatura}</div>
+    <h3 style="margin:16px 0 10px;font-size:15px;opacity:0.7;">🪝 Montature dedicate</h3>
+    ${montatureHtml}
+    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
+    <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(dati.esche)}</div>
+    <div class="card"><b>🎥 Video tutorial</b><br><a href="${dati.video}" target="_blank">Guarda su YouTube</a></div>
     <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
 }
 </script>
@@ -975,6 +1001,18 @@ const tecnicheData = {
   galleggiante:{
     specie:[{nome:"Cefalo",img:"img/cefalo.jpg"},{nome:"Sarago",img:"img/sarago-maggiore.jpg"},{nome:"Occhiata",img:"img/occhiata.jpg"},{nome:"Orata piccola",img:"img/orata.jpg"}],
     esche:[{nome:"Bigattino",img:"img/bigattino.jpg"},{nome:"Pane",img:"img/pane.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Gambero",img:"img/gambero.jpg"}]
+  },
+  beachledgering:{
+    quando:"Mare calmo, quasi calmo o in leggera scaduta",
+    attrezzatura:"In bobina si utilizzano monofili sottili (dallo 0,18 allo 0,22) per favorire la distanza di lancio. Ricorda di legare uno shock leader (spezzone di filo conico o dello 0,35-0,40 lungo circa due volte la canna) per sopportare lo sforzo del lancio.",
+    montature:[
+      {nome:"Trave a 2/3 Ami (Paternoster)", img:"img/montature/06_paternoster.jpg", pro:["Massima versatilità: testa esche e altezze diverse insieme","Effetto scia: più esche vicine creano forte richiamo","Catture multiple: doppiette o triplette possibili"], contro:["Rischio grovigli con corrente o lanci errati","Minore naturalezza, braccioli corti","Pesci diffidenti avvertono la rigidità"]},
+      {nome:"Long Arm (Monobraccio lungo)", img:"img/montature/03_long_arm.jpg", pro:["Estrema naturalezza: l'esca segue la corrente","Invisibilità: lontano dal piombo e trave","Buona mobilità anche con correnti leggere"], contro:["Richiede lanci tecnici (Above o Side)","Un solo amo, meno probabilità di intercettare il pesce","Poco adatto per pesci di superficie"]},
+      {nome:"Piombo Scorrevole", img:"img/montature/12_scorrevole.jpg", pro:["Resistenza zero: meno rifiuti dell'esca","Autoferrata ritardata, ideale per orate","Montaggio rapido in spiaggia"], contro:["Difficoltà con fondali a scalini o alghe","Meno sensibilità sulle tocche corte","Esca ancorata rigidamente alla zavorra"]}
+    ],
+    specie:[{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Orata",img:"img/orata.jpg"},{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Triglia",img:"img/triglia.jpg"},{nome:"Cefalo",img:"img/cefalo.jpg"},{nome:"Leccia Stella",img:"img/leccia.jpg"}],
+    esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Bigattino",img:"img/bigattino.jpg"},{nome:"Coreano",img:"img/coreano.jpg"}],
+    video:"https://www.youtube.com/results?search_query=beach+ledgering+pesca+spiaggia"
   }
 };
 
