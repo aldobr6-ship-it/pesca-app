@@ -813,9 +813,9 @@ function renderMontature(lista, query) {
     box.innerHTML = nessunRisultatoMontatura(query || "");
     return;
   }
- box.innerHTML = `
+  box.innerHTML = `
     <p style="opacity:0.6;margin-bottom:14px;font-size:13px;">${lista.length} montature • tocca per il dettaglio</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">${lista.map(cardMontatura).join("")}</div>`;
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">${lista.map(cardMontatura).join("")}</div>
     <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">🏠 Torna alla Home</button>`;
 }
 
