@@ -22,5 +22,15 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "img/screenshot-desktop.png",
+      "sizes": "1024x513",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Schermata principale di AdelTechnic-FISH"
+    }
   ]
 }
+
