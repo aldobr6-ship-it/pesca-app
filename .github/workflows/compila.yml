@@ -1,4 +1,5 @@
 name: 'Genera EXE Autonomo'
+
 on:
   workflow_dispatch:
 
@@ -13,14 +14,40 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - name: Prepara il Pacchetto Autonomo
-        run: |
-          npm install -g nativefier
-          nativefier --name "AdelTechnic-FISH" --internal-urls ".*" "https://github.io" --platform "windows" --arch "x64" --single-instance --icon "icona.ico"
 
+      - name: Configura e Compila App Locale Offline
+        run: |
+          npm init -y
+          npm install electron electron-builder --save-dev
+          
+          # Crea il file di avvio principale per l'eseguibile
+          echo "const { app, BrowserWindow } = require('electron');" > main.js
+          echo "function createWindow () {" >> main.js
+          echo "  const win = new BrowserWindow({ width: 1024, height: 768, icon: __dirname + '/icona.ico', autoHideMenuBar: true });" >> main.js
+          echo "  win.loadFile('index.html');" >> main.js
+          echo "}" >> main.js
+          echo "app.whenReady().then(createWindow);" >> main.js
+          
+          # Configura i dettagli dell'app nel file package.json
+          node -e "
+          const fs = require('fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json'));
+          pkg.name = 'adeltechnic-fish';
+          pkg.version = '1.0.0';
+          pkg.main = 'main.js';
+          pkg.build = {
+            appId: 'com.adeltechnic.fish',
+            win: { target: 'portable', icon: 'icona.ico' },
+            files: ['main.js', 'index.html', 'manifest.json', 'img/**/*', 'Assets/**/*']
+          };
+          fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          "
+          
+          # Avvia la creazione dell'eseguibile portatile
+          npx electron-builder --windows
 
       - name: Carica l'Eseguibile Pronto
         uses: actions/upload-artifact@v4
         with:
-          name: AdelTechnic-FISH-EXE
-          path: AdelTechnic-FISH-win32-x64/
+          name: AdelTechnic-FISH-Locale-EXE
+          path: dist/*.exe
