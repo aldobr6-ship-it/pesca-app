@@ -15,21 +15,28 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Configura e Compila App Ibrida Autonoma
+      - name: Configura Server Locale Invisibile e Compila
         run: |
           npm init -y
-          npm install electron electron-builder --save-dev
+          npm install electron electron-builder express --save-dev
           
-          # Crea il file di avvio che corregge i problemi di navigazione e supporta il funzionamento offline
+          # Crea il file di avvio con un server locale Express integrato
           echo "const { app, BrowserWindow } = require('electron');" > main.js
+          echo "const express = require('express');" >> main.js
+          echo "const path = require('path');" >> main.js
+          echo "const server = express();" >> main.js
+          echo "const PORT = 49152;" >> main.js
+          echo "server.use(express.static(__dirname));" >> main.js
+          echo "server.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'index.html')); });" >> main.js
+          echo "let serverInstance = server.listen(PORT);" >> main.js
           echo "function createWindow () {" >> main.js
           echo "  const win = new BrowserWindow({ width: 1024, height: 768, icon: __dirname + '/icona.ico', autoHideMenuBar: true });" >> main.js
-          echo "  win.loadURL('https://github.io');" >> main.js
-          echo "  win.webContents.on('did-fail-load', () => { win.loadFile('index.html'); });" >> main.js
+          echo "  win.loadURL('http://localhost:' + PORT);" >> main.js
           echo "}" >> main.js
           echo "app.whenReady().then(createWindow);" >> main.js
+          echo "app.on('window-all-closed', () => { if (serverInstance) serverInstance.close(); app.quit(); });" >> main.js
           
-          # Configura package.json
+          # Configura i dettagli dell'app nel file package.json
           node -e "
           const fs = require('fs');
           const pkg = JSON.parse(fs.readFileSync('package.json'));
@@ -39,7 +46,7 @@ jobs:
           pkg.build = {
             appId: 'com.adeltechnic.fish',
             win: { target: 'portable', icon: 'icona.ico' },
-            files: ['main.js', 'index.html', 'manifest.json', 'img/**/*', 'Assets/**/*']
+            files: ['main.js', 'index.html', 'manifest.json', 'img/**/*', 'Assets/**/*', 'node_modules/**/*']
           };
           fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
           "
