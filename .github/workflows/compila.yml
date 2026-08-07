@@ -1,7 +1,7 @@
 name: 'Genera EXE Autonomo'
 
 on:
-  workflow_dispatch: # Ti permette di avviare la creazione con un click
+  workflow_dispatch:
 
 jobs:
   crea-eseguibile:
@@ -15,11 +15,12 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Installa Rust
+      - name: Installa Rust Base
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Inizializza e Compila con Tauri
+      - name: Compilazione Autonoma Diretta
         run: |
           npm install -g @tauri-apps/cli
           npx tauri init --app-name "AdelTechnic-FISH" --window-title "AdelTechnic-FISH" --dist-dir "." --dev-path "https://github.io"
-          npx tauri build
+          npx tauri build --bundle none
+
