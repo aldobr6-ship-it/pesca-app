@@ -15,12 +15,13 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Installa Rust Base
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Compilazione Autonoma Diretta
+      - name: Prepara il Pacchetto Autonomo
         run: |
-          npm install -g @tauri-apps/cli
-          npx tauri init --app-name "AdelTechnic-FISH" --window-title "AdelTechnic-FISH" --dist-dir "." --dev-path "https://github.io"
-          npx tauri build --bundle none
+          npm install -g nativefier
+          nativefier --name "AdelTechnic-FISH" --internal-urls ".*" "https://github.io" --platform "windows" --arch "x64" --single-instance
 
+      - name: Carica l'Eseguibile Pronto
+        uses: actions/upload-artifact@v4
+        with:
+          name: AdelTechnic-FISH-EXE
+          path: AdelTechnic-FISH-win32-x64/
