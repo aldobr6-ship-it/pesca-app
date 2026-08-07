@@ -1,32 +1,4 @@
-
 name: 'Genera EXE Autonomo'
-
-on:
-  workflow_dispatch:
-
-jobs:
-  crea-eseguibile:
-    runs-on: windows-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Installa Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Prepara il Pacchetto Autonomo con Icona
-        run: |
-          npm install -g nativefier
-          nativefier --name "AdelTechnic-FISH" --internal-urls ".*" "https://github.io" --platform "windows" --arch "x64" --single-instance --icon "./icona.ico"
-
-      - name: Carica l'Eseguibile Pronto
-        uses: actions/upload-artifact@v4
-        with:
-          name: AdelTechnic-FISH-EXE
-          path: AdelTechnic-FISH-win32-x64/name: 'Genera EXE Autonomo'
-
 on:
   workflow_dispatch:
 
