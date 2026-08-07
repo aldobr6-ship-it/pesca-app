@@ -15,20 +15,21 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Configura e Compila App Locale Offline
+      - name: Configura e Compila App Ibrida Autonoma
         run: |
           npm init -y
           npm install electron electron-builder --save-dev
           
-          # Crea il file di avvio principale per l'eseguibile
+          # Crea il file di avvio che corregge i problemi di navigazione e supporta il funzionamento offline
           echo "const { app, BrowserWindow } = require('electron');" > main.js
           echo "function createWindow () {" >> main.js
           echo "  const win = new BrowserWindow({ width: 1024, height: 768, icon: __dirname + '/icona.ico', autoHideMenuBar: true });" >> main.js
-          echo "  win.loadFile('index.html');" >> main.js
+          echo "  win.loadURL('https://github.io');" >> main.js
+          echo "  win.webContents.on('did-fail-load', () => { win.loadFile('index.html'); });" >> main.js
           echo "}" >> main.js
           echo "app.whenReady().then(createWindow);" >> main.js
           
-          # Configura i dettagli dell'app nel file package.json
+          # Configura package.json
           node -e "
           const fs = require('fs');
           const pkg = JSON.parse(fs.readFileSync('package.json'));
@@ -43,7 +44,6 @@ jobs:
           fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
           "
           
-          # Avvia la creazione dell'eseguibile portatile
           npx electron-builder --windows
 
       - name: Carica l'Eseguibile Pronto
