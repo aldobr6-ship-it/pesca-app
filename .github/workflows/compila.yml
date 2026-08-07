@@ -15,46 +15,28 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Configura Server Locale Invisibile e Compila
+      - name: Installa Rust Base
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Compilazione Standalone Integrata
         run: |
-          npm init -y
-          npm install electron electron-builder express --save-dev
+          npm install -g @tauri-apps/cli
+          npx tauri init --app-name "AdelTechnic-FISH" --window-title "AdelTechnic-FISH" --dist-dir "." --dev-path "https://github.io"
           
-          # Crea il file di avvio con un server locale Express integrato
-          echo "const { app, BrowserWindow } = require('electron');" > main.js
-          echo "const express = require('express');" >> main.js
-          echo "const path = require('path');" >> main.js
-          echo "const server = express();" >> main.js
-          echo "const PORT = 49152;" >> main.js
-          echo "server.use(express.static(__dirname));" >> main.js
-          echo "server.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'index.html')); });" >> main.js
-          echo "let serverInstance = server.listen(PORT);" >> main.js
-          echo "function createWindow () {" >> main.js
-          echo "  const win = new BrowserWindow({ width: 1024, height: 768, icon: __dirname + '/icona.ico', autoHideMenuBar: true });" >> main.js
-          echo "  win.loadURL('http://localhost:' + PORT);" >> main.js
-          echo "}" >> main.js
-          echo "app.whenReady().then(createWindow);" >> main.js
-          echo "app.on('window-all-closed', () => { if (serverInstance) serverInstance.close(); app.quit(); });" >> main.js
-          
-          # Configura i dettagli dell'app nel file package.json
+          # Inserisce la configurazione per includere le immagini e i file della PWA nell'eseguibile offline
           node -e "
           const fs = require('fs');
-          const pkg = JSON.parse(fs.readFileSync('package.json'));
-          pkg.name = 'adeltechnic-fish';
-          pkg.version = '1.0.0';
-          pkg.main = 'main.js';
-          pkg.build = {
-            appId: 'com.adeltechnic.fish',
-            win: { target: 'portable', icon: 'icona.ico' },
-            files: ['main.js', 'index.html', 'manifest.json', 'img/**/*', 'Assets/**/*', 'node_modules/**/*']
-          };
-          fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          const conf = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json'));
+          conf.bundle.active = false;
+          conf.tauri.allowlist = { all: true };
+          conf.tauri.bundle = { resources: ['img/**/*', 'Assets/**/*'] };
+          fs.writeFileSync('src-tauri/tauri.conf.json', JSON.stringify(conf, null, 2));
           "
           
-          npx electron-builder --windows
+          npx tauri build
 
       - name: Carica l'Eseguibile Pronto
         uses: actions/upload-artifact@v4
         with:
-          name: AdelTechnic-FISH-Locale-EXE
-          path: dist/*.exe
+          name: AdelTechnic-FISH-Definitivo
+          path: src-tauri/target/release/AdelTechnic-FISH.exe
