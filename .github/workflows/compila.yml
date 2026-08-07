@@ -15,10 +15,11 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Prepara il Pacchetto Autonomo
+                - name: Prepara il Pacchetto Autonomo
         run: |
           npm install -g nativefier
-          nativefier --name "AdelTechnic-FISH" --internal-urls ".*" "https://github.io" --platform "windows" --arch "x64" --single-instance
+          nativefier --name "AdelTechnic-FISH" --internal-urls ".*" "https://github.io" --platform "windows" --arch "x64" --single-instance --icon "icona.ico"
+
 
       - name: Carica l'Eseguibile Pronto
         uses: actions/upload-artifact@v4
