@@ -530,12 +530,17 @@ function t(chiave) {
   return traduzioni[linguaAttuale][chiave] || traduzioni.it[chiave] || chiave;
 }
 
-function cambiaLingua(lingua) {
+async function cambiaLingua(lingua) {
   linguaAttuale = lingua;
   localStorage.setItem("lingua", lingua);
   document.getElementById("btnLangIt").style.opacity = lingua === "it" ? "1" : "0.4";
   document.getElementById("btnLangFr").style.opacity = lingua === "fr" ? "1" : "0.4";
   aggiornaFooter();
+  try {
+    const fileNodi = lingua === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
+    const res = await fetch(fileNodi);
+    nodiData = await res.json();
+  } catch(e) { console.error("Errore ricaricamento nodi:", e); }
   showHome();
 }
 
@@ -1982,9 +1987,11 @@ function generaConsiglioPesca(luna, solunar, ora) {
 <script>
 /* === AVVIO === */
 async function avviaApp() {
+  const linguaSalvata = localStorage.getItem("lingua") || "it";
+  const fileNodi = linguaSalvata === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
   try {
     const [resNodi, resMontature, resSpecie, resSpot] = await Promise.all([
-      fetch("./data/nodi.json"),
+      fetch(fileNodi),
       fetch("./data/montature.json"),
       fetch("./data/specie.json"),
       fetch("./data/spot-italia.json")
