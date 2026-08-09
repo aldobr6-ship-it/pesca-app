@@ -436,7 +436,12 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   </div>
 </div>
 <header>
+  <header>
   🎣 AdelTechnic-FISH
+  <div style="position:absolute; left:14px; top:50%; transform:translateY(-50%); display:flex; gap:4px;">
+    <button onclick="cambiaLingua('it')" id="btnLangIt" style="background:none; padding:2px; margin:0; font-size:20px; box-shadow:none; border-radius:6px;">🇮🇹</button>
+    <button onclick="cambiaLingua('fr')" id="btnLangFr" style="background:none; padding:2px; margin:0; font-size:20px; box-shadow:none; border-radius:6px; opacity:0.4;">🇫🇷</button>
+  </div>
   <div style="position:absolute; right:14px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; gap:2px;">
     <button onclick="toggleTema()" style="background:none; padding:6px; margin:0; font-size:20px; box-shadow:none;">🌓</button>
     <span id="temaLabel" style="font-size:10px; opacity:0.85; font-weight:normal; letter-spacing:normal;">Tema Scuro</span>
@@ -467,6 +472,67 @@ function toggleTema() {
 function caricaTema() {
   if (localStorage.getItem("tema") === "dark") document.body.classList.add("dark");
   aggiornaLabelTema();
+}
+  /* === LINGUA === */
+let linguaAttuale = "it";
+const traduzioni = {
+  it: {
+    benvenuto: "Benvenuto 🎣",
+    seleziona: "Seleziona una sezione per iniziare",
+    tecniche: "Tecniche", tecnicheDesc: "Surfcasting, spinning, eging…",
+    specie: "Specie", specieDesc: "I pesci più pescati",
+    montature: "Montature", montatureDesc: "Spiegate passo-passo",
+    nodi: "Nodi", nodiDesc: "Con immagini",
+    meteo: "Meteo & Spot", meteoDesc: "Previsioni + mappa pesca",
+    quandoPescare: "Quando Pescare", quandoPescareDesc: "Solunar, maree, luna",
+    tornaHome: "🏠 Torna alla Home",
+    cercaSpecie: "Cerca specie...",
+    cercaNodo: "Cerca nodo...",
+    cercaMontatura: "Cerca montatura...",
+    tornaMontature: "⬅️ Torna alle Montature",
+    tornaSpecie: "👈 Torna alle specie",
+    tornaTecniche: "👈 Torna alle tecniche",
+    footerHome: "Home", footerTecniche: "Tecniche", footerSpecie: "Specie",
+    footerMontature: "Montature", footerNodi: "Nodi", footerMeteo: "Meteo", footerEsci: "Esci"
+  },
+  fr: {
+    benvenuto: "Bienvenue 🎣",
+    seleziona: "Sélectionnez une section pour commencer",
+    tecniche: "Techniques", tecnicheDesc: "Surfcasting, spinning, eging…",
+    specie: "Espèces", specieDesc: "Les poissons les plus pêchés",
+    montature: "Montages", montatureDesc: "Expliqués étape par étape",
+    nodi: "Nœuds", nodiDesc: "Avec images",
+    meteo: "Météo & Spots", meteoDesc: "Prévisions + carte de pêche",
+    quandoPescare: "Quand Pêcher", quandoPescareDesc: "Solunaire, marées, lune",
+    tornaHome: "🏠 Retour à l'accueil",
+    cercaSpecie: "Rechercher une espèce...",
+    cercaNodo: "Rechercher un nœud...",
+    cercaMontatura: "Rechercher un montage...",
+    tornaMontature: "⬅️ Retour aux montages",
+    tornaSpecie: "👈 Retour aux espèces",
+    tornaTecniche: "👈 Retour aux techniques",
+    footerHome: "Accueil", footerTecniche: "Techniques", footerSpecie: "Espèces",
+    footerMontature: "Montages", footerNodi: "Nœuds", footerMeteo: "Météo", footerEsci: "Quitter"
+  }
+};
+
+function t(chiave) {
+  return traduzioni[linguaAttuale][chiave] || traduzioni.it[chiave] || chiave;
+}
+
+function cambiaLingua(lingua) {
+  linguaAttuale = lingua;
+  localStorage.setItem("lingua", lingua);
+  document.getElementById("btnLangIt").style.opacity = lingua === "it" ? "1" : "0.4";
+  document.getElementById("btnLangFr").style.opacity = lingua === "fr" ? "1" : "0.4";
+  showHome();
+}
+
+function caricaLingua() {
+  const salvata = localStorage.getItem("lingua");
+  if (salvata) linguaAttuale = salvata;
+  document.getElementById("btnLangIt").style.opacity = linguaAttuale === "it" ? "1" : "0.4";
+  document.getElementById("btnLangFr").style.opacity = linguaAttuale === "fr" ? "1" : "0.4";
 }
 function aggiornaLabelTema() {
   const label = document.getElementById("temaLabel");
@@ -1911,6 +1977,7 @@ async function avviaApp() {
     console.error("Errore caricamento dati:", e);
   }
   caricaTema();
+  caricaLingua();
   showHome();
 }
 avviaApp();
