@@ -530,12 +530,17 @@ function t(chiave) {
   return traduzioni[linguaAttuale][chiave] || traduzioni.it[chiave] || chiave;
 }
 
-function cambiaLingua(lingua) {
+async function cambiaLingua(lingua) {
   linguaAttuale = lingua;
   localStorage.setItem("lingua", lingua);
   document.getElementById("btnLangIt").style.opacity = lingua === "it" ? "1" : "0.4";
   document.getElementById("btnLangFr").style.opacity = lingua === "fr" ? "1" : "0.4";
   aggiornaFooter();
+  try {
+    const fileNodi = lingua === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
+    const res = await fetch(fileNodi);
+    nodiData = await res.json();
+  } catch(e) { console.error("Errore ricaricamento nodi:", e); }
   showHome();
 }
 
