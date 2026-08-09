@@ -556,15 +556,15 @@ function chiudiApp() {
 /* === HOME === */
 function showHome() {
   document.getElementById("content").innerHTML = `
-    <h2 style="margin-top:0;">Benvenuto 🎣</h2>
-    <p style="opacity:0.7;margin-bottom:20px;font-size:14px;">Seleziona una sezione per iniziare</p>
+    <h2 style="margin-top:0;">${t('benvenuto')}</h2>
+    <p style="opacity:0.7;margin-bottom:20px;font-size:14px;">${t('seleziona')}</p>
     <div class="grid">
-      <div class="card" onclick="goTo(showTecniche)"><span class="home-icon">🌊</span><h3>Tecniche</h3><p>Surfcasting, spinning, eging…</p></div>
-      <div class="card" onclick="goTo(showSpecie)"><span class="home-icon">🐟</span><h3>Specie</h3><p>I pesci più pescati</p></div>
-      <div class="card" onclick="goTo(showMontature)"><span class="home-icon">🎣</span><h3>Montature</h3><p>Spiegate passo-passo</p></div>
-      <div class="card" onclick="goTo(showNodi)"><span class="home-icon">🧵</span><h3>Nodi</h3><p>Con immagini</p></div>
-      <div class="card" onclick="goTo(showPrevisioni)"><span class="home-icon">⚓</span><h3>Meteo & Spot</h3><p>Previsioni + mappa pesca</p></div>
-      <div class="card" onclick="goTo(showQuandoPescare)"><span class="home-icon">🌙</span><h3>Quando Pescare</h3><p>Solunar, maree, luna</p></div>
+      <div class="card" onclick="goTo(showTecniche)"><span class="home-icon">🌊</span><h3>${t('tecniche')}</h3><p>${t('tecnicheDesc')}</p></div>
+      <div class="card" onclick="goTo(showSpecie)"><span class="home-icon">🐟</span><h3>${t('specie')}</h3><p>${t('specieDesc')}</p></div>
+      <div class="card" onclick="goTo(showMontature)"><span class="home-icon">🪝</span><h3>${t('montature')}</h3><p>${t('montatureDesc')}</p></div>
+      <div class="card" onclick="goTo(showNodi)"><span class="home-icon">🧵</span><h3>${t('nodi')}</h3><p>${t('nodiDesc')}</p></div>
+      <div class="card" onclick="goTo(showPrevisioni)"><span class="home-icon">⚓</span><h3>${t('meteo')}</h3><p>${t('meteoDesc')}</p></div>
+      <div class="card" onclick="goTo(showQuandoPescare)"><span class="home-icon">🌙</span><h3>${t('quandoPescare')}</h3><p>${t('quandoPescareDesc')}</p></div>
     </div>`;
 }
 </script>
