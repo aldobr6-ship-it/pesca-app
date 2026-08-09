@@ -494,6 +494,11 @@ const traduzioni = {
     tornaTecniche: "👈 Torna alle tecniche",
     footerHome: "Home", footerTecniche: "Tecniche", footerSpecie: "Specie",
     footerMontature: "Montature", footerNodi: "Nodi", footerMeteo: "Meteo", footerEsci: "Esci"
+    noNodoTrovato: "Nessun nodo trovato per",
+    nellApp: "nell'app.",
+    cercaGoogle: "🔎 Cerca su Google",
+    cercaYoutube: "▶ Cerca su YouTube",
+    tornaTuttiNodi: "⬅️ Torna a tutti i nodi",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -513,6 +518,11 @@ const traduzioni = {
     tornaTecniche: "👈 Retour aux techniques",
     footerHome: "Accueil", footerTecniche: "Techniques", footerSpecie: "Espèces",
     footerMontature: "Montages", footerNodi: "Nœuds", footerMeteo: "Météo", footerEsci: "Quitter"
+    noNodoTrovato: "Aucun nœud trouvé pour",
+    nellApp: "dans l'application.",
+    cercaGoogle: "🔎 Rechercher sur Google",
+    cercaYoutube: "▶ Rechercher sur YouTube",
+    tornaTuttiNodi: "⬅️ Retour à tous les nœuds",
   }
 };
 
@@ -765,17 +775,16 @@ function nessunRisultatoNodo(query) {
   const q = encodeURIComponent(query + " nodo pesca");
   return `
     <div class="card" style="text-align:center;cursor:default;">
-      <p style="opacity:0.6;margin-bottom:14px;">Nessun nodo trovato per "${query}" nell'app.</p>
+      <p style="opacity:0.6;margin-bottom:14px;">${t('noNodoTrovato')} "${query}" ${t('nellApp')}</p>
       <a href="https://www.google.com/search?q=${q}" target="_blank" style="text-decoration:none;">
-        <div class="btn-img" style="margin-bottom:8px;">🔎 Cerca su Google</div>
+        <div class="btn-img" style="margin-bottom:8px;">${t('cercaGoogle')}</div>
       </a>
       <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="text-decoration:none;">
-        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">▶ Cerca su YouTube</div>
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">${t('cercaYoutube')}</div>
       </a>
-      <button onclick="goTo(showNodi)" style="width:100%;">⬅️ Torna a tutti i nodi</button>
+      <button onclick="goTo(showNodi)" style="width:100%;">${t('tornaTuttiNodi')}</button>
     </div>`;
 }
-
 function renderNodi(lista, query) {
   const box = document.getElementById("listaNodi");
   if (!box) return;
@@ -794,14 +803,14 @@ function filtraNodi() {
 
 function showNodi() {
   document.getElementById("content").innerHTML = `
-    <h2>🧵 Nodi da Pesca</h2>
+    <h2>🧵 ${t('nodi')}</h2>
     <div class="card">
-      <input type="text" id="searchNodi" placeholder="Cerca nodo..."
+      <input type="text" id="searchNodi" placeholder="${t('cercaNodo')}"
         style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
         onkeyup="filtraNodi()">
     </div>
     <div id="listaNodi"></div>
-    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">🏠 Torna alla Home</button>`;
+    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
   renderNodi(nodiData);
 }
 
