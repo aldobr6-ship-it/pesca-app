@@ -1,0 +1,11 @@
+[
+  { "nome":"Nœud Clinch",    "img":"./img/nodo-clinch.jpg",   "uso":"Hameçons, émerillons, mousquetons",        "filo":"Nylon / Fluorocarbone", "video":"https://www.youtube.com/watch?v=zEwc7y_QKc4" },
+  { "nome":"Nœud Palomar",   "img":"./img/nodo-palomar.jpg",  "uso":"Hameçons et leurres",                "filo":"Tressé", "video":"https://www.youtube.com/watch?v=ERuJt0UVp90" },
+  { "nome":"Nœud FG",        "img":"./img/nodo-fg.jpg",       "uso":"Tresse → Fluorocarbone",           "filo":"Tresse → Fluoro", "video":"https://www.youtube.com/watch?v=DsoOcAgzatA" },
+  { "nome":"Nœud Albright",  "img":"./img/nodo-albright.jpg", "uso":"Unir des fils de diamètre différent",   "filo":"Nylon / Tresse", "video":"https://www.youtube.com/watch?v=v4jTufUjVCk" },
+  { "nome":"Nœud de Sang",   "img":"./img/nodo-sangue.jpg",   "uso":"Unir deux fils similaires",            "filo":"Nylon / Fluorocarbone", "video":"https://www.youtube.com/watch?v=5ZHLAgB3V1c" },
+  { "nome":"Nœud Rapala",    "img":"./img/nodo-rapala.jpg",   "uso":"Leurres avec mouvement libre", "filo":"Nylon / Fluorocarbone", "video":"https://www.youtube.com/watch?v=atQuSotuXXs" },
+  { "nome":"Nœud Perfect Loop", "img":"./img/nodo-perfectloop.jpg", "uso":"Réaliser des boucles",     "filo":"Nylon / Fluorocarbone / Tresse", "video":"https://www.youtube.com/watch?v=-bymeo35R_4" },
+  { "nome":"Nœud Tony Pena", "img":"./img/nodo-tonypena.jpg", "uso":"Tresse → nylon",                "filo":"Nylon / Fluorocarbone / Tresse", "video":"https://www.youtube.com/watch?v=0OC1Yh1O43I" },
+  { "nome":"Nœud Double Uni", "img":"./img/nodo-doppio-uni.jpg", "uso":"Double nœud pour unir deux fils",    "filo":"Tresse → Nylon", "video":"https://www.youtube.com/watch?v=WYE1A0xq8CU" }
+]
