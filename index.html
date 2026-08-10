@@ -439,8 +439,16 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   <header>
   🎣 AdelTechnic-FISH
   <div style="position:absolute; left:14px; top:50%; transform:translateY(-50%); display:flex; gap:4px;">
-<button onclick="cambiaLingua('it')" id="btnLangIt" style="background:none; padding:2px; margin:0; font-size:20px; box-shadow:none; border-radius:6px;">&#x1F1EE;&#x1F1F9;</button>
-<button onclick="cambiaLingua('fr')" id="btnLangFr" style="background:none; padding:2px; margin:0; font-size:20px; box-shadow:none; border-radius:6px; opacity:0.4;">&#x1F1EB;&#x1F1F7;</button>
+<!-- Pulsante Italiano -->
+<button onclick="cambiaLingua('it')" id="btnLangIt" style="background:none; padding:2px; margin:0; font-size:20px; box-shadow:none; border-radius:6px; opacity:1; border:none; cursor:pointer; transition: opacity 0.2s;">
+    <img src="https://cloudflare.com" alt="IT" style="width: 1.2em; height: auto; vertical-align: middle;">
+</button>
+
+<!-- Pulsante Francese -->
+<button onclick="cambiaLingua('fr')" id="btnLangFr" style="background:none; padding:2px; margin:0; font-size:20px; box-shadow:none; border-radius:6px; opacity:0.4; border:none; cursor:pointer; transition: opacity 0.2s;">
+    <img src="https://cloudflare.com" alt="FR" style="width: 1.2em; height: auto; vertical-align: middle;">
+</button>
+
   </div>
   <div style="position:absolute; right:14px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; gap:2px;">
     <button onclick="toggleTema()" style="background:none; padding:6px; margin:0; font-size:20px; box-shadow:none;">🌓</button>
