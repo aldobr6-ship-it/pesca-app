@@ -499,6 +499,16 @@ const traduzioni = {
     cercaGoogle: "🔎 Cerca su Google",
     cercaYoutube: "▶ Cerca su YouTube",
     tornaTuttiNodi: "⬅️ Torna a tutti i nodi",
+    noMontaturaTrovato: "Nessuna montatura trovata per",
+    tornaTutteMontature: "⬅️ Torna a tutte le montature",
+    montatureCount: "montature • tocca per il dettaglio",
+    schemaTecnico: "📐 Schema Tecnico",
+    toccaIngrandire: "🔍 Tocca per ingrandire",
+    quandoUsare: "🕐 Quando usare",
+    target: "🐟 Target",
+    escheConsigliate: "🐛 Esche consigliate",
+    videoDimostrativo: "Video Dimostrativo",
+    guardaYoutube: "Guarda come si realizza su YouTube →",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -523,6 +533,16 @@ const traduzioni = {
     cercaGoogle: "🔎 Rechercher sur Google",
     cercaYoutube: "▶ Rechercher sur YouTube",
     tornaTuttiNodi: "⬅️ Retour à tous les nœuds",
+    noMontaturaTrovato: "Aucun montage trouvé pour",
+    tornaTutteMontature: "⬅️ Retour à tous les montages",
+    montatureCount: "montages • touchez pour le détail",
+    schemaTecnico: "📐 Schéma Technique",
+    toccaIngrandire: "🔍 Touchez pour agrandir",
+    quandoUsare: "🕐 Quand l'utiliser",
+    target: "🐟 Cibles",
+    escheConsigliate: "🐛 Appâts recommandés",
+    videoDimostrativo: "Vidéo Démonstrative",
+    guardaYoutube: "Regardez comment le réaliser sur YouTube →",
   }
 };
 
@@ -829,8 +849,31 @@ function toggleNodo(id) {
 /* === MONTATURE === */
 let montatureData = [];
   
-  function slugEsca(nome) {
-  return nome.toLowerCase().trim().replace(/\s+/g, "_");
+  const escaImgSlugs = {
+  "arenicola":"arenicola", "ver de sable":"arenicola",
+  "bibi":"bibi",
+  "americano":"americano", "américain":"americano",
+  "coreano":"coreano", "coréen":"coreano",
+  "gambero":"gambero", "crevette":"gambero",
+  "vermetto":"vermetto", "petit ver":"vermetto",
+  "polpo piccolo":"polpo_piccolo", "petit poulpe":"polpo_piccolo",
+  "polpo":"polpo", "poulpe":"polpo",
+  "bigattino":"bigattino", "asticot":"bigattino",
+  "verme di mare":"verme_di_mare", "ver de vase":"verme_di_mare",
+  "pane":"pane", "pain":"pane",
+  "verme":"verme", "ver":"verme",
+  "mazzancolla":"mazzancolla", "crevette rose":"mazzancolla",
+  "pezzo calamaro":"pezzo_calamaro", "morceau de calamar":"pezzo_calamaro",
+  "pezzo sgombro":"pezzo_sgombro", "morceau de maquereau":"pezzo_sgombro",
+  "cozza":"cozza", "moule":"cozza",
+  "cannolicchio":"cannolicchio", "couteau":"cannolicchio",
+  "granchio vivo":"granchio_vivo", "crabe vivant":"granchio_vivo"
+};
+
+function slugEsca(nome) {
+  const key = nome.toLowerCase().trim();
+  if (escaImgSlugs[key]) return escaImgSlugs[key];
+  return key.replace(/\s+/g, "_");
 }
  function imgFallback(el, testo) {
   const div = document.createElement("div");
