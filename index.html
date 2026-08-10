@@ -529,7 +529,6 @@ const traduzioni = {
 function t(chiave) {
   return traduzioni[linguaAttuale][chiave] || traduzioni.it[chiave] || chiave;
 }
-
 async function cambiaLingua(lingua) {
   linguaAttuale = lingua;
   localStorage.setItem("lingua", lingua);
@@ -538,12 +537,13 @@ async function cambiaLingua(lingua) {
   aggiornaFooter();
   try {
     const fileNodi = lingua === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
-    const res = await fetch(fileNodi);
-    nodiData = await res.json();
-  } catch(e) { console.error("Errore ricaricamento nodi:", e); }
+    const fileMontature = lingua === "fr" ? "./data/montature.fr.json" : "./data/montature.json";
+    const [resNodi, resMontature] = await Promise.all([fetch(fileNodi), fetch(fileMontature)]);
+    nodiData = await resNodi.json();
+    montatureData = await resMontature.json();
+  } catch(e) { console.error("Errore ricaricamento dati:", e); }
   showHome();
 }
-
 function caricaLingua() {
   const salvata = localStorage.getItem("lingua");
   if (salvata) linguaAttuale = salvata;
@@ -575,9 +575,7 @@ function chiudiApp() {
     }, 400);
   }
 }
-
 </script>
-
 <script>
 /* === HOME === */
 function showHome() {
@@ -1989,10 +1987,11 @@ function generaConsiglioPesca(luna, solunar, ora) {
 async function avviaApp() {
   const linguaSalvata = localStorage.getItem("lingua") || "it";
   const fileNodi = linguaSalvata === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
+  const fileMontature = linguaSalvata === "fr" ? "./data/montature.fr.json" : "./data/montature.json";
   try {
     const [resNodi, resMontature, resSpecie, resSpot] = await Promise.all([
       fetch(fileNodi),
-      fetch("./data/montature.json"),
+      fetch(fileMontature),
       fetch("./data/specie.json"),
       fetch("./data/spot-italia.json")
     ]);
