@@ -509,6 +509,11 @@ const traduzioni = {
     escheConsigliate: "🐛 Esche consigliate",
     videoDimostrativo: "Video Dimostrativo",
     guardaYoutube: "Guarda come si realizza su YouTube →",
+    noSpecieTrovata: "Nessuna specie trovata per",
+    tornaTutteSpecie: "⬅️ Torna a tutte le specie",
+    tecnicheLabel: "Tecniche:",
+    montatureConsigliate: "🪝 Montature consigliate",
+    calendarioAttivita: "📅 Calendario attività",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -543,6 +548,11 @@ const traduzioni = {
     escheConsigliate: "🐛 Appâts recommandés",
     videoDimostrativo: "Vidéo Démonstrative",
     guardaYoutube: "Regardez comment le réaliser sur YouTube →",
+    noSpecieTrovata: "Aucune espèce trouvée pour",
+    tornaTutteSpecie: "⬅️ Retour à toutes les espèces",
+    tecnicheLabel: "Techniques :",
+    montatureConsigliate: "🪝 Montages recommandés",
+    calendarioAttivita: "📅 Calendrier d'activité",
   }
 };
 
@@ -1010,14 +1020,14 @@ function showMontaturaDetail(id) {
 let specie = {};
 function showSpecie() {
   document.getElementById("content").innerHTML = `
-    <h2>🐟 Specie</h2>
+    <h2>🐟 ${t('specie')}</h2>
     <div class="card">
-      <input type="text" id="searchInput" placeholder="Cerca specie..."
+      <input type="text" id="searchInput" placeholder="${t('cercaSpecie')}"
         style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
         onkeyup="filtraSpecie()">
     </div>
     <div id="listaSpecie"></div>
-    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">🏠 Torna alla Home</button>`;
+    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
   mostraTutteLeSpecie();
 }
 function cardSpecie(key) {
@@ -1033,14 +1043,14 @@ function nessunRisultatoSpecie(query) {
   const q = encodeURIComponent(query + " pesce specie pesca mare");
   return `
     <div class="card" style="text-align:center;cursor:default;">
-      <p style="opacity:0.6;margin-bottom:14px;">Nessuna specie trovata per "${query}" nell'app.</p>
+      <p style="opacity:0.6;margin-bottom:14px;">${t('noSpecieTrovata')} "${query}" ${t('nellApp')}</p>
       <a href="https://www.google.com/search?q=${q}" target="_blank" style="text-decoration:none;">
-        <div class="btn-img" style="margin-bottom:8px;">🔎 Cerca su Google</div>
+        <div class="btn-img" style="margin-bottom:8px;">${t('cercaGoogle')}</div>
       </a>
       <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="text-decoration:none;">
-        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">▶ Cerca su YouTube</div>
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">${t('cercaYoutube')}</div>
       </a>
-      <button onclick="goTo(showSpecie)" style="width:100%;">⬅️ Torna a tutte le specie</button>
+      <button onclick="goTo(showSpecie)" style="width:100%;">${t('tornaTutteSpecie')}</button>
     </div>`;
 }
 function filtraSpecie() {
@@ -1062,12 +1072,12 @@ function showSpecieDetail(id) {
     <div class="card" style="cursor:default;">
       <h2>${p.nome}</h2><em>${p.scientifico}</em><br>
       <img src="${p.img}" onclick="mostraEscaFullscreen(event,'${p.img}','${p.nome}')" style="width:100%;max-width:280px;border-radius:12px;margin:12px 0 4px;cursor:zoom-in;" onerror="imgFallback(this,'${p.nome} non disponibile')">
-      <p style="font-size:11px;opacity:0.5;margin:0 0 12px;">🔍 Tocca per ingrandire</p>
+      <p style="font-size:11px;opacity:0.5;margin:0 0 12px;">${t('toccaIngrandire')}</p>
       <p>${p.descrizione}</p>
-      <p><strong>Tecniche:</strong> ${p.tecniche}</p>
+      <p><strong>${t('tecnicheLabel')}</strong> ${p.tecniche}</p>
       ${generaMontatureSpecie(p.montature)}
       ${generaCalendario(p.stagione)}
-      <button onclick="goTo(showSpecie)">👈 Torna alle specie</button>
+      <button onclick="goTo(showSpecie)">${t('tornaSpecie')}</button>
     </div>`;
 }
 </script>
@@ -1197,12 +1207,12 @@ function apriDettaglio(tipo, index) {
 }
 function generaCalendario(stagione) {
   if(!stagione)return"";
-  const mesi=["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
+  const mesiIt=["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
+  const mesiFr=["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sep","Oct","Nov","Déc"];
+  const mesi = linguaAttuale === "fr" ? mesiFr : mesiIt;
   const mc=new Date().getMonth()+1;
-  let html="<div class='card' style='cursor:default;'><b>📅 Calendario attività</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
-  for(let i=1;i<=12;i++){const a=stagione.includes(i);html+=`<div style="padding:6px 8px;border-radius:6px;font-size:12px;text-align:center;min-width:32px;${a?"background:#2ecc71;color:white;":"background:#eee;"}${i===mc?"border:2px solid #007bff;":""}">${mesi[i-1]}</div>`;}
-  return html+"</div></div>";
-}
+  let html="<div class='card' style='cursor:default;'><b>"+t('calendarioAttivita')+"</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
+  
 function generaSpeciePerTecnica(nomeTecnica) {
   let html="<div class='card' style='cursor:default;'><b>🐟 Specie consigliate</b><br><br>";
   for(let key in specie){if(specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase()))html+=`<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="goTo(()=>showSpecieDetail('${key}'))">• ${specie[key].nome}</div>`;}
@@ -1210,7 +1220,7 @@ function generaSpeciePerTecnica(nomeTecnica) {
 }
 function generaMontatureSpecie(list) {
   if(!list||list.length===0)return"";
-  return`<div class="card" style="cursor:default;text-align:left;"><b>🎣 Montature consigliate</b><br><br>${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${m}'))">${m.replace(/-/g," ")} →</div>`).join("")}</div>`;
+  return`<div class="card" style="cursor:default;text-align:left;"><b>${t('montatureConsigliate')}</b><br><br>${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${m}'))">${m.replace(/-/g," ")} →</div>`).join("")}</div>`;
 }
 function trovaIndiceOra(times,ora){const s=ora.toISOString().slice(0,13);const i=times.findIndex(t=>t&&t.startsWith(s));return i>=0?i:0;}
 function stelleRating(r){return"⭐".repeat(r)+"☆".repeat(5-r);}
