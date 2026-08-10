@@ -1222,7 +1222,11 @@ function generaSpeciePerTecnica(nomeTecnica) {
 }
 function generaMontatureSpecie(list) {
   if(!list||list.length===0)return"";
-  return`<div class="card" style="cursor:default;text-align:left;"><b>${t('montatureConsigliate')}</b><br><br>${list.map(m=>`<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${m}'))">${m.replace(/-/g," ")} →</div>`).join("")}</div>`;
+  return`<div class="card" style="cursor:default;text-align:left;"><b>${t('montatureConsigliate')}</b><br><br>${list.map(id=>{
+    const mont = montatureData.find(x=>x.id===id);
+    const nome = mont ? mont.nome : id.replace(/-/g," ");
+    return `<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${id}'))">${nome} →</div>`;
+  }).join("")}</div>`;
 }
 function trovaIndiceOra(times,ora){const s=ora.toISOString().slice(0,13);const i=times.findIndex(t=>t&&t.startsWith(s));return i>=0?i:0;}
 function stelleRating(r){return"⭐".repeat(r)+"☆".repeat(5-r);}
