@@ -886,14 +886,14 @@ function nessunRisultatoMontatura(query) {
   const q = encodeURIComponent(query + " montatura pesca surfcasting");
   return `
     <div class="card" style="text-align:center;cursor:default;">
-      <p style="opacity:0.6;margin-bottom:14px;">Nessuna montatura trovata per "${query}" nell'app.</p>
+      <p style="opacity:0.6;margin-bottom:14px;">${t('noMontaturaTrovato')} "${query}" ${t('nellApp')}</p>
       <a href="https://www.google.com/search?q=${q}" target="_blank" style="text-decoration:none;">
-        <div class="btn-img" style="margin-bottom:8px;">🔎 Cerca su Google</div>
+        <div class="btn-img" style="margin-bottom:8px;">${t('cercaGoogle')}</div>
       </a>
       <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="text-decoration:none;">
-        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">▶ Cerca su YouTube</div>
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">${t('cercaYoutube')}</div>
       </a>
-      <button onclick="goTo(showMontature)" style="width:100%;">⬅️ Torna a tutte le montature</button>
+      <button onclick="goTo(showMontature)" style="width:100%;">${t('tornaTutteMontature')}</button>
     </div>`;
 }
 
@@ -905,9 +905,9 @@ function renderMontature(lista, query) {
     return;
   }
   box.innerHTML = `
-    <p style="opacity:0.6;margin-bottom:14px;font-size:13px;">${lista.length} montature • tocca per il dettaglio</p>
+    <p style="opacity:0.6;margin-bottom:14px;font-size:13px;">${lista.length} ${t('montatureCount')}</p>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">${lista.map(cardMontatura).join("")}</div>
-    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">🏠 Torna alla Home</button>`;
+    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
 }
 
 function filtraMontature() {
@@ -917,9 +917,9 @@ function filtraMontature() {
 }
 function showMontature() {
   document.getElementById("content").innerHTML = `
-    <h2 style="margin-top:0;">🎣 Montature da Pesca</h2>
+    <h2 style="margin-top:0;">🪝 ${t('montature')}</h2>
     <div class="card">
-      <input type="text" id="searchMontature" placeholder="Cerca montatura..."
+      <input type="text" id="searchMontature" placeholder="${t('cercaMontatura')}"
         style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
         onkeyup="filtraMontature()">
     </div>
@@ -936,18 +936,18 @@ function showMontaturaDetail(id) {
         <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p></div>
       </div>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🐟 Target</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.target.split(" • ").map(t=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${t}</span>`).join("")}</div>
+        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('target')}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.target.split(" • ").map(tg=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${tg}</span>`).join("")}</div>
       </div>
       <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;"
         onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
-      <p style="text-align:center;font-size:11px;opacity:0.5;margin:6px 0 10px;">🔍 Tocca per ingrandire</p>
+      <p style="text-align:center;font-size:11px;opacity:0.5;margin:6px 0 10px;">${t('toccaIngrandire')}</p>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
-  <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🕐 Quando usare</div>
+  <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('quandoUsare')}</div>
   <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
 </div>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">🐛 Esche consigliate</div>
+        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('escheConsigliate')}</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
           ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
         </div>
@@ -955,11 +955,11 @@ function showMontaturaDetail(id) {
       <a href="${m.video}" target="_blank" style="text-decoration:none;">
         <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;text-align:left;">
           <div style="font-size:30px;line-height:1;">▶</div>
-          <div><div style="font-weight:700;font-size:15px;">Video Dimostrativo</div>
-          <div style="font-size:12px;opacity:0.85;margin-top:2px;">Guarda come si realizza su YouTube →</div></div>
+          <div><div style="font-weight:700;font-size:15px;">${t('videoDimostrativo')}</div>
+          <div style="font-size:12px;opacity:0.85;margin-top:2px;">${t('guardaYoutube')}</div></div>
         </div>
       </a>
-      <button onclick="goTo(showMontature)" style="width:100%;margin-top:4px;">⬅️ Torna alle Montature</button>
+      <button onclick="goTo(showMontature)" style="width:100%;margin-top:4px;">${t('tornaMontature')}</button>
     </div>`;
 }
 </script>
