@@ -551,7 +551,7 @@ const traduzioni = {
     noSpecieTrovata: "Aucune espèce trouvée pour",
     tornaTutteSpecie: "⬅️ Retour à toutes les espèces",
     tecnicheLabel: "Techniques :",
-    montatureConsigliate: "🪝 Montages recommandés",
+    montatureConsigliate: "🎣 Montages recommandés",
     calendarioAttivita: "📅 Calendrier d'activité",
   }
 };
@@ -617,7 +617,7 @@ function showHome() {
     <div class="grid">
       <div class="card" onclick="goTo(showTecniche)"><span class="home-icon">🌊</span><h3>${t('tecniche')}</h3><p>${t('tecnicheDesc')}</p></div>
       <div class="card" onclick="goTo(showSpecie)"><span class="home-icon">🐟</span><h3>${t('specie')}</h3><p>${t('specieDesc')}</p></div>
-      <div class="card" onclick="goTo(showMontature)"><span class="home-icon">🪝</span><h3>${t('montature')}</h3><p>${t('montatureDesc')}</p></div>
+      <div class="card" onclick="goTo(showMontature)"><span class="home-icon">🎣</span><h3>${t('montature')}</h3><p>${t('montatureDesc')}</p></div>
       <div class="card" onclick="goTo(showNodi)"><span class="home-icon">🧵</span><h3>${t('nodi')}</h3><p>${t('nodiDesc')}</p></div>
       <div class="card" onclick="goTo(showPrevisioni)"><span class="home-icon">⚓</span><h3>${t('meteo')}</h3><p>${t('meteoDesc')}</p></div>
       <div class="card" onclick="goTo(showQuandoPescare)"><span class="home-icon">🌙</span><h3>${t('quandoPescare')}</h3><p>${t('quandoPescareDesc')}</p></div>
@@ -970,7 +970,7 @@ function filtraMontature() {
 }
 function showMontature() {
   document.getElementById("content").innerHTML = `
-    <h2 style="margin-top:0;">🪝 ${t('montature')}</h2>
+    <h2 style="margin-top:0;">🎣 ${t('montature')}</h2>
     <div class="card">
       <input type="text" id="searchMontature" placeholder="${t('cercaMontatura')}"
         style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
