@@ -1212,7 +1212,7 @@ function generaCalendario(stagione) {
   const mesi = linguaAttuale === "fr" ? mesiFr : mesiIt;
   const mc=new Date().getMonth()+1;
   let html="<div class='card' style='cursor:default;'><b>"+t('calendarioAttivita')+"</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
-  
+  }
 function generaSpeciePerTecnica(nomeTecnica) {
   let html="<div class='card' style='cursor:default;'><b>🐟 Specie consigliate</b><br><br>";
   for(let key in specie){if(specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase()))html+=`<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="goTo(()=>showSpecieDetail('${key}'))">• ${specie[key].nome}</div>`;}
