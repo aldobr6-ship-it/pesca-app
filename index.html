@@ -568,9 +568,11 @@ async function cambiaLingua(lingua) {
   try {
     const fileNodi = lingua === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
     const fileMontature = lingua === "fr" ? "./data/montature.fr.json" : "./data/montature.json";
-    const [resNodi, resMontature] = await Promise.all([fetch(fileNodi), fetch(fileMontature)]);
+    const fileSpecie = lingua === "fr" ? "./data/specie.fr.json" : "./data/specie.json";
+    const [resNodi, resMontature, resSpecie] = await Promise.all([fetch(fileNodi), fetch(fileMontature), fetch(fileSpecie)]);
     nodiData = await resNodi.json();
     montatureData = await resMontature.json();
+    specie = await resSpecie.json();
   } catch(e) { console.error("Errore ricaricamento dati:", e); }
   showHome();
 }
@@ -2041,11 +2043,12 @@ async function avviaApp() {
   const linguaSalvata = localStorage.getItem("lingua") || "it";
   const fileNodi = linguaSalvata === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
   const fileMontature = linguaSalvata === "fr" ? "./data/montature.fr.json" : "./data/montature.json";
+  const fileSpecie = linguaSalvata === "fr" ? "./data/specie.fr.json" : "./data/specie.json";
   try {
     const [resNodi, resMontature, resSpecie, resSpot] = await Promise.all([
       fetch(fileNodi),
       fetch(fileMontature),
-      fetch("./data/specie.json"),
+      fetch(fileSpecie),
       fetch("./data/spot-italia.json")
     ]);
     nodiData = await resNodi.json();
