@@ -801,10 +801,14 @@ function showFondo() {
     <div class="card" style="cursor:default;">
       <h3>🎣 Montature dedicate</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${montature.map((m,i)=>`
-        <button onclick="toggleImageBox('fondoBox${i}','${m.img}',this)" class="toggle-btn">📷 ${m.nome} <span class="arrow">▼</span></button>
-        <div id="fondoBox${i}" class="image-box"></div>
+        <div>
+          <button onclick="toggleImageBox('fondoBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${m.nome} <span class="arrow">▼</span></button>
+          <div id="fondoBox${i}" class="image-box"></div>
+        </div>
       `).join("")}
+      </div>
     </div>
     <div class="card"><b>✅ Pro</b><br>Tecnica semplice e versatile</div>
     <div class="card"><b>❌ Contro</b><br>Rischio incagli • Meno selettiva</div>
@@ -822,10 +826,14 @@ function showFondo() {
     <div class="card" style="cursor:default;">
       <h3>🎣 Montature dedicate</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${dati.montature.map((m,i)=>`
-        <button onclick="toggleImageBox('beachBox${i}','${m.img}',this)" class="toggle-btn">📷 ${m.nome} <span class="arrow">▼</span></button>
-        <div id="beachBox${i}" class="image-box"></div>
+        <div>
+          <button onclick="toggleImageBox('beachBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${m.nome} <span class="arrow">▼</span></button>
+          <div id="beachBox${i}" class="image-box"></div>
+        </div>
       `).join("")}
+      </div>
     </div>
     <div class="card"><b>✅ Pro</b><br>${dati.pro}</div>
     <div class="card"><b>❌ Contro</b><br>${dati.contro}</div>
