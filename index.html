@@ -525,6 +525,7 @@ const traduzioni = {
     tecnicheLabel: "Tecniche:",
     montatureConsigliate: "🪝 Montature consigliate",
     calendarioAttivita: "📅 Calendario attività",
+    tecnicheTitolo: "🌊 Tecniche di Pesca in Mare",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -564,6 +565,7 @@ const traduzioni = {
     tecnicheLabel: "Techniques :",
     montatureConsigliate: "🎣 Montages recommandés",
     calendarioAttivita: "📅 Calendrier d'activité",
+    tecnicheTitolo: "🌊 Techniques de Pêche en Mer",
   }
 };
 
@@ -638,7 +640,7 @@ function showHome() {
 
 <script>
 /* === TECNICHE === */
-const tecnicheList = [
+const tecnicheListIt = [
   { nome:"Surfcasting",    emoji:"🏖️", desc:"Spiaggia, piombi pesanti", fn:"showSurfcasting" },
   { nome:"Spinning",       emoji:"🎣", desc:"Esche artificiali da riva", fn:"showSpinning" },
   { nome:"Eging",          emoji:"🦑", desc:"Seppie e calamari", fn:"showEging" },
@@ -646,18 +648,28 @@ const tecnicheList = [
   { nome:"Galleggiante",   emoji:"🎈", desc:"Tecnica precisa e leggera", fn:"showGalleggiante" },
   { nome:"Beach Ledgering", emoji:"🎣", desc:"Spiaggia, mare calmo", fn:"showBeachLedgering" }
 ];
+const tecnicheListFr = [
+  { nome:"Surfcasting",    emoji:"🏖️", desc:"Plage, plombs lourds", fn:"showSurfcasting" },
+  { nome:"Spinning",       emoji:"🎣", desc:"Leurres depuis la rive", fn:"showSpinning" },
+  { nome:"Eging",          emoji:"🦑", desc:"Seiches et calamars", fn:"showEging" },
+  { nome:"Pêche au Fond",  emoji:"⚓", desc:"Port et rochers", fn:"showFondo" },
+  { nome:"Flotteur",   emoji:"🎈", desc:"Technique précise et légère", fn:"showGalleggiante" },
+  { nome:"Beach Ledgering", emoji:"🎣", desc:"Plage, mer calme", fn:"showBeachLedgering" }
+];
 
 function showTecniche() {
-  const cards = tecnicheList.map(t => `
-    <div onclick="goTo(${t.fn})" style="background:linear-gradient(135deg,#a8d8ea,#6bbfd8);border-radius:14px;padding:14px 8px;box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px;">
-      <span style="font-size:26px;">${t.emoji}</span>
-      <div style="font-weight:700;font-size:13px;line-height:1.3;color:#0a2a43;">${t.nome}</div>
-      <div style="font-size:11px;opacity:0.65;color:#0a2a43;">${t.desc}</div>
+  const tecnicheList = linguaAttuale === "fr" ? tecnicheListFr : tecnicheListIt;
+  const cards = tecnicheList.map(tc => `
+    <div onclick="goTo(${tc.fn})" style="background:linear-gradient(135deg,#a8d8ea,#6bbfd8);border-radius:14px;padding:14px 8px;box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px;">
+      <span style="font-size:26px;">${tc.emoji}</span>
+      <div style="font-weight:700;font-size:13px;line-height:1.3;color:#0a2a43;">${tc.nome}</div>
+      <div style="font-size:11px;opacity:0.65;color:#0a2a43;">${tc.desc}</div>
     </div>`).join("");
   document.getElementById("content").innerHTML = `
-    <h2>🌊 Tecniche di Pesca in Mare</h2>
+    <h2>${t('tecnicheTitolo')}</h2>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>
-    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">🏠 Torna alla Home</button>`;
+    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
+}
 }
 function showSurfcasting() {
   document.getElementById("content").innerHTML = `
