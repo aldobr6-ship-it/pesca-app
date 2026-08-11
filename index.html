@@ -51,7 +51,7 @@ body.dark .img-box-bg { background:#334155; }
 }
 .fullscreen-img {
   max-width: 94vw; max-height: 90vh; border-radius: 8px;
-  object-fit: contain;
+  object-f contain;
 }
 .fullscreen-close {
   position: absolute; top: 20px; right: 20px;
@@ -150,7 +150,7 @@ body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
   min-width: 100%; min-height: 100%;
   width: auto; height: auto;
   transform: translate(-50%, -50%);
-  object-fit: cover; z-index: -1;
+  object-f cover; z-index: -1;
 }
   .img-placeholder {
   display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -536,6 +536,8 @@ const traduzioni = {
     guardaSuYoutube: "Guarda su YouTube",
     specieConsigliate: "🐟 Specie consigliate",
     escheConsigliateLabel: "🐛 Esche consigliate",
+    montaturaDedicataLabel: "🪢 Montatura dedicata",
+    piombiConsigliati: "⚖️ Piombi consigliati",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -586,6 +588,8 @@ const traduzioni = {
     guardaSuYoutube: "Regarder sur YouTube",
     specieConsigliate: "🐟 Espèces recommandées",
     escheConsigliateLabel: "🐛 Appâts recommandés",
+    montaturaDedicataLabel: "🪢 Montage dédié",
+    piombiConsigliati: "⚖️ Plombs recommandés",
   }
 };
 
@@ -745,22 +749,26 @@ function showGalleggiante() {
 }
 function showSpinning() {
   const dati = tecnicheData.spinning;
+  const txt = linguaAttuale === "fr" ? spinningText.fr : spinningText.it;
+  const specieList = linguaAttuale === "fr" ? dati.specieFr : dati.specieIt;
+  const escheList = linguaAttuale === "fr" ? dati.escheFr : dati.escheIt;
+  const piombiList = linguaAttuale === "fr" ? dati.piombiFr : dati.piombiIt;
   document.getElementById("content").innerHTML = `
     <h2>🎣 Spinning</h2>
-    <div class="card"><h3>📅 Quando usarla</h3><p>${dati.quando}</p></div>
-    <div class="card"><h3>🎒 Attrezzatura base</h3><p>${dati.attrezzatura}</p></div>
+    <div class="card"><h3>${t('quandoUsarla')}</h3><p>${txt.quando}</p></div>
+    <div class="card"><h3>${t('attrezzaturaBase')}</h3><p>${txt.attrezzatura}</p></div>
     <div class="card" style="cursor:default;">
-      <h3>🎣 Montatura dedicata</h3><p>${dati.montatura}</p>
-      <button onclick="toggleImageBox('spinningMontaturaBox','img/montatura-spinning.jpg',this)" class="toggle-btn">📷 Montatura Spinning <span class="arrow">▼</span></button>
+      <h3>${t('montaturaDedicataLabel')}</h3><p>${txt.montatura}</p>
+      <button onclick="toggleImageBox('spinningMontaturaBox','img/montatura-spinning.jpg',this)" class="toggle-btn">📷 ${linguaAttuale === "fr" ? "Montage Spinning" : "Montatura Spinning"} <span class="arrow">▼</span></button>
       <div id="spinningMontaturaBox" class="image-box"></div>
     </div>
-    <div class="card"><h3>✅ Pro</h3><ul>${dati.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
-    <div class="card"><h3>❌ Contro</h3><ul>${dati.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
-    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(dati.esche)}</div>
-    <div class="card"><h3>⚖️ Piombi consigliati</h3>${generaMiniCard(dati.piombi,"spinning-piombi")}</div>
-    <div class="card"><h3>🎥 Video tutorial</h3><a href="https://www.youtube.com/results?search_query=pesca+spinning+mare" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
+    <div class="card"><h3>${t('proLabel')}</h3><ul>${txt.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+    <div class="card"><h3>${t('controLabel')}</h3><ul>${txt.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
+    <div class="card"><h3>${t('piombiConsigliati')}</h3>${generaMiniCard(piombiList,"spinning-piombi")}</div>
+    <div class="card"><h3>${t('videoTutorial')}</h3><a href="${dati.video}" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
 }
 function showEging() {
   const dati = tecnicheData.eging;
@@ -1147,17 +1155,29 @@ const tecnicheData = {
     montatura:"Trecciato collegato con nodo FG al fluorocarbon. Artificiali come minnow, jerkbait, softbait e jig.",
     pro:["Tecnica dinamica","Copre molta acqua","Adatta a molti predatori"],
     contro:["Richiede movimento continuo","Attrezzatura più costosa","Meno efficace con mare molto mosso"],
-    specie:[{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Serra",img:"img/serra.jpg"},{nome:"Barracuda",img:"img/barracuda.jpg"},{nome:"Palamita",img:"img/palamita.jpg"},{nome:"Ricciola",img:"img/ricciola.jpg"}],
-    esche:[
+    specieIt:[{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Serra",img:"img/serra.jpg"},{nome:"Barracuda",img:"img/barracuda.jpg"},{nome:"Palamita",img:"img/palamita.jpg"},{nome:"Ricciola",img:"img/ricciola.jpg"}],
+    specieFr:[{nome:"Bar",img:"img/spigola.jpg"},{nome:"Tassergal",img:"img/serra.jpg"},{nome:"Barracuda",img:"img/barracuda.jpg"},{nome:"Bonite",img:"img/palamita.jpg"},{nome:"Sériole",img:"img/ricciola.jpg"}],
+    escheIt:[
       {nome:"Minnow",img:"img/minnow.jpg",descrizione:"Imita un piccolo pesce foraggio.",mare:"Calmo / Poco mosso",target:"Spigola, Serra",efficacia:5},
       {nome:"Jerkbait",img:"img/jerkbait.jpg",descrizione:"Movimento nervoso per attacchi aggressivi.",mare:"Leggermente mosso",target:"Serra, Palamita",efficacia:4},
       {nome:"Soft Bait",img:"img/softbait.jpg",descrizione:"Esca in silicone montata su jig head.",mare:"Calmo",target:"Spigola, Sugarello",efficacia:4},
       {nome:"Metal Jig",img:"img/metal-jig.jpg",descrizione:"Per lanci lunghi e profondità.",mare:"Mosso / Corrente",target:"Palamita, Serra",efficacia:5},
       {nome:"Top Water / Popper",img:"img/popper.jpg",descrizione:"Lavora in superficie con attacchi spettacolari.",mare:"Calmo",target:"Leccia stella, Serra",efficacia:4}
     ],
-    piombi:[
+    escheFr:[
+      {nome:"Minnow",img:"img/minnow.jpg",descrizione:"Imite un petit poisson fourrage.",mare:"Calme / Peu agitée",target:"Bar, Tassergal",efficacia:5},
+      {nome:"Jerkbait",img:"img/jerkbait.jpg",descrizione:"Mouvement nerveux pour attaques agressives.",mare:"Légèrement agitée",target:"Tassergal, Bonite",efficacia:4},
+      {nome:"Soft Bait",img:"img/softbait.jpg",descrizione:"Leurre en silicone monté sur tête plombée.",mare:"Calme",target:"Bar, Chinchard",efficacia:4},
+      {nome:"Metal Jig",img:"img/metal-jig.jpg",descrizione:"Pour lancers longs et profondeur.",mare:"Agitée / Courant",target:"Bonite, Tassergal",efficacia:5},
+      {nome:"Top Water / Popper",img:"img/popper.jpg",descrizione:"Travaille en surface avec des attaques spectaculaires.",mare:"Calme",target:"Liche, Tassergal",efficacia:4}
+    ],
+    piombiIt:[
       {nome:"Jig Head",img:"img/jig-head.jpg",descrizione:"Testa piombata per soft bait.",peso:"5g – 30g"},
       {nome:"Piombo interno",img:"img/piombo-interno.jpg",descrizione:"Assetto naturale nel silicone.",peso:"Variabile"}
+    ],
+    piombiFr:[
+      {nome:"Jig Head",img:"img/jig-head.jpg",descrizione:"Tête plombée pour soft bait.",peso:"5g – 30g"},
+      {nome:"Plomb interne",img:"img/piombo-interno.jpg",descrizione:"Lestage naturel dans le silicone.",peso:"Variable"}
     ],
     video:"https://www.youtube.com/watch?v=5Zk7XKXh7eM"
   },
@@ -1251,8 +1271,9 @@ function apriDettaglio(tipo, index) {
   const container=document.getElementById(tipo+"-detail"); if(!container)return;
   const parti=tipo.split("-"); if(parti.length<2)return;
   const tecnica=parti[0]; const categoria=parti.slice(1).join("-");
-  if(!tecnicheData[tecnica]||!tecnicheData[tecnica][categoria])return;
-  const item=tecnicheData[tecnica][categoria][index]; if(!item)return;
+  const categoriaLingua = categoria + (linguaAttuale === "fr" ? "Fr" : "It");
+  if(!tecnicheData[tecnica]||!tecnicheData[tecnica][categoriaLingua])return;
+  const item=tecnicheData[tecnica][categoriaLingua][index]; if(!item)return;
   if(container.dataset.open==index){container.innerHTML="";container.dataset.open="";return;}
   container.dataset.open=index;
   container.innerHTML=`<div class="card" style="cursor:default;text-align:center;"><h3>${item.nome}</h3><img src="${item.img}" onclick="mostraEscaFullscreen(event,'${item.img}','${item.nome}')" class="img-box-bg" style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:10px;display:block;margin:10px auto;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:-4px 0 10px;">🔍 Tocca per ingrandire</p>${item.descrizione?`<p style="text-align:left;">${item.descrizione}</p>`:""}${item.peso?`<p style="text-align:left;"><strong>Peso:</strong> ${item.peso}</p>`:""}</div>`;
