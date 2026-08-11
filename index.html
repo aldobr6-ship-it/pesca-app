@@ -526,6 +526,16 @@ const traduzioni = {
     montatureConsigliate: "🪝 Montature consigliate",
     calendarioAttivita: "📅 Calendario attività",
     tecnicheTitolo: "🌊 Tecniche di Pesca in Mare",
+    quandoUsarla: "📅 Quando usarla",
+    attrezzaturaBase: "🎒 Attrezzatura base",
+    montatureDedicate: "🪝 Montature dedicate",
+    toccaSchema: "Tocca per vedere lo schema",
+    proLabel: "✅ Pro",
+    controLabel: "❌ Contro",
+    videoTutorial: "🎥 Video tutorial",
+    guardaSuYoutube: "Guarda su YouTube",
+    specieConsigliate: "🐟 Specie consigliate",
+    escheConsigliateLabel: "🐛 Esche consigliate",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -566,6 +576,16 @@ const traduzioni = {
     montatureConsigliate: "🎣 Montages recommandés",
     calendarioAttivita: "📅 Calendrier d'activité",
     tecnicheTitolo: "🌊 Techniques de Pêche en Mer",
+    quandoUsarla: "📅 Quand l'utiliser",
+    attrezzaturaBase: "🎒 Équipement de base",
+    montatureDedicate: "🪝 Montages dédiés",
+    toccaSchema: "Touchez pour voir le schéma",
+    proLabel: "✅ Avantages",
+    controLabel: "❌ Inconvénients",
+    videoTutorial: "🎥 Tutoriel vidéo",
+    guardaSuYoutube: "Regarder sur YouTube",
+    specieConsigliate: "🐟 Espèces recommandées",
+    escheConsigliateLabel: "🐛 Appâts recommandés",
   }
 };
 
@@ -672,14 +692,16 @@ function showTecniche() {
     <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
 }
 function showSurfcasting() {
+  const txt = linguaAttuale === "fr" ? surfcastingText.fr : surfcastingText.it;
+  const dati = linguaAttuale === "fr" ? surfcastingDataFr : surfcastingDataIt;
   document.getElementById("content").innerHTML = `
     <h2>🏖️ Surfcasting</h2>
-    <div class="card"><b>📅 Quando usarla</b><br>Mare mosso o formato, spiagge sabbiose, alba e tramonto</div>
-    <div class="card"><b>🎒 Attrezzatura base</b><br>Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40</div>
+    <div class="card"><b>${t('quandoUsarla')}</b><br>${txt.quando}</div>
+    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${txt.attrezzatura}</div>
     <div class="card" style="cursor:default;">
-      <h3>🎣 Montature dedicate</h3>
-      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
-      <button onclick="toggleImageBox('traveBox','img/montature/14_minitrave.jpg',this)" class="toggle-btn">📷 Montatura a Trave <span class="arrow">▼</span></button>
+      <h3>${t('montatureDedicate')}</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
+      <button onclick="toggleImageBox('traveBox','img/montature/14_minitrave.jpg',this)" class="toggle-btn">📷 Minitrave <span class="arrow">▼</span></button>
       <div id="traveBox" class="image-box"></div>
       <button onclick="toggleImageBox('paternosterBox','img/montature/06_paternoster.jpg',this)" class="toggle-btn">📷 Paternoster <span class="arrow">▼</span></button>
       <div id="paternosterBox" class="image-box"></div>
@@ -690,12 +712,12 @@ function showSurfcasting() {
       <button onclick="toggleImageBox('pulleyBox','img/montature/10_pulley_rig.jpg',this)" class="toggle-btn">📷 Pulley Rig <span class="arrow">▼</span></button>
       <div id="pulleyBox" class="image-box"></div>
     </div>
-    <div class="card"><b>✅ Pro</b><br>Raggiunge grandi distanze, ideale per grossi pesci</div>
-    <div class="card"><b>❌ Contro</b><br>Tecnica impegnativa, attrezzatura pesante</div>
-    <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=surfcasting+tecnica+italiana" target="_blank">Guarda su YouTube</a></div>
-    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(surfcastingData.specie)}</div>
-    <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(surfcastingData.esche)}</div>
-    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
+    <div class="card"><b>${t('proLabel')}</b><br>${txt.pro}</div>
+    <div class="card"><b>${t('controLabel')}</b><br>${txt.contro}</div>
+    <div class="card"><b>${t('videoTutorial')}</b><br><a href="https://www.youtube.com/results?search_query=surfcasting+tecnica+italiana" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(dati.specie)}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(dati.esche)}</div>
+    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
 }
 function showGalleggiante() {
   const dati = tecnicheData.galleggiante;
@@ -1109,9 +1131,17 @@ function showSpecieDetail(id) {
 
 <script>
 /* === DATI + UTILITÀ === */
-const surfcastingData = {
+const surfcastingDataIt = {
   specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Sarago Pizzuto",img:"img/sarago-pizzuto.jpg"}],
   esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Cannolicchio",img:"img/cannolicchio.jpg"}]
+};
+const surfcastingDataFr = {
+  specie:[{nome:"Dorade",img:"img/orata.jpg"},{nome:"Bar",img:"img/spigola.jpg"},{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Sar commun",img:"img/sarago-maggiore.jpg"},{nome:"Sar à museau pointu",img:"img/sarago-pizzuto.jpg"}],
+  esche:[{nome:"Ver de sable",img:"img/arenicola.jpg"},{nome:"Américain",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Couteau",img:"img/cannolicchio.jpg"}]
+};
+  const surfcastingText = {
+  it: { quando:"Mare mosso o formato, spiagge sabbiose, alba e tramonto", attrezzatura:"Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40", pro:"Raggiunge grandi distanze, ideale per grossi pesci", contro:"Tecnica impegnativa, attrezzatura pesante" },
+  fr: { quando:"Mer agitée ou formée, plages sableuses, aube et crépuscule", attrezzatura:"Canne 4–4,5 m • Moulinet 8000–14000 • Nylon 0,35–0,40", pro:"Atteint de grandes distances, idéal pour les gros poissons", contro:"Technique exigeante, équipement lourd" }
 };
 const tecnicheData = {
   spinning:{
