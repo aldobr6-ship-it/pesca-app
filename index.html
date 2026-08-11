@@ -51,7 +51,7 @@ body.dark .img-box-bg { background:#334155; }
 }
 .fullscreen-img {
   max-width: 94vw; max-height: 90vh; border-radius: 8px;
-  object-f contain;
+  object-fit: contain;
 }
 .fullscreen-close {
   position: absolute; top: 20px; right: 20px;
@@ -150,7 +150,7 @@ body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
   min-width: 100%; min-height: 100%;
   width: auto; height: auto;
   transform: translate(-50%, -50%);
-  object-f cover; z-index: -1;
+  object-fit: cover; z-index: -1;
 }
   .img-placeholder {
   display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -436,8 +436,7 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   </div>
 </div>
 <header>
-  <header>
-  🎣 AdelTechnic-FISH
+   🎣 AdelTechnic-FISH
   <div style="position:absolute; left:14px; top:50%; transform:translateY(-50%); display:flex; gap:4px;">
     
 <!-- Pulsante Italiano -->
@@ -1314,7 +1313,9 @@ function generaCalendario(stagione) {
   const mesi = linguaAttuale === "fr" ? mesiFr : mesiIt;
   const mc=new Date().getMonth()+1;
   let html="<div class='card' style='cursor:default;'><b>"+t('calendarioAttivita')+"</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
-  }
+  for(let i=1;i<=12;i++){const a=stagione.includes(i);html+=`<div style="padding:6px 8px;border-radius:6px;font-size:12px;text-align:center;min-width:32px;${a?"background:#2ecc71;color:white;":"background:#eee;"}${i===mc?"border:2px solid #007bff;":""}">${mesi[i-1]}</div>`;}
+  return html+"</div></div>";
+}
 function generaSpeciePerTecnica(nomeTecnica) {
   let html="<div class='card' style='cursor:default;'><b>🐟 Specie consigliate</b><br><br>";
   for(let key in specie){if(specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase()))html+=`<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="goTo(()=>showSpecieDetail('${key}'))">• ${specie[key].nome}</div>`;}
