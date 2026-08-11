@@ -705,13 +705,17 @@ function showSurfcasting() {
     <div class="card" style="cursor:default;">
       <h3>${t('montatureDedicate')}</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${["minitrave","paternoster","long-arm","short-rovesciato","pulley-rig"].map((id,i)=>{
         const mont = montatureData.find(x=>x.id===id);
         const nome = mont ? mont.nome : id;
         const img = mont ? mont.img.replace("./","") : "";
-        return `<button onclick="toggleImageBox('surfBox${i}','${img}',this)" class="toggle-btn">📷 ${nome} <span class="arrow">▼</span></button>
-        <div id="surfBox${i}" class="image-box"></div>`;
+        return `<div>
+          <button onclick="toggleImageBox('surfBox${i}','${img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${nome} <span class="arrow">▼</span></button>
+          <div id="surfBox${i}" class="image-box"></div>
+        </div>`;
       }).join("")}
+      </div>
     </div>
     <div class="card"><b>${t('proLabel')}</b><br>${txt.pro}</div>
     <div class="card"><b>${t('controLabel')}</b><br>${txt.contro}</div>
