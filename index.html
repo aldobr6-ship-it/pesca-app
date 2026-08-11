@@ -701,16 +701,13 @@ function showSurfcasting() {
     <div class="card" style="cursor:default;">
       <h3>${t('montatureDedicate')}</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
-      <button onclick="toggleImageBox('traveBox','img/montature/14_minitrave.jpg',this)" class="toggle-btn">📷 Minitrave <span class="arrow">▼</span></button>
-      <div id="traveBox" class="image-box"></div>
-      <button onclick="toggleImageBox('paternosterBox','img/montature/06_paternoster.jpg',this)" class="toggle-btn">📷 Paternoster <span class="arrow">▼</span></button>
-      <div id="paternosterBox" class="image-box"></div>
-      <button onclick="toggleImageBox('longArmBox','img/montature/03_long_arm.jpg',this)" class="toggle-btn">📷 Long Arm <span class="arrow">▼</span></button>
-      <div id="longArmBox" class="image-box"></div>
-      <button onclick="toggleImageBox('shortRovBox','img/montature/01_short_rovesciato.jpg',this)" class="toggle-btn">📷 Short Rovesciato <span class="arrow">▼</span></button>
-      <div id="shortRovBox" class="image-box"></div>
-      <button onclick="toggleImageBox('pulleyBox','img/montature/10_pulley_rig.jpg',this)" class="toggle-btn">📷 Pulley Rig <span class="arrow">▼</span></button>
-      <div id="pulleyBox" class="image-box"></div>
+      ${["minitrave","paternoster","long-arm","short-rovesciato","pulley-rig"].map((id,i)=>{
+        const mont = montatureData.find(x=>x.id===id);
+        const nome = mont ? mont.nome : id;
+        const img = mont ? mont.img.replace("./","") : "";
+        return `<button onclick="toggleImageBox('surfBox${i}','${img}',this)" class="toggle-btn">📷 ${nome} <span class="arrow">▼</span></button>
+        <div id="surfBox${i}" class="image-box"></div>`;
+      }).join("")}
     </div>
     <div class="card"><b>${t('proLabel')}</b><br>${txt.pro}</div>
     <div class="card"><b>${t('controLabel')}</b><br>${txt.contro}</div>
