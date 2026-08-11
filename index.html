@@ -542,6 +542,8 @@ const traduzioni = {
     escheConsigliateLabel: "🐛 Esche consigliate",
     montaturaDedicataLabel: "🪢 Montatura dedicata",
     piombiConsigliati: "⚖️ Piombi consigliati",
+    montaturaDedicataUnica: "🎣 Montatura dedicata",
+    specieAggiuntive: "🐟 Specie principali",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -594,6 +596,8 @@ const traduzioni = {
     escheConsigliateLabel: "🐛 Appâts recommandés",
     montaturaDedicataLabel: "🪢 Montage dédié",
     piombiConsigliati: "⚖️ Plombs recommandés",
+    montaturaDedicataUnica: "🎣 Montage dédié",
+    specieAggiuntive: "🐟 Espèces principales",
   }
 };
 
@@ -730,30 +734,34 @@ function showSurfcasting() {
 }
 function showGalleggiante() {
   const dati = tecnicheData.galleggiante;
+  const txt = linguaAttuale === "fr" ? galleggianteText.fr : galleggianteText.it;
+  const specieList = linguaAttuale === "fr" ? [{nome:"Muge",img:"img/cefalo.jpg"},{nome:"Sar",img:"img/sarago-maggiore.jpg"},{nome:"Oblade",img:"img/occhiata.jpg"},{nome:"Petite dorade",img:"img/orata.jpg"}] : dati.specie;
+  const escheList = linguaAttuale === "fr" ? [{nome:"Asticot",img:"img/bigattino.jpg"},{nome:"Pain",img:"img/pane.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Crevette",img:"img/gambero.jpg"}] : dati.esche;
   document.getElementById("content").innerHTML = `
-    <h2>🎈 Galleggiante</h2>
-    <div class="card"><b>📅 Quando usarla</b><br>Mare calmo • Porto • Scogliera</div>
-    <div class="card"><b>🎒 Attrezzatura base</b><br>Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole</div>
+    <h2>🎈 ${linguaAttuale === "fr" ? "Flotteur" : "Galleggiante"}</h2>
+    <div class="card"><b>📅{t('Quando Usarla')}</b><br>${txt.quando}</div>
+    <div class="card"><b>🎒{t('Attrezzatura Base')}</b><br>${txt.attrezzatura}</div>
     <div class="card" style="cursor:default;">
-      <h3>🎣 Montature dedicate</h3>
-      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
-     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-  <div>
-    <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 Galleggiante Fisso <span class="arrow">▼</span></button>
-    <div id="galleggFissoBox" class="image-box"></div>
-  </div>
-  <div>
-    <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 Galleggiante Scorrevole <span class="arrow">▼</span></button>
-    <div id="galleggScorrBox" class="image-box"></div>
-  </div>
-</div>
+      <h3>🎣{t('Montature Dedicate')}</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('Tocca per vedere lo schema')}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div>
+          <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
+          <div id="galleggFissoBox" class="image-box"></div>
+        </div>
+        <div>
+          <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
+          <div id="galleggScorrBox" class="image-box"></div>
+        </div>
+      </div>
     </div>
-    <div class="card"><b>✅ Pro</b><br>Tecnica precisa e sensibile</div>
-    <div class="card"><b>❌ Contro</b><br>Poco efficace con mare mosso</div>
-    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(dati.esche)}</div>
-    <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
+    <div class="card"><b>✅{t('proLabel')}</b><br>${txt.pro}</div>
+    <div class="card"><b>❌{t('controLabel')}</b><br>${txt.contro}</div>
+    <div class="card"><h3>🐟{t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>🐛{t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
+    <div class="card"><b>🎥{t('videoTutorial')}</b><br><a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">👈{t('Torna alle tecniche')}</button>`;
+}
 }
 function showSpinning() {
   const dati = tecnicheData.spinning;
@@ -1179,6 +1187,39 @@ const surfcastingDataFr = {
     pro:["Technique dynamique","Couvre beaucoup d'eau","Adaptée à de nombreux prédateurs"],
     contro:["Nécessite un mouvement continu","Équipement plus coûteux","Moins efficace par mer très agitée"]
   }
+};
+
+const galleggianteText = {
+  it: { quando:"Mare calmo • Porto • Scogliera", attrezzatura:"Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole", pro:"Tecnica precisa e sensibile", contro:"Poco efficace con mare mosso" },
+  fr: { quando:"Mer calme • Port • Rochers", attrezzatura:"Canne 4–6 m • Nylon fin • Flotteur fixe ou coulissant", pro:"Technique précise et sensible", contro:"Peu efficace par mer agitée" }
+};
+const egingText = {
+  it: {
+    quando:"Ideale di notte o al tramonto in porti, scogliere e moli con fondale misto.",
+    attrezzatura:"Canna 2.30–2.60m azione 2.0–3.5 EGI • Mulinello 2500–3000 • Trecciato 0.6–0.8 PE + Fluorocarbon 0.28–0.33",
+    montatura:"Trecciato collegato al fluorocarbon con nodo FG. Collegamento diretto all'egi con moschettone leggero.",
+    pro:["Tecnica divertente e tecnica","Molto efficace sui cefalopodi","Attrezzatura leggera"],
+    contro:["Richiede sensibilità","Meno produttiva con mare molto mosso"]
+  },
+  fr: {
+    quando:"Idéal la nuit ou au crépuscule dans les ports, rochers et jetées avec fond mixte.",
+    attrezzatura:"Canne 2.30–2.60m action 2.0–3.5 EGI • Moulinet 2500–3000 • Tressée 0.6–0.8 PE + Fluorocarbone 0.28–0.33",
+    montatura:"Tressée reliée au fluorocarbone par un nœud FG. Connexion directe à l'egi avec émerillon léger.",
+    pro:["Technique amusante et technique","Très efficace sur les céphalopodes","Équipement léger"],
+    contro:["Nécessite de la sensibilité","Moins productive par mer très agitée"]
+  }
+};
+const fondoText = {
+  it: { quando:"Tutto l'anno • Porto • Scogliera • Spiaggia", attrezzatura:"Canna 3–4 m • Mulinello 4000–6000 • Nylon 0,30–0,40", pro:"Tecnica semplice e versatile", contro:"Rischio incagli • Meno selettiva" },
+  fr: { quando:"Toute l'année • Port • Rochers • Plage", attrezzatura:"Canne 3–4 m • Moulinet 4000–6000 • Nylon 0,30–0,40", pro:"Technique simple et polyvalente", contro:"Risque d'accrochage • Moins sélective" }
+};
+const beachLedgeringDataFr = {
+  specie:[{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Dorade",img:"img/orata.jpg"},{nome:"Bar",img:"img/spigola.jpg"},{nome:"Rouget",img:"img/triglia.jpg"},{nome:"Muge",img:"img/cefalo.jpg"},{nome:"Liche",img:"img/leccia.jpg"}],
+  esche:[{nome:"Ver de sable",img:"img/arenicola.jpg"},{nome:"Américain",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Asticot",img:"img/bigattino.jpg"},{nome:"Coréen",img:"img/coreano.jpg"}]
+};
+const beachLedgeringTextFr = {
+  pro:"Polyvalence maximale dans le choix du montage, excellent naturel de l'appât et résistance minimale ressentie par le poisson lors de la touche.",
+  contro:"Nécessite de la technique dans les lancers et de l'attention au fond (marches, algues) qui peut bloquer le glissement du fil ou favoriser les emmêlements."
 };
 
 const tecnicheData = {
