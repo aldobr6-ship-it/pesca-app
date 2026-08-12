@@ -1,21 +1,702 @@
 [
-  { "id":"short-rovesciato",          "nome":"Short Rovesciato",           "emoji":"🎣", "img":"./img/montature/01_short_rovesciato.jpg",        "desc":"Bracciolo corto orientato verso l'alto. Anti-aggroviglio su sabbia.",              "quando":"Spiagge sabbiose • Mare mosso • Surfcasting",     "esche":"Arenicola • Bibi • Americano",                  "target":"Orata • Mormora • Sarago",            "video":"https://www.youtube.com/watch?v=Xf6ImYcKXTA" },
-  { "id":"short-rovesciato-clippato", "nome":"Short Rovesciato Clippato",  "emoji":"🎣", "img":"./img/montature/02_short_rovesciato_clippato.jpg", "desc":"Power-clip per lanci aerodinamici superiori a 120 m.",                             "quando":"Spiagge ampie • Lanci estremi • Corrente",        "esche":"Arenicola • Bibi • Coreano",                    "target":"Orata • Mormora • Spigola",           "video":"https://www.youtube.com/results?search_query=short+rovesciato+clippato+surfcasting" },
-  { "id":"long-arm",                  "nome":"Long Arm",                   "emoji":"🎣", "img":"./img/montature/03_long_arm.jpg",                 "desc":"Bracciolo lungo 80–120 cm per massima naturalezza dell'esca.",                    "quando":"Mare calmo • Pesci sospettosi • Alba/tramonto",    "esche":"Gambero • Vermetto • Polpo piccolo",             "target":"Orata grossa • Spigola • Dentice",     "video":"https://www.youtube.com/results?search_query=long+arm+montatura+surfcasting" },
-  { "id":"long-arm-clippato",         "nome":"Long Arm Clippato",          "emoji":"🎣", "img":"./img/montature/04_long_arm_clippato.jpg",      "desc":"Long arm con clip: bracciolo lungo e lancio da gara oltre 130 m.",                "quando":"Fondali lontani • Gare • Spiagge aperte",          "esche":"Gambero • Polpo • Arenicola",                   "target":"Orata • Dentice • Spigola",           "video":"https://www.youtube.com/shorts/bqFMhPoHvVA" },
-  { "id":"biamo",                     "nome":"Bi-Amo",                     "emoji":"🎣", "img":"./img/montature/05_biamo.jpg",                  "desc":"Due braccioli indipendenti per presentare due esche diverse contemporaneamente.",  "quando":"Porto e scogliera • Fondo misto",                 "esche":"Bigattino • Coreano • Gambero",                 "target":"Sarago • Occhiata • Spigola",          "video":"https://www.youtube.com/results?search_query=bi+amo+montatura+pesca+mare" },
-  { "id":"paternoster",               "nome":"Paternoster",                "emoji":"🎣", "img":"./img/montature/06_paternoster.jpg",            "desc":"Classico del surfcasting. Braccioli alti tenuti dalla girella tripla a 3 vie.",   "quando":"Fondo misto • Pesce sospeso • Tuttofare",          "esche":"Arenicola • Coreano • Gambero • Granchio Vivo", "target":"Orata • Sarago • Mormora • Corvina",  "video":"https://www.youtube.com/results?search_query=paternoster+montatura+surfcasting+italiano" },
-  { "id":"biamo-clippato",            "nome":"Bi-Amo Clippato",            "emoji":"🎣", "img":"./img/montature/07_biamo_clippato.jpg",         "desc":"Due ami clippati al piombo per lanci lunghi con doppia presentazione.",           "quando":"Spiagge con fondali lontani • Gare",               "esche":"Arenicola • Bibi • Coreano",                    "target":"Orata • Mormora • Sarago",            "video":"https://www.youtube.com/results?search_query=biamo+clippato+surfcasting+montatura" },
-  { "id":"triamo",                    "nome":"Tri-Amo",                    "emoji":"🎣", "img":"./img/montature/08_triamo.jpg",                 "desc":"Tre braccioli per massimizzare le catture sui pesci di branco.",                  "quando":"Porto • Molo • Pesci in branco",                   "esche":"Bigattino • Verme di mare • Pane",               "target":"Occhiata • Sugarello • Saraghetto",    "video":"https://www.youtube.com/results?search_query=tri+amo+tre+ami+pesca+porto" },
-  { "id":"triamo-clippato",           "nome":"Tri-Amo Clippato",           "emoji":"🎣", "img":"./img/montature/09_triamo_clippato.jpg",        "desc":"Tre ami clippati: distanza e tripla efficacia su fondi lontani.",                 "quando":"Spiagge ampie • Fondo distante",                   "esche":"Bigattino • Coreano • Verme",                   "target":"Occhiata • Sarago • Sugarello",        "video":"https://www.youtube.com/results?search_query=tri+amo+clippato+surfcasting+tre+ami" },
-  { "id":"pulley-rig",                "nome":"Pulley Rig",                 "emoji":"⚙️", "img":"./img/montature/10_pulley_rig.jpg",             "desc":"Sistema a puleggia: protegge l'esca durante il lancio, la libera in acqua.",     "quando":"Esche grosse e delicate • Corrente",                "esche":"Polpo • Mazzancolla • Pezzo calamaro",           "target":"Spigola • Orata • Corvina grossa",     "video":"https://www.youtube.com/results?search_query=pulley+rig+surfcasting+montatura+italiana" },
-  { "id":"pulley-rig-clippato",       "nome":"Pulley Rig Clippato",        "emoji":"⚙️", "img":"./img/montature/11_pulley_rig_clippato.jpg",    "desc":"Pulley + clip: montatura avanzata per esche grandi a lunga distanza.",           "quando":"Spiagge lunghe • Esche grosse • Vento favore",      "esche":"Polpo • Mazzancolla • Pezzo sgombro",            "target":"Spigola XXL • Corvina • Orata",        "video":"https://www.youtube.com/shorts/skINsYXbA1A" },
-  { "id":"scorrevole",                "nome":"Scorrevole",                 "emoji":"🎯", "img":"./img/montature/12_scorrevole.jpg",             "desc":"Piombo libero sulla lenza: il pesce non sente resistenza e abbocca sicuro.",     "quando":"Mare calmo • Porto • Pesci sospettosi",             "esche":"Gambero • Polpo • Vermetto • Granchio Vivo",    "target":"Orata • Dentice • Spigola",           "video":"https://www.youtube.com/results?search_query=montatura+scorrevole+pesca+fondo+mare" },
-  { "id":"scorrevole-clippato",       "nome":"Scorrevole Clippato",        "emoji":"🎯", "img":"./img/montature/13_scorrevole_clippato.jpg",    "desc":"Scorrevole + clip: distanza e sensibilità massima insieme.",                     "quando":"Spiagge con fondali lontani • Pesci sospettosi",    "esche":"Gambero • Bibi • Arenicola",                    "target":"Orata sospettosa • Dentice • Spigola", "video":"https://www.youtube.com/results?search_query=scorrevole+clippato+surfcasting+montatura" },
-  { "id":"minitrave",                 "nome":"Minitrave",                  "emoji":"📐", "img":"./img/montature/14_minitrave.jpg",              "desc":"Trave orizzontale rigido che tiene i braccioli separati. Anti-aggroviglio.",    "quando":"Sabbia con corrente • Surf classico",                "esche":"Arenicola • Bibi • Coreano",                    "target":"Mormora • Sarago • Orata",            "video":"https://www.youtube.com/results?search_query=minitrave+surfcasting+montatura+pesca" },
-  { "id":"minitrave-divergente",      "nome":"Minitrave con Divergente",   "emoji":"📐", "img":"./img/montature/15_minitrave_divergente.jpg",   "desc":"Bracci angolati a 40–50° per portare le esche lontano dalla scia del piombo.",  "quando":"Corrente forte • Posidonia • Fondo misto",           "esche":"Arenicola • Gambero • Bibi",                    "target":"Orata • Sarago • Mormora",            "video":"https://www.youtube.com/results?search_query=minitrave+divergente+surfcasting+pesca" },
-  { "id":"minitrave-snodato",         "nome":"Minitrave Divergente 360°",  "emoji":"🔄", "img":"./img/montature/16_minitrave_snodato_360.jpg",  "desc":"Snodo a rotazione totale: i divergenti seguono la corrente. Zero aggrovigli.",  "quando":"Correnti variabili • Scogliera • Avanzata",          "esche":"Gambero • Arenicola • Cozza",                   "target":"Orata • Sarago • Mormora",            "video":"https://www.youtube.com/results?search_query=minitrave+snodato+360+gradi+surfcasting" },
-  { "id":"terminale-serra",           "nome":"Terminale Pesce Serra",      "emoji":"⚠️", "img":"./img/montature/17_terminale_serra.jpg",        "desc":"Terminale in acciaio multi-strand: i denti del serra tagliano qualsiasi filo!", "quando":"Luglio–Settembre • Spinning • Surfcasting",          "esche":"Minnow • Jerkbait • Metal jig • Pezzo sgombro",  "target":"Pesce Serra",                         "video":"https://www.youtube.com/results?search_query=pesce+serra+terminale+acciaio+pesca" },
-  { "id":"bandiera",                  "nome":"Bandiera",                   "emoji":"🚩", "img":"./img/montature/18_bandiera.jpg",               "desc":"Bracciolo laterale ad angolo, ottima per evitare grovigli.",                    "quando":"Mare mosso o in scaduta",                             "esche":"Arenicola • Coreano • Americano • Cannolicchio", "target":"Spigola • Mormora • Sarago • Orata • Sgombro",  "video":"https://www.youtube.com/results?search_query=montatura+bandiera+pesca+fondo" },
-  { "id":"running feeder rig",        "nome":"Running Feeder Rig",         "emoji":"🎣", "img":"./img/montature/19_running_feeder_rig.jpg",     "desc":"montatura con il pasturatore scorrevole un terminale e un bracciolo con il pop-up.", "quando":"Mare Calmo / Piatto o in Scaduta",               "esche":"Arenicola • Coreano • Americano • Bigattino • Bibi ", "target":"Spigola • Mormora • Sarago • Orata • Triglia • Cefalo • Leccia stella",  "video":"https://www.youtube.com/watch?v=TXRd8M-1jy8" }
+  {
+    "id": "long-arm-clippato",
+    "nome": "Long Arm Clippato",
+    "emoji": "🎣",
+    "img": "./img/montature/04_long_arm_clippato.jpg",
+    "desc": "Long arm con clip: bracciolo lungo e lancio da gara oltre 130 m.",
+    "quando": "Fondali lontani • Gare • Spiagge aperte",
+    "esche": "Gambero • Polpo • Arenicola",
+    "target": "Orata • Dentice • Spigola",
+    "video": "https://www.youtube.com/shorts/bqFMhPoHvVA",
+    "difficoltà": "Media",
+    "tech_specs": {
+      "line_diameter_mm": 0.38,
+      "hook_size": "6-8",
+      "leader_length_cm": 15,
+      "lead_weight_g": 150,
+      "lead_shape": "streamline",
+      "knot_type": "FG Knot (trecciato-su-fluoro) + Uni Knot",
+      "casting_distance_m": 120-150,
+      "target_species_weight_kg": 5-20
+    },
+    "pro_insights": {
+      "best_condition": "Gare di surfcasting o fondali molto profondi dove serve distanza estrema",
+      "pro_tip": "Usa un trecciato 0.12-0.14mm abbinato a un fluorocarbon 0.35mm con nodo FG per massima sensibilità e resistenza",
+      "common_mistake": "Sovrastimare la capacità della clip di reggere pesci oltre i 10kg senza rinforzare il braccio",
+      "variant": "Long Arm 'Distance' - bracciolo ridotto a 60cm con piombo da 200g per record di lancio"
+    },
+    "lunghezze": {
+      "bracciolo": "70-90 cm",
+      "lenza_madre": "4.5 metri",
+      "finale": "15 cm"
+    },
+    "componenti": [
+      {"nome": "Bracciolo lungo con clip rinforzata", "misura": "Nylon 0.38 mm", "quantita": "1 pezzo", "note": "Clip in acciaio inossidabile per carichi pesanti"},
+      {"nome": "Piombo gara aerodinamico", "misura": "150-200g, forma streamline", "quantita": "1 pezzo", "note": "Minore resistenza all'aria per lanci oltre 130m"},
+      {"nome": "Ami misura 6-8 circolari", "misura": "Misura 6-8", "quantita": "2 ami", "note": "Per spigola e dentice in acque chiare"},
+      {"nome": "Clip di sicurezza", "misura": "Taglia grande", "quantita": "1 pezzo", "note": "Permuta rapida piombo-bracciolo senza nodi"}
+    ],
+    "istruzioni": [
+      "Assembla la clip lungo il bracciolo, assicurandoti che scorra liberamente",
+      "Fissa il piombo gara sulla clip superiore usando un nodo uni-knot rinforzato",
+      "Lega il finale di 15cm all'estremità inferiore del bracciolo con nodo palomar",
+      "Attacca gliami misura 6-8 al finale",
+      "Regola la posizione della clip in base alla distanza di lancio desiderata (più in alto = più distanza)"
+    ]
+  },
+  {
+    "id": "biamo",
+    "nome": "Bi-Amo",
+    "emoji": "🎣",
+    "img": "./img/montature/05_biamo.jpg",
+    "desc": "Due braccioli indipendenti per presentare due esche diverse contemporaneamente.",
+    "quando": "Porto e scogliera • Fondo misto",
+    "esche": "Bigattino • Coreano • Gambero",
+    "target": "Sarago • Occhiata • Spigola",
+    "video": "https://www.youtube.com/results?search_query=bi+amo+pesca+mare",
+    "difficoltà": "Facile",
+    "tech_specs": {
+      "line_diameter_mm": 0.35,
+      "hook_size": "6-8",
+      "num_hooks": 2,
+      "leader_lengths_cm": [30, 60],
+      "lead_weight_g": 80,
+      "knot_type": "Nodi palomar indipendenti",
+      "casting_distance_m": 60-90,
+      "target_species_weight_kg": 0.5-5
+    },
+    "pro_insights": {
+      "best_condition": "Porto con fondale misto o scogliera dove i pesci si nutrono a diversi livelli",
+      "pro_tip": "Usa esche diverse su ciascun bracciolo (es. bigattino su uno, gambero sull'altro) per scoprire cosa preferisce il pesce in quel momento",
+      "common_mistake": "Rendere i due braccioli troppo simili: differenzia esche e misure ami per testare due strategie simultaneamente",
+      "variant": "Bi-Amo 'Profondo' - braccioli lunghi 80/100cm per pesci che si nutrono vicino al fondale"
+    },
+    "lunghezze": {
+      "bracciolo_corto": "30 cm",
+      "bracciolo_lungo": "60 cm",
+      "lenza_madre": "3.5 metri"
+    },
+    "componenti": [
+      {"nome": "Due occhielli distanziati", "misura": "Nylon 0.35 mm, distanziati 30cm sulla lenza madre", "quantita": "2 pezzi", "note": "Punti di attacco sicuri per i due braccioli"},
+      {"nome": "Due ami circolari", "misura": "Misura 6-8", "quantita": "2 ami", "note": "Uno per ciascun bracciolo"},
+      {"nome": "Girella centrale", "misura": "Taglia media", "quantita": "1 pezzo", "note": "Posizionata tra i due braccioli per permettere rotazione e prevenire twist"},
+      {"nome": "Piombo medio", "misura": "80g", "quantita": "1 pezzo", "note": "Adatto a porto e scogliera, mantenimento della profondità"}
+    ],
+    "istruzioni": [
+      "Lega due occhielli sulla lenna madre principali distanziati di 30cm",
+      "Attacca un ami circolare misura 6-8 a ciascun occhiello",
+      "Fixa il piombo medio sotto il girella centrale",
+      "Lega un finale corto (30cm) all'occhiello di sinistra e uno più lungo (60cm) a quello di destra",
+      "Distribuisci esche diverse su ciascun ami (es. bigattino su quello corto, gambero su quello lungo)"
+    ]
+  },
+  {
+    "id": "biamo-clippato",
+    "nome": "Bi-Amo Clippato",
+    "emoji": "🎣",
+    "img": "./img/montature/07_biamo_clippato.jpg",
+    "desc": "Due ami clippati al piombo per lanci lunghi con doppia presentazione.",
+    "quando": "Spiagge con fondali lontani • Gare",
+    "esche": "Arenicola • Bibi • Coreano",
+    "target": "Orata • Mormora • Sarago",
+    "video": "https://www.youtube.com/results?search_query=biamo+clippato+surfcasting+montatura",
+    "difficoltà": "Media",
+    "tech_specs": {
+      "line_diameter_mm": 0.36,
+      "hook_size": "5-7",
+      "leader_length_cm": 45,
+      "lead_weight_g": 120,
+      "knot_type": "Clip swivel knots",
+      "casting_distance_m": 100-130,
+      "target_species_weight_kg": 1-8
+    },
+    "pro_insights": {
+      "best_condition": "Spiagge sabbiose con fondali lontani dove serve distanza di lancio e presentazione doppia",
+      "pro_tip": "Le clip permettono cambi di esca rapidi durante la sessione: porta due tipi di esca e cambiale in base all'attività dei pesci",
+      "common_mistake": "Sovraccaricare le clip con piombi eccessivi riducendo la distanza di lancio reale",
+      "variant": "Bi-Amo 'Gara' - clip aerodinamiche integrate nel piombo per lanci da competizione"
+    },
+    "lunghezze": {
+      "bracciolo_corto": "45 cm",
+      "bracciolo_lungo": "60 cm",
+      "lenza_madre": "4.0 metri"
+    },
+    "componenti": [
+      {"nome": "Braccioli con clip integrata", "misura": "Nylon 0.35 mm con occhiello clip agli estremi", "quantita": "2 pezzi", "note": "Permettono attacco rapido esche e piombo senza nodi"},
+      {"nome": "Piombo aerodinamico", "misura": "120-150g, forma streamline", "quantita": "1 pezzo", "note": "Per lanci lunghi su fondali lontani"},
+      {"nome": "Ami misura 5-7 circolari", "misura": "Misura 5-7", "quantita": "2 ami", "note": "Ideali per orata e mormora in mare aperto"},
+      {"nome": "Clip di collegamento", "misura": "Taglia media", "quantita": "2 pezzi", "note": "Per fissaggio rapido tra bracciolo e piombo"}
+    ],
+    "istruzioni": [
+      "Monta i due braccioli con clip integrata agli estremi della lenna",
+      "Fixa il piombo aerodinamico alla clip centrale superiore",
+      "Lega gliami misura 5-7 alle clip inferiori dei braccioli",
+      "Regola la distanza tra i due braccioli in base alla presentazione desiderata (più vicini = area di ricerca ridotta, più lontani = area ampliata)",
+      "Lancia sfruttando l'aerodinamicità del piombo e dei braccioli clipati per massima distanza"
+    ]
+  },
+  {
+    "id": "triamo",
+    "nome": "Tri-Amo",
+    "emoji": "🎣",
+    "img": "./img/montature/08_triamo.jpg",
+    "desc": "Tre braccioli per massimizzare le catture sui pesci di branco.",
+    "quando": "Porto • Molo • Pesci in branco",
+    "esche": "Bigattino • Verme di mare • Pane",
+    "target": "Occhiata • Sugarello • Saraghetto",
+    "video": "https://www.youtube.com/results?search_query=tri+amo+tre+ami+pesca+porto",
+    "difficoltà": "Facile",
+    "tech_specs": {
+      "line_diameter_mm": 0.35,
+      "hook_size": "8-10",
+      "num_hooks": 3,
+      "leader_lengths_cm": [35, 45, 55],
+      "lead_weight_g": 60,
+      "knot_type": "Nodi palomar distanziati",
+      "casting_distance_m": 50-80,
+      "target_species_weight_kg": 0.2-2
+    },
+    "pro_insights": {
+      "best_condition": "Porto, moli o aree dove i pesci nuotano in branco e rispondono bene a più presentazioni simultanee",
+      "pro_tip": "Vary the bait on each hook (e.g., bread on one, worm on another) to see which one the school prefers; the different colors/sizes also create a visual stimulus",
+      "common_mistake": "Lasciare tutti e tre gli ami della stessa lunghezza e distanza: i pesci in branco possono essere spaventati da una presentazione troppo uniforme",
+      "variant": "Tri-Amo 'Superficie' - un ami all'amo superficiale, uno a metà colonna, uno sul fondale per coprire tutto lo strato d'acqua"
+    },
+    "lunghezze": {
+      "bracciolo_1": "35 cm",
+      "bracciolo_2": "45 cm",
+      "bracciolo_3": "55 cm",
+      "lenza_madre": "3.0 metri"
+    },
+    "componenti": [
+      {"nome": "Tre occhielli/distanziali", "misura": "Nylon 0.35 mm a distanze progressive 35/45/55cm", "quantita": "3 pezzi", "note": "Mantenimento ordine e separazione ami per evitare intrecci"},
+      {"nome": "Tre ami circolari", "misura": "Misura 8-10", "quantita": "3 ami", "note": "Per pesci di branco e piccoli predatori"},
+      {"nome": "Piombo unico centrale", "misura": "60g", "quantita": "1 pezzo", "note": "Centro di gravità per lancio equilibrato"},
+      {"nome": "Tre perline protezione", "misura": "Piccole", "quantita": "3 pezzi", "note": "Una per ogni ami per proteggere il nodo e aggiungere attrattiva visiva"}
+    ],
+    "istruzioni": [
+      "Crea tre nodini o occhielli sulla lenna a distanze progressive (35cm, 45cm, 55cm partendo dall'estremità)",
+      "Lega un ami circolare misura 8-10 a ciascun nodino",
+      "Aggiungi una perline protezione sotto ogni ami",
+      "Fissa il piombo centrale sotto l'ultimo occhiello (il più lontano)",
+      "Lancia leggero per presentare esche (pane/verme) a tre punti distinti lungo la lenna"
+    ]
+  },
+  {
+    "id": "triamo-clippato",
+    "nome": "Tri-Amo Clippato",
+    "emoji": "🎣",
+    "img": "./img/montatures/09_triamo_clippato.jpg",
+    "desc": "Treami clippati: distanza e tripla efficacia su fondi lontani.",
+    "quando": "Spiagge ampie • Fondo distante",
+    "esche": "Bigattino • Coreano • Verme",
+    "target": "Occhiata • Sarago • Sugarello",
+    "video": "https://www.youtube.com/results?search_query=tri+amo+clippato+surfcasting+tre+ami",
+    "difficoltà": "Media",
+    "tech_specs": {
+      "line_diameter_mm": 0.37,
+      "hook_size": "6-8",
+      "num_hooks": 3,
+      "leader_lengths_cm": [40, 50, 60],
+      "lead_weight_g": 150,
+      "knot_type": "Clip a tre vie",
+      "casting_distance_m": 90-140,
+      "target_species_weight_kg": 1-5
+    },
+    "pro_insights": {
+      "best_condition": "Spiagge ampie dove la distanza di lancio è fondamentale e si pesca su fondali distanti dalla riva",
+      "pro_tip": "Le clip a tre vie permettono di lanciare tre distanze diverse contemporaneamente: scopri quale distanza attira più pesci regolando la posizione delle clip",
+      "common_mistake": "Non bilanciare il peso del piombo con la resistenza al vento: clip troppo pesanti riducono la distanza oltre la previsione",
+      "variant": "Tri-Amo 'Distance' - clip posizionate a 20/40/60cm dall'estremità per distribuire i lanci su tre range di distanza"
+    },
+    "lunghezze": {
+      "bracciolo_1": "40 cm",
+      "bracciolo_2": "50 cm",
+      "bracciolo_3": "60 cm",
+      "lenza_madre": "4.5 metri"
+    },
+    "componenti": [
+      {"nome": "Tre clip distanziate", "misura": "Clip rinforzate a distanze variabili 40/50/60cm", "quantita": "3 pezzi", "note": "Fissaggio rapido e regolabile dei tre braccioli"},
+      {"nome": "Treami grossi", "misura": "Misura 6-8", "quantita": "3 ami", "note": "Per massima efficacia su fondali distanti"},
+      {"nome": "Piombo gara aerodinamico", "misura": "150-200g", "quantita": "1 pezzo", "note": "Lancio potente su spiagge ampie"},
+      {"nome": "Girella centrale a tre vie", "misura": "Taglia grande", "quantita": "1 pezzo", "note": "Centro della configurazione da cui partono le tre clip"}
+    ],
+    "istruzioni": [
+      "Fissa le tre clip alla lenna a distanze prefisse (40cm, 50cm, 60cm dall'estremità)",
+      "Lega un ami misura 6-8 a ciascuna clip",
+      "Attacca il piombo gara aerodinamico alla clip centrale o finale",
+      "Monta la girella centrale a tre vie all'inizio della configurazione",
+      "Lancia potente sfruttando la distanza data dai tre braccioli differenziati (40/50/60cm)"
+    ]
+  },
+  {
+    "id": "pulley-rig",
+    "nome": "Pulley Rig",
+    "emoji": "⚙️",
+    "img": "./img/montature/10_pulley_rig.jpg",
+    "desc": "Sistema a puleggia: protegge l'esca durante il lancio, la libera in acqua.",
+    "quando": "Esche grosse e delicate • Corrente",
+    "esche": "Polpo • Mazzancolla • Pezzo calamaro",
+    "target": "Spigola • Orata • Corvina grossa",
+    "video": "https://www.youtube.com/results?search_query=pulley+rig+surfcasting+italiana",
+    "difficoltà": "Difficile",
+    "tech_specs": {
+      "line_diameter_mm": 0.45,
+      "hook_size": "2/0-4/0",
+      "pulley_ratio": "1:4",
+      "lead_weight_g": 200,
+      "knot_type": "Crimped splices + Palomar per ami",
+      "casting_distance_m": 100-130,
+      "target_species_weight_kg": 5-25
+    },
+    "pro_insights": {
+      "best_condition": "Condizioni di corrente forte dove l'esca delicata (polpo, calamaro) potrebbe strapparsi con un lancio tradizionale, e per pesci di taglia importante che richiedono presentation delicata ma resistente",
+      "pro_tip": "La puleggia 'libera' l'esca durante il lancio riducendo la tensione sul filo: regola il rapporto di trasmissione (1:4 o 1:5) in base al peso dell'esca: esche più leggere richiedono rapporti più bassi",
+      "common_mistake": "Non pulire e lubrificare il cuscinetto della puleggia dopo ogni uscita in mare: la sabbia e il sale causano bloccaggi e usura prematura",
+      "variant": "Pulley 'Heavy Duty' - cuscinetti in ceramica e filo acciaio inossidabile 7x7 per pesci oltre i 20kg"
+    },
+    "lunghezze": {
+      "bracciolo": "20 cm",
+      "lenza_madre": "4.0 metri",
+      "corsa_puleggia": "80 cm"
+    },
+    "componenti": [
+      {"nome": "Corpo puleggia con cuscinetto a sfere", "misura": "Acciaio inossidabile con cuscinetto sigillato", "quantita": "1 pezzo", "note": "Il cuore del sistema: deve scorrere fluido senza attrito"},
+      {"nome": "Piombo scorrevole grande", "misura": "200-250g, forma bloccante", "quantita": "1 pezzo", "note": "Fissa la puleggia alla lenna principale e fornisce il peso necessario"},
+      {"nome": "Ami tripli grossi", "misura": "Misura 2/0 - 4/0", "quantita": "1 set (3 ami)", "note": "Per esche grosse e pesci di taglia importante"},
+      {"nome": "Filo di collegamento e anelli fermo", "misura": "Nylon resistente 0.50mm", "quantita": "Piccole quantità", "note": "Collega la puleggia all'amo e ferma la corsa del filo"}
+    ],
+    "istruzioni": [
+      "Assembla il corpo della puleggia inserendo il cuscinetto a sfere e testandone il movimento fluido prima dell'uso",
+      "Fixa il piombo scorrevole grande alla estremità della lenna madre usando un nodo croce o crimpatura",
+      "Inserisci il filo di collegamento nell'occhiello della puleggia e lega l'altra estremità all'amo triplo grosso",
+      "Regola la 'corsa' del filo (lunghezza massima di scorrimento) in base alla distanza desiderata (fino a 80cm)",
+      "Testa il funzionamento a terra: la puleggia deve scorrere liberamente e il filo deve uscire senza inceppamenti",
+      "Carica esche grosse (polpo, mazzancolla) sull'amo, assicurandole bene con il filo di collegamento"
+    ]
+  },
+  {
+    "id": "pulley-rig-clippato",
+    "nome": "Pulley Rig Clippato",
+    "emoji": "⚙️",
+    "img": "./img/montature/11_pulley_rig_clippato.jpg",
+    "desc": "Pulley + clip: montatura avanzata per esche grandi a lunga distanza.",
+    "quando": "Spiagge lunghe • Esche grosse • Vento favore",
+    "esche": "Polpo • Mazzancolla • Pezzo sgombro",
+    "target": "Spigola XXL • Corvina • Orata",
+    "video": "https://www.youtube.com/shorts/skINsYXbA1A",
+    "difficoltà": "Difficile",
+    "tech_specs": {
+      "line_diameter_mm": 0.50,
+      "hook_size": "4/0-6/0",
+      "pulley_ratio": "1:5",
+      "lead_weight_g": 300,
+      "knot_type": "Crimped termini + Clip swivel",
+      "casting_distance_m": 150-180,
+      "target_species_weight_kg": 10-30
+    },
+    "pro_insights": {
+      "best_condition": "Spiagge molto lunghe, esche molto grosse (polpo intero, mazzancolla grande) e vento a favore che permette di sfruttare appieno la distanza extra",
+      "pro_tip": "La clip integrata permette cambio esca o piombo in pochi secondi durante la sessione: fondamentale quando si pesca a grandi distanze e si deve adattare rapidamente la configurazione",
+      "common_mistake": "Sovrastimare la capacità del sistema a puleggia con esche molto pesanti: verifica sempre che il rapporto di trasmissione (1:5) sia adatto al peso totale (piombo + esca + ami)"},
+      "variant": "Pulley 'Record' - rapporto 1:6 con cuscinetti in ceramica per lanci oltre 180m in condizioni ottimali"
+    },
+    "lunghezze": {
+      "bracciolo": "30 cm",
+      "lenza_madre": "4.5 metri",
+      "corsa_puleggia": "100 cm"
+    },
+    "componenti": [
+      {"nome": "Puleggia integrata con clip di carico rapido", "misura": "Puleggia rinforzata con meccanismo clip integrato", "quantita": "1 pezzo", "note": "Combina la funzione di puleggia e clip di attacco in un unico componente per velocità di cambio"},
+
+      {"nome": "Piombo aerodinamico XXL", "misura": "250-300g", "quantita": "1 pezzo", "note": "Per lunghe distanze in condizioni di vento favore"},
+      {"nome": "Ami tripli XXL", "misura": "Misura 4/0 - 6/0", "quantita": "1 set", "note": "Per spigole e corvine di taglia molto grande"},
+
+      {"nome": "Clip di carico rapido extra large", "misura": "Taglia XL", "quantita": "1 pezzo", "note": "Permette cambio esca o piombo velocissimo senza attrezzi"}
+    ],
+    "istruzioni": [
+      "Monta la puleggia integrata con clip all'estremità della lenna",
+      "Fixa il piombo aerodinamico XXL alla clip superiore",
+      "Lega gliami tripli XXL all'uscita inferiore della puleggia",
+      "Regola la corsa del filo fino a 100cm usando il meccanismo clip (più la corsa è lunga, maggiore è la distanza di lancio ma minore è la sensibilità all'abboccata)",
+      "Carica esche grosse (polpo/mazzancolla) sull'amo, bloccandole bene con il filo di collegamento",
+      "Lancia con vento favore sfruttando la distanza extra data dalla corsa 100cm"
+    ]
+  },
+  {
+    "id": "scorrevole",
+    "nome": "Scorrevole",
+    "emoji": "🎯",
+    "img": "./img/mountature/12_scorrevole.jpg",
+    "desc": "Piombo libero sulla lenza: il pesce non sente resistenza e abbocca sicuro.",
+    "quando": "Mare calmo • Porto • Pesci sospettosi",
+    "esche": "Gambero • Polpo • Vermetto • Granchio Vivo",
+    "target": "Orata • Dentice • Spigola",
+    "video": "https://www.youtube.com/results?search_query=montatura+scorrevole+pesca+fondo+mare",
+    "difficoltà": "Facile",
+    "tech_specs": {
+      "line_diameter_mm": 0.35,
+      "hook_size": "4-6",
+      "leader_length_cm": 70,
+      "lead_weight_g": 150,
+      "knot_type": "Nodo scorrevole libero (nessun nodo fisso al piombo)",
+      "casting_distance_m": 70-100,
+      "target_species_weight_kg": 1-8
+    },
+    "pro_insights": {
+      "best_condition": "Mare calmo o poco mosso, pesca in porto o su fondali sabbiosi dove i pesci sono spaventati dalla presenza di nodi e resistenze sulla lenna",
+      "pro_tip": "La chiave di questo sistema è la libertà di movimento del piombo: non fissarlo mai con nodi corti o stoppers che ne limitino lo scorrimento; più lungo è il terminale, più il pesce sentirà poca resistenza all'abboccata",
+      "common_mistake": "Impostare un terminale troppo corto (sotto i 50cm): il pesce sentirebbe la lenna principale e rifiuterebbe l'abboccata anche se l'esca è perfetta"},
+      "variant": "Scorrevole 'Profondo' - terminale lungo 100-150cm per pesci che si nutrono in profondità e sono molto sospettosi"
+    },
+    "lunghezze": {
+      "lenna_madre": "3.5 metri",
+      "terminale": "60-80 cm",
+      "corsa_piombo": "libera"
+    },
+    "componenti": [
+      {"nome": "Lenna madre principale", "misura": "Nylon 0.35-0.40 mm", "quantita": "1 pezzo 300m", "note": "Base su cui scorre il piombo senza resistenza"},
+      {"nome": "Piombo scorrevole tubo libero", "misura": "Tubo girevole 150-200g", "quantita": "1 pezzo", "note": "Piombo che scorre liberamente sulla lenna, nessuna fermata fissa"},
+      {"nome": "Terminale lungo", "misura": "Fluorocarbon 0.35-0.40 mm", "quantita": "1 pezzo 60-80cm", "note": "Lunghezza cruciale: più è lungo, più il pesce non sente la lenna principale"},
+      {"nome": "Ami circolari", "misura": "Misura 4-6", "quantita": "1-2 ami", "note": "Ideali per l'abboccata sicura su pesci sospettosi"},
+      {"nome": "Perline fermatubo", "misura": "Piccole", "quantita": "2-3 pezzi", "note": "Bloccano la posizione del piombo sulla lenna (ma non impedirne lo scorrimento totale)"}
+    ],
+    "istruzioni": [
+      "Infila il piombo scorrevole tubo libero sulla lenna principale (non fissarlo con nodi fissi: deve scorrere libero per tutta la lunghezza)",
+      "Lega il terminale lungo (60-80cm in fluorocarbon) sotto il piombo usando un nodo palomar o nodo uni-knot",
+      "Attacca l'ami circolare misura 4-6 al finale",
+      "Fissa 1-2 perline sopra il piombo per indicarne la posizione senza bloccare lo scorrimento",
+      "Lancia e lascia che il piombo scivoli libero durante il lancio",
+      "L'abboccata: il pesce non sente resistenza e abbocca sicuro, sentirai solo il peso del pesce mano a mano che si avvicina"
+    ]
+  },
+  {
+    "id": "scorrevole-clippato",
+    "nome": "Scorrevole Clippato",
+    "emoji": "🎯",
+    "img": "./img/montature/13_scorrevole_clippato.jpg",
+    "desc": "Scorrevole + clip: distanza e sensibilità massima insieme.",
+    "quando": "Spiagge con fondali lontani • Pesci sospettosi",
+    "esche": "Gambero • Bibi • Arenicola",
+    "target": "Orata sospettosa • Dentice • Spigola",
+    "video": "https://www.youtube.com/results?search_query=scorrevole+clippato+surfcasting+montatura",
+    "difficoltà": "Media",
+    "tech_specs": {
+      "line_diameter_mm": 0.36,
+      "hook_size": "5-6",
+      "leader_length_cm": 40,
+      "lead_weight_g": 150,
+      "knot_type": "Clip scorrevole con fermo regolabile",
+      "casting_distance_m": 80-110,
+      "target_species_weight_kg": 1-6
+    },
+    "pro_insights": {
+      "best_condition": "Spiagge con fondali lontani dove serve sia la distanza di lancio che la sensibilità dell'abboccata; la clip permette di regolare rapidamente la lunghezza del terminale in base alle condizioni",
+      "pro_tip": "Imposta la clip del terminale su una lunghezza base (es. 40cm) e testala; se i pesci sono molto sospettosi, riduci il terminale a 30cm; se non ottengo abboccate, allungalo a 50cm: la clip ti permette di farlo in pochi secondi senza ricollegare tutto il sistema"},
+      "common_mistake": "Fissare la clip del terminale troppo strettamente sulla lenna, impedendo al piombo di scorrere liberamente: il sistema diventa allora un montage fisso perdendo il vantaggio principale"},
+      "variant": "Scorrevole 'Regolabile' - clip con scorrimento su tutta la lunghezza della lenna per cambiare la lunghezza del terminale in movimento"
+    },
+    "lunghezze": {
+      "lenna_madre": "4.0 metri",
+      "terminale": "40 cm",
+      "posizione_clip": "regolabile"
+    },
+    "componenti": [
+      {"nome": "Piombo scorrevole con occhiello clip integrato", "misura": "Tubo girevole con occhiello clip 150-200g", "quantita": "1 pezzo", "note": "Piombo che scorre ma con punto di attacco rapido per il terminale"},
+      {"nome": "Clip di fissaggio terminale", "misura": "Taglia media regolabile", "quantita": "1 pezzo", "note": "Permette di fissare la lunghezza del terminale desiderata scorrendo lungo la lenna"},
+      {"nome": "Terminale medio", "misura": "Fluorocarbon 0.35 mm", "quantita": "1 pezzo 40cm", "note": "Lunghezza media per equilibrio tra sensibilità e lancio"},
+      {"nome": "Ami misura 5-6", "misura": "Circolari", "quantita": "1-2 ami", "note": "Per pesci sospettosi ma in condizioni di lancio medio-lungo"}
+    ],
+    "istruzioni": [
+      "Monta il piombo scorrevole clipato sulla lenna principale",
+      "Regola la clip di fissaggio terminale alla lunghezza desiderata (es. 40cm) scorrendola sulla lenna fino alla posizione prefissata",
+      "Lega il terminale fluorocarbon alla clip fissando la misura prefissata",
+      "Attacca l'ami misura 5-6 al terminale",
+      "Lancia: il piombo scorre ma il terminale rimane alla lunghezza impostata garantendo sensibilità"
+    ]
+  },
+  {
+    "id": "minitrave",
+    "nome": "Minitrave",
+    "emoji": "📐",
+    "img": "./img/mountature/14_minitrave.jpg",
+    "desc": "Trave orizzontale rigida che tiene i braccioli separati. Anti-aggroviglio.",
+    "quando": "Sabbia con corrente • Surf classico",
+    "esche": "Arenicola • Bibi • Coreano",
+    "target": "Mormora • Sarago • Orata",
+    "video": "https://www.youtube.com/results?search_query=minitrave+surfcasting+montatura+pesca",
+    "difficoltà": "Facile",
+    "tech_specs": {
+      "trave_length_cm": 18,
+      "trave_material": "Plastica rinforzata o alluminio leggero",
+      "hook_size": "4-6",
+      "lead_weight_g": 120,
+      "lead_attachment": "Centro trave",
+      "knot_type": "Nodi bracciolo-indipendenti",
+      "casting_distance_m": 70-90,
+      "target_species_weight_kg": 0.5-5
+    },
+    "pro_insights": {
+      "best_condition": "Fondo sabbioso con corrente moderata: la minitrave impedisce ai braccioli di impigliarsi nei rifiuti o nella alghe presenti sul fondale",
+      "pro_tip": "La lunghezza standard della minitrave (18cm) mantiene i due braccioli a 25-30cm di distanza: questa distanza è ottimale per coprire un'area ampia senza che i nodi si tocchino o si aggroviglino",
+      "common_mistake": "Usare una minitrave troppo corta: i braccioli finiranno per sovrapporsi e annullare il vantaggio anti-aggroviglio"},
+      "variant": "Minitrave 'Extended' - trave lunga 25cm per separare i braccioli a 35-40cm per acque molto inquinate da rifiuti"
+    },
+    "lunghezze": {
+      "lenna_madre": "3.5 metri",
+      "braccioli_fissi": "30 cm ciascuno",
+      "altezza_trave": "5 cm"
+    },
+    "componenti": [
+      {"nome": "Minitrave rigida", "misura": "Plastica tecnologica o metallo leggero, lunghezza 18cm", "quantita": "1 pezzo", "note": "Struttura fissa che mantiene i braccioli separati e ordinati, resistente alla corrosione marina"},
+      {"nome": "Due ami circolari", "misura": "Misura 4-6", "quantita": "2 ami", "note": "Attacco agli estremi della minitrave"},
+      {"nome": "Piombo centrale", "misura": "100-150g", "quantita": "1 pezzo", "note": "Attacco alla base della minitrave"},
+      {"nome": "Girella all'estremità", "misura": "Piccola", "quantita": "1 pezzo", "note": "Permuta rapida e prevenzione twist lenna"}
+    ],
+    "istruzioni": [
+      "Fixa la minitrave all'estremità della lenna madre usando il girello incluso",
+      "Assicurati che la minitrave sia orientata orizzontalmente rispetto alla lenna",
+      "Gli distanziali/fiessi della minitrave tengono automaticamente i due braccioli separati di 30cm cadauno",
+      "Lega un ami circolare misura 4-6 all'estremità di ciascun bracciolo",
+      "Fixa il piombo centrale (100-150g) alla base della minitrave, allineato con il centro della lenna",
+      "Lancia: la minitrave impedisce ai braccioli di aggrovigliarsi durante il lancio e il recupero, mantenendo la presentazione ordinata"
+    ]
+  },
+  {
+    "id": "minitrave-divergente",
+    "nome": "Minitrave con Divergente",
+    "emoji": "📐",
+    "img": "./img/mountature/15_minitrave_divergente.jpg",
+    "desc": "Bracci angolati a 40–50° per portare le esche lontano dalla scia del piombo.",
+    "quando": "Corrente forte • Posidonia • Fondo misto",
+    "esche": "Arenicola • Gambero • Bibi",
+    "target": "Orata • Sarago • Mormora",
+    "video": "https://www.youtube.com/results?search_query=minitrave+divergente+surfcasting+pesca",
+    "difficoltà": "Media",
+    "tech_specs": {
+      "trave_length_cm": 18,
+      "angolo_braccioli": "45°",
+      "hook_size": "4-6",
+      "lead_weight_g": 120,
+      "knot_type": "Nodi angolari fissi",
+      "casting_distance_m": 75-95,
+      "target_species_weight_kg": 1-6
+    },
+    "pro_insights": {
+      "best_condition": "Corrente forte dove la scia del piombo spaventa i pesci, o dove c'è posidonia/alghe che possono impigliare i nodi: le esche divergenti presentano un'area di ricerca più ampia e pulita",
+      "pro_tip": "L'angolo di 45° è il compromesso ideale: sufficientemente ampio per portare le esche fuori dalla scia del piombo, ma non così ampio da ridurre eccessivamente la distanza di lancio efficace",
+      "common_mistake": "Impostare angoli superiori a 50°: riducono la distanza di lancio efficace e possono causare intrecci del filo durante il lancio in condizioni di vento laterale"},
+      "variant": "Minitrave 'Wide' - angoli regolabili fino a 60° per acque con forte presenza di posidonia o rifiuti galleggianti"
+    },
+    "lunghezze": {
+      "lenna_madre": "3.5 metri",
+      "braccioli_angolati": "45 cm ciascuno",
+      "angolo_braccioli": "45°",
+      "altezza_trave": "5 cm"
+    },
+    "componenti": [
+      {"nome": "Minitrave con angoli prefissati", "misura": "Struttura con braccioli fissi a 45°", "quantita": "1 pezzo", "note": "Mantiene le esche lateralmente distanti dalla scia del piombo, ideale per condizioni specifiche"},
+      {"nome": "Due ami circolari", "misura": "Misura 4-6", "quantita": "2 ami", "note": "Attacco agli estremi dei braccioli divergenti"},
+      {"nome": "Piombo scorrevole", "misura": "100-150g", "quantita": "1 pezzo", "note": "Fisso sotto il centro della minitrave"},
+      {"nome": "Fermagli angolo regolabile", "misura": "Piccoli", "quantita": "2 pezzi", "note": "Permettono piccola regolazione dell'angolo dei braccioli (da 40° a 50°)"}
+    ],
+    "istruzioni": [
+      "Monta la minitrave con i braccioli già angolati a 45° (o regola coi fermagli per ottenere l'angolo desiderato)",
+      "Lega un ami circolare misura 4-6 all'estremità di ciascun bracciolo divergente",
+      "Fissa il piombo scorrevole sotto il centro della minitrave",
+      "Lancia sfruttando l'effetto divergenza: le esche usciranno lateralmente lontano dalla scia del piombo",
+      "Ideale in corrente forte dove la scia del piombo spaventa i pesci o dove c'è posidonia/alghe che possono impigliare i nodi tradizionali"
+    ]
+  },
+  {
+    "id": "minitrave-snodato",
+    "nome": "Minitrave Snodato 360°",
+    "emoji": "🔄",
+    "img": "./img/mountature/16_minitrave_snodato_360.jpg",
+    "desc": "Snodo a rotazione totale: i divergenti seguono la corrente. Zero aggrovigli.",
+    "quando": "Correnti variabili • Scogliera • Avanzata",
+    "esche": "Gambero • Arenicola • Cozza",
+    "target": "Orata • Sarago • Mormora",
+    "video": "https://www.youtube.com/results?search_query=minitrave+snodato+360+gradi+surfcasting",
+    "difficoltà": "Media/Difficile",
+    "tech_specs": {
+      "trave_length_cm": 18,
+      "rotation_degrees": 360,
+      "hook_size": "4-6",
+      "lead_weight_g": 120,
+      "knot_type": "Snodo a cuscinetti a sfera",
+      "casting_distance_m": 70-90,
+      "target_species_weight_kg": 1-5
+    },
+    "pro_insights": {
+      "best_condition": "Correnti variabili o scogliera dove il movimento dell'acqua fa ruotare la lenna e gli ami: lo snodo a 360° assorbe ogni rotazione impedendo aggrovigli",
+      "pro_tip": "Verifica sempre il funzionamento del snodo a terra prima dell'uso in mare: versa un po' d'acqua marina e muovi i braccioli per assicurarti che il cuscinetto a sfere ruoti liberamente senza resistenza"},
+      "common_mistake": "Trascurare la lubrificazione del snodo: il sale e la sabbia ne riducono la rotazione fluida dopo poche uscite, causando improvvisamente aggrovigli che annullano il vantaggio del sistema"},
+      "variant": "Minitrave 'Profondo' - snodo a 360° con cuscinetti in ceramica per correnti fortissime e uso avanzato"
+    },
+    "lunghezze": {
+      "lenna_madre": "3.5 metri",
+      "braccioli_snodati": "35 cm ciascuno",
+      "angolo_rotazione": "360 gradi",
+      "altezza_trave": "5 cm"
+    },
+    "componenti": [
+      {"nome": "Minitrave con snodo a rotazione 360°", "misura": "Centro snodo tecnico con cuscinetti a sfera + 2 braccioli laterali", "quantita": "1 pezzo", "note": "Il punto di forza: permette ai braccioli di seguire il movimento della corrente senza impigliarsi mai"},
+      {"nome": "Due ami sfera o a rotazione", "misura": "Misura 4-6", "quantita": "2 ami", "note": "Ami che ruotano liberamente con la corrente, presentandosi sempre nell'orientamento ottimo"},
+
+      {"nome": "Cuscinetti a sfera piccoli", "misura": "Inclusi nel snodo centrale", "quantita": "1 set", "note": "Riducono l'attrito e permettono rotazione fluida anche dopo lunghe sessioni in mare"},
+
+      {"nome": "Piombo scorrevole", "misura": "100-150g", "quantita": "1 pezzo", "note": "Fisso sotto il snodo centrale della minitrave"}
+    ],
+    "istruzioni": [
+      "Verifica il funzionamento del snodo a 360° prima dell'uso in mare: muovi i braccioli a mano e assicurati che ruotino liberamente",
+      "Lega gliami sfera o a rotazione agli estremi dei braccioli laterali",
+      "Fissa il piombo scorrevole sotto il snodo centrale della minitrave",
+      "Lancia in corrente: i braccioli e gliami seguiranno il movimento dell'acqua, ruotando sul snodo",
+      "Zero aggrovigli garantito: lo snodo assorbe ogni rotazione dell'acqua e del filo, mantenendo la presentazione pulita e naturale"
+    ]
+  },
+  {
+    "id": "terminale-serra",
+    "nome": "Terminale Pesce Serra",
+    "emoji": "⚠️",
+    "img": "./img/montatures/17_terminale_serra.jpg",
+    "desc": "Terminale in acciaio multi-strand: i denti del serra tagliano qualsiasi filo!",
+    "quando": "Luglio–Settembre • Spinning • Surfcasting",
+    "esche": "Minnow • Jerkbait • Metal jig • Pezzo sgombro",
+    "target": "Pesce Serra",
+    "video": "https://www.youtube.com/results?search_query=pesce+serra+terminale+acciaio+pesca",
+    "difficoltà": "Facile (richiede attenzione materiali)",
+    "tech_specs": {
+      "line_diameter_mm": 0.70,
+      "hook_size": "2/0-4/0",
+      "steel_strand_count": "7x7 o 49x7 fili",
+      "lead_weight_g": 0,
+      "knot_type": "Crimpatura professionale o nodi chiusi con attrezzi specifici",
+      "casting_distance_m": N/A (uso spinning/surfcasting specifico),
+      "target_species_weight_kg": 5-30
+    },
+    "pro_insights": {
+      "best_condition": "Stagione estiva (luglio-settembre) quando la serra è attiva e vicina alla costa, in condizioni di surfcasting o spinning da spiaggia",
+      "pro_tip": "Usa sempre crimpature professionali (non nodi comuni) per fissare gli estremi dell'acciaio: i denti affilati della serra taglerebbero qualsiasi nodo non rinforzato in pochi minuti di combattimento",
+      "common_mistake": "Utilizzare questo terminale per pesci diversi dalla serra: l'acciaio è eccessivo, costoso e scomodo per pesci più piccoli (orata, sarago, ecc.) che possono essere catturati con nylon o trecciato standard"},
+      "variant": "Terminale 'X-Heavy' - 49x7 fili 0.80mm per serra oltre i 20kg e condizioni di acqua molto limpida dove serve massima invisibilità e resistenza"
+    },
+    "lunghezze": {
+      "lunghezza_terminale": "50-80 cm",
+      "acciaio_multistrand": "0.60 - 0.80 mm",
+      "lenza_attach": "Attacco mulinello"
+    },
+    "componenti": [
+      {"nome": "Filoacciaio multi-strand", "misura": "0.60mm - 0.80mm (es. 7x7 o 49x7 filiintrecciati)", "quantita": "1 pezzo 50-80cm", "note": "Struttura intrecciata che resiste ai denti affilati della serra; più fili = maggiore flessibilità e resistenza"},
+      {"nome": "Nodi chiusura o crimpatura", "misura": "Attrezzi specifici (crimpatore professionale o plier per crimpatura)", "quantita": "2 estremità", "note": "Fissaggio sicuro degli estremi del filo acciaio: non usare nodi comuni, la serra li taglierebbe immediatamente"},
+      {"nome": "Ami tripli grossi", "misura": "Misura 2/0 - 4/0", "quantita": "1 set", "note": "Per l'attacco della Serra"},
+
+      {"nome": "Anellino attacco mulinello", "misura": "Taglia media", "quantita": "1 pezzo", "note": "Collega il terminale acciaio alla lenna principale del mulinello"}
+    ],
+    "istruzioni": [
+      "Taglia il filo acciaio alla lunghezza desiderata (50-80cm) usando tronchesi apposite e protezioni per evitare schegge",
+      "Fissa gli estremi del filo acciaio usando crimpature professionali o nodi chiusi con attrezzi specifici: controlla che non ci siano spazi vuoti o punti deboli nel fissaggio",
+      "Lega l'anellino attacco mulinello un'estremità del filo acciaio",
+      "Attacca gliami tripli grossi (misura 2/0-4/0) all'altra estremità del filo acciaio",
+      "Controlla che non ci siano strappi o punti deboli nel filo acciaio prima dell'uso: un singolo strappo compromette tutta la resistenza",
+      "USA ESCLUSIVAMENTE per la pesca della Serra (non utilizzare per orate, saraghi o pesci più piccoli: è eccessivo e scomodo)"
+    ]
+  },
+  {
+    "id": "bandiera",
+    "nome": "Bandiera",
+    "emoji": "🚩",
+    "img": "./img/mountatures/18_bandiera.jpg",
+    "desc": "Bracciolo laterale ad angolo, ottima per evitare grovigli.",
+    "quando": "Mare mosso o in scaduta",
+    "esche": "Arenicola • Coreano • Americano • Cannolicchio",
+    "target": "Spigola • Mormora • Sarago • Orata • Sgombro",
+    "video": "https://www.youtube.com/results?search_query=montatura+bandiera+pesca+fondo",
+    "difficoltà": "Facile",
+    "tech_specs": {
+      "line_diameter_mm": 0.35,
+      "hook_size": "4-6",
+      "lead_weight_g": 100,
+      "knot_type": "Anellino laterale fisso + nodi bracciolo",
+      "casting_distance_m": 60-80,
+      "target_species_weight_kg": 0.5-5
+    },
+    "pro_insights": {
+      "best_condition": "Mare mosso o in scaduta: il bracciolo laterale mantiene l'esca fuori dalla scia turbolenta del piombo e previene grovigli di linea causati dalle onde che colpano la lenna da lato",
+      "pro_tip": "L'angolo di 45° è il punto dolce: abbastanza ampio da portare l'esca fuori dalla scia del piombo, ma abbastanza stretto da mantenere il buon controllo del lancio e dell'abboccata",
+      "common_mistake": "Fissare l'anellino laterale troppo in basso sulla lenna (sotto il terzo inferiore): l'angolo diventerà troppo acuto e il bracciolo finisherà nella scia del piombo annullando lo scopo della montatura"},
+      "variant": "Bandiera 'Long' - bracciolo laterale di 50cm per condizioni di mare molto mosso dove serve maggiore distanza dell'esca dalla scia"
+    },
+    "lunghezze": {
+      "lenna_madre": "3.0 metri",
+      "bracciolo_laterale": "35 cm",
+      "angolo_attacco": "45°"
+    },
+    "componenti": [
+      {"nome": "Anellino laterale fissaggio", "misura": "Anellino scorrevole sulla lenna", "quantita": "1 pezzo", "note": "Punto di attacco laterale sulla lenna principale, posizionato a 1/3 dalla estremità"},
+      {"nome": "Bracciolo laterale", "misura": "Nylon 0.35 mm angolo 45°", "quantita": "1 pezzo 35cm", "note": "Braccio laterale che esce dalla lenna a angolo per evitare grovigli e mantenere l'esca fuori dalla scia del piombo"},
+      {"nome": "Piombo scorrevole o fisso", "misura": "80-120g", "quantita": "1 pezzo", "note": "Adatto a mare mosso o in scaduta"},
+      {"nome": "Ami circolari", "misura": "Misura 4-6", "quantita": "1-2 ami", "note": "Attacco al termine del bracciolo laterale"}
+    ],
+    "istruzioni": [
+      "Fissa l'anellino laterale sulla lenna principale a 1/3 dalla estremità (misurando dai piedi del mulinello)",
+      "Lega il bracciolo laterale all'anellino formando un angolo di 45° (usando un nodo palomar o nodo uni-knot sicuro)",
+      "Fissa il piombo scorrevole o fisso sopra o sotto l'anellino a seconda delle condizioni del mare (sopra per maggiore scorrevolezza, sotto per maggiore stabilità)",
+      "Lega l'ami circolare misura 4-6 al termine del bracciolo laterale",
+      "Lancia tenendo il bracciolo laterale ben fuori dalla scia del piombo per evitare grovigli e presentare l'esca in zona più calma"
+    ]
+  },
+  {
+    "id": "running-feeder-rig",
+    "nome": "Running Feeder Rig",
+    "emoji": "🎣",
+    "img": "./img/mountages/19_running_feeder_rig.jpg",
+    "desc": "montatura con il pasturatore scorrevole un terminale e un bracciolo con il pop-up.",
+    "quando": "Mare Calmo / Piatto o in Scaduta",
+    "esche": "Arenicola • Coreano • Americano • Bigattino • Bibi ",
+    "target": "Spigola • Mormora • Sarago • Orata • Triglia • Cefalo • Leccia stella",
+    "video": "https://www.youtube.com/watch?v=TXRd8M-1jy8",
+    "difficoltà": "Media",
+    "tech_specs": {
+      "line_diameter_mm": 0.35,
+      "hook_size": "10-12",
+      "feeder_type": "Running (scorrevole)",
+      "leader_length_cm": 25,
+      "lead_weight_g": 60,
+      "knot_type": "Clip feeder + nodo palomar",
+      "casting_distance_m": 60-80,
+      "target_species_weight_kg": 0.5-3
+    },
+    "pro_insights": {
+      "best_condition": "Mare calmo o piatto, o in scaduta (marea in uscita): il pasturatore scorrevole lascia un trail di attrattori sul fondale che guida i pesci (spigole, mormore, saraghi) verso l'amo"},
+      "pro_tip": "Carica il pasturatore con un mix di esche diverse (es. arenicola + coreano + bigattino) per offrire una varietà di odori e texture che attirerà più specie; l'effetto pop-up dell'amo mantiene l'esca sopra il sedimento dove i pesci lo possono vedere e prendere più facilmente"},
+      "common_mistake": "Sovraccaricare il pasturatore: troppa esca può ostruire il meccanismo di scorrimento o rendere il sistema troppo pesante per lanciare con precisione"},
+      "variant": "Running Feeder 'Light' - pasturatore più piccolo e leggero per mare molto calmo e pesci timidi, che rispondono meglio a una presentazione meno 'aggressiva'"
+    },
+    "lunghezze": {
+      "lenna_madre": "4.0 metri",
+      "bracciolo_pop-up": "20-30 cm",
+      "distanza_pasturatore": "variabile"
+    },
+    "componenti": [
+      {"nome": "Running Feeder (pasturatore scorrevole)", "misura": "Corpo scorrevole con caricatore laterale", "quantita": "1 pezzo", "note": "Permette al pasturatore di scorrere sulla lenna durante il lancio e il recupero, lasciando un trail di attrattori"},
+      {"nome": "Bracciolo corto con amo pop-up", "misura": "Amo piccolo 10-12 su gambo corto", "quantita": "1 pezzo", "note": "Amo che si presenta sopra il sedimento con l'esca pop-up, visibile ai pesci che nuotano sopra"},
+
+      {"nome": "Lenza principale", "misura": "Nylon 0.35-0.38 mm", "quantita": "1 pezzo 400m", "note": "Base per l'attacco del feeder scorrevole"},
+
+      {"nome": "Mix esche per feeder", "misura": "Arenicola + Coreano + Bigattino", "quantita": "Quantità variabile", "note": "Carica nel pasturatore per attrarre i pesci"},
+
+      {"nome": "Amino antipolvere/antipolvere", "misura": "Piccola spazzolina", "quantita": "1 pezzo", "note": "Opzionale per pulire l'amo dopo ogni lancio e mantenere l'efficacia"}
+    ],
+    "istruzioni": [
+      "Carica il pasturatore running con il mix esche scelto (arenicola, coreano, bigattino) riempiendo il caricatore laterale senza sovraccaricare",
+      "Fissa il running feeder alla lenna principale assicurando che scorra liberamente senza blocchi",
+      "Lega il bracciolo corto con l'amo pop-up all'estremità libera della lenna",
+      "Attacca l'esca pop-up (es. bigattino o verme) all'amo corto, facendola uscire sopra il sedimento (l'effetto 'pop-up' )",
+      "Lancia e recupera lentamente: il pasturatore scorrendo lascerà un trail di esche e attrattori sul fondale, guidando i pesci verso l'amo",
+      "La tecnica ideale per spigole, mormore e saraghi in condizioni di mare calmo o in scaduta"
+    ]
+  }
 ]
