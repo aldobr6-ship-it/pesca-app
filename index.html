@@ -788,31 +788,36 @@ function showSpinning() {
 }
 function showEging() {
   const dati = tecnicheData.eging;
+  const txt = linguaAttuale === "fr" ? egingText.fr : egingText.it;
+  const specieList = linguaAttuale === "fr" ? [{nome:"Calamar",img:"img/calamaro.jpg"},{nome:"Seiche",img:"img/seppia.jpg"},{nome:"Encornet",img:"img/totano.jpg"}] : dati.specie;
   document.getElementById("content").innerHTML = `
     <h2>🦑 Eging</h2>
-    <div class="card"><h3>📅 Quando usarla</h3><p>${dati.quando}</p></div>
-    <div class="card"><h3>🎒 Attrezzatura base</h3><p>${dati.attrezzatura}</p></div>
+    <div class="card"><h3>📅{t('Quando usarla')}</h3><p>${txt.quando}</p></div>
+    <div class="card"><h3>🎒{t('Attrezzatura base')}</h3><p>${txt.attrezzatura}</p></div>
     <div class="card" style="cursor:default;">
-      <h3>🎣 Montatura dedicata</h3><p>${dati.montatura}</p>
-      <button onclick="toggleImageBox('egingMontaturaBox','img/montatura-eging.jpg',this)" class="toggle-btn">📷 Montatura Eging <span class="arrow">▼</span></button>
+      <h3>${t('montaturaDedicataUnica')}</h3><p>${txt.montatura}</p>
+      <button onclick="toggleImageBox('egingMontaturaBox','img/montatura-eging.jpg',this)" class="toggle-btn">📷 ${linguaAttuale === "fr" ? "Montage Eging" : "Montatura Eging"} <span class="arrow">▼</span></button>
       <div id="egingMontaturaBox" class="image-box"></div>
     </div>
-    <div class="card"><h3>✅ Pro</h3><ul>${dati.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
-    <div class="card"><h3>❌ Contro</h3><ul>${dati.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
-    <div class="card"><h3>🦑 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>🐛 Esche (Egi)</h3>${generaListaCliccabile(dati.esche)}</div>
-    <div class="card"><h3>🎥 Video tutorial</h3><a href="${dati.video}" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
+    <div class="card"><h3>✅{t('proLabel')}</h3><ul>${txt.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+    <div class="card"><h3>❌{t('controLabel')}</h3><ul>${txt.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
+    <div class="card"><h3>🦑{t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>🐛{t('escheConsigliateLabel')}</h3>${generaListaCliccabile(dati.esche)}</div>
+    <div class="card"><h3>🎥{t('videoTutorial')}</h3><a href="${dati.video}" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">👈{t('Torna alle tecniche')}</button>`;
 }
 function showFondo() {
   const montature = tecnicheData.fondo.montature;
+  const txt = linguaAttuale === "fr" ? fondoText.fr : fondoText.it;
+  const specieList = linguaAttuale === "fr" ? [{nome:"Dorade",img:"img/orata.jpg"},{nome:"Sar commun",img:"img/sarago-maggiore.jpg"},{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Rascasse",img:"img/scorfano.jpg"},{nome:"Pageot",img:"img/pagello.jpg"}] : tecnicheData.fondo.specie;
+  const escheList = linguaAttuale === "fr" ? [{nome:"Ver de sable",img:"img/arenicola.jpg"},{nome:"Américain",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Moule",img:"img/cozza.jpg"},{nome:"Couteau",img:"img/cannolicchio.jpg"}] : tecnicheData.fondo.esche;
   document.getElementById("content").innerHTML = `
-    <h2>⚓ Pesca a Fondo</h2>
-    <div class="card"><b>📅 Quando usarla</b><br>Tutto l'anno • Porto • Scogliera • Spiaggia</div>
-    <div class="card"><b>🎒 Attrezzatura base</b><br>Canna 3–4 m • Mulinello 4000–6000 • Nylon 0,30–0,40</div>
+    <h2>⚓ ${linguaAttuale === "fr" ? "Pêche au Fond" : "Pesca a Fondo"}</h2>
+    <div class="card"><b>📅{t('quandoUsarla')}</b><br>${txt.quando}</div>
+    <div class="card"><b>🎒{t('attrezzaturaBase')}</b><br>${txt.attrezzatura}</div>
     <div class="card" style="cursor:default;">
-      <h3>🎣 Montature dedicate</h3>
-      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
+      <h3>🎣{t('montatureDedicate')}</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${montature.map((m,i)=>`
         <div>
@@ -822,12 +827,12 @@ function showFondo() {
       `).join("")}
       </div>
     </div>
-    <div class="card"><b>✅ Pro</b><br>Tecnica semplice e versatile</div>
-    <div class="card"><b>❌ Contro</b><br>Rischio incagli • Meno selettiva</div>
-    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.specie)}</div>
-    <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(tecnicheData.fondo.esche)}</div>
-    <div class="card"><b>🎥 Video tutorial</b><br><a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
+    <div class="card"><b>✅{t('proLabel')}</b><br>${txt.pro}</div>
+    <div class="card"><b>❌{t('controLabel')}</b><br>${txt.contro}</div>
+    <div class="card"><h3>🐟{t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>🐛{t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
+    <div class="card"><b>🎥{t('videoTutorial')}</b><br><a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">👈 {t('tornaTecniche')}</button>`;
 }
   function showBeachLedgering() {
   const dati = tecnicheData.beachledgering;
