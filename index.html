@@ -1095,24 +1095,6 @@ function showMontaturaDetail(id) {
       </a>
       <button onclick="goTo(showMontature)" style="width:100%;margin-top:4px;">${t('tornaMontature')}</button>
     </div>`;
-        <!-- Inizio Dettagli Tecnici Esperto -->
-      <details style="margin-top: 1rem; border-top: 1px solid #eee; padding-top: 1rem;">
-        <summary style="cursor:pointer; font-weight:bold; font-size:1rem;">🔍 Dettagli Tecnici</summary>
-        <div style="background:#f8fafc; padding:.8rem; border-radius:8px; font-size:.85rem; line-height:1.5; white-space:pre-wrap;">
-          <!-- Qui sotto inserisco i dati se ci sono, altrimenti un messaggio -->
-          ${m.tech_specs ? `
-            <strong>Linea:</strong> ${m.tech_specs.line_diameter_mm} mm<br>
-            <strong>Ami:</strong> ${m.tech_specs.hook_size}<br>
-            <strong>Piombo:</strong> ${m.tech_specs.lead_weight_g} g<br>
-            <strong>Lancio stimato:</strong> ${m.tech_specs.casting_distance_m} m<br><br>
-            <strong>Spunti da Esperto:</strong><br>
-            Condizione migliore: ${m.pro_insights.best_condition}<br>
-            Pro Tip: ${m.pro_insights.pro_tip}<br>
-            Errore comune: ${m.pro_insights.common_mistake}
-          ` : "Nessun dettaglio tecnico disponibile per questa montatura."}
-        </div>
-      </details>
-      <!-- Fine Dettagli Tecnici Esperto -->
 }
 </script>
 
@@ -2253,3 +2235,4 @@ if ("serviceWorker" in navigator) {
 
 </body>
 </html>
+
