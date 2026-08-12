@@ -708,10 +708,10 @@ function showSurfcasting() {
   const dati = linguaAttuale === "fr" ? surfcastingDataFr : surfcastingDataIt;
   document.getElementById("content").innerHTML = `
     <h2>🏖️ Surfcasting</h2>
-    <div class="card"><b>${t('Quando Usarla')}</b><br>${txt.quando}</div>
-    <div class="card"><b>${t('Attrezzatura Base')}</b><br>${txt.attrezzatura}</div>
+    <div class="card"><b>${t('quandoUsarla')}</b><br>${txt.quando}</div>
+    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${txt.attrezzatura}</div>
     <div class="card" style="cursor:default;">
-      <h3>🎣 {t('Montature Dedicate')}</h3>
+      <h3>${t('montatureDedicate')}</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${["minitrave","paternoster","long-arm","short-rovesciato","pulley-rig"].map((id,i)=>{
@@ -725,12 +725,12 @@ function showSurfcasting() {
       }).join("")}
       </div>
     </div>
-    <div class="card"><b>✅ {t('proLabel')}</b><br>${txt.pro}</div>
-    <div class="card"><b>❌ {t('controLabel')}</b><br>${txt.contro}</div>
-    <div class="card"><b>🐟 {t('videoTutorial')}</b><br><a href="https://www.youtube.com/results?search_query=surfcasting+tecnica+italiana" target="_blank">${t('guardaSuYoutube')}</a></div>
-    <div class="card"><h3>🐛 {t('specieConsigliate')}</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>🎥 {t('escheConsigliateLabel')}</h3>${generaListaCliccabile(dati.esche)}</div>
-    <button onclick="goTo(showTecniche)">👈 {t('tornaTecniche')}</button>`;
+    <div class="card"><b>${t('proLabel')}</b><br>${txt.pro}</div>
+    <div class="card"><b>${t('controLabel')}</b><br>${txt.contro}</div>
+    <div class="card"><b>${t('videoTutorial')}</b><br><a href="https://www.youtube.com/results?search_query=surfcasting+tecnica+italiana" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(dati.specie)}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(dati.esche)}</div>
+    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
 }
 function showGalleggiante() {
   const dati = tecnicheData.galleggiante;
