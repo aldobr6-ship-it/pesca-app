@@ -7,30 +7,10 @@
   "display": "standalone",
   "background_color": "#0a2a43",
   "theme_color": "#0a2a43",
+  "description": "AdelTechnic FISH App - Guida alla pesca in mare",
   "orientation": "portrait",
-  "description": "AdelTechnic FISH App",
   "icons": [
-    {
-      "src": "icon-192-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icon-512-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "img/screenshot-desktop.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Schermata principale di AdelTechnic-FISH"
-    }
+    { "src": "icon-192-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }
-
