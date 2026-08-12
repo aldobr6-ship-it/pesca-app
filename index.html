@@ -770,8 +770,8 @@ function showSpinning() {
   const piombiList = linguaAttuale === "fr" ? dati.piombiFr : dati.piombiIt;
   document.getElementById("content").innerHTML = `
     <h2>🎣 Spinning</h2>
-    <div class="card"><h3>${t('Quando Usarla')}</h3><p>${txt.quando}</p></div>
-    <div class="card"><h3>${t('Attrezzatura Base')}</h3><p>${txt.attrezzatura}</p></div>
+    <div class="card"><h3>${t('quandoUsarla')}</h3><p>${txt.quando}</p></div>
+    <div class="card"><h3>${t('attrezzaturaBase')}</h3><p>${txt.attrezzatura}</p></div>
     <div class="card" style="cursor:default;">
       <h3>${t('montaturaDedicataLabel')}</h3><p>${txt.montatura}</p>
       <button onclick="toggleImageBox('spinningMontaturaBox','img/montatura-spinning.jpg',this)" class="toggle-btn">📷 ${linguaAttuale === "fr" ? "Montage Spinning" : "Montatura Spinning"} <span class="arrow">▼</span></button>
