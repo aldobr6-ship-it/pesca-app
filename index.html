@@ -805,7 +805,7 @@ function showEging() {
     <div class="card"><h3>${t('videoTutorial')}</h3><a href="${dati.video}" target="_blank">${t('guardaSuYoutube')}</a></div>
     <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
 }
-ffunction showFondo() {
+function showFondo() {
   const montature = tecnicheData.fondo.montature;
   const txt = linguaAttuale === "fr" ? fondoText.fr : fondoText.it;
   const specieList = linguaAttuale === "fr" ? [{nome:"Dorade",img:"img/orata.jpg"},{nome:"Sar commun",img:"img/sarago-maggiore.jpg"},{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Rascasse",img:"img/scorfano.jpg"},{nome:"Pageot",img:"img/pagello.jpg"}] : tecnicheData.fondo.specie;
