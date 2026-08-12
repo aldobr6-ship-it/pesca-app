@@ -836,13 +836,17 @@ function showFondo() {
 }
   function showBeachLedgering() {
   const dati = tecnicheData.beachledgering;
+  const specieList = linguaAttuale === "fr" ? beachLedgeringDataFr.specie : dati.specie;
+  const escheList = linguaAttuale === "fr" ? beachLedgeringDataFr.esche : dati.esche;
+  const pro = linguaAttuale === "fr" ? beachLedgeringTextFr.pro : dati.pro;
+  const contro = linguaAttuale === "fr" ? beachLedgeringTextFr.contro : dati.contro;
   document.getElementById("content").innerHTML = `
     <h2>🏖️ Beach Ledgering</h2>
-    <div class="card"><b>📅 Quando usarla</b><br>${dati.quando}</div>
-    <div class="card"><b>🎒 Attrezzatura base</b><br>${dati.attrezzatura}</div>
+    <div class="card"><b>📅{t('Quando Usarla')}</b><br>${dati.quando}</div>
+    <div class="card"><b>🎒{t('Attrezzatura Base')}</b><br>${dati.attrezzatura}</div>
     <div class="card" style="cursor:default;">
-      <h3>🎣 Montature dedicate</h3>
-      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">Tocca per vedere lo schema</p>
+      <h3>${t('montatureDedicate')}</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('Tocca per vedere lo schema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${dati.montature.map((m,i)=>`
         <div>
@@ -852,12 +856,12 @@ function showFondo() {
       `).join("")}
       </div>
     </div>
-    <div class="card"><b>✅ Pro</b><br>${dati.pro}</div>
-    <div class="card"><b>❌ Contro</b><br>${dati.contro}</div>
-    <div class="card"><h3>🐟 Specie consigliate</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>🐛 Esche consigliate</h3>${generaListaCliccabile(dati.esche)}</div>
-    <div class="card"><b>🎥 Video tutorial</b><br><a href="${dati.video}" target="_blank">Guarda su YouTube</a></div>
-    <button onclick="goTo(showTecniche)">👈 Torna alle tecniche</button>`;
+    <div class="card"><b>✅{t('proLabel')}</b><br>${pro}</div>
+    <div class="card"><b>❌{t('controLabel')}</b><br>${contro}</div>
+    <div class="card"><h3>🐟{t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>🐛{t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
+    <div class="card"><b>🎥{t('videoTutorial')}</b><br><a href="${dati.video}" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">👈 {t('tornaTecniche')}</button>`;
 }
 </script>
 
