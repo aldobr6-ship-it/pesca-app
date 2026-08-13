@@ -1768,76 +1768,108 @@ function initMappaEsplorazione() {
   const centroMappa = isItalia ? [42.0, 12.5] : [35.5, 9.5];
   const zoomIniziale = isItalia ? 6 : 7;
   
-  // Legge spotsItalia se attiva Italia, altrimenti carica la nuova spotsTunisiaData
-  const listaSpot = isItalia ? (spotsItalia || []) : spotsTunisiaData;
+  // Forza il caricamento protetto dei dati evitando crash se spotsItalia è vuoto o indefinito
+  let listaSpot = [];
+  if (isItalia) {
+    if (typeof spotsItalia !== 'undefined' && spotsItalia && spotsItalia.length > 0) {
+      listaSpot = spotsItalia;
+    } else if (window.spotsItaliaData && window.spotsItaliaData.length > 0) {
+      listaSpot = window.spotsItaliaData;
+    } else {
+      listaSpot = []; // Fallback sicuro per non bloccare l'app
+    }
+  } else {
+    listaSpot = typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : [];
+  }
   
-  document.getElementById("nomeNazioneBadge").textContent = isItalia ? "Italia" : "Tunisia";
+  const nomeNazione = isItalia ? "Italia" : "Tunisia";
+  const badgeEl = document.getElementById("nomeNazioneBadge");
+  if (badgeEl) badgeEl.textContent = nomeNazione;
 
-  // Rileva se la mappa esiste già in memoria e la resetta per evitare blocchi idrodinamici di Leaflet
+  // Blocco di reset totale di Leaflet per evitare conflitti di inizializzazione della mappa
   if (mappaEsplorazione !== null) {
-    mappaEsplorazione.remove();
+    try {
+      mappaEsplorazione.off();
+      mappaEsplorazione.remove();
+    } catch(e) {
+      console.log("Reset mappa non necessario o già eseguito");
+    }
     mappaEsplorazione = null;
   }
   
-  // Pulisce l'array dei vecchi marcatori prima di caricare la nuova nazione
-  if (window.spotItaliaMarkers) {
-    window.spotItaliaMarkers = [];
+  // Svuota in sicurezza l'array globale dei marcatori se utilizzato dall'app
+  if (typeof spotItaliaMarkers !== 'undefined' && Array.isArray(spotItaliaMarkers)) {
+    spotItaliaMarkers = [];
   }
 
-  // Inizializza l'istanza Leaflet.js sul div nativo del tuo layout CSS
-  mappaEsplorazione = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19
-  }).addTo(mappaEsplorazione);
-
-  const panelBody = document.getElementById("listaSpotEsplorazione");
-  if (!panelBody) return;
-  panelBody.innerHTML = ""; // Svuota la colonna laterale destra prima di popolarla
-
-  if (listaSpot.length === 0) {
-    panelBody.innerHTML = `<div class="spot-panel-placeholder"><p>Nessun dato disponibile / Aucun spot disponible</p></div>`;
+  // Crea una nuova istanza pulita della mappa Leaflet
+  try {
+    mappaEsplorazione = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(mappaEsplorazione);
+  } catch(err) {
+    console.error("Errore nell'inizializzazione del widget Leaflet:", err);
     return;
   }
 
-  // Popola la mappa e la barra laterale destra
+  const panelBody = document.getElementById("listaSpotEsplorazione");
+  if (!panelBody) return;
+  panelBody.innerHTML = ""; 
+
+  if (listaSpot.length === 0) {
+    panelBody.innerHTML = `<div class="spot-panel-placeholder" style="text-align:center; padding:20px; opacity:0.6;"><p>Nessun dato caricato in memoria / Aucun spot disponible</p></div>`;
+    return;
+  }
+
+  // Ciclo di popolamento dinamico dei marcatori e della barra laterale
   listaSpot.forEach((spot, index) => {
-    // 1. Aggiungi il Marker sulla Mappa Leaflet
-    const marker = L.marker([spot.lat, spot.lon]).addTo(mappaEsplorazione);
+    // Verifica difensiva sulle coordinate per evitare che coordinate errate blocchino il ciclo
+    const spotLat = parseFloat(spot.lat || spot.latitude);
+    const spotLon = parseFloat(spot.lon || spot.longitude);
+    if (isNaN(spotLat) || isNaN(spotLon)) return;
+
+    const spotNome = spot.nome || spot.name || `Spot #${index + 1}`;
+    const spotDesc = spot.desc || spot.description || '';
+    const spotTech = spot.technique || 'Surfcasting / Spinning';
+    const spotTarget = spot.target || 'Tutti';
+
+    // Aggiungi il Marker grafico sulla mappa
+    const marker = L.marker([spotLat, spotLon]).addTo(mappaEsplorazione);
+    if (typeof spotItaliaMarkers !== 'undefined' && Array.isArray(spotItaliaMarkers)) {
+      spotItaliaMarkers.push(marker);
+    }
     
-    // Se la tua app usa l'array dei marcatori, lo teniamo aggiornato per sicurezza
-    if (window.spotItaliaMarkers) window.spotItaliaMarkers.push(marker);
-    
-    // Configura il fumetto informativo all'interno dei popup nativi di Leaflet in lingua francese tecnica
+    // Configura il layout interno del fumetto (Popup)
     marker.bindPopup(`
       <div style="font-family: sans-serif; min-width: 210px; padding: 2px;">
-        <h4 style="margin: 0 0 6px 0; color: #0a2a43; font-size: 14px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">🐟 ${spot.nome}</h4>
-        <p style="margin: 0 0 6px 0; font-size: 12px; color: #555; line-height: 1.4;">${spot.desc}</p>
+        <h4 style="margin: 0 0 6px 0; color: #0a2a43; font-size: 14px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">🐟 ${spotNome}</h4>
+        <p style="margin: 0 0 6px 0; font-size: 12px; color: #555; line-height: 1.4;">${spotDesc}</p>
         <div style="font-size: 11px; background: #eef7ff; color: #0a2a43; padding: 4px 6px; border-radius: 4px; font-weight: bold; margin-bottom: 4px; border: 1px solid #bce0ff;">
-          ⚙️ Tech: ${spot.technique || 'Surfcasting / Spinning'}
+          ⚙️ Tech: ${spotTech}
         </div>
         <div style="font-size: 11px; background: #fff5f5; color: #dc3545; padding: 4px 6px; border-radius: 4px; font-weight: bold; border: 1px solid #ffe3e3;">
-          🎯 Target: ${spot.target}
+          🎯 Target: ${spotTarget}
         </div>
       </div>
     `);
 
-    // 2. Crea l'elemento cliccabile nella lista di destra (utilizzando le classi CSS esistenti del tuo layout)
+    // Crea l'elemento cliccabile testuale nella barra laterale destra
     const item = document.createElement("div");
     item.className = "spot-italia-item";
     item.innerHTML = `
       <span class="si-ico">🏖️</span>
       <div class="si-info">
-        <div class="si-nome">${spot.nome}</div>
-        <div class="si-sub">Target: ${spot.target}</div>
+        <div class="si-nome">${spotNome}</div>
+        <div class="si-sub">Target: ${spotTarget}</div>
       </div>
     `;
     
-    // Se l'utente tocca lo spot nella lista, la mappa si sposta e apre il fumetto in automatico
+    // Associa l'evento di spostamento e apertura automatica del popup
     item.onclick = () => {
-      mappaEsplorazione.setView([spot.lat, spot.lon], 11);
+      mappaEsplorazione.setView([spotLat, spotLon], 11);
       marker.openPopup();
-      
-      // Gestione classe attiva grafica sulla lista laterale
       document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
       item.classList.add("active");
     };
@@ -1845,6 +1877,7 @@ function initMappaEsplorazione() {
     panelBody.appendChild(item);
   });
 }
+
 
 function calcolaConsiglioCompleto(ondaM,ventoKmh,ora,wCode){
   const ventoNodi=ventoKmh*0.539957,h=ora.getHours(),mese=ora.getMonth()+1;
