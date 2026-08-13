@@ -1768,12 +1768,23 @@ function initMappaEsplorazione() {
   const centroMappa = isItalia ? [42.0, 12.5] : [35.5, 9.5];
   const zoomIniziale = isItalia ? 6 : 7;
   
-  // Se è attiva l'Italia legge i tuoi vecchi dati (spotsItaliaData o window.spotsItaliaData), altrimenti spotsTunisiaData
-  const listaSpot = isItalia ? (window.spotsItaliaData || window.datiSpotItalia || []) : spotsTunisiaData;
+  // Legge spotsItalia se attiva Italia, altrimenti carica la nuova spotsTunisiaData
+  const listaSpot = isItalia ? (spotsItalia || []) : spotsTunisiaData;
   
   document.getElementById("nomeNazioneBadge").textContent = isItalia ? "Italia" : "Tunisia";
 
-  // Inizializza l'istanza Leaflet.js agganciandosi al div del tuo layout CSS
+  // Rileva se la mappa esiste già in memoria e la resetta per evitare blocchi idrodinamici di Leaflet
+  if (mappaEsplorazione !== null) {
+    mappaEsplorazione.remove();
+    mappaEsplorazione = null;
+  }
+  
+  // Pulisce l'array dei vecchi marcatori prima di caricare la nuova nazione
+  if (window.spotItaliaMarkers) {
+    window.spotItaliaMarkers = [];
+  }
+
+  // Inizializza l'istanza Leaflet.js sul div nativo del tuo layout CSS
   mappaEsplorazione = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
@@ -1781,7 +1792,7 @@ function initMappaEsplorazione() {
 
   const panelBody = document.getElementById("listaSpotEsplorazione");
   if (!panelBody) return;
-  panelBody.innerHTML = ""; // Svuota il pannello laterale prima di popolarlo
+  panelBody.innerHTML = ""; // Svuota la colonna laterale destra prima di popolarla
 
   if (listaSpot.length === 0) {
     panelBody.innerHTML = `<div class="spot-panel-placeholder"><p>Nessun dato disponibile / Aucun spot disponible</p></div>`;
@@ -1792,6 +1803,9 @@ function initMappaEsplorazione() {
   listaSpot.forEach((spot, index) => {
     // 1. Aggiungi il Marker sulla Mappa Leaflet
     const marker = L.marker([spot.lat, spot.lon]).addTo(mappaEsplorazione);
+    
+    // Se la tua app usa l'array dei marcatori, lo teniamo aggiornato per sicurezza
+    if (window.spotItaliaMarkers) window.spotItaliaMarkers.push(marker);
     
     // Configura il fumetto informativo all'interno dei popup nativi di Leaflet in lingua francese tecnica
     marker.bindPopup(`
@@ -1831,7 +1845,6 @@ function initMappaEsplorazione() {
     panelBody.appendChild(item);
   });
 }
-
 
 function calcolaConsiglioCompleto(ondaM,ventoKmh,ora,wCode){
   const ventoNodi=ventoKmh*0.539957,h=ora.getHours(),mese=ora.getMonth()+1;
