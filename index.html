@@ -1731,12 +1731,14 @@ function renderPrevisioni(lat, lon, marine, meteo) {
 let nazioneAttiva = "it"; // All'avvio la mappa mostrerà l'Italia
 
 function showCercaSpot() {
-  document.getElementById("content").innerHTML = `
+  const isItalia = nazioneAttiva === "it";
+  
+  // 1. Prepariamo l'header con i pulsanti di switch Italia / Tunisia
+  let headerHTML = `
     <div class="spot-italia-header" style="text-align:center; padding: 10px 0;">
       <h3>🗺️ ${t('meteo')}</h3>
       <p style="margin:5px 0 12px; opacity:0.8;">${t('selezionaNazione')}</p>
       
-      <!-- Pulsanti di switch standard in linea per massimizzare la compatibilità ed evitare blocchi grafici -->
       <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 15px;">
         <button onclick="cambiaNazioneEsplorazione('it')" style="padding: 10px 22px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer;">
           ${t('italia')}
@@ -1746,10 +1748,38 @@ function showCercaSpot() {
         </button>
       </div>
     </div>
+  `;
 
+  // 2. Se l'utente ha selezionato l'Italia, aggiungiamo i menu a tendina dei filtri regionali
+  if (isItalia) {
+    headerHTML += `
+      <div class="filtri-row" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; padding: 0 10px;">
+        <select class="filtro-select" id="filtroReg" style="padding: 8px; border-radius: 6px;">
+          <option value="all">🗺️ Tutta Italia</option>
+          <option value="Liguria">Liguria</option><option value="Toscana">Toscana</option>
+          <option value="Lazio">Lazio</option><option value="Campania">Campania</option>
+          <option value="Calabria">Calabria</option><option value="Puglia">Puglia</option>
+          <option value="Basilicata">Basilicata</option><option value="Abruzzo-Molise">Abruzzo / Molise</option>
+          <option value="Marche">Marche</option><option value="Emilia-Romagna">Emilia Romagna</option>
+          <option value="Veneto">Veneto</option><option value="Friuli-VG">Friuli V.G.</option>
+          <option value="Sardegna">Sardegna</option><option value="Sicilia">Sicilia</option>
+        </select>
+        <select class="filtro-select" id="filtroTech" style="padding: 8px; border-radius: 6px;">
+          <option value="all">🎣 Ogni tecnica</option>
+          <option value="Surfcasting">Surfcasting</option><option value="Spinning">Spinning</option>
+          <option value="Eging">Eging</option><option value="Bolognese">Bolognese/Fondo</option>
+          <option value="Bassfishing">Bassfishing</option>
+        </select>
+        <button class="btn-Carica" onclick="applicaFiltriSpot()" style="padding: 8px 15px; background: #2a9d8f; color: white; border: none; border-radius: 6px; cursor: pointer;">Carica →</button>
+      </div>
+    `;
+  }
+
+  // 3. Stampiamo tutto il layout finale nella pagina HTML
+  document.getElementById("content").innerHTML = `
+    ${headerHTML}
     <div class="spot-split-layout">
       <div class="spot-mappa-wrap">
-        <!-- Div contenitore collegato a Leaflet -->
         <div id="spotItaliaMap"></div> 
       </div>
       <div class="spot-panel-right">
@@ -1760,10 +1790,10 @@ function showCercaSpot() {
     <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">⬅️ ${t('tornaHome')}</button>
   `;
   
-  // Esegue l'inizializzazione passando lo stato attivo
   initMappaEsplorazioneNuova();
 }
 
+// ⚠️ QUESTA FUNZIONE MANCAVA E AGGIUSTA IL CAMBIO NAZIONE
 function cambiaNazioneEsplorazione(nazione) {
   nazioneAttiva = nazione;
   showCercaSpot(); // Rerenderizza l'interfaccia aggiornando la mappa
@@ -1774,12 +1804,10 @@ function initMappaEsplorazioneNuova() {
   const centroMappa = isItalia ? [42.0, 12.5] : [35.5, 9.5];
   const zoomIniziale = isItalia ? 6 : 7;
   
-  // Sincronizzazione dinamica: se seleziona Italia legge la variabile caricata da GitHub, altrimenti spotsTunisiaData
   const listaSpot = isItalia ? (spotsItalia || []) : spotsTunisiaData;
   
   document.getElementById("nomeNazioneBadge").textContent = isItalia ? "Italia" : "Tunisia";
 
-  // RESET CHIRURGICO DI LEAFLET: Se la mappa globale esisteva già, la rimuove per liberare l'ID del div
   if (spotItaliaMap !== null) {
     try {
       spotItaliaMap.remove();
@@ -1789,10 +1817,8 @@ function initMappaEsplorazioneNuova() {
     spotItaliaMap = null;
   }
   
-  // Resetta l'array globale dei marcatori per non sovrapporre i vecchi punti italiani
   spotItaliaMarkers = [];
 
-  // Crea la nuova istanza della mappa sul div del layout
   spotItaliaMap = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
@@ -1807,12 +1833,10 @@ function initMappaEsplorazioneNuova() {
     return;
   }
 
-  // Popola i punti geografici sulla mappa e nella colonna laterale
   listaSpot.forEach((spot, index) => {
     const marker = L.marker([spot.lat, spot.lon]).addTo(spotItaliaMap);
     spotItaliaMarkers.push(marker);
     
-    // Fumetto Popup formattato bilingue con stili css puliti inline
     marker.bindPopup(`
       <div style="font-family: sans-serif; min-width: 210px; padding: 2px;">
         <h4 style="margin: 0 0 6px 0; color: #0a2a43; font-size: 14px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">🐟 ${spot.nome}</h4>
@@ -1846,7 +1870,6 @@ function initMappaEsplorazioneNuova() {
     panelBody.appendChild(item);
   });
 }
-
 
 
 function calcolaConsiglioCompleto(ondaM,ventoKmh,ora,wCode){
@@ -2001,61 +2024,8 @@ function importaSpot(event) {
 <script>
 /* === SPOT ITALIA — MODIFICA 1 (mappa vuota) + MODIFICA 2 (salva spot) === */
 let spotsItalia = [];
-
 let spotItaliaMap=null, spotItaliaMarkers=[], spotAttivo=null, spotTooltipAttivo=null;
 const isMobile=()=>window.innerWidth<769;
-
-/* MODIFICA 1: mappa vuota all'avvio, marker solo dopo Carica → */
-function showCercaSpot() {
-  const n=spotsItalia.length;
-  document.getElementById("content").innerHTML=`
-    <div class="spot-italia-header">
-      <h3>🗺️ Spot Italia <span class="spot-count-badge" id="spotCount">${n} spot</span></h3>
-      <p>Seleziona regione e/o tecnica, poi premi Carica → per filtrare</p>
-    </div>
-    <div class="filtri-row">
-      <select class="filtro-select" id="filtroReg">
-        <option value="all">📍 Tutta Italia</option>
-        <option value="Liguria">Liguria</option><option value="Toscana">Toscana</option>
-        <option value="Lazio">Lazio</option><option value="Campania">Campania</option>
-        <option value="Calabria">Calabria</option><option value="Puglia">Puglia</option>
-        <option value="Basilicata">Basilicata</option><option value="Abruzzo-Molise">Abruzzo / Molise</option>
-        <option value="Marche">Marche</option><option value="Emilia-Romagna">Emilia Romagna</option>
-        <option value="Veneto">Veneto</option><option value="Friuli-VG">Friuli V.G.</option>
-        <option value="Sardegna">Sardegna</option><option value="Sicilia">Sicilia</option>
-      </select>
-      <select class="filtro-select" id="filtroTech">
-        <option value="all">🎣 Ogni tecnica</option>
-        <option value="Surfcasting">Surfcasting</option><option value="Spinning">Spinning</option>
-        <option value="Eging">Eging</option><option value="Bolognese">Bolognese/Fondo</option>
-        <option value="Bassfishing">Bassfishing</option>
-      </select>
-      <button class="btn-Carica" onclick="applicaFiltriSpot()">Carica →</button>
-    </div>
-    <div class="spot-split-layout">
-      <div class="spot-mappa-wrap">
-        <div class="mappa-header">
-          <span>🎣 Spot di Pesca Italia</span>
-          <span id="mappaSpotCount" style="color:rgba(255,255,255,0.7);font-size:12px;">Premi Carica →</span>
-        </div>
-        <div id="spotItaliaMap"></div>
-      </div>
-      <div class="spot-panel-right" id="spotPanelRight">
-        <div class="spot-panel-header" id="spotPanelHeader">📋 Dettaglio spot</div>
-        <div class="spot-panel-body" id="spotPanelBody">
-          <div class="spot-panel-placeholder">
-           <span class="ph-ico">📷</span>
-            <p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button onclick="goTo(showPrevisioni)" style="width:100%;margin-top:14px;">⬅️ Torna alle Previsioni</button><br>`;
-  spotAttivo=null;
-  /* MODIFICA 1: mappa vuota — nessun marker caricato */
-  setTimeout(()=>initSpotItaliaMap(), 80);
-}
-
 function initSpotItaliaMap(){
   if(spotItaliaMap){spotItaliaMap.remove();spotItaliaMap=null;}
   spotItaliaMarkers=[];
