@@ -1536,27 +1536,51 @@ function calcolaConsiglioCompleto(ondaM,ventoKmh,ora,wCode){
   if(ventoForte)rating-=1;if(maltempo)rating-=2;
   if(isAlba||isTramonto)rating=Math.min(5,rating+1);
   rating=Math.max(1,Math.min(5,rating));
-  const labelRating=["","Scarsa","Bassa","Discreta","Buona","Ottima"][rating];
+  const isFr = linguaAttuale === "fr";
+  const labelRating=isFr ? ["","Faible","Basse","Correcte","Bonne","Excellente"][rating] : ["","Scarsa","Bassa","Discreta","Buona","Ottima"][rating];
   let tecnica,specie,montatura,attrezzatura,esche,avviso="";
-  if(maltempo||(ventoNodi>25&&ondaM>1.5)){tecnica="Sconsigliato uscire";specie="Condizioni troppo avverse";montatura="—";attrezzatura="Attendi miglioramento";esche="—";avviso="Vento e mare eccessivi. Rischio sicurezza.";}
-  else if(isNotte&&!mareFormato){tecnica="Eging / Pesca notturna";specie="Seppia • Calamaro • Totano";montatura="Egi 2.5–3.5 con fluorocarbon 0.28–0.33";attrezzatura="Canna 2.3–2.6m • Mulinello 2500–3000 • Trecciato 0.8 PE";esche="Egi arancione / rosa al tramonto, bianco di notte";}
-  else if(mareCalmo&&(isAlba||isTramonto)){tecnica="Spinning da riva";specie=isEstate||isPrimavera?"Spigola • Leccia • Serra • Palamita":"Spigola • Sarago • Orata";montatura="Long Arm / Piombo Scorrevole";attrezzatura="Canna 2.4–2.7m 10-40g • Mulinello 3000-4000 • Trecciato 0.12 + fluoro 0.35";esche="Minnow • Jerkbait • Popper • Metal Jig";}
-  else if(mareCalmo&&!isNotte){tecnica=isMattina?"Galleggiante / Fondo leggero":"Surfcasting leggero";specie="Orata • Sarago • Occhiata • Cefalo";montatura=ondaM<0.3?"Galleggiante fisso":"Long Arm";attrezzatura="Canna 4–6m • Nylon 0.22–0.28 • Mulinello 4000";esche="Gambero • Bigattino • Coreano • Pane";}
-  else if(mareMosso&&!ventoForte){tecnica="Surfcasting";specie=isAutunno||isInverno?"Mormora • Orata • Sarago pizzuto":"Orata • Mormora • Corvina";montatura=ondaM>0.8?"Short Rovesciato / Paternoster":"Paternoster";attrezzatura="Canna 4–4.5m • Mulinello 8000-10000 • Nylon 0.35-0.40";esche="Arenicola • Americano • Bibi • Coreano";if(isEstate)avviso="Controlla il tramonto: ottimo per Serra e Spigola.";}
-  else{tecnica="Pesca a fondo pesante";specie="Scorfano • Pagello • Gronco";montatura="Paternoster pesante / Tri-Amo";attrezzatura="Canna da fondo 3–4m • Mulinello 6000 • Nylon 0.45";esche="Polpo • Cozza • Sardina • Calamaro";if(ventoForte)avviso="Vento forte: attenzione sulla scogliera.";}
-  if(isInverno&&!maltempo)avviso=avviso||"Inverno: pesca mattutina nelle ore più calde.";
+  if(maltempo||(ventoNodi>25&&ondaM>1.5)){
+    if(isFr){tecnica="Sortie déconseillée";specie="Conditions trop défavorables";montatura="—";attrezzatura="Attendez une amélioration";esche="—";avviso="Vent et mer excessifs. Risque pour la sécurité.";}
+    else{tecnica="Sconsigliato uscire";specie="Condizioni troppo avverse";montatura="—";attrezzatura="Attendi miglioramento";esche="—";avviso="Vento e mare eccessivi. Rischio sicurezza.";}
+  }
+  else if(isNotte&&!mareFormato){
+    if(isFr){tecnica="Eging / Pêche nocturne";specie="Seiche • Calamar • Encornet";montatura="Egi 2.5–3.5 avec fluorocarbone 0.28–0.33";attrezzatura="Canne 2.3–2.6m • Moulinet 2500–3000 • Tressée 0.8 PE";esche="Egi orange / rose au crépuscule, blanc la nuit";}
+    else{tecnica="Eging / Pesca notturna";specie="Seppia • Calamaro • Totano";montatura="Egi 2.5–3.5 con fluorocarbon 0.28–0.33";attrezzatura="Canna 2.3–2.6m • Mulinello 2500–3000 • Trecciato 0.8 PE";esche="Egi arancione / rosa al tramonto, bianco di notte";}
+  }
+  else if(mareCalmo&&(isAlba||isTramonto)){
+    if(isFr){tecnica="Spinning depuis la rive";specie=isEstate||isPrimavera?"Bar • Liche • Tassergal • Bonite":"Bar • Sar • Dorade";montatura="Long Arm / Plomb Coulissant";attrezzatura="Canne 2.4–2.7m 10-40g • Moulinet 3000-4000 • Tressée 0.12 + fluoro 0.35";esche="Minnow • Jerkbait • Popper • Metal Jig";}
+    else{tecnica="Spinning da riva";specie=isEstate||isPrimavera?"Spigola • Leccia • Serra • Palamita":"Spigola • Sarago • Orata";montatura="Long Arm / Piombo Scorrevole";attrezzatura="Canna 2.4–2.7m 10-40g • Mulinello 3000-4000 • Trecciato 0.12 + fluoro 0.35";esche="Minnow • Jerkbait • Popper • Metal Jig";}
+  }
+  else if(mareCalmo&&!isNotte){
+    if(isFr){tecnica=isMattina?"Flotteur / Fond léger":"Surfcasting léger";specie="Dorade • Sar • Oblade • Muge";montatura=ondaM<0.3?"Flotteur fixe":"Long Arm";attrezzatura="Canne 4–6m • Nylon 0.22–0.28 • Moulinet 4000";esche="Crevette • Asticot • Coréen • Pain";}
+    else{tecnica=isMattina?"Galleggiante / Fondo leggero":"Surfcasting leggero";specie="Orata • Sarago • Occhiata • Cefalo";montatura=ondaM<0.3?"Galleggiante fisso":"Long Arm";attrezzatura="Canna 4–6m • Nylon 0.22–0.28 • Mulinello 4000";esche="Gambero • Bigattino • Coreano • Pane";}
+  }
+  else if(mareMosso&&!ventoForte){
+    if(isFr){tecnica="Surfcasting";specie=isAutunno||isInverno?"Marbré • Dorade • Sar à museau pointu":"Dorade • Marbré • Corb";montatura=ondaM>0.8?"Short Inversé / Paternoster":"Paternoster";attrezzatura="Canne 4–4.5m • Moulinet 8000-10000 • Nylon 0.35-0.40";esche="Ver de sable • Américain • Bibi • Coréen";if(isEstate)avviso="Surveillez le crépuscule : excellent pour Tassergal et Bar.";}
+    else{tecnica="Surfcasting";specie=isAutunno||isInverno?"Mormora • Orata • Sarago pizzuto":"Orata • Mormora • Corvina";montatura=ondaM>0.8?"Short Rovesciato / Paternoster":"Paternoster";attrezzatura="Canna 4–4.5m • Mulinello 8000-10000 • Nylon 0.35-0.40";esche="Arenicola • Americano • Bibi • Coreano";if(isEstate)avviso="Controlla il tramonto: ottimo per Serra e Spigola.";}
+  }
+  else{
+    if(isFr){tecnica="Pêche au fond lourd";specie="Rascasse • Pageot • Congre";montatura="Paternoster lourd / Tri-Hameçon";attrezzatura="Canne de fond 3–4m • Moulinet 6000 • Nylon 0.45";esche="Poulpe • Moule • Sardine • Calamar";if(ventoForte)avviso="Vent fort : attention sur les rochers.";}
+    else{tecnica="Pesca a fondo pesante";specie="Scorfano • Pagello • Gronco";montatura="Paternoster pesante / Tri-Amo";attrezzatura="Canna da fondo 3–4m • Mulinello 6000 • Nylon 0.45";esche="Polpo • Cozza • Sardina • Calamaro";if(ventoForte)avviso="Vento forte: attenzione sulla scogliera.";}
+  }
+  if(isInverno&&!maltempo)avviso=avviso||(isFr?"Hiver : pêchez le matin aux heures les plus chaudes.":"Inverno: pesca mattutina nelle ore più calde.");
   return{rating,labelRating,tecnica,specie,montatura,attrezzatura,esche,avviso};
 }
 function generaGiorni(marine,meteo,ora){
-  const giorni=["Dom","Lun","Mar","Mer","Gio","Ven","Sab"];let html="";
+  const giorniIt=["Dom","Lun","Mar","Mer","Gio","Ven","Sab"];
+  const giorniFr=["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"];
+  const giorni = linguaAttuale === "fr" ? giorniFr : giorniIt;
+  const domaniLabel = linguaAttuale === "fr" ? "Demain" : "Domani";
+  const nodiLabel = linguaAttuale === "fr" ? "nœuds" : "nodi";
+  let html="";
   for(let i=1;i<=3;i++){
     const d=new Date(ora);d.setDate(d.getDate()+i);
-    const nome=i===1?"Domani":giorni[d.getDay()];
+    const nome=i===1?domaniLabel:giorni[d.getDay()];
     const tMax=meteo.daily?.temperature_2m_max?.[i]??"--",tMin=meteo.daily?.temperature_2m_min?.[i]??"--";
     const wCode=meteo.daily?.weather_code?.[i]??0,vento=meteo.daily?.wind_speed_10m_max?.[i]??0;
     const ondaMax=marine.daily?.wave_height_max?.[i]??0,ventoN=(vento*0.539957).toFixed(0);
     let r=5;if(ondaMax>1.2)r-=2;else if(ondaMax>0.5)r-=1;if(vento>37)r-=1;if(wCode>=61)r-=2;r=Math.max(1,Math.min(5,r));
-    html+=`<div class="giorno-card"><div class="giorno-nome">${nome}</div><div class="giorno-ico">${iconaMeteo(wCode)}</div><div class="giorno-val">${tMax}° / ${tMin}°</div><div class="giorno-sub">🌊 ${ondaMax.toFixed(1)}m</div><div class="giorno-sub">💨 ${ventoN} nodi</div><div class="giorno-rate">${stelleRating(r)}</div></div>`;
+    html+=`<div class="giorno-card"><div class="giorno-nome">${nome}</div><div class="giorno-ico">${iconaMeteo(wCode)}</div><div class="giorno-val">${tMax}° / ${tMin}°</div><div class="giorno-sub">🌊 ${ondaMax.toFixed(1)}m</div><div class="giorno-sub">💨 ${ventoN} ${nodiLabel}</div><div class="giorno-rate">${stelleRating(r)}</div></div>`;
   }
   return html;
 }
@@ -1566,7 +1590,7 @@ function initMappaPrevisioni(lat,lon,miei_spots){
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(prevMap);
   L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.8}).addTo(prevMap);
   const iconaGPS=L.divIcon({html:'<div style="font-size:28px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[32,32],iconAnchor:[16,32],className:""});
-  L.marker([lat,lon],{icon:iconaGPS}).addTo(prevMap).bindPopup("<b>📍 Sei qui</b>").openPopup();
+  L.marker([lat,lon],{icon:iconaGPS}).addTo(prevMap).bindPopup("<b>"+t('seiQui')+"</b>").openPopup();
   miei_spots.forEach(s=>{
     const ico=L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">📌</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
     L.marker([s.lat,s.lon],{icon:ico}).addTo(prevMap).bindPopup(`<b>📌 ${s.nome}</b><br>${s.specie||""}<br><small>${s.data}</small>`);
@@ -1602,7 +1626,7 @@ function confermaSpot(){
 }
 function eliminaSpot(id){const spots=caricaSpot().filter(s=>s.id!==id);salvaSpot(spots);document.getElementById("spotList").innerHTML=renderSpotList(spots);}
 function renderSpotList(spots){
-  if(spots.length===0)return`<p style="opacity:0.5;font-size:13px;text-align:center;padding:10px;">Nessuno spot salvato.<br>Vai sul posto e tocca 📌 Salva spot!</p>`;
+  if(spots.length===0)return`<p style="opacity:0.5;font-size:13px;text-align:center;padding:10px;">${t('nessunoSpotSalvato')}<br>${t('vaiSulPosto')}</p>`;
   return spots.map(s=>`
     <div class="spot-item" onclick="centraMappa(${s.lat},${s.lon})">
       <span class="spot-ico">${s.fonte==="italia"?"🎣":"📌"}</span>
