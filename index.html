@@ -544,6 +544,33 @@ const traduzioni = {
     piombiConsigliati: "⚖️ Piombi consigliati",
     montaturaDedicataUnica: "🎣 Montatura dedicata",
     specieAggiuntive: "🐟 Specie principali",
+    previsioniTitolo: "⚓ Previsioni Pesca",
+    aggiornatoOra: "Aggiornato ora",
+    ratingScarsa: "Scarsa", ratingBassa: "Bassa", ratingDiscreta: "Discreta", ratingBuona: "Buona", ratingOttima: "Ottima",
+    ondaLabel: "Onda", ventoLabel: "Vento", temperaturaLabel: "Temperatura", periodoOndaLabel: "Periodo onda", cieloLabel: "Cielo", albaLabel: "Alba",
+    prossimiGiorni: "📅 Prossimi 3 giorni",
+    consiglioPersonalizzato: "🎯 Consiglio personalizzato",
+    tecnicaConsigliata: "Tecnica consigliata",
+    specieProbabili: "Specie probabili",
+    montaturaLabel: "Montatura",
+    attrezzaturaLabel: "Attrezzatura",
+    escheConsLabel: "Esche consigliate",
+    attenzioneLabel: "Attenzione",
+    posizioneSpot: "🗺️ La tua posizione & Spot",
+    salvaSpotBtn: "📌 Salva spot",
+    mieiSpot: "📌 I miei spot",
+    esportaJson: "⬇️ Esporta JSON",
+    importaJson: "⬆️ Importa JSON",
+    cercaSpotItalia: "🗺️ Cerca Spot Italia",
+    aggiornaPrevisioni: "🔄 Aggiorna previsioni",
+    rilevamentoPosizione: "Rilevamento posizione in corso…",
+    browserNoGeo: "Il tuo browser non supporta la geolocalizzazione.",
+    posizioneErrore: "Impossibile rilevare la posizione. Verifica che il GPS sia attivo.",
+    riprova: "🔄 Riprova",
+    erroreMeteo: "Errore nel caricamento dati meteo. Controlla la connessione.",
+    seiQui: "📍 Sei qui",
+    nessunoSpotSalvato: "Nessuno spot salvato.",
+    vaiSulPosto: "Vai sul posto e tocca 📌 Salva spot!",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -598,6 +625,33 @@ const traduzioni = {
     piombiConsigliati: "⚖️ Plombs recommandés",
     montaturaDedicataUnica: "🎣 Montage dédié",
     specieAggiuntive: "🐟 Espèces principales",
+    previsioniTitolo: "⚓ Prévisions de Pêche",
+    aggiornatoOra: "Mis à jour maintenant",
+    ratingScarsa: "Faible", ratingBassa: "Basse", ratingDiscreta: "Correcte", ratingBuona: "Bonne", ratingOttima: "Excellente",
+    ondaLabel: "Vague", ventoLabel: "Vent", temperaturaLabel: "Température", periodoOndaLabel: "Période de vague", cieloLabel: "Ciel", albaLabel: "Aube",
+    prossimiGiorni: "📅 3 prochains jours",
+    consiglioPersonalizzato: "🎯 Conseil personnalisé",
+    tecnicaConsigliata: "Technique recommandée",
+    specieProbabili: "Espèces probables",
+    montaturaLabel: "Montage",
+    attrezzaturaLabel: "Équipement",
+    escheConsLabel: "Appâts recommandés",
+    attenzioneLabel: "Attention",
+    posizioneSpot: "🗺️ Votre position & Spots",
+    salvaSpotBtn: "📌 Sauvegarder le spot",
+    mieiSpot: "📌 Mes spots",
+    esportaJson: "⬇️ Exporter JSON",
+    importaJson: "⬆️ Importer JSON",
+    cercaSpotItalia: "🗺️ Chercher un Spot en Italie",
+    aggiornaPrevisioni: "🔄 Actualiser les prévisions",
+    rilevamentoPosizione: "Détection de la position en cours…",
+    browserNoGeo: "Votre navigateur ne prend pas en charge la géolocalisation.",
+    posizioneErrore: "Impossible de détecter la position. Vérifiez que le GPS est activé.",
+    riprova: "🔄 Réessayer",
+    erroreMeteo: "Erreur de chargement des données météo. Vérifiez la connexion.",
+    seiQui: "📍 Vous êtes ici",
+    nessunoSpotSalvato: "Aucun spot sauvegardé.",
+    vaiSulPosto: "Allez sur place et touchez 📌 Sauvegarder le spot !",
   }
 };
 
@@ -1388,7 +1442,7 @@ function direzioneVento(deg){return["N","NE","E","SE","S","SO","O","NO"][Math.ro
 function iconaMeteo(c){if(c===0)return"☀️";if(c<=2)return"🌤️";if(c<=3)return"☁️";if(c<=49)return"🌫️";if(c<=55)return"🌦️";if(c<=65)return"🌧️";if(c<=77)return"❄️";if(c<=82)return"🌦️";if(c<=99)return"⛈️";return"🌡️";}
 function descrizioneMeteo(c){if(c===0)return"Sereno";if(c<=2)return"Poco nuv.";if(c<=3)return"Coperto";if(c<=49)return"Nebbia";if(c<=55)return"Pioggerella";if(c<=65)return"Pioggia";if(c<=77)return"Neve";if(c<=82)return"Rovesci";if(c<=99)return"Temporale";return"—";}
 function formatOra(s){if(!s)return"--:--";try{return s.slice(11,16);}catch(e){return"--:--";}}
-function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div class="prev-errore"><span class="ico">📡</span><p>${msg}</p><button onclick="goTo(showPrevisioni)">🔄 Riprova</button></div>`;}
+function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div class="prev-errore"><span class="ico">📡</span><p>${msg}</p><button onclick="goTo(showPrevisioni)">${t('riprova')}</button></div>`;}
 </script>
 
 <script>
@@ -1397,11 +1451,11 @@ function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div
 let prevMap = null, prevCoords = null;
 
 function showPrevisioni() {
-  document.getElementById("content").innerHTML = `<div class="prev-loader"><span class="spinner">🎣</span><p>Rilevamento posizione in corso…</p></div>`;
-  if (!navigator.geolocation) { mostraErroreGPS("Il tuo browser non supporta la geolocalizzazione."); return; }
+  document.getElementById("content").innerHTML = `<div class="prev-loader"><span class="spinner">🎣</span><p>${t('rilevamentoPosizione')}</p></div>`;
+  if (!navigator.geolocation) { mostraErroreGPS(t('browserNoGeo')); return; }
   navigator.geolocation.getCurrentPosition(
     pos => { prevCoords={lat:pos.coords.latitude,lon:pos.coords.longitude}; caricaPrevisioni(prevCoords.lat,prevCoords.lon); },
-    () => mostraErroreGPS("Impossibile rilevare la posizione. Verifica che il GPS sia attivo."),
+    () => mostraErroreGPS(t('posizioneErrore')),
     { enableHighAccuracy:true, timeout:10000 }
   );
 }
@@ -1412,7 +1466,7 @@ async function caricaPrevisioni(lat, lon) {
       fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4`)
     ]);
     renderPrevisioni(lat, lon, await marineRes.json(), await meteoRes.json());
-  } catch(e) { mostraErroreGPS("Errore nel caricamento dati meteo. Controlla la connessione."); }
+  } catch(e) { mostraErroreGPS(t('erroreMeteo')); }
 }
 function renderPrevisioni(lat, lon, marine, meteo) {
   const ora=new Date(), hIdx=trovaIndiceOra(meteo.hourly?.time||[],ora);
