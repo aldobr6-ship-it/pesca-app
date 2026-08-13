@@ -2016,7 +2016,6 @@ body.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
 <!-- ============================================================
      BLOCCO JS — QUANDO PESCARE (Solunar + Maree + Luna)
      ============================================================ -->
-
 <script>
 /* === QUANDO PESCARE OGGI === */
 
@@ -2046,7 +2045,9 @@ async function renderQuandoPescare(lat, lon) {
     const res = await fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=sea_level_height_msl&timezone=Europe%2FRome&forecast_days=1`);
     const dati = await res.json();
     mareeOggi = calcolaMareeDaHourly(dati.hourly?.sea_level_height_msl || [], dati.hourly?.time || []);
-  } catch(e) { mareeOggi = []; }
+  } catch(e) { 
+    mareeOggi = []; 
+  }
 
   const lunaInfo   = calcolaFaseLuna(ora);
   const solunar    = calcolaSolunar(lat, lon, ora);
@@ -2057,7 +2058,6 @@ async function renderQuandoPescare(lat, lon) {
   const ratingLabels = linguaAttuale === "fr" ? ["","Faible","Basse","Correcte","Bonne","Excellente"] : ["","Scarsa","Bassa","Discreta","Buona","Ottima"];
 
   document.getElementById("content").innerHTML = `
-
     <div class="qp-hero">
       <h2>${t('quandoPescareOggi')}</h2>
       <div class="qp-sub">📍 ${lat.toFixed(3)}°N, ${lon.toFixed(3)}°E • ${ora.toLocaleDateString(localeStr,{weekday:"long",day:"numeric",month:"long"})}</div>
@@ -2113,6 +2113,7 @@ async function renderQuandoPescare(lat, lon) {
 
     <button onclick="goTo(showQuandoPescare)" style="width:100%;">${t('aggiornaBtn')}</button><br>`;
 }
+
 
   /* Fetch maree dall'API Marine Open-Meteo */
   let mareeOggi = [];
