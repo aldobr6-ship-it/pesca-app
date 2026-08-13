@@ -1724,11 +1724,11 @@ function renderPrevisioni(lat, lon, marine, meteo) {
   setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
 }
 
-  /* ============================================================
-   NUOVO SISTEMA DI RICERCA SPOT INTERNAZIONALE (ITALIA / TUNISIA)
+ /* ============================================================
+   SISTEMA DI RICERCA SPOT BILINGUE (ITALIA / TUNISIA)
    ============================================================ */
 let mappaEsplorazione = null;
-let nazioneAttiva = "it"; // Default iniziale: Italia
+let nazioneAttiva = "it"; // Stato iniziale di default: Italia
 
 function showCercaSpot() {
   document.getElementById("content").innerHTML = `
@@ -1736,7 +1736,7 @@ function showCercaSpot() {
       <h3>🗺️ ${t('meteo')}</h3>
       <p>${t('selezionaNazione')}</p>
       
-      <!-- Selettore Nazione con le classi CSS delle mini-card già presenti nella tua app -->
+      <!-- Selettore Nazione con lo stile .mini-card nativo della tua app -->
       <div class="mini-container" style="margin-top:10px;">
         <div class="mini-card ${nazioneAttiva === 'it' ? 'active' : ''}" onclick="cambiaNazioneEsplorazione('it')">${t('italia')}</div>
         <div class="mini-card ${nazioneAttiva === 'tn' ? 'active' : ''}" onclick="cambiaNazioneEsplorazione('tn')">${t('tunisia')}</div>
@@ -1745,20 +1745,16 @@ function showCercaSpot() {
 
     <div class="spot-split-layout">
       <div class="spot-mappa-wrap">
-        <!-- Sfrutta lo stesso ID responsive che hai già configurato nel foglio di stile CSS -->
         <div id="spotItaliaMap"></div> 
       </div>
       <div class="spot-panel-right">
         <div class="spot-panel-header">📍 Spot <span id="nomeNazioneBadge"></span></div>
-        <div class="spot-panel-body" id="listaSpotEsplorazione">
-          <!-- Qui vengono iniettati dinamicamente gli elementi cliccabili della lista di destra -->
-        </div>
+        <div class="spot-panel-body" id="listaSpotEsplorazione"></div>
       </div>
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">⬅️ ${t('tornaHome')}</button>
   `;
   
-  // Avvia il caricamento dei dati e della mappa Leaflet
   initMappaEsplorazione();
 }
 
@@ -1772,31 +1768,34 @@ function initMappaEsplorazione() {
   const centroMappa = isItalia ? [42.0, 12.5] : [35.5, 9.5];
   const zoomIniziale = isItalia ? 6 : 7;
   
-  // Se è attiva l'Italia legge la tua vecchia variabile globale, altrimenti legge spotsTunisiaData
-  const listaSpot = isItalia ? (window.spotsItaliaData || []) : spotsTunisiaData;
+  // Se è attiva l'Italia legge i tuoi vecchi dati (spotsItaliaData o window.spotsItaliaData), altrimenti spotsTunisiaData
+  const listaSpot = isItalia ? (window.spotsItaliaData || window.datiSpotItalia || []) : spotsTunisiaData;
   
   document.getElementById("nomeNazioneBadge").textContent = isItalia ? "Italia" : "Tunisia";
 
-  // Inizializza l'istanza Leaflet.js
+  // Inizializza l'istanza Leaflet.js agganciandosi al div del tuo layout CSS
   mappaEsplorazione = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(mappaEsplorazione);
 
   const panelBody = document.getElementById("listaSpotEsplorazione");
-  if (!listaSpot || listaSpot.length === 0) {
-    panelBody.innerHTML = `<div class="spot-panel-placeholder"><p>Nessun dato disponibile</p></div>`;
+  if (!panelBody) return;
+  panelBody.innerHTML = ""; // Svuota il pannello laterale prima di popolarlo
+
+  if (listaSpot.length === 0) {
+    panelBody.innerHTML = `<div class="spot-panel-placeholder"><p>Nessun dato disponibile / Aucun spot disponible</p></div>`;
     return;
   }
-  panelBody.innerHTML = ""; // Svuota la lista laterale prima di popolarla
 
+  // Popola la mappa e la barra laterale destra
   listaSpot.forEach((spot, index) => {
-    // 1. Inietta il Marcatore (Marker) sulla mappa Leaflet
+    // 1. Aggiungi il Marker sulla Mappa Leaflet
     const marker = L.marker([spot.lat, spot.lon]).addTo(mappaEsplorazione);
-  
-    // Configura il layout grafico del popup bilingue interno alla mappa
+    
+    // Configura il fumetto informativo all'interno dei popup nativi di Leaflet in lingua francese tecnica
     marker.bindPopup(`
-      <div style="font-family: sans-serif; min-width: 200px; padding: 2px;">
+      <div style="font-family: sans-serif; min-width: 210px; padding: 2px;">
         <h4 style="margin: 0 0 6px 0; color: #0a2a43; font-size: 14px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">🐟 ${spot.nome}</h4>
         <p style="margin: 0 0 6px 0; font-size: 12px; color: #555; line-height: 1.4;">${spot.desc}</p>
         <div style="font-size: 11px; background: #eef7ff; color: #0a2a43; padding: 4px 6px; border-radius: 4px; font-weight: bold; margin-bottom: 4px; border: 1px solid #bce0ff;">
@@ -1807,27 +1806,32 @@ function initMappaEsplorazione() {
         </div>
       </div>
     `);
-    // 2. Crea l'elemento html interattivo per la lista di destra
+
+    // 2. Crea l'elemento cliccabile nella lista di destra (utilizzando le classi CSS esistenti del tuo layout)
     const item = document.createElement("div");
     item.className = "spot-italia-item";
     item.innerHTML = `
       <span class="si-ico">🏖️</span>
       <div class="si-info">
         <div class="si-nome">${spot.nome}</div>
-        <div class="si-sub">Target: ${spot.target.split(',')[0]}</div>
+        <div class="si-sub">Target: ${spot.target}</div>
       </div>
     `;
-        // Quando l'utente tocca lo spot nella barra laterale, la mappa si sposta sul punto e apre il fumetto
+    
+    // Se l'utente tocca lo spot nella lista, la mappa si sposta e apre il fumetto in automatico
     item.onclick = () => {
       mappaEsplorazione.setView([spot.lat, spot.lon], 11);
-      marker.openPopup();   
-      // Cambia lo stato grafico "active" nella lista
+      marker.openPopup();
+      
+      // Gestione classe attiva grafica sulla lista laterale
       document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
       item.classList.add("active");
     };
+
     panelBody.appendChild(item);
   });
 }
+
 
 function calcolaConsiglioCompleto(ondaM,ventoKmh,ora,wCode){
   const ventoNodi=ventoKmh*0.539957,h=ora.getHours(),mese=ora.getMonth()+1;
