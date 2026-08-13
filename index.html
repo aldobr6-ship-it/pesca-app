@@ -1482,47 +1482,46 @@ function renderPrevisioni(lat, lon, marine, meteo) {
   const miei_spots=caricaSpot();
   document.getElementById("content").innerHTML = `
     <div class="prev-hero">
-      <h2>⚓ Previsioni Pesca</h2>
-      <div class="sub">📍 ${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E • Aggiornato ora</div>
+      <h2>${t('previsioniTitolo')}</h2>
+      <div class="sub">📍 ${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E • ${t('aggiornatoOra')}</div>
       <div class="rating-bar"><span class="stelle">${stelleRating(analisi.rating)}</span><span class="label">${analisi.labelRating}</span></div>
       <div class="meteo-grid">
-        <div class="meteo-cell"><span class="ico">🌊</span><span class="val">${ondaH.toFixed(1)} m</span><span class="lbl">Onda</span></div>
-        <div class="meteo-cell"><span class="ico">💨</span><span class="val">${ventoNodi} nodi</span><span class="lbl">Vento ${direzioneVento(ventoDir)}</span></div>
-        <div class="meteo-cell"><span class="ico">🌡️</span><span class="val">${tempC}°C</span><span class="lbl">Temperatura</span></div>
-        <div class="meteo-cell"><span class="ico">⏱️</span><span class="val">${ondaP.toFixed(0)} s</span><span class="lbl">Periodo onda</span></div>
-        <div class="meteo-cell"><span class="ico">🌦{iconaMeteo(wCode)}</span><span class="val">${descrizioneMeteo(wCode)}</span><span class="lbl">Cielo</span></div>
-        <div class="meteo-cell"><span class="ico">🌅</span><span class="val">${formatOra(meteo.daily?.sunrise?.[0])}</span><span class="lbl">Alba</span></div>
+        <div class="meteo-cell"><span class="ico">🌊</span><span class="val">${ondaH.toFixed(1)} m</span><span class="lbl">${t('ondaLabel')}</span></div>
+        <div class="meteo-cell"><span class="ico">💨</span><span class="val">${ventoNodi} ${linguaAttuale === "fr" ? "nœuds" : "nodi"}</span><span class="lbl">${t('ventoLabel')} ${direzioneVento(ventoDir)}</span></div>
+        <div class="meteo-cell"><span class="ico">🌡️</span><span class="val">${tempC}°C</span><span class="lbl">${t('temperaturaLabel')}</span></div>
+        <div class="meteo-cell"><span class="ico">⏱️</span><span class="val">${ondaP.toFixed(0)} s</span><span class="lbl">${t('periodoOndaLabel')}</span></div>
+        <div class="meteo-cell"><span class="ico">${iconaMeteo(wCode)}</span><span class="val">${descrizioneMeteo(wCode)}</span><span class="lbl">${t('cieloLabel')}</span></div>
+        <div class="meteo-cell"><span class="ico">🌅</span><span class="val">${formatOra(meteo.daily?.sunrise?.[0])}</span><span class="lbl">${t('albaLabel')}</span></div>
       </div>
     </div>
-    <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">📅 Prossimi 3 giorni</h3>
+    <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">${t('prossimiGiorni')}</h3>
     <div class="giorni-scroll">${giorniHTML}</div>
     <div class="consiglio-card">
-      <h3>🎯 Consiglio personalizzato</h3>
-      <div class="consiglio-row"><span class="ico-big">🌊</span><div class="testo"><div class="titolo">Tecnica consigliata</div><div class="valore">${analisi.tecnica}</div></div></div>
-      <div class="consiglio-row"><span class="ico-big">🐟</span><div class="testo"><div class="titolo">Specie probabili</div><div class="valore">${analisi.specie}</div></div></div>
-      <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">Montatura</div><div class="valore">${analisi.montatura}</div></div></div>
-      <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">Attrezzatura</div><div class="valore">${analisi.attrezzatura}</div></div></div>
-      <div class="consiglio-row"><span class="ico-big">🐛</span><div class="testo"><div class="titolo">Esche consigliate</div><div class="valore">${analisi.esche}</div></div></div>
-      ${analisi.avviso?`<div class="consiglio-row"><span class="ico-big">⚠️</span><div class="testo"><div class="titolo">Attenzione</div><div class="valore">${analisi.avviso}</div></div></div>`:""}
+      <h3>${t('consiglioPersonalizzato')}</h3>
+      <div class="consiglio-row"><span class="ico-big">🌊</span><div class="testo"><div class="titolo">${t('tecnicaConsigliata')}</div><div class="valore">${analisi.tecnica}</div></div></div>
+      <div class="consiglio-row"><span class="ico-big">🐟</span><div class="testo"><div class="titolo">${t('specieProbabili')}</div><div class="valore">${analisi.specie}</div></div></div>
+      <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">${t('montaturaLabel')}</div><div class="valore">${analisi.montatura}</div></div></div>
+      <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">${t('attrezzaturaLabel')}</div><div class="valore">${analisi.attrezzatura}</div></div></div>
+      <div class="consiglio-row"><span class="ico-big">🐛</span><div class="testo"><div class="titolo">${t('escheConsLabel')}</div><div class="valore">${analisi.esche}</div></div></div>
+      ${analisi.avviso?`<div class="consiglio-row"><span class="ico-big">⚠️</span><div class="testo"><div class="titolo">${t('attenzioneLabel')}</div><div class="valore">${analisi.avviso}</div></div></div>`:""}
     </div>
     <div class="mappa-card">
-      <div class="mappa-header"><span>🗺️ La tua posizione & Spot</span><button onclick="aggiungiSpot()">📌 Salva spot</button></div>
+      <div class="mappa-header"><span>${t('posizioneSpot')}</span><button onclick="aggiungiSpot()">${t('salvaSpotBtn')}</button></div>
       <div id="prevMap"></div>
     </div>
-    <h3 style="margin:0 0 6px;font-size:15px;opacity:0.7;">📌 I miei spot (${miei_spots.length})</h3>
-    <!-- MODIFICA 3: Esporta / Importa -->
+    <h3 style="margin:0 0 6px;font-size:15px;opacity:0.7;">${t('mieiSpot')} (${miei_spots.length})</h3>
     <div class="spot-io-row">
-      <button class="btn-esporta" onclick="esportaSpot()">⬇️ Esporta JSON</button>
-      <button class="btn-importa" onclick="document.getElementById('importInput').click()">⬆️ Importa JSON</button>
+      <button class="btn-esporta" onclick="esportaSpot()">${t('esportaJson')}</button>
+      <button class="btn-importa" onclick="document.getElementById('importInput').click()">${t('importaJson')}</button>
       <input type="file" id="importInput" accept=".json" style="display:none" onchange="importaSpot(event)">
     </div>
     <div class="spot-list" id="spotList">${renderSpotList(miei_spots)}</div>
     <div style="margin:20px 0 10px;">
       <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
-        🗺️ Cerca Spot Italia
+        ${t('cercaSpotItalia')}
       </button>
     </div>
-    <button onclick="goTo(showPrevisioni)" style="width:100%;">🔄 Aggiorna previsioni</button><br>`;
+    <button onclick="goTo(showPrevisioni)" style="width:100%;">${t('aggiornaPrevisioni')}</button><br>`;
   setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
 }
 
