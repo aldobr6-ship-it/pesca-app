@@ -571,6 +571,20 @@ const traduzioni = {
     seiQui: "📍 Sei qui",
     nessunoSpotSalvato: "Nessuno spot salvato.",
     vaiSulPosto: "Vai sul posto e tocca 📌 Salva spot!",
+    quandoPescareOggi: "🌙 Quando Pescare Oggi",
+    calcoloCondizioni: "Calcolo condizioni di pesca…",
+    confermaGPS: "📍 Per calcolare solunar e maree precise\nposso usare la tua posizione GPS?\n\nOK = usa GPS\nAnnulla = usa posizione centrale Italia",
+    illuminazioneLabel: "Illuminazione:",
+    perPescare: "per pescare",
+    momentiMigliori: "🎯 Momenti Migliori Oggi",
+    majorMinorInfo: "Major = transito lunare (picco attività) • Minor = alba/tramonto luna",
+    mareeOggi: "🌊 Maree Oggi",
+    mareaAlta: "Marea Alta", mareaBassa: "Marea Bassa",
+    mareeNonDisponibili: "Dati maree non disponibili per questa posizione.",
+    mareeSoloMareAperto: "Le maree sono significative solo in mare aperto.",
+    consiglioGiorno: "💡 Consiglio del Giorno",
+    aggiornaBtn: "🔄 Aggiorna",
+    circaOre: "~2 ore", circaUnOra: "~1 ora",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -652,6 +666,20 @@ const traduzioni = {
     seiQui: "📍 Vous êtes ici",
     nessunoSpotSalvato: "Aucun spot sauvegardé.",
     vaiSulPosto: "Allez sur place et touchez 📌 Sauvegarder le spot !",
+    quandoPescareOggi: "🌙 Quand Pêcher Aujourd'hui",
+    calcoloCondizioni: "Calcul des conditions de pêche…",
+    confermaGPS: "📍 Pour calculer solunaire et marées précises\npuis-je utiliser votre position GPS ?\n\nOK = utiliser le GPS\nAnnuler = utiliser la position centrale de l'Italie",
+    illuminazioneLabel: "Illumination :",
+    perPescare: "pour pêcher",
+    momentiMigliori: "🎯 Meilleurs Moments Aujourd'hui",
+    majorMinorInfo: "Major = transit lunaire (pic d'activité) • Minor = lever/coucher de lune",
+    mareeOggi: "🌊 Marées Aujourd'hui",
+    mareaAlta: "Marée Haute", mareaBassa: "Marée Basse",
+    mareeNonDisponibili: "Données de marée non disponibles pour cette position.",
+    mareeSoloMareAperto: "Les marées sont significatives uniquement en mer ouverte.",
+    consiglioGiorno: "💡 Conseil du Jour",
+    aggiornaBtn: "🔄 Actualiser",
+    circaOre: "~2 heures", circaUnOra: "~1 heure",
   }
 };
 
@@ -1996,14 +2024,13 @@ function showQuandoPescare() {
   document.getElementById("content").innerHTML = `
     <div class="qp-loader">
       <span class="spinner">🌙</span>
-      <p>Calcolo condizioni di pesca…</p>
+      <p>${t('calcoloCondizioni')}</p>
     </div>`;
 
-  /* Chiede conferma GPS */
   if (!navigator.geolocation) {
     renderQuandoPescare(41.9, 12.5); return;
   }
-  const usa = confirm("📍 Per calcolare solunar e maree precise\nposso usare la tua posizione GPS?\n\nOK = usa GPS\nAnnulla = usa posizione centrale Italia");
+  const usa = confirm(t('confermaGPS'));
   if (!usa) { renderQuandoPescare(41.9, 12.5); return; }
   navigator.geolocation.getCurrentPosition(
     pos => renderQuandoPescare(pos.coords.latitude, pos.coords.longitude),
@@ -2014,6 +2041,78 @@ function showQuandoPescare() {
 
 async function renderQuandoPescare(lat, lon) {
   const ora = new Date();
+  let mareeOggi = [];
+  try {
+    const res = await fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=sea_level_height_msl&timezone=Europe%2FRome&forecast_days=1`);
+    const dati = await res.json();
+    mareeOggi = calcolaMareeDaHourly(dati.hourly?.sea_level_height_msl || [], dati.hourly?.time || []);
+  } catch(e) { mareeOggi = []; }
+
+  const lunaInfo   = calcolaFaseLuna(ora);
+  const solunar    = calcolaSolunar(lat, lon, ora);
+  const giorniHTML = generaGiorniSolunar(lat, lon, ora);
+  const ratingGiorno = calcolaRatingSolunar(lunaInfo.illuminazione, ora);
+
+  const localeStr = linguaAttuale === "fr" ? "fr-FR" : "it-IT";
+  const ratingLabels = linguaAttuale === "fr" ? ["","Faible","Basse","Correcte","Bonne","Excellente"] : ["","Scarsa","Bassa","Discreta","Buona","Ottima"];
+
+  document.getElementById("content").innerHTML = `
+
+    <div class="qp-hero">
+      <h2>${t('quandoPescareOggi')}</h2>
+      <div class="qp-sub">📍 ${lat.toFixed(3)}°N, ${lon.toFixed(3)}°E • ${ora.toLocaleDateString(localeStr,{weekday:"long",day:"numeric",month:"long"})}</div>
+      <span class="qp-luna-ico">${lunaInfo.icona}</span>
+      <div class="qp-luna-nome">${lunaInfo.fase}</div>
+      <div class="qp-luna-pct">${t('illuminazioneLabel')} ${lunaInfo.illuminazione}%</div>
+      <div class="qp-rating-bar">
+        <span class="stelle">${stelleRating(ratingGiorno)}</span>
+        <span class="label">${ratingLabels[ratingGiorno]} ${t('perPescare')}</span>
+      </div>
+    </div>
+
+    <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">${t('prossimiGiorni')}</h3>
+    <div class="qp-giorni-scroll">${giorniHTML}</div>
+
+    <div class="qp-card">
+      <h3>${t('momentiMigliori')}</h3>
+      <div class="sol-fasce">
+        ${solunar.map(s=>`
+          <div class="sol-fascia ${s.tipo}">
+            <span class="sf-ico">${s.ico}</span>
+            <div class="sf-tipo">${s.tipo === "major" ? "⭐ MAJOR" : "● minor"}</div>
+            <div class="sf-ora">${s.ora}</div>
+            <div class="sf-dur">${s.tipo === "major" ? t('circaOre') : t('circaUnOra')}</div>
+          </div>`).join("")}
+      </div>
+      <p style="font-size:12px;opacity:0.55;margin:14px 0 0;text-align:center;">
+        ${t('majorMinorInfo')}
+      </p>
+    </div>
+
+    <div class="qp-card">
+      <h3>${t('mareeOggi')}</h3>
+      ${mareeOggi.length > 0 ? mareeOggi.map(m=>`
+        <div class="marea-row">
+          <span class="marea-ico">${m.tipo === "alta" ? "⬆️" : "⬇️"}</span>
+          <div class="marea-info">
+            <div class="marea-tipo">${m.tipo === "alta" ? t('mareaAlta') : t('mareaBassa')}</div>
+            <div class="marea-ora">${m.ora}</div>
+          </div>
+          <div class="marea-h">${m.altezza} m</div>
+        </div>`).join("") :
+        `<p style="opacity:0.5;font-size:13px;text-align:center;padding:10px 0;">
+          ${t('mareeNonDisponibili')}<br>
+          <small>${t('mareeSoloMareAperto')}</small>
+        </p>`}
+    </div>
+
+    <div class="qp-card">
+      <h3>${t('consiglioGiorno')}</h3>
+      ${generaConsiglioPesca(lunaInfo, solunar, ora)}
+    </div>
+
+    <button onclick="goTo(showQuandoPescare)" style="width:100%;">${t('aggiornaBtn')}</button><br>`;
+}
 
   /* Fetch maree dall'API Marine Open-Meteo */
   let mareeOggi = [];
@@ -2096,23 +2195,23 @@ async function renderQuandoPescare(lat, lon) {
 
 /* ── CALCOLO FASE LUNA ── */
 function calcolaFaseLuna(data) {
-  /* Ciclo sinodico 29.53059 giorni */
-  const riferimento = new Date("2000-01-06T18:14:00Z"); /* Luna nuova di riferimento */
+  const riferimento = new Date("2000-01-06T18:14:00Z");
   const diffGiorni  = (data - riferimento) / 86400000;
   const ciclo       = 29.53059;
   const etaLuna     = ((diffGiorni % ciclo) + ciclo) % ciclo;
   const illuminazione = Math.round(50 * (1 - Math.cos(2 * Math.PI * etaLuna / ciclo)));
+  const isFr = linguaAttuale === "fr";
 
   let fase, icona;
-  if      (etaLuna < 1.85)  { fase="Luna Nuova";        icona="🌑"; }
-  else if (etaLuna < 7.38)  { fase="Quarto Crescente";  icona="🌒"; }
-  else if (etaLuna < 9.22)  { fase="Primo Quarto";      icona="🌓"; }
-  else if (etaLuna < 14.77) { fase="Gibbosa Crescente"; icona="🌔"; }
-  else if (etaLuna < 16.61) { fase="Luna Piena";        icona="🌕"; }
-  else if (etaLuna < 22.15) { fase="Gibbosa Calante";   icona="🌖"; }
-  else if (etaLuna < 23.99) { fase="Ultimo Quarto";     icona="🌗"; }
-  else if (etaLuna < 29.53) { fase="Quarto Calante";    icona="🌘"; }
-  else                       { fase="Luna Nuova";       icona="🌑"; }
+  if      (etaLuna < 1.85)  { fase=isFr?"Nouvelle Lune":"Luna Nuova";        icona="🌑"; }
+  else if (etaLuna < 7.38)  { fase=isFr?"Premier Croissant":"Quarto Crescente";  icona="🌒"; }
+  else if (etaLuna < 9.22)  { fase=isFr?"Premier Quartier":"Primo Quarto";      icona="🌓"; }
+  else if (etaLuna < 14.77) { fase=isFr?"Gibbeuse Croissante":"Gibbosa Crescente"; icona="🌔"; }
+  else if (etaLuna < 16.61) { fase=isFr?"Pleine Lune":"Luna Piena";        icona="🌕"; }
+  else if (etaLuna < 22.15) { fase=isFr?"Gibbeuse Décroissante":"Gibbosa Calante";   icona="🌖"; }
+  else if (etaLuna < 23.99) { fase=isFr?"Dernier Quartier":"Ultimo Quarto";     icona="🌗"; }
+  else if (etaLuna < 29.53) { fase=isFr?"Dernier Croissant":"Quarto Calante";    icona="🌘"; }
+  else                       { fase=isFr?"Nouvelle Lune":"Luna Nuova";       icona="🌑"; }
 
   return { fase, icona, illuminazione, etaLuna };
 }
@@ -2222,11 +2321,14 @@ function calcolaMareeDaHourly(valori, tempi) {
 
 /* ── GIORNI SOLUNAR SCROLL ── */
 function generaGiorniSolunar(lat, lon, ora) {
-  const giorni = ["Dom","Lun","Mar","Mer","Gio","Ven","Sab"];
+  const giorniIt = ["Dom","Lun","Mar","Mer","Gio","Ven","Sab"];
+  const giorniFr = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"];
+  const giorni = linguaAttuale === "fr" ? giorniFr : giorniIt;
+  const domaniLabel = linguaAttuale === "fr" ? "Demain" : "Domani";
   let html = "";
   for (let i = 1; i <= 3; i++) {
     const d = new Date(ora); d.setDate(d.getDate() + i);
-    const nome  = i === 1 ? "Domani" : giorni[d.getDay()];
+    const nome  = i === 1 ? domaniLabel : giorni[d.getDay()];
     const luna  = calcolaFaseLuna(d);
     const rating = calcolaRatingSolunar(luna.illuminazione, d);
     const sol   = calcolaSolunar(lat, lon, d);
@@ -2246,6 +2348,7 @@ function generaGiorniSolunar(lat, lon, ora) {
 /* ── CONSIGLIO TESTO ── */
 function generaConsiglioPesca(luna, solunar, ora) {
   const h = ora.getHours();
+  const isFr = linguaAttuale === "fr";
   const major = solunar.filter(s=>s.tipo==="major");
   const prossimo = solunar.find(s => {
     const [hh,mm] = s.ora.split(":").map(Number);
@@ -2255,17 +2358,32 @@ function generaConsiglioPesca(luna, solunar, ora) {
   let consiglio = "";
   const ill = luna.illuminazione;
 
-  if (ill > 85)       consiglio += "<b>🌕 Luna Piena</b> — periodo d'oro per la pesca. I pesci sono attivi tutto il giorno, specialmente di notte. Ideale per spigole e saraghi. ";
-  else if (ill < 10)  consiglio += "<b>🌑 Luna Nuova</b> — eccellente per la pesca diurna. Le acque scure di notte rendono le esche più visibili. Ottimo per pesca a fondo. ";
-  else if (ill > 60)  consiglio += "<b>🌔 Luna in crescita</b> — buone condizioni. I pesci tendono ad alimentarsi di più. ";
-  else                consiglio += "<b>🌘 Luna calante</b> — condizioni nella media. Concentrati sui periodi major. ";
+  if (isFr) {
+    if (ill > 85)       consiglio += "<b>🌕 Pleine Lune</b> — période dorée pour la pêche. Les poissons sont actifs toute la journée, surtout la nuit. Idéal pour bars et sars. ";
+    else if (ill < 10)  consiglio += "<b>🌑 Nouvelle Lune</b> — excellent pour la pêche diurne. Les eaux sombres la nuit rendent les appâts plus visibles. Parfait pour la pêche au fond. ";
+    else if (ill > 60)  consiglio += "<b>🌔 Lune croissante</b> — bonnes conditions. Les poissons ont tendance à s'alimenter davantage. ";
+    else                consiglio += "<b>🌘 Lune décroissante</b> — conditions moyennes. Concentrez-vous sur les périodes major. ";
 
-  if (prossimo) {
-    consiglio += `Il prossimo momento <b>${prossimo.tipo === "major" ? "⭐ MAJOR" : "● minor"}</b> è alle <b>${prossimo.ora}</b>. `;
-    if (prossimo.tipo === "major") consiglio += "Preparati con anticipo e tieni la canna in mano!";
-    else consiglio += "Può dare buoni risultati, specialmente nelle prime e ultime ore di luce.";
+    if (prossimo) {
+      consiglio += `Le prochain moment <b>${prossimo.tipo === "major" ? "⭐ MAJOR" : "● minor"}</b> est à <b>${prossimo.ora}</b>. `;
+      if (prossimo.tipo === "major") consiglio += "Préparez-vous à l'avance et gardez la canne en main !";
+      else consiglio += "Peut donner de bons résultats, surtout aux premières et dernières heures de lumière.";
+    } else {
+      consiglio += "Les meilleurs moments d'aujourd'hui sont déjà passés. Planifiez votre sortie de demain !";
+    }
   } else {
-    consiglio += "I momenti migliori per oggi sono già passati. Pianifica l'uscita di domani!";
+    if (ill > 85)       consiglio += "<b>🌕 Luna Piena</b> — periodo d'oro per la pesca. I pesci sono attivi tutto il giorno, specialmente di notte. Ideale per spigole e saraghi. ";
+    else if (ill < 10)  consiglio += "<b>🌑 Luna Nuova</b> — eccellente per la pesca diurna. Le acque scure di notte rendono le esche più visibili. Ottimo per pesca a fondo. ";
+    else if (ill > 60)  consiglio += "<b>🌔 Luna in crescita</b> — buone condizioni. I pesci tendono ad alimentarsi di più. ";
+    else                consiglio += "<b>🌘 Luna calante</b> — condizioni nella media. Concentrati sui periodi major. ";
+
+    if (prossimo) {
+      consiglio += `Il prossimo momento <b>${prossimo.tipo === "major" ? "⭐ MAJOR" : "● minor"}</b> è alle <b>${prossimo.ora}</b>. `;
+      if (prossimo.tipo === "major") consiglio += "Preparati con anticipo e tieni la canna in mano!";
+      else consiglio += "Può dare buoni risultati, specialmente nelle prime e ultime ore di luce.";
+    } else {
+      consiglio += "I momenti migliori per oggi sono già passati. Pianifica l'uscita di domani!";
+    }
   }
 
   return `<p style="font-size:13px;line-height:1.8;margin:0;">${consiglio}</p>`;
