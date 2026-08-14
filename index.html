@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>AdelTechnic-FISH</title>
-
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0a2a43">
-
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎣</text></svg>">
-
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -39,7 +35,6 @@ header {
 }
   .img-box-bg { background:#f1f6fa; }
 body.dark .img-box-bg { background:#334155; }
-  
   .esca-popup-img {
   max-width: 260px; width: 100%; display: block;
   margin: 0 auto 14px; border-radius: 14px;
@@ -439,7 +434,7 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   <!-- TITOLO PRINCIPALE: Al centro con la tua foto integrata BEN VISIBILE -->
 <div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding-top: 10px; font-weight: bold; font-size: 22px; color: white;">
   <!-- La tua foto-emoji con margine a sinistra per spostarla a destra -->
-  <img src="./img/io_e_il_pesce.png" alt="Avatar" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0; margin-left: 35px;">
+  <img src="./img/io_e_il_pesce.png" alt="Avatar" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0; margin-left: 30px;">
   <span>🎣 AdelTechnic-FISH</span>
 </div>
   <div style="position:absolute; left:14px; top:50%; transform:translateY(-50%); display:flex; gap:4px;">
@@ -455,7 +450,6 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   <img src="./img/bandiera_fr.png" style="width:22px;height:22px;border-radius:50%;object-fit:cover;display:block;">
   <span style="font-size:9px; font-weight:600;">FR</span>
 </button>
-
   </div>
   <div style="position:absolute; right:14px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; gap:2px;">
     <button onclick="toggleTema()" style="background:none; padding:6px; margin:0; font-size:20px; box-shadow:none;">🌓</button>
@@ -879,7 +873,6 @@ function showHome() {
     </div>`;
 }
 </script>
-
 <script>
 /* === TECNICHE === */
 const tecnicheListIt = [
@@ -1096,7 +1089,6 @@ function cardNodo(n) {
       </div>
     </div>`;
 }
-
 function nessunRisultatoNodo(query) {
   const q = encodeURIComponent(query + " nodo pesca");
   return `
@@ -1120,13 +1112,11 @@ function renderNodi(lista, query) {
   }
   box.innerHTML = `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${lista.map(cardNodo).join("")}</div>`;
 }
-
 function filtraNodi() {
   const q = document.getElementById("searchNodi").value.toLowerCase();
   const filtrati = nodiData.filter(n => n.nome.toLowerCase().includes(q));
   renderNodi(filtrati, document.getElementById("searchNodi").value);
 }
-
 function showNodi() {
   document.getElementById("content").innerHTML = `
     <h2>🧵 ${t('nodi')}</h2>
@@ -1139,7 +1129,6 @@ function showNodi() {
     <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
   renderNodi(nodiData);
 }
-
 function toggleNodo(id) {
   const el = document.getElementById(id); if (!el) return;
   const aperto = el.style.display === "block";
@@ -1147,12 +1136,10 @@ function toggleNodo(id) {
   el.style.display = aperto ? "none" : "block";
 }
 </script>
-
 <script>
 /* === MONTATURE === */
 let montatureData = [];
-  
-  const escaImgSlugs = {
+   const escaImgSlugs = {
   "arenicola":"arenicola", "ver de sable":"arenicola",
   "bibi":"bibi",
   "americano":"americano", "américain":"americano",
@@ -1172,7 +1159,6 @@ let montatureData = [];
   "cannolicchio":"cannolicchio", "couteau":"cannolicchio",
   "granchio vivo":"granchio_vivo", "crabe vivant":"granchio_vivo"
 };
-
 function slugEsca(nome) {
   const key = nome.toLowerCase().trim();
   if (escaImgSlugs[key]) return escaImgSlugs[key];
@@ -1225,7 +1211,6 @@ function cardMontatura(m) {
       <div style="font-weight:700;font-size:11px;line-height:1.25;color:#0a2a43;">${m.nome}</div>
     </div>`;
 }
-
 function nessunRisultatoMontatura(query) {
   const q = encodeURIComponent(query + " montatura pesca surfcasting");
   return `
@@ -1240,7 +1225,6 @@ function nessunRisultatoMontatura(query) {
       <button onclick="goTo(showMontature)" style="width:100%;">${t('tornaTutteMontature')}</button>
     </div>`;
 }
-
 function renderMontature(lista, query) {
   const box = document.getElementById("listaMontature");
   if (!box) return;
@@ -1253,7 +1237,6 @@ function renderMontature(lista, query) {
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">${lista.map(cardMontatura).join("")}</div>
     <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
 }
-
 function filtraMontature() {
   const q = document.getElementById("searchMontature").value.toLowerCase();
   const filtrate = montatureData.filter(m => m.nome.toLowerCase().includes(q));
@@ -1307,10 +1290,178 @@ function showMontaturaDetail(id) {
     </div>`;
 }
 </script>
-
 <script>
-/* === DATI SPOT TUNISIA INTERNAZIONALE === */
-  const spotsFrance = []; // Dati spot Francia non ancora inseriti
+/* === DATI SPOT FRANCIA === */ 
+  const spotsFrance = [
+  // COSTA AZZURRA / PROVENZA
+  {
+    "name": "Plage de l'Almanarre (Hyères)",
+    "lat": 43.0815,
+    "lon": 6.1154,
+    "description": "Grande plage de sable de sable fin soumise à de forts vents d'Ouest. Le fond présente une pente douce idéale pour les poissons fouisseurs.",
+    "technique": "Beach Ledgering de grande distance / Surfcasting léger de nuit",
+    "target": "Marbrés, Daurades Royales, Soles"
+  },
+  {
+    "name": "Digue du Port de Cannes (Moure Rouge)",
+    "lat": 43.5412,
+    "lon": 7.0425,
+    "description": "Structure rocheuse artificielle s'avançant sur un fond mixte d'herbiers de posidonies et de sable. Passage fréquent de grands carnassiers.",
+    "technique": "Sea Spinning aux poissons nageurs (Long Jerks, Jigs) / Pêche au vif",
+    "target": "Loups (Bars), Tassergals, Barracudas, Liches"
+  },
+  {
+    "name": "Plage de Pampelonne (Ramuelle)",
+    "lat": 43.2284,
+    "lon": 6.6621,
+    "description": "Plage profonde ouverte sur le large avec une bathymétrie importante dès les premiers mètres. Idéale par mer formée ou en fin de tempête.",
+    "technique": "Surfcasting lourd de vague (Montage Short Rovesciato avec pyramides)",
+    "target": "Gros Sars, Daurades Royales, Loups"
+  },
+  {
+    "name": "Cap d'Antibes (Les Roches Blanches)",
+    "lat": 43.5485,
+    "lon": 7.1210,
+    "description": "Pointe rocheuse naturelle plongeant dans des eaux profondes balayées par les courants côtiers. Zone hautement technique.",
+    "technique": "Rock Spinning lourd (Poppers, Stickbaits coulants) / Pêche au flotteur",
+    "target": "Dentis, Barracudas, Grands Sars, Sérioles"
+  },
+
+  // MEDITERRANEO OCCIDENTALE / CAMARGUE / GOLFO DEL LEONE
+  {
+    "name": "Plage de l'Espiguette (Le Grau-du-Roi)",
+    "lat": 43.4854,
+    "lon": 4.1522,
+    "description": "Immense plage sauvage de sable fin à pente très douce. Les bancs de sable créent de magnifiques canaloni parallèles au rivage.",
+    "technique": "Surfcasting de grande distance à 2 ou 3 empiles / Montages clippés obligatoires",
+    "target": "Marbrés de taille record, Daurades Royales, Ombres"
+  },
+  {
+    "name": "Embouchure du Rhône (Port-Saint-Louis)",
+    "lat": 43.3215,
+    "lon": 4.8415,
+    "description": "Zone estuarienne majeure où les eaux douces chargées de nutriments rencontrent la mer. Courants puissants et forte activité de chasse.",
+    "technique": "Shore Spinning aux leurres souples (Shads) / Pêche au vif en dérive",
+    "target": "Gros Loups (Bars), Tassergals, Silures marins, Liches"
+  },
+  {
+    "name": "Plage d'Agde (La Tamarissière)",
+    "lat": 43.2848,
+    "lon": 3.4412,
+    "description": "Plage sableuse située à proximité de l'embouchure de l'Hérault. Les apports d'eau douce attirent une faune variée après les crues.",
+    "technique": "Surfcasting intermédiaire / Spinning léger aux poissons nageurs",
+    "target": "Loups, Daurades Royales, Marbrés"
+  },
+  {
+    "name": "Digue de Sète (Le Môle)",
+    "lat": 43.3950,
+    "lon": 3.7022,
+    "description": "Grande digue portuaire historique ouverte sur le Golfe du Lion. Les enrochements abritent une importante population de mollusques.",
+    "technique": "Pêche à la calée coulissante (Scorrevole) au crabe / Pêche au flotteur coulissant",
+    "target": "Daurades Royales, Sars Tambours, Loups"
+  },
+
+  // COSTA ATLANTICA / LANDES / GIRONDA
+  {
+    "name": "Plage de Biscarrosse (Nord)",
+    "lat": 44.4520,
+    "lon": -1.2514,
+    "description": "Plage océanique typique des Landes soumise à de fortes marées. Présence de baïnes (cuvettes d'eau) très marquées et dangereuses.",
+    "technique": "Surfcasting lourd d'océan à marée haute (Plombs à grappins)",
+    "target": "Bars Mouchetés, Bars Francs, Maigres, Raies"
+  },
+  {
+    "name": "Cap Ferret (Pointe du Bassin)",
+    "lat": 44.6241,
+    "lon": -1.2425,
+    "description": "Zone de jonction entre le bassin d'Arcachon et l'Océan Atlantique. Courants de marée d'une violence extrême et fosses profondes.",
+    "technique": "Heavy Spinning aux Casting Jigs lourds / Pêche lourde d'attente au fond",
+    "target": "Grands Bars Francs, Maigres record, Raies, Emissoles"
+  },
+  {
+    "name": "Plage de Lacanau (Sud)",
+    "lat": 45.0015,
+    "lon": -1.2142,
+    "description": "Spot atlantique rectiligne à forte énergie de vagues. Les vagues de fond brassent continuellement le sable libérant les puces de mer.",
+    "technique": "Surfcasting atlantique lourd (Montage Pulley Rig clippato)",
+    "target": "Bars Francs, Soles, Turbots, Daurades Royales (en été)"
+  },
+  {
+    "name": "Plage de Mimizan (Les Specis)",
+    "lat": 44.2124,
+    "lon": -1.3005,
+    "description": "Grande étendue de sable océanique sauvage. La configuration des baïnes change à chaque tempête d'hiver. Pêche d'été et d'automne excellente.",
+    "technique": "Surfcasting de recherche dans les baïnes / Pêche au trancio de seiche",
+    "target": "Ombrines, Bars Mouchetés, Raies, Soles"
+  },
+
+  // NORD / BRETAGNE / NORMANDIE
+  {
+    "name": "Plage de la Torche (Finistère - Bretagne)",
+    "lat": 47.8385,
+    "lon": -4.3548,
+    "description": "Pointe bretonne sauvage battue par la houle atlantique. Fonds rocheux et sableux très riches en crustacés.",
+    "technique": "Surfcasting lourd de roche / Shore Spinning (Leurres souples en traction)",
+    "target": "Gros Bars Francs, Vieilles, Lieus Jaunes"
+  },
+  {
+    "name": "Digue de Cherbourg (Normandie)",
+    "lat": 49.6548,
+    "lon": -1.6214,
+    "description": "Une des plus grandes digues artificielles d'Europe, donnant accès à des zones soumises à de forts courants de la Manche.",
+    "technique": "Spinning aux casting jigs (Lieus) / Pêche au flotteur lumineux de nuit",
+    "target": "Lieus Jaunes, Bars Francs, Scombridés (Maquereaux)"
+  },
+  {
+    "name": "Plage de Quend (Somme - Côte d'Opale)",
+    "lat": 50.3124,
+    "lon": 1.5420,
+    "description": "Immense plage de la mer du Nord à pente très douce, caractérisée par des parcs à moules à marée basse attirant les poissons.",
+    "technique": "Surfcasting léger de marée basse / Beach Ledgering",
+    "target": "Flets, Soles, Bars Francs"
+  },
+  {
+    "name": "Falaises d'Étretat (Normandie)",
+    "lat": 49.7088,
+    "lon": 0.2015,
+    "description": "Pêche au pied des falaises de craie sur des lits de galets se transformant en sable au large. Eaux souvent agitées.",
+    "technique": "Shore Spinning aux Long Jerks (Minnows) / Surfcasting de galets",
+    "target": "Bars Francs, Lieus Jaunes, Orphies"
+  },
+  {
+    "name": "Pointe du Raz (Finistère)",
+    "lat": 48.0384,
+    "lon": -4.7348,
+    "description": "Spot extrême de Bretagne au cœur du raz de Sein. Courants de marée déchaînés et écume permanente. Uniquement pour pêcheurs expérimentés.",
+    "technique": "Heavy Spinning face au courant aux gros leurres souples plombés",
+    "target": "Bars Francs géants, Lieus Jaunes"
+  },
+  {
+    "name": "Plage de Deauville (Normandie)",
+    "lat": 49.3621,
+    "lon": 0.0745,
+    "description": "Plage de sable de la baie de Seine. Importantes variations de marée nécessitant de suivre l'eau lors du flux et du reflux.",
+    "technique": "Surfcasting de marée / Montage Paternoster à 3 hameçons longs",
+    "target": "Soles, Flets, Bars Francs"
+  },
+  {
+    "name": "Digue du Port de Dunkerque",
+    "lat": 51.0545,
+    "lon": 2.3648,
+    "description": "Digue la plus septentrionale de France, s'avançant en mer du Nord. Zone d'eau froide et riche en micro-nutriments.",
+    "technique": "Pêche de fond robuste au ver marin (Arénicole) / Spinning d'été",
+    "target": "Flets, Cabillauds (Morues en hiver), Bars Francs, Maquereaux"
+  },
+  {
+    "name": "Plage d'Erquy (Côtes-d'Armor)",
+    "lat": 48.6312,
+    "lon": -2.4654,
+    "description": "Baie bretonne protégée par des caps rocheux, fonds de sable propre parsemés de gisements de coquilles Saint-Jacques au large.",
+    "technique": "Beach Ledgering de estival de finesse / Finesse Spinning",
+    "target": "Bars Francs, Dorades Grises, Soles, Rayons"
+  }
+];
+  /* === DATI SPOT TUNISIA INTERNAZIONALE === */
   const spotsTunisiaData = [
   {
     "nome": "Plage de Tabarka (El Corniche)",
@@ -1473,7 +1624,6 @@ function showMontaturaDetail(id) {
     "target": "Daurades Royales, Ombrines, Loups"
   }
 ];
-  
 /* === SPECIE === */
 let specie = {};
 function showSpecie() {
@@ -1570,7 +1720,6 @@ const surfcastingDataFr = {
     contro:["Nécessite un mouvement continu","Équipement plus coûteux","Moins efficace par mer très agitée"]
   }
 };
-
 const galleggianteText = {
   it: { quando:"Mare calmo • Porto • Scogliera", attrezzatura:"Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole", pro:"Tecnica precisa e sensibile", contro:"Poco efficace con mare mosso" },
   fr: { quando:"Mer calme • Port • Rochers", attrezzatura:"Canne 4–6 m • Nylon fin • Flotteur fixe ou coulissant", pro:"Technique précise et sensible", contro:"Peu efficace par mer agitée" }
@@ -1676,7 +1825,6 @@ const tecnicheData = {
     video:"https://www.youtube.com/results?search_query=beach+ledgering+pesca+spiaggia"
   }
 };
-
 let currentlyOpenBox = null, currentlyOpenButton = null;
 function toggleImageBox(id, imgPath, button) {
   const box = document.getElementById(id); if (!box) return;
@@ -1770,7 +1918,6 @@ function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div
 /* === PREVISIONI + SPOT PERSONALI === */
 /* MODIFICA 3 — Esporta/Importa JSON aggiunto a renderPrevisioni */
 let prevMap = null, prevCoords = null;
-
 function showPrevisioni() {
   // Mostra un caricamento leggero nel content
   document.getElementById("content").innerHTML = `
@@ -1779,7 +1926,6 @@ function showPrevisioni() {
       <p>${t('rilevamentoPosizione')}...</p>
     </div>
   `;
-
   // Configurazione automatica della capitale in base alla nazione attiva se il GPS fallisce
   let latDefault = 41.9028, lonDefault = 12.4964; // Italia (Roma)
   if (nazioneAttiva === "fr") { latDefault = 48.8566; lonDefault = 2.3522; } // Francia (Parigi)
@@ -1790,7 +1936,6 @@ function showPrevisioni() {
     caricaPrevisioni(latDefault, lonDefault, true);
     return;
   }
-
   navigator.geolocation.getCurrentPosition(
     pos => {
       prevCoords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
@@ -1811,15 +1956,12 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
     var risposteServer = await Promise.all([
       fetch(urlMarine),
       fetch(urlMeteo)
-    ]);
-    
+    ]); 
     var marineData = await risposteServer[0].json();
     var meteoData = await risposteServer[1].json();
-    
     renderPrevisioni(lat, lon, marineData, meteoData, usaFallback);
   } catch(error) {
     console.error("DIAGNOSTICA ESPERTO - Errore durante il caricamento meteo:", error);
-    
     var isFR = (typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr');
     var txtTitle = isFR ? "Connexion perdue" : "Connessione Persa";
     var txtDesc = isFR ? "Impossible de charger les données météo. Veuillez vérifier votre connexion Internet." : "Impossibile caricare i dati meteo. Controlla la tua connessione internet.";
@@ -1836,7 +1978,6 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
       </div>`;
   }
 }
-
 function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
   var ora = new Date();
   var hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
@@ -1856,17 +1997,14 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
          📍 GPS non disponibile. Previsioni basate sulla Capitale.
        </div>`
     : "";
-
   var testobottone = t('cercaSpotItalia');
   if (nazioneAttiva === "fr") { testobottone = linguaAttuale === "fr" ? "🔍 Explorer les Spots France" : "🔍 Esplora Spot Francia"; }
   if (nazioneAttiva === "tn") { testobottone = linguaAttuale === "fr" ? "🔍 Explorer les Spots Tunisie" : "🔍 Esplora Spot Tunisia"; }
-
   // Calcolo sicuro dell'orario dell'alba per evitare blocchi sintattici
   var oraAlba = "--:--";
   if (meteo && meteo.daily && meteo.daily.sunrise && meteo.daily.sunrise[0]) {
     oraAlba = formatOra(meteo.daily.sunrise[0]);
   }
-
   document.getElementById("content").innerHTML = `
     <!-- Barra Superiore di Selezione Paese -->
     <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; padding: 5px 0;">
@@ -1880,9 +2018,7 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
         🇹🇳 ${t('tunisia') || 'Tunisia'}
       </button>
     </div>
-
     ${alertGPSHTML}
-
     <div class="prev-hero">
       <h2>${t('previsioniTitolo')}</h2>
       <div class="sub">📍 ${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E • ${t('aggiornatoOra')}</div>
@@ -1896,10 +2032,8 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
         <div class="meteo-cell"><span class="ico">🌅</span><span class="val">${oraAlba}</span><span class="lbl">${t('albaLabel')}</span></div>
       </div>
     </div>
-
     <h3 style="margin:15px 0 10px;font-size:15px;opacity:0.7;">${t('prossimiGiorni')}</h3>
     <div class="giorni-scroll">${giorniHTML}</div>
-
     <div class="consiglio-card">
       <h3>${t('consiglioPersonalizzato')}</h3>
       <div class="consiglio-row"><span class="ico-big">🌊</span><div class="testo"><div class="titolo">${t('tecnicaConsigliata')}</div><div class="valore">${analisi.tecnica}</div></div></div>
@@ -1909,12 +2043,10 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
       <div class="consiglio-row"><span class="ico-big">🐛</span><div class="testo"><div class="titolo">${t('escheConsLabel')}</div><div class="valore">${analisi.esche}</div></div></div>
       ${analisi.avviso ? `<div class="consiglio-row"><span class="ico-big">⚠️</span><div class="testo"><div class="titolo">${t('attenzioneLabel')}</div><div class="valore">${analisi.avviso}</div></div></div>` : ""}
     </div>
-
     <div class="mappa-card">
       <div class="mappa-header"><span>${t('posizioneSpot')}</span><button onclick="aggiungiSpot()">${t('salvaSpotBtn')}</button></div>
       <div id="prevMap"></div>
     </div>
-
     <h3 style="margin:15px 0 6px;font-size:15px;opacity:0.7;">${t('mieiSpot')} (${miei_spots.length})</h3>
     <div class="spot-io-row">
       <button class="btn-esporta" onclick="esportaSpot()">${t('esportaJson')}</button>
@@ -1922,7 +2054,6 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
       <input type="file" id="importInput" accept=".json" style="display:none" onchange="importaSpot(event)">
     </div>
     <div class="spot-list" id="spotList">${renderSpotList(miei_spots)}</div>
-
     <div style="margin:20px 0 10px;">
       <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
         ${testobottone}
@@ -1930,39 +2061,30 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%;">${t('aggiornaPrevisioni')}</button><br>
   `;
-  
   setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
 }
-
 function cambiaNazioneHome(nazione) {
   nazioneAttiva = nazione;
   showPrevisioni(); 
 }
-
-
-
 /* ============================================================
    SISTEMA DI RICERCA SPOT UNIFICATO (ITALIA / TUNISIA)
    ============================================================ */
 let nazioneAttiva = "it"; // All'avvio la mappa mostrerà l'Italia
-
 function showCercaSpot() {
   const isItalia = nazioneAttiva === "it";
-  
   // 1. Prepariamo l'header con i pulsanti di switch Italia / Tunisia
   let headerHTML = `
     <div class="spot-italia-header" style="text-align:center; padding: 10px 0;">
       <h3>🗺️ ${t('meteo')}</h3>
       <p style="margin:5px 0 12px; opacity:0.8;">${t('selezionaNazione')}</p>
-      
-       <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px;">
+ <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px;">
  <button onclick="cambiaNazioneEsplorazione('it')" style="padding: 10px 16px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇮🇹 ${t('italia')}</button>
  <button onclick="cambiaNazioneEsplorazione('fr')" style="padding: 10px 16px; background: ${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇫🇷 ${linguaAttuale === 'fr' ? 'France' : 'Francia'}</button>
  <button onclick="cambiaNazioneEsplorazione('tn')" style="padding: 10px 16px; background: ${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇹🇳 ${t('tunisia')}</button>
  </div>
     </div>
   `;
-
   // 2. Se l'utente ha selezionato l'Italia, aggiungiamo i menu a tendina dei filtri regionali
   if (isItalia) {
     headerHTML += `
@@ -1987,7 +2109,6 @@ function showCercaSpot() {
       </div>
     `;
   }
-
   // 3. Stampiamo tutto il layout finale nella pagina HTML
   document.getElementById("content").innerHTML = `
     ${headerHTML}
@@ -2002,23 +2123,19 @@ function showCercaSpot() {
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">⬅️ ${t('tornaHome')}</button>
   `;
-  
   initMappaEsplorazioneNuova();
 }
-
 // ⚠️ QUESTA FUNZIONE MANCAVA E AGGIUSTA IL CAMBIO NAZIONE
 function cambiaNazioneEsplorazione(nazione) {
   nazioneAttiva = nazione;
   showCercaSpot(); // Rerenderizza l'interfaccia aggiornando la mappa
 }
-
 function initMappaEsplorazioneNuova() {
   // 1. Configurazione dinamica delle coordinate, zoom e array dati per le 3 nazioni
   let centroMappa = [42.0, 12.5]; // Italia di default
   let zoomIniziale = 6;
   let listaSpot = spotsItalia || [];
   let nomeNazione = "Italia";
-
   if (nazioneAttiva === "fr") {
     centroMappa = [46.5, 2.0]; // Centra sulla Francia
     zoomIniziale = 5.5;        // Zoom adatto a coprire coste atlantiche e mediterranee
@@ -2030,10 +2147,8 @@ function initMappaEsplorazioneNuova() {
     listaSpot = spotsTunisiaData || [];
     nomeNazione = "Tunisia";
   }
-  
-  // Aggiorna il testo del badge nel pannello laterale
+   // Aggiorna il testo del badge nel pannello laterale
   document.getElementById("nomeNazioneBadge").textContent = nomeNazione;
-
   // RESET DI LEAFLET: Rimuove la mappa precedente se già istanziata per evitare conflitti di ID
   if (spotItaliaMap !== null) {
     try {
@@ -2043,36 +2158,28 @@ function initMappaEsplorazioneNuova() {
     }
     spotItaliaMap = null;
   }
-  
   // Resetta l'array globale dei marcatori
   spotItaliaMarkers = [];
-
   // Crea la nuova istanza Leaflet centrata sulla nazione corretta
   spotItaliaMap = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(spotItaliaMap);
-
-
   const panelBody = document.getElementById("listaSpotEsplorazione");
   if (!panelBody) return;
   panelBody.innerHTML = "";
-
   if (listaSpot.length === 0) {
     panelBody.innerHTML = `<div class="spot-panel-placeholder" style="text-align:center; padding:20px; opacity:0.6;"><p>Caricamento spot in corso... / Nessun dato</p></div>`;
     return;
   }
-
   listaSpot.forEach((spot, index) => {
  const spotLat = spot.coords ? spot.coords[0] : spot.lat;
  const spotLon = spot.coords ? spot.coords[1] : spot.lon;
  const marker = L.marker([spotLat, spotLon]).addTo(spotItaliaMap);
  spotItaliaMarkers.push(marker);
- 
  const sNome = spot.name || spot.nome || "Spot";
  const sDesc = spot.description || spot.desc || "";
  const sTech = spot.technique || spot.technique || "Surfcasting / Spinning";
-
  marker.bindPopup(`
  <div style="font-family: sans-serif; min-width: 210px; padding: 2px;">
  <h4 style="margin: 0 0 6px 0; color: #0a2a43; font-size: 14px; border-bottom: 1px solid #ddd; padding-bottom: 4px;"> 🐟 ${sNome}</h4>
@@ -2094,20 +2201,15 @@ function initMappaEsplorazioneNuova() {
  <div class="si-sub">Target: ${spot.target}</div>
  </div>
  `;
-
-    
-    item.onclick = () => {
+ item.onclick = () => {
       spotItaliaMap.setView([spotLat, spotLon], 11);
       marker.openPopup();
       document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
       item.classList.add("active");
     };
-
     panelBody.appendChild(item);
   });
 }
-
-
 function calcolaConsiglioCompleto(ondaM,ventoKmh,ora,wCode){
   const ventoNodi=ventoKmh*0.539957,h=ora.getHours(),mese=ora.getMonth()+1;
   const isAlba=h>=5&&h<=8,isMattina=h>=8&&h<=12,isTramonto=h>=17&&h<=20,isNotte=h>=21||h<=4;
@@ -2179,7 +2281,6 @@ function initMappaPrevisioni(lat,lon,miei_spots){
     L.marker([s.lat,s.lon],{icon:ico}).addTo(prevMap).bindPopup(`<b>📌 ${s.nome}</b><br>${s.specie||""}<br><small>${s.data}</small>`);
   });
 }
-
 /* Spot personali localStorage */
 function caricaSpot(){try{return JSON.parse(localStorage.getItem("pescaSpot")||"[]");}catch(e){return[];}}
 function salvaSpot(spots){localStorage.setItem("pescaSpot",JSON.stringify(spots));}
@@ -2256,7 +2357,6 @@ function importaSpot(event) {
   event.target.value = "";
 }
 </script>
-
 <script>
 /* === SPOT ITALIA — MODIFICA 1 (mappa vuota) + MODIFICA 2 (salva spot) === */
 let spotsItalia = [];
@@ -2276,7 +2376,6 @@ function initSpotItaliaMap(){
   }
   /* Nessun marker all'avvio */
 }
-
 function aggiornaMappaSpotItalia(lista){
   spotItaliaMarkers.forEach(m=>spotItaliaMap.removeLayer(m));
   spotItaliaMarkers=[];
@@ -2287,7 +2386,6 @@ function aggiornaMappaSpotItalia(lista){
     spotItaliaMarkers.push(m);
   });
 }
-
 function applicaFiltriSpot(){
   const reg=document.getElementById("filtroReg")?.value||"all";
   const tech=document.getElementById("filtroTech")?.value||"all";
@@ -2306,7 +2404,6 @@ function applicaFiltriSpot(){
     }
   }
 }
-
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
@@ -2340,7 +2437,6 @@ function mostraPannelloLista(lista,titolo){
   }
 }
 function chiudiModaleListaMobile(e){if(!e||e.target.classList.contains("modal-spot-overlay"))document.getElementById("spotModalLista")?.remove();}
-
 function onSpotSelezionato(spot){
   spotAttivo=spot;
   if(spotItaliaMap){
@@ -2358,7 +2454,6 @@ function onSpotSelezionato(spot){
   document.querySelectorAll(".spot-italia-item").forEach(el=>el.classList.remove("active"));
   document.querySelectorAll(".spot-italia-item").forEach(el=>{if(el.querySelector(".si-nome")?.textContent===spot.name)el.classList.add("active");});
 }
-
 /* MODIFICA 2: btn salva spot nel dettaglio */
 function mostraDettaglioPannello(spot){
   const header=document.getElementById("spotPanelHeader"),body=document.getElementById("spotPanelBody");
@@ -2387,7 +2482,6 @@ function mostraDettaglioPannello(spot){
   /* Aggiorna label se già salvato */
   aggiornaLabelSalva(idx);
 }
-
 /* MODIFICA 2: salva spot Italia in localStorage */
 function salvaSpotItalia(idx){
   const spot=spotsItalia[idx];
@@ -2410,7 +2504,6 @@ function salvaSpotItalia(idx){
   aggiornaLabelSalva(idx);
   alert("✅ Spot salvato! Trovi tutti i tuoi spot nella sezione Meteo.");
 }
-
 function aggiornaLabelSalva(idx){
   const btn=document.getElementById("btnSalvaItalia"+idx); if(!btn)return;
   const spot=spotsItalia[idx];
@@ -2418,7 +2511,6 @@ function aggiornaLabelSalva(idx){
   const giaSalvato=spots.find(s=>s.fonte==="italia"&&s.nome===spot.name);
   if(giaSalvato){btn.textContent="✅ Già salvato";btn.style.opacity="0.6";btn.style.cursor="default";}
 }
-
 function tornaListaRegione(reg){
   const lista=spotsItalia.filter(s=>s.reg===reg);
   mostraPannelloLista(lista,reg);
@@ -2429,11 +2521,9 @@ function tornaListaRegione(reg){
   if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
 }
 </script>
-
 <!-- ============================================================
      BLOCCO CSS — QUANDO PESCARE (Solunar + Maree + Luna)
      ============================================================ -->
-
 <style>
 /* Hero quando pescare */
 .qp-hero {
@@ -2450,7 +2540,6 @@ function tornaListaRegione(reg){
 .qp-rating-bar { display:flex; gap:6px; align-items:center; justify-content:center; margin:12px 0 0; }
 .qp-rating-bar .stelle { font-size:22px; letter-spacing:2px; }
 .qp-rating-bar .label  { font-size:14px; font-weight:700; }
-
 /* Card solunar momenti */
 .qp-card {
   background: white; border-radius: 20px; padding: 18px;
@@ -2480,7 +2569,6 @@ body.dark .sol-fascia.minor { background:linear-gradient(135deg,#0c4a6e,#075985)
 .sol-fascia .sf-ora   { font-size:20px; font-weight:900; }
 .sol-fascia .sf-dur   { font-size:11px; opacity:0.65; margin-top:2px; }
 .sol-fascia .sf-ico   { font-size:22px; display:block; margin-bottom:4px; }
-
 /* Maree */
 .marea-row {
   display:flex; align-items:center; gap:12px;
@@ -2493,7 +2581,6 @@ body.dark .sol-fascia.minor { background:linear-gradient(135deg,#0c4a6e,#075985)
 .marea-ora  { font-size:13px; opacity:0.65; }
 .marea-h    { font-size:13px; font-weight:700; color:#0077b6; }
 body.dark .marea-h { color:#38bdf8; }
-
 /* Giorni scroll solunar */
 .qp-giorni-scroll { display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; margin-bottom:14px; scrollbar-width:none; }
 .qp-giorni-scroll::-webkit-scrollbar { display:none; }
@@ -2508,13 +2595,11 @@ body.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
 .qp-giorno-card .qgc-fase  { font-size:10px; opacity:0.6; margin-bottom:4px; }
 .qp-giorno-card .qgc-rate  { font-size:13px; }
 .qp-giorno-card .qgc-major { font-size:11px; opacity:0.75; margin-top:3px; }
-
 /* Loader */
 .qp-loader { text-align:center; padding:60px 20px; }
 .qp-loader .spinner { font-size:48px; animation:floatLogo 1.5s ease-in-out infinite; display:block; margin-bottom:16px; }
 .qp-loader p { opacity:0.6; font-size:14px; }
 </style>
-
 <!-- ============================================================
      BLOCCO JS — QUANDO PESCARE (Solunar + Maree + Luna)
      ============================================================ -->
@@ -2527,7 +2612,6 @@ function showQuandoPescare() {
       <span class="spinner">🌙</span>
       <p>${t('calcoloCondizioni')}</p>
     </div>`;
-
   if (!navigator.geolocation) {
     renderQuandoPescare(41.9, 12.5); return;
   }
@@ -2539,7 +2623,6 @@ function showQuandoPescare() {
     { enableHighAccuracy: true, timeout: 8000 }
   );
 }
-
 async function renderQuandoPescare(lat, lon) {
   const ora = new Date();
   let mareeOggi = [];
@@ -2550,15 +2633,12 @@ async function renderQuandoPescare(lat, lon) {
   } catch(e) { 
     mareeOggi = []; 
   }
-
   const lunaInfo   = calcolaFaseLuna(ora);
   const solunar    = calcolaSolunar(lat, lon, ora);
   const giorniHTML = generaGiorniSolunar(lat, lon, ora);
   const ratingGiorno = calcolaRatingSolunar(lunaInfo.illuminazione, ora);
-
   const localeStr = linguaAttuale === "fr" ? "fr-FR" : "it-IT";
   const ratingLabels = linguaAttuale === "fr" ? ["","Faible","Basse","Correcte","Bonne","Excellente"] : ["","Scarsa","Bassa","Discreta","Buona","Ottima"];
-
   document.getElementById("content").innerHTML = `
     <div class="qp-hero">
       <h2>${t('quandoPescareOggi')}</h2>
@@ -2571,10 +2651,8 @@ async function renderQuandoPescare(lat, lon) {
         <span class="label">${ratingLabels[ratingGiorno]} ${t('perPescare')}</span>
       </div>
     </div>
-
     <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">${t('prossimiGiorni')}</h3>
     <div class="qp-giorni-scroll">${giorniHTML}</div>
-
     <div class="qp-card">
       <h3>${t('momentiMigliori')}</h3>
       <div class="sol-fasce">
@@ -2590,7 +2668,6 @@ async function renderQuandoPescare(lat, lon) {
         ${t('majorMinorInfo')}
       </p>
     </div>
-
     <div class="qp-card">
       <h3>${t('mareeOggi')}</h3>
       ${mareeOggi.length > 0 ? mareeOggi.map(m=>`
@@ -2607,12 +2684,10 @@ async function renderQuandoPescare(lat, lon) {
           <small>${t('mareeSoloMareAperto')}</small>
         </p>`}
     </div>
-
     <div class="qp-card">
       <h3>${t('consiglioGiorno')}</h3>
       ${generaConsiglioPesca(lunaInfo, solunar, ora)}
     </div>
-
     <button onclick="goTo(showQuandoPescare)" style="width:100%;">${t('aggiornaBtn')}</button><br>`;
 }
 /* ── CALCOLO FASE LUNA ── */
@@ -2623,7 +2698,6 @@ function calcolaFaseLuna(data) {
   const etaLuna     = ((diffGiorni % ciclo) + ciclo) % ciclo;
   const illuminazione = Math.round(50 * (1 - Math.cos(2 * Math.PI * etaLuna / ciclo)));
   const isFr = linguaAttuale === "fr";
-
   let fase, icona;
   if      (etaLuna < 1.85)  { fase=isFr?"Nouvelle Lune":"Luna Nuova";        icona="🌑"; }
   else if (etaLuna < 7.38)  { fase=isFr?"Premier Croissant":"Quarto Crescente";  icona="🌒"; }
@@ -2634,42 +2708,33 @@ function calcolaFaseLuna(data) {
   else if (etaLuna < 23.99) { fase=isFr?"Dernier Quartier":"Ultimo Quarto";     icona="🌗"; }
   else if (etaLuna < 29.53) { fase=isFr?"Dernier Croissant":"Quarto Calante";    icona="🌘"; }
   else                       { fase=isFr?"Nouvelle Lune":"Luna Nuova";       icona="🌑"; }
-
   return { fase, icona, illuminazione, etaLuna };
 }
-
 /* ── CALCOLO SOLUNAR ── */
 function calcolaSolunar(lat, lon, data) {
   const JD = dataToJD(data);
   const risultati = [];
-
   /* Transiti lunari: luna al meridiano e anti-meridiano */
   const trasitoPrincipale = calcolaTransitoLuna(JD, lon);
   const trasitoOposto = (trasitoPrincipale + 12 * 3600000) % 86400000;
-
   /* Alba e tramonto luna (minor periods) */
   const albeLuna = calcolaAlbaTramonto(JD, lat, lon, "luna");
-
   const fasce = [
     { ms: trasitoPrincipale,   tipo:"major", ico:"🌕" },
     { ms: trasitoOposto,       tipo:"major", ico:"🌑" },
     { ms: albeLuna.alba,       tipo:"minor", ico:"🌙" },
     { ms: albeLuna.tramonto,   tipo:"minor", ico:"🌛" },
   ];
-
   fasce.sort((a,b) => a.ms - b.ms);
-
   return fasce.map(f => ({
     tipo: f.tipo,
     ico:  f.ico,
     ora:  msToOra(f.ms)
   }));
 }
-
 function dataToJD(data) {
   return data.getTime() / 86400000 + 2440587.5;
 }
-
 function calcolaTransitoLuna(JD, lon) {
   /* Anomalia media della luna */
   const T  = (JD - 2451545.0) / 36525;
@@ -2682,7 +2747,6 @@ function calcolaTransitoLuna(JD, lon) {
   const oraDecimale = (raLuna / 15 - lon / 15 + 24) % 24;
   return Math.round(oraDecimale * 3600000);
 }
-
 function calcolaAlbaTramonto(JD, lat, lon, corpo) {
   /* Approssimazione alba/tramonto luna */
   const T = (JD - 2451545.0) / 36525;
@@ -2701,14 +2765,12 @@ function calcolaAlbaTramonto(JD, lat, lon, corpo) {
     tramonto: Math.round(tramonto * 3600000)
   };
 }
-
 function msToOra(ms) {
   const tot = ((ms % 86400000) + 86400000) % 86400000;
   const h   = Math.floor(tot / 3600000);
   const m   = Math.floor((tot % 3600000) / 60000);
   return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`;
 }
-
 /* ── RATING SOLUNAR GIORNALIERO ── */
 function calcolaRatingSolunar(illuminazione, data) {
   let r = 3;
@@ -2719,7 +2781,6 @@ function calcolaRatingSolunar(illuminazione, data) {
   const g = data.getDay();
   return Math.min(5, r);
 }
-
 /* ── MAREE DA HOURLY ── */
 function calcolaMareeDaHourly(valori, tempi) {
   if (!valori || valori.length === 0) return [];
@@ -2740,7 +2801,6 @@ function calcolaMareeDaHourly(valori, tempi) {
   }
   return maree.slice(0, 4);
 }
-
 /* ── GIORNI SOLUNAR SCROLL ── */
 function generaGiorniSolunar(lat, lon, ora) {
   const giorniIt = ["Dom","Lun","Mar","Mer","Gio","Ven","Sab"];
@@ -2766,7 +2826,6 @@ function generaGiorniSolunar(lat, lon, ora) {
   }
   return html;
 }
-
 /* ── CONSIGLIO TESTO ── */
 function generaConsiglioPesca(luna, solunar, ora) {
   const h = ora.getHours();
@@ -2776,16 +2835,13 @@ function generaConsiglioPesca(luna, solunar, ora) {
     const [hh,mm] = s.ora.split(":").map(Number);
     return (hh * 60 + mm) > (h * 60 + ora.getMinutes());
   });
-
   let consiglio = "";
   const ill = luna.illuminazione;
-
   if (isFr) {
     if (ill > 85)       consiglio += "<b>🌕 Pleine Lune</b> — période dorée pour la pêche. Les poissons sont actifs toute la journée, surtout la nuit. Idéal pour bars et sars. ";
     else if (ill < 10)  consiglio += "<b>🌑 Nouvelle Lune</b> — excellent pour la pêche diurne. Les eaux sombres la nuit rendent les appâts plus visibles. Parfait pour la pêche au fond. ";
     else if (ill > 60)  consiglio += "<b>🌔 Lune croissante</b> — bonnes conditions. Les poissons ont tendance à s'alimenter davantage. ";
     else                consiglio += "<b>🌘 Lune décroissante</b> — conditions moyennes. Concentrez-vous sur les périodes major. ";
-
     if (prossimo) {
       consiglio += `Le prochain moment <b>${prossimo.tipo === "major" ? "⭐ MAJOR" : "● minor"}</b> est à <b>${prossimo.ora}</b>. `;
       if (prossimo.tipo === "major") consiglio += "Préparez-vous à l'avance et gardez la canne en main !";
@@ -2798,7 +2854,6 @@ function generaConsiglioPesca(luna, solunar, ora) {
     else if (ill < 10)  consiglio += "<b>🌑 Luna Nuova</b> — eccellente per la pesca diurna. Le acque scure di notte rendono le esche più visibili. Ottimo per pesca a fondo. ";
     else if (ill > 60)  consiglio += "<b>🌔 Luna in crescita</b> — buone condizioni. I pesci tendono ad alimentarsi di più. ";
     else                consiglio += "<b>🌘 Luna calante</b> — condizioni nella media. Concentrati sui periodi major. ";
-
     if (prossimo) {
       consiglio += `Il prossimo momento <b>${prossimo.tipo === "major" ? "⭐ MAJOR" : "● minor"}</b> è alle <b>${prossimo.ora}</b>. `;
       if (prossimo.tipo === "major") consiglio += "Preparati con anticipo e tieni la canna in mano!";
@@ -2807,11 +2862,9 @@ function generaConsiglioPesca(luna, solunar, ora) {
       consiglio += "I momenti migliori per oggi sono già passati. Pianifica l'uscita di domani!";
     }
   }
-
   return `<p style="font-size:13px;line-height:1.8;margin:0;">${consiglio}</p>`;
 }
 </script>
-
 <script>
 /* === AVVIO === */
 async function avviaApp() {
@@ -2819,15 +2872,13 @@ async function avviaApp() {
   const fileNodi = linguaSalvata === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
   const fileMontature = linguaSalvata === "fr" ? "./data/montature.fr.json" : "./data/montature.json";
   const fileSpecie = linguaSalvata === "fr" ? "./data/specie.fr.json" : "./data/specie.json";
-  
-  try {
+   try {
     const [resNodi, resMontature, resSpecie, resSpot] = await Promise.all([
       fetch(fileNodi).catch(() => null),
       fetch(fileMontature).catch(() => null),
       fetch(fileSpecie).catch(() => null),
       fetch("./data/spot-italia.json").catch(() => null)
     ]);
-
     if (resNodi && resNodi.ok) nodiData = await resNodi.json();
     if (resMontature && resMontature.ok) montatureData = await resMontature.json();
     if (resSpecie && resSpecie.ok) specie = await resSpecie.json();
@@ -2835,13 +2886,11 @@ async function avviaApp() {
   } catch(e) {
     console.error("Errore caricamento dati locali:", e);
   }
-  
   // Esegue le funzioni di configurazione iniziale dello stato
   caricaTema();
   caricaLingua();
   showHome();
 }
-
 // Dichiarazione della funzione che mancava e causava il blocco in console
 function caricaTema() {
   try {
@@ -2852,10 +2901,8 @@ function caricaTema() {
     console.log("Impossibile caricare le preferenze del tema, uso default light");
   }
 }
-
 // Inizializzazione ufficiale del ciclo di vita dell'applicazione
 avviaApp();
-
 // Gestione temporizzata della scomparsa dello Splash Screen grafico
 window.addEventListener("load", function() {
   setTimeout(function() {
@@ -2864,7 +2911,6 @@ window.addEventListener("load", function() {
   }, 3500);
 });
 </script>
-
 <script>
 // Registrazione del Service Worker per il supporto offline (PWA)
 if ("serviceWorker" in navigator) {
@@ -2875,7 +2921,6 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-
 </body>
 </html>
 
