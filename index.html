@@ -432,7 +432,7 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   </video>
   <div style="position:absolute; bottom:80px; left:0; width:100%; text-align:center;">
     <h2 style="margin:0 0 4px;font-size:22px;">AdelTechnic-FISH</h2>
-    <p style="opacity:0.6;font-size:14px;margin:0;">La tua guida alla pesca in mare</p>
+    <p id="splashSubtitle" style="opacity:0.6;font-size:14px;margin:0;">La tua guida alla pesca in mare</p>
   </div>
 </div>
 <header>
@@ -589,6 +589,65 @@ const traduzioni = {
 selezionaNazione: "Scegli la Nazione dei Pascoli:",
 italia: "🇮🇹 Italia",
 tunisia: "🇹🇳 Tunisia",
+/* === NUOVE CHIAVI IT === */
+    metaPesca: "La tua guida alla pesca in mare",
+    temaChiaro: "Tema Chiaro",
+    temaScuro: "Tema Scuro",
+    uscitaConferma: "Vuoi uscire dall'app?\n\nSe non si chiude automaticamente, chiudi la scheda del browser manualmente.",
+    chiusuraBloccata: "Il browser non ha permesso la chiusura automatica.\nChiudi manualmente questa scheda.",
+    gpsNonDisponibile: "📍 GPS non disponibile. Previsioni basate sulla Capitale.",
+    sereno: "Sereno",
+    pocoNuvole: "Poco nuv.",
+    coperto: "Coperto",
+    nebbia: "Nebbia",
+    pioggerella: "Pioggerella",
+    pioggia: "Pioggia",
+    neve: "Neve",
+    rovesci: "Rovesci",
+    temporale: "Temporale",
+    tuttaItalia: "🗺️ Tutta Italia",
+    ogniTecnica: "🎣 Ogni tecnica",
+    bologneseFondo: "Bolognese/Fondo",
+    carica: "Carica →",
+    spotCaricamento: "Caricamento spot in corso... / Nessun dato",
+    visibili: "visibili",
+    nessunSpotTrovato: "Nessuno spot trovato.",
+    usaFiltri: "Usa i filtri e premi <strong>Carica →</strong> per vedere gli spot, oppure tocca un marker 🎣",
+    risultatiFiltro: "Risultati filtro",
+    tecnicaCampo: "🎣 Tecnica",
+    ottieniIndicazioni: "🧭 Ottieni indicazioni →",
+    salvaNeiMieiSpot: "📌 Salva nei miei spot",
+    tuttiGliSpotDi: "← Tutti gli spot di",
+    spotGiaSalvato: "Spot già salvato nei tuoi spot! Puoi trovarlo nella sezione Meteo.",
+    spotSalvatoOk: "✅ Spot salvato! Trovi tutti i tuoi spot nella sezione Meteo.",
+    posizioneNonDisponibile: "Posizione non disponibile.",
+    salvaQuestoSpot: "📌 Salva questo spot",
+    nomeSpotPh: "Nome spot (es. Scoglio grande)",
+    specieCatturatePh: "Specie catturate (es. Orata, Sarago)",
+    montaturaUsata: "Montatura usata",
+    noteLiberePh: "Note libere (profondità, ora…)",
+    annulla: "Annulla",
+    spotSenzaNome: "Spot senza nome",
+    chiudi: "Chiudi",
+    nessunElemento: "Nessun elemento disponibile",
+    pesoLabel: "Peso:",
+    specieConsigliateLabelHard: "🐟 Specie consigliate",
+    nessunoSpotEsportare: "Nessuno spot da esportare.",
+    fileNonValido: "File non valido.",
+    regLiguria: "Liguria",
+    regToscana: "Toscana",
+    regLazio: "Lazio",
+    regCampania: "Campania",
+    regCalabria: "Calabria",
+    regPuglia: "Puglia",
+    regBasilicata: "Basilicata",
+    regAbruzzoMolise: "Abruzzo / Molise",
+    regMarche: "Marche",
+    regEmiliaRomagna: "Emilia Romagna",
+    regVeneto: "Veneto",
+    regFriuliVG: "Friuli V.G.",
+    regSardegna: "Sardegna",
+    regSicilia: "Sicilia",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -688,6 +747,65 @@ tunisia: "🇹🇳 Tunisia",
 selezionaNazione: "Choisir le Pays de Pêche :",
 italia: "🇮🇹 Italie",
 tunisia: "🇹🇳 Tunisie",
+/* === NOUVELLES CLÉS FR === */
+    metaPesca: "Votre guide de la pêche en mer",
+    temaChiaro: "Thème Clair",
+    temaScuro: "Thème Sombre",
+    uscitaConferma: "Voulez-vous quitter l'application ?\n\nSi elle ne se ferme pas automatiquement, fermez l'onglet du navigateur manuellement.",
+    chiusuraBloccata: "Le navigateur n'a pas permis la fermeture automatique.\nFermez cet onglet manuellement.",
+    gpsNonDisponibile: "📍 GPS indisponible. Prévisions basées sur la Capitale.",
+    sereno: "Dégagé",
+    pocoNuvole: "Peu nuageux",
+    coperto: "Couvert",
+    nebbia: "Brouillard",
+    pioggerella: "Bruine",
+    pioggia: "Pluie",
+    neve: "Neige",
+    rovesci: "Averses",
+    temporale: "Orage",
+    tuttaItalia: "🗺️ Toute l'Italie",
+    ogniTecnica: "🎣 Toutes les techniques",
+    bologneseFondo: "Bolognese/Fond",
+    carica: "Charger →",
+    spotCaricamento: "Chargement des spots en cours... / Aucune donnée",
+    visibili: "visibles",
+    nessunSpotTrovato: "Aucun spot trouvé.",
+    usaFiltri: "Utilisez les filtres puis <strong>Charger →</strong> pour voir les spots, ou touchez un marqueur 🎣",
+    risultatiFiltro: "Résultats du filtre",
+    tecnicaCampo: "🎣 Technique",
+    ottieniIndicazioni: "🧭 Obtenir l'itinéraire →",
+    salvaNeiMieiSpot: "📌 Sauvegarder dans mes spots",
+    tuttiGliSpotDi: "← Tous les spots de",
+    spotGiaSalvato: "Spot déjà sauvegardé ! Retrouvez-le dans la section Météo.",
+    spotSalvatoOk: "✅ Spot sauvegardé ! Retrouvez tous vos spots dans la section Météo.",
+    posizioneNonDisponibile: "Position non disponible.",
+    salvaQuestoSpot: "📌 Sauvegarder ce spot",
+    nomeSpotPh: "Nom du spot (ex. Grande rocher)",
+    specieCatturatePh: "Espèces capturées (ex. Dorade, Sar)",
+    montaturaUsata: "Montage utilisé",
+    noteLiberePh: "Notes libres (profondeur, heure…)",
+    annulla: "Annuler",
+    spotSenzaNome: "Spot sans nom",
+    chiudi: "Fermer",
+    nessunElemento: "Aucun élément disponible",
+    pesoLabel: "Poids :",
+    specieConsigliateLabelHard: "🐟 Espèces recommandées",
+    nessunoSpotEsportare: "Aucun spot à exporter.",
+    fileNonValido: "Fichier non valide.",
+    regLiguria: "Ligurie",
+    regToscana: "Toscane",
+    regLazio: "Latium",
+    regCampania: "Campanie",
+    regCalabria: "Calabre",
+    regPuglia: "Pouilles",
+    regBasilicata: "Basilicate",
+    regAbruzzoMolise: "Abruzzes / Molise",
+    regMarche: "Marches",
+    regEmiliaRomagna: "Émilie-Romagne",
+    regVeneto: "Vénétie",
+    regFriuliVG: "Frioul-Vénétie Julienne",
+    regSardegna: "Sardaigne",
+    regSicilia: "Sicile",
   }
 };
 
@@ -712,6 +830,10 @@ async function cambiaLingua(lingua) {
   showHome();
 }
 function caricaLingua() {
+  const splashSub = document.getElementById("splashSubtitle");
+  if (splashSub) splashSub.textContent = t('metaPesca');
+  const splashSub = document.getElementById("splashSubtitle");
+  if (splashSub) splashSub.textContent = t('metaPesca');
   const salvata = localStorage.getItem("lingua");
   if (salvata) linguaAttuale = salvata;
   document.getElementById("btnLangIt").style.opacity = linguaAttuale === "it" ? "1" : "0.4";
@@ -2732,4 +2854,5 @@ if ("serviceWorker" in navigator) {
 
 </body>
 </html>
+
 
