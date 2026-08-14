@@ -1684,21 +1684,24 @@ function showPrevisioni() {
 }
 async function caricaPrevisioni(lat, lon, usaFallback = false) {
   try {
-    // URL scritti per intero per evitare che JavaScript mescoli i link vecchi con quelli nuovi
-    var urlMarine = "https://marine-api.open-meteo.com/v1/marine?latitude=" + lat + "&longitude=" + lon + "&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4";
+    // Generazione sicura degli URL di rete Open-Meteo
+    var urlMarine = "https://open-meteo.com" + lat + "&longitude=" + lon + "&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4";
     var urlMeteo = "https://open-meteo.com" + lat + "&longitude=" + lon + "&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4";
 
-    var responses = await Promise.all([
+    // Esecuzione delle chiamate internet in parallelo
+    var risposteServer = await Promise.all([
       fetch(urlMarine),
       fetch(urlMeteo)
     ]);
     
-    var marineData = await responses[0].json();
-    var meteoData = await responses[1].json();
+    // Estrazione corretta dei singoli flussi JSON di dati
+    var marineData = await risposteServer[0].json();
+    var meteoData = await risposteServer[1].json();
     
+    // Avvia la renderizzazione grafica della Home Page
     renderPrevisioni(lat, lon, marineData, meteoData, usaFallback);
   } catch(error) {
-    console.error("DEBUG ESPERTO - Errore definitivo caricamento:", error);
+    console.error("DIAGNOSTICA ESPERTO - Errore durante il caricamento meteo:", error);
     
     var isFR = (typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr');
     var txtTitle = isFR ? "Connexion perdue" : "Connessione Persa";
@@ -1716,7 +1719,6 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
       </div>`;
   }
 }
-
 
 function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
   var ora = new Date();
@@ -1739,10 +1741,17 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
     : "";
 
   var testobottone = t('cercaSpotItalia');
-  if (nazioneAttiva === "fr") { testobottone = "🔍 Explorer les Spots France"; }
-  if (nazioneAttiva === "tn") { testobottone = "🔍 Explorer les Spots Tunisie"; }
+  if (nazioneAttiva === "fr") { testobottone = linguaAttuale === "fr" ? "🔍 Explorer les Spots France" : "🔍 Esplora Spot Francia"; }
+  if (nazioneAttiva === "tn") { testobottone = linguaAttuale === "fr" ? "🔍 Explorer les Spots Tunisie" : "🔍 Esplora Spot Tunisia"; }
+
+  // Calcolo sicuro dell'orario dell'alba per evitare blocchi sintattici
+  var oraAlba = "--:--";
+  if (meteo && meteo.daily && meteo.daily.sunrise && meteo.daily.sunrise[0]) {
+    oraAlba = formatOra(meteo.daily.sunrise[0]);
+  }
 
   document.getElementById("content").innerHTML = `
+    <!-- Barra Superiore di Selezione Paese -->
     <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; padding: 5px 0;">
       <button onclick="cambiaNazioneHome('it')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
         🇮🇹 ${t('italia') || 'Italia'}
@@ -1767,7 +1776,7 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
         <div class="meteo-cell"><span class="ico">🌡️</span><span class="val">${tempC}°C</span><span class="lbl">${t('temperaturaLabel')}</span></div>
         <div class="meteo-cell"><span class="ico">⏱️</span><span class="val">${ondaP.toFixed(0)} s</span><span class="lbl">${t('periodoOndaLabel')}</span></div>
         <div class="meteo-cell"><span class="ico">${iconaMeteo(wCode)}</span><span class="val">${descrizioneMeteo(wCode)}</span><span class="lbl">${t('cieloLabel')}</span></div>
-        <div class="meteo-cell"><span class="ico">🌅</span><span class="val">${formatOra(meteo.daily?.sunrise?.[0])}</span><span class="lbl">${t('albaLabel')}</span></div>
+        <div class="meteo-cell"><span class="ico">🌅</span><span class="val">${oraAlba}</span><span class="lbl">${t('albaLabel')}</span></div>
       </div>
     </div>
 
@@ -1812,6 +1821,7 @@ function cambiaNazioneHome(nazione) {
   nazioneAttiva = nazione;
   showPrevisioni(); 
 }
+
 
 
 /* ============================================================
