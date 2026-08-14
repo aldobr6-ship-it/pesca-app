@@ -1684,17 +1684,28 @@ function showPrevisioni() {
 }
 async function caricaPrevisioni(lat, lon, usaFallback = false) {
   try {
+    // 1. Chiamata internet sicura alle API Open-Meteo
+    const urlMarine = `https://open-meteo.com{lat}&longitude=${lon}&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4`;
+    const urlMeteo = `https://open-meteo.com{lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4`;
+
     const [marineRes, meteoRes] = await Promise.all([
-      fetch(`https://open-meteo.com{lat}&longitude=${lon}&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4`),
-      fetch(`https://open-meteo.com{lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4`)
+      fetch(urlMarine),
+      fetch(urlMeteo)
     ]);
     
-    renderPrevisioni(lat, lon, await marineRes.json(), await meteoRes.json(), usaFallback);
-  } catch(e) {
-    // Rileva automaticamente la lingua del tuo script
-    const isFR = (typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr');
+    // Convertiamo i dati in formato JSON leggibile
+    const marineData = await marineRes.json();
+    const meteoData = await meteoRes.json();
     
-    // Testi puliti senza codici strani
+    // Invia i dati alla funzione di renderizzazione
+    renderPrevisioni(lat, lon, marineData, meteoData, usaFallback);
+    
+  } catch(error) {
+    // 🔍 DIAGNOSTICA DA ESPERTO: Stampa l'errore reale nella console del browser (F12) per capire cosa si rompe di preciso
+    console.error("DEBUG ESPERTO - Errore rilevato durante il caricamento:", error);
+    
+    // Gestione bilingue automatica dei testi d'errore
+    const isFR = (typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr');
     const txtTitle = isFR ? "Connexion perdue" : "Connessione Persa";
     const txtDesc = isFR ? "Impossible de charger les données météo. Veuillez vérifier votre connexion Internet." : "Impossibile caricare i dati meteo. Controlla la tua connessione internet.";
     const txtBtn = isFR ? "Réessayer" : "Riprova";
@@ -1715,44 +1726,21 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       ">
         <div class="error-icon-wrap" style="
-          width: 80px; 
-          height: 80px; 
-          background: #ffe3e3; 
-          border-radius: 50%; 
-          display: flex; 
-          align-items: center; 
-          justify-content: center; 
-          margin-bottom: 20px;
+          width: 80px; height: 80px; background: #ffe3e3; border-radius: 50%; 
+          display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
         ">
           <span style="font-size: 36px;">📡</span>
         </div>
-        
-        <h3 style="margin: 0 0 10px 0; color: #1e293b; font-size: 20px; font-weight: 700;">
-          ${txtTitle}
-        </h3>
-        
-        <p style="margin: 0 0 26px 0; color: #64748b; font-size: 14px; line-height: 1.5; padding: 0 10px;">
-          ${txtDesc}
-        </p>
-        
+        <h3 style="margin: 0 0 10px 0; color: #1e293b; font-size: 20px; font-weight: 700;">${txtTitle}</h3>
+        <p style="margin: 0 0 26px 0; color: #64748b; font-size: 14px; line-height: 1.5; padding: 0 10px;">${txtDesc}</p>
         <button onclick="showPrevisioni()" style="
-          width: 100%;
-          padding: 14px; 
-          background: linear-gradient(135deg, #0077b6, #00b4d8); 
-          color: white; 
-          border: none; 
-          border-radius: 16px; 
-          font-weight: 700; 
-          font-size: 15px;
-          cursor: pointer;
-          box-shadow: 0 4px 15px rgba(0, 119, 182, 0.25);
-          transition: transform 0.2s;
-        " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-          🔄 ${txtBtn}
-        </button>
+          width: 100%; padding: 14px; background: linear-gradient(135deg, #0077b6, #00b4d8); 
+          color: white; border: none; border-radius: 16px; font-weight: 700; font-size: 15px; cursor: pointer;
+        ">🔄 ${txtBtn}</button>
       </div>`;
   }
 }
+
 
 function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
   const ora = new Date(), hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
