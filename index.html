@@ -1688,9 +1688,9 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
       fetch(`https://open-meteo.com{lat}&longitude=${lon}&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=auto&forecast_days=4`),
       fetch(`https://open-meteo.com{lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=auto&forecast_days=4`)
     ]);
- 
+    
     renderPrevisioni(lat, lon, await marineRes.json(), await meteoRes.json(), usaFallback);
-    } catch(e) {
+  } catch(e) {
     document.getElementById("content").innerHTML = `
       <div class="error-container" style="
         display: flex; 
@@ -1720,11 +1720,11 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
         </div>
         
         <h3 style="margin: 0 0 10px 0; color: #1e293b; font-size: 20px; font-weight: 700;">
-          ${t('connessionePersaTitle') || 'Connessione debole'}
+          ${t('connessionePersaTitle') || 'Connexion faible'}
         </h3>
         
         <p style="margin: 0 0 26px 0; color: #64748b; font-size: 14px; line-height: 1.5; padding: 0 10px;">
-          ${t('erroreMeteo') || 'Impossibile caricare i dati meteo in questo momento. Controlla la tua rete internet.'}
+          ${t('erroreMeteo') || 'Impossible de charger les données météo pour il momento. Veuillez vérifier la vostra connessione Internet.'}
         </p>
         
         <button onclick="showPrevisioni()" style="
@@ -1740,13 +1740,11 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
           box-shadow: 0 4px 15px rgba(0, 119, 182, 0.25);
           transition: transform 0.2s;
         " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-          🔄 ${t('riprovaBtn') || 'Riprova a caricare'}
+          🔄 ${t('riprovaBtn') || 'Réessayer le chargement'}
         </button>
       </div>`;
   }
 }
-
-
 
 function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
   const ora = new Date(), hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
