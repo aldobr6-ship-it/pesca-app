@@ -1684,7 +1684,7 @@ function showPrevisioni() {
 }
 async function caricaPrevisioni(lat, lon, usaFallback = false) {
   try {
-    // URL corretti e approvati da Open-Meteo
+    // URL corretti e completi per le chiamate API
     const urlMarine = "https://open-meteo.com" + lat + "&longitude=" + lon + "&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4";
     const urlMeteo = "https://open-meteo.com" + lat + "&longitude=" + lon + "&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4";
 
@@ -1717,7 +1717,6 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
   }
 }
 
-
 function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
   const ora = new Date(), hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
   const ondaH = marine.hourly?.wave_height?.[hIdx] ?? 0;
@@ -1731,20 +1730,17 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
   const giorniHTML = generaGiorni(marine, meteo, ora);
   const miei_spots = caricaSpot();
 
-  // Generiamo il banner di avviso temporaneo se il GPS è disattivato
   const alertGPSHTML = usaFallback 
     ? `<div style="background: #fff3cd; color: #856404; padding: 10px; border-radius: 10px; text-align: center; margin-bottom: 12px; font-size: 13px; font-weight: bold; border: 1px solid #ffeeba;">
          📍 GPS non disponibile. Previsioni basate sulla Capitale.
        </div>`
     : "";
 
-  // Testo dinamico per il pulsante di ricerca spot in fondo
   let testoBottoneCerca = t('cercaSpotItalia'); 
   if (nazioneAttiva === "fr") testoBottoneCerca = "🔍 Explorer les Spots France";
   if (nazioneAttiva === "tn") testoBottoneCerca = "🔍 Esplora Spot Tunisia";
 
   document.getElementById("content").innerHTML = `
-    <!-- Barra Selezione Nazione in cima alla Home -->
     <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; padding: 5px 0;">
       <button onclick="cambiaNazioneHome('it')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
         🇮🇹 ${t('italia') || 'Italia'}
@@ -1806,10 +1802,10 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%;">${t('aggiornaPrevisioni')}</button><br>
   `;
-   setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
+  
+  setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
 }
 
-// 🔄 Funzione di appoggio per gestire il click dei pulsanti nazione sulla Home
 function cambiaNazioneHome(nazione) {
   nazioneAttiva = nazione;
   showPrevisioni(); 
