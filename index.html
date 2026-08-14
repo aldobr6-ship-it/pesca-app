@@ -1690,14 +1690,62 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
     ]);
     
     renderPrevisioni(lat, lon, await marineRes.json(), await meteoRes.json(), usaFallback);
-  } catch(e) {
+    } catch(e) {
     document.getElementById("content").innerHTML = `
-      <div style="text-align:center; padding:20px; color:red;">
-        <p>⚠️ ${t('erroreMeteo')}</p>
-        <button onclick="showPrevisioni()" style="padding:10px 20px; background:#0077b6; color:white; border:none; border-radius:10px;">Riprova</button>
+      <div class="error-container" style="
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 40px 20px; 
+        margin: 30px auto;
+        max-width: 400px;
+        background: #ffffff; 
+        border-radius: 24px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        text-align: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      ">
+        <div class="error-icon-wrap" style="
+          width: 80px; 
+          height: 80px; 
+          background: #ffe3e3; 
+          border-radius: 50%; 
+          display: flex; 
+          align-items: center; 
+          justify-content: center; 
+          margin-bottom: 20px;
+        ">
+          <span style="font-size: 36px;">📡</span>
+        </div>
+        
+        <h3 style="margin: 0 0 10px 0; color: #1e293b; font-size: 20px; font-weight: 700;">
+          ${t('connessionePersaTitle') || 'Connessione debole'}
+        </h3>
+        
+        <p style="margin: 0 0 26px 0; color: #64748b; font-size: 14px; line-height: 1.5; padding: 0 10px;">
+          ${t('erroreMeteo') || 'Impossibile caricare i dati meteo in questo momento. Controlla la tua rete internet.'}
+        </p>
+        
+        <button onclick="showPrevisioni()" style="
+          width: 100%;
+          padding: 14px; 
+          background: linear-gradient(135deg, #0077b6, #00b4d8); 
+          color: white; 
+          border: none; 
+          border-radius: 16px; 
+          font-weight: 700; 
+          font-size: 15px;
+          cursor: pointer;
+          box-shadow: 0 4px 15px rgba(0, 119, 182, 0.25);
+          transition: transform 0.2s;
+        " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          🔄 ${t('riprovaBtn') || 'Riprova a caricare'}
+        </button>
       </div>`;
   }
 }
+
 
 
 function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
