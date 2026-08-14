@@ -1691,6 +1691,14 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
     
     renderPrevisioni(lat, lon, await marineRes.json(), await meteoRes.json(), usaFallback);
   } catch(e) {
+    // Rileva automaticamente la lingua del tuo script
+    const isFR = (typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr');
+    
+    // Testi in base alla lingua
+    const txtTitle = isFR ? "Connexion perdue" : "Connessione Persa";
+    const txtDesc = isFR ? "Impossible de charger les données météo. Veuillez vérifier votre connexion Internet." : "Impossibile caricare i dati meteo. Controlla la tua connessione internet.";
+    const txtBtn = isFR ? "Réessayer" : "Riprova";
+
     document.getElementById("content").innerHTML = `
       <div class="error-container" style="
         display: flex; 
@@ -1720,11 +1728,11 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
         </div>
         
         <h3 style="margin: 0 0 10px 0; color: #1e293b; font-size: 20px; font-weight: 700;">
-          ${t('connessionePersaTitle') || 'Connexion faible'}
+          ${txtTitle}
         </h3>
         
         <p style="margin: 0 0 26px 0; color: #64748b; font-size: 14px; line-height: 1.5; padding: 0 10px;">
-          ${t('erroreMeteo') || 'Impossible de charger les données météo pour il momento. Veuillez vérifier la vostra connessione Internet.'}
+          ${txtDesc}
         </p>
         
         <button onclick="showPrevisioni()" style="
@@ -1740,11 +1748,12 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
           box-shadow: 0 4px 15px rgba(0, 119, 182, 0.25);
           transition: transform 0.2s;
         " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-          🔄 ${t('riprovaBtn') || 'Réessayer le chargement'}
+          🔄 ${txtBtn}
         </button>
       </div>`;
   }
 }
+
 
 function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
   const ora = new Date(), hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
