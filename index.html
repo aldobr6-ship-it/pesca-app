@@ -586,10 +586,10 @@ const traduzioni = {
     aggiornaBtn: "🔄 Aggiorna",
     circaOre: "~2 ore", circaUnOra: "~1 ora",
     cercaSpotTunisia: "🗺️ Cerca Spot Tunisia",
-selezionaNazione: "Scegli la Nazione dei Pascoli:",
-italia: "🇮🇹 Italia",
-tunisia: "🇹🇳 Tunisia",
-/* === NUOVE CHIAVI IT === */
+    selezionaNazione: "Scegli la Nazione dei Pascoli:",
+    italia: "🇮🇹 Italia",
+    tunisia: "🇹🇳 Tunisia",
+  /* === NUOVE CHIAVI IT === */
     metaPesca: "La tua guida alla pesca in mare",
     temaChiaro: "Tema Chiaro",
     temaScuro: "Tema Scuro",
@@ -744,9 +744,9 @@ tunisia: "🇹🇳 Tunisia",
     aggiornaBtn: "🔄 Actualiser",
     circaOre: "~2 heures", circaUnOra: "~1 heure",
     cercaSpotTunisia: "🗺️ Chercher un Spot en Tunisie",
-selezionaNazione: "Choisir le Pays de Pêche :",
-italia: "🇮🇹 Italie",
-tunisia: "🇹🇳 Tunisie",
+   selezionaNazione: "Choisir le Pays de Pêche :",
+   italia: "🇮🇹 Italie",
+   tunisia: "🇹🇳 Tunisie",
 /* === NOUVELLES CLÉS FR === */
     metaPesca: "Votre guide de la pêche en mer",
     temaChiaro: "Thème Clair",
@@ -830,8 +830,6 @@ async function cambiaLingua(lingua) {
   showHome();
 }
 function caricaLingua() {
-  const splashSub = document.getElementById("splashSubtitle");
-  if (splashSub) splashSub.textContent = t('metaPesca');
   const splashSub = document.getElementById("splashSubtitle");
   if (splashSub) splashSub.textContent = t('metaPesca');
   const salvata = localStorage.getItem("lingua");
@@ -2821,38 +2819,65 @@ async function avviaApp() {
   const fileNodi = linguaSalvata === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
   const fileMontature = linguaSalvata === "fr" ? "./data/montature.fr.json" : "./data/montature.json";
   const fileSpecie = linguaSalvata === "fr" ? "./data/specie.fr.json" : "./data/specie.json";
+  
   try {
     const [resNodi, resMontature, resSpecie, resSpot] = await Promise.all([
-      fetch(fileNodi),
-      fetch(fileMontature),
-      fetch(fileSpecie),
-      fetch("./data/spot-italia.json")
+      fetch(fileNodi).catch(() => null),
+      fetch(fileMontature).catch(() => null),
+      fetch(fileSpecie).catch(() => null),
+      fetch("./data/spot-italia.json").catch(() => null)
     ]);
-    nodiData = await resNodi.json();
-    montatureData = await resMontature.json();
-    specie = await resSpecie.json();
-    spotsItalia = await resSpot.json();
+
+    if (resNodi && resNodi.ok) nodiData = await resNodi.json();
+    if (resMontature && resMontature.ok) montatureData = await resMontature.json();
+    if (resSpecie && resSpecie.ok) specie = await resSpecie.json();
+    if (resSpot && resSpot.ok) spotsItalia = await resSpot.json();
   } catch(e) {
-    console.error("Errore caricamento dati:", e);
+    console.error("Errore caricamento dati locali:", e);
   }
+  
+  // Esegue le funzioni di configurazione iniziale dello stato
   caricaTema();
   caricaLingua();
   showHome();
 }
+
+// Dichiarazione della funzione che mancava e causava il blocco in console
+function caricaTema() {
+  try {
+    var temaSalvato = localStorage.getItem("temaAttivo") || "light";
+    document.documentElement.setAttribute("data-theme", temaSalvato);
+    console.log("Tema grafico configurato:", temaSalvato);
+  } catch(e) {
+    console.log("Impossibile caricare le preferenze del tema, uso default light");
+  }
+}
+
+// Inizializzazione ufficiale del ciclo di vita dell'applicazione
 avviaApp();
-window.addEventListener("load",()=>{
-  setTimeout(()=>{const s=document.getElementById("splash");if(s)s.style.display="none";},3500);
+
+// Gestione temporizzata della scomparsa dello Splash Screen grafico
+window.addEventListener("load", function() {
+  setTimeout(function() {
+    var s = document.getElementById("splash");
+    if (s) { s.style.display = "none"; }
+  }, 3500);
 });
 </script>
-  <script>
+
+<script>
+// Registrazione del Service Worker per il supporto offline (PWA)
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js");
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("./sw.js").catch(function(err) {
+      console.log("Service Worker non registrato:", err);
+    });
   });
 }
 </script>
 
 </body>
 </html>
+
 
 
