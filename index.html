@@ -2009,13 +2009,13 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
     <!-- Barra Superiore di Selezione Paese -->
     <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; padding: 5px 0;">
       <button onclick="cambiaNazioneHome('it')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
-        🇮🇹 ${t('italia') || 'Italia'}
+       ${t('italia') || 'Italia'}
       </button>
       <button onclick="cambiaNazioneHome('fr')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
         🇫🇷 ${linguaAttuale === 'fr' ? 'France' : 'Francia'}
       </button>
       <button onclick="cambiaNazioneHome('tn')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
-        🇹🇳 ${t('tunisia') || 'Tunisia'}
+       ${t('tunisia') || 'Tunisia'}
       </button>
     </div>
     ${alertGPSHTML}
