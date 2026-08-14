@@ -1190,7 +1190,8 @@ function showMontaturaDetail(id) {
 
 <script>
 /* === DATI SPOT TUNISIA INTERNAZIONALE === */
-const spotsTunisiaData = [
+  const spotsFrance = []; // Dati spot Francia non ancora inseriti
+  const spotsTunisiaData = [
   {
     "nome": "Plage de Tabarka (El Corniche)",
     "lat": 36.9582,
@@ -1684,21 +1685,17 @@ function showPrevisioni() {
 }
 async function caricaPrevisioni(lat, lon, usaFallback = false) {
   try {
-    // Generazione sicura degli URL di rete Open-Meteo
-    var urlMarine = "https://open-meteo.com" + lat + "&longitude=" + lon + "&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4";
-    var urlMeteo = "https://open-meteo.com" + lat + "&longitude=" + lon + "&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4";
+    var urlMarine = `https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4`;
+    var urlMeteo = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4`;
 
-    // Esecuzione delle chiamate internet in parallelo
     var risposteServer = await Promise.all([
       fetch(urlMarine),
       fetch(urlMeteo)
     ]);
     
-    // Estrazione corretta dei singoli flussi JSON di dati
     var marineData = await risposteServer[0].json();
     var meteoData = await risposteServer[1].json();
     
-    // Avvia la renderizzazione grafica della Home Page
     renderPrevisioni(lat, lon, marineData, meteoData, usaFallback);
   } catch(error) {
     console.error("DIAGNOSTICA ESPERTO - Errore durante il caricamento meteo:", error);
@@ -1790,7 +1787,7 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
       <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">${t('montaturaLabel')}</div><div class="valore">${analisi.montatura}</div></div></div>
       <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">${t('attrezzaturaLabel')}</div><div class="valore">${analisi.attrezzatura}</div></div></div>
       <div class="consiglio-row"><span class="ico-big">🐛</span><div class="testo"><div class="titolo">${t('escheConsLabel')}</div><div class="valore">${analisi.esche}</div></div></div>
-      ${analisi.avviso ? `<div class="consiglio-row"><span class="ico-big">⚠️</span><div class="testo"><div class="titolo">${t('attentionLabel')}</div><div class="valore">${analisi.avviso}</div></div></div>` : ""}
+      ${analisi.avviso ? `<div class="consiglio-row"><span class="ico-big">⚠️</span><div class="testo"><div class="titolo">${t('attenzioneLabel')}</div><div class="valore">${analisi.avviso}</div></div></div>` : ""}
     </div>
 
     <div class="mappa-card">
@@ -1947,7 +1944,9 @@ function initMappaEsplorazioneNuova() {
   }
 
   listaSpot.forEach((spot, index) => {
- const marker = L.marker([spot.lat, spot.lon]).addTo(spotItaliaMap);
+ const spotLat = spot.coords ? spot.coords[0] : spot.lat;
+ const spotLon = spot.coords ? spot.coords[1] : spot.lon;
+ const marker = L.marker([spotLat, spotLon]).addTo(spotItaliaMap);
  spotItaliaMarkers.push(marker);
  
  const sNome = spot.name || spot.nome || "Spot";
@@ -1978,7 +1977,7 @@ function initMappaEsplorazioneNuova() {
 
     
     item.onclick = () => {
-      spotItaliaMap.setView([spot.lat, spot.lon], 11);
+      spotItaliaMap.setView([spotLat, spotLon], 11);
       marker.openPopup();
       document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
       item.classList.add("active");
