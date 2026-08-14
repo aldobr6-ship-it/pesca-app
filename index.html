@@ -1651,36 +1651,96 @@ function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div
 let prevMap = null, prevCoords = null;
 
 function showPrevisioni() {
-  document.getElementById("content").innerHTML = `<div class="prev-loader"><span class="spinner">🎣</span><p>${t('rilevamentoPosizione')}</p></div>`;
-  if (!navigator.geolocation) { mostraErroreGPS(t('browserNoGeo')); return; }
+  // Mostra un caricamento leggero nel content
+  document.getElementById("content").innerHTML = `
+    <div class="prev-loader" style="text-align:center; padding:20px;">
+      <span class="spinner" style="font-size:30px; display:inline-block;">🎣</span>
+      <p>${t('rilevamentoPosizione')}...</p>
+    </div>
+  `;
+
+  // Configurazione automatica della capitale in base alla nazione attiva se il GPS fallisce
+  let latDefault = 41.9028, lonDefault = 12.4964; // Italia (Roma)
+  if (nazioneAttiva === "fr") { latDefault = 48.8566; lonDefault = 2.3522; } // Francia (Parigi)
+  if (nazioneAttiva === "tn") { latDefault = 36.8065; lonDefault = 10.1815; } // Tunisia (Tunisi)
+
+  if (!navigator.geolocation) {
+    // Se il browser non supporta il GPS, carica la capitale via internet
+    caricaPrevisioni(latDefault, lonDefault, true);
+    return;
+  }
+
   navigator.geolocation.getCurrentPosition(
-    pos => { prevCoords={lat:pos.coords.latitude,lon:pos.coords.longitude}; caricaPrevisioni(prevCoords.lat,prevCoords.lon); },
-    () => mostraErroreGPS(t('posizioneErrore')),
-    { enableHighAccuracy:true, timeout:10000 }
+    pos => {
+      prevCoords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
+      caricaPrevisioni(prevCoords.lat, prevCoords.lon, false);
+    },
+    () => {
+      // Se il GPS dà errore o sei su PC fisso, carica la capitale senza bloccare la pagina
+      caricaPrevisioni(latDefault, lonDefault, true);
+    },
+    { enableHighAccuracy: true, timeout: 4000 } // Timeout ridotto a 4 secondi per massima fluidità
   );
 }
-async function caricaPrevisioni(lat, lon) {
+async function caricaPrevisioni(lat, lon, usaFallback = false) {
   try {
     const [marineRes, meteoRes] = await Promise.all([
-      fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4`),
-      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4`)
+      fetch(`https://open-meteo.com{lat}&longitude=${lon}&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=auto&forecast_days=4`),
+      fetch(`https://open-meteo.com{lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=auto&forecast_days=4`)
     ]);
-    renderPrevisioni(lat, lon, await marineRes.json(), await meteoRes.json());
-  } catch(e) { mostraErroreGPS(t('erroreMeteo')); }
+    
+    renderPrevisioni(lat, lon, await marineRes.json(), await meteoRes.json(), usaFallback);
+  } catch(e) {
+    document.getElementById("content").innerHTML = `
+      <div style="text-align:center; padding:20px; color:red;">
+        <p>⚠️ ${t('erroreMeteo')}</p>
+        <button onclick="showPrevisioni()" style="padding:10px 20px; background:#0077b6; color:white; border:none; border-radius:10px;">Riprova</button>
+      </div>`;
+  }
 }
-function renderPrevisioni(lat, lon, marine, meteo) {
-  const ora=new Date(), hIdx=trovaIndiceOra(meteo.hourly?.time||[],ora);
-  const ondaH=marine.hourly?.wave_height?.[hIdx]??0;
-  const ondaP=marine.hourly?.wave_period?.[hIdx]??0;
-  const ventoKmh=meteo.current?.wind_speed_10m??0;
-  const ventoDir=meteo.current?.wind_direction_10m??0;
-  const tempC=meteo.current?.temperature_2m??"--";
-  const wCode=meteo.current?.weather_code??0;
-  const ventoNodi=(ventoKmh*0.539957).toFixed(1);
-  const analisi=calcolaConsiglioCompleto(ondaH,ventoKmh,ora,wCode);
-  const giorniHTML=generaGiorni(marine,meteo,ora);
-  const miei_spots=caricaSpot();
+
+
+function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
+  const ora = new Date(), hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
+  const ondaH = marine.hourly?.wave_height?.[hIdx] ?? 0;
+  const ondaP = marine.hourly?.wave_period?.[hIdx] ?? 0;
+  const ventoKmh = meteo.current?.wind_speed_10m ?? 0;
+  const ventoDir = meteo.current?.wind_direction_10m ?? 0;
+  const tempC = meteo.current?.temperature_2m ?? "--";
+  const wCode = meteo.current?.weather_code ?? 0;
+  const ventoNodi = (ventoKmh * 0.539957).toFixed(1);
+  const analisi = calcolaConsiglioCompleto(ondaH, ventoKmh, ora, wCode);
+  const giorniHTML = generaGiorni(marine, meteo, ora);
+  const miei_spots = caricaSpot();
+
+  // Generiamo il banner di avviso temporaneo se il GPS è disattivato
+  const alertGPSHTML = usaFallback 
+    ? `<div style="background: #fff3cd; color: #856404; padding: 10px; border-radius: 10px; text-align: center; margin-bottom: 12px; font-size: 13px; font-weight: bold; border: 1px solid #ffeeba;">
+         📍 GPS non disponibile. Previsioni basate sulla Capitale.
+       </div>`
+    : "";
+
+  // Testo dinamico per il pulsante di ricerca spot in fondo
+  let testoBottoneCerca = t('cercaSpotItalia'); 
+  if (nazioneAttiva === "fr") testoBottoneCerca = "🔍 Explorer les Spots France";
+  if (nazioneAttiva === "tn") testoBottoneCerca = "🔍 Esplora Spot Tunisia";
+
   document.getElementById("content").innerHTML = `
+    <!-- Barra Selezione Nazione in cima alla Home -->
+    <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; padding: 5px 0;">
+      <button onclick="cambiaNazioneHome('it')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
+        🇮🇹 ${t('italia') || 'Italia'}
+      </button>
+      <button onclick="cambiaNazioneHome('fr')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
+        🇫🇷 ${t('francia') || 'Francia'}
+      </button>
+      <button onclick="cambiaNazioneHome('tn')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
+        🇹🇳 ${t('tunisia') || 'Tunisia'}
+      </button>
+    </div>
+
+    ${alertGPSHTML}
+
     <div class="prev-hero">
       <h2>${t('previsioniTitolo')}</h2>
       <div class="sub">📍 ${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E • ${t('aggiornatoOra')}</div>
@@ -1694,8 +1754,10 @@ function renderPrevisioni(lat, lon, marine, meteo) {
         <div class="meteo-cell"><span class="ico">🌅</span><span class="val">${formatOra(meteo.daily?.sunrise?.[0])}</span><span class="lbl">${t('albaLabel')}</span></div>
       </div>
     </div>
-    <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">${t('prossimiGiorni')}</h3>
+
+    <h3 style="margin:15px 0 10px;font-size:15px;opacity:0.7;">${t('prossimiGiorni')}</h3>
     <div class="giorni-scroll">${giorniHTML}</div>
+
     <div class="consiglio-card">
       <h3>${t('consiglioPersonalizzato')}</h3>
       <div class="consiglio-row"><span class="ico-big">🌊</span><div class="testo"><div class="titolo">${t('tecnicaConsigliata')}</div><div class="valore">${analisi.tecnica}</div></div></div>
@@ -1703,28 +1765,37 @@ function renderPrevisioni(lat, lon, marine, meteo) {
       <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">${t('montaturaLabel')}</div><div class="valore">${analisi.montatura}</div></div></div>
       <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">${t('attrezzaturaLabel')}</div><div class="valore">${analisi.attrezzatura}</div></div></div>
       <div class="consiglio-row"><span class="ico-big">🐛</span><div class="testo"><div class="titolo">${t('escheConsLabel')}</div><div class="valore">${analisi.esche}</div></div></div>
-      ${analisi.avviso?`<div class="consiglio-row"><span class="ico-big">⚠️</span><div class="testo"><div class="titolo">${t('attenzioneLabel')}</div><div class="valore">${analisi.avviso}</div></div></div>`:""}
+      ${analisi.avviso ? `<div class="consiglio-row"><span class="ico-big">⚠️</span><div class="testo"><div class="titolo">${t('attentionLabel')}</div><div class="valore">${analisi.avviso}</div></div></div>` : ""}
     </div>
+
     <div class="mappa-card">
       <div class="mappa-header"><span>${t('posizioneSpot')}</span><button onclick="aggiungiSpot()">${t('salvaSpotBtn')}</button></div>
       <div id="prevMap"></div>
     </div>
-    <h3 style="margin:0 0 6px;font-size:15px;opacity:0.7;">${t('mieiSpot')} (${miei_spots.length})</h3>
+
+    <h3 style="margin:15px 0 6px;font-size:15px;opacity:0.7;">${t('mieiSpot')} (${miei_spots.length})</h3>
     <div class="spot-io-row">
       <button class="btn-esporta" onclick="esportaSpot()">${t('esportaJson')}</button>
       <button class="btn-importa" onclick="document.getElementById('importInput').click()">${t('importaJson')}</button>
       <input type="file" id="importInput" accept=".json" style="display:none" onchange="importaSpot(event)">
     </div>
     <div class="spot-list" id="spotList">${renderSpotList(miei_spots)}</div>
+
     <div style="margin:20px 0 10px;">
       <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
-        ${t('cercaSpotItalia')}
+        ${testoBottoneCerca}
       </button>
     </div>
-    <button onclick="goTo(showPrevisioni)" style="width:100%;">${t('aggiornaPrevisioni')}</button><br>`;
-  setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
-} // Fine della tua funzione renderPrevisioni originale
+    <button onclick="goTo(showPrevisioni)" style="width:100%;">${t('aggiornaPrevisioni')}</button><br>
+  `;
+   setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
+}
 
+// 🔄 Funzione di appoggio per gestire il click dei pulsanti nazione sulla Home
+function cambiaNazioneHome(nazione) {
+  nazioneAttiva = nazione;
+  showPrevisioni(); 
+}
 /* ============================================================
    SISTEMA DI RICERCA SPOT UNIFICATO (ITALIA / TUNISIA)
    ============================================================ */
@@ -1800,14 +1871,28 @@ function cambiaNazioneEsplorazione(nazione) {
 }
 
 function initMappaEsplorazioneNuova() {
-  const isItalia = nazioneAttiva === "it";
-  const centroMappa = isItalia ? [42.0, 12.5] : [35.5, 9.5];
-  const zoomIniziale = isItalia ? 6 : 7;
-  
-  const listaSpot = isItalia ? (spotsItalia || []) : spotsTunisiaData;
-  
-  document.getElementById("nomeNazioneBadge").textContent = isItalia ? "Italia" : "Tunisia";
+  // 1. Configurazione dinamica delle coordinate, zoom e array dati per le 3 nazioni
+  let centroMappa = [42.0, 12.5]; // Italia di default
+  let zoomIniziale = 6;
+  let listaSpot = spotsItalia || [];
+  let nomeNazione = "Italia";
 
+  if (nazioneAttiva === "fr") {
+    centroMappa = [46.5, 2.0]; // Centra sulla Francia
+    zoomIniziale = 5.5;        // Zoom adatto a coprire coste atlantiche e mediterranee
+    listaSpot = spotsFrance || [];
+    nomeNazione = "France";
+  } else if (nazioneAttiva === "tn") {
+    centroMappa = [35.5, 9.5];  // Tunisia
+    zoomIniziale = 7;
+    listaSpot = spotsTunisiaData || [];
+    nomeNazione = "Tunisia";
+  }
+  
+  // Aggiorna il testo del badge nel pannello laterale
+  document.getElementById("nomeNazioneBadge").textContent = nomeNazione;
+
+  // RESET DI LEAFLET: Rimuove la mappa precedente se già istanziata per evitare conflitti di ID
   if (spotItaliaMap !== null) {
     try {
       spotItaliaMap.remove();
@@ -1817,12 +1902,15 @@ function initMappaEsplorazioneNuova() {
     spotItaliaMap = null;
   }
   
+  // Resetta l'array globale dei marcatori
   spotItaliaMarkers = [];
 
+  // Crea la nuova istanza Leaflet centrata sulla nazione corretta
   spotItaliaMap = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(spotItaliaMap);
+
 
   const panelBody = document.getElementById("listaSpotEsplorazione");
   if (!panelBody) return;
