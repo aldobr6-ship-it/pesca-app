@@ -1684,25 +1684,26 @@ function showPrevisioni() {
 }
 async function caricaPrevisioni(lat, lon, usaFallback = false) {
   try {
-    const urlMarine = "https://open-meteo.com" + lat + "&longitude=" + lon + "&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4";
-    const urlMeteo = "https://open-meteo.com" + lat + "&longitude=" + lon + "&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4";
+    // URL scritti per intero per evitare che JavaScript mescoli i link vecchi con quelli nuovi
+    var urlMarine = "https://marine-api.open-meteo.com/v1/marine?latitude=" + lat + "&longitude=" + lon + "&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4";
+    var urlMeteo = "https://open-meteo.com" + lat + "&longitude=" + lon + "&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4";
 
-    const [marineRes, meteoRes] = await Promise.all([
+    var responses = await Promise.all([
       fetch(urlMarine),
       fetch(urlMeteo)
     ]);
     
-    const marineData = await marineRes.json();
-    const meteoData = await meteoRes.json();
+    var marineData = await responses[0].json();
+    var meteoData = await responses[1].json();
     
     renderPrevisioni(lat, lon, marineData, meteoData, usaFallback);
   } catch(error) {
-    console.error("DEBUG ESPERTO - Errore caricamento:", error);
+    console.error("DEBUG ESPERTO - Errore definitivo caricamento:", error);
     
-    const isFR = (typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr');
-    const txtTitle = isFR ? "Connexion perdue" : "Connessione Persa";
-    const txtDesc = isFR ? "Impossible de charger les données météo. Veuillez vérifier votre connexion Internet." : "Impossibile caricare i dati meteo. Controlla la tua connessione internet.";
-    const txtBtn = isFR ? "Réessayer" : "Riprova";
+    var isFR = (typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr');
+    var txtTitle = isFR ? "Connexion perdue" : "Connessione Persa";
+    var txtDesc = isFR ? "Impossible de charger les données météo. Veuillez vérifier votre connexion Internet." : "Impossibile caricare i dati meteo. Controlla la tua connessione internet.";
+    var txtBtn = isFR ? "Réessayer" : "Riprova";
 
     document.getElementById("content").innerHTML = `
       <div class="error-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; margin: 30px auto; max-width: 400px; background: #ffffff; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
@@ -1716,28 +1717,30 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
   }
 }
 
-function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
-  const ora = new Date(), hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
-  const ondaH = marine.hourly?.wave_height?.[hIdx] ?? 0;
-  const ondaP = marine.hourly?.wave_period?.[hIdx] ?? 0;
-  const ventoKmh = meteo.current?.wind_speed_10m ?? 0;
-  const ventoDir = meteo.current?.wind_direction_10m ?? 0;
-  const tempC = meteo.current?.temperature_2m ?? "--";
-  const wCode = meteo.current?.weather_code ?? 0;
-  const ventoNodi = (ventoKmh * 0.539957).toFixed(1);
-  const analisi = calcolaConsiglioCompleto(ondaH, ventoKmh, ora, wCode);
-  const giorniHTML = generaGiorni(marine, meteo, ora);
-  const miei_spots = caricaSpot();
 
-  const alertGPSHTML = usaFallback 
+function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
+  var ora = new Date();
+  var hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
+  var ondaH = marine.hourly?.wave_height?.[hIdx] ?? 0;
+  var ondaP = marine.hourly?.wave_period?.[hIdx] ?? 0;
+  var ventoKmh = meteo.current?.wind_speed_10m ?? 0;
+  var ventoDir = meteo.current?.wind_direction_10m ?? 0;
+  var tempC = meteo.current?.temperature_2m ?? "--";
+  var wCode = meteo.current?.weather_code ?? 0;
+  var ventoNodi = (ventoKmh * 0.539957).toFixed(1);
+  var analisi = calcolaConsiglioCompleto(ondaH, ventoKmh, ora, wCode);
+  var giorniHTML = generaGiorni(marine, meteo, ora);
+  var miei_spots = caricaSpot();
+
+  var alertGPSHTML = usaFallback 
     ? `<div style="background: #fff3cd; color: #856404; padding: 10px; border-radius: 10px; text-align: center; margin-bottom: 12px; font-size: 13px; font-weight: bold; border: 1px solid #ffeeba;">
          📍 GPS non disponibile. Previsioni basate sulla Capitale.
        </div>`
     : "";
 
-  let testoBottoneCerca = t('cercaSpotItalia'); 
-  if (nazioneAttiva === "fr") testoBottoneCerca = linguaAttuale === "fr" ? "🔍 Explorer les Spots France" : "🔍 Esplora Spot Francia";
-  if (nazioneAttiva === "tn") testoBottoneCerca = linguaAttuale === "fr" ? "🔍 Explorer les Spots Tunisie" : "🔍 Esplora Spot Tunisia";
+  var testobottone = t('cercaSpotItalia');
+  if (nazioneAttiva === "fr") { testobottone = "🔍 Explorer les Spots France"; }
+  if (nazioneAttiva === "tn") { testobottone = "🔍 Explorer les Spots Tunisie"; }
 
   document.getElementById("content").innerHTML = `
     <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; padding: 5px 0;">
@@ -1796,7 +1799,7 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
 
     <div style="margin:20px 0 10px;">
       <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
-        ${testoBottoneCerca}
+        ${testobottone}
       </button>
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%;">${t('aggiornaPrevisioni')}</button><br>
@@ -1809,6 +1812,7 @@ function cambiaNazioneHome(nazione) {
   nazioneAttiva = nazione;
   showPrevisioni(); 
 }
+
 
 /* ============================================================
    SISTEMA DI RICERCA SPOT UNIFICATO (ITALIA / TUNISIA)
