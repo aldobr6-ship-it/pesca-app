@@ -2573,78 +2573,143 @@ function onSpotSelezionato(spot){
   document.querySelectorAll(".spot-italia-item").forEach(el=>el.classList.remove("active"));
   document.querySelectorAll(".spot-italia-item").forEach(el=>{if(el.querySelector(".si-nome")?.textContent===spot.name)el.classList.add("active");});
 }
-/* MODIFICA 2: btn salva spot nel dettaglio */
+/* === SOSTITUZIONE COMPLETA: GESTIONE DETTAGLI, SALVATAGGIO UNIVERSALE E FILTRO ISOLATO === */
+
 function mostraDettaglioPannello(spot){
-  const header=document.getElementById("spotPanelHeader"),body=document.getElementById("spotPanelBody");
+  const header=document.getElementById("spotPanelHeader"), body=document.getElementById("spotPanelBody");
   if(!header||!body)return;
-  header.textContent="📍 "+spot.reg;
-  const idx=spotsItalia.indexOf(spot);
+  
+  // Assegniamo un'etichetta di regione sicura anche se il campo reg è assente (Francia)
+  const regioneSicura = spot.reg || (nazioneAttiva === "fr" ? "Francia" : "Tunisia");
+  header.textContent="📍 " + regioneSicura;
+  
+  const idx = spotsItalia.indexOf(spot);
+  
+  // Estrazione sicura delle coordinate sia che siano in array [lat,lon] sia che siano proprietà separate .lat .lon
+  const latSpot = spot.coords && spot.coords[0] ? spot.coords[0] : (spot.lat || 0);
+  const lonSpot = spot.coords && spot.coords[1] ? spot.coords[1] : (spot.lon || 0);
+
   body.innerHTML=`
     <div class="spot-detail-panel">
-      <span class="sdp-tag">${spot.reg}</span>
-      <h3>${spot.name}</h3>
+      <span class="sdp-tag">${regioneSicura}</span>
+      <h3>${spot.name || "Spot"}</h3>
       <div class="spot-detail-grid">
-        <div class="spot-detail-cell"><div class="sdc-lbl">🎣 Tecnica</div><div class="sdc-val">${spot.type}</div></div>
-        <div class="spot-detail-cell"><div class="sdc-lbl">🐟 Target</div><div class="sdc-val">${spot.target}</div></div>
+        <div class="spot-detail-cell"><div class="sdc-lbl">🎣 Tecnica</div><div class="sdc-val">${spot.type || spot.technique || "Surfcasting"}</div></div>
+        <div class="spot-detail-cell"><div class="sdc-lbl">🐟 Target</div><div class="sdc-val">${spot.target || "Qualsiasi"}</div></div>
       </div>
-      <div class="spot-detail-tips"><p>💡 ${spot.tips}</p></div>
-      <button class="btn-nav-spot" onclick="window.open('https://www.google.com/maps?q=${spot.coords[0]},${spot.coords[1]}','_blank')">
+      <div class="spot-detail-tips"><p>💡 ${spot.tips || spot.description || spot.desc || "Nessun consiglio aggiuntivo."}</p></div>
+      
+      <button class="btn-nav-spot" onclick="window.open('https://www.google.com/maps?q=${latSpot},${lonSpot}','_blank')">
         🧭 Ottieni indicazioni →
       </button>
-      <button class="btn-salva-spot-italia" onclick="salvaQuestoSpotPrecaricato()">
-       📌 ${t('salvaNeiMieiSpot')}
-     </button>
+      
+      <!-- UNICO PULSANTE SALVA: Identificato dall'indice per dialogare con aggiornaLabelSalva -->
       <button class="btn-salva-spot-italia" id="btnSalvaItalia${idx}" onclick="salvaSpotItalia(${idx})">
         📌 Salva nei miei spot
       </button>
-      <button class="btn-salva-spot-italia" onclick="salvaQuestoSpotPrecaricatoAttivo()">
-       📌 Salva nei miei spot
-      </button>
-      <button class="btn-back-lista" onclick="tornaListaRegione('${spot.reg}')">
-        ← Tutti gli spot di ${spot.reg}
+      
+      <button class="btn-back-lista" onclick="tornaListaRegione('${regioneSicura}')">
+        ← Tutti gli spot di ${regioneSicura}
       </button>
     </div>`;
-  /* Aggiorna label se già salvato */
+    
+  /* Aggiorna lo stato del pulsante (se già salvato in precedenza diventa verde/disattivato) */
   aggiornaLabelSalva(idx);
 }
-/* MODIFICA 2: salva spot Italia in localStorage */
+
 function salvaSpotItalia(idx){
-  const spot=spotsItalia[idx];
-  const spots=caricaSpot();
-  const giaSalvato=spots.find(s=>s.fonte==="italia"&&s.nome===spot.name);
-  if(giaSalvato){alert("Spot già salvato nei tuoi spot! Puoi trovarlo nella sezione Meteo.");return;}
+  const spot = spotsItalia[idx];
+  if(!spot) return;
+  
+  const spots = caricaSpot();
+  const giaSalvato = spots.find(s => s.fonte === "italia" && s.nome === spot.name);
+  if(giaSalvato){
+    alert("Spot già salvato nei tuoi spot! Puoi trovarlo nella sezione Meteo.");
+    return;
+  }
+  
+  // Estrazione sicura per salvare le coordinate corrette nel localStorage del telefono
+  const latSpot = spot.coords && spot.coords[0] ? spot.coords[0] : (spot.lat || 0);
+  const lonSpot = spot.coords && spot.coords[1] ? spot.coords[1] : (spot.lon || 0);
+  const noteSicure = spot.tips || spot.description || spot.desc || "";
+
   const nuovoSpot={
-    id:Date.now(),
-    nome:spot.name,
-    specie:spot.target,
-    montatura:spot.type,
-    note:spot.tips.slice(0,80),
-    lat:spot.coords[0],
-    lon:spot.coords[1],
-    data:new Date().toLocaleDateString("it-IT"),
-    fonte:"italia"
+    id: Date.now(),
+    nome: spot.name || "Spot",
+    specie: spot.target || "Qualsiasi",
+    montatura: spot.type || spot.technique || "Surfcasting",
+    note: noteSicure.slice(0, 80),
+    lat: latSpot,
+    lon: lonSpot,
+    data: new Date().toLocaleDateString("it-IT"),
+    fonte: "italia"
   };
+  
   spots.unshift(nuovoSpot);
   salvaSpot(spots);
   aggiornaLabelSalva(idx);
   alert("✅ Spot salvato! Trovi tutti i tuoi spot nella sezione Meteo.");
 }
+
 function aggiornaLabelSalva(idx){
-  const btn=document.getElementById("btnSalvaItalia"+idx); if(!btn)return;
-  const spot=spotsItalia[idx];
-  const spots=caricaSpot();
-  const giaSalvato=spots.find(s=>s.fonte==="italia"&&s.nome===spot.name);
-  if(giaSalvato){btn.textContent="✅ Già salvato";btn.style.opacity="0.6";btn.style.cursor="default";}
+  const btn = document.getElementById("btnSalvaItalia" + idx); 
+  if(!btn) return;
+  const spot = spotsItalia[idx];
+  if(!spot) return;
+  
+  const spots = caricaSpot();
+  const giaSalvato = spots.find(s => s.fonte === "italia" && s.nome === spot.name);
+  if(giaSalvato){
+    btn.textContent = "✅ Già salvato";
+    btn.style.opacity = "0.6";
+    btn.style.cursor = "default";
+    btn.disabled = true; // Blocca il click per evitare salvataggi multipli
+  }
 }
+
 function tornaListaRegione(reg){
-  const lista=spotsItalia.filter(s=>s.reg===reg);
-  mostraPannelloLista(lista,reg);
+  // Filtro avanzato che riconosce la regione sia esplicitamente sia analizzando il testo per la Francia
+  const lista = spotsItalia.filter(s => {
+    const regioneDato = (s.reg || "").toLowerCase();
+    const nomeDato = (s.name || "").toLowerCase();
+    const descDato = (s.tips || s.description || s.desc || "").toLowerCase();
+    const cerco = reg.toLowerCase();
+    
+    return regioneDato === cerco || nomeDato.includes(cerco) || descDato.includes(cerco);
+  });
+  
+  mostraPannelloLista(lista, reg);
   aggiornaMappaSpotItalia(lista);
-  if(lista.length>0){const bounds=L.latLngBounds(lista.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
-  const n=lista.length;
-  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
-  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
+  
+  // ZOOM RIGOROSO SULLA COSTA: Evita inquadrature troppo larghe nell'oceano
+  if(lista.length > 0 && spotItaliaMap){
+    const puntiValidi = lista.map(s => {
+      const lat = s.coords && s.coords[0] ? s.coords[0] : s.lat;
+      const lon = s.coords && s.coords[1] ? s.coords[1] : s.lon;
+      return [lat, lon];
+    }).filter(c => c[0] > 0 && c[1] > 0);
+    
+    if(puntiValidi.length > 0){
+      if(puntiValidi.length === 1){
+        spotItaliaMap.flyTo(puntiValidi[0], 13, {duration: 0.8});
+      } else {
+        const bounds = L.latLngBounds(puntiValidi);
+        spotItaliaMap.fitBounds(bounds, {padding: [40, 40]});
+        
+        // Protezione anti-allargamento: forza lo zoom vicino se fitBounds si allontana troppo
+        setTimeout(() => {
+          if(spotItaliaMap.getZoom() < 10) spotItaliaMap.setZoom(11);
+        }, 900);
+      }
+    }
+  }
+  
+  const n = lista.length;
+  if(document.getElementById("spotCount")) document.getElementById("spotCount").textContent = n + " spot";
+  if(document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent = n + " visibili";
 }
+/* === FINE DEL BLOCCO SOSTITUITO === */
+
 </script>
 <!-- ============================================================
      BLOCCO CSS — QUANDO PESCARE (Solunar + Maree + Luna)
