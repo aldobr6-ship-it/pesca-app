@@ -2109,50 +2109,6 @@ function showCercaSpot() {
       </div>
     `;
   }
-  else if (nazioneAttiva === "fr") {
-    headerHTML += `
-      <div class="filtri-row" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; padding: 0 10px;">
-        <select class="filtro-select" id="filtroReg" style="padding: 8px; border-radius: 6px;">
-          <option value="all">🗺️ ${linguaAttuale === "fr" ? "Toute la France" : "Tutta la Francia"}</option>
-          <option value="Cannes">Costa Azzurra (Cannes / Hyères / Antibes)</option>
-          <option value="Camargue">Golfo del Leone / Camargue</option>
-          <option value="Atlantique">Costa Atlantica / Landes</option>
-          <option value="Manche">Nord e Bretagna / Normandia</option>
-        </select>
-        <select class="filtro-select" id="filtroTech" style="padding: 8px; border-radius: 6px;">
-          <option value="all">🎣 ${t('ogniTecnica')}</option>
-          <option value="Surfcasting">Surfcasting</option>
-          <option value="Spinning">Spinning / Sea Spinning</option>
-          <option value="Beach Ledgering">Beach Ledgering</option>
-          <option value="Fond">Pêche au Fond</option>
-          <option value="Flotteur">Galleggiante / Flotteur</option>
-        </select>
-        <button class="btn-Carica" onclick="applicaFiltriSpot()" style="padding: 8px 15px; background: #2a9d8f; color: white; border: none; border-radius: 6px; cursor: pointer;">Carica →</button>
-      </div>
-    `;
-  }
-  else if (nazioneAttiva === "tn") {
-    headerHTML += `
-      <div class="filtri-row" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; padding: 0 10px;">
-        <select class="filtro-select" id="filtroReg" style="padding: 8px; border-radius: 6px;">
-          <option value="all">🗺️ ${linguaAttuale === "fr" ? "Toute la Tunisie" : "Tutta la Tunisia"}</option>
-          <option value="Bizerte">Bizerte / Tabarka (Nord-Ouest)</option>
-          <option value="Cap Bon">Cap Bon (Haouaria / Kelibia / Korba)</option>
-          <option value="Hammamet">Hammamet / Yasmine</option>
-          <option value="Sousse">Sousse / Sahel (Monastir / Hergla)</option>
-          <option value="Djerba">Djerba / Zarzis / Sfax (Sud)</option>
-        </select>
-        <select class="filtro-select" id="filtroTech" style="padding: 8px; border-radius: 6px;">
-          <option value="all">🎣 ${t('ogniTecnica')}</option>
-          <option value="Surfcasting">Surfcasting</option>
-          <option value="Spinning">Spinning / Rock Spinning</option>
-          <option value="Beach Ledgering">Beach Ledgering</option>
-          <option value="Vif">Pêche au vif</option>
-        </select>
-        <button class="btn-Carica" onclick="applicaFiltriSpot()" style="padding: 8px 15px; background: #2a9d8f; color: white; border: none; border-radius: 6px; cursor: pointer;">Carica →</button>
-      </div>
-    `;
-  }
   // 3. Stampiamo tutto il layout finale nella pagina HTML
   document.getElementById("content").innerHTML = `
     ${headerHTML}
@@ -2430,99 +2386,24 @@ function aggiornaMappaSpotItalia(lista){
     spotItaliaMarkers.push(m);
   });
 }
-function applicaFiltriSpot() {
-    const reg = document.getElementById("filtroReg")?.value || "all";
-    const tech = document.getElementById("filtroTech")?.value || "all";
-    
-    let sorgenteDati = [];
-    let centroMappa = [42.5, 12.5];
-    let zoomIniziale = 6;
-    let titoloLista = "Risultati filtro";
-    
-    if (nazioneAttiva === "it") {
-        sorgenteDati = typeof spotsItalia !== "undefined" ? spotsItalia : [];
-        centroMappa = [42.5, 12.5];
-        zoomIniziale = 6;
-        titoloLista = linguaAttuale === "fr" ? "Spots Italie" : "Spots Italia";
-        if (spotItaliaMap) spotItaliaMap.setMaxBounds([[35.0, 6.0], [47.5, 19.0]]);
-    } else if (nazioneAttiva === "fr") {
-        sorgenteDati = typeof spotsFrance !== "undefined" ? spotsFrance : [];
-        centroMappa = [46.5, 2.0];
-        zoomIniziale = 5.5;
-        titoloLista = linguaAttuale === "fr" ? "Spots France" : "Spots Francia";
-        if (spotItaliaMap) spotItaliaMap.setMaxBounds(null);
-    } else if (nazioneAttiva === "tn") {
-        sorgenteDati = typeof spotsTunisiaData !== "undefined" ? spotsTunisiaData : [];
-        centroMappa = [35.5, 9.5];
-        zoomIniziale = 7;
-        titoloLista = linguaAttuale === "fr" ? "Spots Tunisie" : "Spots Tunisia";
-        if (spotItaliaMap) spotItaliaMap.setMaxBounds(null);
+function applicaFiltriSpot(){
+  const reg=document.getElementById("filtroReg")?.value||"all";
+  const tech=document.getElementById("filtroTech")?.value||"all";
+  const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
+  aggiornaMappaSpotItalia(filtrati);
+  const n=filtrati.length;
+  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
+  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
+  if(reg!=="all"||tech!=="all"){
+    mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
+    if(filtrati.length>0){const bounds=L.latLngBounds(filtrati.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
+  } else {
+    if(document.getElementById("spotPanelBody")){
+      document.getElementById("spotPanelHeader").textContent="📋 Dettaglio spot";
+      document.getElementById("spotPanelBody").innerHTML=`<div class="spot-panel-placeholder"><span class="ph-ico">🗺️</span><p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p></div>`;
     }
-
-    // Uniformiamo i dati e assegniamo le regioni francesi in base ai testi
-    const datiUniformati = sorgenteDati.map(s => {
-        let regioneRilevata = s.reg || s.region || "";
-        if (nazioneAttiva === "fr" && !regioneRilevata) {
-            const testoCompleto = ((s.name || "") + " " + (s.description || s.desc || "")).toLowerCase();
-            if (testoCompleto.includes("cannes") || testoCompleto.includes("hyères") || testoCompleto.includes("antibes") || testoCompleto.includes("azur")) {
-                regioneRilevata = "Cannes";
-            } else if (testoCompleto.includes("espiguette") || testoCompleto.includes("rhône") || testoCompleto.includes("sète") || testoCompleto.includes("lion")) {
-                regioneRilevata = "Camargue";
-            } else if (testoCompleto.includes("biscarrosse") || testoCompleto.includes("ferret") || testoCompleto.includes("lacanau") || testoCompleto.includes("atlantique")) {
-                regioneRilevata = "Atlantique";
-            } else if (testoCompleto.includes("bretagne") || testoCompleto.includes("normandie") || testoCompleto.includes("cherbourg") || testoCompleto.includes("manche")) {
-                regioneRilevata = "Manche";
-            } else { regioneRilevata = "France"; }
-        }
-        return {
-            name: s.name || s.nome || "Spot",
-            coords: s.coords || [s.lat, s.lon],
-            reg: regioneRilevata,
-            target: s.target || "Non specificato",
-            type: s.type || s.technique || s.tecnica || "Surfcasting",
-            tips: s.tips || s.description || s.desc || ""
-        };
-    });
-
-    // Filtriamo gli spot
-    const filtrati = datiUniformati.filter(s => {
-        let matchRegione = reg === "all" || s.reg.toLowerCase() === reg.toLowerCase();
-        let matchTecnica = tech === "all" || s.type.toLowerCase().includes(tech.toLowerCase());
-        return matchRegione && matchTecnica;
-    });
-
-    // Disegna i marker filtrati sulla mappa
-    aggiornaMappaSpotItalia(filtrati);
-
-    if (reg !== "all" || tech !== "all") {
-        // ZOOM RAVVICINATO E CORRETTO (Evita coordinate nulle o errate)
-        const puntiValidi = filtrati.map(s => s.coords).filter(c => c && c[0] > 1 && c[1] > 1);
-        
-        if (spotItaliaMap && puntiValidi.length > 0) {
-            if (puntiValidi.length === 1) {
-                spotItaliaMap.flyTo(puntiValidi[0], 13, { duration: 0.8 }); // Zoom molto stretto su spot singolo
-            } else {
-                const bounds = L.latLngBounds(puntiValidi);
-                spotItaliaMap.fitBounds(bounds, { padding: [30, 30] });
-                // Forza lo zoom ravvicinato se fitBounds rimane troppo largo
-                setTimeout(() => { if(spotItaliaMap.getZoom() < 10) spotItaliaMap.setZoom(11); }, 900);
-            }
-        }
-
-        // ISOLAMENTO PERFETTO DELLA LISTA DI DESTRA
-        // Sostituiamo permanentemente l'elenco globale con quello filtrato.
-        // In questo modo a destra rimarranno SOLO gli spot della regione scelta anche dopo il click!
-        spotsItalia = filtrati; 
-        mostraPannelloLista(filtrati, reg !== "all" ? reg : "Risultati");
-    } else {
-        // Se l'utente seleziona "Tutta la nazione", ricarichiamo il database originale intero
-        spotsItalia = sorgenteDati;
-        if (spotItaliaMap) spotItaliaMap.flyTo(centroMappa, zoomIniziale, { duration: 1.0 });
-        mostraPannelloLista(sorgenteDati, titoloLista);
-    }
+  }
 }
-
-
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
@@ -2573,143 +2454,72 @@ function onSpotSelezionato(spot){
   document.querySelectorAll(".spot-italia-item").forEach(el=>el.classList.remove("active"));
   document.querySelectorAll(".spot-italia-item").forEach(el=>{if(el.querySelector(".si-nome")?.textContent===spot.name)el.classList.add("active");});
 }
-/* === SOSTITUZIONE COMPLETA: GESTIONE DETTAGLI, SALVATAGGIO UNIVERSALE E FILTRO ISOLATO === */
-
+/* MODIFICA 2: btn salva spot nel dettaglio */
 function mostraDettaglioPannello(spot){
-  const header=document.getElementById("spotPanelHeader"), body=document.getElementById("spotPanelBody");
+  const header=document.getElementById("spotPanelHeader"),body=document.getElementById("spotPanelBody");
   if(!header||!body)return;
-  
-  // Assegniamo un'etichetta di regione sicura anche se il campo reg è assente (Francia)
-  const regioneSicura = spot.reg || (nazioneAttiva === "fr" ? "Francia" : "Tunisia");
-  header.textContent="📍 " + regioneSicura;
-  
-  const idx = spotsItalia.indexOf(spot);
-  
-  // Estrazione sicura delle coordinate sia che siano in array [lat,lon] sia che siano proprietà separate .lat .lon
-  const latSpot = spot.coords && spot.coords[0] ? spot.coords[0] : (spot.lat || 0);
-  const lonSpot = spot.coords && spot.coords[1] ? spot.coords[1] : (spot.lon || 0);
-
+  header.textContent="📍 "+spot.reg;
+  const idx=spotsItalia.indexOf(spot);
   body.innerHTML=`
     <div class="spot-detail-panel">
-      <span class="sdp-tag">${regioneSicura}</span>
-      <h3>${spot.name || "Spot"}</h3>
+      <span class="sdp-tag">${spot.reg}</span>
+      <h3>${spot.name}</h3>
       <div class="spot-detail-grid">
-        <div class="spot-detail-cell"><div class="sdc-lbl">🎣 Tecnica</div><div class="sdc-val">${spot.type || spot.technique || "Surfcasting"}</div></div>
-        <div class="spot-detail-cell"><div class="sdc-lbl">🐟 Target</div><div class="sdc-val">${spot.target || "Qualsiasi"}</div></div>
+        <div class="spot-detail-cell"><div class="sdc-lbl">🎣 Tecnica</div><div class="sdc-val">${spot.type}</div></div>
+        <div class="spot-detail-cell"><div class="sdc-lbl">🐟 Target</div><div class="sdc-val">${spot.target}</div></div>
       </div>
-      <div class="spot-detail-tips"><p>💡 ${spot.tips || spot.description || spot.desc || "Nessun consiglio aggiuntivo."}</p></div>
-      
-      <button class="btn-nav-spot" onclick="window.open('https://www.google.com/maps?q=${latSpot},${lonSpot}','_blank')">
+      <div class="spot-detail-tips"><p>💡 ${spot.tips}</p></div>
+      <button class="btn-nav-spot" onclick="window.open('https://www.google.com/maps?q=${spot.coords[0]},${spot.coords[1]}','_blank')">
         🧭 Ottieni indicazioni →
       </button>
-      
-      <!-- UNICO PULSANTE SALVA: Identificato dall'indice per dialogare con aggiornaLabelSalva -->
       <button class="btn-salva-spot-italia" id="btnSalvaItalia${idx}" onclick="salvaSpotItalia(${idx})">
         📌 Salva nei miei spot
       </button>
-      
-      <button class="btn-back-lista" onclick="tornaListaRegione('${regioneSicura}')">
-        ← Tutti gli spot di ${regioneSicura}
+      <button class="btn-back-lista" onclick="tornaListaRegione('${spot.reg}')">
+        ← Tutti gli spot di ${spot.reg}
       </button>
     </div>`;
-    
-  /* Aggiorna lo stato del pulsante (se già salvato in precedenza diventa verde/disattivato) */
+  /* Aggiorna label se già salvato */
   aggiornaLabelSalva(idx);
 }
-
+/* MODIFICA 2: salva spot Italia in localStorage */
 function salvaSpotItalia(idx){
-  const spot = spotsItalia[idx];
-  if(!spot) return;
-  
-  const spots = caricaSpot();
-  const giaSalvato = spots.find(s => s.fonte === "italia" && s.nome === spot.name);
-  if(giaSalvato){
-    alert("Spot già salvato nei tuoi spot! Puoi trovarlo nella sezione Meteo.");
-    return;
-  }
-  
-  // Estrazione sicura per salvare le coordinate corrette nel localStorage del telefono
-  const latSpot = spot.coords && spot.coords[0] ? spot.coords[0] : (spot.lat || 0);
-  const lonSpot = spot.coords && spot.coords[1] ? spot.coords[1] : (spot.lon || 0);
-  const noteSicure = spot.tips || spot.description || spot.desc || "";
-
+  const spot=spotsItalia[idx];
+  const spots=caricaSpot();
+  const giaSalvato=spots.find(s=>s.fonte==="italia"&&s.nome===spot.name);
+  if(giaSalvato){alert("Spot già salvato nei tuoi spot! Puoi trovarlo nella sezione Meteo.");return;}
   const nuovoSpot={
-    id: Date.now(),
-    nome: spot.name || "Spot",
-    specie: spot.target || "Qualsiasi",
-    montatura: spot.type || spot.technique || "Surfcasting",
-    note: noteSicure.slice(0, 80),
-    lat: latSpot,
-    lon: lonSpot,
-    data: new Date().toLocaleDateString("it-IT"),
-    fonte: "italia"
+    id:Date.now(),
+    nome:spot.name,
+    specie:spot.target,
+    montatura:spot.type,
+    note:spot.tips.slice(0,80),
+    lat:spot.coords[0],
+    lon:spot.coords[1],
+    data:new Date().toLocaleDateString("it-IT"),
+    fonte:"italia"
   };
-  
   spots.unshift(nuovoSpot);
   salvaSpot(spots);
   aggiornaLabelSalva(idx);
   alert("✅ Spot salvato! Trovi tutti i tuoi spot nella sezione Meteo.");
 }
-
 function aggiornaLabelSalva(idx){
-  const btn = document.getElementById("btnSalvaItalia" + idx); 
-  if(!btn) return;
-  const spot = spotsItalia[idx];
-  if(!spot) return;
-  
-  const spots = caricaSpot();
-  const giaSalvato = spots.find(s => s.fonte === "italia" && s.nome === spot.name);
-  if(giaSalvato){
-    btn.textContent = "✅ Già salvato";
-    btn.style.opacity = "0.6";
-    btn.style.cursor = "default";
-    btn.disabled = true; // Blocca il click per evitare salvataggi multipli
-  }
+  const btn=document.getElementById("btnSalvaItalia"+idx); if(!btn)return;
+  const spot=spotsItalia[idx];
+  const spots=caricaSpot();
+  const giaSalvato=spots.find(s=>s.fonte==="italia"&&s.nome===spot.name);
+  if(giaSalvato){btn.textContent="✅ Già salvato";btn.style.opacity="0.6";btn.style.cursor="default";}
 }
-
 function tornaListaRegione(reg){
-  // Filtro avanzato che riconosce la regione sia esplicitamente sia analizzando il testo per la Francia
-  const lista = spotsItalia.filter(s => {
-    const regioneDato = (s.reg || "").toLowerCase();
-    const nomeDato = (s.name || "").toLowerCase();
-    const descDato = (s.tips || s.description || s.desc || "").toLowerCase();
-    const cerco = reg.toLowerCase();
-    
-    return regioneDato === cerco || nomeDato.includes(cerco) || descDato.includes(cerco);
-  });
-  
-  mostraPannelloLista(lista, reg);
+  const lista=spotsItalia.filter(s=>s.reg===reg);
+  mostraPannelloLista(lista,reg);
   aggiornaMappaSpotItalia(lista);
-  
-  // ZOOM RIGOROSO SULLA COSTA: Evita inquadrature troppo larghe nell'oceano
-  if(lista.length > 0 && spotItaliaMap){
-    const puntiValidi = lista.map(s => {
-      const lat = s.coords && s.coords[0] ? s.coords[0] : s.lat;
-      const lon = s.coords && s.coords[1] ? s.coords[1] : s.lon;
-      return [lat, lon];
-    }).filter(c => c[0] > 0 && c[1] > 0);
-    
-    if(puntiValidi.length > 0){
-      if(puntiValidi.length === 1){
-        spotItaliaMap.flyTo(puntiValidi[0], 13, {duration: 0.8});
-      } else {
-        const bounds = L.latLngBounds(puntiValidi);
-        spotItaliaMap.fitBounds(bounds, {padding: [40, 40]});
-        
-        // Protezione anti-allargamento: forza lo zoom vicino se fitBounds si allontana troppo
-        setTimeout(() => {
-          if(spotItaliaMap.getZoom() < 10) spotItaliaMap.setZoom(11);
-        }, 900);
-      }
-    }
-  }
-  
-  const n = lista.length;
-  if(document.getElementById("spotCount")) document.getElementById("spotCount").textContent = n + " spot";
-  if(document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent = n + " visibili";
+  if(lista.length>0){const bounds=L.latLngBounds(lista.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
+  const n=lista.length;
+  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
+  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
 }
-/* === FINE DEL BLOCCO SOSTITUITO === */
-
 </script>
 <!-- ============================================================
      BLOCCO CSS — QUANDO PESCARE (Solunar + Maree + Luna)
@@ -3113,6 +2923,3 @@ if ("serviceWorker" in navigator) {
 </script>
 </body>
 </html>
-
-
-
