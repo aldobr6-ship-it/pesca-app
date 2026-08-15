@@ -2439,7 +2439,6 @@ function applicaFiltriSpot() {
     let zoomIniziale = 6;
     let titoloLista = "Risultati filtro";
     
-    // 1. Identifichiamo il database della nazione attiva e sblocchiamo la mappa
     if (nazioneAttiva === "it") {
         sorgenteDati = typeof spotsItalia !== "undefined" ? spotsItalia : [];
         centroMappa = [42.5, 12.5];
@@ -2460,26 +2459,21 @@ function applicaFiltriSpot() {
         if (spotItaliaMap) spotItaliaMap.setMaxBounds(null);
     }
 
-    // 2. Uniformiamo i dati associando le macro-regioni corrette in base alle stringhe dei tuoi filtri HTML
+    // Uniformiamo i dati e assegniamo le regioni francesi in base ai testi
     const datiUniformati = sorgenteDati.map(s => {
         let regioneRilevata = s.reg || s.region || "";
-        
-        // Se siamo in Francia e manca il campo reg, lo ricaviamo analizzando il testo del nome o descrizione
         if (nazioneAttiva === "fr" && !regioneRilevata) {
             const testoCompleto = ((s.name || "") + " " + (s.description || s.desc || "")).toLowerCase();
-            if (testoCompleto.includes("cannes") || testoCompleto.includes("hyères") || testoCompleto.includes("antibes") || testoCompleto.includes("pampelonne") || testoCompleto.includes("azur")) {
+            if (testoCompleto.includes("cannes") || testoCompleto.includes("hyères") || testoCompleto.includes("antibes") || testoCompleto.includes("azur")) {
                 regioneRilevata = "Cannes";
-            } else if (testoCompleto.includes("espiguette") || testoCompleto.includes("rhône") || testoCompleto.includes("sète") || testoCompleto.includes("agde") || testoCompleto.includes("lion")) {
+            } else if (testoCompleto.includes("espiguette") || testoCompleto.includes("rhône") || testoCompleto.includes("sète") || testoCompleto.includes("lion")) {
                 regioneRilevata = "Camargue";
-            } else if (testoCompleto.includes("biscarrosse") || testoCompleto.includes("ferret") || testoCompleto.includes("lacanau") || testoCompleto.includes("mimizan") || testoCompleto.includes("atlantique")) {
+            } else if (testoCompleto.includes("biscarrosse") || testoCompleto.includes("ferret") || testoCompleto.includes("lacanau") || testoCompleto.includes("atlantique")) {
                 regioneRilevata = "Atlantique";
-            } else if (testoCompleto.includes("bretagne") || testoCompleto.includes("normandie") || testoCompleto.includes("cherbourg") || testoCompleto.includes("étretat") || testoCompleto.includes("raz") || testoCompleto.includes("dunkerque") || testoCompleto.includes("manche")) {
+            } else if (testoCompleto.includes("bretagne") || testoCompleto.includes("normandie") || testoCompleto.includes("cherbourg") || testoCompleto.includes("manche")) {
                 regioneRilevata = "Manche";
-            } else {
-                regioneRilevata = "France";
-            }
+            } else { regioneRilevata = "France"; }
         }
-
         return {
             name: s.name || s.nome || "Spot",
             coords: s.coords || [s.lat, s.lon],
@@ -2490,81 +2484,44 @@ function applicaFiltriSpot() {
         };
     });
 
-    // 3. Eseguiamo il filtraggio rigoroso per isolare solo la regione scelta
+    // Filtriamo gli spot
     const filtrati = datiUniformati.filter(s => {
-        let matchRegione = false;
-        if (reg === "all") {
-            matchRegione = true;
-        } else {
-            // Confronto diretto sul valore del filtro normalizzato
-            if (s.reg.toLowerCase() === reg.toLowerCase()) {
-                matchRegione = true;
-            }
-        }
-
-        let matchTecnica = false;
-        if (tech === "all") {
-            matchTecnica = true;
-        } else {
-            const cercoTech = tech.toLowerCase();
-            const tecnicaDato = s.type.toLowerCase();
-            if (tecnicaDato.includes(cercoTech)) {
-                matchTecnica = true;
-            }
-        }
+        let matchRegione = reg === "all" || s.reg.toLowerCase() === reg.toLowerCase();
+        let matchTecnica = tech === "all" || s.type.toLowerCase().includes(tech.toLowerCase());
         return matchRegione && matchTecnica;
     });
 
-    // 4. Aggiorniamo i marker visibili sulla mappa Leaflet
+    // Disegna i marker filtrati sulla mappa
     aggiornaMappaSpotItalia(filtrati);
-    
-    const n = filtrati.length;
-    if (document.getElementById("spotCount")) document.getElementById("spotCount").textContent = n + " spot";
-    if (document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent = n + " visibili";
 
-    // 5. Gestione dello zoom ravvicinato e della lista laterale di destra (Isolamento perfetto)
     if (reg !== "all" || tech !== "all") {
-        if (spotItaliaMap && filtrati.length > 0) {
-            const punti = filtrati.map(s => s.coords);
-            
-            if (filtrati.length === 1) {
-                // Se c'è un solo spot nella regione, zooma molto vicino direttamente sulle coordinate
-                spotItaliaMap.flyTo(punti[0], 12, { duration: 1.0 });
+        // ZOOM RAVVICINATO E CORRETTO (Evita coordinate nulle o errate)
+        const puntiValidi = filtrati.map(s => s.coords).filter(c => c && c[0] > 1 && c[1] > 1);
+        
+        if (spotItaliaMap && puntiValidi.length > 0) {
+            if (puntiValidi.length === 1) {
+                spotItaliaMap.flyTo(puntiValidi[0], 13, { duration: 0.8 }); // Zoom molto stretto su spot singolo
             } else {
-                // Se ci sono più spot, inquadrali tutti con un padding stretto per non allontanare troppo la visuale
-                const bounds = L.latLngBounds(punti);
-                spotItaliaMap.fitBounds(bounds, { padding: [40, 40] });
-                
-                // Limita lo zoom massimo per evitare che la mappa rimanga troppo distante o si perda
-                setTimeout(() => {
-                    if (spotItaliaMap.getZoom() < 9) {
-                        spotItaliaMap.setZoom(10);
-                    }
-                }, 1100);
+                const bounds = L.latLngBounds(puntiValidi);
+                spotItaliaMap.fitBounds(bounds, { padding: [30, 30] });
+                // Forza lo zoom ravvicinato se fitBounds rimane troppo largo
+                setTimeout(() => { if(spotItaliaMap.getZoom() < 10) spotItaliaMap.setZoom(11); }, 900);
             }
         }
 
-        // Isola la lista laterale di destra sostituendo temporaneamente l'array globale spotsItalia
-        const backupSpotsItalia = spotsItalia;
+        // ISOLAMENTO PERFETTO DELLA LISTA DI DESTRA
+        // Sostituiamo permanentemente l'elenco globale con quello filtrato.
+        // In questo modo a destra rimarranno SOLO gli spot della regione scelta anche dopo il click!
         spotsItalia = filtrati; 
-        
-        mostraPannelloLista(filtrati, reg !== "all" ? reg : "Risultati filtro");
-        
-        spotsItalia = backupSpotsItalia; // Ripristina immediatamente lo stato originario
+        mostraPannelloLista(filtrati, reg !== "all" ? reg : "Risultati");
     } else {
-        // Se si rinfresca la ricerca globale ("all"), torna alla panoramica della nazione corrente
+        // Se l'utente seleziona "Tutta la nazione", ricarichiamo il database originale intero
+        spotsItalia = sorgenteDati;
         if (spotItaliaMap) spotItaliaMap.flyTo(centroMappa, zoomIniziale, { duration: 1.0 });
-        
-        if (document.getElementById("spotPanelBody")) {
-            document.getElementById("spotPanelHeader").textContent = "Dettaglio spot";
-            document.getElementById("spotPanelBody").innerHTML = `
-                <div class="spot-panel-placeholder">
-                    <span class="ph-ico">🎣</span>
-                    <p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker</p>
-                </div>`;
-        }
+        mostraPannelloLista(sorgenteDati, titoloLista);
     }
 }
+
 
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
