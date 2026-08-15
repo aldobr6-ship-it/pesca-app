@@ -2376,27 +2376,57 @@ function applicaFiltriSpot() {
     spotItaliaMap.setView(coordsRegione, 9);
   }
 
-  // 2. Filtra gli spot senza farli sparire
+  // 2. Mappatura Sinonimi/Parole chiave per garantire che ogni spot venga trovato
+  const mappaSinonimi = {
+    // TUNISIA
+    "Bizerte": ["bizerte", "bizerta", "rimel", "cap serrat", "ghar el melh"],
+    "Cap Bon / Nabeul": ["cap bon", "haouaria", "kelibia", "korba", "hammamet", "menzel"],
+    "Tunis / Ghar El Melh": ["tunis", "melh", "sidi ali"],
+    "Sousse / Sahel": ["sousse", "hergla", "chott meriam", "monastir", "skanes"],
+    "Mahdia": ["mahdia", "rejiche"],
+    "Sfax": ["sfax", "chaffar"],
+    "Djerba / Zarzis": ["djerba", "zarzis", "aghir", "sidi mahrez"],
+
+    // FRANCIA
+    "PACA / Côte d'Azur": ["paca", "azur", "nice", "cannes", "marseille", "toulon", "hyeres"],
+    "Bretagne": ["bretagne", "bretagna", "finistere", "lorient", "vannes"],
+    "Occitanie": ["occitanie", "occitania", "seete", "agde", "leucate"],
+    "Nouvelle-Aquitaine": ["aquitaine", "aquitania", "biarritz", "arcachon", "landes"],
+    "Normandie": ["normandie", "normandia", "cherbourg", "le havre"],
+    "Corse": ["corse", "corsica", "bastia", "ajaccio"]
+  };
+
+  // 3. Filtro Spot
   const spotFiltrati = listaSorgente.filter(spot => {
     if (reg === "all" && tech === "all") return true;
 
-    // Recuperiamo i testi dello spot
     const sNome = (spot.name || spot.nome || "").toLowerCase();
     const sDesc = (spot.description || spot.desc || "").toLowerCase();
     const sReg  = (spot.region || spot.regione || "").toLowerCase();
     const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
 
-    const regCercata = reg.toLowerCase();
     const techCercata = tech.toLowerCase();
 
-    // Verifica la regione nel nome, nella descrizione o nel campo regione
-    const matchReg = (reg === "all") || 
-                     sReg.includes(regCercata) || 
-                     sNome.includes(regCercata) || 
-                     sDesc.includes(regCercata);
-
-    // Verifica la tecnica
+    // Verifico se la tecnica combacia
     const matchTech = (tech === "all") || sTech.includes(techCercata);
+
+    // Verifico la regione
+    let matchReg = false;
+
+    if (reg === "all") {
+      matchReg = true;
+    } else {
+      // Controlla se la parola della regione è diretta
+      const regPura = reg.toLowerCase();
+      if (sReg.includes(regPura) || sNome.includes(regPura) || sDesc.includes(regPura)) {
+        matchReg = true;
+      } else if (mappaSinonimi[reg]) {
+        // Controlla se una delle parole chiave/città associate alla regione si trova nello spot
+        matchReg = mappaSinonimi[reg].some(parolaChiave => 
+          sNome.includes(parolaChiave) || sDesc.includes(parolaChiave) || sReg.includes(parolaChiave)
+        );
+      }
+    }
 
     return matchReg && matchTech;
   });
