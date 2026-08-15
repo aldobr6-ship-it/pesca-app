@@ -2370,14 +2370,38 @@ function applicaFiltriSpot() {
   else if (nazioneAttiva === "fr") listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
   else if (nazioneAttiva === "tn") listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
 
-  // 1. Sposta la mappa sulla regione selezionata
+  // 1. Sposta la mappa sulla regione selezionata se diversa da "all"
   if (reg !== "all" && mappeRegioni[nazioneAttiva] && mappeRegioni[nazioneAttiva][reg]) {
     const coordsRegione = mappeRegioni[nazioneAttiva][reg];
-    spotItaliaMap.setView(coordsRegione, 9);
+    spotItaliaMap.setView(coordsRegione, 8);
   }
 
-  // 2. Mappatura Sinonimi/Parole chiave per garantire che ogni spot venga trovato
+  // 2. Mappatura completa per ITALIA, FRANCIA e TUNISIA
   const mappaSinonimi = {
+    // ITALIA
+    "Liguria": ["liguria", "genova", "la spezia", "savona", "imperia", "sanremo"],
+    "Toscana": ["toscana", "livorno", "grosseto", "pisa", "pombino", "orbetello", "elba"],
+    "Lazio": ["lazio", "roma", "ostia", "anzio", "civitavecchia", "terracina", "gaeta", "sperlonga"],
+    "Campania": ["campania", "napoli", "salerno", "caserta", "cilento", "pozzuoli", "ischia"],
+    "Calabria": ["calabria", "reggio", "tropea", "catanzaro", "crotone", "cosenza", "scalea"],
+    "Puglia": ["puglia", "bari", "lecce", "taranto", "brindisi", "foggia", "gargano", "salento"],
+    "Basilicata": ["basilicata", "potenza", "matera", "maratea", "metaponto"],
+    "Abruzzo-Molise": ["abruzzo", "molise", "pescara", "chieti", "teramo", "termoli", "vasto"],
+    "Marche": ["marche", "ancona", "pesaro", "san benedetto", "senigallia"],
+    "Emilia-Romagna": ["emilia", "romagna", "rimini", "riccione", "ravenna", "cervia"],
+    "Veneto": ["veneto", "venezia", "chioggia", "jesolo", "caorle"],
+    "Friuli-VG": ["friuli", "trieste", "udine", "grado", "lignano"],
+    "Sardegna": ["sardegna", "cagliari", "olbia", "sassari", "alghero", "oristano", "stintino"],
+    "Sicilia": ["sicilia", "palermo", "catania", "messina", "siracusa", "trapani", "agrigento", "ragusa"],
+
+    // FRANCIA
+    "PACA / Côte d'Azur": ["paca", "azur", "nice", "nizza", "cannes", "marseille", "toulon", "hyeres", "antibes"],
+    "Bretagne": ["bretagne", "bretagna", "finistere", "lorient", "vannes", "rennes", "saint-malo"],
+    "Occitanie": ["occitanie", "occitania", "sete", "agde", "leucate", "perpignan", "montpellier"],
+    "Nouvelle-Aquitaine": ["aquitaine", "aquitania", "biarritz", "arcachon", "landes", "bordeaux"],
+    "Normandie": ["normandie", "normandia", "cherbourg", "le havre", "caen"],
+    "Corse": ["corse", "corsica", "bastia", "ajaccio", "bonifacio"],
+
     // TUNISIA
     "Bizerte": ["bizerte", "bizerta", "rimel", "cap serrat", "ghar el melh"],
     "Cap Bon / Nabeul": ["cap bon", "haouaria", "kelibia", "korba", "hammamet", "menzel"],
@@ -2385,19 +2409,12 @@ function applicaFiltriSpot() {
     "Sousse / Sahel": ["sousse", "hergla", "chott meriam", "monastir", "skanes"],
     "Mahdia": ["mahdia", "rejiche"],
     "Sfax": ["sfax", "chaffar"],
-    "Djerba / Zarzis": ["djerba", "zarzis", "aghir", "sidi mahrez"],
-
-    // FRANCIA
-    "PACA / Côte d'Azur": ["paca", "azur", "nice", "cannes", "marseille", "toulon", "hyeres"],
-    "Bretagne": ["bretagne", "bretagna", "finistere", "lorient", "vannes"],
-    "Occitanie": ["occitanie", "occitania", "seete", "agde", "leucate"],
-    "Nouvelle-Aquitaine": ["aquitaine", "aquitania", "biarritz", "arcachon", "landes"],
-    "Normandie": ["normandie", "normandia", "cherbourg", "le havre"],
-    "Corse": ["corse", "corsica", "bastia", "ajaccio"]
+    "Djerba / Zarzis": ["djerba", "zarzis", "aghir", "sidi mahrez"]
   };
 
   // 3. Filtro Spot
   const spotFiltrati = listaSorgente.filter(spot => {
+    // Se non c'è nessun filtro impostato, MOSTRA TUTTO
     if (reg === "all" && tech === "all") return true;
 
     const sNome = (spot.name || spot.nome || "").toLowerCase();
@@ -2407,7 +2424,7 @@ function applicaFiltriSpot() {
 
     const techCercata = tech.toLowerCase();
 
-    // Verifico se la tecnica combacia
+    // Verifico la tecnica
     const matchTech = (tech === "all") || sTech.includes(techCercata);
 
     // Verifico la regione
@@ -2416,12 +2433,14 @@ function applicaFiltriSpot() {
     if (reg === "all") {
       matchReg = true;
     } else {
-      // Controlla se la parola della regione è diretta
       const regPura = reg.toLowerCase();
+
+      // Cerca la parola della regione nel nome, descrizione o chiave 'regione'
       if (sReg.includes(regPura) || sNome.includes(regPura) || sDesc.includes(regPura)) {
         matchReg = true;
-      } else if (mappaSinonimi[reg]) {
-        // Controlla se una delle parole chiave/città associate alla regione si trova nello spot
+      } 
+      // Altrimenti controlla se una delle citta/parole chiave fa parte dello spot
+      else if (mappaSinonimi[reg]) {
         matchReg = mappaSinonimi[reg].some(parolaChiave => 
           sNome.includes(parolaChiave) || sDesc.includes(parolaChiave) || sReg.includes(parolaChiave)
         );
