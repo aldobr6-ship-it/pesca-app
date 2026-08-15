@@ -1632,24 +1632,33 @@ const regionData = {
     center: [41.8719, 12.5674],
     zoom: 6,
     regions: {
-      "Tutte": null,
-      "Sicilia": { center: [37.599994, 14.015356], zoom: 8 },
-      "Sardegna": { center: [40.120875, 9.012893], zoom: 8 },
-      "Calabria": { center: [39.080402, 16.516228], zoom: 8 },
-      "Lazio": { center: [41.892916, 12.48252], zoom: 8 },
-      "Toscana": { center: [43.771051, 11.248621], zoom: 8 },
-      "Puglia": { center: [41.117143, 16.871871], zoom: 8 },
-      "Campania": { center: [40.851774, 14.268124], zoom: 8 }
+      "all": null,
+      "Liguria": { center: [44.4142, 8.9422], zoom: 8 },
+      "Toscana": { center: [43.7711, 11.2486], zoom: 8 },
+      "Lazio": { center: [41.8929, 12.4825], zoom: 8 },
+      "Campania": { center: [40.8518, 14.2681], zoom: 8 },
+      "Calabria": { center: [39.0804, 16.5162], zoom: 8 },
+      "Puglia": { center: [41.1171, 16.8719], zoom: 8 },
+      "Basilicata": { center: [40.3500, 16.5000], zoom: 8 },
+      "Abruzzo-Molise": { center: [42.3500, 14.1667], zoom: 8 },
+      "Marche": { center: [43.6167, 13.5167], zoom: 8 },
+      "Emilia-Romagna": { center: [44.4938, 11.3426], zoom: 8 },
+      "Veneto": { center: [45.4371, 12.3326], zoom: 8 },
+      "Friuli-VG": { center: [45.6500, 13.7667], zoom: 8 },
+      "Sardegna": { center: [40.1209, 9.0129], zoom: 8 },
+      "Sicilia": { center: [37.5999, 14.0154], zoom: 8 }
     }
   },
   francia: {
     center: [46.2276, 2.2137],
     zoom: 6,
     regions: {
-      "Tutte": null,
+      "all": null,
       "Costa Azzurra": { center: [43.7102, 7.2620], zoom: 9 },
       "Bretagna": { center: [48.2020, -3.1416], zoom: 8 },
       "Aquitania": { center: [44.8378, -0.5792], zoom: 8 },
+      "Normandia": { center: [49.1828, -0.3707], zoom: 8 },
+      "Occitania": { center: [43.6047, 1.4442], zoom: 8 },
       "Corsica": { center: [42.0396, 9.0128], zoom: 8 }
     }
   },
@@ -1657,9 +1666,12 @@ const regionData = {
     center: [33.8869, 9.5375],
     zoom: 6,
     regions: {
-      "Tutte": null,
+      "all": null,
       "Biserta": { center: [37.2744, 9.8739], zoom: 10 },
       "Cap Bon": { center: [36.8000, 10.8000], zoom: 9 },
+      "Tunisi": { center: [36.8065, 10.1815], zoom: 9 },
+      "Sousse / Sahel": { center: [35.8256, 10.6411], zoom: 9 },
+      "Mahdia": { center: [35.5047, 11.0622], zoom: 10 },
       "Sfax": { center: [34.7406, 10.7603], zoom: 9 },
       "Djerba": { center: [33.8075, 10.8451], zoom: 10 }
     }
@@ -2366,122 +2378,77 @@ function applicaFiltriSpot() {
   const tech = techEl ? techEl.value : "all";
 
   let listaSorgente = [];
-  if (nazioneAttiva === "it") listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
-  else if (nazioneAttiva === "fr") listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
-  else if (nazioneAttiva === "tn") listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
+  let chiaveNazione = "italia";
 
-  // 1. Sposta la mappa sulla regione selezionata se diversa da "all"
-  if (reg !== "all" && mappeRegioni[nazioneAttiva] && mappeRegioni[nazioneAttiva][reg]) {
-    const coordsRegione = mappeRegioni[nazioneAttiva][reg];
-    spotItaliaMap.setView(coordsRegione, 8);
+  if (nazioneAttiva === "it") {
+    listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
+    chiaveNazione = "italia";
+  } else if (nazioneAttiva === "fr") {
+    listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
+    chiaveNazione = "francia";
+  } else if (nazioneAttiva === "tn") {
+    listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
+    chiaveNazione = "tunisia";
   }
 
-  // 2. Mappatura completa per ITALIA, FRANCIA e TUNISIA
- const mappaSinonimi = {
-    // ITALIA
-    "Liguria": [
-      "liguria", "genova", "la spezia", "savona", "imperia", "sanremo", "alassio", "chiavari", "rapallo", "ventimiglia", "sestri", "varazze", "albenga", "portovenere", "lerici", "cinque terre"
-    ],
-    "Toscana": [
-      "toscana", "livorno", "grosseto", "pisa", "piombino", "orbetello", "elba", "viareggio", "follonica", "massa", "carrara", "argentario", "giglio", "castiglione", "cecina", "san vincenzo"
-    ],
-    "Lazio": [
-      "lazio", "roma", "ostia", "anzio", "civitavecchia", "terracina", "gaeta", "sperlonga", "fiumicino", "nettuno", "sabaudia", "ponza", "tarquinia", "ladispoli", "formia", "santa marinella"
-    ],
-    "Campania": [
-      "campania", "napoli", "salerno", "caserta", "cilento", "pozzuoli", "ischia", "capri", "sorrento", "amalfi", "agropoli", "palinuro", "acciaroli", "castellammare", "procida", "mondragone"
-    ],
-    "Calabria": [
-      "calabria", "reggio", "tropea", "catanzaro", "crotone", "cosenza", "scalea", "vibo", "soverato", "praia", "gioia tauro", "palmi", "diamante", "pizzo", "siderno", "scilla"
-    ],
-    "Puglia": [
-      "puglia", "bari", "lecce", "taranto", "brindisi", "foggia", "gargano", "salento", "gallipoli", "otrantro", "vieste", "monopoli", "polignano", "porto cesareo", "pescoluse", "rodico", "trani", "peschici"
-    ],
-    "Basilicata": [
-      "basilicata", "potenza", "matera", "maratea", "metaponto", "policoro", "nova siri", "scanzano"
-    ],
-    "Abruzzo-Molise": [
-      "abruzzo", "molise", "pescara", "chieti", "teramo", "termoli", "vasto", "giulianova", "roseto", "ortona", "pineto", "campomarino", "silvi"
-    ],
-    "Marche": [
-      "marche", "ancona", "pesaro", "san benedetto", "senigallia", "fano", "civitanova", "portonovo", "numana", "sirolo", "grottammare"
-    ],
-    "Emilia-Romagna": [
-      "emilia", "romagna", "rimini", "riccione", "ravenna", "cervia", "cesenatico", "bellaria", "milano marittima", "misano", "comacchio", "gatteo"
-    ],
-    "Veneto": [
-      "veneto", "venezia", "chioggia", "jesolo", "caorle", "bibione", "cavallino", "eraclea", "rovigo", "sottomarina"
-    ],
-    "Friuli-VG": [
-      "friuli", "trieste", "udine", "grado", "lignano", "monfalcone", "duino", "muggia", "sabbiadoro"
-    ],
-    "Sardegna": [
-      "sardegna", "cagliari", "olbia", "sassari", "alghero", "oristano", "stintino", "nuoro", "bosa", "villasimius", "san teodoro", "pula", "chia", "sant'antioco", "carloforte", "la maddalena", "tortolì", "orosei", "castelsardo"
-    ],
-    "Sicilia": [
-      "sicilia", "palermo", "catania", "messina", "siracusa", "trapani", "agrigento", "ragusa", "caltanissetta", "enna", "cefalu", "cefalù", "taormina", "pozzallo", "milazzo", "giardini naxos", "san vito", "san vito lo capo", "marzamemi", "licata", "sciacca", "gela", "mazara", "marsala", "favignana", "lampedusa", "pantelleria", "lipari", "vulcano", "scicli", "modica", "ispica", "patti", "capo d'orlando", "avola", "noto", "scoglitti", "marina di ragusa", "mondello", "terrasini", "piana degli albanesi", "riposto", "acireale", "portopalo"
-    ],
-   // FRANCIA
-    "PACA / Côte d'Azur": [
-      "paca", "azur", "nice", "nizza", "cannes", "marseille", "marsiglia", "toulon", "tolone", "hyeres", "antibes", "menton", "mentone", "fréjus", "saint-tropez"
-    ],
-    "Bretagne": [
-      "bretagne", "bretagna", "finistere", "lorient", "vannes", "rennes", "saint-malo", "quimper", "brest", "dinard"
-    ],
-    "Occitanie": [
-      "occitanie", "occitania", "sete", "agde", "leucate", "perpignan", "montpellier", "grau-du-roi", "argelès"
-    ],
-    "Nouvelle-Aquitaine": [
-      "aquitaine", "aquitania", "biarritz", "arcachon", "landes", "bordeaux", "bayonne", "hossegor", "la rochelle"
-    ],
-    "Normandie": [
-      "normandie", "normandia", "cherbourg", "le havre", "caen", "dieppe", "etretat", "honfleur"
-    ],
-    "Corse": [
-      "corse", "corsica", "bastia", "ajaccio", "bonifacio", "calvi", "porto-vecchio", "propriano", "corte", "saint-florent", "il-rousse"
-    ],
+  // 1. Sposta la mappa se è stata scelta una regione specifica
+  if (reg !== "all" && reg !== "Tutte" && regionData[chiaveNazione] && regionData[chiaveNazione].regions[reg]) {
+    const regObj = regionData[chiaveNazione].regions[reg];
+    if (regObj && regObj.center) {
+      spotItaliaMap.setView(regObj.center, regObj.zoom || 8);
+    }
+  }
+
+  // 2. Mappa Sinonimi Universale
+  const mappaSinonimi = {
+    // FRANCIA
+    "Costa Azzurra": ["costa azzurra", "paca", "azur", "nice", "nizza", "cannes", "marseille", "marsiglia", "toulon", "hyeres", "antibes"],
+    "Bretagna": ["bretagne", "bretagna", "finistere", "lorient", "vannes", "saint-malo", "brest"],
+    "Aquitania": ["aquitaine", "aquitania", "biarritz", "arcachon", "landes", "bordeaux"],
+    "Normandia": ["normandie", "normandia", "cherbourg", "le havre", "caen"],
+    "Occitania": ["occitanie", "occitania", "sete", "agde", "perpignan", "montpellier"],
+    "Corsica": ["corse", "corsica", "bastia", "ajaccio", "bonifacio", "calvi", "porto-vecchio"],
+
     // TUNISIA
-    "Bizerte": ["bizerte", "bizerta", "rimel", "cap serrat", "ghar el melh"],
-    "Cap Bon / Nabeul": ["cap bon", "haouaria", "kelibia", "korba", "hammamet", "menzel"],
-    "Tunis / Ghar El Melh": ["tunis", "melh", "sidi ali"],
-    "Sousse / Sahel": ["sousse", "hergla", "chott meriam", "monastir", "skanes"],
+    "Biserta": ["bizerte", "biserta", "bizerta", "rimel", "cap serrat", "ghar el melh"],
+    "Cap Bon": ["cap bon", "nabeul", "haouaria", "kelibia", "korba", "hammamet"],
+    "Tunisi": ["tunis", "tunisi", "melh", "sidi ali"],
+    "Sousse / Sahel": ["sousse", "susa", "hergla", "chott meriam", "monastir"],
     "Mahdia": ["mahdia", "rejiche"],
     "Sfax": ["sfax", "chaffar"],
-    "Djerba / Zarzis": ["djerba", "zarzis", "aghir", "sidi mahrez"]
+    "Djerba": ["djerba", "zarzis", "aghir"],
+
+    // ITALIA
+    "Sicilia": ["sicilia", "palermo", "catania", "messina", "siracusa", "trapani", "agrigento", "ragusa", "cefalu", "taormina", "pozzallo", "milazzo", "marzamemi", "licata", "sciacca", "san vito"],
+    "Sardegna": ["sardegna", "cagliari", "olbia", "sassari", "alghero", "oristano", "stintino", "villasimius", "san teodoro"],
+    "Liguria": ["liguria", "genova", "la spezia", "savona", "imperia", "sanremo"],
+    "Toscana": ["toscana", "livorno", "grosseto", "pisa", "piombino", "orbetello", "elba"],
+    "Lazio": ["lazio", "roma", "ostia", "anzio", "civitavecchia", "terracina", "gaeta"],
+    "Campania": ["campania", "napoli", "salerno", "caserta", "cilento", "ischia", "capri"],
+    "Calabria": ["calabria", "reggio", "tropea", "catanzaro", "crotone", "scalea"],
+    "Puglia": ["puglia", "bari", "lecce", "taranto", "brindisi", "foggia", "salento", "gallipoli"]
   };
 
-  // 3. Filtro Spot
+  // 3. Filtra gli spot
   const spotFiltrati = listaSorgente.filter(spot => {
-    // Se non c'è nessun filtro impostato, MOSTRA TUTTO
-    if (reg === "all" && tech === "all") return true;
+    if ((reg === "all" || reg === "Tutte") && tech === "all") return true;
 
     const sNome = (spot.name || spot.nome || "").toLowerCase();
     const sDesc = (spot.description || spot.desc || "").toLowerCase();
     const sReg  = (spot.region || spot.regione || "").toLowerCase();
     const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
 
-    const techCercata = tech.toLowerCase();
+    const matchTech = (tech === "all") || sTech.includes(tech.toLowerCase());
 
-    // Verifico la tecnica
-    const matchTech = (tech === "all") || sTech.includes(techCercata);
-
-    // Verifico la regione
     let matchReg = false;
-
-    if (reg === "all") {
+    if (reg === "all" || reg === "Tutte") {
       matchReg = true;
     } else {
       const regPura = reg.toLowerCase();
-
-      // Cerca la parola della regione nel nome, descrizione o chiave 'regione'
       if (sReg.includes(regPura) || sNome.includes(regPura) || sDesc.includes(regPura)) {
         matchReg = true;
-      } 
-      // Altrimenti controlla se una delle citta/parole chiave fa parte dello spot
-      else if (mappaSinonimi[reg]) {
-        matchReg = mappaSinonimi[reg].some(parolaChiave => 
-          sNome.includes(parolaChiave) || sDesc.includes(parolaChiave) || sReg.includes(parolaChiave)
-        );
+      } else if (mappaSinonimi[reg]) {
+        matchReg = mappaSinonimi[reg].some(k => sNome.includes(k) || sDesc.includes(k) || sReg.includes(k));
       }
     }
 
