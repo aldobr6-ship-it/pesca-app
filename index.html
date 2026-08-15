@@ -2369,7 +2369,6 @@ function initMappaEsplorazioneNuova() {
 
   renderizzaListaEMappe(listaSpot);
 }
-
 function applicaFiltriSpot() {
   const regEl = document.getElementById("filtroReg");
   const techEl = document.getElementById("filtroTech");
@@ -2391,47 +2390,69 @@ function applicaFiltriSpot() {
     chiaveNazione = "tunisia";
   }
 
-  // 1. Sposta la mappa se è stata scelta una regione specifica
-  if (reg !== "all" && reg !== "Tutte" && regionData[chiaveNazione] && regionData[chiaveNazione].regions[reg]) {
-    const regObj = regionData[chiaveNazione].regions[reg];
-    if (regObj && regObj.center) {
-      spotItaliaMap.setView(regObj.center, regObj.zoom || 8);
+  // 1. Spostamento Mappa Flessibile
+  if (reg !== "all" && reg !== "Tutte") {
+    // Cerca la regione in regionData ignorando maiuscole/minuscole
+    if (regionData[chiaveNazione] && regionData[chiaveNazione].regions) {
+      const regChiave = Object.keys(regionData[chiaveNazione].regions).find(
+        k => k.toLowerCase() === reg.toLowerCase()
+      );
+      if (regChiave && regionData[chiaveNazione].regions[regChiave]) {
+        const regObj = regionData[chiaveNazione].regions[regChiave];
+        if (regObj && regObj.center) {
+          spotItaliaMap.setView(regObj.center, regObj.zoom || 8);
+        }
+      }
     }
   }
 
-  // 2. Mappa Sinonimi Universale
+  // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
   const mappaSinonimi = {
     // FRANCIA
-    "Costa Azzurra": ["costa azzurra", "paca", "azur", "nice", "nizza", "cannes", "marseille", "marsiglia", "toulon", "hyeres", "antibes"],
-    "Bretagna": ["bretagne", "bretagna", "finistere", "lorient", "vannes", "saint-malo", "brest"],
-    "Aquitania": ["aquitaine", "aquitania", "biarritz", "arcachon", "landes", "bordeaux"],
-    "Normandia": ["normandie", "normandia", "cherbourg", "le havre", "caen"],
-    "Occitania": ["occitanie", "occitania", "sete", "agde", "perpignan", "montpellier"],
-    "Corsica": ["corse", "corsica", "bastia", "ajaccio", "bonifacio", "calvi", "porto-vecchio"],
+    "costa azzurra": ["paca", "azur", "côte d'azur", "nice", "nizza", "cannes", "marseille", "marsiglia", "toulon", "hyeres", "antibes"],
+    "paca / côte d'azur": ["paca", "azur", "côte d'azur", "nice", "nizza", "cannes", "marseille", "toulon"],
+    "bretagna": ["bretagne", "bretagna", "finistere", "lorient", "vannes", "saint-malo", "brest"],
+    "bretagne": ["bretagne", "bretagna", "finistere", "lorient", "vannes", "saint-malo", "brest"],
+    "aquitania": ["aquitaine", "aquitania", "nouvelle-aquitaine", "biarritz", "arcachon", "landes", "bordeaux"],
+    "nouvelle-aquitaine": ["aquitaine", "aquitania", "biarritz", "arcachon", "landes", "bordeaux"],
+    "normandia": ["normandie", "normandia", "cherbourg", "le havre", "caen"],
+    "normandie": ["normandie", "normandia", "cherbourg", "le havre", "caen"],
+    "occitania": ["occitanie", "occitania", "sete", "agde", "perpignan", "montpellier"],
+    "occitanie": ["occitanie", "occitania", "sete", "agde", "perpignan", "montpellier"],
+    "corsica": ["corse", "corsica", "bastia", "ajaccio", "bonifacio", "calvi", "porto-vecchio"],
+    "corse": ["corse", "corsica", "bastia", "ajaccio", "bonifacio", "calvi", "porto-vecchio"],
 
     // TUNISIA
-    "Biserta": ["bizerte", "biserta", "bizerta", "rimel", "cap serrat", "ghar el melh"],
-    "Cap Bon": ["cap bon", "nabeul", "haouaria", "kelibia", "korba", "hammamet"],
-    "Tunisi": ["tunis", "tunisi", "melh", "sidi ali"],
-    "Sousse / Sahel": ["sousse", "susa", "hergla", "chott meriam", "monastir"],
-    "Mahdia": ["mahdia", "rejiche"],
-    "Sfax": ["sfax", "chaffar"],
-    "Djerba": ["djerba", "zarzis", "aghir"],
+    "biserta": ["bizerte", "biserta", "bizerta", "rimel", "cap serrat", "ghar el melh"],
+    "bizerte": ["bizerte", "biserta", "bizerta", "rimel", "cap serrat", "ghar el melh"],
+    "cap bon": ["cap bon", "nabeul", "haouaria", "kelibia", "korba", "hammamet"],
+    "cap bon / nabeul": ["cap bon", "nabeul", "haouaria", "kelibia", "korba", "hammamet"],
+    "tunisi": ["tunis", "tunisi", "melh", "sidi ali"],
+    "tunis / ghar el melh": ["tunis", "tunisi", "melh", "sidi ali"],
+    "sousse / sahel": ["sousse", "susa", "hergla", "chott meriam", "monastir"],
+    "mahdia": ["mahdia", "rejiche"],
+    "sfax": ["sfax", "chaffar"],
+    "djerba": ["djerba", "zarzis", "aghir"],
+    "djerba / zarzis": ["djerba", "zarzis", "aghir"],
 
     // ITALIA
-    "Sicilia": ["sicilia", "palermo", "catania", "messina", "siracusa", "trapani", "agrigento", "ragusa", "cefalu", "taormina", "pozzallo", "milazzo", "marzamemi", "licata", "sciacca", "san vito"],
-    "Sardegna": ["sardegna", "cagliari", "olbia", "sassari", "alghero", "oristano", "stintino", "villasimius", "san teodoro"],
-    "Liguria": ["liguria", "genova", "la spezia", "savona", "imperia", "sanremo"],
-    "Toscana": ["toscana", "livorno", "grosseto", "pisa", "piombino", "orbetello", "elba"],
-    "Lazio": ["lazio", "roma", "ostia", "anzio", "civitavecchia", "terracina", "gaeta"],
-    "Campania": ["campania", "napoli", "salerno", "caserta", "cilento", "ischia", "capri"],
-    "Calabria": ["calabria", "reggio", "tropea", "catanzaro", "crotone", "scalea"],
-    "Puglia": ["puglia", "bari", "lecce", "taranto", "brindisi", "foggia", "salento", "gallipoli"]
+    "sicilia": ["sicilia", "palermo", "catania", "messina", "siracusa", "trapani", "agrigento", "ragusa", "cefalu", "taormina", "pozzallo", "milazzo", "marzamemi", "licata", "sciacca", "san vito"],
+    "sardegna": ["sardegna", "cagliari", "olbia", "sassari", "alghero", "oristano", "stintino", "villasimius"],
+    "liguria": ["liguria", "genova", "la spezia", "savona", "imperia", "sanremo"],
+    "toscana": ["toscana", "livorno", "grosseto", "pisa", "piombino", "orbetello", "elba"],
+    "lazio": ["lazio", "roma", "ostia", "anzio", "civitavecchia", "terracina", "gaeta"],
+    "campania": ["campania", "napoli", "salerno", "caserta", "cilento", "ischia", "capri"],
+    "calabria": ["calabria", "reggio", "tropea", "catanzaro", "crotone", "scalea"],
+    "puglia": ["puglia", "bari", "lecce", "taranto", "brindisi", "foggia", "salento", "gallipoli"]
   };
 
-  // 3. Filtra gli spot
+  // 3. Filtro Spot Intelligente
   const spotFiltrati = listaSorgente.filter(spot => {
-    if ((reg === "all" || reg === "Tutte") && tech === "all") return true;
+    // Se il filtro è su "Tutte" o "all", mostra TUTTO
+    if (reg === "all" || reg === "Tutte" || reg === "") {
+      const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
+      return (tech === "all") || sTech.includes(tech.toLowerCase());
+    }
 
     const sNome = (spot.name || spot.nome || "").toLowerCase();
     const sDesc = (spot.description || spot.desc || "").toLowerCase();
@@ -2440,16 +2461,18 @@ function applicaFiltriSpot() {
 
     const matchTech = (tech === "all") || sTech.includes(tech.toLowerCase());
 
+    const regCercata = reg.toLowerCase().trim();
     let matchReg = false;
-    if (reg === "all" || reg === "Tutte") {
+
+    // A. Controlla se la parola cercata è contenuta direttamente
+    if (sReg.includes(regCercata) || sNome.includes(regCercata) || sDesc.includes(regCercata)) {
       matchReg = true;
-    } else {
-      const regPura = reg.toLowerCase();
-      if (sReg.includes(regPura) || sNome.includes(regPura) || sDesc.includes(regPura)) {
-        matchReg = true;
-      } else if (mappaSinonimi[reg]) {
-        matchReg = mappaSinonimi[reg].some(k => sNome.includes(k) || sDesc.includes(k) || sReg.includes(k));
-      }
+    } 
+    // B. Controlla nella mappa dei sinonimi
+    else if (mappaSinonimi[regCercata]) {
+      matchReg = mappaSinonimi[regCercata].some(k => 
+        sNome.includes(k) || sDesc.includes(k) || sReg.includes(k)
+      );
     }
 
     return matchReg && matchTech;
