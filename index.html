@@ -2377,23 +2377,50 @@ function applicaFiltriSpot() {
   }
 
   // 2. Mappatura completa per ITALIA, FRANCIA e TUNISIA
-  const mappaSinonimi = {
+ const mappaSinonimi = {
     // ITALIA
-    "Liguria": ["liguria", "genova", "la spezia", "savona", "imperia", "sanremo"],
-    "Toscana": ["toscana", "livorno", "grosseto", "pisa", "pombino", "orbetello", "elba"],
-    "Lazio": ["lazio", "roma", "ostia", "anzio", "civitavecchia", "terracina", "gaeta", "sperlonga"],
-    "Campania": ["campania", "napoli", "salerno", "caserta", "cilento", "pozzuoli", "ischia"],
-    "Calabria": ["calabria", "reggio", "tropea", "catanzaro", "crotone", "cosenza", "scalea"],
-    "Puglia": ["puglia", "bari", "lecce", "taranto", "brindisi", "foggia", "gargano", "salento"],
-    "Basilicata": ["basilicata", "potenza", "matera", "maratea", "metaponto"],
-    "Abruzzo-Molise": ["abruzzo", "molise", "pescara", "chieti", "teramo", "termoli", "vasto"],
-    "Marche": ["marche", "ancona", "pesaro", "san benedetto", "senigallia"],
-    "Emilia-Romagna": ["emilia", "romagna", "rimini", "riccione", "ravenna", "cervia"],
-    "Veneto": ["veneto", "venezia", "chioggia", "jesolo", "caorle"],
-    "Friuli-VG": ["friuli", "trieste", "udine", "grado", "lignano"],
-    "Sardegna": ["sardegna", "cagliari", "olbia", "sassari", "alghero", "oristano", "stintino"],
-    "Sicilia": ["sicilia", "palermo", "catania", "messina", "siracusa", "trapani", "agrigento", "ragusa"],
-
+    "Liguria": [
+      "liguria", "genova", "la spezia", "savona", "imperia", "sanremo", "alassio", "chiavari", "rapallo", "ventimiglia", "sestri", "varazze", "albenga", "portovenere", "lerici", "cinque terre"
+    ],
+    "Toscana": [
+      "toscana", "livorno", "grosseto", "pisa", "piombino", "orbetello", "elba", "viareggio", "follonica", "massa", "carrara", "argentario", "giglio", "castiglione", "cecina", "san vincenzo"
+    ],
+    "Lazio": [
+      "lazio", "roma", "ostia", "anzio", "civitavecchia", "terracina", "gaeta", "sperlonga", "fiumicino", "nettuno", "sabaudia", "ponza", "tarquinia", "ladispoli", "formia", "santa marinella"
+    ],
+    "Campania": [
+      "campania", "napoli", "salerno", "caserta", "cilento", "pozzuoli", "ischia", "capri", "sorrento", "amalfi", "agropoli", "palinuro", "acciaroli", "castellammare", "procida", "mondragone"
+    ],
+    "Calabria": [
+      "calabria", "reggio", "tropea", "catanzaro", "crotone", "cosenza", "scalea", "vibo", "soverato", "praia", "gioia tauro", "palmi", "diamante", "pizzo", "siderno", "scilla"
+    ],
+    "Puglia": [
+      "puglia", "bari", "lecce", "taranto", "brindisi", "foggia", "gargano", "salento", "gallipoli", "otrantro", "vieste", "monopoli", "polignano", "porto cesareo", "pescoluse", "rodico", "trani", "peschici"
+    ],
+    "Basilicata": [
+      "basilicata", "potenza", "matera", "maratea", "metaponto", "policoro", "nova siri", "scanzano"
+    ],
+    "Abruzzo-Molise": [
+      "abruzzo", "molise", "pescara", "chieti", "teramo", "termoli", "vasto", "giulianova", "roseto", "ortona", "pineto", "campomarino", "silvi"
+    ],
+    "Marche": [
+      "marche", "ancona", "pesaro", "san benedetto", "senigallia", "fano", "civitanova", "portonovo", "numana", "sirolo", "grottammare"
+    ],
+    "Emilia-Romagna": [
+      "emilia", "romagna", "rimini", "riccione", "ravenna", "cervia", "cesenatico", "bellaria", "milano marittima", "misano", "comacchio", "gatteo"
+    ],
+    "Veneto": [
+      "veneto", "venezia", "chioggia", "jesolo", "caorle", "bibione", "cavallino", "eraclea", "rovigo", "sottomarina"
+    ],
+    "Friuli-VG": [
+      "friuli", "trieste", "udine", "grado", "lignano", "monfalcone", "duino", "muggia", "sabbiadoro"
+    ],
+    "Sardegna": [
+      "sardegna", "cagliari", "olbia", "sassari", "alghero", "oristano", "stintino", "nuoro", "bosa", "villasimius", "san teodoro", "pula", "chia", "sant'antioco", "carloforte", "la maddalena", "tortolì", "orosei", "castelsardo"
+    ],
+    "Sicilia": [
+      "sicilia", "palermo", "catania", "messina", "siracusa", "trapani", "agrigento", "ragusa", "caltanissetta", "enna", "cefalu", "cefalù", "taormina", "pozzallo", "milazzo", "giardini naxos", "san vito", "san vito lo capo", "marzamemi", "licata", "sciacca", "gela", "mazara", "marsala", "favignana", "lampedusa", "pantelleria", "lipari", "vulcano", "scicli", "modica", "ispica", "patti", "capo d'orlando", "avola", "noto", "scoglitti", "marina di ragusa", "mondello", "terrasini", "piana degli albanesi", "riposto", "acireale", "portopalo"
+    ],
     // FRANCIA
     "PACA / Côte d'Azur": ["paca", "azur", "nice", "nizza", "cannes", "marseille", "toulon", "hyeres", "antibes"],
     "Bretagne": ["bretagne", "bretagna", "finistere", "lorient", "vannes", "rennes", "saint-malo"],
