@@ -2370,27 +2370,33 @@ function applicaFiltriSpot() {
   else if (nazioneAttiva === "fr") listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
   else if (nazioneAttiva === "tn") listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
 
-  // 1. Centra la mappa sulla regione selezionata se esiste tra le coordinate
+  // 1. Sposta la mappa sulla regione selezionata
   if (reg !== "all" && mappeRegioni[nazioneAttiva] && mappeRegioni[nazioneAttiva][reg]) {
     const coordsRegione = mappeRegioni[nazioneAttiva][reg];
     spotItaliaMap.setView(coordsRegione, 9);
   }
 
-  // 2. Filtra gli spot
+  // 2. Filtra gli spot senza farli sparire
   const spotFiltrati = listaSorgente.filter(spot => {
-    // Recupera la regione o la cerca dentro il nome/descrizione per evitare che spariscano tutti gli spot
-    const sReg = spot.region || spot.regione || "";
-    const sNome = spot.name || spot.nome || "";
-    const sDesc = spot.description || spot.desc || "";
-    const sTech = spot.technique || spot.tecnica || "";
+    if (reg === "all" && tech === "all") return true;
 
-    // Se la regione è espressa nello spot usiamo quella, altrimenti verifichiamo se il nome/descrizione contiene il testo della regione
+    // Recuperiamo i testi dello spot
+    const sNome = (spot.name || spot.nome || "").toLowerCase();
+    const sDesc = (spot.description || spot.desc || "").toLowerCase();
+    const sReg  = (spot.region || spot.regione || "").toLowerCase();
+    const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
+
+    const regCercata = reg.toLowerCase();
+    const techCercata = tech.toLowerCase();
+
+    // Verifica la regione nel nome, nella descrizione o nel campo regione
     const matchReg = (reg === "all") || 
-                     (sReg.toLowerCase().includes(reg.toLowerCase())) ||
-                     (sNome.toLowerCase().includes(reg.toLowerCase())) ||
-                     (sDesc.toLowerCase().includes(reg.toLowerCase()));
+                     sReg.includes(regCercata) || 
+                     sNome.includes(regCercata) || 
+                     sDesc.includes(regCercata);
 
-    const matchTech = (tech === "all") || (sTech.toLowerCase().includes(tech.toLowerCase()));
+    // Verifica la tecnica
+    const matchTech = (tech === "all") || sTech.includes(techCercata);
 
     return matchReg && matchTech;
   });
@@ -2399,9 +2405,11 @@ function applicaFiltriSpot() {
 }
 
 function renderizzaListaEMappe(listaSpot) {
-  // Rimuovi i vecchi marcatori prima di renderizzare i nuovi
+  // Pulizia dei vecchi marker
   if (spotItaliaMarkers && spotItaliaMarkers.length > 0) {
-    spotItaliaMarkers.forEach(m => spotItaliaMap.removeLayer(m));
+    spotItaliaMarkers.forEach(m => {
+      if (spotItaliaMap) spotItaliaMap.removeLayer(m);
+    });
   }
   spotItaliaMarkers = [];
 
@@ -2410,15 +2418,16 @@ function renderizzaListaEMappe(listaSpot) {
   panelBody.innerHTML = "";
 
   if (!listaSpot || listaSpot.length === 0) {
-    panelBody.innerHTML = `<div class="spot-panel-placeholder" style="text-align:center; padding:20px; opacity:0.6;"><p>Nessun spot trovato con i filtri selezionati</p></div>`;
+    panelBody.innerHTML = `<div class="spot-panel-placeholder" style="text-align:center; padding:20px; opacity:0.6;"><p>Nessun spot trovato in questa zona</p></div>`;
     return;
   }
 
   listaSpot.forEach((spot) => {
-    const spotLat = spot.coords ? spot.coords[0] : spot.lat;
-    const spotLon = spot.coords ? spot.coords[1] : spot.lon;
+    // Gestione flessibile sia di coords: [lat, lon] che di lat/lon separati
+    const spotLat = spot.coords ? spot.coords[0] : (spot.lat || spot.latitude);
+    const spotLon = spot.coords ? spot.coords[1] : (spot.lon || spot.longitude);
 
-    if (!spotLat || !spotLon) return; // Salta se mancano le coordinate
+    if (!spotLat || !spotLon) return;
 
     const sNome = spot.name || spot.nome || "Spot";
     const sDesc = spot.description || spot.desc || "";
