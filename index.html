@@ -2109,6 +2109,50 @@ function showCercaSpot() {
       </div>
     `;
   }
+  else if (nazioneAttiva === "fr") {
+    headerHTML += `
+      <div class="filtri-row" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; padding: 0 10px;">
+        <select class="filtro-select" id="filtroReg" style="padding: 8px; border-radius: 6px;">
+          <option value="all">🗺️ ${linguaAttuale === "fr" ? "Toute la France" : "Tutta la Francia"}</option>
+          <option value="Cannes">Costa Azzurra (Cannes / Hyères / Antibes)</option>
+          <option value="Camargue">Golfo del Leone (Espiguette / Rhône / Sète)</option>
+          <option value="Atlantique">Costa Atlantica (Biscarrosse / Cap Ferret / Lacanau)</option>
+          <option value="Manche">Nord e Bretagna (Cherbourg / Étretat / Pointe du Raz)</option>
+        </select>
+        <select class="filtro-select" id="filtroTech" style="padding: 8px; border-radius: 6px;">
+          <option value="all">🎣 ${t('ogniTecnica')}</option>
+          <option value="Surfcasting">Surfcasting</option>
+          <option value="Spinning">Spinning / Sea Spinning</option>
+          <option value="Beach Ledgering">Beach Ledgering</option>
+          <option value="Fondo">Pêche au Fond / Calée</option>
+          <option value="Flotteur">Galleggiante / Flotteur</option>
+        </select>
+        <button class="btn-Carica" onclick="applicaFiltriSpot()" style="padding: 8px 15px; background: #2a9d8f; color: white; border: none; border-radius: 6px; cursor: pointer;">Carica →</button>
+      </div>
+    `;
+  }
+  else if (nazioneAttiva === "tn") {
+    headerHTML += `
+      <div class="filtri-row" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; padding: 0 10px;">
+        <select class="filtro-select" id="filtroReg" style="padding: 8px; border-radius: 6px;">
+          <option value="all">🗺️ ${linguaAttuale === "fr" ? "Toute la Tunisie" : "Tutta la Tunisia"}</option>
+          <option value="Bizerte">Bizerte / Tabarka (Nord-Ouest)</option>
+          <option value="Cap Bon">Cap Bon (Haouaria / Kelibia / Korba)</option>
+          <option value="Hammamet">Hammamet / Yasmine</option>
+          <option value="Sousse">Sousse / Sahel (Monastir / Hergla / Rejiche)</option>
+          <option value="Djerba">Djerba / Zarzis / Sfax (Sud)</option>
+        </select>
+        <select class="filtro-select" id="filtroTech" style="padding: 8px; border-radius: 6px;">
+          <option value="all">🎣 ${t('ogniTecnica')}</option>
+          <option value="Surfcasting">Surfcasting</option>
+          <option value="Spinning">Spinning / Rock Spinning</option>
+          <option value="Beach Ledgering">Beach Ledgering</option>
+          <option value="Vif">Pêche au vif</option>
+        </select>
+        <button class="btn-Carica" onclick="applicaFiltriSpot()" style="padding: 8px 15px; background: #2a9d8f; color: white; border: none; border-radius: 6px; cursor: pointer;">Carica →</button>
+      </div>
+    `;
+  }
   // 3. Stampiamo tutto il layout finale nella pagina HTML
   document.getElementById("content").innerHTML = `
     ${headerHTML}
@@ -2386,24 +2430,113 @@ function aggiornaMappaSpotItalia(lista){
     spotItaliaMarkers.push(m);
   });
 }
-function applicaFiltriSpot(){
-  const reg=document.getElementById("filtroReg")?.value||"all";
-  const tech=document.getElementById("filtroTech")?.value||"all";
-  const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
-  aggiornaMappaSpotItalia(filtrati);
-  const n=filtrati.length;
-  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
-  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
-  if(reg!=="all"||tech!=="all"){
-    mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
-    if(filtrati.length>0){const bounds=L.latLngBounds(filtrati.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
-  } else {
-    if(document.getElementById("spotPanelBody")){
-      document.getElementById("spotPanelHeader").textContent="📋 Dettaglio spot";
-      document.getElementById("spotPanelBody").innerHTML=`<div class="spot-panel-placeholder"><span class="ph-ico">🗺️</span><p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p></div>`;
+function applicaFiltriSpot() {
+    // 1. Recuperiamo i valori selezionati nei menu a tendina
+    const regSelezionata = document.getElementById("filtroReg") ? document.getElementById("filtroReg").value : "all";
+    const tecSelezionata = document.getElementById("filtroTech") ? document.getElementById("filtroTech").value : "all";
+    
+    let sorgenteDati = [];
+    let centroMappa = [42.5, 12.5];
+    let zoomIniziale = 6;
+    let titoloLista = "Risultati Filtro";
+    
+    // 2. Selezioniamo il database e sblocchiamo i confini mappa in base alla nazione attiva
+    if (nazioneAttiva === "it") {
+        sorgenteDati = typeof spotsItalia !== "undefined" ? spotsItalia : []; 
+        centroMappa = [42.5, 12.5];
+        zoomIniziale = 6;
+        titoloLista = linguaAttuale === "fr" ? "Spots Italie" : "Spots Italia";
+        
+        // Ripristina i confini per l'Italia
+        if (spotItaliaMap) {
+            spotItaliaMap.setMaxBounds([[35.0, 6.0], [47.5, 19.0]]);
+        }
+    } else if (nazioneAttiva === "fr") {
+        sorgenteDati = typeof spotsFrance !== "undefined" ? spotsFrance : [];
+        centroMappa = [46.2276, 2.2137]; // Centro Francia
+        zoomIniziale = 5;
+        titoloLista = linguaAttuale === "fr" ? "Spots France" : "Spots Francia";
+        
+        // Rimuove i confini per permettere la navigazione in Francia
+        if (spotItaliaMap) {
+            spotItaliaMap.setMaxBounds(null);
+        }
+    } else if (nazioneAttiva === "tn") {
+        sorgenteDati = typeof spotsTunisiaData !== "undefined" ? spotsTunisiaData : [];
+        centroMappa = [34.0, 9.0]; // Centro Tunisia
+        zoomIniziale = 6;
+        titoloLista = linguaAttuale === "fr" ? "Spots Tunisie" : "Spots Tunisia";
+        
+        // Rimuove i confini per permettere la navigazione in Tunisia
+        if (spotItaliaMap) {
+            spotItaliaMap.setMaxBounds(null);
+        }
     }
-  }
+    
+    // 3. Adattiamo gli oggetti Francia e Tunisia al formato richiesto dalla mappa e dalla lista
+    // Questo passaggio rende i database esteri identici a quello italiano senza toccare i file JSON
+    const sorgenteFormattata = sorgenteDati.map(spot => {
+        return {
+            name: spot.name || spot.nome || "Spot",
+            coords: spot.coords || [spot.lat, spot.lon],
+            reg: spot.reg || (nazioneAttiva === "fr" ? "France" : "Tunisie"),
+            target: spot.target || "Non specificato",
+            technique: spot.technique || spot.tecnica || "Surfcasting / Spinning",
+            type: spot.type || (spot.technique || spot.tecnica || "🎣").split(' ')[0], // Estrae una emoji o testo breve per il badge
+            description: spot.description || spot.desc || ""
+        };
+    });
+    
+    // 4. Applichiamo il filtro geografico e di tecnica
+    const spotFiltrati = sorgenteFormattata.filter(spot => {
+        const nomeSpot = spot.name.toLowerCase();
+        const descSpot = spot.description.toLowerCase();
+        const tecnicaSpot = spot.technique.toLowerCase();
+        
+        // Verifica Filtro Regione
+        let matchRegione = false;
+        if (regSelezionata === "all") {
+            matchRegione = true;
+        } else {
+            const cercoReg = regSelezionata.toLowerCase();
+            if (nomeSpot.includes(cercoReg) || descSpot.includes(cercoReg)) {
+                matchRegione = true;
+            }
+        }
+        
+        // Verifica Filtro Tecnica
+        let matchTecnica = false;
+        if (tecSelezionata === "all") {
+            matchTecnica = true;
+        } else {
+            const cercoTec = tecSelezionata.toLowerCase();
+            if (tecnicaSpot.includes(cercoTec)) {
+                matchTecnica = true;
+            }
+        }
+        
+        return matchRegione && matchTecnica;
+    });
+    
+    // 5. Muoviamo la mappa sulla nazione corretta ed eseguiamo le tue funzioni grafiche reali
+    if (spotItaliaMap) {
+        spotItaliaMap.flyTo(centroMappa, zoomIniziale, { duration: 1.0 });
+        
+        // Pulisce eventuali tooltip attivi prima del rinfresco
+        if (spotTooltipAttivo) {
+            spotTooltipAttivo.remove();
+            spotTooltipAttivo = null;
+        }
+    }
+    
+    // Chiamata alle tue funzioni native ereditate dal codice originale
+    aggiornaMappaSpotItalia(spotFiltrati);
+    mostraPannelloLista(spotFiltrati, titoloLista);
+    
+    console.log(`[AdelTechnic-FISH] Filtrati con successo ${spotFiltrati.length} spot per la nazione: ${nazioneAttiva}`);
 }
+
+
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
@@ -2472,8 +2605,14 @@ function mostraDettaglioPannello(spot){
       <button class="btn-nav-spot" onclick="window.open('https://www.google.com/maps?q=${spot.coords[0]},${spot.coords[1]}','_blank')">
         🧭 Ottieni indicazioni →
       </button>
+      <button class="btn-salva-spot-italia" onclick="salvaQuestoSpotPrecaricato()">
+       📌 ${t('salvaNeiMieiSpot')}
+     </button>
       <button class="btn-salva-spot-italia" id="btnSalvaItalia${idx}" onclick="salvaSpotItalia(${idx})">
         📌 Salva nei miei spot
+      </button>
+      <button class="btn-salva-spot-italia" onclick="salvaQuestoSpotPrecaricatoAttivo()">
+       📌 Salva nei miei spot
       </button>
       <button class="btn-back-lista" onclick="tornaListaRegione('${spot.reg}')">
         ← Tutti gli spot di ${spot.reg}
