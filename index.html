@@ -2370,18 +2370,26 @@ function applicaFiltriSpot() {
   else if (nazioneAttiva === "fr") listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
   else if (nazioneAttiva === "tn") listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
 
-  // Centra la mappa sulla regione se selezionata
+  // 1. Centra la mappa sulla regione selezionata se esiste tra le coordinate
   if (reg !== "all" && mappeRegioni[nazioneAttiva] && mappeRegioni[nazioneAttiva][reg]) {
     const coordsRegione = mappeRegioni[nazioneAttiva][reg];
     spotItaliaMap.setView(coordsRegione, 9);
   }
 
-  // Filtra gli spot per Regione e per Tecnica
+  // 2. Filtra gli spot
   const spotFiltrati = listaSorgente.filter(spot => {
+    // Recupera la regione o la cerca dentro il nome/descrizione per evitare che spariscano tutti gli spot
     const sReg = spot.region || spot.regione || "";
+    const sNome = spot.name || spot.nome || "";
+    const sDesc = spot.description || spot.desc || "";
     const sTech = spot.technique || spot.tecnica || "";
 
-    const matchReg = (reg === "all") || (sReg.toLowerCase().includes(reg.toLowerCase()));
+    // Se la regione è espressa nello spot usiamo quella, altrimenti verifichiamo se il nome/descrizione contiene il testo della regione
+    const matchReg = (reg === "all") || 
+                     (sReg.toLowerCase().includes(reg.toLowerCase())) ||
+                     (sNome.toLowerCase().includes(reg.toLowerCase())) ||
+                     (sDesc.toLowerCase().includes(reg.toLowerCase()));
+
     const matchTech = (tech === "all") || (sTech.toLowerCase().includes(tech.toLowerCase()));
 
     return matchReg && matchTech;
@@ -2391,22 +2399,27 @@ function applicaFiltriSpot() {
 }
 
 function renderizzaListaEMappe(listaSpot) {
-  // Rimuovi i vecchi marcatori
-  spotItaliaMarkers.forEach(m => spotItaliaMap.removeLayer(m));
+  // Rimuovi i vecchi marcatori prima di renderizzare i nuovi
+  if (spotItaliaMarkers && spotItaliaMarkers.length > 0) {
+    spotItaliaMarkers.forEach(m => spotItaliaMap.removeLayer(m));
+  }
   spotItaliaMarkers = [];
 
   const panelBody = document.getElementById("listaSpotEsplorazione");
   if (!panelBody) return;
   panelBody.innerHTML = "";
 
-  if (listaSpot.length === 0) {
+  if (!listaSpot || listaSpot.length === 0) {
     panelBody.innerHTML = `<div class="spot-panel-placeholder" style="text-align:center; padding:20px; opacity:0.6;"><p>Nessun spot trovato con i filtri selezionati</p></div>`;
     return;
   }
 
-  listaSpot.forEach((spot, index) => {
+  listaSpot.forEach((spot) => {
     const spotLat = spot.coords ? spot.coords[0] : spot.lat;
     const spotLon = spot.coords ? spot.coords[1] : spot.lon;
+
+    if (!spotLat || !spotLon) return; // Salta se mancano le coordinate
+
     const sNome = spot.name || spot.nome || "Spot";
     const sDesc = spot.description || spot.desc || "";
     const sTech = spot.technique || spot.tecnica || "Surfcasting / Spinning";
@@ -2415,7 +2428,6 @@ function renderizzaListaEMappe(listaSpot) {
     const marker = L.marker([spotLat, spotLon]).addTo(spotItaliaMap);
     spotItaliaMarkers.push(marker);
 
-    // Salva lo spot in un attributo o variabile globale per il popup
     const spotJSON = JSON.stringify(spot).replace(/'/g, "&apos;").replace(/"/g, "&quot;");
 
     marker.bindPopup(`
