@@ -1624,6 +1624,150 @@ function showMontaturaDetail(id) {
     "target": "Daurades Royales, Ombrines, Loups"
   }
 ];
+  
+/* === LOGICA NAZIONI, REGIONI E SALVATAGGIO SPOT === */
+
+const regionData = {
+  italia: {
+    center: [41.8719, 12.5674],
+    zoom: 6,
+    regions: {
+      "Tutte": null,
+      "Sicilia": { center: [37.599994, 14.015356], zoom: 8 },
+      "Sardegna": { center: [40.120875, 9.012893], zoom: 8 },
+      "Calabria": { center: [39.080402, 16.516228], zoom: 8 },
+      "Lazio": { center: [41.892916, 12.48252], zoom: 8 },
+      "Toscana": { center: [43.771051, 11.248621], zoom: 8 },
+      "Puglia": { center: [41.117143, 16.871871], zoom: 8 },
+      "Campania": { center: [40.851774, 14.268124], zoom: 8 }
+    }
+  },
+  francia: {
+    center: [46.2276, 2.2137],
+    zoom: 6,
+    regions: {
+      "Tutte": null,
+      "Costa Azzurra": { center: [43.7102, 7.2620], zoom: 9 },
+      "Bretagna": { center: [48.2020, -3.1416], zoom: 8 },
+      "Aquitania": { center: [44.8378, -0.5792], zoom: 8 },
+      "Corsica": { center: [42.0396, 9.0128], zoom: 8 }
+    }
+  },
+  tunisia: {
+    center: [33.8869, 9.5375],
+    zoom: 6,
+    regions: {
+      "Tutte": null,
+      "Biserta": { center: [37.2744, 9.8739], zoom: 10 },
+      "Cap Bon": { center: [36.8000, 10.8000], zoom: 9 },
+      "Sfax": { center: [34.7406, 10.7603], zoom: 9 },
+      "Djerba": { center: [33.8075, 10.8451], zoom: 10 }
+    }
+  }
+};
+
+let currentSelectedSpot = null;
+
+function updateRegions() {
+  const nationSelect = document.getElementById("nation-select");
+  const regionSelect = document.getElementById("homeFilterRegion");
+  if (!nationSelect || !regionSelect) return;
+
+  const nation = nationSelect.value;
+  const data = regionData[nation];
+  if (!data) return;
+
+  regionSelect.innerHTML = "";
+
+  Object.keys(data.regions).forEach(region => {
+    const option = document.createElement("option");
+    option.value = region === "Tutte" ? "ALL" : region;
+    option.textContent = region === "Tutte" ? "Tutte le regioni" : region;
+    regionSelect.appendChild(option);
+  });
+
+  if (window.map) {
+    window.map.setView(data.center, data.zoom);
+  }
+  filterSpotsByRegion();
+}
+
+function filterSpotsByRegion() {
+  const nationSelect = document.getElementById("nation-select");
+  const regionSelect = document.getElementById("homeFilterRegion");
+
+  if (!nationSelect || !regionSelect) return;
+
+  const nation = nationSelect.value;
+  const region = regionSelect.value;
+  const data = regionData[nation];
+
+  if (region !== "ALL" && data && data.regions[region] && window.map) {
+    const regInfo = data.regions[region];
+    window.map.setView(regInfo.center, regInfo.zoom);
+  }
+
+  const allSpotsCombined = [
+    ...(typeof spotsData !== 'undefined' ? spotsData : []),
+    ...(typeof spotsFranciaData !== 'undefined' ? spotsFranciaData : []),
+    ...(typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : [])
+  ];
+
+  const filteredSpots = allSpotsCombined.filter(spot => {
+    const spotNation = (spot.nation || "italia").toLowerCase();
+    const matchNation = spotNation === nation.toLowerCase();
+    const matchRegion = (region === "ALL") || (spot.region === region);
+    return matchNation && matchRegion;
+  });
+
+  if (typeof renderSpotList === 'function') renderSpotList(filteredSpots);
+  if (typeof updateMapMarkers === 'function') updateMapMarkers(filteredSpots);
+}
+
+// Modal Salvataggio
+function openSaveModal(spot) {
+  currentSelectedSpot = spot;
+  const modalName = document.getElementById("modal-spot-name");
+  if (modalName) modalName.textContent = spot.name || spot.title;
+  const notesField = document.getElementById("spot-notes");
+  if (notesField) notesField.value = "";
+  
+  const modal = document.getElementById("save-spot-modal");
+  if (modal) modal.style.display = "flex";
+}
+
+function closeSaveModal() {
+  const modal = document.getElementById("save-spot-modal");
+  if (modal) modal.style.display = "none";
+  currentSelectedSpot = null;
+}
+
+function confirmSaveSpot() {
+  if (!currentSelectedSpot) return;
+
+  const notesField = document.getElementById("spot-notes");
+  const notes = notesField ? notesField.value : "";
+  const savedSpots = JSON.parse(localStorage.getItem("mySavedSpots") || "[]");
+
+  const newSavedEntry = {
+    ...currentSelectedSpot,
+    userNotes: notes,
+    savedAt: new Date().toLocaleDateString()
+  };
+
+  savedSpots.push(newSavedEntry);
+  localStorage.setItem("mySavedSpots", JSON.stringify(savedSpots));
+
+  alert("Spot salvato con successo nei tuoi preferiti!");
+  closeSaveModal();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    updateRegions();
+  }, 300);
+});
+
 /* === SPECIE === */
 let specie = {};
 function showSpecie() {
@@ -2068,48 +2212,76 @@ function cambiaNazioneHome(nazione) {
   showPrevisioni(); 
 }
 /* ============================================================
-   SISTEMA DI RICERCA SPOT UNIFICATO (ITALIA / TUNISIA)
+   SISTEMA DI RICERCA SPOT UNIFICATO (ITALIA / FRANCIA / TUNISIA)
    ============================================================ */
-let nazioneAttiva = "it"; // All'avvio la mappa mostrerà l'Italia
+let nazioneAttiva = "it"; // "it", "fr", "tn"
+let regioneAttiva = "all";
+let spotItaliaMap = null;
+let spotItaliaMarkers = [];
+let currentSelectedSpotForSave = null;
+
+// Database delle Regioni e coordinate per il centraggio
+const mappeRegioni = {
+  it: {
+    "Liguria": [44.4141, 8.9421], "Toscana": [43.7710, 11.2486], "Lazio": [41.8929, 12.4825],
+    "Campania": [40.8517, 14.2681], "Calabria": [39.0804, 16.5162], "Puglia": [41.1171, 16.8718],
+    "Basilicata": [40.6404, 15.8056], "Abruzzo-Molise": [42.3540, 13.3985], "Marche": [43.6158, 13.5189],
+    "Emilia-Romagna": [44.4942, 11.3465], "Veneto": [45.4384, 12.3185], "Friuli-VG": [45.6495, 13.7768],
+    "Sardegna": [40.1208, 9.0128], "Sicilia": [37.5999, 14.0153]
+  },
+  fr: {
+    "PACA / Côte d'Azur": [43.7102, 7.2620], "Bretagne": [48.2020, -3.1416],
+    "Occitanie": [43.6047, 1.4442], "Nouvelle-Aquitaine": [44.8378, -0.5792],
+    "Normandie": [49.1828, -0.3707], "Corse": [42.0396, 9.0128]
+  },
+  tn: {
+    "Bizerte": [37.2744, 9.8739], "Cap Bon / Nabeul": [36.8500, 10.7303],
+    "Tunis / Ghar El Melh": [37.1685, 10.2310], "Sousse / Sahel": [35.8256, 10.6369],
+    "Mahdia": [35.5047, 11.0622], "Sfax": [34.7406, 10.7603],
+    "Djerba / Zarzis": [33.8075, 10.8451]
+  }
+};
+
 function showCercaSpot() {
-  const isItalia = nazioneAttiva === "it";
-  // 1. Prepariamo l'header con i pulsanti di switch Italia / Tunisia
+  regioneAttiva = "all"; // Reset regione al cambio schermata
+
+  // 1. Header con pulsanti Switch Nazione
   let headerHTML = `
     <div class="spot-italia-header" style="text-align:center; padding: 10px 0;">
       <h3>🗺️ ${t('meteo')}</h3>
       <p style="margin:5px 0 12px; opacity:0.8;">${t('selezionaNazione')}</p>
- <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px;">
- <button onclick="cambiaNazioneEsplorazione('it')" style="padding: 10px 16px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇮🇹 ${t('italia')}</button>
- <button onclick="cambiaNazioneEsplorazione('fr')" style="padding: 10px 16px; background: ${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇫🇷 ${linguaAttuale === 'fr' ? 'France' : 'Francia'}</button>
- <button onclick="cambiaNazioneEsplorazione('tn')" style="padding: 10px 16px; background: ${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇹🇳 ${t('tunisia')}</button>
- </div>
+      <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px;">
+        <button onclick="cambiaNazioneEsplorazione('it')" style="padding: 10px 16px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇮🇹 ${t('italia')}</button>
+        <button onclick="cambiaNazioneEsplorazione('fr')" style="padding: 10px 16px; background: ${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇫🇷 ${typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr' ? 'France' : 'Francia'}</button>
+        <button onclick="cambiaNazioneEsplorazione('tn')" style="padding: 10px 16px; background: ${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇹🇳 ${t('tunisia')}</button>
+      </div>
     </div>
   `;
-  // 2. Se l'utente ha selezionato l'Italia, aggiungiamo i menu a tendina dei filtri regionali
-  if (isItalia) {
-    headerHTML += `
-      <div class="filtri-row" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; padding: 0 10px;">
-        <select class="filtro-select" id="filtroReg" style="padding: 8px; border-radius: 6px;">
-          <option value="all">🗺️ Tutta Italia</option>
-          <option value="Liguria">Liguria</option><option value="Toscana">Toscana</option>
-          <option value="Lazio">Lazio</option><option value="Campania">Campania</option>
-          <option value="Calabria">Calabria</option><option value="Puglia">Puglia</option>
-          <option value="Basilicata">Basilicata</option><option value="Abruzzo-Molise">Abruzzo / Molise</option>
-          <option value="Marche">Marche</option><option value="Emilia-Romagna">Emilia Romagna</option>
-          <option value="Veneto">Veneto</option><option value="Friuli-VG">Friuli V.G.</option>
-          <option value="Sardegna">Sardegna</option><option value="Sicilia">Sicilia</option>
-        </select>
-        <select class="filtro-select" id="filtroTech" style="padding: 8px; border-radius: 6px;">
-          <option value="all">🎣 Ogni tecnica</option>
-          <option value="Surfcasting">Surfcasting</option><option value="Spinning">Spinning</option>
-          <option value="Eging">Eging</option><option value="Bolognese">Bolognese/Fondo</option>
-          <option value="Bassfishing">Bassfishing</option>
-        </select>
-        <button class="btn-Carica" onclick="applicaFiltriSpot()" style="padding: 8px 15px; background: #2a9d8f; color: white; border: none; border-radius: 6px; cursor: pointer;">Carica →</button>
-      </div>
-    `;
-  }
-  // 3. Stampiamo tutto il layout finale nella pagina HTML
+
+  // 2. Generazione dinamica del menu a tendina Regioni per TUTTE le nazioni
+  let opzioniRegioni = `<option value="all">🗺️ Tutte le regioni</option>`;
+  const listaRegioniNazione = mappeRegioni[nazioneAttiva] || {};
+
+  Object.keys(listaRegioniNazione).forEach(reg => {
+    opzioniRegioni += `<option value="${reg}">${reg}</option>`;
+  });
+
+  headerHTML += `
+    <div class="filtri-row" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; padding: 0 10px;">
+      <select class="filtro-select" id="filtroReg" onchange="applicaFiltriSpot()" style="padding: 8px; border-radius: 6px;">
+        ${opzioniRegioni}
+      </select>
+      <select class="filtro-select" id="filtroTech" onchange="applicaFiltriSpot()" style="padding: 8px; border-radius: 6px;">
+        <option value="all">🎣 Ogni tecnica</option>
+        <option value="Surfcasting">Surfcasting</option>
+        <option value="Spinning">Spinning</option>
+        <option value="Eging">Eging</option>
+        <option value="Bolognese">Bolognese/Fondo</option>
+      </select>
+    </div>
+  `;
+
+  // 3. Render del layout principale e Modale "Salva Spot"
   document.getElementById("content").innerHTML = `
     ${headerHTML}
     <div class="spot-split-layout">
@@ -2122,34 +2294,51 @@ function showCercaSpot() {
       </div>
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">⬅️ ${t('tornaHome')}</button>
+
+    <!-- Modal Personalizzata per Salvare lo Spot -->
+    <div id="saveSpotModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
+      <div style="background:white; padding:20px; border-radius:12px; width:90%; max-width:400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+        <h3 style="margin-top:0; color:#0a2a43;">⭐ Salva Spot</h3>
+        <p id="modalSpotTitle" style="font-weight:bold; margin-bottom:8px; color:#0077b6;"></p>
+        <label style="font-size:12px; font-weight:bold; color:#555;">Note personali (esca, meteo, note):</label>
+        <textarea id="modalSpotNotes" rows="3" style="width:100%; margin-top:5px; padding:8px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box;" placeholder="Es: Ottimo con mareggiata da Scirocco, esca usata: bibi..."></textarea>
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:15px;">
+          <button onclick="closeSaveSpotModal()" style="padding:8px 12px; background:#6c757d; color:white; border:none; border-radius:6px; cursor:pointer;">Annulla</button>
+          <button onclick="confirmSaveSpot()" style="padding:8px 12px; background:#2a9d8f; color:white; border:none; border-radius:6px; cursor:pointer;">Conferma e Salva</button>
+        </div>
+      </div>
+    </div>
   `;
+
   initMappaEsplorazioneNuova();
 }
-// ⚠️ QUESTA FUNZIONE MANCAVA E AGGIUSTA IL CAMBIO NAZIONE
+
 function cambiaNazioneEsplorazione(nazione) {
   nazioneAttiva = nazione;
-  showCercaSpot(); // Rerenderizza l'interfaccia aggiornando la mappa
+  showCercaSpot();
 }
+
 function initMappaEsplorazioneNuova() {
-  // 1. Configurazione dinamica delle coordinate, zoom e array dati per le 3 nazioni
-  let centroMappa = [42.0, 12.5]; // Italia di default
+  let centroMappa = [42.0, 12.5];
   let zoomIniziale = 6;
-  let listaSpot = spotsItalia || [];
+  let listaSpot = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
   let nomeNazione = "Italia";
+
   if (nazioneAttiva === "fr") {
-    centroMappa = [46.5, 2.0]; // Centra sulla Francia
-    zoomIniziale = 5.5;        // Zoom adatto a coprire coste atlantiche e mediterranee
-    listaSpot = spotsFrance || [];
+    centroMappa = [46.5, 2.0];
+    zoomIniziale = 5.5;
+    listaSpot = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
     nomeNazione = "France";
   } else if (nazioneAttiva === "tn") {
-    centroMappa = [35.5, 9.5];  // Tunisia
+    centroMappa = [35.5, 9.5];
     zoomIniziale = 7;
-    listaSpot = spotsTunisiaData || [];
+    listaSpot = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
     nomeNazione = "Tunisia";
   }
-   // Aggiorna il testo del badge nel pannello laterale
+
   document.getElementById("nomeNazioneBadge").textContent = nomeNazione;
-  // RESET DI LEAFLET: Rimuove la mappa precedente se già istanziata per evitare conflitti di ID
+
+  // Reset Leaflet
   if (spotItaliaMap !== null) {
     try {
       spotItaliaMap.remove();
@@ -2158,57 +2347,144 @@ function initMappaEsplorazioneNuova() {
     }
     spotItaliaMap = null;
   }
-  // Resetta l'array globale dei marcatori
+
   spotItaliaMarkers = [];
-  // Crea la nuova istanza Leaflet centrata sulla nazione corretta
+
   spotItaliaMap = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(spotItaliaMap);
+
+  renderizzaListaEMappe(listaSpot);
+}
+
+function applicaFiltriSpot() {
+  const regEl = document.getElementById("filtroReg");
+  const techEl = document.getElementById("filtroTech");
+  
+  const reg = regEl ? regEl.value : "all";
+  const tech = techEl ? techEl.value : "all";
+
+  let listaSorgente = [];
+  if (nazioneAttiva === "it") listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
+  else if (nazioneAttiva === "fr") listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
+  else if (nazioneAttiva === "tn") listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
+
+  // Centra la mappa sulla regione se selezionata
+  if (reg !== "all" && mappeRegioni[nazioneAttiva] && mappeRegioni[nazioneAttiva][reg]) {
+    const coordsRegione = mappeRegioni[nazioneAttiva][reg];
+    spotItaliaMap.setView(coordsRegione, 9);
+  }
+
+  // Filtra gli spot per Regione e per Tecnica
+  const spotFiltrati = listaSorgente.filter(spot => {
+    const sReg = spot.region || spot.regione || "";
+    const sTech = spot.technique || spot.tecnica || "";
+
+    const matchReg = (reg === "all") || (sReg.toLowerCase().includes(reg.toLowerCase()));
+    const matchTech = (tech === "all") || (sTech.toLowerCase().includes(tech.toLowerCase()));
+
+    return matchReg && matchTech;
+  });
+
+  renderizzaListaEMappe(spotFiltrati);
+}
+
+function renderizzaListaEMappe(listaSpot) {
+  // Rimuovi i vecchi marcatori
+  spotItaliaMarkers.forEach(m => spotItaliaMap.removeLayer(m));
+  spotItaliaMarkers = [];
+
   const panelBody = document.getElementById("listaSpotEsplorazione");
   if (!panelBody) return;
   panelBody.innerHTML = "";
+
   if (listaSpot.length === 0) {
-    panelBody.innerHTML = `<div class="spot-panel-placeholder" style="text-align:center; padding:20px; opacity:0.6;"><p>Caricamento spot in corso... / Nessun dato</p></div>`;
+    panelBody.innerHTML = `<div class="spot-panel-placeholder" style="text-align:center; padding:20px; opacity:0.6;"><p>Nessun spot trovato con i filtri selezionati</p></div>`;
     return;
   }
+
   listaSpot.forEach((spot, index) => {
- const spotLat = spot.coords ? spot.coords[0] : spot.lat;
- const spotLon = spot.coords ? spot.coords[1] : spot.lon;
- const marker = L.marker([spotLat, spotLon]).addTo(spotItaliaMap);
- spotItaliaMarkers.push(marker);
- const sNome = spot.name || spot.nome || "Spot";
- const sDesc = spot.description || spot.desc || "";
- const sTech = spot.technique || spot.technique || "Surfcasting / Spinning";
- marker.bindPopup(`
- <div style="font-family: sans-serif; min-width: 210px; padding: 2px;">
- <h4 style="margin: 0 0 6px 0; color: #0a2a43; font-size: 14px; border-bottom: 1px solid #ddd; padding-bottom: 4px;"> 🐟 ${sNome}</h4>
- <p style="margin: 0 0 6px 0; font-size: 12px; color: #555; line-height: 1.4;">${sDesc}</p>
- <div style="font-size: 11px; background: #eef7ff; color: #0a2a43; padding: 4px 6px; border-radius: 4px; font-weight: bold; margin-bottom: 4px; border: 1px solid #bce0ff;">
- ⚙️ Tech: ${sTech}
- </div>
- <div style="font-size: 11px; background: #fff5f5; color: #dc3545; padding: 4px 6px; border-radius: 4px; font-weight: bold; border: 1px solid #ffe3e3;">
- Target: ${spot.target} 🎯
- </div>
- </div>
- `);
+    const spotLat = spot.coords ? spot.coords[0] : spot.lat;
+    const spotLon = spot.coords ? spot.coords[1] : spot.lon;
+    const sNome = spot.name || spot.nome || "Spot";
+    const sDesc = spot.description || spot.desc || "";
+    const sTech = spot.technique || spot.tecnica || "Surfcasting / Spinning";
+    const sTarget = spot.target || "Varie specie";
+
+    const marker = L.marker([spotLat, spotLon]).addTo(spotItaliaMap);
+    spotItaliaMarkers.push(marker);
+
+    // Salva lo spot in un attributo o variabile globale per il popup
+    const spotJSON = JSON.stringify(spot).replace(/'/g, "&apos;").replace(/"/g, "&quot;");
+
+    marker.bindPopup(`
+      <div style="font-family: sans-serif; min-width: 210px; padding: 2px;">
+        <h4 style="margin: 0 0 6px 0; color: #0a2a43; font-size: 14px; border-bottom: 1px solid #ddd; padding-bottom: 4px;"> 🐟 ${sNome}</h4>
+        <p style="margin: 0 0 6px 0; font-size: 12px; color: #555; line-height: 1.4;">${sDesc}</p>
+        <div style="font-size: 11px; background: #eef7ff; color: #0a2a43; padding: 4px 6px; border-radius: 4px; font-weight: bold; margin-bottom: 4px; border: 1px solid #bce0ff;">
+          ⚙️ Tech: ${sTech}
+        </div>
+        <div style="font-size: 11px; background: #fff5f5; color: #dc3545; padding: 4px 6px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; border: 1px solid #ffe3e3;">
+          Target: ${sTarget} 🎯
+        </div>
+        <button onclick='openSaveSpotModal(${spotJSON})' style="width: 100%; padding: 6px; background: #2a9d8f; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 11px;">
+          ⭐ Salva Spot
+        </button>
+      </div>
+    `);
+
     const item = document.createElement("div");
- item.className = "spot-italia-item";
- item.innerHTML = `
- <span class="si-ico"> 🏖️ </span> 
- <div class="si-info">
- <div class="si-nome">${sNome}</div>
- <div class="si-sub">Target: ${spot.target}</div>
- </div>
- `;
- item.onclick = () => {
+    item.className = "spot-italia-item";
+    item.innerHTML = `
+      <span class="si-ico"> 🏖️ </span> 
+      <div class="si-info">
+        <div class="si-nome">${sNome}</div>
+        <div class="si-sub">Target: ${sTarget}</div>
+      </div>
+    `;
+
+    item.onclick = () => {
       spotItaliaMap.setView([spotLat, spotLon], 11);
       marker.openPopup();
       document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
       item.classList.add("active");
     };
+
     panelBody.appendChild(item);
   });
+}
+
+/* === LOGICA POPUP MODALE SALVATAGGIO SPOT === */
+function openSaveSpotModal(spot) {
+  currentSelectedSpotForSave = spot;
+  document.getElementById("modalSpotTitle").textContent = spot.name || spot.nome || "Spot";
+  document.getElementById("modalSpotNotes").value = "";
+  document.getElementById("saveSpotModal").style.display = "flex";
+}
+
+function closeSaveSpotModal() {
+  document.getElementById("saveSpotModal").style.display = "none";
+  currentSelectedSpotForSave = null;
+}
+
+function confirmSaveSpot() {
+  if (!currentSelectedSpotForSave) return;
+
+  const notes = document.getElementById("modalSpotNotes").value;
+  const savedSpots = JSON.parse(localStorage.getItem("mySavedSpots") || "[]");
+
+  const newEntry = {
+    ...currentSelectedSpotForSave,
+    userNotes: notes,
+    savedAt: new Date().toLocaleDateString()
+  };
+
+  savedSpots.push(newEntry);
+  localStorage.setItem("mySavedSpots", JSON.stringify(savedSpots));
+
+  alert("⭐ Spot salvato con successo nei tuoi preferiti!");
+  closeSaveSpotModal();
 }
 function calcolaConsiglioCompleto(ondaM,ventoKmh,ora,wCode){
   const ventoNodi=ventoKmh*0.539957,h=ora.getHours(),mese=ora.getMonth()+1;
