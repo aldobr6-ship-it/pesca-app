@@ -1254,13 +1254,22 @@ function showMontature() {
   renderMontature(montatureData);
 }
 function showMontaturaDetail(id) {
-  const m = montatureData.find(x => x.id === id); if (!m) return;
+  // Supporta sia 'montatureData' che 'montature'
+  const lista = (typeof montatureData !== 'undefined') ? montatureData : (typeof montature !== 'undefined' ? montature : []);
+  const m = lista.find(x => x.id === id); 
+
+  if (!m) {
+    console.error("Montatura non trovata per l'ID:", id);
+    return;
+  }
   document.getElementById("content").innerHTML = `
     <div style="animation:fadeIn 0.3s ease;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
         <span style="font-size:32px;">${m.emoji}</span>
-        <div><h2 style="margin:0;font-size:20px;">${m.nome}</h2>
-        <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p></div>
+        <div>
+          <h2 style="margin:0;font-size:20px;">${m.nome}</h2>
+          <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p>
+        </div>
       </div>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
         <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('target')}</div>
@@ -1270,28 +1279,31 @@ function showMontaturaDetail(id) {
         onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
       <p style="text-align:center;font-size:11px;opacity:0.5;margin:6px 0 10px;">${t('toccaIngrandire')}</p>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
-  <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('quandoUsare')}</div>
-  <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
-</div>
+        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('quandoUsare')}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
+      </div>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
         <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('escheConsigliate')}</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
           ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
         </div>
       </div>
-      /-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
+
+      <!-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
       <button onclick="caricaGuidaMontatura('${m.id}')" style="width:100%;padding:14px;margin-bottom:12px;border-radius:12px;background:linear-gradient(135deg,#0a2a43,#1d5a8a);color:white;font-weight:bold;font-size:14px;border:none;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,0.15);">
         💡 Guida Tecnica Esperta
       </button>
 
-      /-- 📦 CONTENITORE DOVE SI APRIRÀ LA GUIDA -->
+      <!-- 📦 CONTENITORE DOVE SI APRIRÀ LA GUIDA -->
       <div id="contenitore-guida"></div>
 
       <a href="${m.video}" target="_blank" style="text-decoration:none;">
         <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;text-align:left;margin-top:12px;">
           <div style="font-size:30px;line-height:1;">▶</div>
-          <div><div style="font-weight:700;font-size:15px;">${t('videoDimostrativo')}</div>
-          <div style="font-size:12px;opacity:0.85;margin-top:2px;">${t('guardaYoutube')}</div></div>
+          <div>
+            <div style="font-weight:700;font-size:15px;">${t('videoDimostrativo')}</div>
+            <div style="font-size:12px;opacity:0.85;margin-top:2px;">${t('guardaYoutube')}</div>
+          </div>
         </div>
       </a>
       <button onclick="goTo(showMontature)" style="width:100%;margin-top:4px;">${t('tornaMontature')}</button>
