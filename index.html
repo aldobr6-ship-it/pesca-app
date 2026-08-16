@@ -3342,20 +3342,35 @@ function mostraMenuCapitoli(guidaData) {
 
 // Mostra il dettaglio del singolo capitolo con il tasto indietro
 async function apriCapitolo(idMontatura, indiceCapitolo) {
+  const container = document.getElementById("contenitore-guida");
+  if (!container) return;
+
   try {
     const response = await fetch(`./data/guide_montature/${idMontatura}.json`);
     const guidaData = await response.json();
     const capitolo = guidaData.capitoli[indiceCapitolo];
-    const container = document.getElementById("contenitore-guida");
+
+    // Gestione intelligente del contenuto (sia stringa che array)
+    let testoHtml = "";
+    if (Array.isArray(capitolo.contenuto)) {
+      testoHtml = `<ul style="padding-left:18px;margin:0;">` + 
+        capitolo.contenuto.map(item => `<li style="margin-bottom:8px;">${item}</li>`).join("") + 
+        `</ul>`;
+    } else if (typeof capitolo.contenuto === "string") {
+      testoHtml = capitolo.contenuto.replace(/\n/g, "<br>");
+    } else {
+      testoHtml = "Contenuto non disponibile.";
+    }
 
     container.innerHTML = `
-      <button onclick="caricaGuidaMontatura('${idMontatura}')" style="margin-bottom:10px;padding:8px 12px;border-radius:6px;background:#eaf4fb;border:none;color:#0a2a43;font-weight:bold;cursor:pointer;">
-        ← Torna ai Capitoli
-      </button>
-      <div style="background:#fff;padding:12px;border-radius:8px;border:1px solid #ddd;text-align:left;">
-        <h3 style="margin-top:0;color:#0a2a43;">${capitolo.titolo}</h3>
-        <div style="font-size:13px;line-height:1.5;color:#333;">
-          ${capitolo.contenuto.replace(/\n/g, '<br>')}
+      <div style="margin-top:15px;background:#ffffff;padding:14px;border-radius:10px;border:1px solid #d0e6f7;box-shadow:0 3px 8px rgba(0,0,0,0.08);text-align:left;">
+        <button onclick="caricaGuidaMontatura('${idMontatura}')" style="margin-bottom:12px;padding:6px 12px;border-radius:6px;background:#0a2a43;border:none;color:white;font-size:12px;font-weight:bold;cursor:pointer;">
+          ← Torna all'indice dei Capitoli
+        </button>
+        <h3 style="margin:0 0 6px 0;color:#0a2a43;font-size:16px;">${capitolo.titolo}</h3>
+        ${capitolo.sottotitolo ? `<p style="margin:0 0 12px 0;opacity:0.7;font-size:12px;font-weight:bold;">${capitolo.sottotitolo}</p>` : ''}
+        <div style="font-size:13px;line-height:1.6;color:#222;border-top:1px solid #eee;padding-top:10px;">
+          ${testoHtml}
         </div>
       </div>
     `;
