@@ -921,7 +921,6 @@ function showSurfcasting() {
         const mont = montatureData.find(x=>x.id===id);
         const nome = mont ? mont.nome : id;
         const img = mont ? mont.img.replace("./","") : "";
-        const ytQuery = linguaAttuale === "fr" ? "surfcasting+technique+peche" : "surfcasting+tecnica+italiana";
         return `<div>
           <button onclick="toggleImageBox('surfBox${i}','${img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${nome} <span class="arrow">▼</span></button>
           <div id="surfBox${i}" class="image-box"></div>
