@@ -534,9 +534,9 @@ const traduzioni = {
     guardaSuYoutube: "Guarda su YouTube",
     specieConsigliate: "🐟 Specie consigliate",
     escheConsigliateLabel: "🐛 Esche consigliate",
-    montaturaDedicataLabel: "🎣 dedicata",
+    montaturaDedicataLabel: "🎣 Montatura dedicata",
     piombiConsigliati: "⚖️ Piombi consigliati",
-    montaturaDedicataUnica: "🎣 dedicata",
+    montaturaDedicataUnica: "🎣 Montatura dedicata",
     specieAggiuntive: "🐟 Specie principali",
     previsioniTitolo: "⚓ Previsioni Pesca",
     aggiornatoOra: "Aggiornato ora",
@@ -618,7 +618,7 @@ const traduzioni = {
     salvaQuestoSpot: "📌 Salva questo spot",
     nomeSpotPh: "Nome spot (es. Scoglio grande)",
     specieCatturatePh: "Specie catturate (es. Orata, Sarago)",
-    montaturaUsata: "usata",
+    montaturaUsata: "Montatura usata",
     noteLiberePh: "Note libere (profondità, ora…)",
     annulla: "Annulla",
     spotSenzaNome: "Spot senza nome",
@@ -1254,97 +1254,31 @@ function showMontature() {
   renderMontature(montatureData);
 }
 function showMontaturaDetail(id) {
-  // Supporta sia 'montatureData' che 'montature'
-  const lista = (typeof montatureData !== 'undefined') ? montatureData : (typeof montature !== 'undefined' ? montature : []);
-  const m = lista.find(x => x.id === id); 
-  if (!m) {
-    console.error("Montatura non trovata per l'ID:", id);
-    return;
-  }
-  // Variabile globale per memorizzare le montature caricate
-let montatureData = [];
-
-// Funzione per caricare il file data/montature.json all'avvio
-async function caricaMontatureData() {
-  if (montatureData.length > 0) return montatureData;
-  try {
-    const response = await fetch('data/montature.json');
-    montatureData = await response.json();
-    return montatureData;
-  } catch (error) {
-    console.error("Errore nel caricamento di data/montature.json:", error);
-    return [];
-  }
-}
-// Funzione aggiornata per mostrare il dettaglio della montatura
-async function showMontaturaDetail(id) {
-  // Assicura che i dati siano stati caricati dal file JSON
-  const lista = await caricaMontatureData();
-  const m = lista.find(x => x.id === id);
-  if (!m) {
-    console.error("Montatura non trovata per l'ID:", id);
-    return;
-  }
+  const m = montatureData.find(x => x.id === id); if (!m) return;
   document.getElementById("content").innerHTML = `
     <div style="animation:fadeIn 0.3s ease;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
         <span style="font-size:32px;">${m.emoji}</span>
-        <div>
-          <h2 style="margin:0;font-size:20px;">${m.nome}</h2>
-          <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p>
-        </div>
+        <div><h2 style="margin:0;font-size:20px;">${m.nome}</h2>
+        <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p></div>
       </div>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
         <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('target')}</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          ${m.target.split(" • ").map(tg => `<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${tg}</span>`).join("")}
-        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.target.split(" • ").map(tg=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${tg}</span>`).join("")}</div>
       </div>
-      <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;" onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
+      <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;"
+        onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
       <p style="text-align:center;font-size:11px;opacity:0.5;margin:6px 0 10px;">${t('toccaIngrandire')}</p>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('quandoUsare')}</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          ${m.quando.split(" • ").map(q => `<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}
-        </div>
-      </div>
+  <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('quandoUsare')}</div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
+</div>
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
         <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('escheConsigliate')}</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          ${m.esche.split(" • ").map(e => `<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
+          ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
         </div>
       </div>
-      /-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
-      <button onclick="caricaGuidaMontatura('${m.id}')" style="width:100%;padding:14px;margin-bottom:12px;border-radius:12px;background:linear-gradient(135deg,#0a2a43,#1d5a8a);color:white;font-weight:bold;font-size:14px;border:none;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,0.15);">
-        💡 Guida Tecnica Esperta
-      </button>
-      /-- 📦 CONTENITORE DOVE SI APRIRÀ LA GUIDA -->
-      <div id="contenitore-guida"></div>
-      <a href="${m.video}" target="_blank" style="text-decoration:none;">
-        <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;text-align:left;margin-top:12px;">
-          <div style="font-size:30px;line-height:1;">▶</div>
-          <div>
-            <div style="font-weight:700;font-size:15px;">${t('videoDimostrativo')}</div>
-            <div style="font-size:12px;opacity:0.85;margin-top:2px;">${t('guardaYoutube')}</div>
-          </div>
-        </div>
-      </a>
-      <button onclick="goTo(showMontature)" style="width:100%;margin-top:4px;">${t('tornaMontature')}</button>
-    </div>`;
-}
-// Modifica anche la funzione showMontature per caricare i dati in modo asincrono
-async function showMontature() {
-  const lista = await caricaMontatureData();
-  document.getElementById("content").innerHTML = `
-    <h2 style="margin-top:0;">🎣 ${t('montature')}</h2>
-    <div class="card">
-      <input type="text" id="searchMontature" placeholder="${t('cercaMontatura')}"
-        style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
-        onkeyup="filtraMontature()">
-    </div>
-    <div id="listaMontature"></div>`;
-  renderMontature(lista);
-}  
       <a href="${m.video}" target="_blank" style="text-decoration:none;">
         <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;text-align:left;">
           <div style="font-size:30px;line-height:1;">▶</div>
@@ -3360,55 +3294,6 @@ if ("serviceWorker" in navigator) {
     });
   });
 }
-// Funzione per caricare la guida dal percorso data/guide_montature/
-async function caricaGuidaMontatura(idMontatura) {
-  try {
-    const response = await fetch(`data/guide_montature/${idMontatura}.json`);
-    const data = await response.json();
-    mostraMenuCapitoli(data);
-  } catch (error) {
-    console.error("Errore nel caricamento della guida:", error);
-  }
-}
-// Mostra i 6 capitoli tra cui scegliere
-function mostraMenuCapitoli(guidaData) {
-  const container = document.getElementById("contenitore-guida");
-  
-  let html = `<h3>${guidaData.titolo} - Guida Tecnica</h3>`;
-  html += `<div class="menu-capitoli">`;
-  
-  guidaData.capitoli.forEach((capitolo, index) => {
-    html += `
-      <button class="btn-capitolo" onclick="apriCapitolo('${guidaData.id}', ${index})">
-        <strong>${capitolo.titolo}</strong>
-        <small>${capitolo.sottotitolo}</small>
-      </button>
-    `;
-  });
-  html += `</div>`;
-  container.innerHTML = html;
-}
-
-// Mostra il testo del singolo capitolo con il tasto "Torna indietro"
-async function apriCapitolo(idMontatura, indiceCapitolo) {
-  const response = await fetch(`data/guide_montature/${idMontatura}.json`);
-  const guidaData = await response.json();
-  const capitolo = guidaData.capitoli[indiceCapitolo];
-  const container = document.getElementById("contenitore-guida");
-  
-  container.innerHTML = `
-    <button class="btn-back" onclick="caricaGuidaMontatura('${idMontatura}')">
-      ← Torna ai Capitoli
-    </button>
-    
-    <div class="dettaglio-capitolo">
-      <h2>${capitolo.titolo}</h2>
-      <div class="testo-contenuto">
-        ${capitolo.contenuto.replace(/\n/g, '<br>')}
-      </div>
-    </div>
-  `;
-}  
 </script>
 </body>
 </html>
