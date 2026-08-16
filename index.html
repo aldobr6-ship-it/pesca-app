@@ -534,9 +534,9 @@ const traduzioni = {
     guardaSuYoutube: "Guarda su YouTube",
     specieConsigliate: "🐟 Specie consigliate",
     escheConsigliateLabel: "🐛 Esche consigliate",
-    montaturaDedicataLabel: "🎣 Montatura dedicata",
+    montaturaDedicataLabel: "🎣 dedicata",
     piombiConsigliati: "⚖️ Piombi consigliati",
-    montaturaDedicataUnica: "🎣 Montatura dedicata",
+    montaturaDedicataUnica: "🎣 dedicata",
     specieAggiuntive: "🐟 Specie principali",
     previsioniTitolo: "⚓ Previsioni Pesca",
     aggiornatoOra: "Aggiornato ora",
@@ -618,7 +618,7 @@ const traduzioni = {
     salvaQuestoSpot: "📌 Salva questo spot",
     nomeSpotPh: "Nome spot (es. Scoglio grande)",
     specieCatturatePh: "Specie catturate (es. Orata, Sarago)",
-    montaturaUsata: "Montatura usata",
+    montaturaUsata: "usata",
     noteLiberePh: "Note libere (profondità, ora…)",
     annulla: "Annulla",
     spotSenzaNome: "Spot senza nome",
@@ -3294,6 +3294,55 @@ if ("serviceWorker" in navigator) {
     });
   });
 }
+// Funzione per caricare la guida dal percorso data/guide_montature/
+async function caricaGuidaMontatura(idMontatura) {
+  try {
+    const response = await fetch(`data/guide_montature/${idMontatura}.json`);
+    const data = await response.json();
+    mostraMenuCapitoli(data);
+  } catch (error) {
+    console.error("Errore nel caricamento della guida:", error);
+  }
+}
+// Mostra i 6 capitoli tra cui scegliere
+function mostraMenuCapitoli(guidaData) {
+  const container = document.getElementById("contenitore-guida");
+  
+  let html = `<h3>${guidaData.titolo} - Guida Tecnica</h3>`;
+  html += `<div class="menu-capitoli">`;
+  
+  guidaData.capitoli.forEach((capitolo, index) => {
+    html += `
+      <button class="btn-capitolo" onclick="apriCapitolo('${guidaData.id}', ${index})">
+        <strong>${capitolo.titolo}</strong>
+        <small>${capitolo.sottotitolo}</small>
+      </button>
+    `;
+  });
+  html += `</div>`;
+  container.innerHTML = html;
+}
+
+// Mostra il testo del singolo capitolo con il tasto "Torna indietro"
+async function apriCapitolo(idMontatura, indiceCapitolo) {
+  const response = await fetch(`data/guide_montature/${idMontatura}.json`);
+  const guidaData = await response.json();
+  const capitolo = guidaData.capitoli[indiceCapitolo];
+  const container = document.getElementById("contenitore-guida");
+  
+  container.innerHTML = `
+    <button class="btn-back" onclick="caricaGuidaMontatura('${idMontatura}')">
+      ← Torna ai Capitoli
+    </button>
+    
+    <div class="dettaglio-capitolo">
+      <h2>${capitolo.titolo}</h2>
+      <div class="testo-contenuto">
+        ${capitolo.contenuto.replace(/\n/g, '<br>')}
+      </div>
+    </div>
+  `;
+}  
 </script>
 </body>
 </html>
