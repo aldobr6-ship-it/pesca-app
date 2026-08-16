@@ -1279,12 +1279,12 @@ function showMontaturaDetail(id) {
           ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
         </div>
       </div>
-      <!-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
+      /-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
       <button onclick="caricaGuidaMontatura('${m.id}')" style="width:100%;padding:14px;margin-bottom:12px;border-radius:12px;background:linear-gradient(135deg,#0a2a43,#1d5a8a);color:white;font-weight:bold;font-size:14px;border:none;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,0.15);">
         💡 Guida Tecnica Esperta
       </button>
 
-      <!-- 📦 CONTENITORE DOVE SI APRIRÀ LA GUIDA -->
+      /-- 📦 CONTENITORE DOVE SI APRIRÀ LA GUIDA -->
       <div id="contenitore-guida"></div>
 
       <a href="${m.video}" target="_blank" style="text-decoration:none;">
