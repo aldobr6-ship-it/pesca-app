@@ -1,0 +1,48 @@
+{
+ "id": "minitrave",
+ "titolo": "Montatura con Minitrave",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Il Minitrave è una delle soluzioni più moderne, pratiche ed efficaci del Surfcasting e del Beach Ledgering. Si tratta di uno spezzone cortissimo e rigido (solitamente lungo dai 10 ai 15 cm, realizzato in acciaio inox o in nylon ad altissimo spessore) che sostituisce il classico trave lungo. La sua incredibile rigidità strutturale allontana il bracciolo dalla linea principale, azzerando quasi totalmente i grovigli e permettendo di lanciare braccioli singoli molto lunghi a distanze straordinarie con la massima aerodinamicità.\n\n**Specie Target:** 🎯\n* **Orate, Mormore, Spigole, Saraghi e Ombrine.**\n\n**Contesto Ideale:**\n* Spiagge sabbiose a declivio dolce o medio, zone caratterizzate da forti correnti laterali o turbolenza di fondo. È perfetto sia nel Beach Ledgering estivo che nel Surfcasting pesante invernale.\n\n**Circostanze d'Uso:**\n* Quando si vuole pescare con un unico bracciolo lungo (Long Arm) riducendo a zero il rischio di parrucche.\n* In presenza di forte corrente laterale (Lateral Drag) che farebbe aggrovigliare un trave classico.\n* Quando serve una montatura rapidissima da sostituire in pesca in caso di rottura o cambio di strategia."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Configurazione a bracciolo unico lungo su asse rigido",
+   "contenuto": "Il minitrave viene collegato direttamente allo shock leader tramite l'asola superiore. Nello snodo centrale si collega l'unico bracciolo lungo, mentre all'estremità inferiore si aggancia direttamente il piombo.\n\n**Schema Visivo:**\n[Shock Leader] \n      │\n[Asola / Girella Superiore del MINITRAVE]\n      │\n[Corpo del Minitrave (Acciaio o Nylon 1.00 mm - Lunghezza 10-15 cm)]\n      │\n[Snodo Centrale: Girella del Minitrave] ───────────────────────────> [BRACCIOLO LUNGO] ───> [AMO]\n      │\n[Attacco Inferiore del Minitrave + Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Minitrave** (La struttura rigida)\n* **Mare Calmo (X):** Minitrave in Nylon rigido (spessore 0.80 - 1.00 mm) o micro-trave in acciaio leggero. Lunghezza 10 cm per la massima discrezione in acque limpide.\n* **Mare Mosso (Y):** Minitrave in Acciaio Inox (diametro 0.80 - 1.00 mm). Lunghezza 12-15 cm, indistruttibile, rigido al 100% e capace di sopportare le sollecitazioni delle onde e piombi pesanti.\n\n2. **Lo Snodo** (Integrato nel Minitrave)\n* **Configurazione Unica:** Una girella solida (misura 18-22) libera di ruotare sull'asse del minitrave, protetta da perline o tubicini termorestringenti. Deve garantire una rotazione fluida a 360 gradi per scaricare i giri impressi dalla corrente sul bracciolo.\n\n3. **Il Bracciolo** (L'unico terminale pescatore)\n* **Mare Calmo (X):** 0.14 mm - 0.18 mm in Fluorocarbon. Lunghissimo, da 150 cm fino a 200 cm. Il minitrave lo tiene lontano dal piombo in volo, garantendo una stesura perfetta e un'invisibilità totale sul fondo.\n* **Mare Mosso (Y):** 0.25 mm - 0.32 mm in Nylon Extra Rigido (tipo Amnesia) o Fluorocarbon spesso. Lunghezza ridotta a 100 - 120 cm per aumentare la tenuta anti-groviglio nella schiuma della risacca.\n\n4. **L'Amo**\n* **Mare Calmo (X):** Misura 6 - 10 a filo fine e gambo lungo (tipo Aberdeen), ideale per inneschi perfetti di esche delicate come l'Arenicola o la Tremolina.\n* **Mare Mosso (Y):** Misura 2 - 5 a filo robusto (tipo Beak o Chinu forgiato), specifico per fare tenuta su grandi prede e per alloggiare esche voluminose."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Presentazione fluttuante o sollevata dal fondo",
+   "contenuto": "* **Presentazione Fluttuante (Mare Calmo):** Calza il verme (Arenicola) interamente sull'ago e fallo scivolare sull'amo, avendo cura di nascondere la paletta o l'occhiello. L'esca deve apparire tesa e lineare per muoversi naturalmente sul fondo sabbioso senza insospettire le orate.\n* **Boccone Visibile (Mare Mosso):** Crea un innesco compatto con un cannolicchio sgusciato o un trancio di seppia/coreano, avvolgendolo con diversi giri di filo elastico. Con mare mosso o corrente, puoi aggiungere una piccola sferetta pop-up (flotterino) sul bracciolo a 5 cm dall'amo: aiuterà a sollevare l'esca dallo strato di sabbia mossa dal fondo, rendendola subito visibile ai pesci."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Zavorre aerodinamiche vs ancoraggi pesanti",
+   "contenuto": "* **Mare Calmo (X):** Piombi aerodinamici o leggermente mobili come Roccotop, Saponetta o Torpedine (50g - 100g). Assecondano i piccoli spostamenti d'acqua e stimolano l'attacco dei pesci grufolatori.\n* **Mare Mosso (Y):** Piombi ad altissima tenuta come Piramidali o Coni (125g - 175g). Devono rimanere saldamente ancorati al fondo; la rigidità del minitrave farà il resto, permettendo al bracciolo di fluttuare nella corrente senza aggrovigliarsi alla zavorra."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Guadagno metrico e versatilità strutturale",
+   "contenuto": "* **Mare Calmo (X):** Lancio lungo (80 - 110 metri). Poiché il minitrave elimina quasi tutto l'attrito tipico di un trave lungo tradicional, si guadagnano molti metri nel lancio anche con braccioli lunghi.\n* **Mare Mosso (Y):** Lancio medio (40 - 70 metri). Ideale per fendere il vento contrario e piazzare l'esca con precisione chirurgica all'interno dei canaloni di risacca.\n* **Tecnica di lancio:** Questa montatura è incredibilmente versatile. Può essere lanciata in modo semplice con un Above Cast (sopra la testa), oppure sfruttata con lanci più tecnici e potenti come il Side Cast o il Ground Cast (con piombo a terra), grazie alla resistenza assoluta del minitrave in acciaio."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Configurazioni da Beach Ledgering e Surfcasting pesante",
+   "contenuto": "* **Mare Calmo (X):** Canna leggera da Beach Ledgering (azione 40-100g) con vette sensibili. Mulinello taglia 4000 - 5000 con Nylon sottile (0.18 mm) + Shock Leader fluido.\n* **Mare Mosso (Y):** Canna da Surfcasting in 3 sezioni robusta (azione 150-200g). Mulinello potente taglia 8000 - 10000 imbobinato con Nylon 0.28 - 0.30 mm + Shock Leader conico."
+  }
+ ]
+}
