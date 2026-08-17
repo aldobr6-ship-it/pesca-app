@@ -1,0 +1,48 @@
+{
+ "id": "pulley-rig-clippato",
+ "titolo": "Pulley Rig Clippato (Carrucola Clip-Down)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Questa versione esaspera le doti balistiche del Pulley Rig classico. Utilizza un sistema di bloccaggio (bait clip o impact shield) posizionato subito sopra il piombo per ancorare l'amo e l'esca durante il volo. È la montatura per eccellenza quando si devono scagliare esche enormi (come sarde intere, seppie o grossi granchi) a distanze siderali, azzerando l'effetto paracadute e garantendo lo sgancio automatico all'impatto con l'acqua.\n\n**Specie Target:** 🎯\n* **Grosse Orate, Spigole da record, Saraghi maggiori, Ombrine di fondo, Razze, Gronghi e squaliformi (Palombi/Gattucci).**\n\n**Contesto Ideale:**\n* Spiagge sabbiose profonde a declivio rapido, fondali misti (sabbia e roccia) e spiagge esposte a forti venti contrari o laterali.\n\n**Circostanze d'Uso:**\n* Necessità di lanciare un'esca grande e pesante a distanze estreme (oltre i 100 metri) per intercettare i grandi predatori.\n* Forte vento frontale che frenerebbe qualsiasi altra montatura non clippata.\n* Pesca in spot ricchi di ostacoli dove il sistema a carrucola deve sollevare il piombo durante il recupero del pesce."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Funzionamento del trave dinamico a carrucola clip-down",
+   "contenuto": "Il trave dinamico permette lo scorrimento della carrucola. L'amo viene rivolto verso il basso, messo in tensione e agganciato al bait clip inferiore. In volo l'esca forma un corpo unico con il piombo. All'impatto con l'acqua, la risalita dello scudo o la pressione idrica liberano l'amo. Quando il pesce abbocca, la carrucola scorre verso l'alto sollevando il piombo dal fondo.\n\n**Schema Visivo:**\n[Shock Leader] \n      │\n[Asola / Girella superiore del Trave]\n      │\n      │ ─── Perlina di gomma (Salvanodo superiore)\n      │ ─── Pulley Bead / Girella Scorrevole ───────> [BRACCIOLO RIGIDO]\n      │                                                     │\n      │  (Sviluppo del Trave: 110 - 130 cm)                 │ (Scende teso in volo)\n      │ ─── Perlina di gomma (Salvanodo inferiore)          │\n      │                                                     ▼\n[Bait Clip / Impact Shield] <───────────────────────────────[AMO (agganciato in volo)]\n      │\n[Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Trave** (Lunghezza totale: 110 - 130 cm in Nylon ad altissimo carico)\n* **Mare Calmo (X):** 0.50 mm. Trasparente e rigido, specifico per sopportare lo scorrimento della carrucola e lo stress del lancio senza subire lesioni.\n* **Mare Mosso (Y):** 0.60 mm - 0.70 mm. Struttura rinforzata per tagliare la corrente, tollerare lo sfregamento sul fondo e gestire piombi pesanti controvento.\n\n2. **Il Sistema Scorrevole** (La carrucola)\n* **Configurazione Unica:** Si utilizza un Pulley Bead (un cursore in plastica con occhiello in metallo) o una girella solida (misura 4) inserita nel trave. Viene bloccata alle due estremità da perline in gomma ammortizzanti per proteggere i nodi di giunzione.\n\n3. **Il Sistema di Clip Inferiore** (Posizionato sopra il piombo)\n* **Configurazione Unica:** Un Impact Shield o una clip di tipo Genie Link Clip. Questo accessorio deve essere robusto e spazioso per ospitare la curva di ami grandi senza rischiare sganci prematuri durante il caricamento del lancio.\n\n4. **Il Bracciolo** (La lunghezza deve essere identica alla distanza esatta tra la carrucola e la clip inferiore)\n* **Mare Calmo (X):** 0.30 mm - 0.35 mm in Fluorocarbon. Lunghezza intorno ai 90-100 cm. Offre invisibilità totale a ridosso del fondo per ingannare le grandi orate.\n* **Mare Mosso (Y):** 0.45 mm - 0.50 mm in Nylon Extra Rigido (tipo Amnesia) o Fluorocarbon spesso. Lunghezza intorno agli 80-90 cm per garantire un assetto anti-groviglio perfetto nella schiuma.\n\n5. **L'Amo** (Spesso montato in configurazione Pennell Rig a due ami in linea)\n* **Mare Calmo (X):** Misura 1/0 - 2/0 di tipo Beak forgiato, ideale per presentare granchi vivi, grossi bibi o seppioline pulite.\n* **Mare Mosso (Y):** Misura 3/0 - 5/0 di tipo O'Shaughnessy o Bad Bass a filo spessissimo. Si usa la doppietta di ami (Amo Pennell) per bloccare esche lunghe come sarde intere o tranci di calamaro."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Innesco a siluro e configurazione Pennell Rig",
+   "contenuto": "* **Innesco a 'Siluro' (Mare Calmo / Mare Mosso):** È fondamentale per la stabilità in volo. Se usi un filetto di sarda o una striscia di seppia, passa l'amo pescatore (quello inferiore) sulla punta dell'esca e l'amo scorrevole (superiore) sulla testa. Avvolgi l'esca in modo serratissimo con il filo elastico fino a modellarla come un siluro liscio e compatto. La curva dell'amo pescatore deve rimanere libera da filamenti per potersi agganciare saldamente al bait clip."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Profilo liscio vs ancoraggio rigido",
+   "contenuto": "* **Mare Calmo (X):** Piombi altamente aerodinamici come Rocco bomb o Sporting (120g - 150g). Sfruttano il profilo clippato per tagliare l'aria e raggiungere distanze siderali.\n* **Mare Mosso (Y):** Piombi a tenuta estrema come Piramidali pesanti o Piombi a rampini (Spike Lead) da 150g a 175g+. L'ancoraggio rigido della zavorra è essenziale per tendere il bracciolo e consentire l'autoferrata del predatore."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Azzeramento dell'attrito e lanci forzati",
+   "contenuto": "* **Mare Calmo (X):** Distanza estrema (100 - 130+ metri). La montatura clippata elimina ogni attrito aerodinamico del grande boccone, consentendo di raggiungere i canaloni più lontani.\n* **Mare Mosso (Y):** Lancio lungo (60 - 90 metri). Permette di fendere i forti venti frontali e depositare l'esca pesante esattamente dietro la linea dei frangenti esterni.\n* **Tecnica di lancio:** Questa montatura è strutturata per sopportare le massime sollecitazioni. È l'assetto ideale per il Side Cast angolato o per il Ground Cast (con piombo appoggiato a terra), poiché la carrucola clippata e tesa impedisce all'esca di subire strappi letali in partenza."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canne e mulinelli ad alte prestazioni",
+   "contenuto": "* **Mare Calmo (X):** Canna in 3 sezioni da Surfcasting potente (azione 150-200g). Mulinello capiente taglia 8000 - 10000 con Nylon 0.25 mm + Shock Leader robusto.\n* **Mare Mosso (Y):** Canna Ripartita in due pezzi (Rip) o 3 sezioni ad alte prestazioni (azione 200-250g). Mulinello potente (fisso taglia 10000 o rotante da Surfcasting), caricato con Nylon 0.35 - 0.40 mm diretto per resistere allo sfregamento contro gli ostacoli del fondo."
+  }
+ ]
+}
