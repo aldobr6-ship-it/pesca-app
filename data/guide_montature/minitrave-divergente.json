@@ -1,0 +1,48 @@
+{
+ "id": "minitrave-divergente",
+ "titolo": "Minitrave con Divergente",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Il Minitrave Divergente rappresenta l'evoluzione ingegneristica massima del minitrave classico. La sua particolarità risiede in un braccetto rigido sporgente in acciaio inox (chiamato divergente o baffo) posizionato sullo snodo centrale. Questo braccetto agisce come un vero e proprio distanziatore meccanico: sposta il punto di partenza del bracciolo di un paio di centimetri verso l'esterno rispetto alla linea del piombo. Questa caratteristica lo rende la montatura 100% anti-groviglio per eccellenza, ideale per lanciare esche enormi o pescare in condizioni di turbolenza estrema.\n\n**Specie Target:** 🎯\n* **Spigole da record, Grandi Orate, Pesci Serra, Saraghi maggiori, Gronghi e Razze.**\n\n**Contesto Ideale:**\n* Surfcasting pesante a mare formato o in piena mareggiata, spiagge profonde con correnti battenti e forte risacca di fondo. È eccezionale anche per la pesca da moli e scogliere alte.\n\n**Circostanze d'Uso:**\n* Quando si utilizzano esche ingombranti e pesanti (tranci di pesce, vivo, sarde intere, seppie) che tenderebbero a ruotare e aggrovigliarsi sul piombo durante il volo o in acqua.\n* In presenza di corrente laterale selvaggia.\n* Quando è richiesta una montatura indistruttibile ad altissimo carico capace di resistere a pesci provvisti di forte dentatura."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Funzionamento del braccetto distanziatore meccanico",
+   "contenuto": "Il corpo centrale è uno spezzone d'acciaio inox cortissimo (circa 10 cm). Lo snodo centrale non ospita una semplice girella, ma un braccetto divergente in acciaio (o una molla distanziatrice) a cui viene agganciato il bracciolo, tenendolo forzatamente lontano dalla zavorra.\n\n**Schema Visivo:**\n[Shock Leader] \n      │\n[Asola / Girella Superiore del Minitrave]\n      │\n[Asta del Minitrave in Acciaio Inox]\n      │\n[Snodo Centrale con BRACCETTO DIVERGENTE] ═════════> (Allontana l'innesto di 2-3 cm) ───> [BRACCIOLO] ───> [AMO]\n      │\n[Attacco Inferiore con Guaina + Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Minitrave Divergente** (La struttura d'acciaio)\n* **Mare Calmo (X):** Minitrave con divergente leggero in acciaio inox da 0.8 mm o nylon ad altissimo spessore (1.00 mm) con baffo divergente plastificato. Lunghezza 10 cm.\n* **Mare Mosso (Y):** Minitrave con divergente pesante in acciaio inox da 1.2 mm, rinforzato con doppia guaina termorestringente e girelle ad altissimo carico (fino a 40 kg) per sopportare stress estremi di lancio e trazione.\n\n2. **Il Braccetto Divergente** (L'anima anti-tangle)\n* **Configurazione Unica:** Un'asta d'acciaio solidale allo snodo o una molla divergente speciale che punta verso l'esterno. Il bracciolo si collega all'estremità di questo baffo (spesso protetto da un tubicino in silicone) tramite un attacco rapido o un nodo a bocca di lupo. Sfrutta torsioni laterali e longitudinali per assecondare la corrente.\n\n3. **Il Bracciolo** (Terminale singolo strutturato)\n* **Mare Calmo (X):** 0.20 mm - 0.25 mm in Fluorocarbon. Lunghezza 120 - 150 cm. Nonostante il mare calmo, la presenza del divergente permette di usare diametri superiori per insidiare prede di taglia a ridosso del fondo senza rischio di grovigli.\n* **Mare Mosso (Y):** 0.40 mm - 0.50 mm in Nylon Extra Rigido o Fluorocarbon spesso (oppure cavetto d'acciaio termosaldante se si insidia il pesce serra). Lunghezza ridotta a 80 - 100 cm. La rigidità combinata di baffo e filo azzera i grovigli nel pieno della tempesta.\n\n4. **L'Amo**\n* **Mare Calmo (X):** Misura 1 - 2 di tipo Beak o Chinu forgiato, perfetto per granchi vivi, grossi fasolari o generosi inneschi di verme Americano.\n* **Mare Mosso (Y):** Misura 1/0 - 4/0 a filo spessissimo (tipo O'Shaughnessy o amo d'acciaio da vivo), eccellente per fare tenuta sulle bocche taglienti o ossee dei grandi predatori."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Innesco per vivo, tranci e sarde intere",
+   "contenuto": "* **Per il Vivo o il Trancio (Mare Calmo / Mare Mosso):** È l'applicazione regina di questo assetto. Se usi il trancio di cefalo o di sarda, taglialo a forma di losanga flessibile, svuotalo della spina centrale e rassodalo passando l'amo due volte per poi legarlo strettamente con il filo elastico. L'innesco deve risultare compatto e senza appendici fluttuanti per non generare attrito.\n* **Pesca col Vivo:** Se peschi col vivo (es. cefalotto o sugarello), innesca l'amo singolo sul labbro superiore o sulla schiena appena sotto la pinna dorsale, assicurandoti che il pesce possa nuotare liberamente sfruttando la spinta impressa dal braccetto divergente senza attorcigliarsi all'asse d'acciaio."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Scelta idrodinamica vs tenuta estrema",
+   "contenuto": "* **Mare Calmo (X):** Piombi lisci e pesanti come il Roccotop o lo Sporting (100g - 130g) per scagliare l'esca importante alla massima distanza possibile senza destabilizzare il volo.\n* **Mare Mosso (Y):** Piombi ad ancoraggio totale come il Piramidale pesante o il Piombo a rampini (Spike) da 150g a 175g+. La zavorra deve rimanere immobile per permettere al braccetto divergente di tenere sollevato e distante il finale dai detriti, dalla sabbia mossa e dalle alghe sul fondo."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Gestione delle esche pesanti e sollecitazioni",
+   "contenuto": "* **Mare Calmo (X):** Lancio medio-lungo (70 - 100 metri). L'esca grande frena il volo, ma la totale assenza di grovigli garantita dal braccetto permette di forzare il lancio senza paura.\n* **Mare Mosso (Y):** Lancio corto (20 - 50 metri). Si lancia nel primo o secondo gradino di risacca, dove le onde creano la massima turbolenza e i predatori pattugliano la costa in cerca di cibo rimescolato.\n* **Tecnica di lancio:** Ottimo con l'Above Cast progressivo o con un Side Cast ben eseguito. Il minitrave divergente in acciaio digerisce le massime sollecitazioni della canna senza subire deformazioni strutturali in partenza."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canne e mulinelli per la pesca pesante",
+   "contenuto": "* **Mare Calmo (X):** Canna in 3 sezioni da Surfcasting potente con azione 150g. Mulinello taglia 8000 imbobinato con Nylon 0.25 mm + Shock Leader robusto.\n* **Mare Mosso (Y):** Canna Ripartita (Due pezzi) o 3 sezioni da Surfcasting duro (azione 200-250g). Mulinello capiente (taglia 10000 o rotante), caricato con Nylon 0.35 - 0.40 mm diretto per far fronte a ostacoli, alghe e prede da record."
+  }
+ ]
+}
