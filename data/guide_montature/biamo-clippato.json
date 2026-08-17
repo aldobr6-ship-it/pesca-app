@@ -1,0 +1,48 @@
+{
+ "id": "biamo-clippato",
+ "titolo": "Bi-Amo Clippato (Cascade Rig / 2 Ami Clip-Down)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Il Bi-Amo Clippato unisce i vantaggi della pesca con due esche alla penetrazione aerodinamica del sistema clippato. Grazie all'uso di ganci di ritenuta (bait clip) e girelle speciali (cascade), i due braccioli rimangono bloccati lungo il trave durante il volo. Questo azzera l'attrito con l'aria, permettendo di raggiungere distanze eccezionali con due esche pronte a entrare in pesca all'impatto con l'acqua.\n\n**Specie Target:** 🎯\n* **Mormore, Saraghi, Orate, Pagelli, Gallinelle e Triglie di fango.**\n\n**Contesto Ideale:**\n* Spiagge sabbiose a declivio dolce o medio dove il pesce staziona molto lontano da riva. È perfetto sia per il Beach Ledgering a lunga distanza (mare calmo) sia per il Surfcasting (mare mosso con forte vento contrario).\n\n**Circostanze d'Uso:**\n* Forte vento frontale o laterale che frenerebbe una montatura a due ami classica.\n* Necessità assoluta di raggiungere distanze estreme (oltre i 100 metri) pescando contemporaneamente con due esche.\n* Ricerca di pesci grufolatori su secche molto distanti."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Funzionamento del sistema a cascata (Cascade)",
+   "contenuto": "La montatura utilizza un sistema 'a cascata' (Cascade): il bracciolo superiore scende e si aggancia a una girella Cascade posta sul secondo snodo; il secondo bracciolo scende a sua volta e si fissa sul bait clip inferiore posizionato vicino al piombo.\n\n**Schema Visivo:**\n[Shock Leader] \n      │\n[Asola / Girella superiore del Trave]\n      │  (circa 10 cm sotto)\n[Snodo Alto: Perlina - Girella - Perlina] ────────> [BRACCIOLO 1] \n      │                                                   │ (Scende lungo il trave)\n      │  (Distanza intermedia: circa 70 - 80 cm)           │\n      │                                                   ▼\n[Snodo Medio: Girella CASCADE bloccata tra perline] <─────[AMO 1 (agganciato in volo)]\n      │         └───> [BRACCIOLO 2]\n      │                     │ (Scende lungo il trave)\n      │                     ▼\n[Bait Clip / Impact Shield] <─────────────────────────────[AMO 2 (agganciato in volo)]\n      │  (Distanza dal piombo: circa 10 - 15 cm)\n[Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Trave** (Lunghezza totale: 150 - 170 cm in Nylon trasparente)\n* **Mare Calmo (X):** 0.40 mm. Garantisce stabilità e la necessaria tenuta aerodinamica senza appesantire troppo la struttura.\n* **Mare Mosso (Y):** 0.50 mm - 0.60 mm. Struttura rigida e robusta per sopportare piombi pesanti e lanci molto violenti controvento.\n\n2. **I Due Snodi** (Posizionati in modo simmetrico)\n* **Mare Calmo (X):** Snodo superiore con micro-girella (misura 24). Snodo medio con micro-girella Cascade bloccata millimetricamente da micro-perline e nodini di stop.\n* **Mare Mosso (Y):** Snodo superiore con girella solida (misura 18-20). Snodo medio con girella Cascade rinforzata o tecno-sferette resistenti alle forti trazioni.\n\n3. **Il Sistema di Clip Inferiore** (Posizionato subito sopra il piombo)\n* **Configurazione Unica:** Un Impact Shield o un attacco rapido dotato di Bait Clip integrato. All'impatto con l'acqua, la spinta idrodinamica libera l'amo inferiore, che a sua volta sblocca la girella Cascade superiore, aprendo istantaneamente l'intera montatura.\n\n4. **I Due Braccioli** (La lunghezza deve essere perfettamente calibrata sulla distanza tra gli snodi e le clip)\n* **Mare Calmo (X):** 0.16 mm - 0.18 mm in Fluorocarbon. Lunghi circa 65-75 cm per offrire massima invisibilità e naturalezza una volta aperti sul fondo.\n* **Mare Mosso (Y):** 0.24 mm - 0.28 mm in Nylon Extra Rigido (Amnesia) o Fluorocarbon duro. Più corti (45-55 cm) per sfruttare la rigidità del filo ed evitare grovigli causati dalla risacca.\n\n5. **Gli Ami**\n* **Mare Calmo (X):** Misura 6 - 10 a filo fine e gambo lungo (tipo Aberdeen), perfetti per Arenicola o strisce sottili di Coreano.\n* **Mare Mosso (Y):** Misura 4 - 6 a filo robusto (tipo Beak o Chinu), ideali per inneschi compatti e resistenti."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Preparazione per la distanza e per la tenuta",
+   "contenuto": "* **Innesco per la Distanza (Mare Calmo):** Usa l'ago da esca per infilare l'Arenicola. La testa del verme deve essere tassativamente spinta oltre l'occhiello/paletta dell'amo, salendo sul filo del bracciolo per almeno 5-10 millimetri. Se il verme scivola sulla curva dell'amo, la pressione del volo lo farà scoppiare o lo sgancerà dal bait clip.\n* **Innesco per la Tenuta (Mare Mosso):** Crea piccoli sigari compatti di cannolicchio o piccoli tranci di seppia legati stretti con il filo elastico. L'innesco non deve presentare parti fluttuanti che possano fare attrito in aria durante il lancio."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Modelli aerodinamici vs ancoraggio stabile",
+   "contenuto": "* **Mare Calmo (X):** Piombi ultra-aerodinamici come Rocco bomb o Torpedine (80g - 120g). Volano fendendo l'aria e sfruttano al massimo il profilo liscio della montatura clippata.\n* **Mare Mosso (Y):** Piombi a tenuta stagna come Piramidali o Coni (125g - 150g). Ancorano il trave al fondo sabbioso, permettendo alla corrente di distendere i braccioli in modo lineare dopo lo sgancio."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Superamento della resistenza aerodinamica",
+   "contenuto": "* **Mare Calmo (X):** Lancio lunghissimo (100 - 130+ metri). La montatura clippata azzera l'effetto paracadute delle due esche, permettendo di raggiungere distanze impensabili per un bi-amo classico.\n* **Mare Mosso (Y):** Lancio medio-lungo (60 - 90 metri). Ideale per superare la forte resistenza del vento frontale e posizionare le esche oltre la linea dei primi frangenti distruttivi.\n* **Tecnica di lancio:** Questa montatura tollera perfettamente lanci ad alta energia come il Side Cast angolato o il Ground Cast (con piombo a terra). La tensione costante dei braccioli agganciati ai bait clip protegge le esche dai contraccolpi in partenza."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canne e mulinelli consigliati",
+   "contenuto": "* **Mare Calmo (X):** Canna in 3 sezioni da Surfcasting leggero o telescopica (Beach Ledgering), azione 50-120g. Mulinello taglia 4000 - 5000 con Nylon sottile (0.18 - 0.20 mm) + Shock Leader.\n* **Mare Mosso (Y):** Canna da Surfcasting in 3 sezioni robusta (azione 150-200g). Mulinello potente taglia 8000 - 10000 imbobinato con Nylon 0.26 - 0.30 mm + Shock Leader conico."
+  }
+ ]
+}
