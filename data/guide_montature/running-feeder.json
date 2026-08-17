@@ -1,0 +1,50 @@
+{
+ "id": "running-feeder",
+ "titolo": "Running Feeder (Pasturatore Scorrevole)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "La montatura Running Feeder è il pilastro indiscusso del Feeder Fishing (sia in acqua dolce che in mare). È la variante 'pasturatore' della montatura scorrevole classica. La sua genialità risiede nel fatto che il pasturatore (feeder) scorre liberamente sulla linea principale o sullo shock leader. Quando il pesce abbocca e si allontana, non avverte il peso della zavorra o del pasturatore, ingerendo l'esca con totale fiducia, mentre la cima della canna (quiver tip) segnala la minima tocca con precisione millimetrica.\n\n**Specie Target:** 🎯\n* **In mare:** Orate, Spigole, Mormore, Saraghi e Cefali.\n* **In acqua dolce:** Barbi, Carpe, Carassi, Cavedani e Breme.\n\n**Contesto Ideale:**\n* Foci di fiumi, canali, porti, scogliere artificiali e spiagge sabbiose a declivio dolce (Beach Ledgering / Feeder marino). Funziona sia in acque ferme (laghi/porti) sia in forte corrente (fiumi).\n\n**Circostanze d'Uso:**\n* Quando è fondamentale raggruppare i pesci in un punto preciso creando una scia di pastura (effetto richiamo).\n* In presenza di pesci sospettosi che rifiutano l'esca se avvertono la minima resistenza.\n* In giornate di apatia dove lo sfarinato o i bigattini rilasciati dal feeder stimolano la frenesia alimentare."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Configurazione dello snodo e del sistema salva-groviglio",
+   "contenuto": "Il pasturatore è inserito direttamente sulla linea principale tramite un cursore o una girella con moschettone. Uno snodo singolo inferiore, protetto da una perlina salvanodo, fa da battuta e collega il finale. Spesso, tra lo stopper di gomma e la girella, si realizza una 'brillatura' o treccia di 10-15 cm con lo stesso filo del trave per distanziare il finale dal pasturatore e azzerare i grovigli in volo.\n\n**Schema Visivo:**\n[Shock Leader / Filo della Canna] \n      │\n[Girella con Moschettone Scorrevole] ───> [PASTURATORE (FEEDER)]\n      │\n[Perlina di gomma morbida / Stopper (Salvanodo)]\n      │  \n[Girella Solida o Micro-girella (Misura 20-22)]\n      │\n[BRACCIOLO FINALE UNICO (Hooklength)] ───────────────────────────────────> [AMO]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo / Acqua Ferma X vs Mare Mosso / Corrente Y",
+   "contenuto": "1. **La Linea di Scorrimento** (Madrelinea o Shock Leader)\n* **Acqua Ferma / Mare Calmo (X):** Filo diretto in bobina o Shock Leader dello 0.25 mm - 0.30 mm (Nylon o Trecciato sottile con finale in nylon). Deve essere liscio per consentire al cursore del pasturatore di scivolare senza attriti.\n* **Corrente / Mare Mosso (Y):** Shock Leader dello 0.40 mm - 0.50 mm. Indispensabile per sopportare il peso di pasturatori pesanti a pieno carico e la spinta dell'acqua o delle onde.\n\n2. **Il Pasturatore** (Feeder)\n* **Acqua Ferma / Mare Calmo (X):** Cage Feeder (gabbietta per sfarinati) o Open End (tubetto forato) leggero, peso 20g - 40g. In mare si usano spesso i pasturatori a block-end (chiusi) per il rilascio graduale di bigattini vivi.\n* **Corrente / Mare Mosso (Y):** Pasturatori pesanti a gabbia metallica (anche con artigli/ganci di tenuta per fiumi o risacca) o Method Feeder pesanti, peso 60g - 120g+, capaci di rimanere immobili sul fondo.\n\n3. **Il Bracciolo Finale** (Hooklength)\n* **Acqua Ferma / Mare Calmo (X):** 0.10 mm - 0.14 mm in Fluorocarbon o Nylon da competizione. Lunghezza variabile da 60 cm fino a 120 cm. Più l'acqua è limpida e i pesci svogliati, più il finale deve essere lungo e sottile.\n* **Corrente / Mare Mosso (Y):** 0.16 mm - 0.22 mm in Fluorocarbon o Nylon rigido. Lunghezza ridotta a 30 cm - 50 cm per far lavorare l'esca vicinissima alla scia della pastura senza che la corrente crei grovigli sul corpo del feeder.\n\n4. **L'Amo**\n* **Acqua Ferma / Mare Calmo (X):** Misura 14 - 18 a filo finissimo, leggero e invisibile, specifico per innescare 1 o 2 bigattini vivi, un chicco di mais singolo o un piccolo verme.\n* **Corrente / Mare Mosso (Y):** Misura 8 - 12 a filo robusto e forgiato. Deve resistere alla forza di pesci combattivi (come barbi o grosse orate) nella corrente e ospitare inneschi generosi."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Presentazione del bigattino o del verme sodo",
+   "contenuto": "* **Il Bigattino Perfetto (Mare Calmo / Acqua Ferma):** Infilza il bigattino (o la coppia) prendendolo appena per la 'pelle' della coda (la parte piatta dove ci sono i due puntini neri). Questo lascia il verme completamente libero di muoversi e dimenarsi sul fondo, rendendolo irresistibile per cefali, mormore e carassi.\n* **Il Ciuffo o il Verme Sodo (Corrente / Mare Mosso):** Innesca un piccolo verme (es. saltarello o muriddu) calzandolo sull'amo con l'ago, oppure crea un ciuffo compatto di 4-5 bigattini appuntati a raggiera. L'innesco deve essere solido per non essere strappato via dalla minutaglia o dalla forza della corrente."
+  },
+  {
+   "id": "gestione_pastura",
+   "titolo": "⚓ Gestione della Pastura",
+   "sottotitolo": "Meccanica degli sfarinati e rilascio controllato",
+   "contenuto": "* **Configurazione X (Acque ferme):** Usa sfarinati a grana fine, poco leganti, che si sfaldino nei primi 2-3 minuti dopo aver toccato il fondo, creando una nuvola attrattiva e stimolante direttamente attorno all'esca.\n* **Configurazione Y (Corrente):** Usa pasture ricche di particelle pesanti, molto leganti (spesso addizionate con formaggio o colla per bigattini). La pastura deve uscire lentamente dal feeder, creando una scia lunga e costante sul fondo che guiderà il pesce direttamente verso l'amo."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Precisione assoluta tramite la tecnica del line-clip",
+   "contenuto": "* **Acqua Ferma / Mare Calmo (X):** Lancio medio-lungo (40 - 70 metri). Richiede un lancio fluido e parabolico per evitare che la pastura si stacchi dal feeder o esploda durante l'impatto in volo.\n* **Corrente / Mare Mosso (Y):** Lancio corto o medio (20 - 50 metri). Si cerca la linea di minor corrente del fiume (la prismata o la treccia di centro fiume) o la buca dietro il frangente in mare.\n* **Tecnica fondamentale:** Per pescare correttamente a Running Feeder è obbligatorio clippare il filo sul mulinello (utilizzando il line-clip della bobina) dopo il primo lancio di prova. Questo garantisce di lanciare sempre alla stessa identica distanza, permettendo di concentrare la pastura in un unico punto ristretto del fondale."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canna quiver tip e mulinelli da feeder",
+   "contenuto": "* **Acqua Ferma / Mare Calmo (X):** Canna da Feeder da 11-12 piedi (Medium-Light), azione 30-60g, dotata di vette (quiver tip) in fibra di vetro o carbonio leggero da 0.5 - 1 oncia. Mulinello taglia 3000 - 4000 specifico da feeder.\n* **Corrente / Mare Mosso (Y):** Canna da Feeder pesante da 13-14 piedi (Heavy / Extra-Heavy), azione 90-150g+, con vette rigide in carbonio da 3 - 5 once. Mulinello potente taglia 5000 - 6000 con frizione micrometrica e ottimo rapporto di recupero per salpare pasturatori pesanti."
+  }
+ ]
+}
+
+
