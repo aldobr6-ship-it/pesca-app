@@ -1,63 +1,48 @@
 {
-  "nome_montatura": "Short Rovesciato Clippato",
-  "descrizione": "Rispetto alla versione classica, questa montatura aggiunge un sistema di sgancio rapido (bait clip) che blocca l'amo vicino al piombo durante il volo. È la montatura da distanza per eccellenza, fondamentale per guadagnare metri preziosi ed evitare qualsiasi groviglio in aria.",
-  "scheda_tecnica": {
-    "specie_target_contesto_circostanze": {
-      "specie_target": [
-        "Mormore",
-        "Orate",
-        "Spigole",
-        "Saraghi",
-        "Pagelli"
-      ],
-      "contesto_ideale": "Spiagge sabbiose a declivio dolce o medio. È perfetto sia per il Beach Ledgering estivo alla ricerca di grufolatori sulla lunghissima distanza, sia per il Surfcasting invernale.",
-      "circostanze_d_uso": "Presenza di forte vento contrario o laterale, necessità di raggiungere distanze estreme (oltre i 100 metri) e presenza di forte corrente di fondo (Lateral Drag) che richiede stabilità."
-    },
-    "schema_strutturale": {
-      "descrizione": "L'amo viene rivolto verso il basso e agganciato al bait clip posizionato subito sopra il piombo. Al momento dell'impatto con l'acqua, la pressione idrodinamica sgancia l'amo, lasciando fluttuare il bracciolo.",
-      "diagramma_ascii": "[Shock Leader]\n      │\n[Asola / Girella superiore del Trave]\n      │  (circa 10-15 cm sotto)\n[Snodo Alto: Perlina - Girella/Micro-snap - Perlina] ───> [BRACCIOLO LUNGO]\n      │                                                          │\n      │  (Sviluppo del Trave: 130 - 160 cm)                      │ (Scende lungo il trave)\n      │                                                          │\n[Bait Clip / Impact Lead] <──────────────────────────────────────[AMO (agganciato in volo)]\n      │\n[Piombo]"
-    },
-    "componenti_e_diametri": {
-      "1_trave": {
-        "lunghezza_totale": "140 - 160 cm in Nylon trasparente",
-        "mare_calmo_x": "0.40 mm. Mantiene la leggerezza strutturale necessaria per non insospettire i pesci in acque limpide.",
-        "mare_mosso_y": "0.50 mm - 0.60 mm. Indispensabile per sopportare la trazione di lanci tecnici (es. Side o Ground) e piombi pesanti."
-      },
-      "2_snodo_alto": {
-        "posizionamento": "Posizionato a 10-15 cm dall'asola superiore del trave",
-        "mare_calmo_x": "Micro-girella (misura 22-24) o micro-crossbead bloccata da perline millimetriche e nodini di stop per la massima invisibilità.",
-        "mare_mosso_y": "Girella solida (misura 18-20) o techno-sferette rigide, per garantire la rotazione anche sotto la forte pressione della corrente."
-      },
-      "3_sistema_di_clip": {
-        "posizionamento": "Posizionato subito sopra il piombo",
-        "configurazione_unica": "Si utilizza una girella con attacco rapido dotata di Bait Clip integrato (es. Imp Clip, Sganci Rapidi Clippati) oppure direttamente un piombo con sistema Impact Shield / Impact Lead. Questo garantisce lo sgancio automatico dell'esca all'impatto con l'acqua."
-      },
-      "4_bracciolo": {
-        "nota": "La lunghezza deve essere calibrata millimetricamente sulla distanza snodo-bait clip",
-        "mare_calmo_x": "0.16 mm - 0.20 mm in Fluorocarbon. Garantisce invisibilità totale e massima naturalezza all'esca.",
-        "mare_mosso_y": "0.25 mm - 0.30 mm in Nylon Rigido (tipo Amnesia) o Fluorocarbon spesso per evitare parrucche dovute alla turbolenza."
-      },
-      "5_amo": {
-        "mare_calmo_x": "Misura 6 - 10 a gambo lungo e filo fine (es. Aberdeen), ideale per esche delicate come l'Arenicola.",
-        "mare_mosso_y": "Misura 2 - 5 a filo robusto (es. Beak o Chinu), perfetto per esche voluminose come Bibi, Cannolicchio o Coreano."
-      }
-    },
-    "come_innescare_esca": {
-      "vermi_arenicola_coreano": "Infila il verme interamente sull'ago, passalo sull'amo e fissa tassativamente la testa sopra la paletta/occhiello sul filo del bracciolo. Se il verme scivola sulla curva dell'amo, si staccherà o si rovinerà al momento dell'aggancio sul bait clip.",
-      "bibi_o_cannolicchio": "Crea un innesco molto compatto. Nel caso del cannolicchio, usa il filo elastico per modellarlo a forma di sigaro perfetto, riducendo l'attrito con l'aria durante il volo."
-    },
-    "scelta_del_piombo": {
-      "mare_calmo_x": "Piombi aerodinamici come Rocco bomb o Torpedine (80g - 120g). Penetrano l'aria perfettamente e permettono di sfruttare al massimo il sistema clippato per distanze estreme.",
-      "mare_mosso_y": "Piombi a tenuta idrodinamica come Piramidali o Coni (125g - 175g). Mantengono il trave immobile sul fondo, permettendo alla corrente di distendere il bracciolo rovesciato una volta sganciato."
-    },
-    "distanza_di_lancio_e_tecnica": {
-      "mare_calmo_x": "Lancio lunghissimo (100 - 140+ metri). Il sistema clippato annulla l'effetto paracadute dell'esca, permettendo di raggiungere i pascoli dei pesci grufolatori confinati oltre le secche esterne.",
-      "mare_mosso_y": "Lancio medio (50 - 80 metri). Utile per superare con precisione la prima linea di frangenti e depositare l'esca nel canalone principale senza grovigli in volo.",
-      "tecnica_di_lancio": "Questa montatura tollera e valorizza i lanci tecnici come il Side Cast o il Ground Cast, poiché l'esca è solidale al trave e non subisce contraccolpi distruttivi in partenza."
-    },
-    "attrezzatura_ideale": {
-      "mare_calmo_x": "Canna in 3 sezioni leggera o telescopica (Beach Ledgering), azione 50-120g con cima sensibile. Mulinello taglia 4000 - 5000 con Nylon sottile (0.18 - 0.22 mm) + Shock Leader.",
-      "mare_mosso_y": "Canna in 3 sezioni dura o ripartita (Surfcasting), azione 150-200g. Mulinello robusto taglia 8000 - 10000 con bobina conica, imbobinato con Nylon 0.26 - 0.30 mm + Shock Leader conico."
-    }
+ "id": "short-rovesciato-clippato",
+ "titolo": "Short Rovesciato Clippato",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Rispetto alla versione classica, questa montatura aggiunge un sistema di sgancio rapido (bait clip) che blocca l'amo vicino al piombo durante il volo. È la montatura da distanza per eccellenza, fondamentale per guadagnare metri preziosi ed evitare qualsiasi groviglio in aria.\n\n**Specie Target:** 🎯\n* **Mormore, Orate, Spigole, Saraghi e Pagelli.**\n\n**Contesto Ideale:**\n* Spiagge sabbiose a declivio dolce o medio. È perfetto sia per il Beach Ledgering estivo alla ricerca di grufolatori sulla lunghissima distanza, sia per il Surfcasting invernale.\n\n**Circostanze d'Uso:**\n* Presenza di forte vento contrario o laterale, necessità di raggiungere distanze estreme (oltre i 100 metri) e presenza di forte corrente di fondo (Lateral Drag) che richiede stabilità."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Funzionamento e Sgancio Idrodinamico",
+   "contenuto": "L'amo viene rivolto verso il basso e agganciato al bait clip posizionato subito sopra il piombo. Al momento dell'impatto con l'acqua, la pressione idrodinamica sgancia l'amo, lasciando fluttuare il bracciolo.\n\n**Schema Visivo:**\nShock Leader\n │\n[Asola / Girella superiore del Trave]\n │ (circa 10-15 cm sotto)\n[Snodo Alto: Perlina - Girella/Micro-snap - Perlina] ───> [BRACCIOLO LUNGO]\n │ │\n │ (Sviluppo del Trave: 130 - 160 cm) │ (Scende lungo il trave)\n │ │\n[Bait Clip / Impact Lead] <──────────────────────────────────────[AMO (agganciato in volo)]\n │\n[Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "⚙️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Trave** (Lunghezza totale: 140 - 160 cm in Nylon trasparente)\n* **Mare Calmo (X):** 0.40 mm. Mantiene la leggerezza strutturale necessaria per non insospettire i pesci in acque limpide.\n* **Mare Mosso (Y):** 0.50 mm - 0.60 mm. Indispensabile per sopportare la trazione di lanci tecnici (es. Side o Ground) e piombi pesanti.\n\n2. **Lo Snodo Alto** (Posizionato a 10-15 cm dall'asola superiore del trave)\n* **Mare Calmo (X):** Micro-girella (misura 22-24) o micro-crossbead bloccata da perline millimetriche e nodini di stop per la massima invisibilità.\n* **Mare Mosso (Y):** Girella solida (misura 18-20) o techno-sferette rigide, per garantire la rotazione anche sotto la forte pressione della corrente.\n\n3. **Il Sistema di Clip** (Posizionato subito sopra il piombo)\n* **Configurazione Unica:** Si utilizza una girella con attacco rapido dotata di Bait Clip integrato (es. Imp Clip, Sganci Rapidi Clippati) oppure direttamente un piombo con sistema Impact Shield / Impact Lead. Questo garantisce lo sgancio automatico dell'esca all'impatto con l'acqua.\n\n4. **Il Bracciolo** (La lunghezza deve essere calibrata millimetricamente sulla distanza snodo-bait clip)\n* **Mare Calmo (X):** 0.16 mm - 0.20 mm in Fluorocarbon. Garantisce invisibilità totale e massima naturalezza all'esca.\n* **Mare Mosso (Y):** 0.25 mm - 0.30 mm in Nylon Rigido (tipo Amnesia) o Fluorocarbon spesso per evitare parrucche dovute alla turbolenza.\n\n5. **L'Amo**\n* **Mare Calmo (X):** Misura 6 - 10 a gambo lungo e filo fine (es. Aberdeen), ideale per esche delicate come l'Arenicola.\n* **Mare Mosso (Y):** Misura 2 - 5 a filo robusto (es. Beak o Chinu), perfetto per esche voluminose come Bibi, Cannolicchio o Coreano."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Innesco Idrodinamico",
+   "sottotitolo": "Come bloccare l'esca sul Bait Clip",
+   "contenuto": "* **Vermi (Arenicola, Coreano):** Infila il verme interamente sull'ago, passalo sull'amo e fissa tassativamente la testa sopra la paletta/occhiello sul filo del bracciolo. Se il verme scivola sulla curva dell'amo, si staccherà o si rovinerà al momento dell'aggancio sul bait clip.\n* **Bibi o Cannolicchio:** Crea un innesco molto compatto. Nel caso del cannolicchio, usa il filo elastico per modellarlo a forma di sigaro perfetto, riducendo l'attrito con l'aria durante il volo."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Modelli aerodinamici vs modelli a tenuta",
+   "contenuto": "* **Mare Calmo (X):** Piombi aerodinamici come Rocco bomb o Torpedine (80g - 120g). Penetrano l'aria perfettamente e permettono di sfruttare al massimo il sistema clippato per distanze estreme.\n* **Mare Mosso (Y):** Piombi a tenuta idrodinamica come Piramidali o Coni (125g - 175g). Mantengono il trave immobile sul fondo, permettendo alla corrente di distendere il bracciolo rovesciato una volta sganciato."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Distanze estreme e gestione dei lanci",
+   "contenuto": "* **Mare Calmo (X):** Lancio lunghissimo (100 - 140+ metri). Il sistema clippato annulla l'effetto paracadute dell'esca, permettendo di raggiungere i pascoli dei pesci grufolatori confinati oltre le secche esterne.\n* **Mare Mosso (Y):** Lancio medio (50 - 80 metri). Utile per superare con precisione la prima linea di frangenti e depositare l'esca nel canalone principale senza grovigli in volo.\n* **Tecnica di lancio:** Questa montatura tollera e valorizza i lanci tecnici come il Side Cast o il Ground Cast, poiché l'esca è solidale al trave e non subisce contraccolpi distruttivi in partenza."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canne e Mulinelli consigliati",
+   "contenuto": "* **Mare Calmo (X):** Canna in 3 sezioni leggera o telescopica (Beach Ledgering), azione 50-120g con cima sensibile. Mulinello taglia 4000 - 5000 con Nylon sottile (0.18 - 0.22 mm) + Shock Leader.\n* **Mare Mosso (Y):** Canna in 3 sezioni dura o ripartita (Surfcasting), azione 150-200g. Mulinello robusto taglia 8000 - 10000 con bobina conica, imbobinato con Nylon 0.26 - 0.30 mm + Shock Leader conico."
   }
+ ]
 }
