@@ -1,0 +1,48 @@
+{
+ "id": "scorrevole",
+ "titolo": "Montatura Scorrevole (Running Sinker Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "La montatura Scorrevole è l'essenza della pesca a fondo. È considerata la più micidiale in assoluto per i pesci estremamente sospettosi. La sua genialità risiede nel fatto che il piombo scorre liberamente sulla linea principale: quando il pesce abbocca e si allontana, non avverte il minimo peso o resistenza della zavorra, ingoiando l'esca con totale fiducia prima che il pescatore veda la tocca sulla cima della canna.\n\n**Specie Target:** 🎯\n* **Orate (il bersaglio indiscusso dello scorrevole), Spigole, Mormore di taglia, Saraghi maggiori e Ombrine.**\n\n**Contesto Ideale:**\n* Spiagge sabbiose a declivio dolce o rapido, foci di fiumi, canali, porti e ridosso di scogliere. Lavora in modo impeccabile nel Beach Ledgering e nel Surfcasting leggero.\n\n**Circostanze d'Uso:**\n* Acque limpide e giornate di totale calma piatta (mare calmo), dove i pesci sono estremamente diffidenti.\n* Quando si utilizzano esche vive o molto delicate.\n* In presenza di pesci di taglia che tendono a sputare l'esca al minimo accenno di resistenza."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Configurazione a scorrimento assiale libero",
+   "contenuto": "Il piombo (o un tubetto scorrevole) è inserito direttamente sullo shock leader ed è libero di muoversi. Uno snodo singolo inferiore, protetto da un gommino paracolpi, fa da battuta e collega il lungo terminale.\n\n**Schema Visivo:**\n[Shock Leader / Filo Diretto della Canna] \n      │\n[Piombo Scorrevole / Scorrifilo (Anti-Tangle)]\n      │\n[Perlina di gomma morbida (Paracolpi / Salvanodo)]\n      │\n[Girella Solida di Giunzione]\n      │\n[BRACCIOLO UNICO E LUNGO] ───────────────────────────────────────────────> [AMO]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **La Linea di Scorrimento** (Shock Leader o Filo in Bobina)\n* **Mare Calmo (X):** Shock leader dello 0.40 mm (o filo diretto in bobina dello 0.25 - 0.30 mm se si pesca a corta distanza). Deve essere fluido e liscio per non frenare lo scorrimento del piombo.\n* **Mare Mosso (Y):** Shock leader dello 0.50 mm - 0.60 mm. Necessario per sopportare la trazione di piombi pesanti e per resistere allo sfregamento della sabbia mossa dalle onde.\n\n2. **Il System Scorrevole** (Dove si aggancia il piombo)\n* **Mare Calmo (X):** Un micro-scorrifilo in plastica o un moschettone con interno in ceramica/teflon (tipo Ledgering Link). Riduce l'attrito a zero.\n* **Mare Mosso (Y):** Uno scorrifilo robusto con tubetto rigido anti-tangle o un'asola rinforzata in nylon spesso. Evita che la risacca aggrovigli il bracciolo sul piombo.\n\n3. **Il Bracciolo** (Terminale unico disteso sul fondo)\n* **Mare Calmo (X):** 0.14 mm - 0.18 mm in Fluorocarbon. Lunghissimo, da 150 cm fino a 250 cm. Offre una presentazione del tutto invisibile, lasciando che l'esca si muova con le micro-correnti.\n* **Mare Mosso (Y):** 0.25 mm - 0.32 mm in Nylon Rigido (tipo Amnesia) o Fluorocarbon spesso. Lunghezza ridotta a 80 - 100 cm per contrastare la turbolenza del fondo e prevenire parrucche.\n\n4. **L'Amo**\n* **Mare Calmo (X):** Misura 6 - 10 di tipo Beak leggero o Aberdeen a filo fine, per non appesantire l'innesco di arenicola o piccoli bibi.\n* **Mare Mosso (Y):** Misura 1 - 4 di tipo Beak forgiato o Chinu a filo spesso. Deve essere robusto per fare tenuta sulla bocca coriacea dell'orata o del sarago nella corrente."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Presentazione naturale o tenuta sul fondo",
+   "contenuto": "* **Innesco Naturale (Mare Calmo):** È la patria dell'Arenicola, del Bibi intero e del Gamberetto vivo. Usa l'ago con cura: il bibi non deve perdere i liquidi interni e l'arenicola deve coprire interamente l'amo nascondendo il nodo. L'esca deve apparire totalmente libera da vincoli strutturali.\n* **Innesco Solido (Mare Mosso):** Usa un cannolicchio sgusciato o un trancio di coreano, compattato sul gambo dell'amo con pochi giri di filo elastico. L'innesco deve resistere ai piccoli urti sul fondo senza sfaldarsi."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Zavorre forate passanti vs ancoraggi pesanti",
+   "contenuto": "* **Mare Calmo (X):** Piombi forati lisci come l'Oliva, il Piombo Saponetta o il Palla (40g - 80g). Quando il pesce tira, il filo scorre all'interno del piombo o del moschettone senza muovere la zavorra dal fondo.\n* **Mare Mosso (Y):** Piombi a piramide forata o piombi conici pesanti (100g - 150g). Devono rimanere tassativamente ancorati alla sabbia affinché il meccanismo di scorrimento continui a funzionare nonostante la spinta delle onde."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Fluidità balistica e trucco della frenata a filo",
+   "contenuto": "* **Mare Calmo (X):** Lancio medio-lungo (60 - 90 metri). Non essendo una montatura clippata, il lungo bracciolo crea attrito in aria. Si predilige un lancio Side Cast estremamente fluido, accompagnando l'esca nel volo.\n* **Mare Mosso (Y):** Lancio corto (30 - 50 metri). Si cerca il canalone o la buca subito dietro il frangente.\n* **Tecnica di lancio:** Richiede attenzione. Durante il volo, poco prima che il piombo impatti sulla superficie dell'acqua, frena leggermente il filo del mulinello con il dito. Questo gesto farà distendere in avanti il lungo bracciolo, azzerando i grovigli al momento dell'impatto con la superficie."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canne da quiver tip vs fusti da surfcasting",
+   "contenuto": "* **Mare Calmo (X):** Canna da Beach Ledgering leggera (azione 30-90g) con vettini ultra-sensibili per avvertire le minime toccate. Mulinello taglia 4000, imbobinato con Nylon sottile (0.18 mm) + Shock Leader.\n* **Mare Mosso (Y):** Canna da Surfcasting in 3 sezioni o telescopica robusta (azione 120-150g). Mulinello taglia 7000 - 8000 con Nylon 0.25 mm in bobina + Shock Leader conico."
+  }
+ ]
+}
