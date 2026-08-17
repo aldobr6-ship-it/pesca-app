@@ -2376,42 +2376,6 @@ function initMappaEsplorazioneNuova() {
 
   renderizzaListaEMappe(listaSpot);
 }
-function applicaFiltriSpot() {
-  const regEl = document.getElementById("filtroReg");
-  const techEl = document.getElementById("filtroTech");
-  
-  const reg = regEl ? regEl.value : "all";
-  const tech = techEl ? techEl.value : "all";
-
-  let listaSorgente = [];
-  let chiaveNazione = "italia";
-
-  if (nazioneAttiva === "it") {
-    listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
-    chiaveNazione = "italia";
-  } else if (nazioneAttiva === "fr") {
-    listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
-    chiaveNazione = "francia";
-  } else if (nazioneAttiva === "tn") {
-    listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
-    chiaveNazione = "tunisia";
-  }
-
-  // 1. Spostamento Mappa Flessibile
-  if (reg !== "all" && reg !== "Tutte") {
-    // Cerca la regione in regionData ignorando maiuscole/minuscole
-    if (regionData[chiaveNazione] && regionData[chiaveNazione].regions) {
-      const regChiave = Object.keys(regionData[chiaveNazione].regions).find(
-        k => k.toLowerCase() === reg.toLowerCase()
-      );
-      if (regChiave && regionData[chiaveNazione].regions[regChiave]) {
-        const regObj = regionData[chiaveNazione].regions[regChiave];
-        if (regObj && regObj.center) {
-          spotItaliaMap.setView(regObj.center, regObj.zoom || 8);
-        }
-      }
-    }
-  }
 
   // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
   const mappaSinonimi = {
@@ -2773,21 +2737,69 @@ function aggiornaMappaSpotItalia(lista){
     spotItaliaMarkers.push(m);
   });
 }
-function applicaFiltriSpot(){
-  const reg=document.getElementById("filtroReg")?.value||"all";
-  const tech=document.getElementById("filtroTech")?.value||"all";
-  const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
+function applicaFiltriSpot() {
+  const regEl = document.getElementById("filtroReg");
+  const techEl = document.getElementById("filtroTech");
+  const reg = regEl ? regEl.value : "all";
+  const tech = techEl ? techEl.value : "all";
+  
+  let listaSorgente = [];
+  let chiaveNazione = "italia";
+  
+  if (nazioneAttiva === "it") {
+    listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
+    chiaveNazione = "italia";
+  } else if (nazioneAttiva === "fr") {
+    listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
+    chiaveNazione = "francia";
+  } else if (nazioneAttiva === "tn") {
+    listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
+    chiaveNazione = "tunisia";
+  }
+
+  // === 1. SPOSTAMENTO MAPPA FLESSIBILE ===
+  if (reg !== "all" && reg !== "Tutte") {
+    if (regionData[chiaveNazione] && regionData[chiaveNazione].regions) {
+      const regChiave = Object.keys(regionData[chiaveNazione].regions).find(
+        k => k.toLowerCase() === reg.toLowerCase()
+      );
+      if (regChiave && regionData[chiaveNazione].regions[regChiave]) {
+        const regObj = regionData[chiaveNazione].regions[regChiave];
+        if (regObj && regObj.center) {
+          spotItaliaMap.setView(regObj.center, regObj.zoom || 8);
+        }
+      }
+    }
+  }
+
+  // === 2. FILTRAGGIO DINAMICO DELLE 3 NAZIONI ===
+  const filtrati = listaSorgente.filter(s => 
+    (reg === "all" || reg === "Tutte" || s.reg.toLowerCase() === reg.toLowerCase()) && 
+    (tech === "all" || s.type.toLowerCase() === tech.toLowerCase())
+  );
+
+  // === 3. AGGIORNAMENTO SEGNALIBRI MAPPA ===
   aggiornaMappaSpotItalia(filtrati);
-  const n=filtrati.length;
-  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
-  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
-  if(reg!=="all"||tech!=="all"){
-    mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
-    if(filtrati.length>0){const bounds=L.latLngBounds(filtrati.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
+  
+  const n = filtrati.length;
+  if (document.getElementById("spotCount")) document.getElementById("spotCount").textContent = n + " spot";
+  if (document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent = n + " visibili";
+  
+  // === 4. AGGIORNAMENTO LISTA LATERALE TESTUALE A DESTRA ===
+  if (reg !== "all" || tech !== "all") {
+    mostraPannelloLista(filtrati, reg !== "all" ? reg : "Risultati filtro");
+    if (filtrati.length > 0 && (reg === "all" || reg === "Tutte")) {
+      const bounds = L.latLngBounds(filtrati.map(s => s.coords));
+      spotItaliaMap.fitBounds(bounds, { padding: [30, 30] });
+    }
   } else {
-    if(document.getElementById("spotPanelBody")){
-      document.getElementById("spotPanelHeader").textContent="📋 Dettaglio spot";
-      document.getElementById("spotPanelBody").innerHTML=`<div class="spot-panel-placeholder"><span class="ph-ico">🗺️</span><p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p></div>`;
+    if (document.getElementById("spotPanelBody")) {
+      document.getElementById("spotPanelHeader").textContent = "📋 Dettaglio spot";
+      document.getElementById("spotPanelBody").innerHTML = `
+        <div class="spot-panel-placeholder">
+          <span class="ph-ico">🗺️</span>
+          <p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
+        </div>`;
     }
   }
 }
