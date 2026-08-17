@@ -1,0 +1,48 @@
+{
+ "id": "paternoster",
+ "titolo": "Paternoster Classico (3 Ami)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Il Paternoster è la montatura da ricerca e da competizione più famosa e utilizzata in assoluto nel Surfcasting e nel Beach Ledgering. Sfruttando tre braccioli indipendenti disposti a diverse altezze sul trave, permette di coprire tre fasce d'acqua contemporaneamente (fondo, mezzo fondo e galla) e di testare tre esche diverse nello stesso lancio.\n\n**Specie Target:** 🎯\n* **Mormore, Saraghi, Triglie, Boghe, Sugarelli, Leccie stella, Pagelli, Occhiate e Gallinelle.**\n\n**Contesto Ideale:**\n* Spiagge sabbiose a declivio dolce o medio, ma anche scogliere e moli. È micidiale nel Beach Ledgering estivo/autunnale con mare calmo e la presenza di branchi di pesce bianco, e altrettanto valido nel Surfcasting a mare mosso per fare 'colore' nella schiuma.\n\n**Circostanze d'Uso:**\n* Quando il pesce è molto attivo o in branco e si vogliono massimizzare le catture (catture triple).\n* Quando non si conosce l'altezza a cui i pesci stanno mangiando.\n* In condizioni di gara per fare velocemente numero e punteggio."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Configurazione simmetrica a tre braccioli indipendenti",
+   "contenuto": "I tre snodi sono distribuiti equamente lungo un trave molto lungo. La lunghezza dei braccioli è calcolata al millimetro affinché non si sovrappongano e non si tocchino mai tra loro.\n\n**Schema Visivo:**\n[Shock Leader] \n      │\n[Asola / Girella superiore del Trave]\n      │  (circa 10 cm sotto)\n[Snodo Alto: Perlina - Girella - Perlina] ────────> [BRACCIOLO 1 (Galla)] ───> [AMO 1]\n      │\n      │  (Spazio intermedio: circa 50 - 60 cm)\n      │\n[Snodo Medio: Perlina - Girella - Perlina] ───────> [BRACCIOLO 2 (Mezzo Fondo)] ───> [AMO 2]\n      │\n      │  (Spazio intermedio: circa 50 - 60 cm)\n      │\n[Snodo Basso: Perlina - Girella - Perlina] ───────> [BRACCIOLO 3 (Fondo)] ───> [AMO 3]\n      │\n      │  (Distanza dal piombo: circa 10 - 15 cm)\n      │\n[Girella con Attacco Rapido + Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Trave** (Lunghezza totale: 150 - 180 cm in Nylon trasparente)\n* **Mare Calmo (X):** 0.35 mm - 0.40 mm. Sottile, leggero e invisibile per non spaventare il pesce con acque limpide.\n* **Mare Mosso (Y):** 0.50 mm - 0.60 mm. Spesso e rigido per fare da 'scheletro' solido ed evitare che i tre braccioli creino una parrucca inestricabile con le onde.\n\n2. **I Tre Snodi** (Equidistanti lungo il trave)\n* **Mare Calmo (X):** Micro-girelle (misura 24) o micro-crossbead trasparenti incollate o bloccate da minuscole perline e nodini di stop.\n* **Mare Mosso (Y):** Girelle solide (misura 18-20) o tecno-sferette resistenti a 4 fori per scaricare la forte torsione della corrente.\n\n3. **I Tre Braccioli** (Lunghezza: dai 35 cm ai 50 cm ciascuno)\n* **Mare Calmo (X):** 0.12 mm - 0.16 mm in Fluorocarbon. Lunghi circa 45-50 cm, estremamente fluttuanti e invisibili.\n* **Mare Mosso (Y):** 0.22 mm - 0.26 mm in Nylon Extra Rigido (Amnesia) o Fluorocarbon duro. Corti (30-35 cm) per sfruttare l'effetto 'bandiera' senza aggrovigliarsi.\n\n4. **Gli Ami**\n* **Mare Calmo (X):** Misura 8 - 12 a filo finissimo e gambo lungo (tipo Aberdeen o Sneck), perfetti per Arenicola, Tremolina o piccoli pezzi di Coreano.\n* **Mare Mosso (Y):** Misura 5 - 8 a filo robusto (tipo Beak o Chinu), specifici per resistere alla trazione e accogliere esche più resistenti."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Strategia delle tre altezze o tenuta nella risacca",
+   "contenuto": "* **Strategia delle Tre Altezze (Mare Calmo):** Ogni amo ricopre un ruolo specifico.\n  * **Amo Basso (Fondo):** Arenicola intera per mormore e triglie.\n  * **Amo Medio (Mezzo Fondo):** Pezzetto di Coreano o Muriddu per saraghi e pagelli.\n  * **Amo Alto (Galla):** Un pezzetto di verme o un piccolo filetto di sarda preceduto da un pop-up o flotterino in polistirolo per sollevare l'esca e insidiare occhiate, leccie stella, boghe e sugarelli.\n* **Innesco per la Turbolenza (Mare Mosso):** Innesca pezzi di vermi duri (come il Muriddu) o piccoli tranci di seppia/calamaro passati più volte sull'amo in modo compatto, affinché non vengano strappati via dalla forza dell'acqua e dal moto ondoso."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Precisione silenziosa vs ancoraggio solido",
+   "contenuto": "* **Mare Calmo (X):** Piombi leggeri come il Roccotop o il Palla (40g - 80g) per una pesca di precisione a Beach Ledgering senza fare troppo rumore in acqua.\n* **Mare Mosso (Y):** Piombi ad altissima tenuta come la Piramide o il Cono (125g - 150g) per tenere saldamente in pesca la struttura a tre ami sotto i colpi dei marosi."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Gestione del forte attrito in volo (effetto paracadute)",
+   "contenuto": "* **Mare Calmo (X):** Lancio corto o medio (40 - 70 metri). Avendo tre esche libere che fanno un enorme attrito in aria (effetto paracadute), questa montatura non è fatta per la lunghissima distanza. Si lancia sotto sponda o sulla prima secca.\n* **Mare Mosso (Y):** Lancio cortissimo (20 - 40 metri). Il Paternoster a mare mosso lavora divinamente nei primi metri di risacca, proprio dove l'onda si rompe sollevando microrganismi e attirando i pesci bianchi.\n* **Tecnica di lancio:** È obbligatorio utilizzare il lancio Above Cast (sopra la testa) eseguito in modo fluido e progressivo. Lanci violenti o angolati distruggerebbero le esche e aggroviglierebbero i tre braccioli prima ancora del volo."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Sensibilità estrema vs robustezza da risacca",
+   "contenuto": "* **Mare Calmo (X):** Canna leggera e sensibilissima da Beach Ledgering (azione 30-90g) con vette in carbonio pieno. Mulinello taglia 4000 leggero con Nylon 0.16 - 0.18 mm in bobina + Shock Leader sottile.\n* **Mare Mosso (Y):** Canna da Surfcasting in 3 sezioni o telescopica robusta (azione 120-150g). Mulinello taglia 7000 - 8000 con Nylon 0.25 mm + Shock Leader conico."
+  }
+ ]
+}
