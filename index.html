@@ -2741,8 +2741,9 @@ function importaSpot(event) {
 <script>
 /* === SPOT ITALIA — MODIFICA 1 (mappa vuota) + MODIFICA 2 (salva spot) === */
 let spotsItalia = [];
-spotItaliaMap=null; let spotItaliaMarkers=[], spotAttivo=null; // Rimosso il "let" davanti a spotItaliaMap
+spotItaliaMap=null; spotItaliaMarkers=[]; spotAttivo=null; // ❌ Rimosso "let" davanti a tutte queste variabili duplicate
 const isMobile=()=>window.innerWidth<769;
+
 function initSpotItaliaMap(){
   if(spotItaliaMap){spotItaliaMap.remove();spotItaliaMap=null;}
   spotItaliaMarkers=[];
