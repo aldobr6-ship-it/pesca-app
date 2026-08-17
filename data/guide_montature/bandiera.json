@@ -1,0 +1,48 @@
+{
+ "id": "bandiera",
+ "titolo": "Montatura a Bandiera (Flotter Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "La montatura a Bandiera è un assetto da ricerca altamente specialistico progettato per staccare completamente l'esca dal fondo sabbioso. L'esca sollevata fluttua e sventola nella corrente proprio come una bandiera, intercettando tutti i pesci che cacciano a mezz'acqua o in superficie e proteggendo al contempo il boccone dall'attacco dei granchi di fondo.\n\n**Specie Target:** 🎯\n* **Leccie stella (il bersaglio numero uno), Occhiate, Boghe, Sugarelli, Sgombri, Aguglie, Spigole e Saraghi (specialmente di notte o nella schiuma).**\n\n**Contesto Ideale:**\n* Spiagge sabbiose a declivio dolce o medio, ridosso di scogliere, punte di moli e imboccature portuali. È micidiale sia nel Beach Ledgering estivo che nel Surfcasting in presenza di forte risacca.\n\n**Circostanze d'Uso:**\n* Presenza massiccia di granchi o bachi di fondo che distruggono l'esca in pochi minuti.\n* Mare calmo con acque limpide e sole alto (ideale per leccie stella).\n* Mare molto mosso dove l'onda solleva i detriti e i pesci cercano cibo sospeso nella schiuma.\n* Ore notturne per intercettare i branchi di sugherelli e occhiate in attività."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Configurazione a bracciolo singolo alto con pop-up",
+   "contenuto": "Lo snodo è posizionato nella metà superiore del trave (lontano dal piombo). Il bracciolo scende lungo il trave e termina con un flotterino montato subito prima dell'amo, che solleva l'esca verso l'alto una volta in acqua.\n\n**Schema Visivo:**\n[Shock Leader] \n      │\n[Asola / Girella superiore del Trave]\n      │  (circa 20-30 cm sotto)\n[Snodo Alto: Perlina - Girella/Micro-snap - Perlina] ───> [BRACCIOLO CON FLOTTER] ───> [AMO]\n      │                                                               ▲\n      │                                                      (Galleggiante Pop-Up)\n      │  (Sviluppo del Trave: 130 - 160 cm)\n      │\n[Girella con Attacco Rapido + Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Trave** (La spina dorsale della montatura)\n* Lunghezza totale: 130 - 160 cm in Nylon classico dicroico o trasparente.\n* **Mare Calmo (X):** 0.35 mm - 0.40 mm. Sottile e invisibile per non insospettire i pesci di galla che hanno un'ottima vista.\n* **Mare Mosso (Y):** 0.50 mm - 0.60 mm. Spesso e rigido per sopportare piombi pesanti e l'azione della risacca che tende a muovere l'intera struttura.\n\n2. **Lo Snodo Alto** (Posizionato nella parte superiore del trave)\n* **Mare Calmo (X):** Micro-girella (misura 22-24) o micro-crossbead (perlina a quattro fori) bloccata da perline millimetriche e nodini di stop incollati. Massima leggerezza idrodinamica.\n* **Mare Mosso (Y):** Girella solida (misura 18-20) o techno-sferette rigide per garantire una rotazione a 360° perfetta sotto la pressione delle onde.\n\n3. **Il Bracciolo Bandiera** (Il terminale con il galleggiante)\n* **Mare Calmo (X):** 0.12 mm - 0.16 mm in Fluorocarbon. Lunghezza 100 - 150 cm. Deve essere lungo e leggero per fluttuare liberamente assecondando la corrente.\n* **Mare Mosso (Y):** 0.20 mm - 0.25 mm in Nylon Rigido (tipo Amnesia) o Fluorocarbon duro. Lunghezza ridotta a 70 - 90 cm per evitare che la turbolenza marina crei grovigli sul trave.\n\n4. **Il Flotter / Pop-Up** (Il cuore galleggiante della montatura)\n* **Mare Calmo (X):** Micro-flotter ovali o sferici (diametro 4-6 mm) di colore neutro, bianco o rosso/fluo. Si infilano sul bracciolo e si bloccano a 5-10 cm dall'amo tramite uno stopper in gomma o un chicco di riso.\n* **Mare Mosso (Y):** Flotter generosi o ovetti in polistirolo (diametro 8-12 mm) di colori altamente visibili (bi-color, giallo fosforoso o rosso). La spinta di galleggiamento deve essere forte per vincere il peso della schiuma e della corrente.\n\n5. **L'Amo**\n* **Mare Calmo (X):** Misura 10 - 14 a gambo lungo e filo finissimo (tipo Aberdeen o Sneck). Deve essere leggerissimo per non contrastare la spinta di galleggiamento del flotter. Perfetto per l'Arenicola o la Tremolina.\n* **Mare Mosso (Y):** Misura 6 - 8 a filo medio (tipo Beak leggero), ideale per inneschi più sodi di Coreano o piccoli tranci di esca bianca (es. seppia)."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Ottimizzazione per evitare l'effetto elica",
+   "contenuto": "* **Per il Mare Calmo (Arenicola):** Infila il flotter sul bracciolo, aggiungi un piccolo stopper in gomma per bloccarlo a circa 5 cm dall'amo. Innesca l'Arenicola con l'ago facendola salire sopra la paletta/occhiello dell'amo. L'esca deve essere dritta e idrodinamica; se fa effetto 'elica', il bracciolo girerà su se stesso aggrovigliandosi.\n* **Per il Mare Mosso (Coreano/Seppia):** Innesca un verme Coreano intero puntandolo solo dalla testa (lasciando la coda libera di muoversi nella schiuma) oppure una strisciolina sottile di seppia o calamaro battuta e sagomata a forma di piccola cravatta. Il movimento impresso dall'onda la farà apparire come un piccolo pesce esca in difficoltà."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Forme aerodinamiche vs ancoraggio al fondo",
+   "contenuto": "* **Mare Calmo (X):** Piombi aerodinamici e precisi come Roccotop o Torpedine (50g - 90g). Permettono lanci precisi sulle secche dove pattugliano le leccie stella.\n* **Mare Mosso (Y):** Piombi a tenuta stagna come Piramidali o Coni (125g - 150g). Devono ancorare saldamente il trave al fondo sabbioso, permettendo al bracciolo di sollevarsi e lavorare correttamente teso nella corrente di ritorno."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Gestione dell'effetto paracadute",
+   "contenuto": "* **Mare Calmo (X):** Lancio medio-lungo (60 - 90 metri). La presenza del flotter fa un leggero effetto paracadute in aria. Si consiglia un lancio Side Cast progressivo e accompagnato.\n* **Mare Mosso (Y):** Lancio corto (30 - 50 metri). Si cerca la prima fascia d'acqua subito dietro l'onda che frange, dove la schiuma è densa e i saraghi o le spigole attaccano il cibo sospeso.\n* **Tecnica di lancio:** Prediligi l'Above Cast (sopra la testa) pulito. Evita strappi violenti o lanci angolati a terra (ground cast) se usi flotterini in polistirolo espanso tenero, per evitare che lo schiaffo dell'aria o della partenza possa spostare o danneggiare il pop-up."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canne e mulinelli consigliati",
+   "contenuto": "* **Mare Calmo (X):** Canna leggera e sensibilissima da Beach Ledgering (azione 30-90g o 40-100g). Mulinello leggero taglia 4000 imbobinato con Nylon sottile (0.16 - 0.18 mm) + Shock Leader fluido per massimizzare la distanza.\n* **Mare Mosso (Y):** Canna da Surfcasting in 3 sezioni con azione 120-150g. Mulinello robusto taglia 7000 - 8000, imbobinato con Nylon 0.22 - 0.25 mm + Shock Leader conico."
+  }
+ ]
+}
