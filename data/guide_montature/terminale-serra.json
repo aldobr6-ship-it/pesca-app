@@ -1,0 +1,48 @@
+{
+ "id": "terminale-serra",
+ "titolo": "Terminale da Serra (Bluefish Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Il pesce serra è un predatore spietato dotato di una dentatura affilatissima, capace di tranciare di netto qualsiasi filo in nylon o fluorocarbon. Per questo motivo, il terminale da serra è una montatura altamente specialistica che prevede obbligatoriamente l'utilizzo di uno spezzone finale in cavetto d'acciaio termosaldante. Viene solitamente armato con due ami in linea (configurazione Pennell) per garantire una ferrata sicura sia sul vivo che sul trancio di pesce.\n\n**Specie Target:** 🎯\n* **Pesce Serra (bersaglio principale), Leccia Amia, grossi Barracuda e Gronghi (durante le ore notturne).**\n\n**Contesto Ideale:**\n* Spiagge sabbiose profonde, foci di fiumi, imboccature di porti, ridosso di scogliere artificiali e canaloni dove i flussi di marea concentrano i branchi di cefali e altre prede.\n\n**Circostanze d'Uso:**\n* Mesi caldi ed autunnali (da maggio a novembre); ore notturne, alba e tramonto.\n* Presenza visibile di cacciate in superficie.\n* Necessità di presentare un'esca voluminosa e odorosa (trancio) o in movimento (esca viva) che resista ai morsi devastanti del predatore."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Configurazione rinforzata con finale in cavetto d'acciaio",
+   "contenuto": "La montatura si sviluppa su un trave robusto o un minitrave divergente. Il bracciolo è composto da una prima parte in nylon spesso (shock-absorber) e da un ultimo spezzone di 30-40 cm in cavetto d'acciaio termosaldante su cui sono montati i due ami in configurazione Pennell Rig.\n\n**Schema Visivo:**\n[Shock Leader / Linea Principale] \n      │\n[Minitrave o Snodo Singolo sul Trave]\n      │\n[Bracciolo - Parte 1: Nylon/Fluorocarbon spesso (circa 60-80 cm)]\n      │\n[Girella di Giunzione Solida (Misura 6-8)]\n      │\n[Bracciolo - Parte 2: CAVETTO D'ACCIAIO TERMOSALDANTE (30-40 cm)]\n      │\n[Amo 1 (Scorrevole / Trainante)] ───> Bloccato sul cavetto tramite tubicino\n      │\n[Amo 2 (Fisso / Pescatore)]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Trave / Attacco** (La struttura portante)\n* **Mare Calmo (X):** Trave classico dello 0.50 mm o minitrave leggero in nylon. Garantisce discrezione se il predatore caccia in acque limpide.\n* **Mare Mosso (Y):** Minitrave divergente in Acciaio Inox (1.00 mm - 1.20 mm). Struttura rigida indispensabile per evitare che il grande boccone e le onde creino grovigli distruttivi.\n\n2. **Il Bracciolo - Spezzone in Nylon** (La prima porzione del terminale)\n* **Mare Calmo (X):** 0.40 mm - 0.45 mm in Fluorocarbon o Nylon morbido. Lunghezza 80 cm. Serve ad ammortizzare le testate del pesce e a dare naturalezza al movimento dell'esca.\n* **Mare Mosso (Y):** 0.50 mm - 0.60 mm in Nylon Extra Rigido. Lunghezza ridotta a 50-60 cm per forzare la stesa del terminale in mezzo alla schiuma e alla corrente.\n\n3. **Lo Spezzone in Acciaio** (L'anima anti-morso)\n* **Configurazione Unica:** Cavetto d'acciaio termosaldante (7 trefoli) da 30 lb (libbre) per il Mare Calmo (X) e da 40-50 lb per il Mare Mosso (Y). Lunghezza fissa di 30-40 cm. I nodi e le asole sul cavetto vengono chiusi scaldando il rivestimento plastico con un accendino (termosaldatura) o stringendo gli appositi tubicini in metallo (sleeves) con una pinza.\n\n4. **Gli Ami** (Configurazione a 2 ami in serie - Pennell Rig)\n* **Mare Calmo (X):** Coppia di ami misura 1/0 - 2/0 di tipo Beak forgiato a filo medio-leggero, ideali per non appesantire un trancio medio di cefalo o una sarda.\n* **Mare Mosso (Y):** Coppia di ami misura 3/0 - 5/0 di tipo Beak o O'Shaughnessy a filo spessissimo e carbonio rinforzato. Devono sopportare la leva di grandi esche e la trazione violenta in mezzo ai marosi.\n* **Amo Superiore (Trainante):** Scorrevole sul cavetto d'acciaio tramite tubicino in silicone, serve a regolare la distanza in base alla lunghezza dell'esca.\n* **Amo Inferiore (Pescatore):** Fisso, legato saldamente all'estremità del cavetto d'acciaio."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Preparazione del trancio pop-up e innesco del cefalo vivo",
+   "contenuto": "* **Il Trancio di Cefalo o Sarda (Esca Morta):** È l'innesco più comune. Prendi un trancio di cefalo (lungo circa 10-12 cm), privalo della spina centrale per alleggerirlo e inserisci all'interno un cilindretto di polistirolo (pop-up). Chiudi il trancio a libro, avvolgilo strettamente con il filo elastico fino a renderlo un siluro sodo. Infila l'amo inferiore alla base del trancio e l'amo superiore vicino alla testa dell'innesco. Il polistirolo interno farà galleggiare il trancio staccandolo dal fondo, mettendolo al sicuro dai granchi e rendendolo visibile al serra che caccia a mezz'acqua.\n* **Il Cefalotto Vivo (Esca Viva):** Se usi la tecnica della teleferica o del lancio leggero, innesca l'amo superiore sul labbro superiore del cefalo (o della boga/sugarello) e l'amo inferiore sulla schiena, subito dietro la pinna dorsale, prestando attenzione a non toccare la spina dorsale per non uccidere l'esca."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Zavorre balistiche vs ancoraggi totali a rampini",
+   "contenuto": "* **Mare Calmo (X):** Piombi aerodinamici e pesanti come Rocco bomb o Torpedine (120g - 150g) per scagliare il pesante trancio il più lontano possibile, raggiungendo le secche esterne.\n* **Mare Mosso (Y):** Piombi ad ancoraggio totale come Piramidali pesanti o Piombi a rampini (Spike) da 150g a 175g+. La zavorra deve rimanere immobile sulla sabbia; se il piombo si sposta sotto la spinta dell'onda, l'esca voluminosa spiaggerà in pochi minuti creando una parrucca sul fondo."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Lanci progressivi e gestione dell'esca nella schiuma",
+   "contenuto": "* **Mare Calmo (X):** Lancio medio-lungo (60 - 80+ metri). Il grande boccone frena molto il volo. Si consiglia un lancio Side Cast fluido e progressivo per non stressare l'innesco in partenza.\n* **Mare Mosso (Y):** Lancio corto (30 - 50 metri). Si lancia a ridosso dei primi frangenti o all'interno delle buche profonde, dove il serra pattuglia la costa a caccia di pesci in difficoltà a causa della mareggiata.\n* **Tecnica di lancio:** Richiede canne adeguate. Evita lanci violenti o strappati (como il ground cast esasperato) se peschi con la sarda, poiché l'esca potrebbe sfaldarsi nell'impatto. Scegli un lancio Above Cast (sopra la testa) pulito e lineare."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canne da 200g e assetti diretti senza shock leader",
+   "contenuto": "* **Mare Calmo (X):** Canna in 3 sezioni da Surfcasting potente con azione 150-200g. Mulinello taglia 8000 - 10000 imbobinato con Nylon 0.25 - 0.28 mm + Shock Leader robusto dello 0.50 mm.\n* **Mare Mosso (Y):** Canna Ripartita (Due pezzi) o 3 sezioni dura da Surfcasting pesante (azione 200-250g). Mulinello capiente (taglia 10000 o mulinello rotante robusto), caricato con Nylon 0.35 - 0.40 mm diretto, senza shock leader, per resistere alla trazione e ai violenti sfregamenti del fondo ondoso."
+  }
+ ]
+}
