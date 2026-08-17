@@ -1,0 +1,48 @@
+{
+ "id": "biamo",
+ "titolo": "Montatura a Bi-Amo (Paternoster / Doppietto)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Il Bi-Amo è la montatura da ricerca, competizione e velocità per eccellenza. Utilizza due braccioli separati disposti lungo il trave, permettendo di testare contemporaneamente due esche diverse o di pescare a due altezze differenti dal fondo (un'esca sul fondo e una leggermente sollevata), raddoppiando le probabilità di cattura.\n\n**Specie Target:** 🎯\n* **Mormore, Saraghi, Triglie, Gallinelle, Boghe, Sugarelli, e all'occorrenza Orate e Spigole.**\n\n**Contesto Ideale:**\n* Spiagge sabbiose o miste, moli e scogliere. Funziona incredibilmente bene sia nel Beach Ledgering estivo alla ricerca di minutaglia e grufolatori, sia nel Surfcasting invernale con mare formato quando i pesci mangiano freneticamente nella schiuma.\n\n**Circostanze d'Uso:**\n* Quando si vuole capire rapidamente quale esca sia la preferita del giorno.\n* In presenza di una forte concentrazione di pesce (per realizzare catture doppie).\n* Quando c'è mare mosso e i braccioli corti riducono drasticamente il rischio di grovigli rispetto a un bracciolo lungo."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Structural della Montatura",
+   "sottotitolo": "Configurazione a due braccioli indipendenti",
+   "contenuto": "I due snodi sono distribuiti lungo il trave. La lunghezza dei braccioli deve essere calcolata in modo che non si tocchino mai tra loro per evitare grovigli in volo o in acqua.\n\n**Schema Visivo:**\n[Shock Leader] \n      │\n[Asola / Girella superiore del Trave]\n      │  (circa 10-15 cm sotto)\n[Snodo Alto: Perlina - Girella - Perlina] ────────> [BRACCIOLO 1] ───> [AMO 1]\n      │\n      │  (Spazio tra i due snodi: circa 70 - 100 cm)\n      │\n[Snodo Basso: Perlina - Girella - Perlina] ───────> [BRACCIOLO 2] ───> [AMO 2]\n      │\n      │  (Distanza dal piombo: circa 15 - 30 cm)\n      │\n[Girella con Attacco Rapido + Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Trave** (Lunghezza totale: 120 - 160 cm in Nylon trasparente)\n* **Mare Calmo (X):** 0.35 mm - 0.40 mm. Leggero e sottile per non insospettire i pesci in condizioni di acqua limpida e calma.\n* **Mare Mosso (Y):** 0.50 mm - 0.60 mm. Robusto, rigido e pesante per evitare che la corrente lo aggrovigli su se stesso e per sopportare piombi importanti.\n\n2. **I Due Snodi** (Distanti tra loro in modo da non far incrociare i braccioli)\n* **Mare Calmo (X):** Micro-girelle (misura 24) o micro-crossbead bloccate da perline millimetriche incollate o fermate da nodini di stop.\n* **Mare Mosso (Y):** Girelle solide (misura 18-20) o tecno-sferette a 4 fori, capaci di scaricare le torsioni impresse dalle onde.\n\n3. **I Due Braccioli** (Lunghezza: dai 40 cm ai 70 cm ciascuno)\n* **Mare Calmo (X):** 0.14 mm - 0.18 mm in Fluorocarbon. Lunghi circa 60-70 cm per dare naturalezza alle esche con mare calmo.\n* **Mare Mosso (Y):** 0.22 mm - 0.28 mm in Nylon Extra Rigido o Fluorocarbon duro. Corti (35-45 cm) per sfruttare al massimo l'effetto anti-groviglio della rigidità del filo nella turbolenza.\n\n4. **Gli Ami**\n* **Mare Calmo (X):** Misura 8 - 12 a filo fine e gambo lungo (tipo Aberdeen), ideali per Arenicola, Tremolina o piccoli pezzi di Coreano.\n* **Mare Mosso (Y):** Misura 4 - 7 a filo robusto (tipo Beak o Chinu), adatti a resistere alla trazione e a ospitare esche più spesse."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Strategia dell'esca doppia e della turbolenza",
+   "contenuto": "* **Strategia dell'Esca Doppia (Mare Calmo):** Sfrutta i due ami innescando esche diverse. Sull'amo basso metti un'Arenicola intera (esca di fondo per mormore). Sull'amo alto metti un piccolo verme Coreano o un'arenicola con un piccolo pop-up (un dischetto di polistirolo colorato) prima dell'amo: solleverà l'esca dal fondo insidiando pesci di galla o a mezz'acqua come sugarelli e boghe.\n* **Innesco per la Turbolenza (Mare Mosso):** Innesca pezzi di Muriddu, Coreano o piccoli tranci di seppia passati più volte sull'amo. L'innesco deve essere compatto per non sfaldarsi sotto i colpi delle onde e della minutaglia."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Precisione leggera vs stabilità stagna",
+   "contenuto": "* **Mare Calmo (X):** Piombi leggeri e precisi come il Roccotop o il Palla (50g - 90g). Permettono una pesca di precisione a Beach Ledgering senza disturbare lo spot.\n* **Mare Mosso (Y):** Piombi ad alta tenuta come la Piramide o il Cono (125g - 150g). Devono ancorare saldamente il trave sul fondo in modo che i due braccioli corti lavorino perfettamente tesi nella corrente."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Gestione dell'attrito e della risacca",
+   "contenuto": "* **Mare Calmo (X):** Lancio medio-lungo (60 - 90 metri). Avendo due esche libere non clippate, l'attrito in aria è superiore. Un lancio Side Cast progressivo e fluido è perfetto per distendere la montatura.\n* **Mare Mosso (Y):** Lancio corto (30 - 50 metri). Si pesca direttamente nel cuore della schiuma, nel gradino di risacca vicino a riva dove i saraghi e le spigole cercano il cibo rimescolato dalle onde.\n* **Tecnica di lancio:** Prediligi lanci semplici come l'Above Cast (sopra la testa). Evita lanci troppo angolati o violenti (Ground Cast) che potrebbero far aggrovigliare i due braccioli sul trave prima dell'impatto con l'acqua."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Configurazioni da Beach Ledgering e Surfcasting",
+   "contenuto": "* **Mare Calmo (X):** Canna leggera da Beach Ledgering (azione 40-100g) con vette intercambiabili molto sensibili. Mulinello taglia 4000 imbobinato con Nylon 0.18 mm o trecciato sottile + Shock Leader.\n* **Mare Mosso (Y):** Canna da Surfcasting in 3 sezioni (azione 120-170g). Mulinello robusto taglia 7000 - 8000, imbobinato con Nylon 0.25 - 0.28 mm + Shock Leader conico."
+  }
+ ]
+}
