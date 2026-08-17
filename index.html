@@ -2376,6 +2376,42 @@ function initMappaEsplorazioneNuova() {
 
   renderizzaListaEMappe(listaSpot);
 }
+function applicaFiltriSpot() {
+  const regEl = document.getElementById("filtroReg");
+  const techEl = document.getElementById("filtroTech");
+  
+  const reg = regEl ? regEl.value : "all";
+  const tech = techEl ? techEl.value : "all";
+
+  let listaSorgente = [];
+  let chiaveNazione = "italia";
+
+  if (nazioneAttiva === "it") {
+    listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
+    chiaveNazione = "italia";
+  } else if (nazioneAttiva === "fr") {
+    listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
+    chiaveNazione = "francia";
+  } else if (nazioneAttiva === "tn") {
+    listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
+    chiaveNazione = "tunisia";
+  }
+
+  // 1. Spostamento Mappa Flessibile
+  if (reg !== "all" && reg !== "Tutte") {
+    // Cerca la regione in regionData ignorando maiuscole/minuscole
+    if (regionData[chiaveNazione] && regionData[chiaveNazione].regions) {
+      const regChiave = Object.keys(regionData[chiaveNazione].regions).find(
+        k => k.toLowerCase() === reg.toLowerCase()
+      );
+      if (regChiave && regionData[chiaveNazione].regions[regChiave]) {
+        const regObj = regionData[chiaveNazione].regions[regChiave];
+        if (regObj && regObj.center) {
+          spotItaliaMap.setView(regObj.center, regObj.zoom || 8);
+        }
+      }
+    }
+  }
 
   // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
   const mappaSinonimi = {
@@ -2705,20 +2741,15 @@ function importaSpot(event) {
 <script>
 /* === SPOT ITALIA — MODIFICA 1 (mappa vuota) + MODIFICA 2 (salva spot) === */
 let spotsItalia = [];
-spotItaliaMap=null; spotItaliaMarkers=[]; spotAttivo=null; // ❌ Rimosso "let" davanti a tutte queste variabili duplicate
+let spotItaliaMap=null, spotItaliaMarkers=[], spotAttivo=null, spotTooltipAttivo=null;
 const isMobile=()=>window.innerWidth<769;
-
-/* === SPOT ITALIA — MODIFICA 1 (mappa vuota) + MODIFICA 2 (salva spot) === */
-// Rimosse le dichiarazioni duplicate (let) di spotsItalia, spotItaliaMap e spotItaliaMarkers
-// Ora il codice assegna i valori direttamente alle variabili globali già esistenti nell'app
-
 function initSpotItaliaMap(){
   if(spotItaliaMap){spotItaliaMap.remove();spotItaliaMap=null;}
   spotItaliaMarkers=[];
   spotItaliaMap=L.map("spotItaliaMap",{zoomControl:true}).setView([42.5,12.5],6);
   spotItaliaMap.setMaxBounds([[35.0,6.0],[47.5,19.0]]);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(spotItaliaMap);
-  L.tileLayer("https://openseamap.org{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.65}).addTo(spotItaliaMap);
+  L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.65}).addTo(spotItaliaMap);
   /* GPS per centrare, senza aggiungere marker degli spot */
   if(prevCoords){
     const icoMe=L.divIcon({html:'<div style="font-size:26px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[28,28],iconAnchor:[14,28],className:""});
@@ -2726,7 +2757,6 @@ function initSpotItaliaMap(){
   }
   /* Nessun marker all'avvio */
 }
-
 function aggiornaMappaSpotItalia(lista){
   spotItaliaMarkers.forEach(m=>spotItaliaMap.removeLayer(m));
   spotItaliaMarkers=[];
@@ -2737,78 +2767,29 @@ function aggiornaMappaSpotItalia(lista){
     spotItaliaMarkers.push(m);
   });
 }
-function applicaFiltriSpot() {
-  const regEl = document.getElementById("filtroReg");
-  const techEl = document.getElementById("filtroTech");
-  const reg = regEl ? regEl.value : "all";
-  const tech = techEl ? techEl.value : "all";
-  
-  let listaSorgente = [];
-  let chiaveNazione = "italia";
-  
-  if (nazioneAttiva === "it") {
-    listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
-    chiaveNazione = "italia";
-  } else if (nazioneAttiva === "fr") {
-    listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
-    chiaveNazione = "francia";
-  } else if (nazioneAttiva === "tn") {
-    listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
-    chiaveNazione = "tunisia";
-  }
-
-  // === 1. SPOSTAMENTO MAPPA FLESSIBILE ===
-  if (reg !== "all" && reg !== "Tutte") {
-    if (regionData[chiaveNazione] && regionData[chiaveNazione].regions) {
-      const regChiave = Object.keys(regionData[chiaveNazione].regions).find(
-        k => k.toLowerCase() === reg.toLowerCase()
-      );
-      if (regChiave && regionData[chiaveNazione].regions[regChiave]) {
-        const regObj = regionData[chiaveNazione].regions[regChiave];
-        if (regObj && regObj.center) {
-          spotItaliaMap.setView(regObj.center, regObj.zoom || 8);
-        }
-      }
-    }
-  }
-
-  // === 2. FILTRAGGIO DINAMICO DELLE 3 NAZIONI ===
-  const filtrati = listaSorgente.filter(s => 
-    (reg === "all" || reg === "Tutte" || s.reg.toLowerCase() === reg.toLowerCase()) && 
-    (tech === "all" || s.type.toLowerCase() === tech.toLowerCase())
-  );
-
-  // === 3. AGGIORNAMENTO SEGNALIBRI MAPPA ===
+function applicaFiltriSpot(){
+  const reg=document.getElementById("filtroReg")?.value||"all";
+  const tech=document.getElementById("filtroTech")?.value||"all";
+  const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
   aggiornaMappaSpotItalia(filtrati);
-  
-  const n = filtrati.length;
-  if (document.getElementById("spotCount")) document.getElementById("spotCount").textContent = n + " spot";
-  if (document.getElementById("mappaSpotCount")) document.getElementById("mappaSpotCount").textContent = n + " visibili";
-  
-  // === 4. AGGIORNAMENTO LISTA LATERALE TESTUALE A DESTRA ===
-  if (reg !== "all" || tech !== "all") {
-    mostraPannelloLista(filtrati, reg !== "all" ? reg : "Risultati filtro");
-    if (filtrati.length > 0 && (reg === "all" || reg === "Tutte")) {
-      const bounds = L.latLngBounds(filtrati.map(s => s.coords));
-      spotItaliaMap.fitBounds(bounds, { padding: [30, 30] });
-    }
+  const n=filtrati.length;
+  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
+  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
+  if(reg!=="all"||tech!=="all"){
+    mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
+    if(filtrati.length>0){const bounds=L.latLngBounds(filtrati.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
   } else {
-    if (document.getElementById("spotPanelBody")) {
-      document.getElementById("spotPanelHeader").textContent = "📋 Dettaglio spot";
-      document.getElementById("spotPanelBody").innerHTML = `
-        <div class="spot-panel-placeholder">
-          <span class="ph-ico">🗺️</span>
-          <p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p>
-        </div>`;
+    if(document.getElementById("spotPanelBody")){
+      document.getElementById("spotPanelHeader").textContent="📋 Dettaglio spot";
+      document.getElementById("spotPanelBody").innerHTML=`<div class="spot-panel-placeholder"><span class="ph-ico">🗺️</span><p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p></div>`;
     }
   }
 }
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
-    // Passiamo l'oggetto 's' direttamente serializzato in JSON per renderlo indipendente dalla nazione
     const html=lista.map(s=>`
-      <div class="spot-italia-item" onclick='onSpotSelezionato(${JSON.stringify(s).replace(/'/g, "\\'")})'>
+      <div class="spot-italia-item" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
         <span class="si-ico">🎣</span>
         <div class="si-info"><div class="si-nome">${s.name}</div><div class="si-sub">🐟 ${s.target}</div></div>
         <span class="si-badge">${s.type}</span>
@@ -2828,17 +2809,14 @@ function mostraPannelloLista(lista,titolo){
     if(!header||!body)return;
     header.textContent=`🎣 ${titolo} (${lista.length})`;
     if(lista.length===0){body.innerHTML=`<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato.</p>`;return;}
-    
-    // Corretto il click: passa l'oggetto 's' direttamente senza forzare l'array spotsItalia
     body.innerHTML=lista.map(s=>`
-      <div class="spot-italia-item${spotAttivo===s?" active":""}" onclick='onSpotSelezionato(${JSON.stringify(s).replace(/'/g, "\\'")})'>
+      <div class="spot-italia-item${spotAttivo===s?" active":""}" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
         <span class="si-ico">🎣</span>
         <div class="si-info"><div class="si-nome">${s.name}</div><div class="si-sub">🐟 ${s.target}</div></div>
         <span class="si-badge">${s.type}</span>
       </div>`).join("");
   }
 }
-
 function chiudiModaleListaMobile(e){if(!e||e.target.classList.contains("modal-spot-overlay"))document.getElementById("spotModalLista")?.remove();}
 function onSpotSelezionato(spot){
   spotAttivo=spot;
