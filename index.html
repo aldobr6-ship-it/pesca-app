@@ -2806,8 +2806,9 @@ function applicaFiltriSpot() {
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
+    // Passiamo l'oggetto 's' direttamente serializzato in JSON per renderlo indipendente dalla nazione
     const html=lista.map(s=>`
-      <div class="spot-italia-item" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
+      <div class="spot-italia-item" onclick='onSpotSelezionato(${JSON.stringify(s).replace(/'/g, "\\'")})'>
         <span class="si-ico">🎣</span>
         <div class="si-info"><div class="si-nome">${s.name}</div><div class="si-sub">🐟 ${s.target}</div></div>
         <span class="si-badge">${s.type}</span>
@@ -2827,14 +2828,17 @@ function mostraPannelloLista(lista,titolo){
     if(!header||!body)return;
     header.textContent=`🎣 ${titolo} (${lista.length})`;
     if(lista.length===0){body.innerHTML=`<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato.</p>`;return;}
+    
+    // Corretto il click: passa l'oggetto 's' direttamente senza forzare l'array spotsItalia
     body.innerHTML=lista.map(s=>`
-      <div class="spot-italia-item${spotAttivo===s?" active":""}" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
+      <div class="spot-italia-item${spotAttivo===s?" active":""}" onclick='onSpotSelezionato(${JSON.stringify(s).replace(/'/g, "\\'")})'>
         <span class="si-ico">🎣</span>
         <div class="si-info"><div class="si-nome">${s.name}</div><div class="si-sub">🐟 ${s.target}</div></div>
         <span class="si-badge">${s.type}</span>
       </div>`).join("");
   }
 }
+
 function chiudiModaleListaMobile(e){if(!e||e.target.classList.contains("modal-spot-overlay"))document.getElementById("spotModalLista")?.remove();}
 function onSpotSelezionato(spot){
   spotAttivo=spot;
