@@ -1,0 +1,48 @@
+{
+ "id": "triamo",
+ "titolo": "Montatura a Tri-Amo (3 Ami da Ricerca / Gara)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Il Tri-Amo è l'evolutione estrema della pesca di ricerca. Rispetto al Paternoster classico, viene esasperata la leggerezza e la sensibilità dei componenti per intercettare qualsiasi pesce bianco stazioni sulla fascia costiera. Permette di presentare tre esche diverse su tre altezze differenti, massimizzando le catture multiple in presenza di branchi.\n\n**Specie Target:** 🎯\n* **Mormore, Triglie, Saraghi, Boghe, Sugarelli, Leccie stella, Occhiate, Gallinelle e Sgombri.**\n\n**Contesto Ideale:**\n* Spiagge sabbiose a declivio dolce o medio, zone portuali e moli. Eccelle nel Beach Ledgering con mare calmo e acque limpide, ma trova spazio nel Surfcasting leggero quando il pesce mangia con frenesia nella schiuma.\n\n**Circostanze d'Uso:**\n* Quando si affrontano pesci di branco di taglia medio-piccola.\n* Nelle competizioni per fare velocemente punteggio.\n* Quando si vuole capire a quale altezza dal fondo stia mangiando il pesce (grazie alla disposizione dei tre ami).\n* In giornate di apatia totale dove tre esche diverse stimolano l'aggressività dei pesci."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Regola geometrica per la calibrazione dei tre braccioli",
+   "contenuto": "I tre snodi sono distribuiti lungo un trave molto lungo (fino a 2 metri). La lunghezza dei braccioli deve essere calcolata al millimetro in base alla distanza degli snodi: la somma della lunghezza di due braccioli vicini deve essere inferiore alla distanza tra i loro snodi per azzerare i grovigli.\n\n**Schema Visivo:**\n[Shock Leader] \n      │\n[Asola / Girella superiore del Trave]\n      │  (circa 10 cm sotto)\n[Snodo Alto: Perlina - Girella - Perlina] ────────> [BRACCIOLO 1 (Superficie/Galla)] ───> [AMO 1]\n      │\n      │  (Distanza intermedia: circa 60 - 70 cm)\n      │\n[Snodo Medio: Perlina - Girella - Perlina] ───────> [BRACCIOLO 2 (Mezz'acqua)] ─────> [AMO 2]\n      │\n      │  (Distanza intermedia: circa 60 - 70 cm)\n      │\n[Snodo Basso: Perlina - Girella - Perlina] ───────> [BRACCIOLO 3 (Fondo)] ─────────> [AMO 3]\n      │\n      │  (Distanza dal piombo: circa 10 - 15 cm)\n      │\n[Girella con Attacco Rapido + Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Trave** (Lunghezza totale: 160 - 200 cm in Nylon trasparente)\n* **Mare Calmo (X):** 0.35 mm. Ultra-leggero e invisibile, riduce l'impatto visivo in acque cristalline e con pesci diffidenti.\n* **Mare Mosso (Y):** 0.45 mm - 0.50 mm. Più rigido per fungere da asse solido e impedire ai tre braccioli di aggrovigliarsi a causa dei vortici della risacca.\n\n2. **I Tre Snodi** (Distribuiti simmetricamente lungo il trave)\n* **Mare Calmo (X):** Micro-girelle (misura 24) o micro-crossbead trasparenti incollate sul trave o bloccate da perline millimetriche e nodini di stop.\n* **Mare Mosso (Y):** Girelle solide (misura 20) o tecno-sferette a 4 fori, per scaricare perfettamente le torsioni continue della corrente laterale.\n\n3. **I Tre Braccioli** (Lunghezza: dai 40 cm ai 60 cm ciascuno)\n* **Mare Calmo (X):** 0.12 mm - 0.14 mm in Fluorocarbon. Lunghi circa 50-60 cm, estremamente morbidi e invisibili per assecondare la minima corrente.\n* **Mare Mosso (Y):** 0.20 mm - 0.24 mm in Nylon Rigido (tipo Amnesia) o Fluorocarbon duro. Corti (35-40 cm) per rimanere tesi come 'bandiere' nella turbolenza senza fare parrucche.\n\n4. **Gli Ami**\n* **Mare Calmo (X):** Misura 10 - 14 a filo finissimo e gambo lungo (tipo Aberdeen), specifici per innescare l'Arenicola o la Tremolina senza rovinarle.\n* **Mare Mosso (Y):** Misura 6 - 8 a filo medio-robusto (tipo Beak leggero), capaci di fare tenuta su ferrate decise nella schiuma."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Combinazione strategica per esche differenziate",
+   "contenuto": "* **Combinazione Strategica (Mare Calmo):** Ogni amo ricopre un ruolo mirato a seconda della fascia d'acqua.\n  * **Amo Inferiore:** Arenicola calzata interamente con l'ago, ottima per i pesci che grufolano sul fondo (mormore, triglie).\n  * **Amo Centrale:** Pezzetto di Coreano o Muriddu per stimolare saraghi e pagelli.\n  * **Amo Superiore:** Un piccolo pezzetto di verme o esca bianca sollevato da un pop-up (flotterino) o da una perlina fluorescente posizionata subito sopra l'amo. Serve a staccare l'esca dal fondo per insidiare leccie stella, occhiate e boghe.\n* **Innesco Per la Turbolenza (Mare Mosso):** Innesca porzioni sode di Muriddu o piccoli tranci di coreano/seppia. L'esca deve essere passata più volte sull'amo e bloccata sopra la paletta/occhiello con un nodino per resistere all'impatto con l'onda e non sfaldarsi."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Zavorre silenziose vs piombi a piramide",
+   "contenuto": "* **Mare Calmo (X):** Piombi leggeri e silenziosi come il Roccotop o il Palla (40g - 70g) per lanciare con attrezzatura leggera senza spaventare i branchi di pesci vicini a riva.\n* **Mare Mosso (Y):** Piombi a tenuta come la Piramide o il Cono (100g - 130g) per ancorare la montatura e mantenere i tre braccioli corti distesi nella corrente."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Gestione dell'effetto paracadute e precisione di risacca",
+   "contenuto": "* **Mare Calmo (X):** Lancio corto o medio (40 - 70 metri). Avendo tre esche libere che creano un grande attrito in aria (effetto paracadute), non è una montatura da grandi distanze. Lavora benissimo sulla prima o seconda secca.\n* **Mare Mosso (Y):** Lancio cortissimo (20 - 40 metri). Si lancia direttamente all'interno dei canaloni di risacca vicini alla battigia, dove il moto ondoso scava la sabbia e libera il nutrimento per i pesci.\n* **Tecnica di lancio:** È tassativo utilizzare il lancio Above Cast (sopra la testa) in modo morbido e progressivo. Lanci violenti o angolati (come il Side o il Ground) spezzerebbero le esche delicate e aggroviglierebbero i tre braccioli sul trave prima del volo."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Fusti leggeri quiver tip vs canne da surfcasting leggero",
+   "contenuto": "* **Mare Calmo (X):** Canna ultra-leggera e sensibilissima da Beach Ledgering (azione 20-80g o 30-100g), con vette intercambiabili in carbonio pieno. Mulinello taglia 4000 con Nylon sottile (0.16 mm) + Shock Leader.\n* **Mare Mosso (Y):** Canna da Surfcasting leggero o telescopica robusta (azione 100-150g). Mulinello taglia 6000 - 7000, imbobinato con Nylon 0.22 - 0.25 mm + Shock Leader conico."
+  }
+ ]
+}
