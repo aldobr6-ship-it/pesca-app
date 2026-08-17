@@ -1,0 +1,48 @@
+{
+ "id": "long-arm",
+ "titolo": "Long Arm (Bracciolo Lungo)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "Il Long Arm è la montatura da ricerca e da bando per eccellenza. Utilizza un unico bracciolo lunghissimo posizionato solitamente basso (vicino al piombo), progettato per dare all'esca una libertà di movimento totale e una naturalezza insuperabile sul fondo, ideale per i pesci più diffidenti.\n\n**Specie Target:** 🎯\n* **Orate (il bersaglio Re del Long Arm), Spigole, Saraghi reali, Ombrine e grosse Mormore.**\n\n**Contesto Ideale:**\n* Spiagge sabbiose o miste, ma anche foci e zone portuali. Lavora divinamente sia nel Beach Ledgering estivo/autunnale che nel Surfcasting a mare formato o in scaduta.\n\n**Circostanze d'Uso:**\n* Pesci estremamente sospettosi che rifiutano l'esca se avvertono la minima trazione del piombo.\n* Acque limpide con scarsa corrente dove serve massima mobilità dell'esca.\n* Mare mosso con forte corrente di ritorno (canaloni) dove l'esca deve muoversi liberamente nella schiuma."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Configurazione a bracciolo unico basso",
+   "contenuto": "Lo snodo è posizionato nella parte inferiore del trave (vicino al piombo). Questo permette al lunghissimo bracciolo di adagiarsi completamente sul fondo e muoversi assecondando la corrente.\n\n**Schema Visivo:**\n[Shock Leader] \n      │\n[Asola / Girella superiore del Trave]\n      │\n      │  (Sviluppo del Trave: 150 - 200 cm)\n      │\n      │  (circa 10-20 cm sopra il piombo)\n[Snodo Basso: Perlina - Girella/Micro-snap - Perlina] ───> [BRACCIOLO LUNGHISSIMO] ───> [AMO]\n      │\n[Girella con Attacco Rapido + Piombo]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **Il Trave** (Lunghezza totale: 150 - 200 cm in Nylon trasparente)\n* **Mare Calmo (X):** 0.40 mm. Fornisce la giusta invisibilità e leggerezza strutturale per acque chiare.\n* **Mare Mosso (Y):** 0.50 mm - 0.60 mm. Necessario per scaricare la força di lanci importanti e sopportare lo sfregamento sul fondo ondoso.\n\n2. **Lo Snodo Basso** (Posizionato a 10-20 cm dal piombo)\n* **Mare Calmo (X):** Micro-girella (misura 22-24) bloccata da micro-perline e nodini di stop (o colla). Riduce al minimo l'impatto visivo.\n* **Mare Mosso (Y):** Girella solida (misura 16-18) o snodo con tecno-sferetta a 4 fori. Deve garantire una rotazione perfetta per contrastare i vortici di fondo.\n\n3. **Il Bracciolo** (La vera arma di questa montatura: lunghezza da 150 cm fino a 250 cm)\n* **Mare Calmo (X):** 0.14 mm - 0.18 mm in Fluorocarbon. Lunghissimo (200-250 cm) per un'invisibilità e una fluttuosità totali.\n* **Mare Mosso (Y):** 0.25 mm - 0.35 mm in Nylon Extra Rigido (tipo Amnesia) o Fluorocarbon 100% ad alta densità. Lunghezza ridotta a 150 cm per limitare i grovigli causati dalla turbolenza.\n\n4. **L'Amo**\n* **Mare Calmo (X):** Misura 6 - 10 a gambo lungo o corto (tipo Beak leggero), specifico per Arenicola, verme di Rimini a pezzi o piccoli tranci di esca bianca.\n* **Mare Mosso (Y):** Misura 1 - 4 di tipo Beak o Chinu a filo spesso e robusto, perfetto per l'innesco di esche consistenti (Bibi, Cannolicchio intero, strisce di seppia o filetto di sarda rivoltato)."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Come Innescare l'Esca in Modo Idrodinamico",
+   "sottotitolo": "Presentazione naturale o tenuta nella risacca",
+   "contenuto": "* **Per l'Orata (Mare Calmo):** Innesca un Bibi o un gamberetto vivo intero. Usa l'apposito ago per non svuotare il bibi e posiziona l'amo in modo che la punta rimanga perfettamente scoperta.\n* **Per la Spigola/Sarago (Mare Mosso):** Crea un 'sigaro' di filetto di sarda o cannolicchio legando l'esca con abbondante filo elastico. L'innesco deve essere solido per resistere all'impatto con l'acqua e non sfaldarsi nel moto ondoso."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Saponette radenti vs ancoraggio totale",
+   "contenuto": "* **Mare Calmo (X):** Piombi che assecondano il movimento come la Saponetta o il Roccotop (70g - 100g). Muovendosi leggermente sul fondo, amplificano il raggio d'azione del lungo bracciolo.\n* **Mare Mosso (Y):** Piombo a tenuta assoluta come il Piramidale o il Piombo a rampini / Spike (150g - 175g). Il piombo deve rimanere ancorato nello stesso punto per permettere al bracciolo di distendersi nella corrente senza fare parrucche."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Superare l'effetto paracadute",
+   "contenuto": "* **Mare Calmo (X):** Lancio medio-lungo (70 - 100 metri). Poiché il bracciolo non è clippato, l'esca fa molto attrito in aria (effetto paracadute). Si consiglia un lancio Side Cast molto fluido.\n* **Mare Mosso (Y):** Lancio corto (20 - 50 metri). L'obiettivo è posizionare la zavorra esattamente dentro il canalone di risacca o subito dietro il frangente, dove i predatori attendono il cibo sospinto dalla corrente.\n* **Tecnica di lancio:** Vietati i lanci violenti o esasperati. Scegli sempre l'Above Cast (lancio da sopra la testa) o il Side Cast accompagnato per evitare che il bracciolo si avvolga sul trave prima ancora di toccare l'acqua."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Sensibilità e potenza di spiaggiamento",
+   "contenuto": "* **Mare Calmo (X):** Canna da Beach Ledgering o Surfcasting leggero (azione 40-120g), molto sensibile e reattiva. Mulinello taglia 4000 - 5000 con treccia sottile o Nylon 0.20 mm + Shock leader.\n* **Mare Mosso (Y):** Canna da Surfcasting in 3 sezioni o Ripartita potente (azione 150-200g), capace di spiaggiare grandi pesci nella schiuma. Mulinello solido taglia 10000 imbobinato con Nylon 0.30 mm diretto o con shock leader conico."
+  }
+ ]
+}
