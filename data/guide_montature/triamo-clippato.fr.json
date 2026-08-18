@@ -1,0 +1,48 @@
+{
+ "id": "triamo-clippato",
+ "titolo": "Tri-Hameçons Clippé (Cascade Rig / 3 Hameçons Clip-Down)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Ce montage représente l'évolution technologique maximale pour la pêche de compétition et de recherche à très grande distance. Grâce au système en cascade (Cascade Rig), les trois empiles sont bloquées en ligne le long du corps de ligne pendant le vol. Cela élimine complètement l'effet parachute des appâts, permettant ainsi de propulser trois hameçons simultanément à des distances sidérales, même en présence d'un fort vent de face.\n\n**Espèces Cibles :** 🎯\n* **Les marbrés, les sars, les rougets, les pageots, les grondins, les bogues et les liches étoiles.**\n\n**Contexte Idéal :**\n* Plages de sable à pente douce ou moyenne où les bancs de poissons se tiennent au-delà des 100 mètres du bord. Il est parfait aussi bien pour le Beach Ledgering à longue distance (mer calme) que pour le Surfcasting (mer agitée avec un fort vent de face).\n\n**Circonstances d'Utilisation :**\n* Journées caractérisées par un fort vent de face ou latéral qui rendrait impossible l'utilisation d'un montage à trois hameçons classique.\n* Nécessité de tester trois appâts différents à trois hauteurs distinctes à très longue distance.\n* Compétitions où il est indispensable d'atteindre les zones d'alimentation les plus éloignées sans sacrifier le nombre d'hameçons."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Fonctionnement du système en cascade (Cascade) séquentiel",
+   "contenuto": "Le montage exploite un système 'en cascade' : l'empile la plus haute (Hameçon 1) descend et se fixe sur l'émerillon Cascade du raccord central ; la deuxième empile (Hameçon 2) descend et si fixe sur l'émerillon Cascade du raccord bas ; la troisième empile (Hameçon 3) vient se clipper sur le bait clip inférieur positionné juste au-dessus du plomb.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon supérieur du Corps de Ligne]\n      │  (environ 10 cm en dessous)\n[Raccord Haut : Perle - Émerillon - Perle] ────────> [EMPILE 1] \n      │                                                   │ (Descend le long du corps de ligne)\n      │  (Distance intermédiaire : environ 50 - 60 cm)    ▼\n[Raccord Milieu : Émerillon CASCADE] <────────────────────[HAMEÇON 1 (clippé en vol)]\n      │         └───> [EMPILE 2]\n      │                     │ (Descend le long du corps de ligne)\n      │                     ▼\n[Raccord Bas : Émerillon CASCADE] <───────────────────────[HAMEÇON 2 (clippé en vol)]\n      │         └───> [EMPILE 3]\n      │                     │ (Descend le long du corps de ligne)\n      │                     ▼\n[Bait Clip / Impact Shield] <─────────────────────────────[HAMEÇON 3 (clippé en vol)]\n      │  (Distance du plomb : environ 10 - 15 cm)\n[Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Trave)** (Longueur totale : 160 - 190 cm en Nylon transparent)\n* **Mer Calme (X) :** 0.40 mm. Offre la robustesse nécessaire pour maintenir en tension le système de clips sans trop alourdir la structure dans les eaux claires.\n* **Mer Agitée (Y) :** 0.50 mm - 0.60 mm. Structure rigide et robuste pour supporter des plombs lourds, de forts courants et des lancers techniques très violents.\n\n2. **Les Trois Raccords** (Positionnés de manière millimétrique pour calibrer la tension)\n* **Mer Calme (X) :** Raccord supérieur avec micro-émerillon (taille 24). Raccords central et inférieur avec micro-émerillons Cascade bloqués par des micro-perles millimétriques et des nœuds d'arrêt (ou de la colle).\n* **Mer Agitée (Y) :** Raccord supérieur avec émerillon solide (taille 18-20). Raccords central et inférieur avec émerillons Cascade renforcés ou techno-perles rigides résistantes aux fortes contraintes hydrodynamiques.\n\n3. **Le Système de Décrochage Inférieur** (Positionné juste au-dessus du plomb)\n* **Configuration Unique :** Un Impact Shield ou une agrafe avec Bait Clip intégré. À l'impact avec l'eau, la pression hydrique pousse le mécanisme en libérant l'hameçon 3 ; le relâchement instantané de la tension décroche en chaîne l'hameçon 2 puis l'hameçon 1, libérant ainsi l'intégralité du montage sur le fond.\n\n4. **Les Trois Empiles (Bas de ligne)** (La longueur doit être identique à la distance exacte entre un raccord et son clip)\n* **Mer Calme (X) :** 0.14 mm - 0.18 mm en Fluorocarbone. Assez longues, environ 50-60 cm pour garantir une invisibilité et une liberté de flottaison maximales une fois déployées.\n* **Mer Agitée (Y) :** 0.22 mm - 0.26 mm en Nylon Extra Rigide (Amnesia) ou Fluorocarbone dur. Plus courtes (40-45 cm) pour exploiter la rigidité structurelle et éviter les emmêlements causés par le ressac.\n\n5. **Les Hameçons**\n* **Mer Calme (X) :** Taille 8 - 12 de fer très fin et tige longue (type Aberdeen), parfaits pour le ver de sable (arénicole) ou la trémoline.\n* **Mer Agitée (Y) :** Taille 5 - 7 de fer moyennement robuste (type Beak léger), excellents pour des esches plus fermes comme le ver muriddu ou de petits morceaux de ver coréen."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Optimisation pour le lancer balistique et appâts pop-up",
+   "contenuto": "* **Eschage pour la Distance (Mer Calme) :** Utilisez impérativement une aiguille à escher pour enfiler le ver de sable. La tête du ver doit remonter au-dessus de l'œillet ou de la palette de l'hameçon sur le fil de l'empile sur au moins 5 à 10 millimètres. Si des morceaux pendent ou glissent sur la courbure de l'hameçon, la force du lancer fera éclater le ver ou le décrochera prématurément des clips Cascade.\n* **Eschage Compact (Mer Agitée) :** Créez de petites bouchées fermes de ver muriddu ou des morceaux de coréen passés plusieurs fois sur l'hameçon. Vous pouvez ajouter un petit pop-up (flotteur) sur l'hameçon le plus haut, mais assurez-vous qu'il soit placé derrière l'hameçon de manière à ne pas interférer avec le logement du clip pendant le volo."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Formes aérodynamiques vs stabilité de déploiement",
+   "contenuto": "* **Mer Calme (X) :** Plombs ultra-aérodynamiques comme le Rocco bomb, Sporting ou la Torpille (80g - 120g) pour maximiser la pénétration dans l'air et atteindre des distances extrêmes.\n* **Mer Agitée (Y) :** Plombs à tenue au fond comme les Pyramides ou les Cônes (125g - 150g) pour ancrer le corps de ligne sur le fond, permettant au courant de déployer les trois empiles de manière ordonnée après le décrochage."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Transfert d'énergie balistique et progression",
+   "contenuto": "* **Mer Calme (X) :** Très long lancer (100 - 140 mètres). C'est la situation où ce montage fait toute la différence, en annulant la friction des trois appâts et en permettant de pêcher là où les autres n'arrivent pas.\n* **Mer Agitée (Y) :** Long lancer (60 - 90 mètres). Indispensable pour fendre le vent de face et franchir la barre des premiers rouleaux, en déposant les appâts dans les canalons extérieurs les plus profonds.\n* **Technique de lancer :** Ce montage travaille de manière optimale avec des lancers à haute énergie et à progression constante, comme le Side Cast angulé ou le Ground Cast (plomb posé au sol). La tension constante du système clippé empêche les appâts de subir des chocs néfastes au démarrage."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Configurations réactives de compétition et blanks de surfcasting",
+   "contenuto": "* **Mer Calme (X) :** Canne en 3 brins de Surfcasting léger ou télescopique (Beach Ledgering), puissance 50-120g. Moulinet de taille 4000 - 5000 avec un Nylon fin (0.18 - 0.20 mm) + un arraché (Shock Leader).\n* **Mer Agitée (Y) :** Canne de Surfcasting en 3 brins robuste et réactive (puissance 150-200g). Moulinet puissant de taille 8000 - 10000 garni de Nylon 0.26 - 0.30 mm + un arraché conique."
+  }
+ ]
+}
