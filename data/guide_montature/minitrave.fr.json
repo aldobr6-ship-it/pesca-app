@@ -1,0 +1,48 @@
+{
+ "id": "minitrave",
+ "titolo": "Montage avec Minitrave",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le Minitrave est l'une des solutions les plus modernes, pratiques et efficaces pour le Surfcasting et le Beach Ledgering. Il s'agit d'une tige très courte et rigide (généralement longue de 10 à 15 cm, fabriquée en acier inoxydable ou en nylon de très fort diamètre) qui remplace le corps de ligne long classique. Son incroyable rigidité structurelle écarte l'empile de la ligne principale, éliminant presque totalement les emmêlements et permettant de propulser une seule empile très longue à des distances extraordinaires avec un aérodynamisme maximal.\n\n**Espèces Cibles :** 🎯\n* **Les daurades royales, les marbrés, les loups (bars), les sars et les ombrines.**\n\n**Contexte Idéal :**\n* Plages de sable à pente douce ou moyenne, zones caractérisées par de forts courants latéraux ou de la turbulence de fond. Il est parfait aussi bien en Beach Ledgering estival qu'en Surfcasting lourd hivernal.\n\n**Circonstances d'Utilisation :**\n* Lorsque l'on souhaite pêcher avec une unique empile longue (Long Arm) en réduisant à zéro le risque de perruques.\n* En présence d'un fort courant latéral (Lateral Drag) qui emmêlerait un corps de ligne classique.\n* Lorsqu'un montage ultra-rapide à remplacer en action de pêche est nécessaire en cas de casse ou de changement de stratégie."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Configuration à empile longue unique su axe rigide",
+   "contenuto": "Le minitrave est connecté directement à l'arraché via la boucle supérieure. L'unique empile longue vient se fixer sur le raccord central, tandis que le plomb est directement attaché à l'extrémité inférieure.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon Supérieur du MINITRAVE]\n      │\n[Corps du Minitrave (Acier ou Nylon 1.00 mm - Longueur 10-15 cm)]\n      │\n[Raccord Central : Émerillon du Minitrave] ───────────────────────────> [EMPILE LONGUE] ───> [HAMEÇON]\n      │\n[Attache Inférieure du Minitrave + Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Minitrave** (La structure rigide)\n* **Mer Calme (X) :** Minitrave en Nylon rigide (diamètre 0.80 - 1.00 mm) ou micro-tige en acier léger. Longueur de 10 cm pour un maximum de discrétion dans les eaux claires.\n* **Mer Agitée (Y) :** Minitrave en Acier Inox (diamètre 0.80 - 1.00 mm). Longueur de 12-15 cm, indestructible, rigide à 100% et capable de supporter les contraintes des vagues et des plombs lourds.\n\n2. **Le Raccord** (Intégré au Minitrave)\n* **Configuration Unique :** Un émerillon solide (taille 18-22) libre di pivoter sur l'axe du minitrave, protégé par des perles ou des gaines thermorétractables. Il doit garantir une rotation fluide à 360 degrés pour dissiper les torsions infligées par le courant sur l'empile.\n\n3. **L'Empile (Bas de ligne)** (L'unique terminal pêcheur)\n* **Mer Calme (X) :** 0.14 mm - 0.18 mm en Fluorocarbone. Très longue, de 150 cm jusqu'à 200 cm. Le minitrave la maintient éloignée du plomb en vol, garantissant un déploiement parfait ed une invisibilité totale sur le fond.\n* **Mer Agitée (Y) :** 0.25 mm - 0.32 mm en Nylon Extra Rigide (type Amnesia) ou Fluorocarbone épais. Longueur réduite à 100 - 120 cm pour augmenter la tenue anti-emmêlement dans l'écume du ressac.\n\n4. **L'Hameçon**\n* **Mer Calme (X) :** Taille 6 - 10 de fer fin et tige longue (type Aberdeen), idéal pour un eschage parfait d'appâts délicats comme il ver de sable (arénicole) ou la trémoline.\n* **Mer Agitée (Y) :** Taille 2 - 5 de fer robuste (type Beak ou Chinu forgé), spécifique pour assurer une bonne prise sur les grands poissons ed pour accueillir des appâts volumineux."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Présentation naturelle ou surélevée du fond",
+   "contenuto": "* **Présentation Naturelle (Mer Calme) :** Enfilez le ver (arénicole) entièrement à l'aide d'une aiguille et faites-le glisser sur l'hameçon, en veillant à bien masquer la palette ou l'œillet. L'appât doit paraître tendu et linéaire pour bouger naturellement sur le fond sableux sans éveiller la méfiance des daurades.\n* **Bouchée Visible (Mer Agitée) :** Créez un appât compact avec un couteau décoquillé ou une lanière de seiche/coréen, en l'enveloppant avec plusieurs tours de fil élastique. Par mer agitée ou fort courant, vous pouvez ajouter une petite perle pop-up (flotteur) sur l'empile à 5 cm de l'hameçon : elle aidera à décoller l'appât de la couche de sable remuée par le fond, le rendant immédiatement visible pour les poissons."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Lests aérodynamiques vs ancrages lourds",
+   "contenuto": "* **Mer Calme (X) :** Plombs aérodynamiques ou légèrement mobiles comme le Roccotop, le plomb Saponetta (savonnette) ou la Torpille (50g - 100g). Ils accompagnent les petits mouvements d'eau et stimulent l'attaque des poissons fouisseurs.\n* **Mer Agitée (Y) :** Plombs à très haute tenue au fond comme les Pyramides ou les Cônes (125g - 175g). Ils doivent rester solidement ancrés au fond ; la rigidité du minitrave fera le reste, permettant à l'empile de dériver dans le courant sans s'emmêler autour du lest."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Gain métrique et polyvalence structurelle",
+   "contenuto": "* **Mer Calme (X) :** Long lancer (80 - 110 metri). Le minitrave éliminant presque toute la friction typique d'un corps de ligne long traditionnel, on gagne de nombreux mètres au lancer, même avec des empiles longues.\n* **Mer Agitée (Y) :** Lancer moyen (40 - 70 metri). Idéal pour fendre le vent de face et placer l'appât avec une précision chirurgicale à l'intérieur des baïnes et canalons de ressac.\n* **Technique de lancer :** Ce montage est incroyablement polyvalent. Il può essere propulsé de manière simple avec un Above Cast (par-dessus la tête), ou exploité avec des lancers plus techniques et puissants comme il Side Cast o le Ground Cast (plomb posé au sol), grâce alla résistance absolue du minitrave en acier."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Configurations pour le Beach Ledgering et le Surfcasting lourd",
+   "contenuto": "* **Mer Calme (X) :** Canne légère de Beach Ledgering (puissance 40-100g) dotée de scions sensibles. Moulinet de taille 4000 - 5000 avec un Nylon fin (0.18 mm) + un arraché (Shock Leader) fluide.\n* **Mer Agitée (Y) :** Canne de Surfcasting en 3 brins robuste (puissance 150-200g). Moulinet puissant de taille 8000 - 10000 garni de Nylon 0.28 - 0.30 mm + un arraché conique."
+  }
+ ]
+}
