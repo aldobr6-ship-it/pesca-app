@@ -1,0 +1,48 @@
+{
+ "id": "scorrevole",
+ "titolo": "Montage Coulissant Classique (Running Sinker Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le montage Coulissant est l'essence même de la pêche au posé. Il est considéré come le plus redoutable de tous pour les poissons extrêmement méfiants. Son génie réside dans le fait que le plomb coulisse librement sur la ligne principale : lorsque le poisson mord et s'éloigne, il ne ressent pas le moindre poids ni la moindre résistance du lest, engloutissant ainsi l'appât en totale confiance avant même que le pêcheur ne voie la touche sur le scion de la canne.\n\n**Espèces Cibles :** 🎯\n* **Les daurades royales (la cible incontestée du coulissant), les loups (bars), les marbrés de belle taille, les gros sars et les ombrines.**\n\n**Contexte Idéal :**\n* Plages de sable à pente douce ou rapide, estuaires de rivières, canaux, ports et bordures de digues ou enrochements. Il travaille de manière impeccable en Beach Ledgering et en Surfcasting léger.\n\n**Circonstances d'Utilisation :**\n* Eaux cristallines et journées de calme plat total (mer calme), où les poissons se montrent extrêmement méfiants.\n* Lors de l'utilisation d'appâts vivants ou très délicats.\n* En présence de poissons de belle taille qui ont tendance à recracher l'appât au moindre soupçon de résistance."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Configuration à coulissement axial libre",
+   "contenuto": "Le plomb (ou un tube coulissant) est enfilé directement sur l'arraché et reste libre de ses mouvements. Un raccord unique inférieur, protégé par un arrêt en caoutchouc amortisseur, sert de butée et connecte la longue empile.\n\n**Schéma Visuel :**\n[Arraché / Corps de Ligne Direct de la Canne] \n      │\n[Plomb Coulissant / Coulisseau d'attache (Anti-Tangle)]\n      │\n[Perle en caoutchouc souple (Amortisseur / Protège-nœud)]\n      │\n[Émerillon Solide de Raccord]\n      │\n[EMPILE UNIQUE ET LONGUE] ───────────────────────────────────────────────> [HAMEÇON]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **La Ligne de Coulissement** (Arraché ou Fil en Bobine)\n* **Mer Calme (X) :** Arraché (Shock Leader) de 0.40 mm (ou fil direct en bobine de 0.25 - 0.30 mm si l'on pêche à courte distance). Il doit être fluide et lisse pour ne pas freiner le coulissement du plomb.\n* **Mer Agitée (Y) :** Arraché (Shock Leader) de 0.50 mm - 0.60 mm. Nécessaire pour supporter la tension de plombs lourds et pour résister aux frottements du sable remué par les vagues.\n\n2. **Le Système Coulissant** (Où se fixe le plomb)\n* **Mer Calme (X) :** Un micro-coulisseau en plastique ou une agrafe avec un intérieur en céramique/téflon (type Ledgering Link). Réduit la friction à zéro.\n* **Mer Agitée (Y) :** Un coulisseau robuste avec un tube rigide anti-tangle ou une boucle renforcée en nylon épais. Évite que le ressac n'emmêle l'empile autour du plomb.\n\n3. **L'Empile (Bas de ligne)** (Terminal unique étalé sur le fond)\n* **Mer Calme (X) :** 0.14 mm - 0.18 mm en Fluorocarbone. Très longue, de 150 cm jusqu'à 250 cm. Offre une présentation totalement invisible, laissant l'appât bouger au gré des micro-courants.\n* **Mer Agitée (Y) :** 0.25 mm - 0.32 mm en Nylon Rigide (type Amnesia) ou Fluorocarbone épais. Longueur réduite à 80 - 100 cm pour contrer la turbulence du fond et prévenir les perruques.\n\n4. **L'Hameçon**\n* **Mer Calme (X) :** Taille 6 - 10 de type Beak léger ou Aberdeen à fer fin, pour ne pas alourdir l'eschage du ver de sable (arénicole) ou de petits bibis.\n* **Mer Agitée (Y) :** Taille 1 - 4 de type Beak forgé ou Chinu à fer épais. Il doit être robuste pour assurer une bonne prise sur la bouche coriace de la daurade ou du sar dans le courant."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Présentation naturelle ou tenue sur le fond",
+   "contenuto": "* **Eschage Naturel (Mer Calme) :** C'est le domaine par excellence du ver de sable (arénicole), du Bibi entier ed de la crevette vivante. Utilisez l'aiguille avec soin : le bibi ne doit pas perdre ses liquides internes et le ver de sable doit recouvrir entièrement l'hameçon en masquant le nœud. L'appât doit paraître totalement libre de toute contrainte structurelle.\n* **Eschage Solide (Mer Agitée) :** Utilisez un couteau frais décoquillé ou une lanière de ver coréen, compacté sur la tige de l'hameçon avec quelques tours de fil élastique. L'appât doit résister aux petits chocs sur le fond sans se désagréger."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Lests perforés passants vs ancrages lourds",
+   "contenuto": "* **Mer Calme (X) :** Plombs perforés lisses comme l'Olive, le plomb Saponetta (savonnette) ou le plomb Boule (40g - 80g). Lorsque le poisson tire, le fil glisse à l'intérieur du plomb ou du coulisseau sans déplacer le lest du fond.\n* **Mer Agitée (Y) :** Plombs à pyramide perforée ou plombs coniques lourds (100g - 150g). Ils doivent impérativement rester ancrés dans le sable afin que le mécanisme de coulissement continue de fonctionner malgré la poussée des vagues."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Fluidité balistique et astuce du blocage de ligne",
+   "contenuto": "* **Mer Calme (X) :** Lancer à moyenne/longue distance (60 - 90 mètres). N'étant pas un montage clippé, la longue empile crée une traînée dans l'air. On privilégie un lancer de type Side Cast extrêmement fluide, en accompagnant bien l'appât dans sa trajectoire.\n* **Mer Agitée (Y) :** Lancer court (30 - 50 mètres). On recherche la baïne ou la fosse située juste derrière le rouleau.\n* **Technique de lancer :** Requiért de l'attention. Pendant le vol, juste avant che le plomb n'impacte la surface de l'eau, freinez légèrement le fil du moulinet avec le doigt. Ce geste permettra de déployer la longue empile vers l'avant, éliminant ainsi les emmêlements au moment du contact avec l'eau."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes à quiver tip vs blanks de surfcasting",
+   "contenuto": "* **Mer Calme (X) :** Canne de Beach Ledgering légère (puissance 30-90g) avec des scions ultra-sensibles pour détecter les moindres touches. Moulinet de taille 4000, garni de Nylon fin (0.18 mm) + un arraché (Shock Leader).\n* **Mer Agitée (Y) :** Canne de Surfcasting en 3 brins ou canne télescopique robuste (puissance 120-150g). Moulinet de taille 7000 - 8000 avec du Nylon 0.25 mm dans la bobine + un arraché conique."
+  }
+ ]
+}
