@@ -1,0 +1,48 @@
+{
+ "id": "scorrevole-clippato",
+ "titolo": "Montage Coulissant Clippé (Running Sinker Clip-Down)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Ce montage représente le compromis parfait entre l'extraordinaire sensibilité du coulissant (fondamentale pour tromper les poissons les plus méfiants) et l'aérodynamisme des systèmes clippés. Il résout le plus grand défaut du coulissant classique : l'impossibilité de lancer loin. En bloquant l'hameçon près du plomb pendant la phase de vol, ce montage permet de propulser des appâts uniques et volumineux à des distances extrêmes, garantissant une absence totale de friction et un coulissement libre de la ligne une fois dans l'eau.\n\n**Espèces Cibles :** 🎯\n* **Les grandes daurades royales (la cible principale), les loups (bars) de belle taille, les gros sars, les ombrines et les marbrés extra-larges.**\n\n**Contexte Idéal :**\n* Plages de sable profondes à pente rapide, grandes baïnes et bancs de sable éloignés du bord, mais aussi estuaires de rivières et canaux balayés par un fort vent de face ou latéral.\n\n**Circonstances d'Utilisation :**\n* Lorsque les poissons de belle taille se tiennent à des distances sidérales (plus de 100 mètres) et sont si méfiants qu'ils imposent une configuration totalement coulissante.\n* Journées avec un fort vent de face qui détruirait la phase de vol d'un coulissant classique.\n* Traque de grands poissons fouisseurs avec des appâts sélectifs et lourds."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Configuration aérodynamique à coulissement libre",
+   "contenuto": "Le montage comprend un corps de ligne de coulissement sur lequel se déplace un coulisseau (Pulley Bead ou émerillon). L'empile part du coulisseau, descend le long du corps de ligne et l'hameçon vient se fixer sur le bait clip positionné juste au-dessus du plomb. À l'impact avec l'eau, le système se déverrouille. Lorsque le poisson mord, le fil glisse à l'intérieur de la poulie/coulisseau sans que le poisson ne ressente le poids du plomb.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon supérieur du Corps de Ligne]\n      │\n      │ ─── Perle en caoutchouc (Protège-nœud supérieur)\n      │ ─── Pulley Bead / Émerillon Coulissant ───────> [EMPILE LONGUE]\n      │                                                     │\n      │  (Longueur du Corps de Ligne : 120 - 150 cm)        │ (Descend tendue en vol)\n      │ ─── Perle en caoutchouc (Protège-nœud inférieur)     │\n      │                                                     ▼\n[Bait Clip / Impact Shield] <───────────────────────────────[HAMEÇON (clippé en vol)]\n      │\n[Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne de Coulissement (Trave)** (Longueur totale : 120 - 150 cm en Nylon rigide)\n* **Mer Calme (X) :** 0.45 mm - 0.50 mm. Transparent et lisse, calibré pour faire coulisser le curseur sans frictions hydrodynamiques néfastes.\n* **Mer Agitée (Y) :** 0.55 mm - 0.65 mm. Structure épaisse à très haute résistance à la rupture, nécessaire pour fendre le ressac et supporter la traction de plombs lourds.\n\n2. **Le Coulisseau (Carrucola)** (Le guide de l'empile)\n* **Configuration Unique :** On utilise un Pulley Bead à haute fluidité ou un émerillon solide (taille 4-6) enfilé directement sur le corps de ligne. Il est protégé des deux côtés da des perles en caoutchouc souple pour éviter que l'impact du lancer n'endommage les nœuds de raccord.\n\n3. **Le Système de Clip Inférieur** (Positionné au-dessus du plomb)\n* **Configuration Unique :** Un Impact Shield ou un bait clip aérodynamique monté juste au-dessus de l'agrafe rapide du lest. Il doit garantir une stabilité maximale de l'hameçon en vol et une ouverture immédiate au contact de la surface marine.\n\n4. **L'Empile (Bas de ligne)** (La longueur doit correspondre à la distance exacte entre le coulisseau et le bait clip)\n* **Mer Calme (X) :** 0.16 mm - 0.20 mm en Fluorocarbone. Longueur autour de 100-120 cm. Assure une présentation invisible et totalement exempte de suspicion sur le fond pour tromper les daurades les plus âgées.\n* **Mer Agitée (Y) :** 0.25 mm - 0.32 mm en Nylon Extra Rigide (type Amnesia) ou Fluorocarbone structuré. Longueur autour de 90-100 cm pour garantir une tenue anti-emmêlement performante même dans les vagues.\n\n5. **Les Hameçons**\n* **Mer Calme (X) :** Taille 4 - 8 de type Beak léger ou Aberdeen à fer fin, idéal pour ne pas alourdir des appâts longs et élégants comme le ver de sable (arénicole) ou de petits bibis.\n* **Mer Agitée (Y) :** Taille 1/0 - 3/0 de type Beak forgé ou Chinu de fer épais. Indispensable pour assurer une bonne prise sur les pièces buccales dures et pour accueillir des appâts volumineux dans l'écume."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Préparation pour la stabilité et la sélectivité",
+   "contenuto": "* **Eschage pour la Distance Maximale (Mer Calme) :** Si vous utilisez du Bibi, sélectionnez des morceaux compactes ou des bibis pour hameçon de petite taille. Si vous utilisez des vers (arénicole), la tête doit être poussée au-dessus de l'œillet de l'hameçon sur un paio de centimètres le long de l'empile. Cela évite que l'appât ne s'accumule sur la courbure de l'hameçon pendant le vol, ce qui déséquilibrerait le montage ou provoquerait un décrochage prématuré.\n* **Eschage Sélectif (Mer Agitée) :** Créez de petits cigares hydrodynamiques avec un couteau décoquillé ou une lanière de seiche, en les ligaturant étroitement avec une bonne quantité de fil élastique. La pointe de l'hameçon doit rester propre et saillante pour s'accrocher correctement au bait clip."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Profils balistiques vs tenue au fond",
+   "contenuto": "* **Mer Calme (X) :** Plombs ultra-aérodynamiques comme le Rocco bomb ou la Torpille (90g - 125g). Ils fendent l'air et permettent de profiter à 100% de l'absence de friction du montage clippé.\n* **Mer Agitée (Y) :** Plombs à forte tenue au fond comme les Pyramides ou les Cônes lourds (130g - 175g). Ils maintiennent le montage solidement ancré au même point de chute, permettant au fil de coulisser librement à l'intérieur du coulisseau."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Lancers à haute énergie et élimination des frictions",
+   "contenuto": "* **Mer Calme (X) :** Distance extrême (100 - 130+ mètres). C'est l'environnement idéal de cette configuration, qui permet d'amener un système totalement coulissant à des distances auparavant accessibles uniquement avec des corps de ligne rigides.\n* **Mer Agitée (Y) :** Long lancer (60 - 90 mètres). Permet de franchir avec facilité les forts vents de face et de déposer la grosse bouchée dans les baïnes et canalons extérieurs profonds, à l'abri des emmêlements du ressac de bordure.\n* **Technique de lancer :** Ce montage supporte des contraintes de lancer élevées. Il est parfait pour le Side Cast angulé ou pour le Ground Cast (avec plomb posé sur le sable). La tension structurelle de l'empile clippée protège l'appât de tout choc destructeur lors de la phase finale du lancer."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Configurations légères de recherche vs cannes de combat",
+   "contenuto": "* **Mer Calme (X) :** Canne en 3 brins de Surfcasting léger ou télescopique (Beach Ledgering), puissance 50-120g avec un scion sensible. Moulinet de taille 4000 - 5000 avec un Nylon fin (0.18 - 0.20 mm) + un arraché (Shock Leader) fluide.\n* **Mer Agitée (Y) :** Canne de Surfcasting en 3 brins ou canne répartie performante (puissance 150-200g). Moulinet puissant de taille 8000 - 10000 garni de Nylon 0.28 - 0.32 mm + un arraché conique."
+  }
+ ]
+}
