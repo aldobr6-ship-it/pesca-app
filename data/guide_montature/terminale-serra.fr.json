@@ -1,0 +1,48 @@
+{
+ "id": "terminale-serra",
+ "titolo": "Montage pour Tassergal (Bluefish Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le tassergal est un prédateur impitoyable doté d'une denture tranchante comme un rasoir, capable di couper net n'importe quel fil en nylon ou en fluorocarbone. Pour cette raison, le montage pour tassergal est une configuration hautement spécialisée qui impose obligatoirement l'utilisation d'un empilement final en câble d'acier thermosoudable. Il est généralement armé de deux hameçons en ligne (configuration Pennell) pour garantir un ferrage efficace aussi bien sur un poisson vif que sur une lanière ou une tranche de poisson.\n\n**Espèces Cibles :** 🎯\n* **Le tassergal (cible principale), la liche amie, les grands barracudas et les congres (pendant les heures nocturnes).**\n\n**Contexte Idéal :**\n* Plages de sable profondes, estuaires de rivières, embouchures de ports, bordures de digues artificielles et canalons profonds où les flux de marée concentrent les bancs de mulets et d'autres poissons-appâts.\n\n**Circonstances d'Utilisation :**\n* Mois chauds et automnaux (de mai à novembre) ; heures nocturnes, aube et crépuscule.\n* Présence visible de chasses en surface.\n* Nécessité de présenter un appât volumineux et odorant (tranche de poisson) ou en mouvement (vif) capable de résister aux morsures dévastatrices du prédateur."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Configuration renforcée avec terminal en câble d'acier",
+   "contenuto": "Le montage se développe sur un corps de ligne robuste ou un minitrave à potence. L'empile est composée d'une première partie en nylon épais (shock-absorber) et d'une section finale de 30-40 cm en câble d'acier thermosoudable sur laquelle sont montés les deux hameçons en configuration Pennell Rig.\n\n**Schéma Visuel :**\n[Arraché / Ligne Principale] \n      │\n[Minitrave ou Raccord Unique sur le Corps de Ligne]\n      │\n[Empile - Partie 1 : Nylon/Fluorocarbone épais (environ 60-80 cm)]\n      │\n[Émerillon de Raccord Solide (Taille 6-8)]\n      │\n[Empile - Partie 2 : CÂBLE D'ACIER THERMOSOUDABLE (30-40 cm)]\n      │\n[Hameçon 1 (Coulissant / Tracteur)] ───> Bloqué sur le câble via un petit tube\n      │\n[Hameçon 2 (Fixe / Pêcheur)]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne / Attache** (La structure porteuse)\n* **Mer Calme (X) :** Corps de ligne classique de 0.50 mm ou minitrave léger en nylon. Garantit un maximum de discrétion si le prédateur chasse dans des eaux cristallines.\n* **Mer Agitée (Y) :** Minitrave à potence en Acier Inox (1.00 mm - 1.20 mm). Structure rigide indispensable pour éviter que le gros appât et les vagues ne créent des emmêlements destructeurs.\n\n2. **L'Empile - Partie Nylon** (La première section du terminal)\n* **Mer Calme (X) :** 0.40 mm - 0.45 mm en Fluorocarbone ou Nylon souple. Longueur de 80 cm. Sert à amortir les coups de tête du poisson et à donner du naturel au mouvement de l'appât.\n* **Mer Agitée (Y) :** 0.50 mm - 0.60 mm en Nylon Extra Rigide. Longueur réduite à 50-60 cm pour forcer le déploiement du bas de ligne au cœur de l'écume et du courant.\n\n3. **La Section en Acier** (L'âme anti-morsure)\n* **Configuration Unique :** Câble d'acier thermosoudable (7 brins) de 30 lb (livres) pour la Mer Calme (X) et de 40-50 lb pour la Mer Agitée (Y). Longueur fixe de 30-40 cm. Les nœuds et les boucles sur le câble sont scellés en chauffant le revêtement plastique à l'aide d'un briquet (thermosoudage) ou en serrant des tubes de sertissage métalliques (sleeves) avec une pince adaptée.\n\n4. **Les Hameçons** (Configuration à 2 hameçons en série - Pennell Rig)\n* **Mer Calme (X) :** Paire d'hameçons de taille 1/0 - 2/0 de type Beak forgé de fer moyennement léger, idéaux pour ne pas alourdir une tranche moyenne de mulet ou une sardine.\n* **Mer Agitée (Y) :** Paire d'hameçons de taille 3/0 - 5/0 de type Beak ou O'Shaughnessy de fer très épais en carbone renforcé. Ils doivent supporter le bras de levier de grands appâts et les tractions violentes au milieu des vagues.\n* **Hameçon Supérieur (Tracteur) :** Coulissant sur le câble d'acier via un petit tube en silicone, il sert à ajuster la distance en fonction de la longueur de l'appât.\n* **Hameçon Inférieur (Pêcheur) :** Fixe, solidement noué à l'extrémité du câble d'acier."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Préparation de la lanière pop-up et eschage du mulet vif",
+   "contenuto": "* **La Tranche de Mulet ou de Sardine (Appât Mort) :** C'est l'eschage le plus courant. Prenez une tranche ou un filet de mulet (long d'environ 10-12 cm), retirez l'arête centrale pour l'alléger et insérez à l'intérieur un petit cylindre de polystyrène (pop-up). Refermez la tranche comme un livre, enveloppez-la étroitement avec du fil élastique jusqu'à la modeler en un cigare ferme. Piquez l'hameçon inférieur à la base de la tranche et l'hameçon supérieur près de la tête de l'appât. Le polystyrène interne fera flotter l'ensemble en le décollant du fond, le mettant ainsi à l'abri des crabes et le rendant visible pour le tassergal qui chasse entre deux eaux.\n* **Le Petit Mulet Vif (Appât Vif) :** Si vous utilisez la technique de la téléphérique ou du lancer léger, eschez l'hameçon supérieur sur la lèvre supérieure du mulet (ou de la bogue/chinchard) et l'hameçon inférieur sur le dos, juste derrière la nageoire dorsale, en veillant bien à ne pas toucher la colonne vertébrale pour ne pas tuer le poisson-appât."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Lests balistiques vs ancrages totaux à grappins",
+   "contenuto": "* **Mer Calme (X) :** Plombs aérodynamiques et lourds comme le Rocco bomb ou la Torpille (120g - 150g) pour propulser le lourd appât le plus loin possible, afin d'atteindre les baïnes externes.\n* **Mer Agitée (Y) :** Plombs à ancrage total comme les Pyramides lourdes ou les Plombs à grappins (Spike) de 150g à 175g+. Le lest doit rester immobile dans le sable ; si le plomb se déplace sous la poussée de la vague, l'appât volumineux s'échouera en quelques minutes en créant une perruque sur le fond."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Lancers progressifs et gestion de l'appât dans l'écume",
+   "contenuto": "* **Mer Calme (X) :** Lancer à moyenne/longue distance (60 - 80+ mètres). La grosse bouchée freine énormément le vol. Un lancer de type Side Cast, fluide et progressif, est conseillé pour ne pas stresser l'appât au départ.\n* **Mer Agitée (Y) :** Lancer court (30 - 50 mètres). On lance à proximité immédiate des premiers rouleaux ou à l'intérieur des fosses profondes, là où le tassergal patrouille la côte à la recherche de poissons en difficulté à cause de la tempête.\n* **Technique de lancer :** Nécessite des cannes adaptées. Évitez les lancers violents ou secs (comme le ground cast poussé à l'extrême) si vous pêchez à la sardine, car l'appât pourrait se désagréger à l'impact. Choisissez un lancer de type Above Cast propre et linéaire."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes de 200g et configurations directes sans shock leader",
+   "contenuto": "* **Mer Calme (X) :** Canne en 3 brins de Surfcasting puissante avec une puissance de 150-200g. Moulinet de taille 8000 - 10000 garni de Nylon 0.25 - 0.28 mm + un arraché (Shock Leader) robuste de 0.50 mm.\n* **Mer Agitée (Y) :** Canne Répartie (deux brins) ou canne en 3 brins lourda de Surfcasting lourd (puissance 200-250g). Moulinet de grande capacité (taille 10000 ou tambour tournant robuste), rempli de Nylon 0.35 - 0.40 mm en direct, sans shock leader, pour résister à la traction et aux frottements violents du fond remué."
+  }
+ ]
+}
