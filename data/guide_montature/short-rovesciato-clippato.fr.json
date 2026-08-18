@@ -1,0 +1,48 @@
+{
+ "id": "short-rovesciato-clippato",
+ "titolo": "Short Renversé Clippé",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Par rapport alla version classique, ce montage ajoute un système de décrochage rapide (bait clip) qui bloque l'hameçon près du plomb pendant le vol. C'est le montage de distance par excellence, fondamental pour gagner des mètres précieux et éviter tout emmêlement dans l'air.\n\n**Espèces Cibles :** 🎯\n* **Les marbrés, les daurades royales, les loups (bars), les sars et les pageots.**\n\n**Contexte Idéal :**\n* Plages de sable à pente douce ou moyenne. Il est parfait aussi bien en Beach Ledgering estival à la recherche de poissons fouisseurs à très longue distance, qu'en Surfcasting hivernal.\n\n**Circonstances d'Utilisation :**\n* Présence d'un fort vent de face ou latéral, nécessité d'atteindre des distances extrêmes (plus de 100 mètres) et présence d'un fort courant de fond (Lateral Drag) exigeant une bonne stabilité."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Fonctionnement et Décrochage Hydrodynamique",
+   "contenuto": "L'hameçon est orienté vers le bas et fixé au bait clip positionné juste au-dessus du plomb. Au moment de l'impact avec l'eau, la pression hydrodynamique libère l'hameçon, laissant dériver l'empile librement.\n\n**Schéma Visuel :**\nArraché / Shock Leader\n │\n[Boucle / Émerillon supérieur du Corps de Ligne]\n │ (environ 10-15 cm en dessous)\n[Raccord Haut : Perle - Émerillon/Micro-snap - Perle] ───> [EMPILE LONGUE]\n │ │\n │ (Longueur du Corps de Ligne : 130 - 160 cm)       │ (Descend le long du corps de ligne)\n │ │\n[Bait Clip / Impact Lead] <──────────────────────────────────────[HAMEÇON (clippé en vol)]\n │\n[Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "⚙️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Trave)** (Longueur totale : 140 - 160 cm en Nylon transparent)\n* **Mer Calme (X) :** 0.40 mm. Maintient la légèreté structurelle nécessaire pour ne pas éveiller la méfiance des poissons dans les eaux claires.\n* **Mer Agitée (Y) :** 0.50 mm - 0.60 mm. Indispensable pour supporter la tension des lancers techniques (ex. Side ou Ground Cast) et des plombs lourds.\n\n2. **Le Raccord Haut** (Positionné à 10-15 cm de la boucle supérieure du corps de ligne)\n* **Mer Calme (X) :** Micro-émerillon (taille 22-24) ou micro-perle percée (crossbead) bloqués par des perles millimétriques et des nœuds d'arrêt pour une discrétion maximale.\n* **Mer Agitée (Y) :** Émerillon solide (taille 18-20) ou techno-perles rigides, pour garantir la rotation même sous la forte pression du courant.\n\n3. **Le Système de Clip** (Positionné juste au-dessus du plomb)\n* **Configuration Unique :** On utilise un émerillon avec agrafe rapide doté d'un Bait Clip intégré (ex. Imp Clip, attaches rapides clippées) o directement un plomb avec système Impact Shield / Impact Lead. Cela garantit le décrochage automatique de l'appât à l'impact avec l'eau.\n\n4. **L'Empile (Bas de ligne)** (La longueur doit être calibrée au millimètre près sur la distance raccord-bait clip)\n* **Mer Calme (X) :** 0.16 mm - 0.20 mm en Fluorocarbone. Garantit une invisibilité totale et un naturel maximal à l'appât.\n* **Mer Agitée (Y) :** 0.25 mm - 0.30 mm en Nylon Rigide (type Amnesia) ou Fluorocarbone épais pour éviter les perruques dues à la turbulence.\n\n5. **L'Hameçon**\n* **Mer Calme (X) :** Taille 6 - 10 à tige longue et de fer fin (ex. Aberdeen), idéal pour des appâts délicats comme le ver de sable (arénicole).\n* **Mer Agitée (Y) :** Taille 2 - 5 de fer robuste (ex. Beak ou Chinu), parfait pour des appâts volumineux comme le Bibi, le couteau frais ou le ver coréen."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Eschage Hydrodynamique",
+   "sottotitolo": "Comment bloquer l'appât sur le Bait Clip",
+   "contenuto": "* **Vers (Arénicole, Coréen) :** Enfilez le ver entièrement à l'aide d'une aiguille, passez-le sur l'hameçon et fixez impérativement la tête au-dessus de la palette ou de l'œillet, le long du fil de l'empile. Si le ver glisse sur la courbure de l'hameçon, il se déchirera ou s'abîmera au moment du verrouillage sur le bait clip.\n* **Bibi ou Couteau :** Créez un appât très compact. Dans le cas du couteau, utilisez du fil élastique pour le modeler sous la forme d'un cigare parfait, réduisant ainsi la friction de l'air pendant le vol."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Modèles aérodynamiques vs modèles à tenue",
+   "contenuto": "* **Mer Calme (X) :** Plombs aérodynamiques comme le Rocco bomb ou la Torpille (80g - 120g). Ils pénètrent parfaitement dans l'air et permettent de profiter au maximum du système clippé pour des distances extrêmes.\n* **Mer Agitée (Y) :** Plombs à tenue hydrodynamique comme les Pyramides ou les Cônes (125g - 175g). Ils maintiennent le corps de ligne immobile sur le fond, permettant au courant de déployer l'empile renversée une fois décrochée."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Distances extrêmes et gestion des lancers",
+   "contenuto": "* **Mer Calme (X) :** Très long lancer (100 - 140+ mètres). Le système clippé annule l'effet parachute de l'appât, permettant d'atteindre les zones d'alimentation des poissons fouisseurs relégués au-delà des baïnes externes.\n* **Mer Agitée (Y) :** Lancer moyen (50 - 80 mètres). Utile pour franchir avec précision la première ligne de rouleaux et déposer l'appât dans le canalon principal sans emmêlements en vol.\n* **Technique de lancer :** Ce montage supporte et valorise les lancers techniques comme le Side Cast ou le Ground Cast, car l'appât fait corps avec le corps de ligne et ne subit aucun choc destructeur au démarrage."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes et Moulinets recommandés",
+   "contenuto": "* **Mer Calme (X) :** Canne en 3 brins légère ou télescopique (Beach Ledgering), puissance 50-120g avec un scion sensible. Moulinet de taille 4000 - 5000 avec un Nylon fin (0.18 - 0.20 mm) + un arraché (Shock Leader).\n* **Mer Agitée (Y) :** Canne en 3 brins nerveuse ou répartie (Surfcasting), puissance 150-200g. Moulinet robuste de taille 8000 - 10000 avec bobine conique, garni de Nylon 0.26 - 0.30 mm + un arraché conique."
+  }
+ ]
+}
