@@ -3301,10 +3301,23 @@ if ("serviceWorker" in navigator) {
     });
   });
 }
-  // Funzione per caricare la guida tecnica esperta dal file JSON
+ // Funzione ausiliaria per formattare il testo (\n -> <br> e ** -> <strong>)
+function formattaTestoGuida(testo) {
+  if (!testo) return 'Nessun contenuto disponibile / Aucun contenu disponible.';
+  return testo
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Converte **grassetti**
+    .replace(/\n/g, '<br>');                           // Converte i ritorni a capo
+}
+
+// Funzione per caricare la guida tecnica esperta dal file JSON (Rileva la lingua in automatico)
 async function caricaGuidaMontatura(idMontatura) {
+  // Rileva la lingua globale dell'app (cambia in 'currentLang' se usi quel nome per la variabile)
+  const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it'; 
+  const suffissoLingua = lang === 'fr' ? '.fr' : '';
+  
   try {
-    const response = await fetch(`./data/guide_montature/${idMontatura}.json`);
+    // Carica il file italiano (.json) o francese (.fr.json) dalla tua cartella dedicata
+    const response = await fetch(`./data/guide_montature/${idMontatura}${suffissoLingua}.json`);
     if (!response.ok) {
       throw new Error(`File non trovato (Status: ${response.status})`);
     }
@@ -3314,7 +3327,9 @@ async function caricaGuidaMontatura(idMontatura) {
     console.error("Errore nel caricamento della guida:", error);
     const container = document.getElementById("contenitore-guida");
     if (container) {
-      container.innerHTML = `<p style="color:red;padding:10px;text-align:center;">Guida in arrivo per questa montatura!</p>`;
+      // Testo dinamico in caso di errore di caricamento preso dal dizionario
+      const msgErrore = lang === 'fr' ? "Guide en cours d'arrivée per questa montatura !" : "Guida in arrivo per questa montatura !";
+      container.innerHTML = `<p style="color:red;padding:10px;text-align:center;font-weight:bold;">${msgErrore}</p>`;
     }
   }
 }
@@ -3324,7 +3339,10 @@ function mostraMenuCapitoli(guidaData) {
   const container = document.getElementById("contenitore-guida");
   if (!container) return;
   
-  let html = `<h3 style="margin-top:15px;color:#0a2a43;">${guidaData.titolo} - Guida Tecnica</h3>`;
+  const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it';
+  const suffissoTitolo = lang === 'fr' ? ' - Guide Technique' : ' - Guida Tecnica';
+
+  let html = `<h3 style="margin-top:15px;color:#0a2a43;">${guidaData.titolo}${suffissoTitolo}</h3>`;
   html += `<div style="display:flex;flex-direction:column;gap:8px;">`;
   
   guidaData.capitoli.forEach((capitolo, index) => {
@@ -3345,8 +3363,11 @@ async function apriCapitolo(idMontatura, indiceCapitolo) {
   const container = document.getElementById("contenitore-guida");
   if (!container) return;
 
+  const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it';
+  const suffissoLingua = lang === 'fr' ? '.fr' : '';
+
   try {
-    const response = await fetch(`./data/guide_montature/${idMontatura}.json`);
+    const response = await fetch(`./data/guide_montature/${idMontatura}${suffissoLingua}.json`);
     if (!response.ok) {
       throw new Error(`Errore HTTP: ${response.status}`);
     }
@@ -3354,17 +3375,21 @@ async function apriCapitolo(idMontatura, indiceCapitolo) {
     const capitolo = guidaData.capitoli[indiceCapitolo];
 
     if (!capitolo) {
-      container.innerHTML = `<p style="color:red;padding:10px;">Capitolo non trovato.</p>`;
+      const msgNoCap = lang === 'fr' ? "Chapitre non trouvé." : "Capitolo non trovato.";
+      container.innerHTML = `<p style="color:red;padding:10px;">${msgNoCap}</p>`;
       return;
     }
 
-    // Convertiamo i "nuova riga" (\n) del JSON in <br> per l'HTML
-    let testoFormatted = capitolo.contenuto ? capitolo.contenuto.replace(/\n/g, '<br>') : 'Nessun contenuto disponibile.';
+    // Formatta il testo convertendo sia \n che ** tramite la funzione ausiliaria
+    let testoFormatted = formattaTestoGuida(capitolo.contenuto);
+
+    // Gestione localizzata del testo del pulsante Indietro
+    const testoBottoneIndietro = lang === 'fr' ? "← Retour à l'index dei Chapitres" : "← Torna all'indice dei Capitoli";
 
     container.innerHTML = `
       <div style="margin-top:15px;background:#ffffff;padding:14px;border-radius:10px;border:1px solid #d0e6f7;box-shadow:0 3px 8px rgba(0,0,0,0.08);text-align:left;">
         <button onclick="caricaGuidaMontatura('${idMontatura}')" style="margin-bottom:12px;padding:6px 12px;border-radius:6px;background:#0a2a43;border:none;color:white;font-size:12px;font-weight:bold;cursor:pointer;">
-          ← Torna all'indice dei Capitoli
+          ${testoBottoneIndietro}
         </button>
         <h3 style="margin:0 0 6px 0;color:#0a2a43;font-size:16px;">${capitolo.titolo}</h3>
         ${capitolo.sottotitolo ? `<p style="margin:0 0 12px 0;opacity:0.7;font-size:12px;font-weight:bold;">${capitolo.sottotitolo}</p>` : ''}
@@ -3375,9 +3400,11 @@ async function apriCapitolo(idMontatura, indiceCapitolo) {
     `;
   } catch (error) {
     console.error("Errore nell'apertura del capitolo:", error);
-    container.innerHTML = `<p style="color:red;padding:10px;">Impossibile aprire il capitolo. Verifica il nome del file JSON.</p>`;
+    const msgErrOpen = lang === 'fr' ? "Impossible d'ouvrir le chapitre. Vérifiez le fichier JSON." : "Impossibile aprire il capitolo. Verifica il nome del file JSON.";
+    container.innerHTML = `<p style="color:red;padding:10px;">${msgErrOpen}</p>`;
   }
 }
+
 </script>
 </body>
 </html>
