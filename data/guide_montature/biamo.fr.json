@@ -1,0 +1,48 @@
+{
+ "id": "biamo",
+ "titolo": "Montage à Deux Empiles (Paternoster / Doublet)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le montage à Deux Empiles (Bi-Amo) è le montage de recherche, de compétition et de vitesse par excellence. Il utilise deux empiles distinctes réparties le long du corps de ligne, ce qui permet de tester simultanément deux appâts différents ou de pêcher à deux hauteurs différentes par rapport au fond (un appât sur le fond et un légèrement décollé), doublant ainsi les chances de capture.\n\n**Espèces Cibles :** 🎯\n* **Les marbrés, les sars, les rougets, les grondins, les bogues, les chinchards et, si l'occasion si prête, les daurades royales et les loups (bars).**\n\n**Contexte Idéal :**\n* Plages de sable ou mixtes, jetées et rochers. Il fonctionne incroyablement bien aussi bien en Beach Ledgering estival à la recherche de friture et de poissons fouisseurs, qu'en Surfcasting hivernal par mer formée lorsque les poissons s'alimentent frénétiquement dans l'écume.\n\n**Circonstances d'Utilisation :**\n* Lorsque l'on souhaite comprendre rapidement quel est l'appât préféré du jour.\n* En présence d'une forte concentration de poissons (pour réaliser des doublés).\n* Par mer agitée, car les empiles courtes réduisent considérablement le risque d'emmêlement par rapport à une empile longue."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Configuration à deux empiles indépendantes",
+   "contenuto": "Les deux raccords sont répartis le long du corps de ligne. La longueur des empiles doit être calculée de manière à ce qu'elles ne se touchent jamais entre elles afin d'éviter les emmêlements en vol ou dans l'eau.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon supérieur du Corps de Ligne]\n      │  (environ 10-15 cm en dessous)\n[Raccord Haut : Perle - Émerillon - Perle] ────────> [EMPILE 1] ───> [HAMEÇON 1]\n      │\n      │  (Espace entre les deux raccords : environ 70 - 100 cm)\n      │\n[Raccord Bas : Perle - Émerillon - Perle] ────────> [EMPILE 2] ───> [HAMEÇON 2]\n      │\n      │  (Distance du plomb : environ 15 - 30 cm)\n      │\n[Émerillon avec Agrafe Rapide + Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Trave)** (Longueur totale : 120 - 160 cm en Nylon transparent)\n* **Mer Calme (X) :** 0.35 mm - 0.40 mm. Léger et fin pour ne pas éveiller la méfiance des poissons en conditions d'eau claire et calme.\n* **Mer Agitée (Y) :** 0.50 mm - 0.60 mm. Robuste, rigide et lourd pour éviter que le courant ne l'emmêle sur lui-même et pour supporter des plombs importants.\n\n2. **Les Deux Raccords** (Espacés de manière à ce que les empiles ne se croisent pas)\n* **Mer Calme (X) :** Micro-émerillons (taille 24) ou micro-perles percées (crossbeads) bloqués par des perles millimétriques collées ou fixées par des nœuds d'arrêt.\n* **Mer Agitée (Y) :** Émerillons solides (taille 18-20) ou techno-perles à 4 trous, capables d'absorber les torsions infligées par les vagues.\n\n3. **Les Deux Empiles (Bas de ligne)** (Longueur : de 40 cm à 70 cm chacune)\n* **Mer Calme (X) :** 0.14 mm - 0.18 mm en Fluorocarbone. Longues d'environ 60-70 cm pour donner du naturel aux appâts par mer calme.\n* **Mer Agitée (Y) :** 0.22 mm - 0.28 mm en Nylon Extra Rigide ou Fluorocarbon dur. Courtes (35-45 cm) pour exploiter au maximum l'effet anti-emmêlement de la rigidité du fil dans la turbulence.\n\n4. **Les Hameçons**\n* **Mer Calme (X) :** Taille 8 - 12 de fer fin et tige longue (type Aberdeen), idéaux pour le ver de sable (arénicole), la trémoline ou de petits morceaux de ver coréen.\n* **Mer Agitée (Y) :** Taille 4 - 7 de fer robuste (type Beak ou Chinu), adaptés pour résister à la traction et pour accueillir des esches plus épaisses."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Stratégie de l'appât double et de la turbulence",
+   "contenuto": "* **Stratégie de l'Appât Double (Mer Calme) :** Profitez des deux hameçons en eschant des appâts différents. Sur l'hameçon du bas, placez un ver de sable entier (appât de fond pour les marbrés). Sur l'hameçon du haut, placez un petit ver coréen ou un ver de sable avec un petit pop-up (un disque de polystyrène coloré) juste avant l'hameçon : cela soulèvera l'appât du fond pour cibler les poissons de surface ou de mi-eau comme les chinchards et les bogues.\n* **Eschage pour la Turbulence (Mer Agitée) :** Eschez des morceaux de ver Muriddu, de coréen ou de petites lanières de seiche passées plusieurs fois sur l'hameçon. L'appât deve être compact pour ne pas se désagréger sous les coups des vagues et de la friture."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Précision légère vs stabilité forte",
+   "contenuto": "* **Mer Calme (X) :** Plombs légers et précis comme le Roccotop ou le plomb Plomb Boule (50g - 90g). Ils permettent une pêche de précision en Beach Ledgering senza perturber le spot.\n* **Mer Agitée (Y) :** Plombs à forte tenue au fond comme la Pyramide ou le Cône (125g - 150g). Ils doivent ancrer solidement il corps de ligne au fond de manière à ce que les deux empiles courtes travaillent parfaitement tendues dans le courant."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Gestion de la friction et du ressac",
+   "contenuto": "* **Mer Calme (X) :** Lancer à moyenne/longue distance (60 - 90 mètres). Avec deux appâts libres non clippés, la résistance dans l'air est supérieure. Un lancer de type Side Cast progressif et fluide est parfait pour déployer le montage.\n* **Mer Agitée (Y) :** Lancer court (30 - 50 mètres). On pêche directement au cœur de l'écume, dans la marche de ressac près du bord où les sars et les loups cherchent la nourriture remuée par les vagues.\n* **Technique de lancer :** Privilégiez des lancers simples comme l'Above Cast (par-dessus la tête). Évitez les lancers trop angulés ou trop violents (Ground Cast) qui pourraient emmêler les deux empiles sur le corps de ligne avant l'impact avec l'eau."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Configurations pour le Beach Ledgering et le Surfcasting",
+   "contenuto": "* **Mer Calme (X) :** Canne légère de Beach Ledgering (puissance 40-100g) avec des scions interchangeables très sensibles. Moulinet de taille 4000 garni de Nylon 0.18 mm ou de tresse fine + un arraché (shock leader).\n* **Mer Agitée (Y) :** Canne de Surfcasting en 3 brins (puissance 120-170g). Moulinet robuste de taille 7000 - 8000, garni de Nylon 0.25 - 0.28 mm + un arraché conique."
+  }
+ ]
+}
