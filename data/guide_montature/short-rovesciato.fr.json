@@ -1,0 +1,42 @@
+{
+  "id": "short-rovesciato",
+  "titolo": "Short Renversé",
+  "capitoli": [
+    {
+      "id": "specie_contesto",
+      "titolo": "🎯 Espèces Cibles et Contexte",
+      "sottotitolo": "Espèces, Milieu et Circonstances",
+      "contenuto": "Le Short Renversé est l'un des montages les plus techniques, historiques et efficaces pour le Surfcasting et le Beach Ledgering.\n\n🎯 **Espèces Cibles :**\n* **Les marbrés :** La cible principale par excellence. L'appât se déplace doucement sur le fond en soulevant de petits nuages de sable.\n* **Les daurades royales :** Excellente variante sur des fonds sableux et propres.\n* **Les loups (bars) :** Très efficace en fin de tempête ou en présence d'un courant latéral.\n* **Les sars et les pageots :** Captures fréquentes à proximité des zones mixtes.\n\n🌊 **Contexte Idéal :** Plages de sable à pente douce ou moyenne, mer calme à peu agitée, et fin de tempête (scaduta)."
+    },
+    {
+      "id": "schema_componenti",
+      "titolo": "📐 Schéma et Composants",
+      "sottotitolo": "Corps de ligne, Raccord, Empile, Hameçon (Mer Calme X vs Mer Agitée Y)",
+      "contenuto": "📐 **Schéma Structural :**\nLe raccord est positionné en haut, près de la canne, avec une unique empile très longue qui descend au-delà du plomb.\n\n🛠️ **Composants et Diamètres :**\n1. **Le Corps de Ligne (Trave) :** Longueur 130-150 cm (Calme : 0.40 mm | Agitée : 0.50-0.60 mm)\n2. **Le Raccord Haut :** Fixé à 10-15 cm de la boucle supérieure.\n3. **L'Empile (Bas de ligne) :** Longueur 100-150 cm (Calme : 0.16-0.20 mm Fluorocarbone | Agitée : 0.25-0.30 mm Nylon Rigide/Amnesia)\n4. **L'Hameçon :** Calme : Taille 6-10 | Agitée : Taille 2-5."
+    },
+    {
+      "id": "segreti_esperto",
+      "titolo": "💡 Les Secrets de l'Expert",
+      "sottotitolo": "Règle du dépassement de plomb, lancers et prévention des emmêlements",
+      "contenuto": "* **La règle du dépassement de plomb (Fuori Piombo) :** L'empile tendue doit dépasser le plomb d'au moins 15 cm pour éviter les accrochages pendant le vol.\n* **Eschage hydrodynamique :** Par mer agitée, fixez la tête du ver au-dessus du nœud de l'hameçon pour éviter l'effet hélice.\n* **Lancer fluide :** Utilisez un lancer de type Above Cast (par-dessus la tête) ou Side Cast (latéral) sans accélérations brutales."
+    },
+    {
+      "id": "inneschi",
+      "titolo": "🪱 Eschages Recommandés",
+      "sottotitolo": "Vers, Bibi, Couteau et astuce Pop-Up",
+      "contenuto": "🪱 **Vers (Arénicole, Coréen, Muriddu) :** Utilisez une aiguille à escher et bloquez impérativement la tête du ver au-dessus de l'œillet ou de la palette de l'hameçon.\n\n🍬 **Bibi ou Couteau :** Eschage compact consolidé au fil élastique.\n\n💡 **Astuce par Mer Agitée :** Ajoutez un micro-flotteur pop-up à 5-10 cm de l'hameçon pour décoller l'appât du sable et le protéger des crabes."
+    },
+    {
+      "id": "scelta_piombo",
+      "titolo": "⚖️ Le Choix du Plomb",
+      "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+      "contenuto": "☀️ **Mer Calme (Configuration X) :** Plomb Roccotop ou Saponetta (50g - 120g). Ils roulent doucement sur le fond en créant une traînée de sable attractive.\n\n🌊 **Mer Agitée (Configuration Y) :** Pyramide ou Cône (125g - 175g). Ils s'ancrent solidement au fond pour maintenir le corps de ligne immobile.\n\n💡 **Conseil :** Utilisez toujours une agrafe rapide avec un petit tube en silicone juste au-dessus du plomb."
+    },
+    {
+      "id": "distanze_attrezzatura",
+      "titolo": "🎣 Distances et Matériel",
+      "sottotitolo": "Cannes, Moulinets et Stratégie de lancer",
+      "contenuto": "☀️ **Mer Calme :** Lancer long (80-120+ m). Canne télescopique ou en 3 brins légère (puissance 30-120g), moulinet de taille 4000-5000.\n\n🌊 **Mer Agitée :** Lancer court/moyen (30-60 m) dans les canalons de ressac. Canne en 3 brins ou canne répartie (puissance 150-200g), moulinet puissant de taille 8000-10000."
+    }
+  ]
+}
