@@ -1,0 +1,48 @@
+{
+ "id": "triamo",
+ "titolo": "Montage à Trois Hameçons (3 Hameçons de Recherche / Compétition)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le montage à Trois Hameçons (Tri-Amo) est l'évolution extrême de la pêche de recherche. Par rapport au Paternoster classique, la légèreté et la sensibilité des composants sont poussées au maximum pour intercepter le moindre poisson blanc présent sur la bande côtière. Il permet de présenter trois appâts différents à trois hauteurs distinctes, maximisant ainsi les captures multiples en présence de bancs.\n\n**Espèces Cibles :** 🎯\n* **Les marbrés, les rougets, les sars, les bogues, les chinchards, les liches étoiles, les oblades, les grondins et les maquereaux.**\n\n**Contexte Idéal :**\n* Plages de sable à pente douce ou moyenne, zones portuaires et jetées. Il excelle en Beach Ledgering par mer calme et eaux cristallines, mais trouve aussi sa place en Surfcasting léger lorsque le poisson s'alimente frénétiquement dans l'écume.\n\n**Circonstances d'Utilisation :**\n* Lorsque l'on cible des poissons de banc de taille moyenne à petite.\n* En compétition pour marquer des points rapidement.\n* Lorsque l'on veut comprendre à quelle hauteur par rapport au fond le poisson se nourrit (grâce à la disposition des trois hameçons).\n* Lors des journées d'apathie totale où trois appâts différents stimulent l'agressivité des poissons."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Règle géométrique pour le calibrage des trois empiles",
+   "contenuto": "Les trois raccords sont répartis le long d'un corps de ligne très long (jusqu'à 2 mètres). La longueur des empiles doit être calculée au millimètre près en fonction de la distance entre les raccords : la somme de la longueur de deux empiles voisines doit être inférieure à la distance séparant leurs raccords afin d'éliminer tout risque d'emmêlement.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon supérieur du Corps de Ligne]\n      │  (environ 10 cm en dessous)\n[Raccord Haut : Perle - Émerillon - Perle] ────────> [EMPILE 1 (Surface/Pleine eau)] ───> [HAMEÇON 1]\n      │\n      │  (Distance intermédiaire : environ 60 - 70 cm)\n      │\n[Raccord Milieu : Perle - Émerillon - Perle] ───────> [EMPILE 2 (Mi-eau)] ─────────────> [HAMEÇON 2]\n      │\n      │  (Distance intermédiaire : environ 60 - 70 cm)\n      │\n[Raccord Bas : Perle - Émerillon - Perle] ───────> [EMPILE 3 (Fond)] ─────────────────> [HAMEÇON 3]\n      │\n      │  (Distance du plomb : environ 10 - 15 cm)\n      │\n[Émerillon avec Agrafe Rapide + Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Trave)** (Longueur totale : 160 - 200 cm en Nylon transparent)\n* **Mer Calme (X) :** 0.35 mm. Ultra-léger et invisible, il réduit l'impact visuel dans les eaux cristallines face aux poissons méfiants.\n* **Mer Agitée (Y) :** 0.45 mm - 0.50 mm. Plus rigide pour servir d'axe solide et empêcher les trois empiles de s'emmêler à cause des vortex du ressac.\n\n2. **Les Trois Raccords** (Répartis symétriquement le long du corps de ligne)\n* **Mer Calme (X) :** Micro-émerillons (taille 24) ou micro-perles percées (crossbeads) transparentes collés sur le corps de ligne ou bloqués par des perles millimétriques et des nœuds d'arrêt.\n* **Mer Agitée (Y) :** Émerillons solides (taille 20) ou techno-perles à 4 trous, pour dissiper parfaitement les torsions continues du courant latéral.\n\n3. **Les Trois Empiles (Bas de ligne)** (Longueur : de 40 cm à 60 cm chacune)\n* **Mer Calme (X) :** 0.12 mm - 0.14 mm en Fluorocarbone. Longues d'environ 50-60 cm, extrêmement souples et invisibles pour accompagner le moindre courant.\n* **Mer Agitée (Y) :** 0.20 mm - 0.24 mm en Nylon Rigide (type Amnesia) ou Fluorocarbone dur. Courtes (35-40 cm) pour rester tendues comme des 'drapeaux' dans la turbulence sans faire de perruques.\n\n4. **Les Hameçons**\n* **Mer Calme (X) :** Taille 10 - 14 de fer très fin et tige longue (type Aberdeen), spécifiques pour escher le ver de sable (arénicole) ou la trémoline senza les abîmer.\n* **Mer Agitée (Y) :** Taille 6 - 8 de fer moyennement robuste (type Beak léger), capables d'assurer une bonne prise lors des ferrages appuyés dans l'écume."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Combinaison stratégique pour appâts différenciés",
+   "contenuto": "* **Combinaison Stratégique (Mer Calme) :** Chaque hameçon joue un rôle ciblé selon la couche d'eau visée.\n  * **Hameçon Inférieur :** Ver de sable entièrement enfilé à l'aiguille, idéal pour les poissons qui fouillent le fond (marbrés, rougets).\n  * **Hameçon Central :** Morceau de ver coréen ou de muriddu pour stimuler les sars et les pageots.\n  * **Hameçon Supérieur :** Un petit morceau de ver ou d'appât blanc décollé du fond par un pop-up (flotteur) ou par une perle fluorescente positionnée juste au-dessus de l'hameçon. Cela sert à surélever l'appât pour cibler les liches étoiles, les oblades et les bogues.\n* **Eschage pour la Turbulence (Mer Agitée) :** Eschez des sections fermes de ver muriddu ou de petits morceaux de coréen/seiche. L'appât doit être passé plusieurs fois sur l'hameçon et bloqué au-dessus de la palette ou de l'œillet par un nœud d'arrêt pour résister à l'impact des vagues sans se désagréger."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Lests silencieux vs plombs pyramides",
+   "contenuto": "* **Mer Calme (X) :** Plombs légers et silencieux comme le Roccotop ou le plomb Boule (40g - 70g) pour propulser avec un matériel léger sans effrayer les bancs de poissons postés près du bord.\n* **Mer Agitée (Y) :** Plombs à tenue au fond comme la Pyramide ou le Cône (100g - 130g) pour ancrer le montage et maintenir les trois empiles courtes bien déployées dans le courant."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Gestion de l'effet parachute et précision dans le ressac",
+   "contenuto": "* **Mer Calme (X) :** Lancer court ou moyen (40 - 70 mètres). Avec trois appâts libres qui génèrent une grande traînée dans l'air (effet parachute), ce n'est pas un montage destiné aux grandes distances. Il travaille parfaitement sur la première ou la deuxième baîne.\n* **Mer Agitée (Y) :** Lancer très court (20 - 40 mètres). On lance directement à l'intérieur des canalons de ressac proches du bord, là où le mouvement des vagues creuse le sable et libère de la nourriture pour les poissons.\n* **Technique de lancer :** Il est impératif d'utiliser un lancer de type Above Cast (par-dessus la tête) de manière souple et progressive. Des lancers violents ou angulés (comme le Side ou le Ground Cast) déchireraient les appâts délicats ed emmêleraient les trois empiles sur le corps de ligne avant la phase de vol."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Blanks légers quiver tip vs cannes de surfcasting léger",
+   "contenuto": "* **Mer Calme (X) :** Canne ultra-légère et très sensible de Beach Ledgering (puissance 20-80g ou 30-100g), avec des scions interchangeables en carbone plein. Moulinet de taille 4000 avec un Nylon fin (0.16 mm) + un arraché (Shock Leader).\n* **Mer Agitée (Y) :** Canne de Surfcasting léger ou canne télescopique robuste (puissance 100-150g). Moulinet de taille 6000 - 7000, garni de Nylon 0.22 - 0.25 mm + un arraché conique."
+  }
+ ]
+}
