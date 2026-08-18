@@ -1,0 +1,48 @@
+{
+ "id": "biamo-clippato",
+ "titolo": "Bi-Amo Clippato (Cascade Rig / 2 Hameçons Clip-Down)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le Bi-Amo Clippato associe les avantages de la pêche avec deux appâts à la pénétration aérodynamique du système clippé (clip-down). Grâce à l'utilisation de crochets de retenue (bait clips) et d'émerillons spéciaux (cascade), les deux empiles restent bloquées le long du corps de ligne pendant le vol. Cela élimine complètement la résistance de l'air, permettant d'atteindre des distances exceptionnelles avec deux appâts prêts à pêcher dès l'impact avec l'eau.\n\n**Espèces Cibles :** 🎯\n* **Les marbrés, les sars, les daurades royales, les pageots, les grondins et les rougets de roche.**\n\n**Contexte Idéal :**\n* Plages de sable à pente douce ou moyenne où le poisson se tient très loin du bord. Ce montage est parfait aussi bien pour le Beach Ledgering à longue distance (mer calme) que pour le Surfcasting (mer agitée avec un fort vent de face).\n\n**Circonstances d'Utilisation :**\n* Fort vent de face ou latéral qui freinerait un montage classique à deux hameçons.\n* Nécessité absolue d'atteindre des distances extrêmes (plus de 100 mètres) en pêchant simultanément avec deux appâts.\n* Recherche de poissons fouisseurs sur des bancs de sable très éloignés."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Fonctionnement du système en cascade (Cascade)",
+   "contenuto": "Le montage utilise un système 'en cascade' (Cascade) : l'empile supérieure descend et se fixe sur un émerillon Cascade situé sur le deuxième raccord ; la seconde empile descend à son tour et se fixe sur le bait clip inférieur positionné près du plomb.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon supérieur du Corps de Ligne]\n      │  (environ 10 cm en dessous)\n[Raccord Haut : Perle - Émerillon - Perle] ────────> [EMPILE 1] \n      │                                                   │ (Descend le long du corps de ligne)\n      │  (Distance intermédiaire : environ 70 - 80 cm)    │\n      │                                                   ▼\n[Raccord Milieu : Émerillon CASCADE bloqué] <─────[HAMEÇON 1 (clippé en vol)]\n      │         └───> [EMPILE 2]\n      │                     │ (Descend le long du corps de ligne)\n      │                     ▼\n[Bait Clip / Impact Shield] <─────────────────────────────[HAMEÇON 2 (clippé en vol)]\n      │  (Distance du plomb : environ 10 - 15 cm)\n[Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Trave)** (Longueur totale : 150 - 170 cm en Nylon transparent)\n* **Mer Calme (X) :** 0.40 mm. Garantit la stabilité et la tenue aérodynamique nécessaire sans trop alourdir la structure.\n* **Mer Agitée (Y) :** 0.50 mm - 0.60 mm. Structure rigide et robuste pour supporter des plombs lourds et des lancers très violents face au vent.\n\n2. **Les Deux Raccords** (Positionnés de façon symétrique)\n* **Mer Calme (X) :** Raccord supérieur avec micro-émerillon (taille 24). Raccord central avec micro-émerillon Cascade bloqué au millimètre près par des micro-perles et des nœuds d'arrêt.\n* **Mer Agitée (Y) :** Raccord supérieur avec émerillon solide (taille 18-20). Raccord central avec émerillon Cascade renforcé ou techno-perles rigides résistantes aux fortes tractions.\n\n3. **Le Système de Clip Inférieur** (Positionné juste au-dessus du plomb)\n* **Configuration Unique :** Un Impact Shield ou une agrafe rapide dotée d'un Bait Clip intégré. À l'impact avec l'eau, la poussée hydrodynamique libère l'hameçon inférieur, qui à son tour débloque l'émerillon Cascade supérieur, ouvrant instantanément l'ensemble du montage.\n\n4. **Les Deux Empiles (Bas de ligne)** (La longueur doit être parfaitement calibrée sur la distance entre les raccords et les clips)\n* **Mer Calme (X) :** 0.16 mm - 0.18 mm en Fluorocarbone. Longueur d'environ 65-75 cm pour offrir un maximum d'invisibilité et de naturel une fois déployé sur le fond.\n* **Mer Agitée (Y) :** 0.24 mm - 0.28 mm en Nylon Extra Rigide (Amnesia) ou Fluorocarbone dur. Plus courts (45-55 cm) pour exploiter la rigidité du fil et éviter les emmêlements causés par le ressac.\n\n5. **Les Hameçons**\n* **Mer Calme (X) :** Taille 6 - 10 de fer fin et tige longue (type Aberdeen), parfaits pour le ver de sable (arénicole) ou de fines lanières de ver coréen.\n* **Mer Agitée (Y) :** Taille 4 - 6 de fer robuste (type Beak ou Chinu), idéaux pour des esches compactes et résistantes."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Préparation pour la distance et pour la tenue",
+   "contenuto": "* **Eschage pour la Distance (Mer Calme) :** Utilisez une aiguille à escher pour enfiler le ver de sable. La tête du ver doit obligatoirement être poussée au-delà de l'œillet ou de la palette de l'hameçon, en remontant sur le fil de l'empile sur au moins 5 à 10 millimètres. Si le ver glisse sur la courbure de l'hameçon, la pression du vol le fera éclater ou le décrochera du bait clip.\n* **Eschage pour la Tenuta (Mer Agitée) :** Créez de petits morceaux compacts de couteau frais ou de petites lanières de seiche solidement ligaturées avec du fil élastique. L'appât ne doit présenter aucune partie flottante qui pourrait faire résistance dans l'air lors du lancer."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Modèles aérodynamiques vs ancrage stable",
+   "contenuto": "* **Mer Calme (X) :** Plombs ultra-aérodynamiques comme le Rocco bomb ou la Torpille (80g - 120g). Ils fendent l'air en profitant au maximum du profil lisse du montage clippé.\n* **Mer Agitée (Y) :** Plombs à forte tenue au fond comme les Pyramides ou les Cônes (125g - 150g). Ils ancrent le corps de ligne sur le fond sableux, permettant au courant de tendre les empiles de manière linéaire après le décrochage."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Surpassement della résistance aérodynamique",
+   "contenuto": "* **Mer Calme (X) :** Très long lancer (100 - 130+ mètres). Le montage clippé élimine l'effet parachute delle deux esches, permettant d'atteindre des distances impensables pour un montage à due hameçons classique.\n* **Mer Agitée (Y) :** Lancer à moyenne/longue distance (60 - 90 mètres). Idéal pour surmonter la forte résistance du vent de face et positionner les appâts au-delà de la ligne des premiers rouleaux destructeurs.\n* **Technique de lancer :** Ce montage supporte parfaitement les lancers à haute énergie comme le Side Cast angulé ou il Ground Cast (plomb posé au sol). La tension constante des empiles fixées aux bait clips protège les appâts des chocs au démarrage."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes et moulinets recommandés",
+   "contenuto": "* **Mer Calme (X) :** Canne en 3 brins de Surfcasting léger ou télescopique (Beach Ledgering), puissance 50-120g. Moulinet de taille 4000 - 5000 avec un Nylon fin (0.18 - 0.20 mm) + un arraché (shock leader).\n* **Mer Agitée (Y) :** Canne de Surfcasting en 3 brins robuste (puissance 150-200g). Moulinet puissant de taille 8000 - 10000 garni de Nylon 0.26 - 0.30 mm + un arraché conique."
+  }
+ ]
+}
