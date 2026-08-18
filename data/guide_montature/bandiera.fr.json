@@ -1,0 +1,48 @@
+{
+ "id": "bandiera",
+ "titolo": "Montage en Drapeau (Flotter Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le montage en Drapeau è un montage de recherche hautement technique conçu pour décoller complètement l'appât du fond sableux. L'appât surélevé flotte et ondule dans le courant à la manière d'un drapeau, interceptant ainsi tous les poissons qui chassent entre deux eaux ou en surface, tout en protégeant la bouchée des attaques des crabes de fond.\n\n**Espèces Cibles :** 🎯\n* **Les liches étoiles (la cible numéro un), les oblades, les bogues, les chinchards, les maquereaux, les orphies, les loups (bars) et les sars (particulièrement la nuit ou dans l'écume).**\n\n**Contexte Idéal :**\n* Plages de sable à pente douce ou moyenne, proximité des rochers, pointes de jetées et entrées de ports. Ce montage est redoutable aussi bien pour le Beach Ledgering estival che pour le Surfcasting en présence d'un fort ressac.\n\n**Circonstances d'Utilisation :**\n* Présence massive di crabes o de puces de mer qui détruisent l'appât en quelques minutes.\n* Mer calme avec des eaux cristallines et un soleil haut (idéal pour les liches étoiles).\n* Mer très agitée où les vagues soulèvent i débris ed où les poissons cherchent de la nourriture en suspension dans l'écume.\n* Heures nocturnes pour intercepter les bancs de chinchards et d'oblades en pleine activité."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Configuration à empile haute unique avec pop-up",
+   "contenuto": "Le nœud de raccord (l'empilement) est positionné sur la moitié supérieure du corps de ligne (loin du plomb). L'empile descend le long del corps de ligne et se termine par un micro-flotteur monté juste avant l'hameçon, qui soulève l'appât vers le haut une fois dans l'eau.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon supérieur du Corps de Ligne]\n      │  (environ 20-30 cm en dessous)\n[Raccord Haut : Perle - Émerillon/Micro-snap - Perle] ───> [EMPILE AVEC FLOTTEUR] ───> [HAMEÇON]\n      │                                                               ▲\n      │                                                      (Flotteur Pop-Up)\n      │  (Longueur du Corps de Ligne : 130 - 160 cm)\n      │\n[Émerillon avec Agrafe Rapide + Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Trave)** (La colonne vertébrale du montage)\n* Longueur totale : 130 - 160 cm en Nylon classique dicroïque ou transparent.\n* **Mer Calme (X) :** 0.35 mm - 0.40 mm. Fin et invisible pour ne pas éveiller la méfiance dei poissons de surface che ont une excellente vue.\n* **Mer Agitée (Y) :** 0.50 mm - 0.60 mm. Épais et rigide pour supporter des plombs lourds et l'action du ressac qui tend à emmêler l'ensemble de la structure.\n\n2. **Le Raccord Haut** (Positionné sur la partie supérieure du corps de ligne)\n* **Mer Calme (X) :** Micro-émerillon (taille 22-24) o micro-perle percée à quatre trous (crossbead) bloquée par des perles millimétriques et des nœuds d'arrêt collés. Légèreté hydrodynamique maximale.\n* **Mer Agitée (Y) :** Émerillon solide (taille 18-20) ou techno-perles rigides pour garantir une rotation parfaite à 360° sous la pression des vagues.\n\n3. **L'Empile Drapeau (Terminal)** (Le bas de ligne avec le flotteur)\n* **Mer Calme (X) :** 0.12 mm - 0.16 mm en Fluorocarbone. Longueur 100 - 150 cm. Il doit être long et léger pour flotter librement en suivant le courant.\n* **Mer Agitée (Y) :** 0.20 mm - 0.25 mm en Nylon Rigide (type Amnesia) ou Fluorocarbone dur. Longueur réduite à 70 - 90 cm pour éviter que la turbulence marine ne crée des nœuds sur il corps de ligne.\n\n4. **Le Flotteur / Pop-Up** (Le cœur flottant du montage)\n* **Mer Calme (X) :** Micro-flotteurs ovales ou sphériques (diamètre 4-6 mm) de couleur neutre, blanche ou rouge/fluo. Ils s'enfilent sur l'empile et se bloquent à 5-10 cm de l'hameçon à l'aide d'un stop-float en caoutchouc o d'un grain de riz en silicone.\n* **Mer Agitée (Y) :** Flotteurs généreux ou œufs en polystyrène (diamètre 8-12 mm) aux couleurs hautement visibles (bicolore, jaune fluo ou rouge). La poussée de flottaison doit être forte pour vaincre le poids de l'écume et du courant.\n\n5. **L'Hameçon**\n* **Mer Calme (X) :** Taille 10 - 14 à tige longue et de fer très fin (type Aberdeen ou Sneck). Il doit être ultra-léger pour ne pas contrer la poussée de flottaison du pop-up. Parfait pour le ver de sable (arénicole) ou la trémoline.\n* **Mer Agitée (Y) :** Taille 6 - 8 de fer moyen (type Beak léger), idéal pour des esches plus fermes comme le ver coréen ou de petites lanières de seiche."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Optimisation pour éviter l'effet hélice",
+   "contenuto": "* **Pour la Mer Calme (Ver de sable / Arénicole) :** Enfilez le micro-flotteur sur l'empile, ajoutez un petit stop-float en caoutchouc pour le bloquer à environ 5 cm de l'hameçon. Eschez le ver de sable à l'aide d'une aiguille en le faisant remonter au-dessus de la palette ou de l'œillet de l'hameçon. L'appât doit être parfaitement droit ed hydrodynamique ; s'il fait un effet 'hélice', le bas de ligne vrillera sur lui-même et s'emmêlera.\n* **Pour la Mer Agitée (Coréen/Seiche) :** Eschez un ver coréen entier en le piquant uniquement par la tête (en laissant la queue libre de bouger dans l'écume) ou une fine lanière de seiche ou de calamar battue ed taillée en forme de petite cravate. Le mouvement imprimé par les vagues le fera passer pour un petit poisson-appât en difficulté."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Formes aérodynamiques vs ancrage au fond",
+   "contenuto": "* **Mer Calme (X) :** Plombs aérodynamiques et précis comme le Roccotop ou la Torpille (50g - 90g). Ils permettent des lancers précis sur les baïnes et les bancs de sable où patrouillent les liches étoiles.\n* **Mer Agitée (Y) :** Plombs à forte tenue au fond comme les Pyramides ou les Cônes (125g - 150g). Ils doivent ancrer solidement le corps de ligne sur le fond sableux, permettant à l'empile de se soulever et de travailler correctement tendue dans le courant de retour."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Gestion de l'effet parachute",
+   "contenuto": "* **Mer Calme (X) :** Lancer à moyenne/longue distance (60 - 90 mètres). La présence du flotteur crée un léger effet parachute dans l'air. Un lancer de type Side Cast (latéral), progressif ed accompagné, est recommandé.\n* **Mer Agitée (Y) :** Lancer court (30 - 50 mètres). On recherche la première veine d'eau juste derrière la vague qui déferle, là où l'écume est dense ed où les sars o les loups attaquent la nourriture en suspension.\n* **Technique de lancer :** Privilégiez un Above Cast (lancer par-dessus la tête) propre ed fluide. Évitez les accélérations trop violentes ou les lancers avec plomb posé angulé (ground cast) si vous utilisez des micro-flotteurs en polystyrène expansé tendre, afin d'éviter que le choc de l'air ou du départ ne déplace ou n'endommage le pop-up."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes et moulinets recommandés",
+   "contenuto": "* **Mer Calme (X) :** Canne légère et ultra-sensible de Beach Ledgering (puissance 30-90g ou 40-100g). Moulinet léger de taille 4000 garni de Nylon fin (0.16 - 0.18 mm) + un arraché (shock leader) fluide pour maximiser la distance.\n* **Mer Agitée (Y) :** Canne de Surfcasting en 3 brins avec une puissance de 120-150g. Moulinet robuste di taille 7000 - 8000, garni de Nylon 0.22 - 0.25 mm + un arraché conique."
+  }
+ ]
+}
