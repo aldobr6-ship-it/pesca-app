@@ -1,0 +1,48 @@
+{
+ "id": "minitrave-divergente",
+ "titolo": "Minitrave à Potence (Minitrave avec Divergent)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le Minitrave à Potence représente l'évolution technique maximale du minitrave classique. Sa particularità réside dans un bras rigide saillant en acier inoxydable (appelé divergent, potence o moustache) positionné sur le raccord central. Ce bras agit comme un véritable écarteur mécanique : il décale le point de départ de l'empile de quelques centimètres vers l'extérieur par rapport à l'axe du plomb. Cette caractéristique en fait le montage 100% anti-emmêlement par excellence, idéal pour propulser des appâts énormes ou pêcher dans des conditions de turbulence extrême.\n\n**Espèces Cibles :** 🎯\n* **Les loups (bars) records, les grandes daurades royales, les tassergal, les gros sars, les congres et les raies.**\n\n**Contexte Idéal :**\n* Surfcasting lourd par mer formée ou en pleine tempête, plages profondes avec des courants battants et un fort ressac de fond. Il est également exceptionnel pour la pêche depuis les jetées et les hautes falaises.\n\n**Circonstances d'Utilisation :**\n* Lors de l'utilisation d'appâts volumineux et lourds (lanières ou tranches de poisson, vif, sardines entières, seiches) qui auraient tendance à tourner et à s'emmêler autour du plomb pendant le vol ou dans l'eau.\n* En présence d'un courant latéral sauvage.\n* Lorsqu'un montage indestructible à très haute résistance est requis pour faire face à des poissons dotés d'une puissante denture."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Fonctionnement du bras écarteur mécanique",
+   "contenuto": "Le corps central est une tige en acier inoxydable très courte (environ 10 cm). Le raccord central n'accueille pas un simple émerillon, mais un bras divergent en acier (ou un ressort écarteur) auquel est fixée l'empile, la maintenant de force éloignée du lest.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon Supérieur du Minitrave]\n      │\n[Tige du Minitrave en Acier Inox]\n      │\n[Raccord Central con BRAS DIVERGENT] ═════════> (Écarte le point d'attache de 2-3 cm) ───> [EMPILE] ───> [HAMEÇON]\n      │\n[Attache Inférieure avec Gaine + Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Minitrave à Potence** (La structure en acier)\n* **Mer Calme (X) :** Minitrave avec bras divergent léger en acier inox de 0.8 mm ou en nylon de très fort diamètre (1.00 mm) avec potence divergente plastifiée. Longueur 10 cm.\n* **Mer Agitée (Y) :** Minitrave avec bras divergent lourd en acier inox de 1.2 mm, renforcé par une double gaine thermorétractable et des émerillons à très haute résistance (jusqu'à 40 kg) pour supporter les contraintes extrêmes du lancer et de la traction.\n\n2. **Le Bras Divergent** (L'âme anti-tangle)\n* **Configuration Unique :** Une tige d'acier solidaire du raccord ou un ressort écarteur spécial orienté vers l'extérieur. L'empile se connecte à l'extrémité de cette potence (souvent protégée par un petit tube en silicone) via une agrafe rapide ou un nœud en gueule de loup. Il exploite les torsions latérales et longitudinales pour accompagner le courant.\n\n3. **L'Empile (Bas de ligne)** (Terminal unique structuré)\n* **Mer Calme (X) :** 0.20 mm - 0.25 mm en Fluorocarbone. Longueur 120 - 150 cm. Malgré la mer calme, la présence du divergent permet d'utiliser des diamètres supérieurs pour traquer de belles proies à proximité du fond sans aucun risque d'emmêlement.\n* **Mer Agitée (Y) :** 0.40 mm - 0.50 mm en Nylon Extra Rigide ou Fluorocarbone épais (ou câble d'acier thermosoudable si l'on cible le tassergal). Longueur réduite à 80 - 100 cm. La rigidité combinée de la potence et du fil élimine les emmêlements au cœur de la tempête.\n\n4. **L'Hameçon**\n* **Mer Calme (X) :** Taille 1 - 2 de type Beak ou Chinu forgé, parfait pour les crabes vivants, les grands fasolaires ou de généreux eschages de ver américain.\n* **Mer Agitée (Y) :** Taille 1/0 - 4/0 de fer très épais (type O'Shaughnessy ou hameçon en acier pour vif), excellent per assurer une bonne prise sur les bouches coupantes ou osseuses des grands prédateurs."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Eschage pour le vif, les tranches et les sardines entières",
+   "contenuto": "* **Pour le Vif ou la Lanière (Mer Calme / Mer Agitée) :** C'est l'application reine de cette configuration. Si vous utilisez une lanière de mulet ou de sardine, coupez-la en forme de losange flexible, retirez l'arête centrale, consolidez-la en passant l'hameçon deux volte, puis ligaturez-la étroitement avec du fil élastique. L'appât doit être compact et sans parties pendantes pour ne pas générer de friction.\n* **Pêche au Vif :** Si vous pêchez au vif (ex. petit mulet ou chinchard), eschez l'hameçon unique sur la lèvre supérieure ou sur le dos juste sous la nageoire dorsale, en vous assurant que le poisson puisse nager librement en profitant de l'impulsion donnée par le bras divergent sans s'enrouler autour de l'axe en acier."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Choix hydrodynamique vs tenue extrême",
+   "contenuto": "* **Mer Calme (X) :** Plombs lisses et lourds comme le Roccotop ou le Sporting (100g - 130g) pour propulser un appât conséquent à la distance maximale possible sans déstabiliser le vol.\n* **Mer Agitée (Y) :** Plombs à ancrage total comme les Pyramides lourdes ou les Plombs à grappins (Spike) de 150g à 175g+. Le lest doit rester immobile pour permettre au bras divergent de maintenir le bas de ligne soulevé ed éloigné des débris, du sable remué ed des algues sur le fond."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Gestion des appâts lourds et sollicitations",
+   "contenuto": "* **Mer Calme (X) :** Lancer à moyenne/longue distance (70 - 100 mètres). Le gros appât freine le vol, ma l'absence totale d'emmêlement garantie par le bras rigide permet di forcer le lancer sans crainte.\n* **Mer Agitée (Y) :** Lancer court (30 - 50 mètres). On lance dans la première ou la deuxième marche du ressac, là où les vagues créent la turbulence maximale et où les prédateurs patrouillent la côte à la recherche de nourriture remuée.\n* **Technique de lancer :** Excellent avec un Above Cast progressif ou un Side Cast bien exécuté. Le minitrave à potence en acier encaisse les sollicitations maximales de la canne sans subir de déformations structurales au départ."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes et moulinets pour la pêche lourde",
+   "contenuto": "* **Mer Calme (X) :** Canne en 3 brins de Surfcasting puissante avec une puissance de 150g. Moulinet de taille 8000 garni de Nylon 0.25 mm + un arraché (Shock Leader) robuste.\n* **Mer Agitée (Y) :** Canne Répartie (deux brins) ou canne en 3 brins de Surfcasting lourd (puissance 200-250g). Moulinet de grande capacité (taille 10000 ou tambour tournant), rempli de Nylon 0.35 - 0.40 mm en direct pour faire face aux obstacles, aux algues ed aux prises records."
+  }
+ ]
+}
