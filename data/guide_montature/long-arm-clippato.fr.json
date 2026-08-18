@@ -1,0 +1,48 @@
+{
+ "id": "long-arm-clippato",
+ "titolo": "Long Arm Clippé",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Cette variante associe l'extraordinaire efficacité de capture d'une empile très longue (idéale pour les poissons méfiants) à l'aérodynamisme du système clippé (clip-down). En bloquant l'hameçon près du plomb pendant le vol, elle élimine l'effet parachute du Long Arm classique, permettant ainsi di gagner des dizaines de mètres au lancer, même en présence d'un fort vent de face.\n\n**Espèces Cibles :** 🎯\n* **Les grandes daurades royales, les loups (bars), les gros sars, les ombrines communes et les ombrines de fond.**\n\n**Contexte Idéal :**\n* Plages de sable à pente douce où les poissons de belle taille se tiennent très loin du bord, mais aussi plages profondes balayées par de forts vents de face ou latéraux.\n\n**Circonstances d'Utilisation :**\n* Nécessité absolue d'atteindre des distances extrêmes (plus de 100-120 mètres) avec un appât unique et volumineux.\n* Journées avec un fort vent de face qui rendraient impossible l'utilisation d'un Long Arm classique.\n* Traque de prédateurs et de grands poissons fouisseurs très méfiants dans des eaux claires mais éloignées."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Configuration à empile longue avec blocage au plomb",
+   "contenuto": "Pour pouvoir clipper une empile aussi longue (souvent égale alla longueur de la totalité du corps de ligne), le raccord est positionné sur la partie mi-haute du corps de ligne. L'hameçon est ensuite étiré vers il bas et fixé sur le bait clip positionné juste au-dessus du plomb.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon supérieur du Corps de Ligne]\n      │  (environ 10-15 cm en dessous)\n[Raccord Haut : Perle - Émerillon/Micro-snap - Perle] ───> [EMPILE TRÈS LONGUE]\n      │                                                          │\n      │  (Longueur du Corps de Ligne : 180 - 220 cm)             │ (S'étire tout le long du corps de ligne)\n      │                                                          │\n[Bait Clip / Impact Shield] <────────────────────────────────────[HAMEÇON (clippé en vol)]\n      │\n[Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Trave)** (Longueur totale : 180 - 220 cm en Nylon transparent)\n* **Mer Calme (X) :** 0.40 mm - 0.45 mm. Il doit être long pour accueillir l'empile, tout en conservant une bonne légèreté pour ne pas effrayer les poissons.\n* **Mer Agitée (Y) :** 0.50 mm - 0.60 mm. Structure renforcée pour supporter la tension de plombs lourds et des lancers angulés à haute vitesse.\n\n2. **Le Raccord Haut** (Positionné sur la partie supérieure du corps de ligne)\n* **Mer Calme (X) :** Micro-émerillon (taille 22-24) ou micro-perle percée (crossbead) bloqués par des perles millimétriques et des nœuds d'arrêt en fil ou en colle pour un hydrodynamisme maximal.\n* **Mer Agitée (Y) :** Émerillon solide (taille 18-20) ou techno-perles rigides résistantes, pour garantir la rotation et éviter les torsions causées par les courants.\n\n3. **Le Système de Décrochage** (Positionné au-dessus du plomb)\n* **Configuration Unique :** Un Impact Shield ou un émerillon avec Bait Clip intégré positionné juste au-dessus de l'attache du plomb. À l'impact avec la surface de l'eau, la remontée du bouclier ou la pression hydrique libèrent instantanément l'hameçon.\n\n4. **L'Empile (Bas de ligne)** (La longueur doit essere identique à la distance exacte tra le raccord ed le bait clip)\n* **Mer Calme (X) :** 0.16 mm - 0.20 mm en Fluorocarbone. Longueur autour de 170-200 cm pour une présentation totalement invisible et naturelle sul fond.\n* **Mer Agitée (Y) :** 0.25 mm - 0.30 mm en Nylon Rigide (type Amnesia) ou Fluorocarbone dur. Longueur réduite à environ 150-160 cm (en raccourcissant proportionnellement le corps de ligne) pour éviter les emmêlements dans l'écume.\n\n5. **L'Hameçon**\n* **Mer Calme (X) :** Taille 4 - 8 de type Beak léger ou Aberdeen, parfait pour présenter au mieux le ver de Rimini, de petits bibis ou du ver de sable (arénicole).\n* **Mer Agitée (Y) :** Taille 1 - 3 de fer épais (type Bad Bass ou Chinu), robuste et capable d'assurer une bonne prise sur les pièces buccales dures (daurades et sars) avec des appâts consistants."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Préparation pour la stabilité en vol",
+   "contenuto": "* **Pour la Distance (Mer Calme) :** Si vous utilisez du Bibi, videz-le légèrement ou utilisez des bibis compacts pour hameçon. Si vous utilisez des vers, assurez-vous que la tête soit bien calée au-dessus de l'œillet de l'hameçon. Toute saillie ou appât 'abîmé' créera de la friction, risquant de décrocher l'hameçon du bait clip pendant la phase de compression du lancer.\n* **Pour la Tenue (Mer Agitée) :** Eschez un couteau frais entier ou une lanière de seiche/poulpe. Utilisez du fil élastique de manière serrée pour créer un corps unique et hydrodynamique qui protège la pointe de l'hameçon et reste stable sur le bait clip."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Fendre l'air vs stabilité au fond",
+   "contenuto": "* **Mer Calme (X) :** Plombs ultra-aérodynamiques comme le Rocco bomb, Sporting ou la Torpille (90g - 125g). Ils exploitent à 100% l'absence de friction du système clippé pour atteindre des distances sidérales.\n* **Mer Agitée (Y) :** Plombs à tenue comme les Pyramides ou les Cônes à ailettes (130g - 175g). Ils maintiennent fermement le corps de ligne au point de chute, permettant à l'empile, une fois libérée par l'impact, de se déployer correctement."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Gestion des lancers à haute énergie",
+   "contenuto": "* **Mer Calme (X) :** Distance extrême (110 - 150+ mètres). C'est la situation dans laquelle ce montage excelle, en éliminant complètement la résistance de l'air.\n* **Mer Agitée (Y) :** Long lancer (70 - 100 mètres). Permet de franchir aisément la zone des premiers rouleaux et de la barre de sable pour se positionner dans les baïnes ou les canalons extérieurs les plus profonds.\n* **Technique de lancer :** Ce montage est conçu pour supporter des lancers à très haute énergie. Il est idéal pour le Side Cast angulé ou pour le Ground Cast (lancer avec plomb posé au sol), car la tension de l'empile clippée empêche l'appât di subir des chocs fatals au démarrage."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Matériel réactif et performant",
+   "contenuto": "* **Mer Calme (X) :** Canne en 3 brins de Surfcasting avec une puissance de 100-150g, réactive mais dotée d'un scion capable d'accompagner les touches. Moulinet de taille 5000 - 8000 avec bobine conique, Nylon 0.20 mm et un arraché (Shock Leader).\n* **Mer Agitée (Y) :** Canne de Surfcasting de haute performance (3 brins nerveuse o Répartie deux brins), puissance 200g. Moulinet puissant de taille 10000, garni de Nylon 0.28 - 0.32 mm direct ou d'un Shock Leader renforcé."
+  }
+ ]
+}
