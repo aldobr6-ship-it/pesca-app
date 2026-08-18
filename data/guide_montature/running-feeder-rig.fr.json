@@ -1,0 +1,48 @@
+{
+ "id": "running-feeder-rig",
+ "titolo": "Running Feeder (Amorceur Coulissant)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le montage Running Feeder est le pilier incontesté du Feeder Fishing (aussi bien en eau douce qu'en mer). C'est la variante 'amorceur' du montage coulissant classique. Son génie réside dans le fait que l'amorceur (feeder) coulisse librement sur la ligne principale ou sur l'arraché. Lorsque le poisson mord et s'éloigne, il ne ressent pas le poids du lest ou du feeder, ingérant l'appât en totale confiance, tandis que le scion de la canne (quiver tip) signale la moindre touche avec une précision millimétrique.\n\n**Espèces Cibles :** 🎯\n* **En mer :** Daurades royales, loups (bars), marbrés, sars et mulets.\n* **En eau douce :** Barbeaux, carpes, carassins, chevesnes et brèmes.\n\n**Contexte Idéal :**\n* Estuaires de rivières, canaux, ports, digues artificielles et plages de sable à pente douce (Beach Ledgering / Feeder marin). Il fonctionne aussi bien en eaux calmes (lacs/ports) qu'en courant fort (rivières).\n\n**Circonstances d'Utilisation :**\n* Lorsqu'il est fondamental di regrouper les poissons sur un point précis en créant une traînée d'amorce (effet d'attraction).\n* En présence de poissons méfiants qui refusent l'appât s'ils ressentent la moindre résistance.\n* Lors des journées d'apathie où l'amorce ou les asticots libérés par le feeder stimulent la frénésie alimentaire."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Configuration du raccord et du système anti-emmêlement",
+   "contenuto": "L'amorceur est enfilé directement sulla ligne principale via un coulisseau ou un émerillon à agrafe. Un raccord unique inférieur, protégé par une perle protège-nœud, sert de butée et connecte le bas de ligne. Souvent, entre le stop-float en caoutchouc et l'émerillon, on réalise une torsade ou tresse (brillatura) de 10-15 cm avec le même fil afin d'écarter le bas de ligne de l'amorceur et d'éliminer les emmêlements en vol.\n\n**Schéma Visuel :**\n[Arraché / Corps de Ligne de la Canne] \n      │\n[Émerillon à Agrafe Coulissant] ───> [AMORCEUR (FEEDER)]\n      │\n[Perle en caoutchouc souple / Stop-Float (Protège-nœud)]\n      │  \n[Émerillon Solide ou Micro-émerillon (Taille 20-22)]\n      │\n[BAS DE LIGNE UNIQUE (Hooklength)] ───────────────────────────────────> [HAMEÇON]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme / Eau Calme X vs Mer Agitée / Courant Y",
+   "contenuto": "1. **La Ligne de Coulissement** (Corps de ligne o Arraché)\n* **Eau Calme / Mer Calme (X) :** Fil direct en bobine ou Arraché (Shock Leader) de 0.25 mm - 0.30 mm (Nylon ou Tresse fine con arraché en nylon). Il doit être lisse pour permettre au coulisseau de l'amorceur di glisser sans friction.\n* **Courant / Mer Agitée (Y) :** Arraché (Shock Leader) de 0.40 mm - 0.50 mm. Indispensable pour supporter le poids d'amorceurs lourds à plein chargement et la poussée de l'eau ou des vagues.\n\n2. **L'Amorceur** (Feeder)\n* **Eau Calme / Mer Calme (X) :** Cage Feeder (cage en plastique/métal pour amorce) ou Open End (tube perforé) léger, poids 20g - 40g. En mer, on utilise souvent des amorceurs de type Block-End (fermés) pour une libération progressive d'asticots vivants.\n* **Courant / Mer Agitée (Y) :** Amorceurs lourds à cage métallique (parfois avec des crampons/griffes de tenue pour les rivières ou le ressac) ou Method Feeder lourds, poids 60g - 120g+, capables de rester immobiles sur le fond.\n\n3. **Le Bas de Ligne** (Hooklength)\n* **Eau Calme / Mer Calme (X) :** 0.10 mm - 0.14 mm en Fluorocarbone ou Nylon de compétition. Longueur variable de 60 cm jusqu'à 120 cm. Plus l'eau est claire ed i poissons difficiles, plus le bas de ligne doit être long et fin.\n* **Courant / Mer Agitée (Y) :** 0.16 mm - 0.22 mm en Fluorocarbone ou Nylon rigide. Longueur réduite à 30 cm - 50 cm pour faire travailler l'appât très près de la traînée d'amorce sans que le courant ne crée d'emmêlements sur le corps du feeder.\n\n4. **L'Hameçon**\n* **Eau Calme / Mer Calme (X) :** Taille 14 - 18 de fer très fin, léger ed invisible, spécifique pour escher 1 ou 2 asticots vivants, un grain de maïs unique ou un petit ver.\n* **Courant / Mer Agitée (Y) :** Taille 8 - 12 de fer robuste et forgé. Il doit résister à la force de poissons combatifs (comme les barbeaux ou les grandes daurades) dans le courant et accueillir des esches généreuses."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Présentation de l'asticot ou du ver ferme",
+   "contenuto": "* **L'Asticot Parfait (Mer Calme / Eau Calme) :** Piquez l'asticot (ou la paire) juste par la 'peau' de la queue (la partie plate où se trouvent les deux petits points noirs). Cela laisse le ver complètement libre de bouger et d'onduler sur le fond, le rendant irrésistible pour les mulets, les marbrés et les carassins.\n* **Le Bouquet ou le Ver Ferme (Courant / Mer Agitée) :** Eschez un petit ver (ex. demi-dur o muriddu) en l'enfilant sur l'hameçon à l'aide d'une aiguille, ou créez un bouquet compact de 4-5 asticots piqués en rosace. L'appât doit être solide pour ne pas être arraché par la friture ou la force du courant."
+  },
+  {
+   "id": "gestione_pastura",
+   "titolo": "⚓ Gestion de l'Amorce",
+   "sottotitolo": "Mécanique des farines et libération contrôlée",
+   "contenuto": "* **Configuration X (Eaux calmes) :** Utilisez des amorces à granulométrie fine, peu collantes, qui se désagrègent dans les 2-3 premières minutes après avoir touché le fond, créant un nuage attractif et stimulant directement autour de l'appât.\n* **Configuration Y (Courant) :** Utilisez des amorces riches en particules lourdes, très collantes (souvent additionnées de fromage ou de colle à asticots). L'amorce doit sortir lentement du feeder, créant une traînée longue et constante sur le fond qui guiderà le poisson directement vers l'hameçon."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Précision absolue grâce à la technique du line-clip",
+   "contenuto": "* **Eau Calme / Mer Calme (X) :** Lancer à moyenne/longue distance (40 - 70 mètres). Nécessite un lancer fluide et parabolique pour éviter que l'amorce ne se détache du feeder ou n'explose pendant la phase de vol.\n* **Courant / Mer Agitée (Y) :** Lancer court ou moyen (20 - 50 mètres). On recherche la veine de courant la moins forte de la rivière (la bordure d'enrochement o le cœur du chenal) ou la fosse derrière le rouleau en mer.\n* **Technique fondamentale :** Pour pêcher correctement en Running Feeder, il est obligatoire de klipper le fil sur le moulinet (en utilisant le line-clip de la bobine) après le premier lancer d'essai. Cela garantit di lancer toujours à la même distance exacte, permettant di concentrer l'amorce sur une seule zone restreinte du fond."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Canne quiver tip et moulinets pour le feeder",
+   "contenuto": "* **Eau Calme / Mer Calme (X) :** Canne Feeder de 11-12 pieds (Medium-Light), puissance 30-60g, dotée de scions (quiver tip) en fibre de verre ou en carbone léger de 0.5 - 1 once. Moulinet de taille 3000 - 4000 spécifique pour le feeder.\n* **Courant / Mer Agitée (Y) :** Canne Feeder lourde de 13-14 pieds (Heavy / Extra-Heavy), puissance 90-150g+, avec des scions rigides en carbone de 3 - 5 onces. Moulinet puissant de taille 5000 - 6000 avec frein micrométrique et un excellent ratio de récupération pour ramener des amorceurs lourds."
+  }
+ ]
+}
