@@ -1,0 +1,48 @@
+{
+ "id": "pulley-rig-clippato",
+ "titolo": "Pulley Rig Clippé (Poulie Clip-Down)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Cette version pousse à l'extrême les qualités balistiques du Pulley Rig classique. Elle utilise un système de blocage (bait clip ou impact shield) positionné juste au-dessus du plomb pour ancrer l'hameçon et l'appât pendant le vol. C'est le montage par excellence lorsqu'il s'agit de propulser des appâts énormes (tels que des sardines entières, des seiches ou de gros crabes) à des distances sidérales, en éliminant l'effet parachute et en garantissant un décrochage automatique à l'impact avec l'eau.\n\n**Espèces Cibles :** 🎯\n* **Les grandes daurades royales, les loups (bars) records, les gros sars, les ombrines de fond, les raies, les congres et les petits requins côtiers (émissoles/roussettes).**\n\n**Contexte Idéal :**\n* Plages de sable profondes à pente rapide, fonds mixtes (sable et roche) et plages exposées à de forts vents de face ou latéraux.\n\n**Circonstances d'Utilisation :**\n* Nécessité de lancer un appât volumineux et lourd à des distances extrêmes (plus de 100 mètres) pour intercepter les grands prédateurs.\n* Fort vent de face qui freinerait tout autre montage non clippé.\n* Pêche dans des spots encombrés ou riches en obstacles où le système de poulie doit soulever le plomb lors de la récupération du poisson."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Fonctionnement du corps de ligne dynamique à poulie clip-down",
+   "contenuto": "Le corps de ligne dynamique permet le coulissement de la poulie. L'hameçon est orienté vers le bas, mis en tension et fixé sur le bait clip inférieur. En vol, l'appât fait corps unique avec le plomb. À l'impact avec l'eau, la remontée du bouclier ou la pression hydrique libèrent l'hameçon. Lorsque le poisson mord, la poulie coulisse vers le haut, soulevant le plomb pour l'éloigner du fond.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon supérieur du Corps de Ligne]\n      │\n      │ ─── Perle en caoutchouc (Protège-nœud supérieur)\n      │ ─── Pulley Bead / Émerillon Coulissant ───────> [EMPILE RIGIDE]\n      │                                                     │\n      │  (Longueur du Corps de Ligne : 110 - 130 cm)        │ (Descend tendue en vol)\n      │ ─── Perle en caoutchouc (Protège-nœud inférieur)     │\n      │                                                     ▼\n[Bait Clip / Impact Shield] <───────────────────────────────[HAMEÇON (clippé en vol)]\n      │\n[Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Trave)** (Longueur totale : 110 - 130 cm en Nylon à très haute résistance)\n* **Mer Calme (X) :** 0.50 mm. Transparent et rigide, spécifique pour supporter le coulissement de la poulie et la tension du lancer sans subir de lésions.\n* **Mer Agitée (Y) :** 0.60 mm - 0.70 mm. Structure renforcée pour fendre le courant, tolérer le frottement sur le fond et gérer des plombs lourds face au vent.\n\n2. **Le Système Coulissant** (La poulie)\n* **Configuration Unique :** On utilise un Pulley Bead (un coulisseau en plastique avec œillet en métal) ou un émerillon solide (taille 4) enfilé sur le corps de ligne. Il est bloqué aux deux extrémités par des perles en caoutchouc amortissantes pour protéger les nœuds de raccord.\n\n3. **Le Système de Clip Inférieur** (Positionné au-dessus du plomb)\n* **Configuration Unique :** Un Impact Shield ou un clip de type Genie Link Clip. Cet accessoire doit être robuste et spacieux per accueillir la courbure de grands hameçons sans risquer de décrochages prématurés pendant la phase de compression du lancer.\n\n4. **L'Empile (Bas de ligne)** (La longueur doit être identique alla distance exacte entre la poulie ed le clip inférieur)\n* **Mer Calme (X) :** 0.30 mm - 0.35 mm en Fluorocarbone. Longueur autour de 90-100 cm. Offre une invisibilité totale à proximité du fond pour tromper les grandes daurades.\n* **Mer Agitée (Y) :** 0.45 mm - 0.50 mm en Nylon Extra Rigide (type Amnesia) ou Fluorocarbone épais. Longueur autour de 80-90 cm pour garantir une tenue anti-emmêlement parfaite dans l'écume.\n\n5. **L'Hameçon** (Souvent monté en configuration Pennell Rig à deux hameçons en ligne)\n* **Mer Calme (X) :** Taille 1/0 - 2/0 de type Beak forgé, idéal pour présenter des crabes vivants, de gros bibis ou de petites seiches propres.\n* **Mer Agitée (Y) :** Taille 3/0 - 5/0 de type O'Shaughnessy ou Bad Bass de fer très épais. On utilise un montage double (Hameçon Pennell) pour brider et maintenir des appâts longs comme des sardines entières ou des lanières de calamar."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Eschage en cigare et configuration Pennell Rig",
+   "contenuto": "* **Eschage en 'Cigare' (Mer Calme / Mer Agitée) :** C'est fondamental pour la stabilité en vol. Si vous utilisez un filet de sardine ou une lanière de seiche, passez l'hameçon tracteur (celui du bas) sur la pointe de l'appât et l'hameçon coulissant (le haut) sur la tête. Enveloppez l'appât de manière très serrée avec du fil élastique jusqu'à le modeler comme un cigare lisse et compact. La courbure de l'hameçon du bas doit rester libre de tout filament pour pouvoir s'accrocher solidement au bait clip."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Profil lisse vs ancrage rigide",
+   "contenuto": "* **Mer Calme (X) :** Plombs hautement aérodynamiques comme le Rocco bomb ou le Sporting (120g - 150g). Ils profitent du profil clippé pour fendre l'air et atteindre des distances sidérales.\n* **Mer Agitée (Y) :** Plombs à tenue extrême comme les Pyramides lourdes ou les Plombs à grappins (Spike) de 150g à 175g+. L'ancrage rigide du lest est essentiel pour tendre l'empile et permettre l'auto-ferrage du prédateur."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Élimination de la friction et lancers forcés",
+   "contenuto": "* **Mer Calme (X) :** Distance extrême (100 - 130+ mètres). Le montage clippé élimine toute friction aérodynamique de la grosse bouchée, permettant d'atteindre les baïnes les plus lointaines.\n* **Mer Agitée (Y) :** Long lancer (60 - 90 mètres). Permet de fendre les forts vents de face et de déposer l'appât lourd exactement derrière la ligne des rouleaux extérieurs.\n* **Technique de lancer :** Ce montage est structuré pour supporter les contraintes maximales. C'est la configuration idéale pour le Side Cast angulé ou pour le Ground Cast (avec plomb posé au sol), car la poulie clippée et tendue empêche l'appât de subir des chocs fatals au démarrage."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes et moulinets à hautes performances",
+   "contenuto": "* **Mer Calme (X) :** Canne en 3 brins de Surfcasting puissante (puissance 150-200g). Moulinet de grande capacité taille 8000 - 10000 avec un Nylon de 0.25 mm + un arraché (Shock Leader) robuste.\n* **Mer Agitée (Y) :** Canne Répartie en deux brins (Rip) ou canne en 3 brins de haute performance (puissance 200-250g). Moulinet puissant (tambour fixe taille 10000 ou tambour tournant de Surfcasting), rempli de Nylon 0.35 - 0.40 mm en direct pour résister aux frottements contre les obstacles du fond."
+  }
+ ]
+}
