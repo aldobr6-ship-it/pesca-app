@@ -1,0 +1,48 @@
+{
+ "id": "minitrave-snodato",
+ "titolo": "Minitrave Articulé 360° (Minitrave Pivotant 360)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le Minitrave Articulé 360° représente le summum des écarteurs modernes pour le Surfcasting et le Beach Ledgering de compétition et de loisir. Contrairement au minitrave classique, ce modèle intègre un système de raccord central hyper-technique basé sur un émerillon rolling spécial (ou un système à roulement/techno-perle) che pivote librement à 360 degrés aussi bien autour de l'axe vertical du corps de ligne che sur son propre axe horizontal. Cette hyper-rotation élimine complètement l'effet mémoire et absorbe instantanément la moindre torsion sur l'empile, ce qui en fait un montage anti-emmêlement exceptionnel, même face à des courants multidirectionnels et des flux de marée instables.\n\n**Espèces Cibles :** 🎯\n* **Les marbrés, les daurades royales, les loups (bars), les sars, les rougets, les grondins, les pageots et les ombrines.**\n\n**Contexte Idéal :**\n* Plages de sable à pente douce ou moyenne, zones sujettes à des courants de fond croisés, flux de marée constants, estuaires et proximité delle digues immergées. Il travaille divinement bien aussi bien en Beach Ledgering par mer calme qu'en Surfcasting léger et moyen.\n\n**Circonstances d'Utilisation :**\n* En présence de forts courants latéraux ou de retour qui créent des vortex sur le fond.\n* Lors de l'utilisation d'appâts qui tendent à tourner en hélice pendant la récupération ou dans le courant (comme le ver coréen ou les lanières de seiche).\n* Lorsque l'on souhaite pêcher avec des empiles ultra-fines sans risquer qu'elles ne s'endommagent à cause des torsions.\n* Pour une rapidité d'action absolue lors des changements d'empile."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Fonctionnement du raccord hyper-coulissant multidirectionnel",
+   "contenuto": "La structure est très courte (environ 10-12 cm). L'arraché se connecte à la boucle supérieure. Au centre du minitrave, l'émerillon rolling spécial (ou la micro-perle à 4 trous) est libre de pivoter à 360° sans rencontrer la moindre friction mécanique, maintenant l'empile longue parfaitement tendue et indépendante.\n\n**Schéma Visuel :**\n[Arraché / Shock Leader] \n      │\n[Boucle / Émerillon Supérieur du Minitrave]\n      │\n[Tige Rigide du Minitrave (Acier Inox ou Nylon Épais)]\n      │\n[RACCORD ROLLING 360° (Émerillon spécial hyper-coulissant)] ───────────> [EMPILE LONGUE] ───> [HAMEÇON]\n      │  (Pivote librement sur tous les axes)\n[Attache Inférieure avec Petit Tube en Silicone + Plomb]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps du Minitrave 360**\n* **Mer Calme (X) :** Structure en Nylon rigide extra-strong (diamètre 0.80 mm) ou mini-tige en acier harmonique léger de 10 cm. Offre un impact visuel ed acoustique minimal lors de l'entrée dans l'eau par calme plat.\n* **Mer Agitée (Y) :** Structure en Acier Inox à haute résistance (diamètre 1.00 mm - 1.20 mm), longueur 12 cm. Indestructible et rigide à 100%, conçu pour supporter des lancers forcés avec des lests lourds face au vent.\n\n2. **Le Raccord Pivotant 360°** (Le cœur technologique du montage)\n* **Configuration Unique :** Micro-émerillon de type Rolling à haute vitesse ou techno-perle micro-percée, enserré entre deux perles millimétriques de butée et bloqué par des sleeves métalliques o delle gaines thermorétractables. Le raccord doit garantir des torsions latérales et longitudinales, en tournant de manière fluide même s'il est soumis à de fortes tractions.\n\n3. **L'Empile (Bas de ligne)** (Terminal unique en drapeau)\n* **Mer Calme (X) :** 0.14 mm - 0.18 mm en Fluorocarbone. Très longue, de 150 cm jusqu'à 220 cm. La perfection du raccord 360 permet di descendre sur des diamètres très fins sans risquer que le fil ne se charge en torsion ou ne s'abîme sur la lèvre de la prise.\n* **Mer Agitée (Y) :** 0.25 mm - 0.30 mm en Nylon Extra Rigide (type Amnesia) ou Fluorocarbone dur. Longueur réduite à 100 - 120 cm pour faire corps avec la rigidité du raccord et contrer la force d'impact des vagues.\n\n4. **L'Hameçon**\n* **Mer Calme (X) :** Taille 6 - 10 de fer très fin et tige longue (type Aberdeen), parfait pour un eschage propre et hydrodynamique du ver de sable (arénicole).\n* **Mer Agitée (Y) :** Taille 2 - 5 de fer robuste (type Beak ou Chinu forgé), spécifique pour accueillir des appâts fermes et volumineux destinés aux poissons di belle taille dans le ressac."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🪱 Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Eschages flottants et appâts en hélice",
+   "contenuto": "* **Eschage Flottant (Mer Calme) :** Enfilez le ver (arénicole) entièrement à l'aide d'une aiguille fine et faites-le glisser sur le fil au-delà de la palette de l'hameçon. L'appât doit être parfaitement droit ; s'il devait commencer à tourner à cause du courant, le raccord 360 éliminera les emmêlements sur le corps de ligne, maintenant intacte la présentation linéaire pour tromper les poissons les plus rusés.\n* **Bouchée Attrayante (Mer Agitée) :** Créez un appât compact avec un couteau décoquillé, un ver muriddu ou une lanière de coréen, en le ligaturant solidement avec du fil élastique. Au-dessus de l'hameçon, vous pouvez insérer une petite perle pop-up ou une perle fluorescente : la vague fera bouger l'appât entre deux eaux et l'émerillon 360 permettra au bas de ligne d'accompagner les flux du ressac sans faire de perruques."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Choix hydrodynamique vs ancrage total",
+   "contenuto": "* **Mer Calme (X) :** Plombs aérodynamiques et légèrement mobiles comme le Roccotop, le plomb Saponetta ou la Torpille (50g - 90g). Ils se déplacent doucement en soulevant du sable pour attirer le poisson, tandis que le raccord garantit la totale indépendance de la longue empile.\n* **Mer Agitée (Y) :** Plombs à ancrage total comme les Pyramides ou les Cônes (125g - 175g). Ils doivent bloquer le montage sur le fond sableux, laissant le courant déployer l'empile en activant la rotation continue du raccord 360."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Optimisation aérodynamique et polyvalence de lancer",
+   "contenuto": "* **Mer Calme (X) :** Long lancer (80 - 110+ mètres). La compacité du minitrave réduit drastiquement la friction de l'air par rapport à un corps de ligne long traditionnel, permettant de gagner des mètres importants à effort égal.\n* **Mer Agitée (Y) :** Lancer moyen (40 - 70 mètres). Excellent pour fendre les vents contraires et positionner l'appât avec une précision chirurgicale à l'intérieur des baïnes et canalons de ressac profonds.\n* **Technique de lancer :** Extrêmement polyvalente. Ce montage tolère très bien le lancer Above Cast progressif, mais la version en acier inoxydable est structurée pour supporter parfaitement les lancers techniques à haute énergie comme le Side Cast angulé ou le Ground Cast (plomb posé au sol), sans subir la moindre déformation structurelle."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes et moulinets recommandés",
+   "contenuto": "* **Mer Calme (X) :** Canne légère de Beach Ledgering (puissance 40-100g) ou de Surfcasting léger dotée de scions sensibles. Moulinet de taille 4000 - 5000 avec un Nylon fin (0.18 mm) + un arraché (Shock Leader) fluide.\n* **Mer Agitée (Y) :** Canne de Surfcasting en 3 brins ou canne répartie robuste (puissance 150-200g). Moulinet puissant de taille 8000 - 10000 garni de Nylon 0.28 - 0.30 mm + un arraché conique."
+  }
+ ]
+}
