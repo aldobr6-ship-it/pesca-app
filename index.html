@@ -3340,9 +3340,21 @@ function mostraMenuCapitoli(guidaData) {
   if (!container) return;
   
   const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it';
-  const suffissoTitolo = lang === 'fr' ? ' - Guide Technique' : ' - Guida Tecnica';
+  
+  // Gestione dinamica del titolo per eliminare i residui italiani nel JSON francese
+  let titoloPulito = guidaData.titolo;
+  let suffissoTitolo = ' - Guida Tecnica Esperta';
+  
+  if (lang === 'fr') {
+    suffissoTitolo = ' - Guide Technique Experte';
+    // Sostituisce i prefissi italiani con il termine corretto francese "Montage"
+    titoloPulito = titoloPulito
+      .replace(/^Montatura a /i, 'Montage ')
+      .replace(/^Montatura con /i, 'Montage avec ')
+      .replace(/^Montatura /i, 'Montage ');
+  }
 
-  let html = `<h3 style="margin-top:15px;color:#0a2a43;">${guidaData.titolo}${suffissoTitolo}</h3>`;
+  let html = `<h3 style="margin-top:15px;color:#0a2a43;">${titoloPulito}${suffissoTitolo}</h3>`;
   html += `<div style="display:flex;flex-direction:column;gap:8px;">`;
   
   guidaData.capitoli.forEach((capitolo, index) => {
@@ -3357,7 +3369,6 @@ function mostraMenuCapitoli(guidaData) {
   html += `</div>`;
   container.innerHTML = html;
 }
-
 // Mostra il dettaglio del singolo capitolo con il tasto indietro
 async function apriCapitolo(idMontatura, indiceCapitolo) {
   const container = document.getElementById("contenitore-guida");
