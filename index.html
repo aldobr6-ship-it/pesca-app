@@ -2938,28 +2938,26 @@ function applicaFiltriSpot(){
   const tech=document.getElementById("filtroTech")?.value||"all";
   const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
   
-  // Rimuove i vecchi marker e aggiorna la mappa con i nuovi elementi filtrati
   aggiornaMappaSpotItalia(filtrati);
   
   const n=filtrati.length;
   if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
   if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
   
-  if(reg!=="all" || tech!=="all"){
-    mostraPannelloLista(filtrati, reg!=="all" ? reg : "Risultati filtro");
+  if(reg!=="all"||tech!=="all"){
+    mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
     if(filtrati.length>0){
       const bounds=L.latLngBounds(filtrati.map(s=>s.coords));
-      // 💡 RIPRISTINATO IL VALORE REALE E SICURO AL 100%
-      spotItaliaMap.fitBounds(bounds,{padding:[30,30]});
+      // 💡 SOLUZIONE DEFINITIVA: impostato il fitBounds pulito senza oggetti orfani
+      spotItaliaMap.fitBounds(bounds);
     }
   } else {
     if(document.getElementById("spotPanelBody")){
-      if(document.getElementById("spotPanelHeader")) {
-        document.getElementById("spotPanelHeader").textContent = t('tuttiGliSpot') || "Tutti gli Spot";
-      }
+      document.getElementById("spotPanelHeader").textContent = t('tuttiGliSpot') || "Tutti gli Spot";
     }
   }
 }
+
 
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
