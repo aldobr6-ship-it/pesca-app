@@ -2575,7 +2575,7 @@ function applicaFiltriSpot(){
   const tech=document.getElementById("filtroTech")?.value||"all";
   const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
   
-  // Rimuove i vecchi marker e inserisce solo quelli filtrati della regione selezionata
+  // Aggiorna i segnaposto sulla mappa
   aggiornaMappaSpotItalia(filtrati);
   
   const n=filtrati.length;
@@ -2586,17 +2586,18 @@ function applicaFiltriSpot(){
     mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
     if(filtrati.length>0){
       const bounds=L.latLngBounds(filtrati.map(s=>s.coords));
+      // 💡 RIPRISTINATO IL VALORE ORIGINALE CORRETTO [30,30]
       spotItaliaMap.fitBounds(bounds,{padding:[30,30]});
     }
   } else {
-    // 💡 RISOLTO IL TRONCAMENTO: textContent è completo e le parentesi sono chiuse
+    // Chiusura pulita della logica senza troncamenti
     if(document.getElementById("spotPanelBody")){
-      document.getElementById("spotPanelHeader").textContent = "Tutti gli spot";
+      if(document.getElementById("spotPanelHeader")) {
+        document.getElementById("spotPanelHeader").textContent = t('tuttiGliSpot') || "Tutti gli Spot";
+      }
     }
   }
 }
-
-
   // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
   const mappaSinonimi = {
     // FRANCIA
