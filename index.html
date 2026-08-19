@@ -1178,43 +1178,46 @@ function slugEsca(nome) {
   el.replaceWith(div);
 }
 function mostraEscaPopup(nomeEsca) {
-  // Pulizia radicale iniziale del testo passato
-  const nomeMinimo = nomeEsca.trim().toLowerCase();
+  // 1. Pulizia radicale del testo (minuscolo e senza spazi extra)
+  const testoInput = nomeEsca.trim().toLowerCase();
   
-  // Impostazione di un nome file predefinito basato sulla sostituzione standard degli spazi
-  let fileNome = nomeMinimo.replace(/\s+/g, '_');
+  // 2. Definizione del nome file di default (sostituisce gli spazi con l'underscore)
+  let fileNome = testoInput.replace(/\s+/g, '_');
 
-  // 🎯 ISPEZIONE PROFESSIONALE DELLE PAROLE CHIAVE REALI
-  // Intercetta la presenza della parola chiave e la associa al nome esatto del tuo file sul server
-  if (nomeMinimo.includes("granchio")) {
+  // 3. DISCOPACHETTARE LE ECCEZIONI REALI (Mappatura rigida professionale)
+  // Controlla la presenza della parola chiave per agganciare i tuoi file esatti sotto /img/
+  if (testoInput.includes("granchio")) {
     fileNome = "granchio_vivo";
-  } else if (nomeMinimo.includes("calamaro")) {
+  } else if (testoInput.includes("calamaro")) {
     fileNome = "pezzo_calamaro";
   }
 
-  // Generazione del percorso finale pulito
+  // 4. Costruzione del percorso relativo standard per l'applicazione
   const urlImmagine = `img/${fileNome}.jpg`;
 
-  // Pulizia e gestione del ciclo di vita del DOM per evitare duplicazioni
+  // 5. Gestione sicura del DOM (Rimuove istanze precedenti per evitare conflitti di ID nell'app)
   const vecchioPopup = document.getElementById("escaPopup");
   if (vecchioPopup) vecchioPopup.remove();
 
+  // 6. Creazione del Popup isolato (Quadro piccolo bianco)
   const popup = document.createElement("div");
   popup.id = "escaPopup";
-  popup.style = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;z-index:9999;animation:fadeIn 0.2s ease;";
+  popup.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; z-index:99999; animation:fadeIn 0.2s ease;";
   
+  // Chiude al tocco sullo sfondo scuro esterno
   popup.onclick = function(e) { 
     if (e.target === popup) popup.remove(); 
   };
 
   popup.innerHTML = `
-    <div class="card" style="width:85%;max-width:320px;background:#fff;padding:20px;border-radius:16px;text-align:center;position:relative;box-shadow:0 10px 25px rgba(0,0,0,0.3);animation:scaleUp 0.2s ease;cursor:default;">
-      <button onclick="document.getElementById('escaPopup').remove()" style="position:absolute;top:10px;right:12px;background:none;border:none;font-size:18px;cursor:pointer;color:#888;">✕</button>
-      <h3 style="margin:0 0 14px 0;font-size:18px;color:#0a2a43;">${nomeEsca}</h3>
-      <img src="${urlImmagine}" alt="${nomeEsca}" style="width:100%;max-height:220px;object-fit:contain;border-radius:10px;margin-bottom:10px;"
+    <div class="card" style="width:85%; max-width:320px; background:#fff; padding:20px; border-radius:16px; text-align:center; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.3); animation:scaleUp 0.2s ease; cursor:default;">
+      <button onclick="document.getElementById('escaPopup').remove()" style="position:absolute; top:10px; right:12px; background:none; border:none; font-size:18px; cursor:pointer; color:#888;">✕</button>
+      <h3 style="margin:0 0 14px 0; font-size:18px; color:#0a2a43;">${nomeEsca}</h3>
+      <img src="${urlImmagine}" alt="${nomeEsca}" style="width:100%; max-height:220px; object-fit:contain; border-radius:10px; margin-bottom:10px;"
         onerror="if(typeof imgFallback === 'function'){imgFallback(this,'Immagine non disponibile')}else{this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>Foto non disponibile</text></svg>';}">
     </div>
   `;
+
   document.body.appendChild(popup);
 }
 
