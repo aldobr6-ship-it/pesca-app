@@ -1261,35 +1261,55 @@ function showMontaturaDetail(id) {
   const m = montatureData.find(x => x.id === id); if (!m) return;
   document.getElementById("content").innerHTML = `
     <div style="animation:fadeIn 0.3s ease;">
+      <!-- Intestazione -->
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
         <span style="font-size:32px;">${m.emoji}</span>
         <div><h2 style="margin:0;font-size:20px;">${m.nome}</h2>
         <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p></div>
       </div>
+
+      <!-- 📸 L'IMMAGINE ORA È IN ALTO -->
+      <div style="margin-bottom:16px; text-align:center;">
+        <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;"
+          onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
+        <p style="text-align:center;font-size:11px;opacity:0.5;margin:6px 0 0;">${t('toccaIngrandire')}</p>
+      </div>
+
+      <!-- 🐟 TARGET (Ora Cliccabili per vedere la foto) -->
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
         <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('target')}</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.target.split(" • ").map(tg=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${tg}</span>`).join("")}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          ${m.target.split(" • ").map(tg => `
+            <span onclick="mostraPescePopup('${tg.trim()}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+              🔍 ${tg}
+            </span>
+          `).join("")}
+        </div>
       </div>
-      <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:200px;width:100%;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;"
-        onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
-      <p style="text-align:center;font-size:11px;opacity:0.5;margin:6px 0 10px;">${t('toccaIngrandire')}</p>
+
+      <!-- 🕒 QUANDO USARE -->
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
-  <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('quandoUsare')}</div>
-  <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
-</div>
+        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('quandoUsare')}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
+      </div>
+
+      <!-- 🪱 ESCHE CONSIGLIATE -->
       <div class="card" style="text-align:left;padding:14px;cursor:default;">
         <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('escheConsigliate')}</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
           ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
         </div>
       </div>
-           <!-- 💡 PULSANTE GUIDA TECNICA ESPERTA (Ora Tradotto Dinamicamente) -->
+
+      <!-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
       <button onclick="caricaGuidaMontatura('${m.id}')" style="width:100%;padding:14px;margin-top:10px;margin-bottom:10px;border-radius:12px;background:linear-gradient(135deg,#0a2a43,#1d5a8a);color:white;font-weight:bold;font-size:14px;border:none;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,0.15);">
         💡 ${t('guidaTecnicaEsperta')}
       </button>
       
       <!-- 📦 CONTENITORE DOVE SI APRIRANNO I CAPITOLI -->
       <div id="contenitore-guida"></div>
+      
+      <!-- 🎥 VIDEO YOUTUBE -->
       <a href="${m.video}" target="_blank" style="text-decoration:none;">
         <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;text-align:left;">
           <div style="font-size:30px;line-height:1;">▶</div>
@@ -1300,6 +1320,28 @@ function showMontaturaDetail(id) {
       <button onclick="goTo(showMontature)" style="width:100%;margin-top:4px;">${t('tornaMontature')}</button>
     </div>`;
 }
+function mostraPescePopup(nomePesce) {
+  // Converte "Sarago Maggiore" in "sarago-maggiore.jpg"
+  const fileNome = nomePesce.toLowerCase().replace(/\s+/g, '-');
+  const urlImmagine = `./img/${fileNome}.jpg`;
+  
+  // Sfrutta la funzione popup già esistente nella tua applicazione
+  mostraEscaPopup(nomePesce);
+  
+  // Cambia dinamicamente l'immagine del popup appena aperto con quella del pesce
+  setTimeout(() => {
+    const popupImg = document.querySelector('#escaPopup img, .popup img, [id*="Popup"] img');
+    if (popupImg) {
+      popupImg.src = urlImmagine;
+      popupImg.alt = nomePesce;
+      // Se l'immagine del pesce non esiste, usa il tuo fallback di cortesia
+      popupImg.onerror = function() {
+        imgFallback(this, 'Immagine ' + nomePesce + ' non disponibile');
+      };
+    }
+  }, 50);
+}
+
 </script>
 <script>
 /* === DATI SPOT FRANCIA === */ 
