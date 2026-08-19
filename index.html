@@ -1260,21 +1260,25 @@ function showMontature() {
 function showMontaturaDetail(id) {
   const m = montatureData.find(x => x.id === id); if (!m) return;
   document.getElementById("content").innerHTML = `
-    <div style="animation:fadeIn 0.3s ease;">
+    <div style="animation:fadeIn 0.3s ease; padding-bottom: 20px;">
+      
       <!-- Intestazione -->
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
         <span style="font-size:32px;">${m.emoji}</span>
-        <div><h2 style="margin:0;font-size:20px;">${m.nome}</h2>
-        <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p></div>
+        <div>
+          <h2 style="margin:0;font-size:20px;">${m.nome}</h2>
+          <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p>
+        </div>
       </div>
 
-      <!-- 📐 GRIGLIA RESPONSIVA: Testi a sinistra, Foto a destra -->
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:16px; align-items: stretch;">
+      <!-- 📦 CONTENITORE SUPERIORE (Affianca Testo e Foto solo se c'è spazio, altrimenti li mette uno sotto l'altro) -->
+      <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:16px; align-items: stretch;">
         
-        <!-- COLONNA SINISTRA: I tre blocchi informativi uno sopra l'altro -->
-        <div style="display:flex; flex-direction:column; gap:12px; justify-content: space-between;">
+        <!-- COLONNA TESTI (Sinistra) -->
+        <div style="flex: 1; min-width: 280px; display:flex; flex-direction:column; gap:12px;">
+          
           <!-- 🐟 TARGET -->
-          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;flex:1;">
+          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;">
             <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('target')}</div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;">
               ${m.target.split(" • ").map(tg => {
@@ -1287,55 +1291,67 @@ function showMontaturaDetail(id) {
           </div>
 
           <!-- 🕒 QUANDO USARE -->
-          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;flex:1;">
+          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;">
             <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('quandoUsare')}</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              ${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}
+            </div>
           </div>
 
-          <!-- 🐛 ESCHE CONSIGLIATE (Ora con la Lente d'Ingrandimento) -->
-          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;flex:1;">
+          <!-- 🪱 ESCHE CONSIGLIATE (Ora con la Lente 🔍) -->
+          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;">
             <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('escheConsigliate')}</div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;">
               ${m.esche.split(" • ").map(e => `
-                <span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
-                  🔍 ${e}
+                <span onclick="mostraEscaPopup('${e.trim()}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+                  🔍 ${e.trim()}
                 </span>
               `).join("")}
             </div>
           </div>
 
+        </div>
 
-        <!-- COLONNA DESTRA: Immagine della montatura affiancata -->
-        <div class="card" style="text-align:center;padding:14px;margin:0;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#fff;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-          <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:100%;max-height:220px;width:auto;height:auto;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;object-fit:contain;"
+        <!-- COLONNA FOTO (Destra) -->
+        <div class="card" style="flex: 1; min-width: 280px; text-align:center; padding:14px; margin:0; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#fff; border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+          <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:100%; max-height:220px; width:auto; height:auto; display:block; margin:0 auto; border-radius:10px; cursor:zoom-in; object-fit:contain;"
             onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
           <p style="text-align:center;font-size:11px;opacity:0.5;margin:8px 0 0;">${t('toccaIngrandire')}</p>
         </div>
 
+      </div> <!-- CHIUSURA COMPLETA DEL CONTENITORE ALTO -->
+
+      <!-- 🛑 SEZIONE INFERIORE: Elementi rigorosamente in verticale uno sotto l'altro -->
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+        
+        <!-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
+        <button onclick="caricaGuidaMontatura('${m.id}')" style="width:100%; padding:14px; border-radius:12px; background:linear-gradient(135deg,#0a2a43,#1d5a8a); color:white; font-weight:bold; font-size:14px; border:none; cursor:pointer; box-shadow:0 3px 8px rgba(0,0,0,0.15); margin:0;">
+          💡 ${t('guidaTecnicaEsperta')}
+        </button>
+        
+        <!-- 📦 CONTENITORE DOVE SI APRIRANNO I CAPITOLI -->
+        <div id="contenitore-guida"></div>
+        
+        <!-- 🎥 VIDEO YOUTUBE -->
+        <a href="${m.video}" target="_blank" style="text-decoration:none; width:100%;">
+          <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000); color:white; display:flex; align-items:center; gap:14px; padding:15px 18px; cursor:pointer; text-align:left; margin:0;">
+            <div style="font-size:30px; line-height:1;">▶</div>
+            <div>
+              <div style="font-weight:700; font-size:15px;">${t('videoDimostrativo')}</div>
+              <div style="font-size:12px; opacity:0.85; margin-top:2px;">${t('guardaYoutube')}</div>
+            </div>
+          </div>
+        </a>
+        
+        <!-- 🔄 BOTTONE TORNA INDIETRO NATIVO AL SINGOLARE -->
+        <button onclick="goTo(showMontature)" style="width:100%; padding:12px; border-radius:12px; font-weight:bold; cursor:pointer; margin:0;">
+          ${t('tornaMontature')}
+        </button>
+
       </div>
 
-      <!-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
-      <button onclick="caricaGuidaMontatura('${m.id}')" style="width:100%;padding:14px;margin-top:10px;margin-bottom:10px;border-radius:12px;background:linear-gradient(135deg,#0a2a43,#1d5a8a);color:white;font-weight:bold;font-size:14px;border:none;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,0.15);">
-        💡 ${t('guidaTecnicaEsperta')}
-      </button>
-      
-      <!-- 📦 CONTENITORE DOVE SI APRIRANNO I CAPITOLI -->
-      <div id="contenitore-guida"></div>
-      
-      <!-- 🎥 VIDEO YOUTUBE -->
-      <a href="${m.video}" target="_blank" style="text-decoration:none;">
-        <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;text-align:left;">
-          <div style="font-size:30px;line-height:1;">▶</div>
-          <div><div style="font-weight:700;font-size:15px;">${t('videoDimostrativo')}</div>
-          <div style="font-size:12px;opacity:0.85;margin-top:2px;">${t('guardaYoutube')}</div></div>
-        </div>
-      </a>
-      
-      <!-- 🔄 CORRETTO IL COMPORTAMENTO DEL TASTO TORNA INDIETRO -->
-      <button onclick="showMontature()" style="width:100%;margin-top:10px;padding:12px;border-radius:12px;font-weight:bold;cursor:pointer;">${t('tornaMontatures') || '← Torna alle Montature'}</button>
     </div>`;
 }
-
 
 function mostraPescePopup(nomePesce) {
   let urlImmagine = "";
