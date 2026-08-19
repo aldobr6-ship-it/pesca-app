@@ -1178,33 +1178,24 @@ function slugEsca(nome) {
   el.replaceWith(div);
 }
 function mostraEscaPopup(nomeEsca) {
-  // 1. Pulizia radicale del testo (minuscolo e senza spazi extra)
-  const testoInput = nomeEsca.trim().toLowerCase();
+  // 1. Pulizia universale: rimuove spazi extra all'inizio/fine e converte in minuscolo
+  const nomePulito = nomeEsca.trim().toLowerCase();
   
-  // 2. Definizione del nome file di default (sostituisce gli spazi con l'underscore)
-  let fileNome = testoInput.replace(/\s+/g, '_');
-
-  // 3. DISCOPACHETTARE LE ECCEZIONI REALI (Mappatura rigida professionale)
-  // Controlla la presenza della parola chiave per agganciare i tuoi file esatti sotto /img/
-  if (testoInput.includes("granchio")) {
-    fileNome = "granchio_vivo";
-  } else if (testoInput.includes("calamaro")) {
-    fileNome = "pezzo_calamaro";
-  }
-
-  // 4. Costruzione del percorso relativo standard per l'applicazione
+  // 2. Trasforma in automatico qualsiasi spazio in un trattino basso (es. "Sarda fresca" -> "sarda_fresca")
+  // Gestisce anche gli spazi multipli accidentalmente inseriti nel database
+  const fileNome = nomePulito.replace(/\s+/g, '_');
+  
+  // 3. Generazione del percorso standard dell'immagine
   const urlImmagine = `img/${fileNome}.jpg`;
 
-  // 5. Gestione sicura del DOM (Rimuove istanze precedenti per evitare conflitti di ID nell'app)
+  // Gestione e pulizia del DOM per evitare duplicazioni di popup
   const vecchioPopup = document.getElementById("escaPopup");
   if (vecchioPopup) vecchioPopup.remove();
 
-  // 6. Creazione del Popup isolato (Quadro piccolo bianco)
   const popup = document.createElement("div");
   popup.id = "escaPopup";
   popup.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; z-index:99999; animation:fadeIn 0.2s ease;";
   
-  // Chiude al tocco sullo sfondo scuro esterno
   popup.onclick = function(e) { 
     if (e.target === popup) popup.remove(); 
   };
@@ -1220,8 +1211,6 @@ function mostraEscaPopup(nomeEsca) {
 
   document.body.appendChild(popup);
 }
-
-
 function chiudiEscaPopup(event) {
   const overlay = event.target.closest(".modal-overlay") || document.querySelector(".modal-overlay");
   if (overlay) overlay.remove();
