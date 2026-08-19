@@ -1268,39 +1268,46 @@ function showMontaturaDetail(id) {
         <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p></div>
       </div>
 
-      <!-- 📸 SCHEMI BLOCCHETTATI TUTTI UGUALI (Altezza fissa e proporzionata) -->
-      <div style="margin-bottom:20px; text-align:center; background:#fff; padding:12px; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); height:220px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-        <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:340px; width:100%; height:180px; display:block; margin:0 auto; border-radius:10px; cursor:zoom-in; object-fit:contain;"
-          onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
-        <p style="text-align:center;font-size:11px;opacity:0.5;margin:8px 0 0;">${t('toccaIngrandire')}</p>
-      </div>
+      <!-- 📐 GRIGLIA RESPONSIVA: Testi a sinistra, Foto a destra -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:16px; align-items: stretch;">
+        
+        <!-- COLONNA SINISTRA: I tre blocchi informativi uno sopra l'altro -->
+        <div style="display:flex; flex-direction:column; gap:12px; justify-content: space-between;">
+          <!-- 🐟 TARGET -->
+          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;flex:1;">
+            <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('target')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              ${m.target.split(" • ").map(tg => {
+                const tgPulito = tg.trim();
+                return `<span onclick="mostraPescePopup('${tgPulito.replace(/'/g, "\\'")}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+                  🔍 ${tgPulito}
+                </span>`;
+              }).join("")}
+            </div>
+          </div>
 
-      <!-- 🐟 TARGET (Cliccabili con pulizia profonda delle stringhe) -->
-      <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('target')}</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          ${m.target.split(" • ").map(tg => {
-            const tgPulito = tg.trim();
-            if(!tgPulito) return '';
-            return `<span onclick="mostraPescePopup('${tgPulito.replace(/'/g, "\\'")}')" style="background:#eaf4fb;border-radius:14px;padding:4px 12px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
-              🔍 ${tgPulito}
-            </span>`;
-          }).join("")}
+          <!-- 🕒 QUANDO USARE -->
+          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;flex:1;">
+            <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('quandoUsare')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
+          </div>
+
+          <!-- 🪱 ESCHE CONSIGLIATE -->
+          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;flex:1;">
+            <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('escheConsigliate')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- 🕒 QUANDO USARE -->
-      <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('quandoUsare')}</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
-      </div>
-
-      <!-- 🪱 ESCHE CONSIGLIATE -->
-      <div class="card" style="text-align:left;padding:14px;cursor:default;">
-        <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:8px;">${t('escheConsigliate')}</div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:18px;padding:5px 12px;font-size:13px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
+        <!-- COLONNA DESTRA: Immagine della montatura affiancata -->
+        <div class="card" style="text-align:center;padding:14px;margin:0;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#fff;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+          <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:100%;max-height:220px;width:auto;height:auto;display:block;margin:0 auto;border-radius:10px;cursor:zoom-in;object-fit:contain;"
+            onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
+          <p style="text-align:center;font-size:11px;opacity:0.5;margin:8px 0 0;">${t('toccaIngrandire')}</p>
         </div>
+
       </div>
 
       <!-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
@@ -1319,9 +1326,12 @@ function showMontaturaDetail(id) {
           <div style="font-size:12px;opacity:0.85;margin-top:2px;">${t('guardaYoutube')}</div></div>
         </div>
       </a>
-      <button onclick="goTo(showMontatures)" style="width:100%;margin-top:4px;">${t('tornaMontature')}</button>
+      
+      <!-- 🔄 CORRETTO IL COMPORTAMENTO DEL TASTO TORNA INDIETRO -->
+      <button onclick="showMontatures()" style="width:100%;margin-top:10px;padding:12px;border-radius:12px;font-weight:bold;cursor:pointer;">${t('tornaMontatures') || '← Torna alle Montature'}</button>
     </div>`;
 }
+
 function mostraPescePopup(nomePesce) {
   let urlImmagine = "";
   const nomeTargetCercato = nomePesce.trim().toLowerCase();
