@@ -1440,34 +1440,66 @@ function mostraPescePopup(nomePesce) {
   document.body.appendChild(popup);
 }
 function mostraEscaPopup(nomeEsca) {
-  let urlImmagine = "";
-  const nomeEscaCercato = nomeEsca.trim().toLowerCase();
+  const nomePulito = nomeEsca.trim().toLowerCase();
+  let fileNome = nomePulito.replace(/\s+/g, '_');
 
-  // Se hai un dizionario o carichi da cartella esca standard
-  const fileNome = nomeEsca.trim().toLowerCase().replace(/\s+/g, '-');
-  urlImmagine = `img/${fileNome}.jpg`;
+  // Intercettazione rigida basata sui file reali presenti sotto la tua cartella img
+  if (nomePulito.includes("granchio")) {
+    fileNome = "granchio_vivo";
+  } else if (nomePulito.includes("calamaro")) {
+    fileNome = "pezzo_calamaro";
+  }
 
-  // Rimuove vecchi popup esche aperti
+  // Generiamo un ID univoco temporaneo basato sul tempo per evitare qualsiasi conflitto nel DOM
+  const idImmagineUnico = "esca_img_" + Date.now();
+
+  // Rimuove eventuali popup precedenti per non intasare la memoria dell'app
   const vecchioPopup = document.getElementById("escaPopup");
   if (vecchioPopup) vecchioPopup.remove();
 
-  // Crea la struttura identica a quella dei pesci (Quadro piccolo bianco)
+  // Creazione del contenitore del popup (quadro bianco piccolo e centrato)
   const popup = document.createElement("div");
   popup.id = "escaPopup";
-  popup.style = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;z-index:9999;animation:fadeIn 0.2s ease;";
+  popup.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; z-index:99999; animation:fadeIn 0.2s ease;";
   
-  popup.onclick = function(e) { if (e.target === popup) popup.remove(); };
+  // Chiude il popup se l'utente tocca lo sfondo scuro esterno
+  popup.onclick = function(e) { 
+    if (e.target === popup) popup.remove(); 
+  };
 
   popup.innerHTML = `
-    <div class="card" style="width:85%;max-width:320px;background:#fff;padding:20px;border-radius:16px;text-align:center;position:relative;box-shadow:0 10px 25px rgba(0,0,0,0.3);animation:scaleUp 0.2s ease;cursor:default;">
-      <button onclick="document.getElementById('escaPopup').remove()" style="position:absolute;top:10px;right:12px;background:none;border:none;font-size:18px;cursor:pointer;color:#888;">✕</button>
-      <h3 style="margin:0 0 14px 0;font-size:18px;color:#0a2a43;">${nomeEsca}</h3>
-      <img src="${urlImmagine}" alt="${nomeEsca}" style="width:100%;max-height:220px;object-fit:contain;border-radius:10px;margin-bottom:10px;"
-        onerror="if(typeof imgFallback === 'function'){imgFallback(this,'Immagine non disponibile')}else{this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>Foto non disponibile</text></svg>';}">
+    <div class="card" style="width:85%; max-width:320px; background:#fff; padding:20px; border-radius:16px; text-align:center; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.3); animation:scaleUp 0.2s ease; cursor:default;">
+      <button onclick="document.getElementById('escaPopup').remove()" style="position:absolute; top:10px; right:12px; background:none; border:none; font-size:18px; cursor:pointer; color:#888;">✕</button>
+      <h3 style="margin:0 0 14px 0; font-size:18px; color:#0a2a43;">${nomeEsca}</h3>
+      
+      <!-- L'immagine parte con il primo percorso standard -->
+      <img id="${idImmagineUnico}" src="img/${fileNome}.jpg" alt="${nomeEsca}" style="width:100%; max-height:220px; object-fit:contain; border-radius:10px; margin-bottom:10px;"
+        onerror="
+          // 🔄 SISTEMA DI RECUPERO PROFESSIONALE (Se il primo tentativo fallisce)
+          const imgElement = this;
+          const currentSrc = imgElement.src;
+          
+          if (currentSrc.indexOf('img/') !== -1 && currentSrc.indexOf('./img/') === -1 && currentSrc.indexOf('/img/') === -1) {
+            // Tentativo 2: Forza il percorso relativo esplicito
+            imgElement.src = './img/${fileNome}.jpg';
+          } else if (currentSrc.indexOf('./img/') !== -1) {
+            // Tentativo 3: Forza il percorso dalla radice assoluta
+            imgElement.src = '/img/${fileNome}.jpg';
+          } else {
+            // Fallback finale se il file è corrotto o non è sul server
+            if(typeof imgFallback === 'function'){
+              imgFallback(imgElement, 'Immagine non disponibile');
+            } else {
+              imgElement.src = 'data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>File non trovato</text></svg>';
+            }
+          }
+        ">
     </div>
   `;
+
   document.body.appendChild(popup);
 }
+
  
 </script>
 <script>
