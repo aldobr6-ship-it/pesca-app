@@ -2570,34 +2570,15 @@ function initMappaEsplorazioneNuova() {
 
   renderizzaListaEMappe(listaSpot);
 }
-function applicaFiltriSpot(){
-  const reg=document.getElementById("filtroReg")?.value||"all";
-  const tech=document.getElementById("filtroTech")?.value||"all";
-  const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
-  
-  // Aggiorna i segnaposto sulla mappa
-  aggiornaMappaSpotItalia(filtrati);
-  
-  const n=filtrati.length;
-  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
-  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
-  
-  if(reg!=="all"||tech!=="all"){
-    mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
-    if(filtrati.length>0){
-      const bounds=L.latLngBounds(filtrati.map(s=>s.coords));
-      // 💡 RIPRISTINATO IL VALORE ORIGINALE CORRETTO [30,30]
-      spotItaliaMap.fitBounds(bounds,{padding:[30,30]});
-    }
-  } else {
-    // Chiusura pulita della logica senza troncamenti
-    if(document.getElementById("spotPanelBody")){
-      if(document.getElementById("spotPanelHeader")) {
-        document.getElementById("spotPanelHeader").textContent = t('tuttiGliSpot') || "Tutti gli Spot";
-      }
-    }
-  }
-}
+index.html:2674 Uncaught SyntaxError: Unexpected token '}'
+index.html:3465 Tema grafico configurato: light
+index.html:3607 Uncaught ReferenceError: showPrevisioni is not defined
+    at HTMLDivElement.onclick (index.html:3607:7)
+index.html:3607 Uncaught ReferenceError: showPrevisioni is not defined
+    at HTMLDivElement.onclick (index.html:3607:7)
+index.html:3607 Uncaught ReferenceError: showPrevisioni is not defined
+    at HTMLDivElement.onclick (index.html:3607:7)
+
   // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
   const mappaSinonimi = {
     // FRANCIA
