@@ -1292,14 +1292,18 @@ function showMontaturaDetail(id) {
             <div style="display:flex;flex-wrap:wrap;gap:6px;">${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}</div>
           </div>
 
-          <!-- 🪱 ESCHE CONSIGLIATE -->
+          <!-- 🐛 ESCHE CONSIGLIATE (Ora con la Lente d'Ingrandimento) -->
           <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;flex:1;">
             <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('escheConsigliate')}</div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              ${m.esche.split(" • ").map(e=>`<span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;">${e}</span>`).join("")}
+              ${m.esche.split(" • ").map(e => `
+                <span onclick="mostraEscaPopup('${e}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+                  🔍 ${e}
+                </span>
+              `).join("")}
             </div>
           </div>
-        </div>
+
 
         <!-- COLONNA DESTRA: Immagine della montatura affiancata -->
         <div class="card" style="text-align:center;padding:14px;margin:0;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#fff;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
@@ -1328,7 +1332,7 @@ function showMontaturaDetail(id) {
       </a>
       
       <!-- 🔄 CORRETTO IL COMPORTAMENTO DEL TASTO TORNA INDIETRO -->
-      <button onclick="goTo(showMontatures)" style="width:100%;margin-top:10px;padding:12px;border-radius:12px;font-weight:bold;cursor:pointer;">${t('tornaMontature')}</button>
+      <button onclick="goTo(showMontature)" style="width:100%;margin-top:10px;padding:12px;border-radius:12px;font-weight:bold;cursor:pointer;">${t('tornaMontature')}</button>
     </div>`;
 }
 
