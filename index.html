@@ -2547,7 +2547,9 @@ function initMappaEsplorazioneNuova() {
 
   document.getElementById("nomeNazioneBadge").textContent = nomeNazione;
 
-  // Reset Leaflet
+ // === FUNZIONE DI FILTRO GENERALE E GESTIONE MAPPE ===
+function filtraEDisegnaSpot(reg, tech, listaSorgente) {
+  // Reset sicuro della mappa Leaflet prima del filtraggio
   if (spotItaliaMap !== null) {
     try {
       spotItaliaMap.remove();
@@ -2559,21 +2561,15 @@ function initMappaEsplorazioneNuova() {
 
   spotItaliaMarkers = [];
 
-  spotItaliaMap = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
+  // Re-inizializzazione pulita dei parametri della mappa
+  // Se non hai le variabili 'centroMappa' o 'zoomIniziale', usa valori standard es: [42.5, 12.5], 6
+  const centro = typeof centroMappa !== 'undefined' ? centroMappa : [42.5, 12.5];
+  const zoom = typeof zoomIniziale !== 'undefined' ? zoomIniziale : 6;
+
+  spotItaliaMap = L.map('spotItaliaMap').setView(centro, zoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(spotItaliaMap);
-
-  renderizzaListaEMappe(listaSpot);
-}
-index.html:2674 Uncaught SyntaxError: Unexpected token '}'
-index.html:3465 Tema grafico configurato: light
-index.html:3607 Uncaught ReferenceError: showPrevisioni is not defined
-    at HTMLDivElement.onclick (index.html:3607:7)
-index.html:3607 Uncaught ReferenceError: showPrevisioni is not defined
-    at HTMLDivElement.onclick (index.html:3607:7)
-index.html:3607 Uncaught ReferenceError: showPrevisioni is not defined
-    at HTMLDivElement.onclick (index.html:3607:7)
 
   // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
   const mappaSinonimi = {
@@ -2617,7 +2613,6 @@ index.html:3607 Uncaught ReferenceError: showPrevisioni is not defined
 
   // 3. Filtro Spot Intelligente
   const spotFiltrati = listaSorgente.filter(spot => {
-    // Se il filtro è su "Tutte" o "all", mostra TUTTO
     if (reg === "all" || reg === "Tutte" || reg === "") {
       const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
       return (tech === "all") || sTech.includes(tech.toLowerCase());
@@ -2629,15 +2624,12 @@ index.html:3607 Uncaught ReferenceError: showPrevisioni is not defined
     const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
 
     const matchTech = (tech === "all") || sTech.includes(tech.toLowerCase());
-
     const regCercata = reg.toLowerCase().trim();
     let matchReg = false;
 
-    // A. Controlla se la parola cercata è contenuta direttamente
     if (sReg.includes(regCercata) || sNome.includes(regCercata) || sDesc.includes(regCercata)) {
       matchReg = true;
     } 
-    // B. Controlla nella mappa dei sinonimi
     else if (mappaSinonimi[regCercata]) {
       matchReg = mappaSinonimi[regCercata].some(k => 
         sNome.includes(k) || sDesc.includes(k) || sReg.includes(k)
@@ -2650,8 +2642,8 @@ index.html:3607 Uncaught ReferenceError: showPrevisioni is not defined
   renderizzaListaEMappe(spotFiltrati);
 }
 
+// === FUNZIONE DI RENDERING DEI MARKER E DELLA LISTA ===
 function renderizzaListaEMappe(listaSpot) {
-  // Pulizia dei vecchi marker
   if (spotItaliaMarkers && spotItaliaMarkers.length > 0) {
     spotItaliaMarkers.forEach(m => {
       if (spotItaliaMap) spotItaliaMap.removeLayer(m);
@@ -2669,7 +2661,6 @@ function renderizzaListaEMappe(listaSpot) {
   }
 
   listaSpot.forEach((spot) => {
-    // Gestione flessibile sia di coords: [lat, lon] che di lat/lon separati
     const spotLat = spot.coords ? spot.coords[0] : (spot.lat || spot.latitude);
     const spotLon = spot.coords ? spot.coords[1] : (spot.lon || spot.longitude);
 
@@ -2721,6 +2712,7 @@ function renderizzaListaEMappe(listaSpot) {
     panelBody.appendChild(item);
   });
 }
+
 
 /* === LOGICA POPUP MODALE SALVATAGGIO SPOT === */
 function openSaveSpotModal(spot) {
