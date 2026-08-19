@@ -1332,9 +1332,10 @@ function showMontaturaDetail(id) {
       </a>
       
       <!-- 🔄 CORRETTO IL COMPORTAMENTO DEL TASTO TORNA INDIETRO -->
-      <button onclick="goTo(showMontature)" style="width:100%;margin-top:10px;padding:12px;border-radius:12px;font-weight:bold;cursor:pointer;">${t('tornaMontature')}</button>
+      <button onclick="showMontature()" style="width:100%;margin-top:10px;padding:12px;border-radius:12px;font-weight:bold;cursor:pointer;">${t('tornaMontatures') || '← Torna alle Montature'}</button>
     </div>`;
 }
+
 
 function mostraPescePopup(nomePesce) {
   let urlImmagine = "";
