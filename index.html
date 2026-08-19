@@ -2934,7 +2934,7 @@ function applicaFiltriSpot(){
   const tech=document.getElementById("filtroTech")?.value||"all";
   const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
   
-  // Aggiorna i marker sulla mappa
+  // Aggiorna i marker geografici sulla mappa Leaflet
   aggiornaMappaSpotItalia(filtrati);
   
   const n=filtrati.length;
@@ -2945,15 +2945,18 @@ function applicaFiltriSpot(){
     mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
     if(filtrati.length>0){
       const bounds=L.latLngBounds(filtrati.map(s=>s.coords));
-      // 💡 Istruzione pulita e priva di parametri orfani
+      // Zoom pulito e sicuro sulla regione senza oggetti orfani o due punti errati
       spotItaliaMap.fitBounds(bounds);
     }
   } else {
     if(document.getElementById("spotPanelBody")){
-      document.getElementById("spotPanelHeader").textContent = t('tuttiGliSpot') || "Tutti gli Spot";
+      if(document.getElementById("spotPanelHeader")) {
+        document.getElementById("spotPanelHeader").textContent = t('tuttiGliSpot') || "Tutti gli Spot";
+      }
     }
   }
 }
+
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
