@@ -1,3 +1,2429 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdelTechnic-FISH</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a2a43">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎣</text></svg>">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#eaf4fb,#dbe9f4);
+  color: #0a2a43;
+  transition: background 0.3s ease;
+}
+body.dark { background: #0f172a; color: #e2e8f0; }
+header {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color: white; padding: 18px; text-align: center;
+  font-size: 22px; font-weight: bold; letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: sticky; top: 0; z-index: 200;
+  position: relative; /* aggiunta */
+}
+#content {
+  padding: 20px;
+  padding-bottom: 90px;
+  animation: fadeIn 0.35s ease;
+  scroll-margin-top: 0;
+}
+  .img-box-bg { background:#f1f6fa; }
+body.dark .img-box-bg { background:#334155; }
+  .esca-popup-img {
+  max-width: 260px; width: 100%; display: block;
+  margin: 0 auto 14px; border-radius: 14px;
+}
+  .fullscreen-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+  z-index: 9800; display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+.fullscreen-img {
+  max-width: 94vw; max-height: 90vh; border-radius: 8px;
+  object-fit: contain;
+}
+.fullscreen-close {
+  position: absolute; top: 20px; right: 20px;
+  background: rgba(255,255,255,0.15); border: none; color: white;
+  font-size: 22px; width: 40px; height: 40px; border-radius: 50%;
+  cursor: pointer; margin: 0; display: flex; align-items: center; justify-content: center;
+}
+  .fullscreen-spinner {
+  position: absolute; font-size: 40px; color: white;
+  animation: floatLogo 1.2s ease-in-out infinite;
+}
+.fullscreen-img { opacity: 0; transition: opacity 0.3s ease; }
+.fullscreen-img.loaded { opacity: 1;
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 16px; }
+.card {
+  background: white; border-radius: 20px; padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.10); text-align: center;
+  cursor: pointer; transition: all 0.22s ease; margin-bottom: 12px;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.16); }
+.card:active { transform: scale(0.97); }
+.card h3 { margin: 10px 0 5px; font-size: 17px; }
+.card p { font-size: 13px; opacity: 0.72; margin: 0; }
+.home-icon { font-size: 40px; display: block; margin-bottom: 8px; }
+body.dark .card { background: #1e293b; color: #e2e8f0; }
+.mini-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.mini-card {
+  background: #f1f6fa; padding: 7px 13px; border-radius: 12px;
+  font-size: 13px; cursor: pointer; transition: all 0.22s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.mini-card:hover { transform: translateY(-2px); }
+.mini-card.active { background: linear-gradient(90deg,#0a2a43,#144d73); color: white; transform: scale(1.04); }
+body.dark .mini-card { background: #334155; border: none; }
+body.dark .mini-card.active { background: linear-gradient(90deg,#1e3a8a,#2563eb); }
+footer {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  background: white; display: flex; justify-content: space-around;
+  align-items: center; height: 62px;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.10);
+  border-radius: 18px 18px 0 0; z-index: 300;
+}
+body.dark footer { background: #1e293b; }
+footer button {
+  background: none; border: none; font-size: 12px;
+  color: #0a2a43; cursor: pointer; padding: 6px 4px;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+body.dark footer button { color: #e2e8f0; }
+footer button:hover { color: #0077b6; }
+button {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  border: none; padding: 10px 18px; border-radius: 20px;
+  color: white; font-weight: bold; cursor: pointer; transition: 0.25s; margin-top: 10px;
+}
+button:hover { transform: scale(1.03); opacity: 0.92; }
+.btn-img {
+  background: linear-gradient(135deg,#0077b6,#00b4d8);
+  border: none; padding: 8px 14px; border-radius: 18px;
+  color: white; font-weight: bold; cursor: pointer; transition: 0.25s;
+}
+.toggle-btn {
+  background: linear-gradient(135deg,#0077b6,#00b4d8);
+  border: none; padding: 10px 16px; border-radius: 18px;
+  color: white; font-weight: bold; cursor: pointer; transition: 0.25s;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; width: 100%; max-width: 320px; margin-top: 10px;
+}
+.toggle-btn:hover { transform: scale(1.02); }
+.toggle-btn .arrow { transition: transform 0.3s ease; }
+.toggle-btn.active .arrow { transform: rotate(180deg); }
+.image-box { overflow: hidden; max-height: 0; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0; }
+.image-box.open { max-height: 600px; opacity: 1; }
+.montatura-card { cursor: pointer; text-align: left; padding: 14px 18px; }
+.montatura-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.14); border-left: 4px solid #0a2a43; }
+body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+@keyframes fadeInImg { from{opacity:0;transform:scale(0.95);} to{opacity:1;transform:scale(1);} }
+.waves-bg {
+  position: fixed; bottom: 0; left: 0; width: 100%; height: 160px;
+  overflow: hidden; z-index: -1; opacity: 0.22; pointer-events: none;
+}
+.waves-bg svg { width: 200%; height: 100%; animation: waveMove 18s linear infinite; fill: #00b4d8; }
+@keyframes waveMove { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+#splash {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: #0a2a43;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  z-index: 9999; color: white;
+  animation: fadeOutSplash 1.2s ease forwards; animation-delay: 3.2s;
+  overflow: hidden;
+}
+.splash-video-full {
+  position: absolute; top: 50%; left: 50%;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover; z-index: -1;
+}
+  .img-placeholder {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:6px; background:#f1f6fa; color:#0a2a43; opacity:0.5;
+  border-radius:12px; font-size:12px; text-align:center; padding:20px;
+  min-height:100px;
+}
+body.dark .img-placeholder { background:#334155; color:#e2e8f0; }
+.img-placeholder .ph-ico { font-size:28px; }
+.logo-anim { font-size: 64px; animation: floatLogo 2s ease-in-out infinite; }
+@keyframes floatLogo { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+@keyframes fadeOutSplash { to{opacity:0;visibility:hidden;} }
+</style>
+<style>
+/* === PREVISIONI === */
+.prev-hero {
+  background: linear-gradient(135deg,#0a2a43,#0077b6);
+  border-radius: 20px; padding: 20px; color: white;
+  margin-bottom: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
+.prev-hero h2 { margin: 0 0 4px; font-size: 20px; }
+.prev-hero .sub { opacity: 0.75; font-size: 13px; margin-bottom: 14px; }
+.rating-bar { display: flex; gap: 6px; align-items: center; margin: 10px 0; }
+.rating-bar .stelle { font-size: 20px; letter-spacing: 2px; }
+.rating-bar .label { font-size: 13px; font-weight: 700; opacity: 0.9; }
+.meteo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 14px; }
+.meteo-cell { background: rgba(255,255,255,0.13); border-radius: 14px; padding: 10px 6px; text-align: center; }
+.meteo-cell .ico { font-size: 22px; display:block; margin-bottom:4px; }
+.meteo-cell .val { font-size: 15px; font-weight: 700; display:block; }
+.meteo-cell .lbl { font-size: 11px; opacity: 0.75; display:block; }
+.giorni-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 14px; scrollbar-width: none; }
+.giorni-scroll::-webkit-scrollbar { display:none; }
+.giorno-card {
+  flex: 0 0 108px; background: white; border-radius: 16px;
+  padding: 12px 8px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.09); cursor: default;
+}
+body.dark .giorno-card { background: #1e293b; color: #e2e8f0; }
+.giorno-card .giorno-nome { font-size: 11px; font-weight:700; opacity:0.6; margin-bottom:4px; }
+.giorno-card .giorno-ico  { font-size: 26px; margin: 4px 0; }
+.giorno-card .giorno-val  { font-size: 13px; font-weight:700; }
+.giorno-card .giorno-sub  { font-size: 11px; opacity:0.6; margin-top:2px; }
+.giorno-card .giorno-rate { font-size:13px; margin-top:4px; }
+.consiglio-card {
+  background: white; border-radius: 20px; padding: 18px;
+  margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+}
+body.dark .consiglio-card { background: #1e293b; color: #e2e8f0; }
+.consiglio-card h3 { margin: 0 0 12px; font-size: 16px; color: #0a2a43; }
+body.dark .consiglio-card h3 { color: #7dd3fc; }
+.consiglio-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-bottom: 10px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.consiglio-row:last-child { border-bottom: none; margin-bottom:0; padding-bottom:0; }
+.consiglio-row .ico-big { font-size: 24px; flex-shrink:0; }
+.consiglio-row .testo { flex:1; }
+.consiglio-row .titolo { font-weight:700; font-size:13px; margin-bottom:2px; }
+.consiglio-row .valore { font-size:13px; opacity:0.75; line-height:1.5; }
+.mappa-card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.09); }
+.mappa-header {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  padding: 10px 16px; display: flex; align-items:center; justify-content:space-between;
+}
+.mappa-header span { color:white; font-weight:700; font-size:14px; }
+.mappa-header button {
+  background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35);
+  color: white; font-size:12px; padding:4px 10px; border-radius:18px; cursor:pointer; margin-top:0;
+}
+#prevMap { height: 280px; width:100%; }
+.spot-list { margin-bottom: 14px; }
+.spot-item {
+  background: white; border-radius: 14px; padding: 13px 15px;
+  margin-bottom: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  display: flex; align-items: center; gap:11px; cursor: pointer;
+}
+body.dark .spot-item { background: #1e293b; color:#e2e8f0; }
+.spot-item .spot-ico  { font-size:22px; flex-shrink:0; }
+.spot-item .spot-info { flex:1; }
+.spot-item .spot-nome { font-weight:700; font-size:14px; }
+.spot-item .spot-sub  { font-size:12px; opacity:0.6; margin-top:2px; }
+.spot-item .spot-del  { background:none; border:none; color:#e74c3c; font-size:18px; cursor:pointer; margin-top:0; padding:4px; }
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,0.55);
+  z-index:9000; display:flex; align-items:flex-end; animation: fadeIn 0.2s ease;
+}
+.modal-box {
+  background:white; width:100%; border-radius:22px 22px 0 0;
+  padding:24px 20px 40px; max-height:85vh; overflow-y:auto;
+}
+body.dark .modal-box { background:#1e293b; color:#e2e8f0; }
+.modal-box h3 { margin:0 0 18px; font-size:18px; }
+.modal-input {
+  width:100%; padding:12px 14px; border-radius:13px;
+  border:1px solid #d0d7de; font-size:14px; margin-bottom:12px;
+  box-sizing:border-box; background:white; color:#0a2a43;
+}
+body.dark .modal-input { background:#334155; border-color:#4b5563; color:#e2e8f0; }
+.btn-salva-spot {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color:white; border:none; padding:14px; border-radius:14px;
+  font-size:15px; font-weight:700; width:100%; cursor:pointer; margin-top:6px;
+}
+.btn-chiudi-modal { background:#f0f0f0; color:#333; border:none; padding:12px; border-radius:14px; font-size:14px; width:100%; cursor:pointer; margin-top:8px; }
+body.dark .btn-chiudi-modal { background:#334155; color:#e2e8f0; }
+.prev-loader { text-align:center; padding:60px 20px; }
+.prev-loader .spinner { font-size:48px; animation:floatLogo 1.5s ease-in-out infinite; display:block; margin-bottom:16px; }
+.prev-loader p { opacity:0.6; font-size:14px; }
+.prev-errore { background:#fff3cd; border-radius:16px; padding:20px; text-align:center; margin-bottom:14px; }
+.prev-errore .ico { font-size:40px; display:block; margin-bottom:10px; }
+.prev-errore p { font-size:14px; color:#856404; margin:0 0 14px; }
+/* Esporta/Importa spot */
+.spot-io-row { display:flex; gap:8px; margin-bottom:14px; }
+.btn-esporta {
+  flex:1; background:linear-gradient(90deg,#059669,#10b981);
+  color:white; border:none; padding:11px; border-radius:14px;
+  font-size:13px; font-weight:700; cursor:pointer; margin-top:0;
+}
+.btn-importa {
+  flex:1; background:linear-gradient(90deg,#7c3aed,#a78bfa);
+  color:white; border:none; padding:11px; border-radius:14px;
+  font-size:13px; font-weight:700; cursor:pointer; margin-top:0;
+}
+</style>
+<style>
+/* === SPOT ITALIA === */
+.spot-italia-header {
+  background: linear-gradient(135deg,#0a2a43,#0077b6);
+  border-radius: 20px; padding: 16px 20px; color: white;
+  margin-bottom: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
+.spot-italia-header h3 { margin:0 0 3px; font-size:18px; }
+.spot-italia-header p  { margin:0; font-size:12px; opacity:0.75; }
+.spot-count-badge {
+  display:inline-block; background:rgba(255,255,255,0.2);
+  border-radius:20px; padding:2px 10px; font-size:12px; margin-left:8px;
+}
+.filtri-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.filtro-select {
+  flex:1; min-width: 110px;
+  padding: 10px 12px; border-radius: 12px;
+  border: 1px solid #d0d7de; font-size: 13px; font-weight: 600;
+  background: white; color: #0a2a43; outline: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+body.dark .filtro-select { background:#1e293b; color:#e2e8f0; border-color:#4b5563; }
+.btn-Carica {
+  background: linear-gradient(90deg,#e67e22,#f39c12);
+  border: none; padding: 10px 22px; border-radius: 12px;
+  color: white; font-weight: 900; font-size: 14px; letter-spacing: 1px;
+  cursor: pointer; box-shadow: 0 4px 12px rgba(230,126,34,0.4); transition: 0.2s;
+  white-space: nowrap;
+}
+.btn-Carica:hover { transform: scale(1.05); margin-top:0; }
+.spot-split-layout {
+  display: grid; grid-template-columns: 1fr; gap: 0; position: relative;
+}
+@media (min-width: 769px) {
+  .spot-split-layout { grid-template-columns: 2fr 1fr; gap: 14px; align-items: start; }
+}
+.spot-mappa-wrap {
+  background: white; border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: sticky; top: 70px;
+}
+#spotItaliaMap { height: 82vh; width: 100%; }
+@media (max-width: 768px) {
+  #spotItaliaMap { height: 55vw; min-height: 240px; }
+  .spot-mappa-wrap { position: relative; top: 0; margin-bottom: 14px; }
+}
+.spot-panel-right {
+  background: white; border-radius: 20px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12); overflow: hidden;
+  min-height: 200px; display: flex; flex-direction: column;
+}
+body.dark .spot-panel-right { background: #1e293b; }
+.spot-panel-header {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  padding: 12px 16px; color: white; font-weight: 700; font-size: 14px;
+}
+.spot-panel-body { padding: 14px; flex: 1; overflow-y: auto; }
+.spot-panel-placeholder { text-align: center; padding: 40px 20px; opacity: 0.45; }
+.spot-panel-placeholder .ph-ico { font-size: 40px; display:block; margin-bottom:10px; }
+.spot-panel-placeholder p { font-size: 13px; line-height: 1.6; }
+.spot-italia-item {
+  background: #f8fafc; border-radius: 12px; padding: 12px 14px;
+  margin-bottom: 8px; display: flex; align-items: center; gap:10px;
+  cursor: pointer; transition: all 0.2s; border: 1px solid rgba(0,0,0,0.04);
+}
+.spot-italia-item:hover { background: #e0f2fe; transform: translateX(3px); }
+.spot-italia-item.active { background: linear-gradient(90deg,#e0f2fe,#bae6fd); border-left: 3px solid #0077b6; }
+body.dark .spot-italia-item { background: #334155; border-color:transparent; }
+body.dark .spot-italia-item:hover { background: #1e3a5f; }
+body.dark .spot-italia-item.active { background: #1e3a5f; border-left: 3px solid #38bdf8; }
+.si-ico  { font-size:22px; flex-shrink:0; }
+.si-info { flex:1; min-width:0; }
+.si-nome { font-weight:700; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.si-sub  { font-size:11px; opacity:0.6; margin-top:2px; }
+.si-badge {
+  background: #e0f2fe; color: #0369a1;
+  font-size: 9px; font-weight: 800; padding: 2px 7px;
+  border-radius: 6px; text-transform: uppercase; white-space:nowrap; flex-shrink:0;
+}
+.spot-detail-panel { padding: 2px 0; }
+.spot-detail-panel .sdp-tag {
+  display:inline-block; background:#e0f2fe; color:#0369a1;
+  font-size:10px; font-weight:800; padding:3px 9px;
+  border-radius:6px; text-transform:uppercase; margin-bottom:10px;
+}
+.spot-detail-panel h3 { margin:0 0 12px; font-size:17px; font-weight:900; line-height:1.3; }
+.spot-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+.spot-detail-cell { background:#f8fafc; border-radius:10px; padding:10px 12px; }
+body.dark .spot-detail-cell { background:#334155; }
+.sdc-lbl { font-size:9px; font-weight:700; opacity:0.5; text-transform:uppercase; margin-bottom:3px; }
+.sdc-val { font-size:12px; font-weight:700; line-height:1.4; }
+.spot-detail-tips { background:#eff6ff; border-radius:12px; padding:12px 14px; margin-bottom:12px; }
+body.dark .spot-detail-tips { background:#1e3a5f; }
+.spot-detail-tips p { margin:0; font-size:12px; line-height:1.6; color:#1e40af; }
+body.dark .spot-detail-tips p { color:#93c5fd; }
+.btn-nav-spot {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color:white; border:none; padding:12px; border-radius:12px;
+  font-size:13px; font-weight:700; width:100%; cursor:pointer;
+  margin-top:0; display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.btn-nav-spot:hover { transform: scale(1.02); }
+/* ---- NUOVO: btn salva spot italia ---- */
+.btn-salva-spot-italia {
+  background: linear-gradient(90deg,#059669,#10b981);
+  color:white; border:none; padding:11px; border-radius:12px;
+  font-size:13px; font-weight:700; width:100%; cursor:pointer; margin-top:8px;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+}
+.btn-salva-spot-italia:hover { transform: scale(1.02); }
+.btn-back-lista {
+  background:#f0f4f8; color:#0a2a43; border:none; padding:10px; border-radius:12px;
+  font-size:13px; width:100%; cursor:pointer; margin-top:8px;
+}
+body.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
+.modal-spot-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,0.6);
+  z-index:9500; display:flex; align-items:flex-end; animation: fadeIn 0.2s ease;
+}
+.modal-spot-box {
+  background:white; width:100%; border-radius:22px 22px 0 0;
+  padding:22px 20px 44px; max-height:80vh; overflow-y:auto;
+}
+body.dark .modal-spot-box { background:#1e293b; color:#e2e8f0; }
+.msb-tag {
+  display:inline-block; background:#e0f2fe; color:#0369a1;
+  font-size:10px; font-weight:800; padding:3px 9px;
+  border-radius:6px; text-transform:uppercase; margin-bottom:10px;
+}
+.modal-spot-box h2 { margin:0 0 14px; font-size:20px; font-weight:900; }
+.modal-spot-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+.modal-spot-cell { background:#f8fafc; border-radius:12px; padding:12px; }
+body.dark .modal-spot-cell { background:#334155; }
+.msc-lbl { font-size:10px; font-weight:700; opacity:0.5; text-transform:uppercase; margin-bottom:4px; }
+.msc-val { font-size:13px; font-weight:700; }
+.modal-spot-tips { background:#eff6ff; border-radius:14px; padding:13px 15px; margin-bottom:14px; }
+body.dark .modal-spot-tips { background:#1e3a5f; }
+.modal-spot-tips p { margin:0; font-size:13px; line-height:1.6; color:#1e40af; }
+body.dark .modal-spot-tips p { color:#93c5fd; }
+.btn-navigazione {
+  background: linear-gradient(90deg,#0a2a43,#144d73);
+  color:white; border:none; padding:14px; border-radius:14px;
+  font-size:14px; font-weight:700; width:100%; cursor:pointer; margin-top:0;
+}
+.btn-chiudi-spot {
+  background:#f0f0f0; color:#333; border:none; padding:12px;
+  border-radius:14px; font-size:14px; width:100%; cursor:pointer; margin-top:8px;
+}
+body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
+</style>
+</head>
+<body>
+<div id="splash">
+  <video autoplay muted loop playsinline preload="auto" class="splash-video-full">
+    <source src="./img/splash-anim.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute; bottom:80px; left:0; width:100%; text-align:center;">
+    <h2 style="margin:0 0 4px;font-size:22px;">AdelTechnic-FISH</h2>
+    <p id="splashSubtitle" style="opacity:0.6;font-size:14px;margin:0;">La tua guida alla pesca in mare</p>
+  </div>
+</div>
+<header>
+  <!-- TITOLO PRINCIPALE: Al centro con la tua foto integrata BEN VISIBILE -->
+<div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding-top: 10px; font-weight: bold; font-size: 22px; color: white;">
+  <!-- La tua foto-emoji con margine a sinistra per spostarla a destra -->
+  <img src="./img/io_e_il_pesce.png" alt="Avatar" style="width: 100px; height: 100px; object-fit: contain; flex-shrink: 0; margin-left: 30px;">
+  <span>🎣 AdelTechnic-FISH</span>
+</div>
+  <div style="position:absolute; left:14px; top:50%; transform:translateY(-50%); display:flex; gap:4px;">
+    
+<!-- Pulsante Italiano -->
+<button onclick="cambiaLingua('it')" id="btnLangIt" style="background:none; padding:2px; margin:0; box-shadow:none; border-radius:6px; display:flex; flex-direction:column; align-items:center; gap:1px;">
+  <img src="./img/bandiera_it.png" style="width:22px;height:22px;border-radius:50%;object-fit:cover;display:block;">
+  <span style="font-size:9px; font-weight:600;">IT</span>
+</button>
+
+<!-- Pulsante Francese -->
+<button onclick="cambiaLingua('fr')" id="btnLangFr" style="background:none; padding:2px; margin:0; box-shadow:none; border-radius:6px; opacity:0.4; display:flex; flex-direction:column; align-items:center; gap:1px;">
+  <img src="./img/bandiera_fr.png" style="width:22px;height:22px;border-radius:50%;object-fit:cover;display:block;">
+  <span style="font-size:9px; font-weight:600;">FR</span>
+</button>
+  </div>
+  <div style="position:absolute; right:14px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; gap:2px;">
+    <button onclick="toggleTema()" style="background:none; padding:6px; margin:0; font-size:20px; box-shadow:none;">🌓</button>
+    <span id="temaLabel" style="font-size:10px; opacity:0.85; font-weight:normal; letter-spacing:normal;">Tema Scuro</span>
+  </div>
+</header>
+<div id="content"></div>
+<footer>
+  <button onclick="goTo(showHome)">🏠<span id="fLabelHome">Home</span></button>
+  <button onclick="goTo(showTecniche)">🌊<span id="fLabelTecniche">Tecniche</span></button>
+  <button onclick="goTo(showSpecie)">🐟<span id="fLabelSpecie">Specie</span></button>
+  <button onclick="goTo(showMontature)">🎣<span id="fLabelMontature">Montature</span></button>
+  <button onclick="goTo(showNodi)">🧵<span id="fLabelNodi">Nodi</span></button>
+  <button onclick="goTo(showPrevisioni)">⚓<span id="fLabelMeteo">Meteo</span></button>
+  <button onclick="goTo(showQuandoPescare)">🌙<span id="fLabelQuando">Quando</span></button>
+  <button onclick="chiudiApp()">❌<span id="fLabelEsci">Esci</span></button>
+</footer>
+<script>
+/* === NAVIGAZIONE + TEMA + CHIUDI APP === */
+function goTo(fn) {
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  fn();
+}
+function toggleTema() {
+  document.body.classList.toggle("dark");
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("tema", isDark ? "dark" : "light");
+  aggiornaLabelTema();
+}
+function caricaTema() {
+  if (localStorage.getItem("tema") === "dark") document.body.classList.add("dark");
+  aggiornaLabelTema();
+}
+  /* === LINGUA === */
+let linguaAttuale = "it";
+const traduzioni = {
+  it: {
+    benvenuto: "Benvenuto 🎣",
+    seleziona: "Seleziona una sezione per iniziare",
+    tecniche: "Tecniche", tecnicheDesc: "Surfcasting, spinning, eging…",
+    specie: "Specie", specieDesc: "I pesci più pescati",
+    montature: "Montature", montatureDesc: "Spiegate passo-passo",
+    nodi: "Nodi", nodiDesc: "Con immagini",
+    meteo: "Meteo & Spot", meteoDesc: "Previsioni + mappa pesca",
+    quandoPescare: "Quando Pescare", quandoPescareDesc: "Solunar, maree, luna",
+    tornaHome: "🏠 Torna alla Home",
+    cercaSpecie: "Cerca specie...",
+    cercaNodo: "Cerca nodo...",
+    cercaMontatura: "Cerca montatura...",
+    tornaMontature: "⬅️ Torna alle Montature",
+    tornaSpecie: "👈 Torna alle specie",
+    tornaTecniche: "👈 Torna alle tecniche",
+    footerHome: "Home", footerTecniche: "Tecniche", footerSpecie: "Specie",
+    footerMontature: "Montature", footerNodi: "Nodi", footerMeteo: "Meteo & Spot", footerEsci: "Esci", footerQuando: "Quando Pescare",
+    noNodoTrovato: "Nessun nodo trovato per",
+    nellApp: "nell'app.",
+    cercaGoogle: "🔎 Cerca su Google",
+    cercaYoutube: "▶ Cerca su YouTube",
+    tornaTuttiNodi: "⬅️ Torna a tutti i nodi",
+    noMontaturaTrovato: "Nessuna montatura trovata per",
+    tornaTutteMontature: "⬅️ Torna a tutte le montature",
+    montatureCount: "montature • tocca per il dettaglio",
+    schemaTecnico: "📐 Schema Tecnico",
+    toccaIngrandire: "🔍 Tocca per ingrandire",
+    quandoUsare: "🕐 Quando usare",
+    target: "🐟 Target",
+    escheConsigliate: "🐛 Esche consigliate",
+    videoDimostrativo: "Video Dimostrativo",
+    guardaYoutube: "Guarda come si realizza su YouTube →",
+    noSpecieTrovata: "Nessuna specie trovata per",
+    tornaTutteSpecie: "⬅️ Torna a tutte le specie",
+    tecnicheLabel: "Tecniche:",
+    montatureConsigliate: "🎣 Montature consigliate",
+    calendarioAttivita: "📅 Calendario attività",
+    tecnicheTitolo: "🌊 Tecniche di Pesca in Mare",
+    quandoUsarla: "📅 Quando usarla",
+    attrezzaturaBase: "🎒 Attrezzatura base",
+    montatureDedicate: "🎣 Montature dedicate",
+    toccaSchema: "Tocca per vedere lo schema",
+    proLabel: "✅ Pro",
+    controLabel: "❌ Contro",
+    videoTutorial: "🎥 Video tutorial",
+    guardaSuYoutube: "Guarda su YouTube",
+    specieConsigliate: "🐟 Specie consigliate",
+    escheConsigliateLabel: "🐛 Esche consigliate",
+    montaturaDedicataLabel: "🎣 Montatura dedicata",
+    piombiConsigliati: "⚖️ Piombi consigliati",
+    montaturaDedicataUnica: "🎣 Montatura dedicata",
+    specieAggiuntive: "🐟 Specie principali",
+    previsioniTitolo: "⚓ Previsioni Pesca",
+    aggiornatoOra: "Aggiornato ora",
+    ratingScarsa: "Scarsa", ratingBassa: "Bassa", ratingDiscreta: "Discreta", ratingBuona: "Buona", ratingOttima: "Ottima",
+    ondaLabel: "Onda", ventoLabel: "Vento", temperaturaLabel: "Temperatura", periodoOndaLabel: "Periodo onda", cieloLabel: "Cielo", albaLabel: "Alba",
+    prossimiGiorni: "📅 Prossimi 3 giorni",
+    consiglioPersonalizzato: "🎯 Consiglio personalizzato",
+    tecnicaConsigliata: "Tecnica consigliata",
+    specieProbabili: "Specie probabili",
+    montaturaLabel: "Montatura",
+    attrezzaturaLabel: "Attrezzatura",
+    escheConsLabel: "Esche consigliate",
+    attenzioneLabel: "Attenzione",
+    posizioneSpot: "🗺️ La tua posizione & Spot",
+    salvaSpotBtn: "📌 Salva spot",
+    mieiSpot: "📌 I miei spot",
+    esportaJson: "⬇️ Esporta JSON",
+    importaJson: "⬆️ Importa JSON",
+    cercaSpotItalia: "🗺️ Cerca Spot Italia",
+    aggiornaPrevisioni: "🔄 Aggiorna previsioni",
+    rilevamentoPosizione: "Rilevamento posizione in corso…",
+    browserNoGeo: "Il tuo browser non supporta la geolocalizzazione.",
+    posizioneErrore: "Impossibile rilevare la posizione. Verifica che il GPS sia attivo.",
+    riprova: "🔄 Riprova",
+    erroreMeteo: "Errore nel caricamento dati meteo. Controlla la connessione.",
+    seiQui: "📍 Sei qui",
+    nessunoSpotSalvato: "Nessuno spot salvato.",
+    vaiSulPosto: "Vai sul posto e tocca 📌 Salva spot!",
+    quandoPescareOggi: "🌙 Quando Pescare Oggi",
+    calcoloCondizioni: "Calcolo condizioni di pesca…",
+    confermaGPS: "📍 Per calcolare solunar e maree precise\nposso usare la tua posizione GPS?\n\nOK = usa GPS\nAnnulla = usa posizione centrale Italia",
+    illuminazioneLabel: "Illuminazione:",
+    perPescare: "per pescare",
+    momentiMigliori: "🎯 Momenti Migliori Oggi",
+    majorMinorInfo: "Major = transito lunare (picco attività) • Minor = alba/tramonto luna",
+    mareeOggi: "🌊 Maree Oggi",
+    mareaAlta: "Marea Alta", mareaBassa: "Marea Bassa",
+    mareeNonDisponibili: "Dati maree non disponibili per questa posizione.",
+    mareeSoloMareAperto: "Le maree sono significative solo in mare aperto.",
+    consiglioGiorno: "💡 Consiglio del Giorno",
+    aggiornaBtn: "🔄 Aggiorna",
+    circaOre: "~2 ore", circaUnOra: "~1 ora",
+    cercaSpotTunisia: "🗺️ Cerca Spot Tunisia",
+    selezionaNazione: "Scegli la Nazione dei Pascoli:",
+    italia: "🇮🇹 Italia",
+    tunisia: "🇹🇳 Tunisia",
+  /* === NUOVE CHIAVI IT === */
+    metaPesca: "La tua guida alla pesca in mare",
+    temaChiaro: "Tema Chiaro",
+    temaScuro: "Tema Scuro",
+    uscitaConferma: "Vuoi uscire dall'app?\n\nSe non si chiude automaticamente, chiudi la scheda del browser manualmente.",
+    chiusuraBloccata: "Il browser non ha permesso la chiusura automatica.\nChiudi manualmente questa scheda.",
+    gpsNonDisponibile: "📍 GPS non disponibile. Previsioni basate sulla Capitale.",
+    sereno: "Sereno",
+    pocoNuvole: "Poco nuv.",
+    coperto: "Coperto",
+    nebbia: "Nebbia",
+    pioggerella: "Pioggerella",
+    pioggia: "Pioggia",
+    neve: "Neve",
+    rovesci: "Rovesci",
+    temporale: "Temporale",
+    tuttaItalia: "🗺️ Tutta Italia",
+    ogniTecnica: "🎣 Ogni tecnica",
+    bologneseFondo: "Bolognese/Fondo",
+    carica: "Carica →",
+    spotCaricamento: "Caricamento spot in corso... / Nessun dato",
+    visibili: "visibili",
+    nessunSpotTrovato: "Nessuno spot trovato.",
+    usaFiltri: "Usa i filtri e premi <strong>Carica →</strong> per vedere gli spot, oppure tocca un marker 🎣",
+    risultatiFiltro: "Risultati filtro",
+    tecnicaCampo: "🎣 Tecnica",
+    ottieniIndicazioni: "🧭 Ottieni indicazioni →",
+    salvaNeiMieiSpot: "📌 Salva nei miei spot",
+    tuttiGliSpotDi: "← Tutti gli spot di",
+    spotGiaSalvato: "Spot già salvato nei tuoi spot! Puoi trovarlo nella sezione Meteo.",
+    spotSalvatoOk: "✅ Spot salvato! Trovi tutti i tuoi spot nella sezione Meteo.",
+    posizioneNonDisponibile: "Posizione non disponibile.",
+    salvaQuestoSpot: "📌 Salva questo spot",
+    nomeSpotPh: "Nome spot (es. Scoglio grande)",
+    specieCatturatePh: "Specie catturate (es. Orata, Sarago)",
+    montaturaUsata: "Montatura usata",
+    noteLiberePh: "Note libere (profondità, ora…)",
+    annulla: "Annulla",
+    spotSenzaNome: "Spot senza nome",
+    chiudi: "Chiudi",
+    nessunElemento: "Nessun elemento disponibile",
+    pesoLabel: "Peso:",
+    specieConsigliateLabelHard: "🐟 Specie consigliate",
+    nessunoSpotEsportare: "Nessuno spot da esportare.",
+    fileNonValido: "File non valido.",
+    regLiguria: "Liguria",
+    regToscana: "Toscana",
+    regLazio: "Lazio",
+    regCampania: "Campania",
+    regCalabria: "Calabria",
+    regPuglia: "Puglia",
+    regBasilicata: "Basilicata",
+    regAbruzzoMolise: "Abruzzo / Molise",
+    regMarche: "Marche",
+    regEmiliaRomagna: "Emilia Romagna",
+    regVeneto: "Veneto",
+    regFriuliVG: "Friuli V.G.",
+    regSardegna: "Sardegna",
+    regSicilia: "Sicilia",
+    guidaTecnicaEsperta: "Guida Tecnica Esperta",
+  },
+  fr: {
+    benvenuto: "Bienvenue 🎣",
+    seleziona: "Sélectionnez une section pour commencer",
+    tecniche: "Techniques", tecnicheDesc: "Surfcasting, spinning, eging…",
+    specie: "Espèces", specieDesc: "Les poissons les plus pêchés",
+    montature: "Montages", montatureDesc: "Expliqués étape par étape",
+    nodi: "Nœuds", nodiDesc: "Avec images",
+    meteo: "Météo & Spots", meteoDesc: "Prévisions + carte de pêche",
+    quandoPescare: "Quand Pêcher", quandoPescareDesc: "Solunaire, marées, lune",
+    tornaHome: "🏠 Retour à l'accueil",
+    cercaSpecie: "Rechercher une espèce...",
+    cercaNodo: "Rechercher un nœud...Web/Youtube",
+    cercaMontatura: "Rechercher un montage...Web/Youtube",
+    tornaMontature: "⬅️ Retour aux montages",
+    tornaSpecie: "👈 Retour aux espèces",
+    tornaTecniche: "👈 Retour aux techniques",
+    footerHome: "Accueil", footerTecniche: "Techniques", footerSpecie: "Espèces",
+    footerMontature: "Montages", footerNodi: "Nœuds", footerMeteo: "Météo & Spot", footerEsci: "Quitter", footerQuando: "Quand Pêcher",
+    noNodoTrovato: "Aucun nœud trouvé pour",
+    nellApp: "dans l'application.",
+    cercaGoogle: "🔎 Rechercher sur Google",
+    cercaYoutube: "▶ Rechercher sur YouTube",
+    tornaTuttiNodi: "⬅️ Retour à tous les nœuds",
+    noMontaturaTrovato: "Aucun montage trouvé pour",
+    tornaTutteMontature: "⬅️ Retour à tous les montages",
+    montatureCount: "montages • touchez pour le détail",
+    schemaTecnico: "📐 Schéma Technique",
+    toccaIngrandire: "🔍 Touchez pour agrandir",
+    quandoUsare: "🕐 Quand l'utiliser",
+    target: "🐟 Cibles",
+    escheConsigliate: "🐛 Appâts recommandés",
+    videoDimostrativo: "Vidéo Démonstrative",
+    guardaYoutube: "Regardez comment le réaliser sur YouTube →",
+    noSpecieTrovata: "Aucune espèce trouvée pour",
+    tornaTutteSpecie: "⬅️ Retour à toutes les espèces",
+    tecnicheLabel: "Techniques :",
+    montatureConsigliate: "🎣 Montages recommandés",
+    calendarioAttivita: "📅 Calendrier d'activité",
+    tecnicheTitolo: "🌊 Techniques de Pêche en Mer",
+    quandoUsarla: "📅 Quand l'utiliser",
+    attrezzaturaBase: "🎒 Équipement de base",
+    montatureDedicate: "🎣 Montages dédiés",
+    toccaSchema: "Touchez pour voir le schéma",
+    proLabel: "✅ Avantages",
+    controLabel: "❌ Inconvénients",
+    videoTutorial: "🎥 Tutoriel vidéo",
+    guardaSuYoutube: "Regarder sur YouTube",
+    specieConsigliate: "🐟 Espèces recommandées",
+    escheConsigliateLabel: "🐛 Appâts recommandés",
+    montaturaDedicataLabel: "🎣 Montage dédié",
+    piombiConsigliati: "⚖️ Plombs recommandés",
+    montaturaDedicataUnica: "🎣 Montage dédié",
+    specieAggiuntive: "🐟 Espèces principales",
+    previsioniTitolo: "⚓ Prévisions de Pêche",
+    aggiornatoOra: "Mis à jour maintenant",
+    ratingScarsa: "Faible", ratingBassa: "Basse", ratingDiscreta: "Correcte", ratingBuona: "Bonne", ratingOttima: "Excellente",
+    ondaLabel: "Vague", ventoLabel: "Vent", temperaturaLabel: "Température", periodoOndaLabel: "Période de vague", cieloLabel: "Ciel", albaLabel: "Aube",
+    prossimiGiorni: "📅 3 prochains jours",
+    consiglioPersonalizzato: "🎯 Conseil personnalisé",
+    tecnicaConsigliata: "Technique recommandée",
+    specieProbabili: "Espèces probables",
+    montaturaLabel: "Montage",
+    attrezzaturaLabel: "Équipement",
+    escheConsLabel: "Appâts recommandés",
+    attenzioneLabel: "Attention",
+    posizioneSpot: "🗺️ Votre position & Spots",
+    salvaSpotBtn: "📌 Sauvegarder le spot",
+    mieiSpot: "📌 Mes spots",
+    esportaJson: "⬇️ Exporter JSON",
+    importaJson: "⬆️ Importer JSON",
+    cercaSpotItalia: "🗺️ Chercher un Spot en Italie",
+    aggiornaPrevisioni: "🔄 Actualiser les prévisions",
+    rilevamentoPosizione: "Détection de la position en cours…",
+    browserNoGeo: "Votre navigateur ne prend pas en charge la géolocalisation.",
+    posizioneErrore: "Impossible de détecter la position. Vérifiez que le GPS est activé.",
+    riprova: "🔄 Réessayer",
+    erroreMeteo: "Erreur de chargement des données météo. Vérifiez la connexion.",
+    seiQui: "📍 Vous êtes ici",
+    nessunoSpotSalvato: "Aucun spot sauvegardé.",
+    vaiSulPosto: "Allez sur place et touchez 📌 Sauvegarder le spot !",
+    quandoPescareOggi: "🌙 Quand Pêcher Aujourd'hui",
+    calcoloCondizioni: "Calcul des conditions de pêche…",
+    confermaGPS: "📍 Pour calculer solunaire et marées précises\npuis-je utiliser votre position GPS ?\n\nOK = utiliser le GPS\nAnnuler = utiliser la position centrale de l'Italie",
+    illuminazioneLabel: "Illumination :",
+    perPescare: "pour pêcher",
+    momentiMigliori: "🎯 Meilleurs Moments Aujourd'hui",
+    majorMinorInfo: "Major = transit lunaire (pic d'activité) • Minor = lever/coucher de lune",
+    mareeOggi: "🌊 Marées Aujourd'hui",
+    mareaAlta: "Marée Haute", mareaBassa: "Marée Basse",
+    mareeNonDisponibili: "Données de marée non disponibles pour cette position.",
+    mareeSoloMareAperto: "Les marées sont significatives uniquement en mer ouverte.",
+    consiglioGiorno: "💡 Conseil du Jour",
+    aggiornaBtn: "🔄 Actualiser",
+    circaOre: "~2 heures", circaUnOra: "~1 heure",
+    cercaSpotTunisia: "🗺️ Chercher un Spot en Tunisie",
+   selezionaNazione: "Choisir le Pays de Pêche :",
+   italia: "🇮🇹 Italie",
+   tunisia: "🇹🇳 Tunisie",
+/* === NOUVELLES CLÉS FR === */
+    metaPesca: "Votre guide de la pêche en mer",
+    temaChiaro: "Thème Clair",
+    temaScuro: "Thème Sombre",
+    uscitaConferma: "Voulez-vous quitter l'application ?\n\nSi elle ne se ferme pas automatiquement, fermez l'onglet du navigateur manuellement.",
+    chiusuraBloccata: "Le navigateur n'a pas permis la fermeture automatique.\nFermez cet onglet manuellement.",
+    gpsNonDisponibile: "📍 GPS indisponible. Prévisions basées sur la Capitale.",
+    sereno: "Dégagé",
+    pocoNuvole: "Peu nuageux",
+    coperto: "Couvert",
+    nebbia: "Brouillard",
+    pioggerella: "Bruine",
+    pioggia: "Pluie",
+    neve: "Neige",
+    rovesci: "Averses",
+    temporale: "Orage",
+    tuttaItalia: "🗺️ Toute l'Italie",
+    ogniTecnica: "🎣 Toutes les techniques",
+    bologneseFondo: "Bolognese/Fond",
+    carica: "Charger →",
+    spotCaricamento: "Chargement des spots en cours... / Aucune donnée",
+    visibili: "visibles",
+    nessunSpotTrovato: "Aucun spot trouvé.",
+    usaFiltri: "Utilisez les filtres puis <strong>Charger →</strong> pour voir les spots, ou touchez un marqueur 🎣",
+    risultatiFiltro: "Résultats du filtre",
+    tecnicaCampo: "🎣 Technique",
+    ottieniIndicazioni: "🧭 Obtenir l'itinéraire →",
+    salvaNeiMieiSpot: "📌 Sauvegarder dans mes spots",
+    tuttiGliSpotDi: "← Tous les spots de",
+    spotGiaSalvato: "Spot déjà sauvegardé ! Retrouvez-le dans la section Météo.",
+    spotSalvatoOk: "✅ Spot sauvegardé ! Retrouvez tous vos spots dans la section Météo.",
+    posizioneNonDisponibile: "Position non disponible.",
+    salvaQuestoSpot: "📌 Sauvegarder ce spot",
+    nomeSpotPh: "Nom du spot (ex. Grande rocher)",
+    specieCatturatePh: "Espèces capturées (ex. Dorade, Sar)",
+    montaturaUsata: "Montage utilisé",
+    noteLiberePh: "Notes libres (profondeur, heure…)",
+    annulla: "Annuler",
+    spotSenzaNome: "Spot sans nom",
+    chiudi: "Fermer",
+    nessunElemento: "Aucun élément disponible",
+    pesoLabel: "Poids :",
+    specieConsigliateLabelHard: "🐟 Espèces recommandées",
+    nessunoSpotEsportare: "Aucun spot à exporter.",
+    fileNonValido: "Fichier non valide.",
+    regLiguria: "Ligurie",
+    regToscana: "Toscane",
+    regLazio: "Latium",
+    regCampania: "Campanie",
+    regCalabria: "Calabre",
+    regPuglia: "Pouilles",
+    regBasilicata: "Basilicate",
+    regAbruzzoMolise: "Abruzzes / Molise",
+    regMarche: "Marches",
+    regEmiliaRomagna: "Émilie-Romagne",
+    regVeneto: "Vénétie",
+    regFriuliVG: "Frioul-Vénétie Julienne",
+    regSardegna: "Sardaigne",
+    regSicilia: "Sicile",
+    guidaTecnicaEsperta: "Guide Technique Experte",
+  }
+};
+
+function t(chiave) {
+  return traduzioni[linguaAttuale][chiave] || traduzioni.it[chiave] || chiave;
+}
+async function cambiaLingua(lingua) {
+  linguaAttuale = lingua;
+  localStorage.setItem("lingua", lingua);
+  document.getElementById("btnLangIt").style.opacity = lingua === "it" ? "1" : "0.4";
+  document.getElementById("btnLangFr").style.opacity = lingua === "fr" ? "1" : "0.4";
+  aggiornaFooter();
+  try {
+    const fileNodi = lingua === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
+    const fileMontature = lingua === "fr" ? "./data/montature.fr.json" : "./data/montature.json";
+    const fileSpecie = lingua === "fr" ? "./data/specie.fr.json" : "./data/specie.json";
+    const [resNodi, resMontature, resSpecie] = await Promise.all([fetch(fileNodi), fetch(fileMontature), fetch(fileSpecie)]);
+    nodiData = await resNodi.json();
+    montatureData = await resMontature.json();
+    specie = await resSpecie.json();
+  } catch(e) { console.error("Errore ricaricamento dati:", e); }
+  showHome();
+}
+function caricaLingua() {
+  const splashSub = document.getElementById("splashSubtitle");
+  if (splashSub) splashSub.textContent = t('metaPesca');
+  const salvata = localStorage.getItem("lingua");
+  if (salvata) linguaAttuale = salvata;
+  document.getElementById("btnLangIt").style.opacity = linguaAttuale === "it" ? "1" : "0.4";
+  document.getElementById("btnLangFr").style.opacity = linguaAttuale === "fr" ? "1" : "0.4";
+  aggiornaFooter();
+}
+  function aggiornaFooter() {
+  document.getElementById("fLabelHome").textContent = t('footerHome');
+  document.getElementById("fLabelTecniche").textContent = t('footerTecniche');
+  document.getElementById("fLabelSpecie").textContent = t('footerSpecie');
+  document.getElementById("fLabelMontature").textContent = t('footerMontature');
+  document.getElementById("fLabelNodi").textContent = t('footerNodi');
+  document.getElementById("fLabelMeteo").textContent = t('footerMeteo');
+  document.getElementById("fLabelQuando").textContent = t('footerQuando');
+  document.getElementById("fLabelEsci").textContent = t('footerEsci');
+}
+function aggiornaLabelTema() {
+  const label = document.getElementById("temaLabel");
+  if (label) {
+    label.textContent = document.body.classList.contains("dark") ? "Tema Chiaro" : "Tema Scuro";
+  }
+}
+/* MODIFICA 4 — Chiudi app con conferma */
+function chiudiApp() {
+ if (confirm("Vuoi uscire dall'app?\n\nSe non si chiude automaticamente, chiudi la scheda del browser manualmente.")) {
+    window.close();
+    setTimeout(() => {
+      alert("Il browser non ha permesso la chiusura automatica.\nChiudi manualmente questa scheda.");
+    }, 400);
+  }
+}
+</script>
+<script>
+/* === HOME === */
+function showHome() {
+  document.getElementById("content").innerHTML = `
+    <h2 style="margin-top:0;">${t('benvenuto')}</h2>
+    <p style="opacity:0.7;margin-bottom:20px;font-size:14px;">${t('seleziona')}</p>
+    <div class="grid">
+      <div class="card" onclick="goTo(showTecniche)"><span class="home-icon">🌊</span><h3>${t('tecniche')}</h3><p>${t('tecnicheDesc')}</p></div>
+      <div class="card" onclick="goTo(showSpecie)"><span class="home-icon">🐟</span><h3>${t('specie')}</h3><p>${t('specieDesc')}</p></div>
+      <div class="card" onclick="goTo(showMontature)"><span class="home-icon">🎣</span><h3>${t('montature')}</h3><p>${t('montatureDesc')}</p></div>
+      <div class="card" onclick="goTo(showNodi)"><span class="home-icon">🧵</span><h3>${t('nodi')}</h3><p>${t('nodiDesc')}</p></div>
+      <div class="card" onclick="goTo(showPrevisioni)"><span class="home-icon">⚓</span><h3>${t('meteo')}</h3><p>${t('meteoDesc')}</p></div>
+      <div class="card" onclick="goTo(showQuandoPescare)"><span class="home-icon">🌙</span><h3>${t('quandoPescare')}</h3><p>${t('quandoPescareDesc')}</p></div>
+    </div>`;
+}
+</script>
+<script>
+/* === TECNICHE === */
+const tecnicheListIt = [
+  { nome:"Surfcasting",    emoji:"🏖️", desc:"Spiaggia, piombi pesanti", fn:"showSurfcasting" },
+  { nome:"Spinning",       emoji:"🎣", desc:"Esche artificiali da riva", fn:"showSpinning" },
+  { nome:"Eging",          emoji:"🦑", desc:"Seppie e calamari", fn:"showEging" },
+  { nome:"Pesca a Fondo",  emoji:"⚓", desc:"Porto e scogliera", fn:"showFondo" },
+  { nome:"Galleggiante",   emoji:"🎈", desc:"Tecnica precisa e leggera", fn:"showGalleggiante" },
+  { nome:"Beach Ledgering", emoji:"🎣", desc:"Spiaggia, mare calmo", fn:"showBeachLedgering" }
+];
+const tecnicheListFr = [
+  { nome:"Surfcasting",    emoji:"🏖️", desc:"Plage, plombs lourds", fn:"showSurfcasting" },
+  { nome:"Spinning",       emoji:"🎣", desc:"Leurres depuis la rive", fn:"showSpinning" },
+  { nome:"Eging",          emoji:"🦑", desc:"Seiches et calamars", fn:"showEging" },
+  { nome:"Pêche au Fond",  emoji:"⚓", desc:"Port et rochers", fn:"showFondo" },
+  { nome:"Flotteur",   emoji:"🎈", desc:"Technique précise et légère", fn:"showGalleggiante" },
+  { nome:"Beach Ledgering", emoji:"🎣", desc:"Plage, mer calme", fn:"showBeachLedgering" }
+];
+
+function showTecniche() {
+  const tecnicheList = linguaAttuale === "fr" ? tecnicheListFr : tecnicheListIt;
+  const cards = tecnicheList.map(tc => `
+  
+    <div onclick="goTo(${tc.fn})" style="background:linear-gradient(135deg,#a8d8ea,#6bbfd8);border-radius:14px;padding:14px 8px;box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px;">
+      <span style="font-size:26px;">${tc.emoji}</span>
+      <div style="font-weight:700;font-size:13px;line-height:1.3;color:#0a2a43;">${tc.nome}</div>
+      <div style="font-size:11px;opacity:0.65;color:#0a2a43;">${tc.desc}</div>
+    </div>`).join("");
+  document.getElementById("content").innerHTML = `
+    <h2>${t('tecnicheTitolo')}</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${cards}</div>
+    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
+}
+function showSurfcasting() {
+  const txt = linguaAttuale === "fr" ? surfcastingText.fr : surfcastingText.it;
+  const dati = linguaAttuale === "fr" ? surfcastingDataFr : surfcastingDataIt;
+  document.getElementById("content").innerHTML = `
+    <h2>🏖️ Surfcasting</h2>
+    <div class="card"><b>${t('quandoUsarla')}</b><br>${txt.quando}</div>
+    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${txt.attrezzatura}</div>
+    <div class="card" style="cursor:default;">
+      <h3>${t('montatureDedicate')}</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      ${["minitrave","paternoster","long-arm","short-rovesciato","pulley-rig"].map((id,i)=>{
+        const mont = montatureData.find(x=>x.id===id);
+        const nome = mont ? mont.nome : id;
+        const img = mont ? mont.img.replace("./","") : "";
+        return `<div>
+          <button onclick="toggleImageBox('surfBox${i}','${img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${nome} <span class="arrow">▼</span></button>
+          <div id="surfBox${i}" class="image-box"></div>
+        </div>`;
+      }).join("")}
+      </div>
+    </div>
+    <div class="card"><b>${t('proLabel')}</b><br>${txt.pro}</div>
+    <div class="card"><b>${t('controLabel')}</b><br>${txt.contro}</div>
+    <div class="card"><b>${t('videoTutorial')}</b><br><a href="https://www.youtube.com/results?search_query=surfcasting+tecnica+italiana" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(dati.specie)}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(dati.esche)}</div>
+    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
+}
+function showGalleggiante() {
+  const dati = tecnicheData.galleggiante;
+  const txt = linguaAttuale === "fr" ? galleggianteText.fr : galleggianteText.it;
+  const specieList = linguaAttuale === "fr" ? [{nome:"Muge",img:"img/cefalo.jpg"},{nome:"Sar",img:"img/sarago-maggiore.jpg"},{nome:"Oblade",img:"img/occhiata.jpg"},{nome:"Petite dorade",img:"img/orata.jpg"}] : dati.specie;
+  const escheList = linguaAttuale === "fr" ? [{nome:"Asticot",img:"img/bigattino.jpg"},{nome:"Pain",img:"img/pane.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Crevette",img:"img/gambero.jpg"}] : dati.esche;
+  document.getElementById("content").innerHTML = `
+    <h2>🎈 ${linguaAttuale === "fr" ? "Flotteur" : "Galleggiante"}</h2>
+    <div class="card"><b>${t('quandoUsarla')}</b><br>${txt.quando}</div>
+    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${txt.attrezzatura}</div>
+    <div class="card" style="cursor:default;">
+      <h3>${t('montatureDedicate')}</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div>
+          <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
+          <div id="galleggFissoBox" class="image-box"></div>
+        </div>
+        <div>
+          <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
+          <div id="galleggScorrBox" class="image-box"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card"><b>${t('proLabel')}</b><br>${txt.pro}</div>
+    <div class="card"><b>${t('controLabel')}</b><br>${txt.contro}</div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
+    <div class="card"><b>${t('videoTutorial')}</b><br><a href="https://www.youtube.com/results?search_query=pesca+con+galleggiante+mare" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
+}
+function showSpinning() {
+  const dati = tecnicheData.spinning;
+  const txt = linguaAttuale === "fr" ? spinningText.fr : spinningText.it;
+  const specieList = linguaAttuale === "fr" ? dati.specieFr : dati.specieIt;
+  const escheList = linguaAttuale === "fr" ? dati.escheFr : dati.escheIt;
+  const piombiList = linguaAttuale === "fr" ? dati.piombiFr : dati.piombiIt;
+  document.getElementById("content").innerHTML = `
+    <h2>🎣 Spinning</h2>
+    <div class="card"><h3>${t('quandoUsarla')}</h3><p>${txt.quando}</p></div>
+    <div class="card"><h3>${t('attrezzaturaBase')}</h3><p>${txt.attrezzatura}</p></div>
+    <div class="card" style="cursor:default;">
+      <h3>${t('montaturaDedicataLabel')}</h3><p>${txt.montatura}</p>
+      <button onclick="toggleImageBox('spinningMontaturaBox','img/montatura-spinning.jpg',this)" class="toggle-btn">📷 ${linguaAttuale === "fr" ? "Montage Spinning" : "Montatura Spinning"} <span class="arrow">▼</span></button>
+      <div id="spinningMontaturaBox" class="image-box"></div>
+    </div>
+    <div class="card"><h3>${t('proLabel')}</h3><ul>${txt.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+    <div class="card"><h3>${t('controLabel')}</h3><ul>${txt.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
+    <div class="card"><h3>${t('piombiConsigliati')}</h3>${generaMiniCard(piombiList,"spinning-piombi")}</div>
+    <div class="card"><h3>${t('videoTutorial')}</h3><a href="${dati.video}" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
+}
+function showEging() {
+  const dati = tecnicheData.eging;
+  const txt = linguaAttuale === "fr" ? egingText.fr : egingText.it;
+  const specieList = linguaAttuale === "fr" ? [{nome:"Calamar",img:"img/calamaro.jpg"},{nome:"Seiche",img:"img/seppia.jpg"},{nome:"Encornet",img:"img/totano.jpg"}] : dati.specie;
+  document.getElementById("content").innerHTML = `
+    <h2>🦑 Eging</h2>
+    <div class="card"><h3>${t('quandoUsarla')}</h3><p>${txt.quando}</p></div>
+    <div class="card"><h3>${t('attrezzaturaBase')}</h3><p>${txt.attrezzatura}</p></div>
+    <div class="card" style="cursor:default;">
+      <h3>${t('montaturaDedicataUnica')}</h3><p>${txt.montatura}</p>
+      <button onclick="toggleImageBox('egingMontaturaBox','img/montatura-eging.jpg',this)" class="toggle-btn">📷 ${linguaAttuale === "fr" ? "Montage Eging" : "Montatura Eging"} <span class="arrow">▼</span></button>
+      <div id="egingMontaturaBox" class="image-box"></div>
+    </div>
+    <div class="card"><h3>${t('proLabel')}</h3><ul>${txt.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+    <div class="card"><h3>${t('controLabel')}</h3><ul>${txt.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(dati.esche)}</div>
+    <div class="card"><h3>${t('videoTutorial')}</h3><a href="${dati.video}" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
+}
+function showFondo() {
+  const montature = tecnicheData.fondo.montature;
+  const txt = linguaAttuale === "fr" ? fondoText.fr : fondoText.it;
+  const specieList = linguaAttuale === "fr" ? [{nome:"Dorade",img:"img/orata.jpg"},{nome:"Sar commun",img:"img/sarago-maggiore.jpg"},{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Rascasse",img:"img/scorfano.jpg"},{nome:"Pageot",img:"img/pagello.jpg"}] : tecnicheData.fondo.specie;
+  const escheList = linguaAttuale === "fr" ? [{nome:"Ver de sable",img:"img/arenicola.jpg"},{nome:"Américain",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Moule",img:"img/cozza.jpg"},{nome:"Couteau",img:"img/cannolicchio.jpg"}] : tecnicheData.fondo.esche;
+  document.getElementById("content").innerHTML = `
+    <h2>⚓ ${linguaAttuale === "fr" ? "Pêche au Fond" : "Pesca a Fondo"}</h2>
+    <div class="card"><b>${t('quandoUsarla')}</b><br>${txt.quando}</div>
+    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${txt.attrezzatura}</div>
+    <div class="card" style="cursor:default;">
+      <h3>${t('montatureDedicate')}</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      ${montature.map((m,i)=>`
+        <div>
+          <button onclick="toggleImageBox('fondoBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${m.nome} <span class="arrow">▼</span></button>
+          <div id="fondoBox${i}" class="image-box"></div>
+        </div>
+      `).join("")}
+      </div>
+    </div>
+    <div class="card"><b>${t('proLabel')}</b><br>${txt.pro}</div>
+    <div class="card"><b>${t('controLabel')}</b><br>${txt.contro}</div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
+    <div class="card"><b>${t('videoTutorial')}</b><br><a href="https://www.youtube.com/results?search_query=pesca+a+fondo+mare" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
+}
+  function showBeachLedgering() {
+  const dati = tecnicheData.beachledgering;
+  const specieList = linguaAttuale === "fr" ? beachLedgeringDataFr.specie : dati.specie;
+  const escheList = linguaAttuale === "fr" ? beachLedgeringDataFr.esche : dati.esche;
+  const pro = linguaAttuale === "fr" ? beachLedgeringTextFr.pro : dati.pro;
+  const contro = linguaAttuale === "fr" ? beachLedgeringTextFr.contro : dati.contro;
+  document.getElementById("content").innerHTML = `
+    <h2>🏖️ Beach Ledgering</h2>
+    <div class="card"><b>${t('quandoUsarla')}</b><br>${dati.quando}</div>
+    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${dati.attrezzatura}</div>
+    <div class="card" style="cursor:default;">
+      <h3>${t('montatureDedicate')}</h3>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      ${dati.montature.map((m,i)=>`
+        <div>
+          <button onclick="toggleImageBox('beachBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${m.nome} <span class="arrow">▼</span></button>
+          <div id="beachBox${i}" class="image-box"></div>
+        </div>
+      `).join("")}
+      </div>
+    </div>
+    <div class="card"><b>${t('proLabel')}</b><br>${pro}</div>
+    <div class="card"><b>${t('controLabel')}</b><br>${contro}</div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
+    <div class="card"><b>${t('videoTutorial')}</b><br><a href="${dati.video}" target="_blank">${t('guardaSuYoutube')}</a></div>
+    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
+}
+</script>
+<script>
+/* === NODI === */
+let nodiData = [];
+
+function slugNodo(nome) {
+  return nome.toLowerCase().trim().replace(/\s+/g, "_");
+}
+
+function cardNodo(n) {
+  const id = "nodo-" + slugNodo(n.nome);
+  return `
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <button onclick="toggleNodo('${id}')" style="width:100%;padding:10px 6px;border-radius:13px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#0077b6,#00b4d8);border:none;color:white;cursor:pointer;margin-bottom:6px;line-height:1.3;box-shadow:0 4px 12px rgba(0,0,0,0.16);">
+        🧵 ${n.nome}
+      </button>
+      <div id="${id}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
+       <img src="${n.img}" onclick="mostraEscaFullscreen(event,'${n.img}','${n.nome}')" class="img-box-bg" style="width:100%;height:140px;object-fit:contain;border-radius:12px;margin-bottom:6px;cursor:zoom-in;" onerror="imgFallback(this,'${n.nome} non disponibile')">
+        <p style="font-size:10px;opacity:0.5;margin:-4px 0 6px;">🔍 Tocca per ingrandire</p>
+        <div style="font-size:11px;opacity:0.7;"><b>Uso:</b> ${n.uso}<br><b>Filo:</b> ${n.filo}</div>
+        ${n.video ? `<a href="${n.video}" target="_blank" style="text-decoration:none;"><div style="margin-top:8px;background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:8px;border-radius:10px;font-size:12px;font-weight:700;">▶ Video Tutorial</div></a>` : ""}
+      </div>
+    </div>`;
+}
+function nessunRisultatoNodo(query) {
+  const q = encodeURIComponent(query + " nodo pesca");
+  return `
+    <div class="card" style="text-align:center;cursor:default;">
+      <p style="opacity:0.6;margin-bottom:14px;">${t('noNodoTrovato')} "${query}" ${t('nellApp')}</p>
+      <a href="https://www.google.com/search?q=${q}" target="_blank" style="text-decoration:none;">
+        <div class="btn-img" style="margin-bottom:8px;">${t('cercaGoogle')}</div>
+      </a>
+      <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="text-decoration:none;">
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">${t('cercaYoutube')}</div>
+      </a>
+      <button onclick="goTo(showNodi)" style="width:100%;">${t('tornaTuttiNodi')}</button>
+    </div>`;
+}
+function renderNodi(lista, query) {
+  const box = document.getElementById("listaNodi");
+  if (!box) return;
+  if (lista.length === 0) {
+    box.innerHTML = nessunRisultatoNodo(query || "");
+    return;
+  }
+  box.innerHTML = `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${lista.map(cardNodo).join("")}</div>`;
+}
+function filtraNodi() {
+  const q = document.getElementById("searchNodi").value.toLowerCase();
+  const filtrati = nodiData.filter(n => n.nome.toLowerCase().includes(q));
+  renderNodi(filtrati, document.getElementById("searchNodi").value);
+}
+function showNodi() {
+  document.getElementById("content").innerHTML = `
+    <h2>🧵 ${t('nodi')}</h2>
+    <div class="card">
+      <input type="text" id="searchNodi" placeholder="${t('cercaNodo')}"
+        style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
+        onkeyup="filtraNodi()">
+    </div>
+    <div id="listaNodi"></div>
+    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
+  renderNodi(nodiData);
+}
+function toggleNodo(id) {
+  const el = document.getElementById(id); if (!el) return;
+  const aperto = el.style.display === "block";
+  document.querySelectorAll("[id^='nodo-']").forEach(e => e.style.display="none");
+  el.style.display = aperto ? "none" : "block";
+}
+</script>
+<script>
+/* === MONTATURE === */
+let montatureData = [];
+   const escaImgSlugs = {
+  "arenicola":"arenicola", "ver de sable":"arenicola",
+  "bibi":"bibi",
+  "americano":"americano", "américain":"americano",
+  "coreano":"coreano", "coréen":"coreano",
+  "gambero":"gambero", "crevette":"gambero",
+  "vermetto":"vermetto", "petit ver":"vermetto",
+  "polpo piccolo":"polpo_piccolo", "petit poulpe":"polpo_piccolo",
+  "polpo":"polpo", "poulpe":"polpo",
+  "bigattino":"bigattino", "asticot":"bigattino",
+  "verme di mare":"verme_di_mare", "ver de vase":"verme_di_mare",
+  "pane":"pane", "pain":"pane",
+  "verme":"verme", "ver":"verme",
+  "mazzancolla":"mazzancolla", "crevette rose":"mazzancolla",
+  "pezzo calamaro":"pezzo_calamaro", "morceau de calamar":"pezzo_calamaro",
+  "filetti sarde":"filetti_sarde", "morceau de sarde":"filetti-sarde",
+  "cozza":"cozza", "moule":"cozza",
+  "cannolicchio":"cannolicchio", "couteau":"cannolicchio",
+  "granchio vivo":"granchio_vivo", "crabe vivant":"granchio_vivo"
+};
+function slugEsca(nome) {
+  const key = nome.toLowerCase().trim();
+  if (escaImgSlugs[key]) return escaImgSlugs[key];
+  return key.replace(/\s+/g, "_");
+}
+ function imgFallback(el, testo) {
+  const div = document.createElement("div");
+  div.className = "img-placeholder";
+  if (el.style.height) div.style.height = el.style.height;
+  if (el.style.width) div.style.width = el.style.width;
+  if (el.style.margin) div.style.margin = el.style.margin;
+  div.innerHTML = `<span class="ph-ico">📷</span><span>${testo || "Immagine non disponibile"}</span>`;
+  el.replaceWith(div);
+}
+function mostraEscaPopup(nomeEsca) {
+  // 1. Pulizia universale: rimuove spazi extra all'inizio/fine e converte in minuscolo
+  const nomePulito = nomeEsca.trim().toLowerCase();
+  
+  // 2. Trasforma in automatico qualsiasi spazio in un trattino basso (es. "Sarda fresca" -> "sarda_fresca")
+  // Gestisce anche gli spazi multipli accidentalmente inseriti nel database
+  const fileNome = nomePulito.replace(/\s+/g, '_');
+  
+  // 3. Generazione del percorso standard dell'immagine
+  const urlImmagine = `img/${fileNome}.jpg`;
+
+  // Gestione e pulizia del DOM per evitare duplicazioni di popup
+  const vecchioPopup = document.getElementById("escaPopup");
+  if (vecchioPopup) vecchioPopup.remove();
+
+  const popup = document.createElement("div");
+  popup.id = "escaPopup";
+  popup.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; z-index:99999; animation:fadeIn 0.2s ease;";
+  
+  popup.onclick = function(e) { 
+    if (e.target === popup) popup.remove(); 
+  };
+
+  popup.innerHTML = `
+    <div class="card" style="width:85%; max-width:320px; background:#fff; padding:20px; border-radius:16px; text-align:center; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.3); animation:scaleUp 0.2s ease; cursor:default;">
+      <button onclick="document.getElementById('escaPopup').remove()" style="position:absolute; top:10px; right:12px; background:none; border:none; font-size:18px; cursor:pointer; color:#888;">✕</button>
+      <h3 style="margin:0 0 14px 0; font-size:18px; color:#0a2a43;">${nomeEsca}</h3>
+      <img src="${urlImmagine}" alt="${nomeEsca}" style="width:100%; max-height:220px; object-fit:contain; border-radius:10px; margin-bottom:10px;"
+        onerror="if(typeof imgFallback === 'function'){imgFallback(this,'Immagine non disponibile')}else{this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>Foto non disponibile</text></svg>';}">
+    </div>
+  `;
+
+  document.body.appendChild(popup);
+}
+function chiudiEscaPopup(event) {
+  const overlay = event.target.closest(".modal-overlay") || document.querySelector(".modal-overlay");
+  if (overlay) overlay.remove();
+}
+function mostraEscaFullscreen(event, img, nome) {
+  event.stopPropagation();
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="fullscreen-overlay" onclick="chiudiEscaFullscreen(event)">
+      <span class="fullscreen-spinner">🎣</span>
+      <button class="fullscreen-close" onclick="chiudiEscaFullscreen(event)">✕</button>
+      <img src="${img}" alt="${nome}" class="fullscreen-img" onload="this.classList.add('loaded');this.previousElementSibling.previousElementSibling.style.display='none'" onerror="this.previousElementSibling.previousElementSibling.style.display='none';imgFallback(this,'${nome} non disponibile')">
+    </div>`);
+}
+function chiudiEscaFullscreen(event) {
+  const overlay = event.target.closest(".fullscreen-overlay") || document.querySelector(".fullscreen-overlay");
+  if (overlay) overlay.remove();
+}
+function cardMontatura(m) {
+  return `
+    <div onclick="goTo(()=>showMontaturaDetail('${m.id}'))" style="background:linear-gradient(135deg,#a8d8ea,#6bbfd8);border-radius:12px;padding:8px 4px;box-shadow:0 3px 8px rgba(0,0,0,0.14);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <span style="font-size:18px;">${m.emoji}</span>
+      <div style="font-weight:700;font-size:11px;line-height:1.25;color:#0a2a43;">${m.nome}</div>
+    </div>`;
+}
+function nessunRisultatoMontatura(query) {
+  const q = encodeURIComponent(query + " montatura pesca surfcasting");
+  return `
+    <div class="card" style="text-align:center;cursor:default;">
+      <p style="opacity:0.6;margin-bottom:14px;">${t('noMontaturaTrovato')} "${query}" ${t('nellApp')}</p>
+      <a href="https://www.google.com/search?q=${q}" target="_blank" style="text-decoration:none;">
+        <div class="btn-img" style="margin-bottom:8px;">${t('cercaGoogle')}</div>
+      </a>
+      <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="text-decoration:none;">
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">${t('cercaYoutube')}</div>
+      </a>
+      <button onclick="goTo(showMontature)" style="width:100%;">${t('tornaTutteMontature')}</button>
+    </div>`;
+}
+function renderMontature(lista, query) {
+  const box = document.getElementById("listaMontature");
+  if (!box) return;
+  if (lista.length === 0) {
+    box.innerHTML = nessunRisultatoMontatura(query || "");
+    return;
+  }
+  box.innerHTML = `
+    <p style="opacity:0.6;margin-bottom:14px;font-size:13px;">${lista.length} ${t('montatureCount')}</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">${lista.map(cardMontatura).join("")}</div>
+    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
+}
+function filtraMontature() {
+  const q = document.getElementById("searchMontature").value.toLowerCase();
+  const filtrate = montatureData.filter(m => m.nome.toLowerCase().includes(q));
+  renderMontature(filtrate, document.getElementById("searchMontature").value);
+}
+function showMontature() {
+  document.getElementById("content").innerHTML = `
+    <h2 style="margin-top:0;">🎣 ${t('montature')}</h2>
+    <div class="card">
+      <input type="text" id="searchMontature" placeholder="${t('cercaMontatura')}"
+        style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
+        onkeyup="filtraMontature()">
+    </div>
+    <div id="listaMontature"></div>`;
+  renderMontature(montatureData);
+}
+function showMontaturaDetail(id) {
+  const m = montatureData.find(x => x.id === id); if (!m) return;
+  document.getElementById("content").innerHTML = `
+    <div style="animation:fadeIn 0.3s ease; padding-bottom: 20px;">
+      
+      <!-- Intestazione -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <span style="font-size:32px;">${m.emoji}</span>
+        <div>
+          <h2 style="margin:0;font-size:20px;">${m.nome}</h2>
+          <p style="margin:3px 0 0;opacity:0.6;font-size:13px;">${m.desc}</p>
+        </div>
+      </div>
+
+      <!-- 📦 CONTENITORE SUPERIORE (Affianca Testo e Foto solo se c'è spazio, altrimenti li mette uno sotto l'altro) -->
+      <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:16px; align-items: stretch;">
+        
+        <!-- COLONNA TESTI (Sinistra) -->
+        <div style="flex: 1; min-width: 280px; display:flex; flex-direction:column; gap:12px;">
+          
+          <!-- 🐟 TARGET -->
+          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;">
+            <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('target')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              ${m.target.split(" • ").map(tg => {
+                const tgPulito = tg.trim();
+                return `<span onclick="mostraPescePopup('${tgPulito.replace(/'/g, "\\'")}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+                  🔍 ${tgPulito}
+                </span>`;
+              }).join("")}
+            </div>
+          </div>
+
+          <!-- 🕒 QUANDO USARE -->
+          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;">
+            <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('quandoUsare')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              ${m.quando.split(" • ").map(q=>`<span style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;">${q}</span>`).join("")}
+            </div>
+          </div>
+
+          <!-- 🐛 ESCHE CONSIGLIATE (Ora con la Lente 🔍) -->
+          <div class="card" style="text-align:left;padding:12px;margin:0;cursor:default;">
+            <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('escheConsigliate')}</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              ${m.esche.split(" • ").map(e => `
+                <span onclick="mostraEscaPopup('${e.trim()}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+                  🔍 ${e.trim()}
+                </span>
+              `).join("")}
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COLONNA FOTO (Destra) -->
+        <div class="card" style="flex: 1; min-width: 280px; text-align:center; padding:14px; margin:0; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#fff; border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+          <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:100%; max-height:220px; width:auto; height:auto; display:block; margin:0 auto; border-radius:10px; cursor:zoom-in; object-fit:contain;"
+            onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
+          <p style="text-align:center;font-size:11px;opacity:0.5;margin:8px 0 0;">${t('toccaIngrandire')}</p>
+        </div>
+
+      </div> <!-- CHIUSURA COMPLETA DEL CONTENITORE ALTO -->
+
+      <!-- 🛑 SEZIONE INFERIORE: Elementi rigorosamente in verticale uno sotto l'altro -->
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+        
+        <!-- 💡 PULSANTE GUIDA TECNICA ESPERTA -->
+        <button onclick="caricaGuidaMontatura('${m.id}')" style="width:100%; padding:14px; border-radius:12px; background:linear-gradient(135deg,#0a2a43,#1d5a8a); color:white; font-weight:bold; font-size:14px; border:none; cursor:pointer; box-shadow:0 3px 8px rgba(0,0,0,0.15); margin:0;">
+          💡 ${t('guidaTecnicaEsperta')}
+        </button>
+        
+        <!-- 📦 CONTENITORE DOVE SI APRIRANNO I CAPITOLI -->
+        <div id="contenitore-guida"></div>
+        
+        <!-- 🎥 VIDEO YOUTUBE -->
+        <a href="${m.video}" target="_blank" style="text-decoration:none; width:100%;">
+          <div class="card" style="background:linear-gradient(135deg,#ff0000,#cc0000); color:white; display:flex; align-items:center; gap:14px; padding:15px 18px; cursor:pointer; text-align:left; margin:0;">
+            <div style="font-size:30px; line-height:1;">▶</div>
+            <div>
+              <div style="font-weight:700; font-size:15px;">${t('videoDimostrativo')}</div>
+              <div style="font-size:12px; opacity:0.85; margin-top:2px;">${t('guardaYoutube')}</div>
+            </div>
+          </div>
+        </a>
+      
+        <!-- 🔄 BOTTONE TORNA INDIETRO NATIVO AL SINGOLARE -->
+        <button onclick="goTo(showMontature)" style="width:100%; padding:12px; border-radius:12px; font-weight:bold; cursor:pointer; margin:0;">
+          ${t('tornaMontature')}
+        </button>
+      </div>
+    </div>`;
+}
+function mostraPescePopup(nomePesce) {
+  let urlImmagine = "";
+  const nomeTargetCercato = nomePesce.trim().toLowerCase();
+
+  if (typeof specie !== 'undefined') {
+    // 1. Prova ricerca esatta sul nome
+    for (let key in specie) {
+      if (specie[key] && specie[key].nome && specie[key].nome.toLowerCase().trim() === nomeTargetCercato) {
+        urlImmagine = specie[key].img;
+        break;
+      }
+    }
+    // 2. Prova ricerca sulla chiave (es. specie['sarago-maggiore'])
+    if (!urlImmagine) {
+      const chiaveGenerata = nomeTargetCercato.replace(/\s+/g, '-');
+      if (specie[chiaveGenerata] && specie[chiaveGenerata].img) {
+        urlImmagine = specie[chiaveGenerata].img;
+      }
+    }
+    // 3. SUPER RICERCA PARZIALE (Se clicchi "Sarago Maggiore" cerca qualsiasi specie che contenga "sarago")
+    if (!urlImmagine) {
+      const parole = nomeTargetCercato.split(' ');
+      const primaParola = parole[0]; // Prende ad esempio "sarago"
+      for (let key in specie) {
+        if (specie[key] && specie[key].nome && specie[key].nome.toLowerCase().includes(primaParola)) {
+          urlImmagine = specie[key].img;
+          break;
+        }
+      }
+    }
+  }
+
+  // Fallback se non trova nulla nel database specie
+  if (!urlImmagine) {
+    const fileNome = nomePesce.trim().toLowerCase().replace(/\s+/g, '-');
+    urlImmagine = `img/${fileNome}.jpg`;
+  }
+
+  // Generazione Popup Piccolo Bianco
+  const vecchioPopup = document.getElementById("pescePopup");
+  if (vecchioPopup) vecchioPopup.remove();
+
+  const popup = document.createElement("div");
+  popup.id = "pescePopup";
+  popup.style = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;z-index:9999;animation:fadeIn 0.2s ease;";
+  
+  popup.onclick = function(e) { if (e.target === popup) popup.remove(); };
+
+  popup.innerHTML = `
+    <div class="card" style="width:85%;max-width:320px;background:#fff;padding:20px;border-radius:16px;text-align:center;position:relative;box-shadow:0 10px 25px rgba(0,0,0,0.3);animation:scaleUp 0.2s ease;cursor:default;">
+      <button onclick="document.getElementById('pescePopup').remove()" style="position:absolute;top:10px;right:12px;background:none;border:none;font-size:18px;cursor:pointer;color:#888;">✕</button>
+      <h3 style="margin:0 0 14px 0;font-size:18px;color:#0a2a43;">${nomePesce}</h3>
+      <img src="${urlImmagine}" alt="${nomePesce}" style="width:100%;max-height:220px;object-fit:contain;border-radius:10px;margin-bottom:10px;"
+        onerror="if(typeof imgFallback === 'function'){imgFallback(this,'Immagine non disponibile')}else{this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>Foto non disponibile</text></svg>';}">
+    </div>
+  `;
+  document.body.appendChild(popup);
+}
+function mostraEscaPopup(nomeEsca) {
+  const nomePulito = nomeEsca.trim().toLowerCase();
+  let fileNome = nomePulito.replace(/\s+/g, '_');
+
+  // Intercettazione rigida basata sui file reali presenti sotto la tua cartella img
+  if (nomePulito.includes("granchio")) {
+    fileNome = "granchio_vivo";
+  } else if (nomePulito.includes("calamaro")) {
+    fileNome = "pezzo_calamaro";
+  }
+
+  // Generiamo un ID univoco temporaneo basato sul tempo per evitare qualsiasi conflitto nel DOM
+  const idImmagineUnico = "esca_img_" + Date.now();
+
+  // Rimuove eventuali popup precedenti per non intasare la memoria dell'app
+  const vecchioPopup = document.getElementById("escaPopup");
+  if (vecchioPopup) vecchioPopup.remove();
+
+  // Creazione del contenitore del popup (quadro bianco piccolo e centrato)
+  const popup = document.createElement("div");
+  popup.id = "escaPopup";
+  popup.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; z-index:99999; animation:fadeIn 0.2s ease;";
+  
+  // Chiude il popup se l'utente tocca lo sfondo scuro esterno
+  popup.onclick = function(e) { 
+    if (e.target === popup) popup.remove(); 
+  };
+
+  popup.innerHTML = `
+    <div class="card" style="width:85%; max-width:320px; background:#fff; padding:20px; border-radius:16px; text-align:center; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.3); animation:scaleUp 0.2s ease; cursor:default;">
+      <button onclick="document.getElementById('escaPopup').remove()" style="position:absolute; top:10px; right:12px; background:none; border:none; font-size:18px; cursor:pointer; color:#888;">✕</button>
+      <h3 style="margin:0 0 14px 0; font-size:18px; color:#0a2a43;">${nomeEsca}</h3>
+      
+      <!-- L'immagine parte con il primo percorso standard -->
+      <img id="${idImmagineUnico}" src="img/${fileNome}.jpg" alt="${nomeEsca}" style="width:100%; max-height:220px; object-fit:contain; border-radius:10px; margin-bottom:10px;"
+        onerror="
+          // 🔄 SISTEMA DI RECUPERO PROFESSIONALE (Se il primo tentativo fallisce)
+          const imgElement = this;
+          const currentSrc = imgElement.src;
+          
+          if (currentSrc.indexOf('img/') !== -1 && currentSrc.indexOf('./img/') === -1 && currentSrc.indexOf('/img/') === -1) {
+            // Tentativo 2: Forza il percorso relativo esplicito
+            imgElement.src = './img/${fileNome}.jpg';
+          } else if (currentSrc.indexOf('./img/') !== -1) {
+            // Tentativo 3: Forza il percorso dalla radice assoluta
+            imgElement.src = '/img/${fileNome}.jpg';
+          } else {
+            // Fallback finale se il file è corrotto o non è sul server
+            if(typeof imgFallback === 'function'){
+              imgFallback(imgElement, 'Immagine non disponibile');
+            } else {
+              imgElement.src = 'data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>File non trovato</text></svg>';
+            }
+          }
+        ">
+    </div>
+  `;
+
+  document.body.appendChild(popup);
+}
+
+ 
+</script>
+<script>
+/* === DATI SPOT FRANCIA === */ 
+  const spotsFrance = [
+  // COSTA AZZURRA / PROVENZA
+  {
+    "name": "Plage de l'Almanarre (Hyères)",
+    "lat": 43.0815,
+    "lon": 6.1154,
+    "description": "Grande plage de sable de sable fin soumise à de forts vents d'Ouest. Le fond présente une pente douce idéale pour les poissons fouisseurs.",
+    "technique": "Beach Ledgering de grande distance / Surfcasting léger de nuit",
+    "target": "Marbrés, Daurades Royales, Soles"
+  },
+  {
+    "name": "Digue du Port de Cannes (Moure Rouge)",
+    "lat": 43.5412,
+    "lon": 7.0425,
+    "description": "Structure rocheuse artificielle s'avançant sur un fond mixte d'herbiers de posidonies et de sable. Passage fréquent de grands carnassiers.",
+    "technique": "Sea Spinning aux poissons nageurs (Long Jerks, Jigs) / Pêche au vif",
+    "target": "Loups (Bars), Tassergals, Barracudas, Liches"
+  },
+  {
+    "name": "Plage de Pampelonne (Ramuelle)",
+    "lat": 43.2284,
+    "lon": 6.6621,
+    "description": "Plage profonde ouverte sur le large avec une bathymétrie importante dès les premiers mètres. Idéale par mer formée ou en fin de tempête.",
+    "technique": "Surfcasting lourd de vague (Montage Short Rovesciato avec pyramides)",
+    "target": "Gros Sars, Daurades Royales, Loups"
+  },
+  {
+    "name": "Cap d'Antibes (Les Roches Blanches)",
+    "lat": 43.5485,
+    "lon": 7.1210,
+    "description": "Pointe rocheuse naturelle plongeant dans des eaux profondes balayées par les courants côtiers. Zone hautement technique.",
+    "technique": "Rock Spinning lourd (Poppers, Stickbaits coulants) / Pêche au flotteur",
+    "target": "Dentis, Barracudas, Grands Sars, Sérioles"
+  },
+
+  // MEDITERRANEO OCCIDENTALE / CAMARGUE / GOLFO DEL LEONE
+  {
+    "name": "Plage de l'Espiguette (Le Grau-du-Roi)",
+    "lat": 43.4854,
+    "lon": 4.1522,
+    "description": "Immense plage sauvage de sable fin à pente très douce. Les bancs de sable créent de magnifiques canaloni parallèles au rivage.",
+    "technique": "Surfcasting de grande distance à 2 ou 3 empiles / Montages clippés obligatoires",
+    "target": "Marbrés de taille record, Daurades Royales, Ombres"
+  },
+  {
+    "name": "Embouchure du Rhône (Port-Saint-Louis)",
+    "lat": 43.3215,
+    "lon": 4.8415,
+    "description": "Zone estuarienne majeure où les eaux douces chargées de nutriments rencontrent la mer. Courants puissants et forte activité de chasse.",
+    "technique": "Shore Spinning aux leurres souples (Shads) / Pêche au vif en dérive",
+    "target": "Gros Loups (Bars), Tassergals, Silures marins, Liches"
+  },
+  {
+    "name": "Plage d'Agde (La Tamarissière)",
+    "lat": 43.2848,
+    "lon": 3.4412,
+    "description": "Plage sableuse située à proximité de l'embouchure de l'Hérault. Les apports d'eau douce attirent une faune variée après les crues.",
+    "technique": "Surfcasting intermédiaire / Spinning léger aux poissons nageurs",
+    "target": "Loups, Daurades Royales, Marbrés"
+  },
+  {
+    "name": "Digue de Sète (Le Môle)",
+    "lat": 43.3950,
+    "lon": 3.7022,
+    "description": "Grande digue portuaire historique ouverte sur le Golfe du Lion. Les enrochements abritent une importante population de mollusques.",
+    "technique": "Pêche à la calée coulissante (Scorrevole) au crabe / Pêche au flotteur coulissant",
+    "target": "Daurades Royales, Sars Tambours, Loups"
+  },
+
+  // COSTA ATLANTICA / LANDES / GIRONDA
+  {
+    "name": "Plage de Biscarrosse (Nord)",
+    "lat": 44.4520,
+    "lon": -1.2514,
+    "description": "Plage océanique typique des Landes soumise à de fortes marées. Présence de baïnes (cuvettes d'eau) très marquées et dangereuses.",
+    "technique": "Surfcasting lourd d'océan à marée haute (Plombs à grappins)",
+    "target": "Bars Mouchetés, Bars Francs, Maigres, Raies"
+  },
+  {
+    "name": "Cap Ferret (Pointe du Bassin)",
+    "lat": 44.6241,
+    "lon": -1.2425,
+    "description": "Zone de jonction entre le bassin d'Arcachon et l'Océan Atlantique. Courants de marée d'une violence extrême et fosses profondes.",
+    "technique": "Heavy Spinning aux Casting Jigs lourds / Pêche lourde d'attente au fond",
+    "target": "Grands Bars Francs, Maigres record, Raies, Emissoles"
+  },
+  {
+    "name": "Plage de Lacanau (Sud)",
+    "lat": 45.0015,
+    "lon": -1.2142,
+    "description": "Spot atlantique rectiligne à forte énergie de vagues. Les vagues de fond brassent continuellement le sable libérant les puces de mer.",
+    "technique": "Surfcasting atlantique lourd (Montage Pulley Rig clippato)",
+    "target": "Bars Francs, Soles, Turbots, Daurades Royales (en été)"
+  },
+  {
+    "name": "Plage de Mimizan (Les Specis)",
+    "lat": 44.2124,
+    "lon": -1.3005,
+    "description": "Grande étendue de sable océanique sauvage. La configuration des baïnes change à chaque tempête d'hiver. Pêche d'été et d'automne excellente.",
+    "technique": "Surfcasting de recherche dans les baïnes / Pêche au trancio de seiche",
+    "target": "Ombrines, Bars Mouchetés, Raies, Soles"
+  },
+
+  // NORD / BRETAGNE / NORMANDIE
+  {
+    "name": "Plage de la Torche (Finistère - Bretagne)",
+    "lat": 47.8385,
+    "lon": -4.3548,
+    "description": "Pointe bretonne sauvage battue par la houle atlantique. Fonds rocheux et sableux très riches en crustacés.",
+    "technique": "Surfcasting lourd de roche / Shore Spinning (Leurres souples en traction)",
+    "target": "Gros Bars Francs, Vieilles, Lieus Jaunes"
+  },
+  {
+    "name": "Digue de Cherbourg (Normandie)",
+    "lat": 49.6548,
+    "lon": -1.6214,
+    "description": "Une des plus grandes digues artificielles d'Europe, donnant accès à des zones soumises à de forts courants de la Manche.",
+    "technique": "Spinning aux casting jigs (Lieus) / Pêche au flotteur lumineux de nuit",
+    "target": "Lieus Jaunes, Bars Francs, Scombridés (Maquereaux)"
+  },
+  {
+    "name": "Plage de Quend (Somme - Côte d'Opale)",
+    "lat": 50.3124,
+    "lon": 1.5420,
+    "description": "Immense plage de la mer du Nord à pente très douce, caractérisée par des parcs à moules à marée basse attirant les poissons.",
+    "technique": "Surfcasting léger de marée basse / Beach Ledgering",
+    "target": "Flets, Soles, Bars Francs"
+  },
+  {
+    "name": "Falaises d'Étretat (Normandie)",
+    "lat": 49.7088,
+    "lon": 0.2015,
+    "description": "Pêche au pied des falaises de craie sur des lits de galets se transformant en sable au large. Eaux souvent agitées.",
+    "technique": "Shore Spinning aux Long Jerks (Minnows) / Surfcasting de galets",
+    "target": "Bars Francs, Lieus Jaunes, Orphies"
+  },
+  {
+    "name": "Pointe du Raz (Finistère)",
+    "lat": 48.0384,
+    "lon": -4.7348,
+    "description": "Spot extrême de Bretagne au cœur du raz de Sein. Courants de marée déchaînés et écume permanente. Uniquement pour pêcheurs expérimentés.",
+    "technique": "Heavy Spinning face au courant aux gros leurres souples plombés",
+    "target": "Bars Francs géants, Lieus Jaunes"
+  },
+  {
+    "name": "Plage de Deauville (Normandie)",
+    "lat": 49.3621,
+    "lon": 0.0745,
+    "description": "Plage de sable de la baie de Seine. Importantes variations de marée nécessitant de suivre l'eau lors du flux et du reflux.",
+    "technique": "Surfcasting de marée / Montage Paternoster à 3 hameçons longs",
+    "target": "Soles, Flets, Bars Francs"
+  },
+  {
+    "name": "Digue du Port de Dunkerque",
+    "lat": 51.0545,
+    "lon": 2.3648,
+    "description": "Digue la plus septentrionale de France, s'avançant en mer du Nord. Zone d'eau froide et riche en micro-nutriments.",
+    "technique": "Pêche de fond robuste au ver marin (Arénicole) / Spinning d'été",
+    "target": "Flets, Cabillauds (Morues en hiver), Bars Francs, Maquereaux"
+  },
+  {
+    "name": "Plage d'Erquy (Côtes-d'Armor)",
+    "lat": 48.6312,
+    "lon": -2.4654,
+    "description": "Baie bretonne protégée par des caps rocheux, fonds de sable propre parsemés de gisements de coquilles Saint-Jacques au large.",
+    "technique": "Beach Ledgering de estival de finesse / Finesse Spinning",
+    "target": "Bars Francs, Dorades Grises, Soles, Rayons"
+  }
+];
+  /* === DATI SPOT TUNISIA INTERNAZIONALE === */
+  const spotsTunisiaData = [
+  {
+    "nome": "Plage de Tabarka (El Corniche)",
+    "lat": 36.9582,
+    "lon": 8.7621,
+    "desc": "Zone nord-ouest caractérisée par des fonds mixtes de sable et de roche. Excellente exposition aux vagues du large, idéale par mer agitée.",
+    "technique": "Surfcasting lourd / Shore Spinning par mer formée (Jerbaits, Lipless)",
+    "target": "Loups (Bar), Grands Sars, Daurades Royales"
+  },
+  {
+    "nome": "Cap Serrat (Bizerte)",
+    "lat": 37.2345,
+    "lon": 9.2134,
+    "desc": "Plage sauvage et isolée avec une forte bathymétrie. Un spot mythique en automne. La force des courants exige des plombées lourdes (pyramides).",
+    "technique": "Surfcasting lourd de tempête / Heavy Spinning (Poppers, Skipping lures)",
+    "target": "Daurades Royales géantes, Loups, Maigres, Tassergals"
+  },
+  {
+    "nome": "Plage de Rimel (Bizerte)",
+    "lat": 37.2654,
+    "lon": 9.9212,
+    "desc": "Adossée à une forêt de pins, cette grande plage offre une belle exposition aux vents d'Est. Fonds sableux propres, parfaits pour la recherche nocturne.",
+    "technique": "Surfcasting léger de ricerca / Beach Ledgering",
+    "target": "Marbrés, Daurades Royales, Ombres de mer"
+  },
+  {
+    "nome": "Plage de Sidi Ali El Mekki (Ghar El Melh)",
+    "lat": 37.1685,
+    "lon": 10.2310,
+    "desc": "Grande plage de sable fine à pente douce. Idéale à longue distance et pour la pêche nocturne par mer calme.",
+    "technique": "Beach Ledgering de grande distance (Montage Long Arm ultra-fin)",
+    "target": "Marbrés, Daurades Royales, Soles"
+  },
+  {
+    "nome": "Plage d'El Haouaria (Cap Bon)",
+    "lat": 37.0520,
+    "lon": 11.0154,
+    "desc": "Pointe extrême du Cap Bon, zone de courants intenses où la Méditerranée rencontre des flux profonds. Fonds rocheux et sableux.",
+    "technique": "Pêche au vif (Téléphérique) / Rock Spinning lourd (Popper, Stickbait coulant)",
+    "target": "Sars, Liches, Dentis, Tassergals"
+  },
+  {
+    "nome": "Plage de Kelibia (La Mansourah)",
+    "lat": 36.8488,
+    "lon": 11.1215,
+    "desc": "Sable blanc très fin et eau cristalline. Ce spot est célèbre pour la clarté de ses eaux, nécessitant de déjouer la méfiance des poissons.",
+    "technique": "Beach Ledgering de finesse nocturne / Fluorocarbone obligatoire",
+    "target": "Daurades Royales, Marbrés di grande taille"
+  },
+  {
+    "nome": "Plage de Korba (Cap Bon)",
+    "lat": 36.5684,
+    "lon": 11.1648,
+    "desc": "Une très longue plage de sable rectiligne interrompue par des passes lagunaires. Les zones proches des embouchures sont d'excellents couloirs après les tempêtes.",
+    "technique": "Surfcasting de moyenne distance / Spinning aux leurres souples (Soft baits)",
+    "target": "Loups, Daurades Royales, Marbrés"
+  },
+  {
+    "nome": "Plage de Menzel Temime",
+    "lat": 36.7812,
+    "lon": 11.0345,
+    "desc": "Plage profonde ouverte sur le large avec des barres de sable changeantes. Très productive par mer formée pour atteindre les canaloni externes.",
+    "technique": "Surfcasting technique avec montages clippés (Pulley Rig clippato)",
+    "target": "Gros Sars, Daurades Royales, Ombrines"
+  },
+  {
+    "nome": "Chott Meriam (Sousse)",
+    "lat": 35.9124,
+    "lon": 10.5612,
+    "desc": "Plage emblématique de la région du Sahel. Profil di spiaggia plat propice alla ricerca des poissons fouisseurs. Très productif à la tombée de la nuit.",
+    "technique": "Beach Ledgering traditionnel aux vers (Arenicola, Coreano)",
+    "target": "Marbrés, Daurades, Rougets de roche"
+  },
+  {
+    "nome": "Plage d'Herglat (Sousse)",
+    "lat": 36.0315,
+    "lon": 10.5142,
+    "desc": "Située près de l'embouchure du lac d'Hergla, cette zone mixte attire les prédateurs en activité de chasse, notamment à l'aube et au crépuscule.",
+    "technique": "Sea Spinning aux leurres de surface (WTD, Poppers) / Pêche au vif",
+    "target": "Loups, Tassergals, Liches, Mulets"
+  },
+  {
+    "nome": "Plage de Monastir (Skanes)",
+    "lat": 35.7724,
+    "lon": 10.7415,
+    "desc": "Baie de sable fin abritée de la grande houle. Excellente avec des lignes fines et des appâts délicats pendant la saison estivale.",
+    "technique": "Beach Ledgering ultra-léger / Finesse Spinning (Leurres souples légers)",
+    "target": "Marbrés, Orphies, Petits Sars, Loups"
+  },
+  {
+    "nome": "Plage de Rejiche (Mahdia)",
+    "lat": 35.4641,
+    "lon": 11.0425,
+    "desc": "Fond sablonneux propre et très riche en micro-organismes. Les brisants extérieurs abritent de beaux spécimens.",
+    "technique": "Surfcasting de ricerca à moyenne distance (Montage Bi-amo)",
+    "target": "Marbrés record, Daurades, Ombrines"
+  },
+  {
+    "nome": "Plage de Chaffar (Sfax)",
+    "lat": 34.5420,
+    "lon": 10.5284,
+    "desc": "Zone caractérisée par des eaux chaudes et des variations de marée légères. Pente très douce, nécessite d'atteindre de grandes distances.",
+    "technique": "Surfcasting de grande distance / Emploi de montages clippés obligatoires",
+    "target": "Marbrés, Mulets, Daurades"
+  },
+  {
+    "nome": "Plage de Sidi Mahrez (Djerba)",
+    "lat": 33.8950,
+    "lon": 11.0022,
+    "desc": "Spot d'Afrique du Nord très chaud. Les courants côtiers du Sud apportent une faune variée. Pêche d'attente efficace avec des appâts volumineux.",
+    "technique": "Surfcasting lourd d'attente / Shore Spinning aux casting jigs",
+    "target": "Gros Sars, Daurades, Raies, Tassergals"
+  },
+  {
+    "nome": "Plage d'Aghir (Djerba Sud)",
+    "lat": 33.7548,
+    "lon": 11.0114,
+    "desc": "Sable mêlé à des herbiers de posidonies en second plan. La présence de végétation attire les poissons qui s'en nourrissent.",
+    "technique": "Surfcasting sur fond mixte / Utilisation de mini-traves rigides anti-tangle",
+    "target": "Daurades Royales, Sars Tambours, Carangues"
+  },
+  {
+    "nome": "Plage de Zarzis (Sonia)",
+    "lat": 33.5124,
+    "lon": 11.1205,
+    "desc": "À l'extrême sud, une plage sauvage soumise aux marées locales. Les courants profonds ramènent du poisson du large. Idéal pour la nuit.",
+    "technique": "Surfcasting lourd de nuit / Gros appâts (Bibi, seiche entière)",
+    "target": "Grands Sars, Daurades, Maigres, Raies"
+  },
+  {
+    "nome": "Plage d'Hammamet Centre (Près de la Médina)",
+    "lat": 36.3945,
+    "lon": 10.6120,
+    "desc": "Plage historique au pied du fort. Le fond de sable présente des débris rocheux éparpillés. Idéal pour déjouer les poissons méfiants la nuit.",
+    "technique": "Beach Ledgering de finesse / Spinning léger aux poissons nageurs (Jerks minnow)",
+    "target": "Daurades Royales, Marbrés, Sars, Loups"
+  },
+  {
+    "nome": "Plage de Yasmine Hammamet",
+    "lat": 36.3621,
+    "lon": 10.5392,
+    "desc": "Grande plage de sable fin à pente douce. Les vagues créent de l'effets de canaloni parallèles au rivage. Très productif en automne.",
+    "technique": "Surfcasting léger à moyenne distance / Montage Paternoster à 2 o 3 empiles",
+    "target": "Marbrés de taille record, Soles, Daurades"
+  },
+  {
+    "nome": "Digue du Port de Plaisance (Yasmine Marina)",
+    "lat": 36.3685,
+    "lon": 10.5348,
+    "desc": "L'extrémité externe de la digue offre un accès direct à des eaux plus profondes. Parfait pour le lancer lourd o le vif en bordure.",
+    "technique": "Spinning lourd de digue (Stickbaits, Poppers, Long Jerks) / Pêche au vif",
+    "target": "Loups (Bar), Tassergals, Grands Sars, Liches"
+  },
+  {
+    "nome": "Plage de Mrezga (Hammamet Nord)",
+    "lat": 36.4312,
+    "lon": 10.6654,
+    "desc": "Zone de transition caractérisée par une pente légèrement plus prononcée. Idéale par mer formée (vent d'Est/Sud-Est).",
+    "technique": "Surfcasting lourd de vague / Spinning intermédiaire face au vent",
+    "target": "Daurades Royales, Ombrines, Loups"
+  }
+];
+  
+/* === LOGICA NAZIONI, REGIONI E SALVATAGGIO SPOT === */
+
+const regionData = {
+  italia: {
+    center: [41.8719, 12.5674],
+    zoom: 6,
+    regions: {
+      "all": null,
+      "Liguria": { center: [44.4142, 8.9422], zoom: 8 },
+      "Toscana": { center: [43.7711, 11.2486], zoom: 8 },
+      "Lazio": { center: [41.8929, 12.4825], zoom: 8 },
+      "Campania": { center: [40.8518, 14.2681], zoom: 8 },
+      "Calabria": { center: [39.0804, 16.5162], zoom: 8 },
+      "Puglia": { center: [41.1171, 16.8719], zoom: 8 },
+      "Basilicata": { center: [40.3500, 16.5000], zoom: 8 },
+      "Abruzzo-Molise": { center: [42.3500, 14.1667], zoom: 8 },
+      "Marche": { center: [43.6167, 13.5167], zoom: 8 },
+      "Emilia-Romagna": { center: [44.4938, 11.3426], zoom: 8 },
+      "Veneto": { center: [45.4371, 12.3326], zoom: 8 },
+      "Friuli-VG": { center: [45.6500, 13.7667], zoom: 8 },
+      "Sardegna": { center: [40.1209, 9.0129], zoom: 8 },
+      "Sicilia": { center: [37.5999, 14.0154], zoom: 8 }
+    }
+  },
+  francia: {
+    center: [46.2276, 2.2137],
+    zoom: 6,
+    regions: {
+      "all": null,
+      "Costa Azzurra": { center: [43.7102, 7.2620], zoom: 9 },
+      "Bretagna": { center: [48.2020, -3.1416], zoom: 8 },
+      "Aquitania": { center: [44.8378, -0.5792], zoom: 8 },
+      "Normandia": { center: [49.1828, -0.3707], zoom: 8 },
+      "Occitania": { center: [43.6047, 1.4442], zoom: 8 },
+      "Corsica": { center: [42.0396, 9.0128], zoom: 8 }
+    }
+  },
+  tunisia: {
+    center: [33.8869, 9.5375],
+    zoom: 6,
+    regions: {
+      "all": null,
+      "Biserta": { center: [37.2744, 9.8739], zoom: 10 },
+      "Cap Bon": { center: [36.8000, 10.8000], zoom: 9 },
+      "Tunisi": { center: [36.8065, 10.1815], zoom: 9 },
+      "Sousse / Sahel": { center: [35.8256, 10.6411], zoom: 9 },
+      "Mahdia": { center: [35.5047, 11.0622], zoom: 10 },
+      "Sfax": { center: [34.7406, 10.7603], zoom: 9 },
+      "Djerba": { center: [33.8075, 10.8451], zoom: 10 }
+    }
+  }
+};
+
+let currentSelectedSpot = null;
+
+function updateRegions() {
+  const nationSelect = document.getElementById("nation-select");
+  const regionSelect = document.getElementById("homeFilterRegion");
+  if (!nationSelect || !regionSelect) return;
+
+  const nation = nationSelect.value;
+  const data = regionData[nation];
+  if (!data) return;
+
+  regionSelect.innerHTML = "";
+
+  Object.keys(data.regions).forEach(region => {
+    const option = document.createElement("option");
+    option.value = region === "Tutte" ? "ALL" : region;
+    option.textContent = region === "Tutte" ? "Tutte le regioni" : region;
+    regionSelect.appendChild(option);
+  });
+
+  if (window.map) {
+    window.map.setView(data.center, data.zoom);
+  }
+  filterSpotsByRegion();
+}
+
+function filterSpotsByRegion() {
+  const nationSelect = document.getElementById("nation-select");
+  const regionSelect = document.getElementById("homeFilterRegion");
+
+  if (!nationSelect || !regionSelect) return;
+
+  const nation = nationSelect.value;
+  const region = regionSelect.value;
+  const data = regionData[nation];
+
+  if (region !== "ALL" && data && data.regions[region] && window.map) {
+    const regInfo = data.regions[region];
+    window.map.setView(regInfo.center, regInfo.zoom);
+  }
+
+  const allSpotsCombined = [
+    ...(typeof spotsData !== 'undefined' ? spotsData : []),
+    ...(typeof spotsFranciaData !== 'undefined' ? spotsFranciaData : []),
+    ...(typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : [])
+  ];
+
+  const filteredSpots = allSpotsCombined.filter(spot => {
+    const spotNation = (spot.nation || "italia").toLowerCase();
+    const matchNation = spotNation === nation.toLowerCase();
+    const matchRegion = (region === "ALL") || (spot.region === region);
+    return matchNation && matchRegion;
+  });
+
+  if (typeof renderSpotList === 'function') renderSpotList(filteredSpots);
+  if (typeof updateMapMarkers === 'function') updateMapMarkers(filteredSpots);
+}
+
+// Modal Salvataggio
+function openSaveModal(spot) {
+  currentSelectedSpot = spot;
+  const modalName = document.getElementById("modal-spot-name");
+  if (modalName) modalName.textContent = spot.name || spot.title;
+  const notesField = document.getElementById("spot-notes");
+  if (notesField) notesField.value = "";
+  
+  const modal = document.getElementById("save-spot-modal");
+  if (modal) modal.style.display = "flex";
+}
+
+function closeSaveModal() {
+  const modal = document.getElementById("save-spot-modal");
+  if (modal) modal.style.display = "none";
+  currentSelectedSpot = null;
+}
+
+function confirmSaveSpot() {
+  if (!currentSelectedSpot) return;
+
+  const notesField = document.getElementById("spot-notes");
+  const notes = notesField ? notesField.value : "";
+  const savedSpots = JSON.parse(localStorage.getItem("mySavedSpots") || "[]");
+
+  const newSavedEntry = {
+    ...currentSelectedSpot,
+    userNotes: notes,
+    savedAt: new Date().toLocaleDateString()
+  };
+
+  savedSpots.push(newSavedEntry);
+  localStorage.setItem("mySavedSpots", JSON.stringify(savedSpots));
+
+  alert("Spot salvato con successo nei tuoi preferiti!");
+  closeSaveModal();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    updateRegions();
+  }, 300);
+});
+
+/* === SPECIE === */
+let specie = {};
+function showSpecie() {
+  document.getElementById("content").innerHTML = `
+    <h2>🐟 ${t('specie')}</h2>
+    <div class="card">
+      <input type="text" id="searchInput" placeholder="${t('cercaSpecie')}"
+        style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
+        onkeyup="filtraSpecie()">
+    </div>
+    <div id="listaSpecie"></div>
+    <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
+  mostraTutteLeSpecie();
+}
+function cardSpecie(key) {
+  return `<div onclick="goTo(()=>showSpecieDetail('${key}'))" style="background:linear-gradient(135deg,#e8d5a3,#d4b97a);border-radius:14px;padding:10px 6px;box-shadow:0 4px 12px rgba(0,0,0,0.16);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px;"><span style="font-size:22px;">🐟</span><div style="font-weight:700;font-size:13px;line-height:1.3;color:#3d2b0a;">${specie[key].nome}</div></div>`;
+}
+function mostraTutteLeSpecie() {
+  let html = "<div style='display:grid;grid-template-columns:repeat(4,1fr);gap:10px;'>";
+  for (let key in specie) html += cardSpecie(key);
+  html += "</div>";
+  document.getElementById("listaSpecie").innerHTML = html;
+}
+function nessunRisultatoSpecie(query) {
+  const q = encodeURIComponent(query + " pesce specie pesca mare");
+  return `
+    <div class="card" style="text-align:center;cursor:default;">
+      <p style="opacity:0.6;margin-bottom:14px;">${t('noSpecieTrovata')} "${query}" ${t('nellApp')}</p>
+      <a href="https://www.google.com/search?q=${q}" target="_blank" style="text-decoration:none;">
+        <div class="btn-img" style="margin-bottom:8px;">${t('cercaGoogle')}</div>
+      </a>
+      <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="text-decoration:none;">
+        <div style="background:linear-gradient(135deg,#ff0000,#cc0000);color:white;padding:10px 18px;border-radius:18px;font-weight:bold;margin-bottom:8px;">${t('cercaYoutube')}</div>
+      </a>
+      <button onclick="goTo(showSpecie)" style="width:100%;">${t('tornaTutteSpecie')}</button>
+    </div>`;
+}
+function filtraSpecie() {
+  let filtro = document.getElementById("searchInput").value.toLowerCase();
+  let trovate = [];
+  for (let key in specie) { if (specie[key].nome.toLowerCase().includes(filtro)) trovate.push(key); }
+  if (trovate.length === 0) {
+    document.getElementById("listaSpecie").innerHTML = nessunRisultatoSpecie(document.getElementById("searchInput").value);
+    return;
+  }
+  let html = "<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>";
+  trovate.forEach(key => html += cardSpecie(key));
+  html += "</div>";
+  document.getElementById("listaSpecie").innerHTML = html;
+}
+function showSpecieDetail(id) {
+  const p = specie[id]; if (!p) return;
+  document.getElementById("content").innerHTML = `
+    <div class="card" style="cursor:default;">
+      <h2>${p.nome}</h2><em>${p.scientifico}</em><br>
+      <img src="${p.img}" onclick="mostraEscaFullscreen(event,'${p.img}','${p.nome}')" style="width:100%;max-width:280px;border-radius:12px;margin:12px 0 4px;cursor:zoom-in;" onerror="imgFallback(this,'${p.nome} non disponibile')">
+      <p style="font-size:11px;opacity:0.5;margin:0 0 12px;">${t('toccaIngrandire')}</p>
+      <p>${p.descrizione}</p>
+      <p><strong>${t('tecnicheLabel')}</strong> ${p.tecniche}</p>
+      ${generaMontatureSpecie(p.montature)}
+      ${generaCalendario(p.stagione)}
+      <button onclick="goTo(showSpecie)">${t('tornaSpecie')}</button>
+    </div>`;
+}
+</script>
+
+<script>
+/* === DATI + UTILITÀ === */
+const surfcastingDataIt = {
+  specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Sarago Pizzuto",img:"img/sarago-pizzuto.jpg"}],
+  esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Cannolicchio",img:"img/cannolicchio.jpg"}]
+};
+const surfcastingDataFr = {
+  specie:[{nome:"Dorade",img:"img/orata.jpg"},{nome:"Bar",img:"img/spigola.jpg"},{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Sar commun",img:"img/sarago-maggiore.jpg"},{nome:"Sar à museau pointu",img:"img/sarago-pizzuto.jpg"}],
+  esche:[{nome:"Ver de sable",img:"img/arenicola.jpg"},{nome:"Américain",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Couteau",img:"img/cannolicchio.jpg"}]
+};
+  const surfcastingText = {
+  it: { quando:"Mare mosso o formato, spiagge sabbiose, alba e tramonto", attrezzatura:"Canna 4–4,5 m • Mulinello 8000–14000 • Nylon 0,35–0,40", pro:"Raggiunge grandi distanze, ideale per grossi pesci", contro:"Tecnica impegnativa, attrezzatura pesante" },
+  fr: { quando:"Mer agitée ou formée, plages sableuses, aube et crépuscule", attrezzatura:"Canne 4–4,5 m • Moulinet 8000–14000 • Nylon 0,35–0,40", pro:"Atteint de grandes distances, idéal pour les gros poissons", contro:"Technique exigeante, équipement lourd" }
+};
+  const spinningText = {
+  it: {
+    quando:"Ideale con mare poco mosso o leggermente increspato. Perfetto all'alba e al tramonto.",
+    attrezzatura:"Canna 2.10-2.70m 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 + fluorocarbon 0.30-0.40.",
+    montatura:"Trecciato collegato con nodo FG al fluorocarbon. Artificiali come minnow, jerkbait, softbait e jig.",
+    pro:["Tecnica dinamica","Copre molta acqua","Adatta a molti predatori"],
+    contro:["Richiede movimento continuo","Attrezzatura più costosa","Meno efficace con mare molto mosso"]
+  },
+  fr: {
+    quando:"Idéal avec une mer peu agitée ou légèrement clapoteuse. Parfait à l'aube et au crépuscule.",
+    attrezzatura:"Canne 2.10-2.70m 10-40g, moulinet 3000-4000, tressée 0.12-0.18 + fluorocarbone 0.30-0.40.",
+    montatura:"Tressée reliée au fluorocarbone par un nœud FG. Leurres comme minnow, jerkbait, softbait et jig.",
+    pro:["Technique dynamique","Couvre beaucoup d'eau","Adaptée à de nombreux prédateurs"],
+    contro:["Nécessite un mouvement continu","Équipement plus coûteux","Moins efficace par mer très agitée"]
+  }
+};
+const galleggianteText = {
+  it: { quando:"Mare calmo • Porto • Scogliera", attrezzatura:"Canna 4–6 m • Nylon sottile • Galleggiante fisso o scorrevole", pro:"Tecnica precisa e sensibile", contro:"Poco efficace con mare mosso" },
+  fr: { quando:"Mer calme • Port • Rochers", attrezzatura:"Canne 4–6 m • Nylon fin • Flotteur fixe ou coulissant", pro:"Technique précise et sensible", contro:"Peu efficace par mer agitée" }
+};
+const egingText = {
+  it: {
+    quando:"Ideale di notte o al tramonto in porti, scogliere e moli con fondale misto.",
+    attrezzatura:"Canna 2.30–2.60m azione 2.0–3.5 EGI • Mulinello 2500–3000 • Trecciato 0.6–0.8 PE + Fluorocarbon 0.28–0.33",
+    montatura:"Trecciato collegato al fluorocarbon con nodo FG. Collegamento diretto all'egi con moschettone leggero.",
+    pro:["Tecnica divertente e tecnica","Molto efficace sui cefalopodi","Attrezzatura leggera"],
+    contro:["Richiede sensibilità","Meno produttiva con mare molto mosso"]
+  },
+  fr: {
+    quando:"Idéal la nuit ou au crépuscule dans les ports, rochers et jetées avec fond mixte.",
+    attrezzatura:"Canne 2.30–2.60m action 2.0–3.5 EGI • Moulinet 2500–3000 • Tressée 0.6–0.8 PE + Fluorocarbone 0.28–0.33",
+    montatura:"Tressée reliée au fluorocarbone par un nœud FG. Connexion directe à l'egi avec émerillon léger.",
+    pro:["Technique amusante et technique","Très efficace sur les céphalopodes","Équipement léger"],
+    contro:["Nécessite de la sensibilité","Moins productive par mer très agitée"]
+  }
+};
+const fondoText = {
+  it: { quando:"Tutto l'anno • Porto • Scogliera • Spiaggia", attrezzatura:"Canna 3–4 m • Mulinello 4000–6000 • Nylon 0,30–0,40", pro:"Tecnica semplice e versatile", contro:"Rischio incagli • Meno selettiva" },
+  fr: { quando:"Toute l'année • Port • Rochers • Plage", attrezzatura:"Canne 3–4 m • Moulinet 4000–6000 • Nylon 0,30–0,40", pro:"Technique simple et polyvalente", contro:"Risque d'accrochage • Moins sélective" }
+};
+const beachLedgeringDataFr = {
+  specie:[{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Dorade",img:"img/orata.jpg"},{nome:"Bar",img:"img/spigola.jpg"},{nome:"Rouget",img:"img/triglia.jpg"},{nome:"Muge",img:"img/cefalo.jpg"},{nome:"Liche",img:"img/leccia.jpg"}],
+  esche:[{nome:"Ver de sable",img:"img/arenicola.jpg"},{nome:"Américain",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Asticot",img:"img/bigattino.jpg"},{nome:"Coréen",img:"img/coreano.jpg"}]
+};
+const beachLedgeringTextFr = {
+  pro:"Polyvalence maximale dans le choix du montage, excellent naturel de l'appât et résistance minimale ressentie par le poisson lors de la touche.",
+  contro:"Nécessite de la technique dans les lancers et de l'attention au fond (marches, algues) qui peut bloquer le glissement du fil ou favoriser les emmêlements."
+};
+
+const tecnicheData = {
+  spinning:{
+    quando:"Ideale con mare poco mosso o leggermente increspato. Perfetto all'alba e al tramonto.",
+    attrezzatura:"Canna 2.10-2.70m 10-40g, mulinello 3000-4000, trecciato 0.12-0.18 + fluorocarbon 0.30-0.40.",
+    montatura:"Trecciato collegato con nodo FG al fluorocarbon. Artificiali come minnow, jerkbait, softbait e jig.",
+    pro:["Tecnica dinamica","Copre molta acqua","Adatta a molti predatori"],
+    contro:["Richiede movimento continuo","Attrezzatura più costosa","Meno efficace con mare molto mosso"],
+    specieIt:[{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Serra",img:"img/serra.jpg"},{nome:"Barracuda",img:"img/barracuda.jpg"},{nome:"Palamita",img:"img/palamita.jpg"},{nome:"Ricciola",img:"img/ricciola.jpg"}],
+    specieFr:[{nome:"Bar",img:"img/spigola.jpg"},{nome:"Tassergal",img:"img/serra.jpg"},{nome:"Barracuda",img:"img/barracuda.jpg"},{nome:"Bonite",img:"img/palamita.jpg"},{nome:"Sériole",img:"img/ricciola.jpg"}],
+    escheIt:[
+      {nome:"Minnow",img:"img/minnow.jpg",descrizione:"Imita un piccolo pesce foraggio.",mare:"Calmo / Poco mosso",target:"Spigola, Serra",efficacia:5},
+      {nome:"Jerkbait",img:"img/jerkbait.jpg",descrizione:"Movimento nervoso per attacchi aggressivi.",mare:"Leggermente mosso",target:"Serra, Palamita",efficacia:4},
+      {nome:"Soft Bait",img:"img/softbait.jpg",descrizione:"Esca in silicone montata su jig head.",mare:"Calmo",target:"Spigola, Sugarello",efficacia:4},
+      {nome:"Metal Jig",img:"img/metal-jig.jpg",descrizione:"Per lanci lunghi e profondità.",mare:"Mosso / Corrente",target:"Palamita, Serra",efficacia:5},
+      {nome:"Top Water / Popper",img:"img/popper.jpg",descrizione:"Lavora in superficie con attacchi spettacolari.",mare:"Calmo",target:"Leccia stella, Serra",efficacia:4}
+    ],
+    escheFr:[
+      {nome:"Minnow",img:"img/minnow.jpg",descrizione:"Imite un petit poisson fourrage.",mare:"Calme / Peu agitée",target:"Bar, Tassergal",efficacia:5},
+      {nome:"Jerkbait",img:"img/jerkbait.jpg",descrizione:"Mouvement nerveux pour attaques agressives.",mare:"Légèrement agitée",target:"Tassergal, Bonite",efficacia:4},
+      {nome:"Soft Bait",img:"img/softbait.jpg",descrizione:"Leurre en silicone monté sur tête plombée.",mare:"Calme",target:"Bar, Chinchard",efficacia:4},
+      {nome:"Metal Jig",img:"img/metal-jig.jpg",descrizione:"Pour lancers longs et profondeur.",mare:"Agitée / Courant",target:"Bonite, Tassergal",efficacia:5},
+      {nome:"Top Water / Popper",img:"img/popper.jpg",descrizione:"Travaille en surface avec des attaques spectaculaires.",mare:"Calme",target:"Liche, Tassergal",efficacia:4}
+    ],
+    piombiIt:[
+      {nome:"Jig Head",img:"img/jig-head.jpg",descrizione:"Testa piombata per soft bait.",peso:"5g – 30g"},
+      {nome:"Piombo interno",img:"img/piombo-interno.jpg",descrizione:"Assetto naturale nel silicone.",peso:"Variabile"}
+    ],
+    piombiFr:[
+      {nome:"Jig Head",img:"img/jig-head.jpg",descrizione:"Tête plombée pour soft bait.",peso:"5g – 30g"},
+      {nome:"Plomb interne",img:"img/piombo-interno.jpg",descrizione:"Lestage naturel dans le silicone.",peso:"Variable"}
+    ],
+    video:"https://www.youtube.com/watch?v=5Zk7XKXh7eM"
+  },
+  eging:{
+    quando:"Ideale di notte o al tramonto in porti, scogliere e moli con fondale misto.",
+    attrezzatura:"Canna 2.30–2.60m azione 2.0–3.5 EGI • Mulinello 2500–3000 • Trecciato 0.6–0.8 PE + Fluorocarbon 0.28–0.33",
+    montatura:"Trecciato collegato al fluorocarbon con nodo FG. Collegamento diretto all'egi con moschettone leggero.",
+    pro:["Tecnica divertente e tecnica","Molto efficace sui cefalopodi","Attrezzatura leggera"],
+    contro:["Richiede sensibilità","Meno produttiva con mare molto mosso"],
+    specie:[{nome:"Calamaro",img:"img/calamaro.jpg"},{nome:"Seppia",img:"img/seppia.jpg"},{nome:"Totano",img:"img/totano.jpg"}],
+    esche:[{nome:"Egi 2.5",img:"img/egi-2-5.jpg"},{nome:"Egi 3.0",img:"img/egi-3-0.jpg"},{nome:"Egi 3.5",img:"img/egi-3-5.jpg"}],
+    video:"https://www.youtube.com/results?search_query=eging+tecnica"
+  },
+  fondo:{
+    montature:[
+      {nome:"Piombo Scorrevole",img:"img/montature/12_scorrevole.jpg",descrizione:"Piombo libero sulla lenza madre per maggiore sensibilità."},
+      {nome:"Paternoster",img:"img/montature/06_paternoster.jpg",descrizione:"Finali laterali ideali per fondo misto."},
+      {nome:"Long Arm",img:"img/montature/03_long_arm.jpg",descrizione:"Bracciolo lungo per mare calmo."},
+      {nome:"Bandiera",img:"img/montature/18_bandiera.jpg",descrizione:"Ottima per evitare grovigli."}
+    ],
+    specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Scorfano",img:"img/scorfano.jpg"},{nome:"Pagello",img:"img/pagello.jpg"}],
+    esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Cozza",img:"img/cozza.jpg"},{nome:"Cannolicchio",img:"img/cannolicchio.jpg"}]
+  },
+  galleggiante:{
+    specie:[{nome:"Cefalo",img:"img/cefalo.jpg"},{nome:"Sarago",img:"img/sarago-maggiore.jpg"},{nome:"Occhiata",img:"img/occhiata.jpg"},{nome:"Orata piccola",img:"img/orata.jpg"}],
+    esche:[{nome:"Bigattino",img:"img/bigattino.jpg"},{nome:"Pane",img:"img/pane.jpg"},{nome:"Coreano",img:"img/coreano.jpg"},{nome:"Gambero",img:"img/gambero.jpg"}]
+  },
+  beachledgering:{
+    quando:"Mare calmo, quasi calmo o in leggera scaduta",
+    attrezzatura:"In bobina si utilizzano monofili sottili (dallo 0,18 allo 0,22) per favorire la distanza di lancio. Ricorda di legare uno shock leader (spezzone di filo conico o dello 0,35-0,40 lungo circa due volte la canna) per sopportare lo sforzo del lancio.",
+    montature:[
+      {nome:"Running Feeder Rig", img:"img/montature/19_running_feeder_rig.jpg"},
+      {nome:"Long Arm (Monobraccio lungo)", img:"img/montature/03_long_arm.jpg"},
+      {nome:"Piombo Scorrevole", img:"img/montature/12_scorrevole.jpg"}
+    ],
+    pro:"Massima versatilità nella scelta della montatura, ottima naturalezza dell'esca e resistenza minima avvertita dal pesce durante l'abboccata.",
+    contro:"Richiede tecnica nei lanci e attenzione al fondale (scalini, alghe) che può bloccare lo scorrimento del filo o favorire i grovigli.",
+    specie:[{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Orata",img:"img/orata.jpg"},{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Triglia",img:"img/triglia.jpg"},{nome:"Cefalo",img:"img/cefalo.jpg"},{nome:"Leccia Stella",img:"img/leccia.jpg"}],
+    esche:[{nome:"Arenicola",img:"img/arenicola.jpg"},{nome:"Americano",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Bigattino",img:"img/bigattino.jpg"},{nome:"Coreano",img:"img/coreano.jpg"}],
+    video:"https://www.youtube.com/results?search_query=beach+ledgering+pesca+spiaggia"
+  }
+};
+let currentlyOpenBox = null, currentlyOpenButton = null;
+function toggleImageBox(id, imgPath, button) {
+  const box = document.getElementById(id); if (!box) return;
+  if (currentlyOpenBox && currentlyOpenBox !== box) {
+    currentlyOpenBox.classList.remove("open"); currentlyOpenBox.innerHTML = "";
+    if (currentlyOpenButton) currentlyOpenButton.classList.remove("active");
+  }
+  if (box.classList.contains("open")) {
+    box.classList.remove("open"); box.innerHTML = "";
+    button.classList.remove("active"); currentlyOpenBox = null; currentlyOpenButton = null; return;
+  }
+ if (box.innerHTML === "") {
+    const img = document.createElement("img");
+    img.src = imgPath;
+    img.className = "img-box-bg";
+    img.style.cssText = "width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;margin-top:10px;display:block;cursor:zoom-in;";
+    img.onclick = (e) => mostraEscaFullscreen(e, imgPath, "Schema montatura");
+    img.onerror = function() { imgFallback(this, "Schema non disponibile"); };
+    box.appendChild(img);
+    const hint = document.createElement("p");
+    hint.style.cssText = "text-align:center;font-size:10px;opacity:0.5;margin:4px 0 0;";
+    hint.textContent = "🔍 Tocca per ingrandire";
+    box.appendChild(hint);
+  }
+  box.classList.add("open"); button.classList.add("active");
+  setTimeout(() => box.scrollIntoView({ behavior:"smooth", block:"center" }), 200);
+  currentlyOpenBox = box; currentlyOpenButton = button;
+}
+function generaListaCliccabile(lista) {
+  let html = "<div class='mini-container'>";
+  lista.forEach((item, index) => {
+   const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
+    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;text-align:center;"><img src="${item.img}" onclick="event.stopPropagation();mostraEscaFullscreen(event,'${item.img}','${item.nome}')" class="img-box-bg" style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:4px 0 0;">🔍 Tocca per ingrandire</p></div></div>`;
+  });
+  return html + "</div>";
+}
+function generaMiniCard(lista, tipo) {
+  if (!lista || lista.length === 0) return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
+  return `<div class="mini-container">${lista.map((item,index)=>`<div class="mini-card" onclick="apriDettaglio('${tipo}',${index})">${item.nome}</div>`).join("")}</div><div id="${tipo}-detail"></div>`;
+}
+function toggleImgById(id) {
+  const el = document.getElementById(id); if (!el) return;
+  const aperto = el.style.display === "block";
+  document.querySelectorAll("[id^='img-']").forEach(e => e.style.display = "none");
+  el.style.display = aperto ? "none" : "block";
+}
+function apriDettaglio(tipo, index) {
+  const container=document.getElementById(tipo+"-detail"); if(!container)return;
+  const parti=tipo.split("-"); if(parti.length<2)return;
+  const tecnica=parti[0]; const categoria=parti.slice(1).join("-");
+  const categoriaLingua = categoria + (linguaAttuale === "fr" ? "Fr" : "It");
+  if(!tecnicheData[tecnica]||!tecnicheData[tecnica][categoriaLingua])return;
+  const item=tecnicheData[tecnica][categoriaLingua][index]; if(!item)return;
+  if(container.dataset.open==index){container.innerHTML="";container.dataset.open="";return;}
+  container.dataset.open=index;
+  container.innerHTML=`<div class="card" style="cursor:default;text-align:center;"><h3>${item.nome}</h3><img src="${item.img}" onclick="mostraEscaFullscreen(event,'${item.img}','${item.nome}')" class="img-box-bg" style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:10px;display:block;margin:10px auto;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:-4px 0 10px;">🔍 Tocca per ingrandire</p>${item.descrizione?`<p style="text-align:left;">${item.descrizione}</p>`:""}${item.peso?`<p style="text-align:left;"><strong>Peso:</strong> ${item.peso}</p>`:""}</div>`;
+}
+function generaCalendario(stagione) {
+  if(!stagione)return"";
+  const mesiIt=["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
+  const mesiFr=["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sep","Oct","Nov","Déc"];
+  const mesi = linguaAttuale === "fr" ? mesiFr : mesiIt;
+  const mc=new Date().getMonth()+1;
+  let html="<div class='card' style='cursor:default;'><b>"+t('calendarioAttivita')+"</b><br><br><div style='display:flex;flex-wrap:wrap;gap:6px;'>";
+  for(let i=1;i<=12;i++){const a=stagione.includes(i);html+=`<div style="padding:6px 8px;border-radius:6px;font-size:12px;text-align:center;min-width:32px;${a?"background:#2ecc71;color:white;":"background:#eee;"}${i===mc?"border:2px solid #007bff;":""}">${mesi[i-1]}</div>`;}
+  return html+"</div></div>";
+}
+function generaSpeciePerTecnica(nomeTecnica) {
+  let html="<div class='card' style='cursor:default;'><b>🐟 Specie consigliate</b><br><br>";
+  for(let key in specie){if(specie[key].tecniche.toLowerCase().includes(nomeTecnica.toLowerCase()))html+=`<div style="margin:6px 0;cursor:pointer;color:#0a2a43;" onclick="goTo(()=>showSpecieDetail('${key}'))">• ${specie[key].nome}</div>`;}
+  return html+"</div>";
+}
+function generaMontatureSpecie(list) {
+  if(!list||list.length===0)return"";
+  return`<div class="card" style="cursor:default;text-align:left;"><b>${t('montatureConsigliate')}</b><br><br>${list.map(id=>{
+    const mont = montatureData.find(x=>x.id===id);
+    const nome = mont ? mont.nome : id.replace(/-/g," ");
+    return `<div style="margin:5px 0;cursor:pointer;color:#1a6fa8;font-weight:600;" onclick="goTo(()=>showMontaturaDetail('${id}'))">${nome} →</div>`;
+  }).join("")}</div>`;
+}
+function trovaIndiceOra(times,ora){const s=ora.toISOString().slice(0,13);const i=times.findIndex(t=>t&&t.startsWith(s));return i>=0?i:0;}
+function stelleRating(r){return"⭐".repeat(r)+"☆".repeat(5-r);}
+function direzioneVento(deg){return["N","NE","E","SE","S","SO","O","NO"][Math.round(deg/45)%8]||"—";}
+function iconaMeteo(c){if(c===0)return"☀️";if(c<=2)return"🌤️";if(c<=3)return"☁️";if(c<=49)return"🌫️";if(c<=55)return"🌦️";if(c<=65)return"🌧️";if(c<=77)return"❄️";if(c<=82)return"🌦️";if(c<=99)return"⛈️";return"🌡️";}
+function descrizioneMeteo(c){if(c===0)return"Sereno";if(c<=2)return"Poco nuv.";if(c<=3)return"Coperto";if(c<=49)return"Nebbia";if(c<=55)return"Pioggerella";if(c<=65)return"Pioggia";if(c<=77)return"Neve";if(c<=82)return"Rovesci";if(c<=99)return"Temporale";return"—";}
+function formatOra(s){if(!s)return"--:--";try{return s.slice(11,16);}catch(e){return"--:--";}}
+function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div class="prev-errore"><span class="ico">📡</span><p>${msg}</p><button onclick="goTo(showPrevisioni)">${t('riprova')}</button></div>`;}
+</script>
+
+<script>
+/* === PREVISIONI + SPOT PERSONALI === */
+/* MODIFICA 3 — Esporta/Importa JSON aggiunto a renderPrevisioni */
+let prevMap = null, prevCoords = null;
+function showPrevisioni() {
+  // Mostra un caricamento leggero nel content
+  document.getElementById("content").innerHTML = `
+    <div class="prev-loader" style="text-align:center; padding:20px;">
+      <span class="spinner" style="font-size:30px; display:inline-block;">🎣</span>
+      <p>${t('rilevamentoPosizione')}...</p>
+    </div>
+  `;
+  // Configurazione automatica della capitale in base alla nazione attiva se il GPS fallisce
+  let latDefault = 41.9028, lonDefault = 12.4964; // Italia (Roma)
+  if (nazioneAttiva === "fr") { latDefault = 48.8566; lonDefault = 2.3522; } // Francia (Parigi)
+  if (nazioneAttiva === "tn") { latDefault = 36.8065; lonDefault = 10.1815; } // Tunisia (Tunisi)
+
+  if (!navigator.geolocation) {
+    // Se il browser non supporta il GPS, carica la capitale via internet
+    caricaPrevisioni(latDefault, lonDefault, true);
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      prevCoords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
+      caricaPrevisioni(prevCoords.lat, prevCoords.lon, false);
+    },
+    () => {
+      // Se il GPS dà errore o sei su PC fisso, carica la capitale senza bloccare la pagina
+      caricaPrevisioni(latDefault, lonDefault, true);
+    },
+    { enableHighAccuracy: true, timeout: 4000 } // Timeout ridotto a 4 secondi per massima fluidità
+  );
+}
+async function caricaPrevisioni(lat, lon, usaFallback = false) {
+  try {
+    var urlMarine = `https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height,wave_direction,wave_period,wind_wave_height&daily=wave_height_max,wind_wave_height_max&timezone=Europe%2FRome&forecast_days=4`;
+    var urlMeteo = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4`;
+
+    var risposteServer = await Promise.all([
+      fetch(urlMarine),
+      fetch(urlMeteo)
+    ]); 
+    var marineData = await risposteServer[0].json();
+    var meteoData = await risposteServer[1].json();
+    renderPrevisioni(lat, lon, marineData, meteoData, usaFallback);
+  } catch(error) {
+    console.error("DIAGNOSTICA ESPERTO - Errore durante il caricamento meteo:", error);
+    var isFR = (typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr');
+    var txtTitle = isFR ? "Connexion perdue" : "Connessione Persa";
+    var txtDesc = isFR ? "Impossible de charger les données météo. Veuillez vérifier votre connexion Internet." : "Impossibile caricare i dati meteo. Controlla la tua connessione internet.";
+    var txtBtn = isFR ? "Réessayer" : "Riprova";
+
+    document.getElementById("content").innerHTML = `
+      <div class="error-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; margin: 30px auto; max-width: 400px; background: #ffffff; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <div class="error-icon-wrap" style="width: 80px; height: 80px; background: #ffe3e3; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <span style="font-size: 36px;">📡</span>
+        </div>
+        <h3 style="margin: 0 0 10px 0; color: #1e293b; font-size: 20px; font-weight: 700;">${txtTitle}</h3>
+        <p style="margin: 0 0 26px 0; color: #64748b; font-size: 14px; line-height: 1.5; padding: 0 10px;">${txtDesc}</p>
+        <button onclick="showPrevisioni()" style="width: 100%; padding: 14px; background: linear-gradient(135deg, #0077b6, #00b4d8); color: white; border: none; border-radius: 16px; font-weight: 700; font-size: 15px; cursor: pointer;">🔄 ${txtBtn}</button>
+      </div>`;
+  }
+}
+function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
+  var ora = new Date();
+  var hIdx = trovaIndiceOra(meteo.hourly?.time || [], ora);
+  var ondaH = marine.hourly?.wave_height?.[hIdx] ?? 0;
+  var ondaP = marine.hourly?.wave_period?.[hIdx] ?? 0;
+  var ventoKmh = meteo.current?.wind_speed_10m ?? 0;
+  var ventoDir = meteo.current?.wind_direction_10m ?? 0;
+  var tempC = meteo.current?.temperature_2m ?? "--";
+  var wCode = meteo.current?.weather_code ?? 0;
+  var ventoNodi = (ventoKmh * 0.539957).toFixed(1);
+  var analisi = calcolaConsiglioCompleto(ondaH, ventoKmh, ora, wCode);
+  var giorniHTML = generaGiorni(marine, meteo, ora);
+  var miei_spots = caricaSpot();
+
+  var alertGPSHTML = usaFallback 
+    ? `<div style="background: #fff3cd; color: #856404; padding: 10px; border-radius: 10px; text-align: center; margin-bottom: 12px; font-size: 13px; font-weight: bold; border: 1px solid #ffeeba;">
+         📍 GPS non disponibile. Previsioni basate sulla Capitale.
+       </div>`
+    : "";
+  var testobottone = t('cercaSpotItalia');
+  if (nazioneAttiva === "fr") { testobottone = linguaAttuale === "fr" ? "🔍 Explorer les Spots France" : "🔍 Esplora Spot Francia"; }
+  if (nazioneAttiva === "tn") { testobottone = linguaAttuale === "fr" ? "🔍 Explorer les Spots Tunisie" : "🔍 Esplora Spot Tunisia"; }
+  // Calcolo sicuro dell'orario dell'alba per evitare blocchi sintattici
+  var oraAlba = "--:--";
+  if (meteo && meteo.daily && meteo.daily.sunrise && meteo.daily.sunrise[0]) {
+    oraAlba = formatOra(meteo.daily.sunrise[0]);
+  }
+  document.getElementById("content").innerHTML = `
+    <!-- Barra Superiore di Selezione Paese -->
+    <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; padding: 5px 0;">
+      <button onclick="cambiaNazioneHome('it')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
+       ${t('italia') || 'Italia'}
+      </button>
+      <button onclick="cambiaNazioneHome('fr')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
+        🇫🇷 ${linguaAttuale === 'fr' ? 'France' : 'Francia'}
+      </button>
+      <button onclick="cambiaNazioneHome('tn')" style="flex:1; padding: 10px; background: ${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">
+       ${t('tunisia') || 'Tunisia'}
+      </button>
+    </div>
+    ${alertGPSHTML}
+    <div class="prev-hero">
+      <h2>${t('previsioniTitolo')}</h2>
+      <div class="sub">📍 ${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E • ${t('aggiornatoOra')}</div>
+      <div class="rating-bar"><span class="stelle">${stelleRating(analisi.rating)}</span><span class="label">${analisi.labelRating}</span></div>
+      <div class="meteo-grid">
+        <div class="meteo-cell"><span class="ico">🌊</span><span class="val">${ondaH.toFixed(1)} m</span><span class="lbl">${t('ondaLabel')}</span></div>
+        <div class="meteo-cell"><span class="ico">💨</span><span class="val">${ventoNodi} ${linguaAttuale === "fr" ? "nœuds" : "nodi"}</span><span class="lbl">${t('ventoLabel')} ${direzioneVento(ventoDir)}</span></div>
+        <div class="meteo-cell"><span class="ico">🌡️</span><span class="val">${tempC}°C</span><span class="lbl">${t('temperaturaLabel')}</span></div>
+        <div class="meteo-cell"><span class="ico">⏱️</span><span class="val">${ondaP.toFixed(0)} s</span><span class="lbl">${t('periodoOndaLabel')}</span></div>
+        <div class="meteo-cell"><span class="ico">${iconaMeteo(wCode)}</span><span class="val">${descrizioneMeteo(wCode)}</span><span class="lbl">${t('cieloLabel')}</span></div>
+        <div class="meteo-cell"><span class="ico">🌅</span><span class="val">${oraAlba}</span><span class="lbl">${t('albaLabel')}</span></div>
+      </div>
+    </div>
+    <h3 style="margin:15px 0 10px;font-size:15px;opacity:0.7;">${t('prossimiGiorni')}</h3>
+    <div class="giorni-scroll">${giorniHTML}</div>
+    <div class="consiglio-card">
+      <h3>${t('consiglioPersonalizzato')}</h3>
+      <div class="consiglio-row"><span class="ico-big">🌊</span><div class="testo"><div class="titolo">${t('tecnicaConsigliata')}</div><div class="valore">${analisi.tecnica}</div></div></div>
+      <div class="consiglio-row"><span class="ico-big">🐟</span><div class="testo"><div class="titolo">${t('specieProbabili')}</div><div class="valore">${analisi.specie}</div></div></div>
+      <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">${t('montaturaLabel')}</div><div class="valore">${analisi.montatura}</div></div></div>
+      <div class="consiglio-row"><span class="ico-big">🎣</span><div class="testo"><div class="titolo">${t('attrezzaturaLabel')}</div><div class="valore">${analisi.attrezzatura}</div></div></div>
+      <div class="consiglio-row"><span class="ico-big">🐛</span><div class="testo"><div class="titolo">${t('escheConsLabel')}</div><div class="valore">${analisi.esche}</div></div></div>
+      ${analisi.avviso ? `<div class="consiglio-row"><span class="ico-big">⚠️</span><div class="testo"><div class="titolo">${t('attenzioneLabel')}</div><div class="valore">${analisi.avviso}</div></div></div>` : ""}
+    </div>
+    <div class="mappa-card">
+      <div class="mappa-header"><span>${t('posizioneSpot')}</span><button onclick="aggiungiSpot()">${t('salvaSpotBtn')}</button></div>
+      <div id="prevMap"></div>
+    </div>
+    <h3 style="margin:15px 0 6px;font-size:15px;opacity:0.7;">${t('mieiSpot')} (${miei_spots.length})</h3>
+    <div class="spot-io-row">
+      <button class="btn-esporta" onclick="esportaSpot()">${t('esportaJson')}</button>
+      <button class="btn-importa" onclick="document.getElementById('importInput').click()">${t('importaJson')}</button>
+      <input type="file" id="importInput" accept=".json" style="display:none" onchange="importaSpot(event)">
+    </div>
+    <div class="spot-list" id="spotList">${renderSpotList(miei_spots)}</div>
+    <div style="margin:20px 0 10px;">
+      <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
+        ${testobottone}
+      </button>
+    </div>
+    <button onclick="goTo(showPrevisioni)" style="width:100%;">${t('aggiornaPrevisioni')}</button><br>
+  `;
+  setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
+}
+function cambiaNazioneHome(nazione) {
+  nazioneAttiva = nazione;
+  showPrevisioni(); 
+}
 /* ============================================================
    SISTEMA DI RICERCA SPOT UNIFICATO (ITALIA / FRANCIA / TUNISIA)
    ============================================================ */
@@ -125,9 +2551,7 @@ function initMappaEsplorazioneNuova() {
 
   document.getElementById("nomeNazioneBadge").textContent = nomeNazione;
 
- // === FUNZIONE DI FILTRO GENERALE E GESTIONE MAPPE ===
-function filtraEDisegnaSpot(reg, tech, listaSorgente) {
-  // Reset sicuro della mappa Leaflet prima del filtraggio
+  // Reset Leaflet
   if (spotItaliaMap !== null) {
     try {
       spotItaliaMap.remove();
@@ -139,15 +2563,49 @@ function filtraEDisegnaSpot(reg, tech, listaSorgente) {
 
   spotItaliaMarkers = [];
 
-  // Re-inizializzazione pulita dei parametri della mappa
-  // Se non hai le variabili 'centroMappa' o 'zoomIniziale', usa valori standard es: [42.5, 12.5], 6
-  const centro = typeof centroMappa !== 'undefined' ? centroMappa : [42.5, 12.5];
-  const zoom = typeof zoomIniziale !== 'undefined' ? zoomIniziale : 6;
-
-  spotItaliaMap = L.map('spotItaliaMap').setView(centro, zoom);
+  spotItaliaMap = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(spotItaliaMap);
+
+  renderizzaListaEMappe(listaSpot);
+}
+function applicaFiltriSpot() {
+  const regEl = document.getElementById("filtroReg");
+  const techEl = document.getElementById("filtroTech");
+  
+  const reg = regEl ? regEl.value : "all";
+  const tech = techEl ? techEl.value : "all";
+
+  let listaSorgente = [];
+  let chiaveNazione = "italia";
+
+  if (nazioneAttiva === "it") {
+    listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
+    chiaveNazione = "italia";
+  } else if (nazioneAttiva === "fr") {
+    listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
+    chiaveNazione = "francia";
+  } else if (nazioneAttiva === "tn") {
+    listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
+    chiaveNazione = "tunisia";
+  }
+
+  // 1. Spostamento Mappa Flessibile
+  if (reg !== "all" && reg !== "Tutte") {
+    // Cerca la regione in regionData ignorando maiuscole/minuscole
+    if (regionData[chiaveNazione] && regionData[chiaveNazione].regions) {
+      const regChiave = Object.keys(regionData[chiaveNazione].regions).find(
+        k => k.toLowerCase() === reg.toLowerCase()
+      );
+      if (regChiave && regionData[chiaveNazione].regions[regChiave]) {
+        const regObj = regionData[chiaveNazione].regions[regChiave];
+        if (regObj && regObj.center) {
+          spotItaliaMap.setView(regObj.center, regObj.zoom || 8);
+        }
+      }
+    }
+  }
 
   // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
   const mappaSinonimi = {
@@ -191,6 +2649,7 @@ function filtraEDisegnaSpot(reg, tech, listaSorgente) {
 
   // 3. Filtro Spot Intelligente
   const spotFiltrati = listaSorgente.filter(spot => {
+    // Se il filtro è su "Tutte" o "all", mostra TUTTO
     if (reg === "all" || reg === "Tutte" || reg === "") {
       const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
       return (tech === "all") || sTech.includes(tech.toLowerCase());
@@ -202,12 +2661,15 @@ function filtraEDisegnaSpot(reg, tech, listaSorgente) {
     const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
 
     const matchTech = (tech === "all") || sTech.includes(tech.toLowerCase());
+
     const regCercata = reg.toLowerCase().trim();
     let matchReg = false;
 
+    // A. Controlla se la parola cercata è contenuta direttamente
     if (sReg.includes(regCercata) || sNome.includes(regCercata) || sDesc.includes(regCercata)) {
       matchReg = true;
     } 
+    // B. Controlla nella mappa dei sinonimi
     else if (mappaSinonimi[regCercata]) {
       matchReg = mappaSinonimi[regCercata].some(k => 
         sNome.includes(k) || sDesc.includes(k) || sReg.includes(k)
@@ -220,8 +2682,8 @@ function filtraEDisegnaSpot(reg, tech, listaSorgente) {
   renderizzaListaEMappe(spotFiltrati);
 }
 
-// === FUNZIONE DI RENDERING DEI MARKER E DELLA LISTA ===
 function renderizzaListaEMappe(listaSpot) {
+  // Pulizia dei vecchi marker
   if (spotItaliaMarkers && spotItaliaMarkers.length > 0) {
     spotItaliaMarkers.forEach(m => {
       if (spotItaliaMap) spotItaliaMap.removeLayer(m);
@@ -239,6 +2701,7 @@ function renderizzaListaEMappe(listaSpot) {
   }
 
   listaSpot.forEach((spot) => {
+    // Gestione flessibile sia di coords: [lat, lon] che di lat/lon separati
     const spotLat = spot.coords ? spot.coords[0] : (spot.lat || spot.latitude);
     const spotLon = spot.coords ? spot.coords[1] : (spot.lon || spot.longitude);
 
@@ -290,7 +2753,6 @@ function renderizzaListaEMappe(listaSpot) {
     panelBody.appendChild(item);
   });
 }
-
 
 /* === LOGICA POPUP MODALE SALVATAGGIO SPOT === */
 function openSaveSpotModal(spot) {
@@ -503,30 +2965,20 @@ function applicaFiltriSpot(){
   const reg=document.getElementById("filtroReg")?.value||"all";
   const tech=document.getElementById("filtroTech")?.value||"all";
   const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
-  
-  // Aggiorna i marker geografici sulla mappa Leaflet
   aggiornaMappaSpotItalia(filtrati);
-  
   const n=filtrati.length;
   if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
   if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
-  
   if(reg!=="all"||tech!=="all"){
     mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
-    if(filtrati.length>0){
-      const bounds=L.latLngBounds(filtrati.map(s=>s.coords));
-      // Zoom pulito e sicuro sulla regione senza oggetti orfani o due punti errati
-      spotItaliaMap.fitBounds(bounds);
-    }
+    if(filtrati.length>0){const bounds=L.latLngBounds(filtrati.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
   } else {
     if(document.getElementById("spotPanelBody")){
-      if(document.getElementById("spotPanelHeader")) {
-        document.getElementById("spotPanelHeader").textContent = t('tuttiGliSpot') || "Tutti gli Spot";
-      }
+      document.getElementById("spotPanelHeader").textContent="📋 Dettaglio spot";
+      document.getElementById("spotPanelBody").innerHTML=`<div class="spot-panel-placeholder"><span class="ph-ico">🗺️</span><p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p></div>`;
     }
   }
 }
-
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
@@ -723,3 +3175,441 @@ body.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
 .qp-loader .spinner { font-size:48px; animation:floatLogo 1.5s ease-in-out infinite; display:block; margin-bottom:16px; }
 .qp-loader p { opacity:0.6; font-size:14px; }
 </style>
+<!-- ============================================================
+     BLOCCO JS — QUANDO PESCARE (Solunar + Maree + Luna)
+     ============================================================ -->
+<script>
+/* === QUANDO PESCARE OGGI === */
+
+function showQuandoPescare() {
+  document.getElementById("content").innerHTML = `
+    <div class="qp-loader">
+      <span class="spinner">🌙</span>
+      <p>${t('calcoloCondizioni')}</p>
+    </div>`;
+  if (!navigator.geolocation) {
+    renderQuandoPescare(41.9, 12.5); return;
+  }
+  const usa = confirm(t('confermaGPS'));
+  if (!usa) { renderQuandoPescare(41.9, 12.5); return; }
+  navigator.geolocation.getCurrentPosition(
+    pos => renderQuandoPescare(pos.coords.latitude, pos.coords.longitude),
+    ()  => renderQuandoPescare(41.9, 12.5),
+    { enableHighAccuracy: true, timeout: 8000 }
+  );
+}
+async function renderQuandoPescare(lat, lon) {
+  const ora = new Date();
+  let mareeOggi = [];
+  try {
+    const res = await fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=sea_level_height_msl&timezone=Europe%2FRome&forecast_days=1`);
+    const dati = await res.json();
+    mareeOggi = calcolaMareeDaHourly(dati.hourly?.sea_level_height_msl || [], dati.hourly?.time || []);
+  } catch(e) { 
+    mareeOggi = []; 
+  }
+  const lunaInfo   = calcolaFaseLuna(ora);
+  const solunar    = calcolaSolunar(lat, lon, ora);
+  const giorniHTML = generaGiorniSolunar(lat, lon, ora);
+  const ratingGiorno = calcolaRatingSolunar(lunaInfo.illuminazione, ora);
+  const localeStr = linguaAttuale === "fr" ? "fr-FR" : "it-IT";
+  const ratingLabels = linguaAttuale === "fr" ? ["","Faible","Basse","Correcte","Bonne","Excellente"] : ["","Scarsa","Bassa","Discreta","Buona","Ottima"];
+  document.getElementById("content").innerHTML = `
+    <div class="qp-hero">
+      <h2>${t('quandoPescareOggi')}</h2>
+      <div class="qp-sub">📍 ${lat.toFixed(3)}°N, ${lon.toFixed(3)}°E • ${ora.toLocaleDateString(localeStr,{weekday:"long",day:"numeric",month:"long"})}</div>
+      <span class="qp-luna-ico">${lunaInfo.icona}</span>
+      <div class="qp-luna-nome">${lunaInfo.fase}</div>
+      <div class="qp-luna-pct">${t('illuminazioneLabel')} ${lunaInfo.illuminazione}%</div>
+      <div class="qp-rating-bar">
+        <span class="stelle">${stelleRating(ratingGiorno)}</span>
+        <span class="label">${ratingLabels[ratingGiorno]} ${t('perPescare')}</span>
+      </div>
+    </div>
+    <h3 style="margin:0 0 10px;font-size:15px;opacity:0.7;">${t('prossimiGiorni')}</h3>
+    <div class="qp-giorni-scroll">${giorniHTML}</div>
+    <div class="qp-card">
+      <h3>${t('momentiMigliori')}</h3>
+      <div class="sol-fasce">
+        ${solunar.map(s=>`
+          <div class="sol-fascia ${s.tipo}">
+            <span class="sf-ico">${s.ico}</span>
+            <div class="sf-tipo">${s.tipo === "major" ? "⭐ MAJOR" : "● minor"}</div>
+            <div class="sf-ora">${s.ora}</div>
+            <div class="sf-dur">${s.tipo === "major" ? t('circaOre') : t('circaUnOra')}</div>
+          </div>`).join("")}
+      </div>
+      <p style="font-size:12px;opacity:0.55;margin:14px 0 0;text-align:center;">
+        ${t('majorMinorInfo')}
+      </p>
+    </div>
+    <div class="qp-card">
+      <h3>${t('mareeOggi')}</h3>
+      ${mareeOggi.length > 0 ? mareeOggi.map(m=>`
+        <div class="marea-row">
+          <span class="marea-ico">${m.tipo === "alta" ? "⬆️" : "⬇️"}</span>
+          <div class="marea-info">
+            <div class="marea-tipo">${m.tipo === "alta" ? t('mareaAlta') : t('mareaBassa')}</div>
+            <div class="marea-ora">${m.ora}</div>
+          </div>
+          <div class="marea-h">${m.altezza} m</div>
+        </div>`).join("") :
+        `<p style="opacity:0.5;font-size:13px;text-align:center;padding:10px 0;">
+          ${t('mareeNonDisponibili')}<br>
+          <small>${t('mareeSoloMareAperto')}</small>
+        </p>`}
+    </div>
+    <div class="qp-card">
+      <h3>${t('consiglioGiorno')}</h3>
+      ${generaConsiglioPesca(lunaInfo, solunar, ora)}
+    </div>
+    <button onclick="goTo(showQuandoPescare)" style="width:100%;">${t('aggiornaBtn')}</button><br>`;
+}
+/* ── CALCOLO FASE LUNA ── */
+function calcolaFaseLuna(data) {
+  const riferimento = new Date("2000-01-06T18:14:00Z");
+  const diffGiorni  = (data - riferimento) / 86400000;
+  const ciclo       = 29.53059;
+  const etaLuna     = ((diffGiorni % ciclo) + ciclo) % ciclo;
+  const illuminazione = Math.round(50 * (1 - Math.cos(2 * Math.PI * etaLuna / ciclo)));
+  const isFr = linguaAttuale === "fr";
+  let fase, icona;
+  if      (etaLuna < 1.85)  { fase=isFr?"Nouvelle Lune":"Luna Nuova";        icona="🌑"; }
+  else if (etaLuna < 7.38)  { fase=isFr?"Premier Croissant":"Quarto Crescente";  icona="🌒"; }
+  else if (etaLuna < 9.22)  { fase=isFr?"Premier Quartier":"Primo Quarto";      icona="🌓"; }
+  else if (etaLuna < 14.77) { fase=isFr?"Gibbeuse Croissante":"Gibbosa Crescente"; icona="🌔"; }
+  else if (etaLuna < 16.61) { fase=isFr?"Pleine Lune":"Luna Piena";        icona="🌕"; }
+  else if (etaLuna < 22.15) { fase=isFr?"Gibbeuse Décroissante":"Gibbosa Calante";   icona="🌖"; }
+  else if (etaLuna < 23.99) { fase=isFr?"Dernier Quartier":"Ultimo Quarto";     icona="🌗"; }
+  else if (etaLuna < 29.53) { fase=isFr?"Dernier Croissant":"Quarto Calante";    icona="🌘"; }
+  else                       { fase=isFr?"Nouvelle Lune":"Luna Nuova";       icona="🌑"; }
+  return { fase, icona, illuminazione, etaLuna };
+}
+/* ── CALCOLO SOLUNAR ── */
+function calcolaSolunar(lat, lon, data) {
+  const JD = dataToJD(data);
+  const risultati = [];
+  /* Transiti lunari: luna al meridiano e anti-meridiano */
+  const trasitoPrincipale = calcolaTransitoLuna(JD, lon);
+  const trasitoOposto = (trasitoPrincipale + 12 * 3600000) % 86400000;
+  /* Alba e tramonto luna (minor periods) */
+  const albeLuna = calcolaAlbaTramonto(JD, lat, lon, "luna");
+  const fasce = [
+    { ms: trasitoPrincipale,   tipo:"major", ico:"🌕" },
+    { ms: trasitoOposto,       tipo:"major", ico:"🌑" },
+    { ms: albeLuna.alba,       tipo:"minor", ico:"🌙" },
+    { ms: albeLuna.tramonto,   tipo:"minor", ico:"🌛" },
+  ];
+  fasce.sort((a,b) => a.ms - b.ms);
+  return fasce.map(f => ({
+    tipo: f.tipo,
+    ico:  f.ico,
+    ora:  msToOra(f.ms)
+  }));
+}
+function dataToJD(data) {
+  return data.getTime() / 86400000 + 2440587.5;
+}
+function calcolaTransitoLuna(JD, lon) {
+  /* Anomalia media della luna */
+  const T  = (JD - 2451545.0) / 36525;
+  const L0 = (218.3164477 + 481267.88123421 * T) % 360;
+  const M  = (134.9633964 + 477198.8675055  * T) % 360;
+  const Mrad = M * Math.PI / 180;
+  const lambda = L0 + 6.289 * Math.sin(Mrad);
+  /* Ora del transito in ms dal mezzanotte locale */
+  const raLuna = ((lambda % 360) + 360) % 360;
+  const oraDecimale = (raLuna / 15 - lon / 15 + 24) % 24;
+  return Math.round(oraDecimale * 3600000);
+}
+function calcolaAlbaTramonto(JD, lat, lon, corpo) {
+  /* Approssimazione alba/tramonto luna */
+  const T = (JD - 2451545.0) / 36525;
+  const M = (134.9633964 + 477198.8675055 * T) * Math.PI / 180;
+  const L = (218.3164477 + 481267.88123421 * T) * Math.PI / 180;
+  const dec = Math.asin(Math.sin(0.0898) * Math.sin(L + 0.1098 * Math.sin(M)));
+  const latRad = lat * Math.PI / 180;
+  const cosH = -Math.tan(latRad) * Math.tan(dec);
+  const H = cosH >= 1 ? 0 : cosH <= -1 ? Math.PI : Math.acos(cosH);
+  const HDeg = H * 180 / Math.PI;
+  const transito = ((218.3164477 + 481267.88123421 * T) / 15 - lon / 15 + 24) % 24;
+  const alba     = ((transito - HDeg / 15) + 24) % 24;
+  const tramonto = ((transito + HDeg / 15) + 24) % 24;
+  return {
+    alba:     Math.round(alba     * 3600000),
+    tramonto: Math.round(tramonto * 3600000)
+  };
+}
+function msToOra(ms) {
+  const tot = ((ms % 86400000) + 86400000) % 86400000;
+  const h   = Math.floor(tot / 3600000);
+  const m   = Math.floor((tot % 3600000) / 60000);
+  return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`;
+}
+/* ── RATING SOLUNAR GIORNALIERO ── */
+function calcolaRatingSolunar(illuminazione, data) {
+  let r = 3;
+  if (illuminazione > 85 || illuminazione < 10) r = 5;      /* Luna piena o nuova */
+  else if (illuminazione > 65 || illuminazione < 25) r = 4;
+  else if (illuminazione > 45 && illuminazione < 55) r = 3;
+  /* Bonus weekend */
+  const g = data.getDay();
+  return Math.min(5, r);
+}
+/* ── MAREE DA HOURLY ── */
+function calcolaMareeDaHourly(valori, tempi) {
+  if (!valori || valori.length === 0) return [];
+  const maree = [];
+  for (let i = 1; i < valori.length - 1; i++) {
+    const prev = valori[i-1], curr = valori[i], next = valori[i+1];
+    if (curr === null || prev === null || next === null) continue;
+    const isAlta  = curr > prev && curr > next;
+    const isBassa = curr < prev && curr < next;
+    if (isAlta || isBassa) {
+      const ora = tempi[i] ? tempi[i].slice(11,16) : "--:--";
+      maree.push({
+        tipo:    isAlta ? "alta" : "bassa",
+        ora,
+        altezza: curr.toFixed(2)
+      });
+    }
+  }
+  return maree.slice(0, 4);
+}
+/* ── GIORNI SOLUNAR SCROLL ── */
+function generaGiorniSolunar(lat, lon, ora) {
+  const giorniIt = ["Dom","Lun","Mar","Mer","Gio","Ven","Sab"];
+  const giorniFr = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"];
+  const giorni = linguaAttuale === "fr" ? giorniFr : giorniIt;
+  const domaniLabel = linguaAttuale === "fr" ? "Demain" : "Domani";
+  let html = "";
+  for (let i = 1; i <= 3; i++) {
+    const d = new Date(ora); d.setDate(d.getDate() + i);
+    const nome  = i === 1 ? domaniLabel : giorni[d.getDay()];
+    const luna  = calcolaFaseLuna(d);
+    const rating = calcolaRatingSolunar(luna.illuminazione, d);
+    const sol   = calcolaSolunar(lat, lon, d);
+    const major1 = sol.filter(s=>s.tipo==="major")[0];
+    html += `
+      <div class="qp-giorno-card">
+        <div class="qgc-nome">${nome}</div>
+        <div class="qgc-luna">${luna.icona}</div>
+        <div class="qgc-fase">${luna.fase.split(" ").slice(0,2).join(" ")}</div>
+        <div class="qgc-rate">${stelleRating(rating)}</div>
+        ${major1 ? `<div class="qgc-major">⭐ ${major1.ora}</div>` : ""}
+      </div>`;
+  }
+  return html;
+}
+/* ── CONSIGLIO TESTO ── */
+function generaConsiglioPesca(luna, solunar, ora) {
+  const h = ora.getHours();
+  const isFr = linguaAttuale === "fr";
+  const major = solunar.filter(s=>s.tipo==="major");
+  const prossimo = solunar.find(s => {
+    const [hh,mm] = s.ora.split(":").map(Number);
+    return (hh * 60 + mm) > (h * 60 + ora.getMinutes());
+  });
+  let consiglio = "";
+  const ill = luna.illuminazione;
+  if (isFr) {
+    if (ill > 85)       consiglio += "<b>🌕 Pleine Lune</b> — période dorée pour la pêche. Les poissons sont actifs toute la journée, surtout la nuit. Idéal pour bars et sars. ";
+    else if (ill < 10)  consiglio += "<b>🌑 Nouvelle Lune</b> — excellent pour la pêche diurne. Les eaux sombres la nuit rendent les appâts plus visibles. Parfait pour la pêche au fond. ";
+    else if (ill > 60)  consiglio += "<b>🌔 Lune croissante</b> — bonnes conditions. Les poissons ont tendance à s'alimenter davantage. ";
+    else                consiglio += "<b>🌘 Lune décroissante</b> — conditions moyennes. Concentrez-vous sur les périodes major. ";
+    if (prossimo) {
+      consiglio += `Le prochain moment <b>${prossimo.tipo === "major" ? "⭐ MAJOR" : "● minor"}</b> est à <b>${prossimo.ora}</b>. `;
+      if (prossimo.tipo === "major") consiglio += "Préparez-vous à l'avance et gardez la canne en main !";
+      else consiglio += "Peut donner de bons résultats, surtout aux premières et dernières heures de lumière.";
+    } else {
+      consiglio += "Les meilleurs moments d'aujourd'hui sont déjà passés. Planifiez votre sortie de demain !";
+    }
+  } else {
+    if (ill > 85)       consiglio += "<b>🌕 Luna Piena</b> — periodo d'oro per la pesca. I pesci sono attivi tutto il giorno, specialmente di notte. Ideale per spigole e saraghi. ";
+    else if (ill < 10)  consiglio += "<b>🌑 Luna Nuova</b> — eccellente per la pesca diurna. Le acque scure di notte rendono le esche più visibili. Ottimo per pesca a fondo. ";
+    else if (ill > 60)  consiglio += "<b>🌔 Luna in crescita</b> — buone condizioni. I pesci tendono ad alimentarsi di più. ";
+    else                consiglio += "<b>🌘 Luna calante</b> — condizioni nella media. Concentrati sui periodi major. ";
+    if (prossimo) {
+      consiglio += `Il prossimo momento <b>${prossimo.tipo === "major" ? "⭐ MAJOR" : "● minor"}</b> è alle <b>${prossimo.ora}</b>. `;
+      if (prossimo.tipo === "major") consiglio += "Preparati con anticipo e tieni la canna in mano!";
+      else consiglio += "Può dare buoni risultati, specialmente nelle prime e ultime ore di luce.";
+    } else {
+      consiglio += "I momenti migliori per oggi sono già passati. Pianifica l'uscita di domani!";
+    }
+  }
+  return `<p style="font-size:13px;line-height:1.8;margin:0;">${consiglio}</p>`;
+}
+</script>
+<script>
+/* === AVVIO === */
+async function avviaApp() {
+  const linguaSalvata = localStorage.getItem("lingua") || "it";
+  const fileNodi = linguaSalvata === "fr" ? "./data/nodi.fr.json" : "./data/nodi.json";
+  const fileMontature = linguaSalvata === "fr" ? "./data/montature.fr.json" : "./data/montature.json";
+  const fileSpecie = linguaSalvata === "fr" ? "./data/specie.fr.json" : "./data/specie.json";
+   try {
+    const [resNodi, resMontature, resSpecie, resSpot] = await Promise.all([
+      fetch(fileNodi).catch(() => null),
+      fetch(fileMontature).catch(() => null),
+      fetch(fileSpecie).catch(() => null),
+      fetch("./data/spot-italia.json").catch(() => null)
+    ]);
+    if (resNodi && resNodi.ok) nodiData = await resNodi.json();
+    if (resMontature && resMontature.ok) montatureData = await resMontature.json();
+    if (resSpecie && resSpecie.ok) specie = await resSpecie.json();
+    if (resSpot && resSpot.ok) spotsItalia = await resSpot.json();
+  } catch(e) {
+    console.error("Errore caricamento dati locali:", e);
+  }
+  // Esegue le funzioni di configurazione iniziale dello stato
+  caricaTema();
+  caricaLingua();
+  showHome();
+}
+// Dichiarazione della funzione che mancava e causava il blocco in console
+function caricaTema() {
+  try {
+    var temaSalvato = localStorage.getItem("temaAttivo") || "light";
+    document.documentElement.setAttribute("data-theme", temaSalvato);
+    console.log("Tema grafico configurato:", temaSalvato);
+  } catch(e) {
+    console.log("Impossibile caricare le preferenze del tema, uso default light");
+  }
+}
+// Inizializzazione ufficiale del ciclo di vita dell'applicazione
+avviaApp();
+// Gestione temporizzata della scomparsa dello Splash Screen grafico
+window.addEventListener("load", function() {
+  setTimeout(function() {
+    var s = document.getElementById("splash");
+    if (s) { s.style.display = "none"; }
+  }, 3500);
+});
+</script>
+<script>
+// Registrazione del Service Worker per il supporto offline (PWA)
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("./sw.js").catch(function(err) {
+      console.log("Service Worker non registrato:", err);
+    });
+  });
+}
+ // Funzione ausiliaria per formattare il testo (\n -> <br> e ** -> <strong>)
+function formattaTestoGuida(testo) {
+  if (!testo) return 'Nessun contenuto disponibile / Aucun contenu disponible.';
+  return testo
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Converte **grassetti**
+    .replace(/\n/g, '<br>');                           // Converte i ritorni a capo
+}
+
+// Funzione per caricare la guida tecnica esperta dal file JSON (Rileva la lingua in automatico)
+async function caricaGuidaMontatura(idMontatura) {
+  // Rileva la lingua globale dell'app (cambia in 'currentLang' se usi quel nome per la variabile)
+  const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it'; 
+  const suffissoLingua = lang === 'fr' ? '.fr' : '';
+  
+  try {
+    // Carica il file italiano (.json) o francese (.fr.json) dalla tua cartella dedicata
+    const response = await fetch(`./data/guide_montature/${idMontatura}${suffissoLingua}.json`);
+    if (!response.ok) {
+      throw new Error(`File non trovato (Status: ${response.status})`);
+    }
+    const data = await response.json();
+    mostraMenuCapitoli(data);
+  } catch (error) {
+    console.error("Errore nel caricamento della guida:", error);
+    const container = document.getElementById("contenitore-guida");
+    if (container) {
+      // Testo dinamico in caso di errore di caricamento preso dal dizionario
+      const msgErrore = lang === 'fr' ? "Guide en cours d'arrivée per questa montatura !" : "Guida in arrivo per questa montatura !";
+      container.innerHTML = `<p style="color:red;padding:10px;text-align:center;font-weight:bold;">${msgErrore}</p>`;
+    }
+  }
+}
+
+// Mostra i 6 capitoli tra cui scegliere
+function mostraMenuCapitoli(guidaData) {
+  const container = document.getElementById("contenitore-guida");
+  if (!container) return;
+  
+  const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it';
+  
+  // Gestione dinamica del titolo per eliminare i residui italiani nel JSON francese
+  let titoloPulito = guidaData.titolo;
+  let suffissoTitolo = ' - Guida Tecnica Esperta';
+  
+  if (lang === 'fr') {
+    suffissoTitolo = ' - Guide Technique Experte';
+    // Sostituisce i prefissi italiani con il termine corretto francese "Montage"
+    titoloPulito = titoloPulito
+      .replace(/^Montatura a /i, 'Montage ')
+      .replace(/^Montatura con /i, 'Montage avec ')
+      .replace(/^Montatura /i, 'Montage ');
+  }
+
+  let html = `<h3 style="margin-top:15px;color:#0a2a43;">${titoloPulito}${suffissoTitolo}</h3>`;
+  html += `<div style="display:flex;flex-direction:column;gap:8px;">`;
+  
+  guidaData.capitoli.forEach((capitolo, index) => {
+    html += `
+      <button onclick="apriCapitolo('${guidaData.id}', ${index})" style="padding:10px;border-radius:8px;border:1px solid #a8d8ea;background:#f4f9fc;text-align:left;cursor:pointer;">
+        <strong style="display:block;color:#0a2a43;">${capitolo.titolo}</strong>
+        <small style="color:#555;">${capitolo.sottotitolo}</small>
+      </button>
+    `;
+  });
+  
+  html += `</div>`;
+  container.innerHTML = html;
+}
+// Mostra il dettaglio del singolo capitolo con il tasto indietro
+async function apriCapitolo(idMontatura, indiceCapitolo) {
+  const container = document.getElementById("contenitore-guida");
+  if (!container) return;
+
+  const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it';
+  const suffissoLingua = lang === 'fr' ? '.fr' : '';
+
+  try {
+    const response = await fetch(`./data/guide_montature/${idMontatura}${suffissoLingua}.json`);
+    if (!response.ok) {
+      throw new Error(`Errore HTTP: ${response.status}`);
+    }
+    const guidaData = await response.json();
+    const capitolo = guidaData.capitoli[indiceCapitolo];
+
+    if (!capitolo) {
+      const msgNoCap = lang === 'fr' ? "Chapitre non trouvé." : "Capitolo non trovato.";
+      container.innerHTML = `<p style="color:red;padding:10px;">${msgNoCap}</p>`;
+      return;
+    }
+
+    // Formatta il testo convertendo sia \n che ** tramite la funzione ausiliaria
+    let testoFormatted = formattaTestoGuida(capitolo.contenuto);
+
+    // Gestione localizzata del testo del pulsante Indietro
+    const testoBottoneIndietro = lang === 'fr' ? "← Retour à l'index dei Chapitres" : "← Torna all'indice dei Capitoli";
+
+    container.innerHTML = `
+      <div style="margin-top:15px;background:#ffffff;padding:14px;border-radius:10px;border:1px solid #d0e6f7;box-shadow:0 3px 8px rgba(0,0,0,0.08);text-align:left;">
+        <button onclick="caricaGuidaMontatura('${idMontatura}')" style="margin-bottom:12px;padding:6px 12px;border-radius:6px;background:#0a2a43;border:none;color:white;font-size:12px;font-weight:bold;cursor:pointer;">
+          ${testoBottoneIndietro}
+        </button>
+        <h3 style="margin:0 0 6px 0;color:#0a2a43;font-size:16px;">${capitolo.titolo}</h3>
+        ${capitolo.sottotitolo ? `<p style="margin:0 0 12px 0;opacity:0.7;font-size:12px;font-weight:bold;">${capitolo.sottotitolo}</p>` : ''}
+        <div style="font-size:13px;line-height:1.6;color:#222;border-top:1px solid #eee;padding-top:10px;">
+          ${testoFormatted}
+        </div>
+      </div>
+    `;
+  } catch (error) {
+    console.error("Errore nell'apertura del capitolo:", error);
+    const msgErrOpen = lang === 'fr' ? "Impossible d'ouvrir le chapitre. Vérifiez le fichier JSON." : "Impossibile aprire il capitolo. Verifica il nome del file JSON.";
+    container.innerHTML = `<p style="color:red;padding:10px;">${msgErrOpen}</p>`;
+  }
+}
+
+</script>
+</body>
+</html>
