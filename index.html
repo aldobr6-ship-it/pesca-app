@@ -1401,13 +1401,11 @@ function mostraPescePopup(nomePesce) {
       }
     }
   }
-
   // Fallback se non trova nulla nel database specie
   if (!urlImmagine) {
     const fileNome = nomePesce.trim().toLowerCase().replace(/\s+/g, '-');
     urlImmagine = `img/${fileNome}.jpg`;
   }
-
   // Generazione Popup Piccolo Bianco
   const vecchioPopup = document.getElementById("pescePopup");
   if (vecchioPopup) vecchioPopup.remove();
@@ -1438,7 +1436,6 @@ function mostraEscaPopup(nomeEsca) {
   } else if (nomePulito.includes("calamaro")) {
     fileNome = "pezzo_calamaro";
   }
-
   // Generiamo un ID univoco temporaneo basato sul tempo per evitare qualsiasi conflitto nel DOM
   const idImmagineUnico = "esca_img_" + Date.now();
 
@@ -1455,7 +1452,6 @@ function mostraEscaPopup(nomeEsca) {
   popup.onclick = function(e) { 
     if (e.target === popup) popup.remove(); 
   };
-
   popup.innerHTML = `
     <div class="card" style="width:85%; max-width:320px; background:#fff; padding:20px; border-radius:16px; text-align:center; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.3); animation:scaleUp 0.2s ease; cursor:default;">
       <button onclick="document.getElementById('escaPopup').remove()" style="position:absolute; top:10px; right:12px; background:none; border:none; font-size:18px; cursor:pointer; color:#888;">✕</button>
@@ -1485,11 +1481,8 @@ function mostraEscaPopup(nomeEsca) {
         ">
     </div>
   `;
-
   document.body.appendChild(popup);
 }
-
- 
 </script>
 <script>
 /* === DATI SPOT FRANCIA === */ 
@@ -1827,7 +1820,6 @@ function mostraEscaPopup(nomeEsca) {
 ];
   
 /* === LOGICA NAZIONI, REGIONI E SALVATAGGIO SPOT === */
-
 const regionData = {
   italia: {
     center: [41.8719, 12.5674],
@@ -1878,27 +1870,21 @@ const regionData = {
     }
   }
 };
-
 let currentSelectedSpot = null;
-
 function updateRegions() {
   const nationSelect = document.getElementById("nation-select");
   const regionSelect = document.getElementById("homeFilterRegion");
   if (!nationSelect || !regionSelect) return;
-
   const nation = nationSelect.value;
   const data = regionData[nation];
   if (!data) return;
-
   regionSelect.innerHTML = "";
-
   Object.keys(data.regions).forEach(region => {
     const option = document.createElement("option");
     option.value = region === "Tutte" ? "ALL" : region;
     option.textContent = region === "Tutte" ? "Tutte le regioni" : region;
     regionSelect.appendChild(option);
   });
-
   if (window.map) {
     window.map.setView(data.center, data.zoom);
   }
@@ -1908,35 +1894,28 @@ function updateRegions() {
 function filterSpotsByRegion() {
   const nationSelect = document.getElementById("nation-select");
   const regionSelect = document.getElementById("homeFilterRegion");
-
   if (!nationSelect || !regionSelect) return;
-
   const nation = nationSelect.value;
   const region = regionSelect.value;
   const data = regionData[nation];
-
   if (region !== "ALL" && data && data.regions[region] && window.map) {
     const regInfo = data.regions[region];
     window.map.setView(regInfo.center, regInfo.zoom);
   }
-
   const allSpotsCombined = [
     ...(typeof spotsData !== 'undefined' ? spotsData : []),
     ...(typeof spotsFranciaData !== 'undefined' ? spotsFranciaData : []),
     ...(typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : [])
   ];
-
   const filteredSpots = allSpotsCombined.filter(spot => {
     const spotNation = (spot.nation || "italia").toLowerCase();
     const matchNation = spotNation === nation.toLowerCase();
     const matchRegion = (region === "ALL") || (spot.region === region);
     return matchNation && matchRegion;
   });
-
   if (typeof renderSpotList === 'function') renderSpotList(filteredSpots);
   if (typeof updateMapMarkers === 'function') updateMapMarkers(filteredSpots);
 }
-
 // Modal Salvataggio
 function openSaveModal(spot) {
   currentSelectedSpot = spot;
@@ -1948,39 +1927,31 @@ function openSaveModal(spot) {
   const modal = document.getElementById("save-spot-modal");
   if (modal) modal.style.display = "flex";
 }
-
 function closeSaveModal() {
   const modal = document.getElementById("save-spot-modal");
   if (modal) modal.style.display = "none";
   currentSelectedSpot = null;
 }
-
 function confirmSaveSpot() {
   if (!currentSelectedSpot) return;
-
   const notesField = document.getElementById("spot-notes");
   const notes = notesField ? notesField.value : "";
   const savedSpots = JSON.parse(localStorage.getItem("mySavedSpots") || "[]");
-
   const newSavedEntry = {
     ...currentSelectedSpot,
     userNotes: notes,
     savedAt: new Date().toLocaleDateString()
   };
-
   savedSpots.push(newSavedEntry);
   localStorage.setItem("mySavedSpots", JSON.stringify(savedSpots));
-
   alert("Spot salvato con successo nei tuoi preferiti!");
   closeSaveModal();
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     updateRegions();
   }, 300);
 });
-
 /* === SPECIE === */
 let specie = {};
 function showSpecie() {
@@ -2348,10 +2319,9 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
   var analisi = calcolaConsiglioCompleto(ondaH, ventoKmh, ora, wCode);
   var giorniHTML = generaGiorni(marine, meteo, ora);
   var miei_spots = caricaSpot();
-
   var alertGPSHTML = usaFallback 
     ? `<div style="background: #fff3cd; color: #856404; padding: 10px; border-radius: 10px; text-align: center; margin-bottom: 12px; font-size: 13px; font-weight: bold; border: 1px solid #ffeeba;">
-         📍 GPS non disponibile. Previsioni basate sulla Capitale.
+         📍 GPS non disponibile. Prévisions basées sur la capitale.
        </div>`
     : "";
   var testobottone = t('cercaSpotItalia');
