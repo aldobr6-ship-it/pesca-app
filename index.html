@@ -910,6 +910,9 @@ function showTecniche() {
     <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
 }
 function showSurfcasting() {
+  const specieList = dati.specie;
+  const escheList = dati.esche;
+  // ... resto invariato
   const txt = linguaAttuale === "fr" ? surfcastingText.fr : surfcastingText.it;
   const dati = linguaAttuale === "fr" ? surfcastingDataFr : surfcastingDataIt;
   document.getElementById("content").innerHTML = `
@@ -2012,7 +2015,7 @@ function showSpecieDetail(id) {
   document.getElementById("content").innerHTML = `
     <div class="card" style="cursor:default;">
       <h2>${p.nome}</h2><em>${p.scientifico}</em><br>
-      <img src="${p.img}" onclick="mostraEscaFullscreen(event,'${p.img}','${p.nome}')" style="width:100%;max-width:280px;border-radius:12px;margin:12px 0 4px;cursor:zoom-in;" onerror="imgFallback(this,'${p.nome} non disponibile')">
+      <img src="${p.img}" ... onerror="imgSlugFallback(this,'${p.nome} non disponibile')">
       <p style="font-size:11px;opacity:0.5;margin:0 0 12px;">${t('toccaIngrandire')}</p>
       <p>${p.descrizione}</p>
       <p><strong>${t('tecnicheLabel')}</strong> ${p.tecniche}</p>
@@ -2020,6 +2023,18 @@ function showSpecieDetail(id) {
       ${generaCalendario(p.stagione)}
       <button onclick="goTo(showSpecie)">${t('tornaSpecie')}</button>
     </div>`;
+}
+  function imgSlugFallback(el, nomeTxt) {
+  const src = el.src || "";
+  const m = src.match(/\/([^/]+)\.[^.]+$/);
+  const rawName = m ? m[1] : src.split("/").pop().replace(/\.[^.]+$/, "");
+  if (rawName) {
+    const slugE = slugEsca(rawName);
+    if (slugE !== rawName && src.indexOf(slugE) === -1) { el.src = "img/" + slugE + ".jpg"; return; }
+    const slugP = slugPesce(rawName);
+    if (slugP !== rawName && src.indexOf(slugP) === -1) { el.src = "img/" + slugP + ".jpg"; return; }
+  }
+  imgFallback(el, nomeTxt);
 }
 </script>
 
@@ -2189,7 +2204,7 @@ function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
   lista.forEach((item, index) => {
    const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
-    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;text-align:center;"><img src="${item.img}" onclick="event.stopPropagation();mostraEscaFullscreen(event,'${item.img}','${item.nome}')" class="img-box-bg" style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:4px 0 0;">🔍 Tocca per ingrandire</p></div></div>`;
+    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;text-align:center;"><img src="${item.img}" onclick="event.stopPropagation();mostraEscaFullscreen(event,'${item.img}','${item.nome}')" class="img-box-bg" style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;" onerror="imgSlugFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:4px 0 0;">🔍 Tocca per ingrandire</p></div></div>`;
   });
   return html + "</div>";
 }
@@ -2286,8 +2301,18 @@ async function caricaPrevisioni(lat, lon, usaFallback = false) {
     var urlMeteo = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,wind_speed_10m_max,weather_code&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Europe%2FRome&forecast_days=4`;
 
     var risposteServer = await Promise.all([
-      fetch(urlMarine),
-      fetch(urlMeteo)
+  fetch(fileNodi).catch(() => null),
+  fetch(fileMontature).catch(() => null),
+  fetch(fileSpecie).catch(() => null)
+]).then(async ([rN,rM,rS]) => {
+  // per ogni risposta: if (res && res.ok) ...
+  // se specie.fr.json fallisce → carica specie.json (IT) + mappa nomi FR via frNameMap
+  const resIt = await fetch("./data/specie.json").catch(() => null);
+  const frNameMap = {"orata":"Dorade",...,"aguglia":"Orphie"};
+  for (let key in specie) {
+    const nomeIt = (specie[key].nome||"").toLowerCase();
+    if (frNameMap[nomeIt]) specie[key].nome = frNameMap[nomeIt];
+  }
     ]); 
     var marineData = await risposteServer[0].json();
     var meteoData = await risposteServer[1].json();
