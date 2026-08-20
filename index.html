@@ -479,25 +479,9 @@ function toggleTema() {
   localStorage.setItem("tema", isDark ? "dark" : "light");
   aggiornaLabelTema();
 }
-function toggleTema() {
-  document.body.classList.toggle("dark");
-  const tema = document.body.classList.contains("dark")
-    ? "dark"
-    : "light";
-  localStorage.setItem("tema", tema);
-  aggiornaLabelTema();
-}
 function caricaTema() {
-  const tema = localStorage.getItem("tema") || "light";
-  document.body.classList.toggle("dark", tema === "dark");
+  if (localStorage.getItem("tema") === "dark") document.body.classList.add("dark");
   aggiornaLabelTema();
-}
-function aggiornaLabelTema() {
-  const label = document.getElementById("temaLabel");
-  if (!label) return;
-  label.textContent = document.body.classList.contains("dark")
-    ? t("temaChiaro")
-    : t("temaScuro");
 }
   /* === LINGUA === */
 let linguaAttuale = "it";
@@ -843,20 +827,13 @@ async function cambiaLingua(lingua) {
   showHome();
 }
 function caricaLingua() {
-  const salvata = localStorage.getItem("lingua");
-  if (salvata === "it" || salvata === "fr") {
-    linguaAttuale = salvata;
-  }
   const splashSub = document.getElementById("splashSubtitle");
-  if (splashSub) {
-    splashSub.textContent = t("metaPesca");
-  }
-  const btnIt = document.getElementById("btnLangIt");
-  const btnFr = document.getElementById("btnLangFr");
-  if (btnIt) btnIt.style.opacity = linguaAttuale === "it" ? "1" : "0.4";
-  if (btnFr) btnFr.style.opacity = linguaAttuale === "fr" ? "1" : "0.4";
+  if (splashSub) splashSub.textContent = t('metaPesca');
+  const salvata = localStorage.getItem("lingua");
+  if (salvata) linguaAttuale = salvata;
+  document.getElementById("btnLangIt").style.opacity = linguaAttuale === "it" ? "1" : "0.4";
+  document.getElementById("btnLangFr").style.opacity = linguaAttuale === "fr" ? "1" : "0.4";
   aggiornaFooter();
-  aggiornaLabelTema();
 }
   function aggiornaFooter() {
   document.getElementById("fLabelHome").textContent = t('footerHome');
@@ -1346,7 +1323,7 @@ function showMontaturaDetail(id) {
             <div style="font-size:11px;font-weight:700;opacity:0.5;text-transform:uppercase;margin-bottom:6px;">${t('escheConsigliate')}</div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;">
               ${m.esche.split(" • ").map(e => `
-                <span onclick="mostraEscaPopup('${e.trim().replace(/'/g, "\\'")}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+                <span onclick="mostraEscaPopup('${e.trim()}')" style="background:#eaf4fb;border-radius:14px;padding:4px 10px;font-size:12px;font-weight:500;color:#0a2a43;cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
                   🔍 ${e.trim()}
                 </span>
               `).join("")}
@@ -1535,7 +1512,7 @@ function mostraEscaPopup(nomeEsca) {
     "target": "Loups (Bars), Tassergals, Barracudas, Liches"
   },
   {
-    "name": "Plage de Pampelonne (Ramatuelle)"
+    "name": "Plage de Pampelonne (Ramuelle)",
     "lat": 43.2284,
     "lon": 6.6621,
     "description": "Plage profonde ouverte sur le large avec une bathymétrie importante dès les premiers mètres. Idéale par mer formée ou en fin de tempête.",
@@ -1681,8 +1658,8 @@ function mostraEscaPopup(nomeEsca) {
     "lat": 48.6312,
     "lon": -2.4654,
     "description": "Baie bretonne protégée par des caps rocheux, fonds de sable propre parsemés de gisements de coquilles Saint-Jacques au large.",
-    "technique": "Beach Ledgering estival de finesse / Finesse Spinning",
-    "target": "Bars Francs, Dorades Grises, Soles, Raies"
+    "technique": "Beach Ledgering de estival de finesse / Finesse Spinning",
+    "target": "Bars Francs, Dorades Grises, Soles, Rayons"
   }
 ];
   /* === DATI SPOT TUNISIA INTERNAZIONALE === */
@@ -1979,45 +1956,30 @@ function closeSaveModal() {
 }
 
 function confirmSaveSpot() {
-  if (!currentSelectedSpotForSave) return;
-  const spot = currentSelectedSpotForSave;
-  const noteInput = document.getElementById("modalSpotNotes");
-  const lat = spot.coords?.[0] ?? spot.lat ?? spot.latitude;
-  const lon = spot.coords?.[1] ?? spot.lon ?? spot.longitude;
-  const nome = spot.name || spot.nome || "Spot senza nome";
-  const tecnica = spot.technique || spot.tecnica || spot.type || "";
-  const specieTarget = spot.target || "";
-  if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lon))) {
-    alert(t("posizioneNonDisponibile"));
-    return;
-  }
-  const spots = caricaSpot();
-  const duplicato = spots.some(item =>
-    item.nome === nome &&
-    Number(item.lat) === Number(lat) &&
-    Number(item.lon) === Number(lon)
-  );
-  if (duplicato) {
-    alert(t("spotGiaSalvato"));
-    return;
-  }
-  spots.unshift({
-    id: Date.now(),
-    nome,
-    specie: specieTarget,
-    montatura: tecnica,
-    note: noteInput?.value.trim() || "",
-    lat: Number(lat),
-    lon: Number(lon),
-    data: new Date().toLocaleDateString(
-      linguaAttuale === "fr" ? "fr-FR" : "it-IT"
-    ),
-    fonte: nazioneAttiva
-  });
-  salvaSpot(spots);
-  alert(t("spotSalvatoOk"));
-  closeSaveSpotModal();
+  if (!currentSelectedSpot) return;
+
+  const notesField = document.getElementById("spot-notes");
+  const notes = notesField ? notesField.value : "";
+  const savedSpots = JSON.parse(localStorage.getItem("mySavedSpots") || "[]");
+
+  const newSavedEntry = {
+    ...currentSelectedSpot,
+    userNotes: notes,
+    savedAt: new Date().toLocaleDateString()
+  };
+
+  savedSpots.push(newSavedEntry);
+  localStorage.setItem("mySavedSpots", JSON.stringify(savedSpots));
+
+  alert("Spot salvato con successo nei tuoi preferiti!");
+  closeSaveModal();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    updateRegions();
+  }, 300);
+});
 
 /* === SPECIE === */
 let specie = {};
@@ -2328,15 +2290,9 @@ function showPrevisioni() {
 
   if (!navigator.geolocation) {
     // Se il browser non supporta il GPS, carica la capitale via internet
-    if (!navigator.geolocation) {
-  prevCoords = {
-    lat: latDefault,
-    lon: lonDefault
-  };
-caricaPrevisioni(latDefault, lonDefault, true);
-  return;
-}
-
+    caricaPrevisioni(latDefault, lonDefault, true);
+    return;
+  }
   navigator.geolocation.getCurrentPosition(
     pos => {
       prevCoords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
@@ -2344,14 +2300,7 @@ caricaPrevisioni(latDefault, lonDefault, true);
     },
     () => {
       // Se il GPS dà errore o sei su PC fisso, carica la capitale senza bloccare la pagina
-      () => {
-  prevCoords = {
-    lat: latDefault,
-    lon: lonDefault
-  };
-
-  caricaPrevisioni(latDefault, lonDefault, true);
-}
+      caricaPrevisioni(latDefault, lonDefault, true);
     },
     { enableHighAccuracy: true, timeout: 4000 } // Timeout ridotto a 4 secondi per massima fluidità
   );
@@ -2480,11 +2429,8 @@ function cambiaNazioneHome(nazione) {
    ============================================================ */
 let nazioneAttiva = "it"; // "it", "fr", "tn"
 let regioneAttiva = "all";
-let spotsItalia = [];
 let spotItaliaMap = null;
 let spotItaliaMarkers = [];
-let spotAttivo = null;
-let spotTooltipAttivo = null;
 let currentSelectedSpotForSave = null;
 
 // Database delle Regioni e coordinate per il centraggio
@@ -2624,20 +2570,15 @@ function initMappaEsplorazioneNuova() {
 
   renderizzaListaEMappe(listaSpot);
 }
-function applicaFiltriSpotItaliaLegacy() {
-  const reg = document.getElementById("filtroReg")?.value || "all";
-  const tech = document.getElementById("filtroTech")?.value || "all";
+function applicaFiltriSpot() {
+  const regEl = document.getElementById("filtroReg");
+  const techEl = document.getElementById("filtroTech");
+  
+  const reg = regEl ? regEl.value : "all";
+  const tech = techEl ? techEl.value : "all";
 
-  const filtrati = spotsItalia.filter(spot => {
-    const regione = spot.reg || spot.region || "";
-    const tecnica = spot.type || spot.technique || spot.tecnica || "";
-
-    return (reg === "all" || regione === reg) &&
-           (tech === "all" || tecnica.toLowerCase().includes(tech.toLowerCase()));
-  });
-
-  aggiornaMappaSpotItalia(filtrati);
-}
+  let listaSorgente = [];
+  let chiaveNazione = "italia";
 
   if (nazioneAttiva === "it") {
     listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
@@ -2916,21 +2857,8 @@ function initMappaPrevisioni(lat,lon,miei_spots){
   });
 }
 /* Spot personali localStorage */
-const SPOT_STORAGE_KEY = "pescaSpot";
-function caricaSpot() {
-  try {
-    const dati = JSON.parse(
-      localStorage.getItem(SPOT_STORAGE_KEY) || "[]"
-    );
-    return Array.isArray(dati) ? dati : [];
-  } catch (error) {
-    console.error("Archivio spot non valido:", error);
-    return [];
-  }
-}
-function salvaSpot(spots) {
-  localStorage.setItem(SPOT_STORAGE_KEY, JSON.stringify(spots));
-}
+function caricaSpot(){try{return JSON.parse(localStorage.getItem("pescaSpot")||"[]");}catch(e){return[];}}
+function salvaSpot(spots){localStorage.setItem("pescaSpot",JSON.stringify(spots));}
 function aggiungiSpot(){
   if(!prevCoords){alert("Posizione non disponibile.");return;}
   document.body.insertAdjacentHTML("beforeend",`
@@ -3006,6 +2934,8 @@ function importaSpot(event) {
 </script>
 <script>
 /* === SPOT ITALIA — MODIFICA 1 (mappa vuota) + MODIFICA 2 (salva spot) === */
+let spotsItalia = [];
+let spotItaliaMap=null, spotItaliaMarkers=[], spotAttivo=null, spotTooltipAttivo=null;
 const isMobile=()=>window.innerWidth<769;
 function initSpotItaliaMap(){
   if(spotItaliaMap){spotItaliaMap.remove();spotItaliaMap=null;}
@@ -3536,6 +3466,16 @@ async function avviaApp() {
   caricaLingua();
   showHome();
 }
+// Dichiarazione della funzione che mancava e causava il blocco in console
+function caricaTema() {
+  try {
+    var temaSalvato = localStorage.getItem("temaAttivo") || "light";
+    document.documentElement.setAttribute("data-theme", temaSalvato);
+    console.log("Tema grafico configurato:", temaSalvato);
+  } catch(e) {
+    console.log("Impossibile caricare le preferenze del tema, uso default light");
+  }
+}
 // Inizializzazione ufficiale del ciclo di vita dell'applicazione
 avviaApp();
 // Gestione temporizzata della scomparsa dello Splash Screen grafico
@@ -3582,7 +3522,7 @@ async function caricaGuidaMontatura(idMontatura) {
     const container = document.getElementById("contenitore-guida");
     if (container) {
       // Testo dinamico in caso di errore di caricamento preso dal dizionario
-      const msgErrore = lang === 'fr' ? "Guide bientôt disponible pour ce montage !" : "Guida in arrivo per questa montatura !";
+      const msgErrore = lang === 'fr' ? "Guide en cours d'arrivée per questa montatura !" : "Guida in arrivo per questa montatura !";
       container.innerHTML = `<p style="color:red;padding:10px;text-align:center;font-weight:bold;">${msgErrore}</p>`;
     }
   }
@@ -3649,7 +3589,7 @@ async function apriCapitolo(idMontatura, indiceCapitolo) {
     let testoFormatted = formattaTestoGuida(capitolo.contenuto);
 
     // Gestione localizzata del testo del pulsante Indietro
-    const testoBottoneIndietro = lang === 'fr' ? "← Retour à l'index des chapitres" : "← Torna all'indice dei Capitoli";
+    const testoBottoneIndietro = lang === 'fr' ? "← Retour à l'index dei Chapitres" : "← Torna all'indice dei Capitoli";
 
     container.innerHTML = `
       <div style="margin-top:15px;background:#ffffff;padding:14px;border-radius:10px;border:1px solid #d0e6f7;box-shadow:0 3px 8px rgba(0,0,0,0.08);text-align:left;">
