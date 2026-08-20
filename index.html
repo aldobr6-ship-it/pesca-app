@@ -843,13 +843,20 @@ async function cambiaLingua(lingua) {
   showHome();
 }
 function caricaLingua() {
-  const splashSub = document.getElementById("splashSubtitle");
-  if (splashSub) splashSub.textContent = t('metaPesca');
   const salvata = localStorage.getItem("lingua");
-  if (salvata) linguaAttuale = salvata;
-  document.getElementById("btnLangIt").style.opacity = linguaAttuale === "it" ? "1" : "0.4";
-  document.getElementById("btnLangFr").style.opacity = linguaAttuale === "fr" ? "1" : "0.4";
+  if (salvata === "it" || salvata === "fr") {
+    linguaAttuale = salvata;
+  }
+  const splashSub = document.getElementById("splashSubtitle");
+  if (splashSub) {
+    splashSub.textContent = t("metaPesca");
+  }
+  const btnIt = document.getElementById("btnLangIt");
+  const btnFr = document.getElementById("btnLangFr");
+  if (btnIt) btnIt.style.opacity = linguaAttuale === "it" ? "1" : "0.4";
+  if (btnFr) btnFr.style.opacity = linguaAttuale === "fr" ? "1" : "0.4";
   aggiornaFooter();
+  aggiornaLabelTema();
 }
   function aggiornaFooter() {
   document.getElementById("fLabelHome").textContent = t('footerHome');
@@ -1972,30 +1979,45 @@ function closeSaveModal() {
 }
 
 function confirmSaveSpot() {
-  if (!currentSelectedSpot) return;
-
-  const notesField = document.getElementById("spot-notes");
-  const notes = notesField ? notesField.value : "";
-  const savedSpots = JSON.parse(localStorage.getItem("mySavedSpots") || "[]");
-
-  const newSavedEntry = {
-    ...currentSelectedSpot,
-    userNotes: notes,
-    savedAt: new Date().toLocaleDateString()
-  };
-
-  savedSpots.push(newSavedEntry);
-  localStorage.setItem("mySavedSpots", JSON.stringify(savedSpots));
-
-  alert("Spot salvato con successo nei tuoi preferiti!");
-  closeSaveModal();
+  if (!currentSelectedSpotForSave) return;
+  const spot = currentSelectedSpotForSave;
+  const noteInput = document.getElementById("modalSpotNotes");
+  const lat = spot.coords?.[0] ?? spot.lat ?? spot.latitude;
+  const lon = spot.coords?.[1] ?? spot.lon ?? spot.longitude;
+  const nome = spot.name || spot.nome || "Spot senza nome";
+  const tecnica = spot.technique || spot.tecnica || spot.type || "";
+  const specieTarget = spot.target || "";
+  if (!Number.isFinite(Number(lat)) || !Number.isFinite(Number(lon))) {
+    alert(t("posizioneNonDisponibile"));
+    return;
+  }
+  const spots = caricaSpot();
+  const duplicato = spots.some(item =>
+    item.nome === nome &&
+    Number(item.lat) === Number(lat) &&
+    Number(item.lon) === Number(lon)
+  );
+  if (duplicato) {
+    alert(t("spotGiaSalvato"));
+    return;
+  }
+  spots.unshift({
+    id: Date.now(),
+    nome,
+    specie: specieTarget,
+    montatura: tecnica,
+    note: noteInput?.value.trim() || "",
+    lat: Number(lat),
+    lon: Number(lon),
+    data: new Date().toLocaleDateString(
+      linguaAttuale === "fr" ? "fr-FR" : "it-IT"
+    ),
+    fonte: nazioneAttiva
+  });
+  salvaSpot(spots);
+  alert(t("spotSalvatoOk"));
+  closeSaveSpotModal();
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    updateRegions();
-  }, 300);
-});
 
 /* === SPECIE === */
 let specie = {};
@@ -2306,9 +2328,15 @@ function showPrevisioni() {
 
   if (!navigator.geolocation) {
     // Se il browser non supporta il GPS, carica la capitale via internet
-    caricaPrevisioni(latDefault, lonDefault, true);
-    return;
-  }
+    if (!navigator.geolocation) {
+  prevCoords = {
+    lat: latDefault,
+    lon: lonDefault
+  };
+caricaPrevisioni(latDefault, lonDefault, true);
+  return;
+}
+
   navigator.geolocation.getCurrentPosition(
     pos => {
       prevCoords = { lat: pos.coords.latitude, lon: pos.coords.longitude };
@@ -2316,7 +2344,14 @@ function showPrevisioni() {
     },
     () => {
       // Se il GPS dà errore o sei su PC fisso, carica la capitale senza bloccare la pagina
-      caricaPrevisioni(latDefault, lonDefault, true);
+      () => {
+  prevCoords = {
+    lat: latDefault,
+    lon: lonDefault
+  };
+
+  caricaPrevisioni(latDefault, lonDefault, true);
+}
     },
     { enableHighAccuracy: true, timeout: 4000 } // Timeout ridotto a 4 secondi per massima fluidità
   );
@@ -2589,15 +2624,20 @@ function initMappaEsplorazioneNuova() {
 
   renderizzaListaEMappe(listaSpot);
 }
-function applicaFiltriSpot() {
-  const regEl = document.getElementById("filtroReg");
-  const techEl = document.getElementById("filtroTech");
-  
-  const reg = regEl ? regEl.value : "all";
-  const tech = techEl ? techEl.value : "all";
+function applicaFiltriSpotItaliaLegacy() {
+  const reg = document.getElementById("filtroReg")?.value || "all";
+  const tech = document.getElementById("filtroTech")?.value || "all";
 
-  let listaSorgente = [];
-  let chiaveNazione = "italia";
+  const filtrati = spotsItalia.filter(spot => {
+    const regione = spot.reg || spot.region || "";
+    const tecnica = spot.type || spot.technique || spot.tecnica || "";
+
+    return (reg === "all" || regione === reg) &&
+           (tech === "all" || tecnica.toLowerCase().includes(tech.toLowerCase()));
+  });
+
+  aggiornaMappaSpotItalia(filtrati);
+}
 
   if (nazioneAttiva === "it") {
     listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
@@ -2876,8 +2916,21 @@ function initMappaPrevisioni(lat,lon,miei_spots){
   });
 }
 /* Spot personali localStorage */
-function caricaSpot(){try{return JSON.parse(localStorage.getItem("pescaSpot")||"[]");}catch(e){return[];}}
-function salvaSpot(spots){localStorage.setItem("pescaSpot",JSON.stringify(spots));}
+const SPOT_STORAGE_KEY = "pescaSpot";
+function caricaSpot() {
+  try {
+    const dati = JSON.parse(
+      localStorage.getItem(SPOT_STORAGE_KEY) || "[]"
+    );
+    return Array.isArray(dati) ? dati : [];
+  } catch (error) {
+    console.error("Archivio spot non valido:", error);
+    return [];
+  }
+}
+function salvaSpot(spots) {
+  localStorage.setItem(SPOT_STORAGE_KEY, JSON.stringify(spots));
+}
 function aggiungiSpot(){
   if(!prevCoords){alert("Posizione non disponibile.");return;}
   document.body.insertAdjacentHTML("beforeend",`
