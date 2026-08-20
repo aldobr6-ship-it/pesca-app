@@ -1921,7 +1921,7 @@ function updateRegions() {
 
   Object.keys(data.regions).forEach(region => {
     const option = document.createElement("option");
-    option.value = region === "Tutte" ? "ALL" : region;
+    option.value = region === "Tutte" ? "all" : region;
     option.textContent = region === "Tutte" ? "Tutte le regioni" : region;
     regionSelect.appendChild(option);
   });
