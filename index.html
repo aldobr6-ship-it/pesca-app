@@ -1878,65 +1878,51 @@ const regionData = {
     }
   }
 };
-
 let currentSelectedSpot = null;
-
 function updateRegions() {
   const nationSelect = document.getElementById("nation-select");
   const regionSelect = document.getElementById("homeFilterRegion");
   if (!nationSelect || !regionSelect) return;
-
   const nation = nationSelect.value;
   const data = regionData[nation];
   if (!data) return;
-
   regionSelect.innerHTML = "";
-
   Object.keys(data.regions).forEach(region => {
     const option = document.createElement("option");
     option.value = region === "Tutte" ? "ALL" : region;
     option.textContent = region === "Tutte" ? "Tutte le regioni" : region;
     regionSelect.appendChild(option);
   });
-
   if (window.map) {
     window.map.setView(data.center, data.zoom);
   }
   filterSpotsByRegion();
 }
-
 function filterSpotsByRegion() {
   const nationSelect = document.getElementById("nation-select");
   const regionSelect = document.getElementById("homeFilterRegion");
-
   if (!nationSelect || !regionSelect) return;
-
   const nation = nationSelect.value;
   const region = regionSelect.value;
   const data = regionData[nation];
-
   if (region !== "ALL" && data && data.regions[region] && window.map) {
     const regInfo = data.regions[region];
     window.map.setView(regInfo.center, regInfo.zoom);
   }
-
   const allSpotsCombined = [
     ...(typeof spotsData !== 'undefined' ? spotsData : []),
     ...(typeof spotsFranciaData !== 'undefined' ? spotsFranciaData : []),
     ...(typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : [])
   ];
-
   const filteredSpots = allSpotsCombined.filter(spot => {
     const spotNation = (spot.nation || "italia").toLowerCase();
     const matchNation = spotNation === nation.toLowerCase();
     const matchRegion = (region === "ALL") || (spot.region === region);
     return matchNation && matchRegion;
   });
-
   if (typeof renderSpotList === 'function') renderSpotList(filteredSpots);
   if (typeof updateMapMarkers === 'function') updateMapMarkers(filteredSpots);
 }
-
 // Modal Salvataggio
 function openSaveModal(spot) {
   currentSelectedSpot = spot;
@@ -1944,43 +1930,34 @@ function openSaveModal(spot) {
   if (modalName) modalName.textContent = spot.name || spot.title;
   const notesField = document.getElementById("spot-notes");
   if (notesField) notesField.value = "";
-  
   const modal = document.getElementById("save-spot-modal");
   if (modal) modal.style.display = "flex";
 }
-
 function closeSaveModal() {
   const modal = document.getElementById("save-spot-modal");
   if (modal) modal.style.display = "none";
   currentSelectedSpot = null;
 }
-
 function confirmSaveSpot() {
   if (!currentSelectedSpot) return;
-
   const notesField = document.getElementById("spot-notes");
   const notes = notesField ? notesField.value : "";
   const savedSpots = JSON.parse(localStorage.getItem("mySavedSpots") || "[]");
-
   const newSavedEntry = {
     ...currentSelectedSpot,
     userNotes: notes,
     savedAt: new Date().toLocaleDateString()
   };
-
   savedSpots.push(newSavedEntry);
   localStorage.setItem("mySavedSpots", JSON.stringify(savedSpots));
-
   alert("Spot salvato con successo nei tuoi preferiti!");
   closeSaveModal();
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     updateRegions();
   }, 300);
 });
-
 /* === SPECIE === */
 let specie = {};
 function showSpecie() {
@@ -2046,7 +2023,6 @@ function showSpecieDetail(id) {
     </div>`;
 }
 </script>
-
 <script>
 /* === DATI + UTILITÀ === */
 const surfcastingDataIt = {
@@ -2109,7 +2085,6 @@ const beachLedgeringTextFr = {
   pro:"Polyvalence maximale dans le choix du montage, excellent naturel de l'appât et résistance minimale ressentie par le poisson lors de la touche.",
   contro:"Nécessite de la technique dans les lancers et de l'attention au fond (marches, algues) qui peut bloquer le glissement du fil ou favoriser les emmêlements."
 };
-
 const tecnicheData = {
   spinning:{
     quando:"Ideale con mare poco mosso o leggermente increspato. Perfetto all'alba e al tramonto.",
@@ -2270,7 +2245,6 @@ function descrizioneMeteo(c){if(c===0)return"Sereno";if(c<=2)return"Poco nuv.";i
 function formatOra(s){if(!s)return"--:--";try{return s.slice(11,16);}catch(e){return"--:--";}}
 function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div class="prev-errore"><span class="ico">📡</span><p>${msg}</p><button onclick="goTo(showPrevisioni)">${t('riprova')}</button></div>`;}
 </script>
-
 <script>
 /* === PREVISIONI + SPOT PERSONALI === */
 /* MODIFICA 3 — Esporta/Importa JSON aggiunto a renderPrevisioni */
@@ -2525,12 +2499,10 @@ function showCercaSpot() {
 
   initMappaEsplorazioneNuova();
 }
-
 function cambiaNazioneEsplorazione(nazione) {
   nazioneAttiva = nazione;
   showCercaSpot();
 }
-
 function initMappaEsplorazioneNuova() {
   let centroMappa = [42.0, 12.5];
   let zoomIniziale = 6;
@@ -2548,9 +2520,7 @@ function initMappaEsplorazioneNuova() {
     listaSpot = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
     nomeNazione = "Tunisia";
   }
-
   document.getElementById("nomeNazioneBadge").textContent = nomeNazione;
-
   // Reset Leaflet
   if (spotItaliaMap !== null) {
     try {
@@ -2560,14 +2530,11 @@ function initMappaEsplorazioneNuova() {
     }
     spotItaliaMap = null;
   }
-
   spotItaliaMarkers = [];
-
   spotItaliaMap = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(spotItaliaMap);
-
   renderizzaListaEMappe(listaSpot);
 }
 function applicaFiltriSpot() {
@@ -2590,7 +2557,6 @@ function applicaFiltriSpot() {
     listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
     chiaveNazione = "tunisia";
   }
-
   // 1. Spostamento Mappa Flessibile
   if (reg !== "all" && reg !== "Tutte") {
     // Cerca la regione in regionData ignorando maiuscole/minuscole
@@ -2606,7 +2572,6 @@ function applicaFiltriSpot() {
       }
     }
   }
-
   // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
   const mappaSinonimi = {
     // FRANCIA
@@ -2654,14 +2619,11 @@ function applicaFiltriSpot() {
       const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
       return (tech === "all") || sTech.includes(tech.toLowerCase());
     }
-
     const sNome = (spot.name || spot.nome || "").toLowerCase();
     const sDesc = (spot.description || spot.desc || "").toLowerCase();
     const sReg  = (spot.region || spot.regione || "").toLowerCase();
     const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
-
     const matchTech = (tech === "all") || sTech.includes(tech.toLowerCase());
-
     const regCercata = reg.toLowerCase().trim();
     let matchReg = false;
 
@@ -2675,13 +2637,11 @@ function applicaFiltriSpot() {
         sNome.includes(k) || sDesc.includes(k) || sReg.includes(k)
       );
     }
-
     return matchReg && matchTech;
   });
 
   renderizzaListaEMappe(spotFiltrati);
 }
-
 function renderizzaListaEMappe(listaSpot) {
   // Pulizia dei vecchi marker
   if (spotItaliaMarkers && spotItaliaMarkers.length > 0) {
@@ -2690,33 +2650,25 @@ function renderizzaListaEMappe(listaSpot) {
     });
   }
   spotItaliaMarkers = [];
-
   const panelBody = document.getElementById("listaSpotEsplorazione");
   if (!panelBody) return;
   panelBody.innerHTML = "";
-
   if (!listaSpot || listaSpot.length === 0) {
     panelBody.innerHTML = `<div class="spot-panel-placeholder" style="text-align:center; padding:20px; opacity:0.6;"><p>Nessun spot trovato in questa zona</p></div>`;
     return;
   }
-
   listaSpot.forEach((spot) => {
     // Gestione flessibile sia di coords: [lat, lon] che di lat/lon separati
     const spotLat = spot.coords ? spot.coords[0] : (spot.lat || spot.latitude);
     const spotLon = spot.coords ? spot.coords[1] : (spot.lon || spot.longitude);
-
     if (!spotLat || !spotLon) return;
-
     const sNome = spot.name || spot.nome || "Spot";
     const sDesc = spot.description || spot.desc || "";
     const sTech = spot.technique || spot.tecnica || "Surfcasting / Spinning";
     const sTarget = spot.target || "Varie specie";
-
     const marker = L.marker([spotLat, spotLon]).addTo(spotItaliaMap);
     spotItaliaMarkers.push(marker);
-
     const spotJSON = JSON.stringify(spot).replace(/'/g, "&apos;").replace(/"/g, "&quot;");
-
     marker.bindPopup(`
       <div style="font-family: sans-serif; min-width: 210px; padding: 2px;">
         <h4 style="margin: 0 0 6px 0; color: #0a2a43; font-size: 14px; border-bottom: 1px solid #ddd; padding-bottom: 4px;"> 🐟 ${sNome}</h4>
@@ -2732,7 +2684,6 @@ function renderizzaListaEMappe(listaSpot) {
         </button>
       </div>
     `);
-
     const item = document.createElement("div");
     item.className = "spot-italia-item";
     item.innerHTML = `
@@ -2749,11 +2700,9 @@ function renderizzaListaEMappe(listaSpot) {
       document.querySelectorAll(".spot-italia-item").forEach(el => el.classList.remove("active"));
       item.classList.add("active");
     };
-
     panelBody.appendChild(item);
   });
 }
-
 /* === LOGICA POPUP MODALE SALVATAGGIO SPOT === */
 function openSaveSpotModal(spot) {
   currentSelectedSpotForSave = spot;
