@@ -1178,16 +1178,11 @@ function slugEsca(nome) {
   el.replaceWith(div);
 }
 function mostraEscaPopup(nomeEsca) {
-  // 1. Pulizia universale: rimuove spazi extra all'inizio/fine e converte in minuscolo
-  const nomePulito = nomeEsca.trim().toLowerCase();
-  
-  // 2. Trasforma in automatico qualsiasi spazio in un trattino basso (es. "Sarda fresca" -> "sarda_fresca")
-  // Gestisce anche gli spazi multipli accidentalmente inseriti nel database
-  const fileNome = nomePulito.replace(/\s+/g, '_');
-  
-  // 3. Generazione del percorso standard dell'immagine
-  const urlImmagine = `img/${fileNome}.jpg`;
+  // Usa la tabella IT/FR già presente nel sistema per trovare il nome reale del file immagine
+  const fileNome = slugEsca(nomeEsca);
 
+  // Generazione del percorso standard dell'immagine
+  const urlImmagine = `img/${fileNome}.jpg`;
   // Gestione e pulizia del DOM per evitare duplicazioni di popup
   const vecchioPopup = document.getElementById("escaPopup");
   if (vecchioPopup) vecchioPopup.remove();
