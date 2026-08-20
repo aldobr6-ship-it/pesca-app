@@ -2002,7 +2002,7 @@ function filtraSpecie() {
     document.getElementById("listaSpecie").innerHTML = nessunRisultatoSpecie(document.getElementById("searchInput").value);
     return;
   }
-  let html = "<div style='display:grid;grid-template-columns:repeat(3,1fr);gap:10px;'>";
+  let html = "<div style='display:grid;grid-template-columns:repeat(4,1fr);gap:10px;'>";
   trovate.forEach(key => html += cardSpecie(key));
   html += "</div>";
   document.getElementById("listaSpecie").innerHTML = html;
@@ -2022,7 +2022,7 @@ function showSpecieDetail(id) {
     </div>`;
 }
 </script>
-<script>
+
 /* === DATI + UTILITÀ === */
 const surfcastingDataIt = {
   specie:[{nome:"Orata",img:"img/orata.jpg"},{nome:"Spigola",img:"img/spigola.jpg"},{nome:"Mormora",img:"img/mormora.jpg"},{nome:"Sarago Maggiore",img:"img/sarago-maggiore.jpg"},{nome:"Sarago Pizzuto",img:"img/sarago-pizzuto.jpg"}],
