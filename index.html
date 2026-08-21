@@ -2602,9 +2602,12 @@ function initSpotItaliaMap(){
  spotItaliaMap = L.map("spotItaliaMap", {
   zoomControl: true,
   scrollWheelZoom: false,
-  touchZoom: false
+  touchZoom: false,
   doubleClickZoom: false
 }).setView([42.5,12.5], 6);
+
+spotItaliaMap.dragging.disable();
+  
   spotItaliaMap.setMaxBounds([[35.0,6.0],[47.5,19.0]]);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(spotItaliaMap);
   L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.65}).addTo(spotItaliaMap);
