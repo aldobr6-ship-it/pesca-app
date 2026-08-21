@@ -1,1 +1,168 @@
+[
+  {
+    "name": "Plage de l'Almanarre (Hyères)",
+    "lat": 43.0815,
+    "lon": 6.1154,
+    "description": "Grande plage de sable de sable fin soumise à de forts vents d'Ouest. Le fond présente une pente douce idéale pour les poissons fouisseurs.",
+    "technique": "Beach Ledgering de grande distance / Surfcasting léger de nuit",
+    "target": "Marbrés, Daurades Royales, Soles"
+  },
+  {
+    "name": "Digue du Port de Cannes (Moure Rouge)",
+    "lat": 43.5412,
+    "lon": 7.0425,
+    "description": "Structure rocheuse artificielle s'avançant sur un fond mixte d'herbiers de posidonies et de sable. Passage fréquent de grands carnassiers.",
+    "technique": "Sea Spinning aux poissons nageurs (Long Jerks, Jigs) / Pêche au vif",
+    "target": "Loups (Bars), Tassergals, Barracudas, Liches"
+  },
+  {
+    "name": "Plage de Pampelonne (Ramuelle)",
+    "lat": 43.2284,
+    "lon": 6.6621,
+    "description": "Plage profonde ouverte sur le large avec une bathymétrie importante dès les premiers mètres. Idéale par mer formée ou en fin de tempête.",
+    "technique": "Surfcasting lourd de vague (Montage Short Rovesciato avec pyramides)",
+    "target": "Gros Sars, Daurades Royales, Loups"
+  },
+  {
+    "name": "Cap d'Antibes (Les Roches Blanches)",
+    "lat": 43.5485,
+    "lon": 7.1210,
+    "description": "Pointe rocheuse naturelle plongeant dans des eaux profondes balayées par les courants côtiers. Zone hautement technique.",
+    "technique": "Rock Spinning lourd (Poppers, Stickbaits coulants) / Pêche au flotteur",
+    "target": "Dentis, Barracudas, Grands Sars, Sérioles"
+  },
 
+  // MEDITERRANEO OCCIDENTALE / CAMARGUE / GOLFO DEL LEONE
+  {
+    "name": "Plage de l'Espiguette (Le Grau-du-Roi)",
+    "lat": 43.4854,
+    "lon": 4.1522,
+    "description": "Immense plage sauvage de sable fin à pente très douce. Les bancs de sable créent de magnifiques canaloni parallèles au rivage.",
+    "technique": "Surfcasting de grande distance à 2 ou 3 empiles / Montages clippés obligatoires",
+    "target": "Marbrés de taille record, Daurades Royales, Ombres"
+  },
+  {
+    "name": "Embouchure du Rhône (Port-Saint-Louis)",
+    "lat": 43.3215,
+    "lon": 4.8415,
+    "description": "Zone estuarienne majeure où les eaux douces chargées de nutriments rencontrent la mer. Courants puissants et forte activité de chasse.",
+    "technique": "Shore Spinning aux leurres souples (Shads) / Pêche au vif en dérive",
+    "target": "Gros Loups (Bars), Tassergals, Silures marins, Liches"
+  },
+  {
+    "name": "Plage d'Agde (La Tamarissière)",
+    "lat": 43.2848,
+    "lon": 3.4412,
+    "description": "Plage sableuse située à proximité de l'embouchure de l'Hérault. Les apports d'eau douce attirent une faune variée après les crues.",
+    "technique": "Surfcasting intermédiaire / Spinning léger aux poissons nageurs",
+    "target": "Loups, Daurades Royales, Marbrés"
+  },
+  {
+    "name": "Digue de Sète (Le Môle)",
+    "lat": 43.3950,
+    "lon": 3.7022,
+    "description": "Grande digue portuaire historique ouverte sur le Golfe du Lion. Les enrochements abritent une importante population de mollusques.",
+    "technique": "Pêche à la calée coulissante (Scorrevole) au crabe / Pêche au flotteur coulissant",
+    "target": "Daurades Royales, Sars Tambours, Loups"
+  },
+
+  // COSTA ATLANTICA / LANDES / GIRONDA
+  {
+    "name": "Plage de Biscarrosse (Nord)",
+    "lat": 44.4520,
+    "lon": -1.2514,
+    "description": "Plage océanique typique des Landes soumise à de fortes marées. Présence de baïnes (cuvettes d'eau) très marquées et dangereuses.",
+    "technique": "Surfcasting lourd d'océan à marée haute (Plombs à grappins)",
+    "target": "Bars Mouchetés, Bars Francs, Maigres, Raies"
+  },
+  {
+    "name": "Cap Ferret (Pointe du Bassin)",
+    "lat": 44.6241,
+    "lon": -1.2425,
+    "description": "Zone de jonction entre le bassin d'Arcachon et l'Océan Atlantique. Courants de marée d'une violence extrême et fosses profondes.",
+    "technique": "Heavy Spinning aux Casting Jigs lourds / Pêche lourde d'attente au fond",
+    "target": "Grands Bars Francs, Maigres record, Raies, Emissoles"
+  },
+  {
+    "name": "Plage de Lacanau (Sud)",
+    "lat": 45.0015,
+    "lon": -1.2142,
+    "description": "Spot atlantique rectiligne à forte énergie de vagues. Les vagues de fond brassent continuellement le sable libérant les puces de mer.",
+    "technique": "Surfcasting atlantique lourd (Montage Pulley Rig clippato)",
+    "target": "Bars Francs, Soles, Turbots, Daurades Royales (en été)"
+  },
+  {
+    "name": "Plage de Mimizan (Les Specis)",
+    "lat": 44.2124,
+    "lon": -1.3005,
+    "description": "Grande étendue de sable océanique sauvage. La configuration des baïnes change à chaque tempête d'hiver. Pêche d'été et d'automne excellente.",
+    "technique": "Surfcasting de recherche dans les baïnes / Pêche au trancio de seiche",
+    "target": "Ombrines, Bars Mouchetés, Raies, Soles"
+  },
+
+  // NORD / BRETAGNE / NORMANDIE
+  {
+    "name": "Plage de la Torche (Finistère - Bretagne)",
+    "lat": 47.8385,
+    "lon": -4.3548,
+    "description": "Pointe bretonne sauvage battue par la houle atlantique. Fonds rocheux et sableux très riches en crustacés.",
+    "technique": "Surfcasting lourd de roche / Shore Spinning (Leurres souples en traction)",
+    "target": "Gros Bars Francs, Vieilles, Lieus Jaunes"
+  },
+  {
+    "name": "Digue de Cherbourg (Normandie)",
+    "lat": 49.6548,
+    "lon": -1.6214,
+    "description": "Une des plus grandes digues artificielles d'Europe, donnant accès à des zones soumises à de forts courants de la Manche.",
+    "technique": "Spinning aux casting jigs (Lieus) / Pêche au flotteur lumineux de nuit",
+    "target": "Lieus Jaunes, Bars Francs, Scombridés (Maquereaux)"
+  },
+  {
+    "name": "Plage de Quend (Somme - Côte d'Opale)",
+    "lat": 50.3124,
+    "lon": 1.5420,
+    "description": "Immense plage de la mer du Nord à pente très douce, caractérisée par des parcs à moules à marée basse attirant les poissons.",
+    "technique": "Surfcasting léger de marée basse / Beach Ledgering",
+    "target": "Flets, Soles, Bars Francs"
+  },
+  {
+    "name": "Falaises d'Étretat (Normandie)",
+    "lat": 49.7088,
+    "lon": 0.2015,
+    "description": "Pêche au pied des falaises de craie sur des lits de galets se transformant en sable au large. Eaux souvent agitées.",
+    "technique": "Shore Spinning aux Long Jerks (Minnows) / Surfcasting de galets",
+    "target": "Bars Francs, Lieus Jaunes, Orphies"
+  },
+  {
+    "name": "Pointe du Raz (Finistère)",
+    "lat": 48.0384,
+    "lon": -4.7348,
+    "description": "Spot extrême de Bretagne au cœur du raz de Sein. Courants de marée déchaînés et écume permanente. Uniquement pour pêcheurs expérimentés.",
+    "technique": "Heavy Spinning face au courant aux gros leurres souples plombés",
+    "target": "Bars Francs géants, Lieus Jaunes"
+  },
+  {
+    "name": "Plage de Deauville (Normandie)",
+    "lat": 49.3621,
+    "lon": 0.0745,
+    "description": "Plage de sable de la baie de Seine. Importantes variations de marée nécessitant de suivre l'eau lors du flux et du reflux.",
+    "technique": "Surfcasting de marée / Montage Paternoster à 3 hameçons longs",
+    "target": "Soles, Flets, Bars Francs"
+  },
+  {
+    "name": "Digue du Port de Dunkerque",
+    "lat": 51.0545,
+    "lon": 2.3648,
+    "description": "Digue la plus septentrionale de France, s'avançant en mer du Nord. Zone d'eau froide et riche en micro-nutriments.",
+    "technique": "Pêche de fond robuste au ver marin (Arénicole) / Spinning d'été",
+    "target": "Flets, Cabillauds (Morues en hiver), Bars Francs, Maquereaux"
+  },
+  {
+    "name": "Plage d'Erquy (Côtes-d'Armor)",
+    "lat": 48.6312,
+    "lon": -2.4654,
+    "description": "Baie bretonne protégée par des caps rocheux, fonds de sable propre parsemés de gisements de coquilles Saint-Jacques au large.",
+    "technique": "Beach Ledgering de estival de finesse / Finesse Spinning",
+    "target": "Bars Francs, Dorades Grises, Soles, Rayons"
+  }
+];
