@@ -2138,9 +2138,9 @@ function showCercaSpot() {
       <div class="spot-mappa-wrap">
         <div id="spotItaliaMap"></div> 
       </div>
-      <div class="spot-panel-right">
-        <div class="spot-panel-header">📍 Spot <span id="nomeNazioneBadge"></span></div>
-        <div class="spot-panel-body" id="listaSpotEsplorazione"></div>
+      <div class="spot-panel-right" id="spotPanelRight">
+        <div class="spot-panel-header" id="spotPanelHeader">📍 Spot <span id="nomeNazioneBadge"></span></div>
+        <div class="spot-panel-body" id="spotPanelBody"><div id="listaSpotEsplorazione"></div></div>
       </div>
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">⬅️ ${t('tornaHome')}</button>
@@ -2528,30 +2528,84 @@ if (mapEl) {
 }
 function aggiornaMappaSpotItalia(lista){
   if(!spotItaliaMap) return;
-  spotItaliaMarkers.forEach(m=>spotItaliaMap.removeLayer(m));
+  spotItaliaMarkers.forEach(m=>{if(spotItaliaMap.hasLayer(m))spotItaliaMap.removeLayer(m);});
   spotItaliaMarkers=[];
-  lista.forEach(spot=>{
+  (lista||[]).forEach(spot=>{
+    const lat=Number(spot.lat ?? spot.latitude ?? spot.coords?.[0]);
+    const lon=Number(spot.lon ?? spot.lng ?? spot.longitude ?? spot.coords?.[1]);
+    if(!Number.isFinite(lat)||!Number.isFinite(lon)) return;
+    spot.coords=[lat,lon];
     const ico=L.divIcon({html:'<div style="font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">🎣</div>',iconSize:[26,26],iconAnchor:[13,26],className:""});
-    const m=L.marker(spot.coords,{icon:ico}).addTo(spotItaliaMap);
+    const m=L.marker([lat,lon],{icon:ico}).addTo(spotItaliaMap);
     m.on("click",()=>onSpotSelezionato(spot));
     spotItaliaMarkers.push(m);
   });
 }
+function normalizzaTestoSpot(v){
+  return String(v||"").toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+}
+
+function regioneSpotCorrisponde(spot, regioneFiltro){
+  if(!regioneFiltro || regioneFiltro === "all") return true;
+  const r = normalizzaTestoSpot(spot.reg || spot.region || spot.regione || "");
+  const f = normalizzaTestoSpot(regioneFiltro);
+  if(r === f) return true;
+
+  const alias = {
+    "paca / cote d'azur": ["costa azzurra","paca","cote d'azur"],
+    "bretagne": ["bretagna","bretagne"],
+    "occitanie": ["occitania","occitanie"],
+    "nouvelle-aquitaine": ["aquitania","nouvelle-aquitaine"],
+    "normandie": ["normandia","normandie"],
+    "corse": ["corsica","corse"]
+  };
+  return (alias[f] || []).some(a => r === normalizzaTestoSpot(a));
+}
+
+function tecnicaSpotCorrisponde(spot, tecnicaFiltro){
+  if(!tecnicaFiltro || tecnicaFiltro === "all") return true;
+  const testo = normalizzaTestoSpot(spot.type || spot.technique || spot.tecnica || "");
+  const f = normalizzaTestoSpot(tecnicaFiltro);
+  if(!f) return true;
+  if(f === "bolognese") return testo.includes("bolognese") || testo.includes("fondo");
+  return testo.includes(f);
+}
+
 function applicaFiltriSpot(){
   const reg=document.getElementById("filtroReg")?.value||"all";
   const tech=document.getElementById("filtroTech")?.value||"all";
-  const filtrati=spotsItalia.filter(s=>(reg==="all"||s.reg===reg)&&(tech==="all"||s.type===tech));
+  const sorgente = nazioneAttiva === "fr" ? spotsFranceExternal : nazioneAttiva === "tn" ? spotsTunisiaExternal : spotsItalia;
+
+  const filtrati=sorgente.filter(s =>
+    regioneSpotCorrisponde(s, reg) && tecnicaSpotCorrisponde(s, tech)
+  );
+
+  filtrati.forEach(s=>{
+    if(!s.coords){
+      const lat=Number(s.lat ?? s.latitude ?? s.coords?.[0]);
+      const lon=Number(s.lon ?? s.lng ?? s.longitude ?? s.coords?.[1]);
+      if(Number.isFinite(lat)&&Number.isFinite(lon)) s.coords=[lat,lon];
+    }
+  });
+
   aggiornaMappaSpotItalia(filtrati);
   const n=filtrati.length;
   if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
   if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
+
   if(reg!=="all"||tech!=="all"){
     mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
-    if(filtrati.length>0){const bounds=L.latLngBounds(filtrati.map(s=>s.coords));spotItaliaMap.fitBounds(bounds,{padding:[30,30]});}
+    const coords=filtrati.map(s=>s.coords).filter(c=>Array.isArray(c)&&c.length>=2);
+    if(coords.length>0 && spotItaliaMap){
+      const bounds=L.latLngBounds(coords);
+      if(bounds.isValid()) spotItaliaMap.fitBounds(bounds,{padding:[30,30],maxZoom:9});
+    }
   } else {
-    if(document.getElementById("spotPanelBody")){
-      document.getElementById("spotPanelHeader").textContent="📋 Dettaglio spot";
-      document.getElementById("spotPanelBody").innerHTML=`<div class="spot-panel-placeholder"><span class="ph-ico">🗺️</span><p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p></div>`;
+    const header=document.getElementById("spotPanelHeader");
+    const body=document.getElementById("spotPanelBody");
+    if(header&&body){
+      header.textContent="📋 Dettaglio spot";
+      body.innerHTML=`<div class="spot-panel-placeholder"><span class="ph-ico">🗺️</span><p>Usa i filtri e premi<br><strong>Carica →</strong> per vedere gli spot,<br>oppure tocca un marker 🎣</p></div>`;
     }
   }
 }
@@ -2829,10 +2883,7 @@ function aggiornaLabelSalva(spot) {
 function tornaListaRegione(reg) {
   const sorgente = nazioneAttiva === "fr" ? spotsFranceExternal :
                    nazioneAttiva === "tn" ? spotsTunisiaExternal : spotsItalia;
-  const lista = sorgente.filter(s => {
-    const sReg = (s.reg || s.region || s.regione || "").toLowerCase().trim();
-    return sReg === String(reg).toLowerCase().trim();
-  });
+  const lista = sorgente.filter(s => regioneSpotCorrisponde(s, reg));
   lista.forEach(s => {
     if (!s.coords) {
       const lat = Number(s.lat ?? s.latitude);
