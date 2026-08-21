@@ -2498,12 +2498,12 @@ function initMappaEsplorazioneNuova() {
   if (nazioneAttiva === "fr") {
     centroMappa = [46.5, 2.0];
     zoomIniziale = 5.5;
-    listaSpot = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
+   listaSpot = spotsFranceExternal;
     nomeNazione = "France";
   } else if (nazioneAttiva === "tn") {
     centroMappa = [35.5, 9.5];
     zoomIniziale = 7;
-    listaSpot = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
+    listaSpot = spotsTunisiaExternal;
     nomeNazione = "Tunisia";
   }
 
@@ -2542,11 +2542,10 @@ function applicaFiltriSpot() {
     listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
     chiaveNazione = "italia";
   } else if (nazioneAttiva === "fr") {
-    listaSorgente = (typeof spotsFrance !== 'undefined' ? spotsFrance : []);
+    listaSorgente = spotsFranceExternal;
     chiaveNazione = "francia";
   } else if (nazioneAttiva === "tn") {
-    listaSorgente = (typeof spotsTunisiaData !== 'undefined' ? spotsTunisiaData : []);
-    chiaveNazione = "tunisia";
+    listaSorgente = spotsTunisiaExternal;
   }
 
   // 1. Spostamento Mappa Flessibile
@@ -2893,6 +2892,8 @@ function importaSpot(event) {
 <script>
 /* === SPOT ITALIA — MODIFICA 1 (mappa vuota) + MODIFICA 2 (salva spot) === */
 let spotsItalia = [];
+let spotsFranceExternal = [];
+let spotsTunisiaExternal = [];  
 let spotItaliaMap=null, spotItaliaMarkers=[], spotAttivo=null, spotTooltipAttivo=null;
 const isMobile=()=>window.innerWidth<769;
 function initSpotItaliaMap(){
@@ -3406,16 +3407,20 @@ async function avviaApp() {
   const fileMontature = linguaSalvata === "fr" ? "./data/montature.fr.json" : "./data/montature.json";
   const fileSpecie = linguaSalvata === "fr" ? "./data/specie.fr.json" : "./data/specie.json";
    try {
-    const [resNodi, resMontature, resSpecie, resSpot] = await Promise.all([
-      fetch(fileNodi).catch(() => null),
-      fetch(fileMontature).catch(() => null),
-      fetch(fileSpecie).catch(() => null),
-      fetch("./data/spot-italia.json").catch(() => null)
-    ]);
+    const [resNodi, resMontature, resSpecie, resSpot, resSpotFrancia, resSpotTunisia] = await Promise.all([
+  fetch(fileNodi).catch(() => null),
+  fetch(fileMontature).catch(() => null),
+  fetch(fileSpecie).catch(() => null),
+  fetch("./data/spot-italia.json").catch(() => null),
+  fetch("./data/spot-francia.json").catch(() => null),
+  fetch("./data/spot-tunisia.json").catch(() => null)
+]);
     if (resNodi && resNodi.ok) nodiData = await resNodi.json();
     if (resMontature && resMontature.ok) montatureData = await resMontature.json();
     if (resSpecie && resSpecie.ok) specie = await resSpecie.json();
     if (resSpot && resSpot.ok) spotsItalia = await resSpot.json();
+    if (resSpotFrancia && resSpotFrancia.ok) spotsFranceExternal = await resSpotFrancia.json();
+    if (resSpotTunisia && resSpotTunisia.ok) spotsTunisiaExternal = await resSpotTunisia.json();
   } catch(e) {
     console.error("Errore caricamento dati locali:", e);
   }
