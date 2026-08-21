@@ -1,1 +1,162 @@
-
+[
+{
+    "nome": "Plage de Tabarka (El Corniche)",
+    "lat": 36.9582,
+    "lon": 8.7621,
+    "desc": "Zone nord-ouest caractérisée par des fonds mixtes de sable et de roche. Excellente exposition aux vagues du large, idéale par mer agitée.",
+    "technique": "Surfcasting lourd / Shore Spinning par mer formée (Jerbaits, Lipless)",
+    "target": "Loups (Bar), Grands Sars, Daurades Royales"
+  },
+  {
+    "nome": "Cap Serrat (Bizerte)",
+    "lat": 37.2345,
+    "lon": 9.2134,
+    "desc": "Plage sauvage et isolée avec une forte bathymétrie. Un spot mythique en automne. La force des courants exige des plombées lourdes (pyramides).",
+    "technique": "Surfcasting lourd de tempête / Heavy Spinning (Poppers, Skipping lures)",
+    "target": "Daurades Royales géantes, Loups, Maigres, Tassergals"
+  },
+  {
+    "nome": "Plage de Rimel (Bizerte)",
+    "lat": 37.2654,
+    "lon": 9.9212,
+    "desc": "Adossée à une forêt de pins, cette grande plage offre une belle exposition aux vents d'Est. Fonds sableux propres, parfaits pour la recherche nocturne.",
+    "technique": "Surfcasting léger de ricerca / Beach Ledgering",
+    "target": "Marbrés, Daurades Royales, Ombres de mer"
+  },
+  {
+    "nome": "Plage de Sidi Ali El Mekki (Ghar El Melh)",
+    "lat": 37.1685,
+    "lon": 10.2310,
+    "desc": "Grande plage de sable fine à pente douce. Idéale à longue distance et pour la pêche nocturne par mer calme.",
+    "technique": "Beach Ledgering de grande distance (Montage Long Arm ultra-fin)",
+    "target": "Marbrés, Daurades Royales, Soles"
+  },
+  {
+    "nome": "Plage d'El Haouaria (Cap Bon)",
+    "lat": 37.0520,
+    "lon": 11.0154,
+    "desc": "Pointe extrême du Cap Bon, zone de courants intenses où la Méditerranée rencontre des flux profonds. Fonds rocheux et sableux.",
+    "technique": "Pêche au vif (Téléphérique) / Rock Spinning lourd (Popper, Stickbait coulant)",
+    "target": "Sars, Liches, Dentis, Tassergals"
+  },
+  {
+    "nome": "Plage de Kelibia (La Mansourah)",
+    "lat": 36.8488,
+    "lon": 11.1215,
+    "desc": "Sable blanc très fin et eau cristalline. Ce spot est célèbre pour la clarté de ses eaux, nécessitant de déjouer la méfiance des poissons.",
+    "technique": "Beach Ledgering de finesse nocturne / Fluorocarbone obligatoire",
+    "target": "Daurades Royales, Marbrés di grande taille"
+  },
+  {
+    "nome": "Plage de Korba (Cap Bon)",
+    "lat": 36.5684,
+    "lon": 11.1648,
+    "desc": "Une très longue plage de sable rectiligne interrompue par des passes lagunaires. Les zones proches des embouchures sont d'excellents couloirs après les tempêtes.",
+    "technique": "Surfcasting de moyenne distance / Spinning aux leurres souples (Soft baits)",
+    "target": "Loups, Daurades Royales, Marbrés"
+  },
+  {
+    "nome": "Plage de Menzel Temime",
+    "lat": 36.7812,
+    "lon": 11.0345,
+    "desc": "Plage profonde ouverte sur le large avec des barres de sable changeantes. Très productive par mer formée pour atteindre les canaloni externes.",
+    "technique": "Surfcasting technique avec montages clippés (Pulley Rig clippato)",
+    "target": "Gros Sars, Daurades Royales, Ombrines"
+  },
+  {
+    "nome": "Chott Meriam (Sousse)",
+    "lat": 35.9124,
+    "lon": 10.5612,
+    "desc": "Plage emblématique de la région du Sahel. Profil di spiaggia plat propice alla ricerca des poissons fouisseurs. Très productif à la tombée de la nuit.",
+    "technique": "Beach Ledgering traditionnel aux vers (Arenicola, Coreano)",
+    "target": "Marbrés, Daurades, Rougets de roche"
+  },
+  {
+    "nome": "Plage d'Herglat (Sousse)",
+    "lat": 36.0315,
+    "lon": 10.5142,
+    "desc": "Située près de l'embouchure du lac d'Hergla, cette zone mixte attire les prédateurs en activité de chasse, notamment à l'aube et au crépuscule.",
+    "technique": "Sea Spinning aux leurres de surface (WTD, Poppers) / Pêche au vif",
+    "target": "Loups, Tassergals, Liches, Mulets"
+  },
+  {
+    "nome": "Plage de Monastir (Skanes)",
+    "lat": 35.7724,
+    "lon": 10.7415,
+    "desc": "Baie de sable fin abritée de la grande houle. Excellente avec des lignes fines et des appâts délicats pendant la saison estivale.",
+    "technique": "Beach Ledgering ultra-léger / Finesse Spinning (Leurres souples légers)",
+    "target": "Marbrés, Orphies, Petits Sars, Loups"
+  },
+  {
+    "nome": "Plage de Rejiche (Mahdia)",
+    "lat": 35.4641,
+    "lon": 11.0425,
+    "desc": "Fond sablonneux propre et très riche en micro-organismes. Les brisants extérieurs abritent de beaux spécimens.",
+    "technique": "Surfcasting de ricerca à moyenne distance (Montage Bi-amo)",
+    "target": "Marbrés record, Daurades, Ombrines"
+  },
+  {
+    "nome": "Plage de Chaffar (Sfax)",
+    "lat": 34.5420,
+    "lon": 10.5284,
+    "desc": "Zone caractérisée par des eaux chaudes et des variations de marée légères. Pente très douce, nécessite d'atteindre de grandes distances.",
+    "technique": "Surfcasting de grande distance / Emploi de montages clippés obligatoires",
+    "target": "Marbrés, Mulets, Daurades"
+  },
+  {
+    "nome": "Plage de Sidi Mahrez (Djerba)",
+    "lat": 33.8950,
+    "lon": 11.0022,
+    "desc": "Spot d'Afrique du Nord très chaud. Les courants côtiers du Sud apportent une faune variée. Pêche d'attente efficace avec des appâts volumineux.",
+    "technique": "Surfcasting lourd d'attente / Shore Spinning aux casting jigs",
+    "target": "Gros Sars, Daurades, Raies, Tassergals"
+  },
+  {
+    "nome": "Plage d'Aghir (Djerba Sud)",
+    "lat": 33.7548,
+    "lon": 11.0114,
+    "desc": "Sable mêlé à des herbiers de posidonies en second plan. La présence de végétation attire les poissons qui s'en nourrissent.",
+    "technique": "Surfcasting sur fond mixte / Utilisation de mini-traves rigides anti-tangle",
+    "target": "Daurades Royales, Sars Tambours, Carangues"
+  },
+  {
+    "nome": "Plage de Zarzis (Sonia)",
+    "lat": 33.5124,
+    "lon": 11.1205,
+    "desc": "À l'extrême sud, une plage sauvage soumise aux marées locales. Les courants profonds ramènent du poisson du large. Idéal pour la nuit.",
+    "technique": "Surfcasting lourd de nuit / Gros appâts (Bibi, seiche entière)",
+    "target": "Grands Sars, Daurades, Maigres, Raies"
+  },
+  {
+    "nome": "Plage d'Hammamet Centre (Près de la Médina)",
+    "lat": 36.3945,
+    "lon": 10.6120,
+    "desc": "Plage historique au pied du fort. Le fond de sable présente des débris rocheux éparpillés. Idéal pour déjouer les poissons méfiants la nuit.",
+    "technique": "Beach Ledgering de finesse / Spinning léger aux poissons nageurs (Jerks minnow)",
+    "target": "Daurades Royales, Marbrés, Sars, Loups"
+  },
+  {
+    "nome": "Plage de Yasmine Hammamet",
+    "lat": 36.3621,
+    "lon": 10.5392,
+    "desc": "Grande plage de sable fin à pente douce. Les vagues créent de l'effets de canaloni parallèles au rivage. Très productif en automne.",
+    "technique": "Surfcasting léger à moyenne distance / Montage Paternoster à 2 o 3 empiles",
+    "target": "Marbrés de taille record, Soles, Daurades"
+  },
+  {
+    "nome": "Digue du Port de Plaisance (Yasmine Marina)",
+    "lat": 36.3685,
+    "lon": 10.5348,
+    "desc": "L'extrémité externe de la digue offre un accès direct à des eaux plus profondes. Parfait pour le lancer lourd o le vif en bordure.",
+    "technique": "Spinning lourd de digue (Stickbaits, Poppers, Long Jerks) / Pêche au vif",
+    "target": "Loups (Bar), Tassergals, Grands Sars, Liches"
+  },
+  {
+    "nome": "Plage de Mrezga (Hammamet Nord)",
+    "lat": 36.4312,
+    "lon": 10.6654,
+    "desc": "Zone de transition caractérisée par une pente légèrement plus prononcée. Idéale par mer formée (vent d'Est/Sud-Est).",
+    "technique": "Surfcasting lourd de vague / Spinning intermédiaire face au vent",
+    "target": "Daurades Royales, Ombrines, Loups"
+  }
+];
