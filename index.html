@@ -2614,7 +2614,7 @@ function applicaFiltriSpot() {
 
     const sNome = (spot.name || spot.nome || "").toLowerCase();
     const sDesc = (spot.description || spot.desc || "").toLowerCase();
-    const sReg  = (spot.region || spot.regione || "").toLowerCase();
+    const sReg = (spot.reg || spot.region || spot.regione || "").toLowerCase();
     const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
 
     const matchTech = (tech === "all") || sTech.includes(tech.toLowerCase());
