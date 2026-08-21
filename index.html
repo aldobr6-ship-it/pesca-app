@@ -2085,10 +2085,16 @@ const mappeRegioni = {
     "Normandie": [49.1828, -0.3707], "Corse": [42.0396, 9.0128]
   },
   tn: {
-    "Bizerte": [37.2744, 9.8739], "Cap Bon / Nabeul": [36.8500, 10.7303],
-    "Tunis / Ghar El Melh": [37.1685, 10.2310], "Sousse / Sahel": [35.8256, 10.6369],
-    "Mahdia": [35.5047, 11.0622], "Sfax": [34.7406, 10.7603],
-    "Djerba / Zarzis": [33.8075, 10.8451]
+    // I nomi qui sotto corrispondono alle regioni realmente presenti
+    // in spot-tunisia.json
+    "Biserta": [37.2744, 9.8739],
+    "Cap Bon": [36.8500, 10.7303],
+    "Tunisi": [36.8065, 10.1815],
+    "Sousse / Sahel": [35.8256, 10.6369],
+    "Mahdia": [35.5047, 11.0622],
+    "Sfax": [34.7406, 10.7603],
+    "Djerba": [33.8075, 10.8451],
+    "Medenine": [33.5124, 11.1205]
   }
 };
 
@@ -2177,12 +2183,13 @@ function initMappaEsplorazioneNuova() {
   if (nazioneAttiva === "fr") {
     centroMappa = [46.5, 2.0];
     zoomIniziale = 5.5;
-   listaSpot = spotsFranceExternal;
+    listaSpot = Array.isArray(spotsFranceExternal) ? spotsFranceExternal : [];
     nomeNazione = "France";
   } else if (nazioneAttiva === "tn") {
     centroMappa = [35.5, 9.5];
     zoomIniziale = 7;
-    listaSpot = spotsTunisiaExternal;
+    listaSpot = (Array.isArray(spotsTunisiaExternal) ? spotsTunisiaExternal : [])
+      .map(normalizzaSpotTunisia);
     nomeNazione = "Tunisia";
   }
 
@@ -2546,21 +2553,56 @@ function normalizzaTestoSpot(v){
 }
 
 function regioneSpotCorrisponde(spot, regioneFiltro){
-  if(!regioneFiltro || regioneFiltro === "all") return true;
+  if(!regioneFiltro || normalizzaTestoSpot(regioneFiltro) === "all") return true;
+
   const r = normalizzaTestoSpot(spot.reg || spot.region || spot.regione || "");
   const f = normalizzaTestoSpot(regioneFiltro);
   if(r === f) return true;
 
   const alias = {
+    // Francia
     "paca / cote d'azur": ["costa azzurra","paca","cote d'azur"],
     "bretagne": ["bretagna","bretagne"],
     "occitanie": ["occitania","occitanie"],
     "nouvelle-aquitaine": ["aquitania","nouvelle-aquitaine"],
     "normandie": ["normandia","normandie"],
-    "corse": ["corsica","corse"]
+    "corse": ["corsica","corse"],
+
+    // Tunisia: accetta sia il nome visualizzato sia quello del JSON
+    "biserta": ["biserta","bizerte"],
+    "bizerte": ["biserta","bizerte"],
+    "cap bon": ["cap bon","cap bon / nabeul"],
+    "cap bon / nabeul": ["cap bon","cap bon / nabeul"],
+    "tunisi": ["tunisi","tunis","tunis / ghar el melh"],
+    "tunis / ghar el melh": ["tunisi","tunis","tunis / ghar el melh"],
+    "sousse / sahel": ["sousse / sahel","sousse","sahel"],
+    "djerba": ["djerba","djerba / zarzis"],
+    "djerba / zarzis": ["djerba","djerba / zarzis"],
+    "medenine": ["medenine","djerba","djerba / zarzis"]
   };
+
   return (alias[f] || []).some(a => r === normalizzaTestoSpot(a));
 }
+
+function normalizzaSpotTunisia(spot){
+  if(!spot || typeof spot !== "object") return spot;
+
+  // I dati forniti hanno Zarzis dentro Sfax: lo riallineiamo
+  // alla regione geografica usata dal menu, senza modificare il JSON originale.
+  const nome = normalizzaTestoSpot(spot.nome || spot.name || "");
+  if(nome.includes("zarzis")){
+    spot.region = "Djerba";
+  }
+
+  const lat = Number(spot.lat ?? spot.latitude ?? spot.coords?.[0]);
+  const lon = Number(spot.lon ?? spot.lng ?? spot.longitude ?? spot.coords?.[1]);
+  if(Number.isFinite(lat) && Number.isFinite(lon) && !spot.coords){
+    spot.coords = [lat, lon];
+  }
+
+  return spot;
+}
+
 
 function tecnicaSpotCorrisponde(spot, tecnicaFiltro){
   if(!tecnicaFiltro || tecnicaFiltro === "all") return true;
@@ -2574,9 +2616,19 @@ function tecnicaSpotCorrisponde(spot, tecnicaFiltro){
 function applicaFiltriSpot(){
   const reg=document.getElementById("filtroReg")?.value||"all";
   const tech=document.getElementById("filtroTech")?.value||"all";
-  const sorgente = nazioneAttiva === "fr" ? spotsFranceExternal : nazioneAttiva === "tn" ? spotsTunisiaExternal : spotsItalia;
 
-  const filtrati=sorgente.filter(s =>
+  let sorgente = nazioneAttiva === "fr"
+    ? spotsFranceExternal
+    : nazioneAttiva === "tn"
+      ? spotsTunisiaExternal
+      : spotsItalia;
+
+  // Normalizzazione sicura degli spot Tunisia.
+  if(nazioneAttiva === "tn") {
+    sorgente = Array.isArray(sorgente) ? sorgente.map(normalizzaSpotTunisia) : [];
+  }
+
+  const filtrati = (Array.isArray(sorgente) ? sorgente : []).filter(s =>
     regioneSpotCorrisponde(s, reg) && tecnicaSpotCorrisponde(s, tech)
   );
 
@@ -2672,7 +2724,7 @@ function onSpotSelezionato(spot){
     if(spotTooltipAttivo){spotTooltipAttivo.remove();spotTooltipAttivo=null;}
     const icoVuota=L.divIcon({html:'',iconSize:[0,0],className:''});
     spotTooltipAttivo=L.marker(spot.coords,{icon:icoVuota,zIndexOffset:1000}).addTo(spotItaliaMap)
-      .bindTooltip(`<b>${spot.name}</b>`,{permanent:true,direction:'top',offset:[0,-8],className:'spot-tooltip-label'}).openTooltip();
+      .bindTooltip(`<b>${spot.name || spot.nome || "Spot"}</b>`,{permanent:true,direction:'top',offset:[0,-8],className:'spot-tooltip-label'}).openTooltip();
   }
   mostraDettaglioPannello(spot);
   if(isMobile()){
@@ -2796,9 +2848,11 @@ function salvaSpotItalia(spot) {
 
   const spots = caricaSpot();
 
+  const fonteCorrente = nazioneAttiva === "tn" ? "tunisia" : nazioneAttiva === "fr" ? "francia" : "italia";
+
   const giaSalvato = spots.find(
     s =>
-      s.fonte === "italia" &&
+      s.fonte === fonteCorrente &&
       s.nome === nome
   );
 
@@ -2826,7 +2880,7 @@ function salvaSpotItalia(spot) {
 
     data: new Date().toLocaleDateString("it-IT"),
 
-    fonte: "italia"
+    fonte: fonteCorrente
   };
 
   spots.unshift(nuovoSpot);
@@ -2859,9 +2913,11 @@ function aggiornaLabelSalva(spot) {
 
   const spots = caricaSpot();
 
+  const fonteCorrente = nazioneAttiva === "tn" ? "tunisia" : nazioneAttiva === "fr" ? "francia" : "italia";
+
   const giaSalvato = spots.find(
     s =>
-      s.fonte === "italia" &&
+      s.fonte === fonteCorrente &&
       s.nome === nome
   );
 
@@ -3287,7 +3343,12 @@ async function avviaApp() {
     if (resSpecie && resSpecie.ok) specie = await resSpecie.json();
     if (resSpot && resSpot.ok) spotsItalia = await resSpot.json();
     if (resSpotFrancia && resSpotFrancia.ok) spotsFranceExternal = await resSpotFrancia.json();
-    if (resSpotTunisia && resSpotTunisia.ok) spotsTunisiaExternal = await resSpotTunisia.json();
+    if (resSpotTunisia && resSpotTunisia.ok) {
+      const datiTunisia = await resSpotTunisia.json();
+      spotsTunisiaExternal = Array.isArray(datiTunisia)
+        ? datiTunisia.map(normalizzaSpotTunisia)
+        : [];
+    }
   } catch(e) {
     console.error("Errore caricamento dati locali:", e);
   }
