@@ -310,10 +310,23 @@ body.dark .filtro-select { background:#1e293b; color:#e2e8f0; border-color:#4b55
   background: white; border-radius: 20px; overflow: hidden;
   box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: sticky; top: 70px;
 }
-#spotItaliaMap { height: 82vh; width: 100%; }
+#spotItaliaMap {
+  height: 82vh;
+  width: 100%;
+  touch-action: pan-y;
+}
+
 @media (max-width: 768px) {
-  #spotItaliaMap { height: 55vw; min-height: 240px; }
-  .spot-mappa-wrap { position: relative; top: 0; margin-bottom: 14px; }
+  #spotItaliaMap {
+    height: 55vw;
+    min-height: 240px;
+  }
+
+  .spot-mappa-wrap {
+    position: relative;
+    top: 0;
+    margin-bottom: 14px;
+  }
 }
 .spot-panel-right {
   background: white; border-radius: 20px;
