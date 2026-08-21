@@ -1422,15 +1422,8 @@ function mostraPescePopup(nomePesce) {
   document.body.appendChild(popup);
 }
 function mostraEscaPopup(nomeEsca) {
-  const nomePulito = nomeEsca.trim().toLowerCase();
-  let fileNome = nomePulito.replace(/\s+/g, '_');
-
-  // Intercettazione rigida basata sui file reali presenti sotto la tua cartella img
-  if (nomePulito.includes("granchio")) {
-    fileNome = "granchio_vivo";
-  } else if (nomePulito.includes("calamaro")) {
-    fileNome = "pezzo_calamaro";
-  }
+  const fileNome = slugEsca(nomeEsca);
+  
   // Generiamo un ID univoco temporaneo basato sul tempo per evitare qualsiasi conflitto nel DOM
   const idImmagineUnico = "esca_img_" + Date.now();
 
