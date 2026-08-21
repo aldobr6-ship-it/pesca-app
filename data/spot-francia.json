@@ -31,8 +31,6 @@
     "technique": "Rock Spinning lourd (Poppers, Stickbaits coulants) / Pêche au flotteur",
     "target": "Dentis, Barracudas, Grands Sars, Sérioles"
   },
-
-  // MEDITERRANEO OCCIDENTALE / CAMARGUE / GOLFO DEL LEONE
   {
     "name": "Plage de l'Espiguette (Le Grau-du-Roi)",
     "lat": 43.4854,
@@ -65,8 +63,6 @@
     "technique": "Pêche à la calée coulissante (Scorrevole) au crabe / Pêche au flotteur coulissant",
     "target": "Daurades Royales, Sars Tambours, Loups"
   },
-
-  // COSTA ATLANTICA / LANDES / GIRONDA
   {
     "name": "Plage de Biscarrosse (Nord)",
     "lat": 44.4520,
@@ -99,8 +95,6 @@
     "technique": "Surfcasting de recherche dans les baïnes / Pêche au trancio de seiche",
     "target": "Ombrines, Bars Mouchetés, Raies, Soles"
   },
-
-  // NORD / BRETAGNE / NORMANDIE
   {
     "name": "Plage de la Torche (Finistère - Bretagne)",
     "lat": 47.8385,
