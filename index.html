@@ -2200,158 +2200,21 @@ function initMappaEsplorazioneNuova() {
 
   spotItaliaMarkers = [];
 
-  spotItaliaMap = L.map('spotItaliaMap').setView(centroMappa, zoomIniziale);
+  spotItaliaMap = L.map('spotItaliaMap', {
+    zoomControl: true,
+    scrollWheelZoom: false,
+    touchZoom: false,
+    doubleClickZoom: false
+  }).setView(centroMappa, zoomIniziale);
+  const mapEl = document.getElementById('spotItaliaMap');
+  if (mapEl) mapEl.style.touchAction = 'pan-y';
+
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(spotItaliaMap);
 
   renderizzaListaEMappe(listaSpot);
 }
-function applicaFiltriSpot() {
-  const regEl = document.getElementById("filtroReg");
-  const techEl = document.getElementById("filtroTech");
-  
-  const reg = regEl ? regEl.value : "all";
-  const tech = techEl ? techEl.value : "all";
-
-  let listaSorgente = [];
-  let chiaveNazione = "italia";
-
-  if (nazioneAttiva === "it") {
-    listaSorgente = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
-    chiaveNazione = "italia";
-  } else if (nazioneAttiva === "fr") {
-    listaSorgente = spotsFranceExternal;
-    chiaveNazione = "francia";
- } else if (nazioneAttiva === "tn") {
-  listaSorgente = spotsTunisiaExternal;
-  chiaveNazione = "tunisia";
-}
-
-  // 1. Spostamento Mappa Flessibile
-  if (reg !== "all" && reg !== "Tutte") {
-    // Cerca la regione in regionData ignorando maiuscole/minuscole
-    if (regionData[chiaveNazione] && regionData[chiaveNazione].regions) {
-      const regChiave = Object.keys(regionData[chiaveNazione].regions).find(
-        k => k.toLowerCase() === reg.toLowerCase()
-      );
-      if (regChiave && regionData[chiaveNazione].regions[regChiave]) {
-        const regObj = regionData[chiaveNazione].regions[regChiave];
-       if (regObj) {
-  const spotRegione = listaSorgente.filter(spot => {
-    const sReg = (
-      spot.reg ||
-      spot.region ||
-      spot.regione ||
-      ""
-    ).toLowerCase().trim();
-
-    return sReg === regChiave.toLowerCase().trim();
-  });
-
-  if (spotRegione.length > 0) {
-    const bounds = L.latLngBounds(
-      spotRegione
-        .filter(s => {
-          const lat = Number(s.lat ?? s.coords?.[0]);
-          const lon = Number(s.lon ?? s.lng ?? s.coords?.[1]);
-          return Number.isFinite(lat) && Number.isFinite(lon);
-        })
-        .map(s => [
-          Number(s.lat ?? s.coords?.[0]),
-          Number(s.lon ?? s.lng ?? s.coords?.[1])
-        ])
-    );
-
-    if (bounds.isValid()) {
-      spotItaliaMap.fitBounds(bounds, {
-        padding: [40, 40],
-        maxZoom: 9
-      });
-    }
-  } else if (regObj.center) {
-    spotItaliaMap.setView(regObj.center, 8);
-     }
-    }
-   }
-  }
- }
-
-  // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
-  const mappaSinonimi = {
-    // FRANCIA
-    "costa azzurra": ["paca", "azur", "côte d'azur", "nice", "nizza", "cannes", "marseille", "marsiglia", "toulon", "hyeres", "antibes"],
-    "paca / côte d'azur": ["paca", "azur", "côte d'azur", "nice", "nizza", "cannes", "marseille", "toulon"],
-    "bretagna": ["bretagne", "bretagna", "finistere", "lorient", "vannes", "saint-malo", "brest"],
-    "bretagne": ["bretagne", "bretagna", "finistere", "lorient", "vannes", "saint-malo", "brest"],
-    "aquitania": ["aquitaine", "aquitania", "nouvelle-aquitaine", "biarritz", "arcachon", "landes", "bordeaux"],
-    "nouvelle-aquitaine": ["aquitaine", "aquitania", "biarritz", "arcachon", "landes", "bordeaux"],
-    "normandia": ["normandie", "normandia", "cherbourg", "le havre", "caen"],
-    "normandie": ["normandie", "normandia", "cherbourg", "le havre", "caen"],
-    "occitania": ["occitanie", "occitania", "sete", "agde", "perpignan", "montpellier"],
-    "occitanie": ["occitanie", "occitania", "sete", "agde", "perpignan", "montpellier"],
-    "corsica": ["corse", "corsica", "bastia", "ajaccio", "bonifacio", "calvi", "porto-vecchio"],
-    "corse": ["corse", "corsica", "bastia", "ajaccio", "bonifacio", "calvi", "porto-vecchio"],
-
-    // TUNISIA
-    "biserta": ["bizerte", "biserta", "bizerta", "rimel", "cap serrat", "ghar el melh"],
-    "bizerte": ["bizerte", "biserta", "bizerta", "rimel", "cap serrat", "ghar el melh"],
-    "cap bon": ["cap bon", "nabeul", "haouaria", "kelibia", "korba", "hammamet"],
-    "cap bon / nabeul": ["cap bon", "nabeul", "haouaria", "kelibia", "korba", "hammamet"],
-    "tunisi": ["tunis", "tunisi", "melh", "sidi ali"],
-    "tunis / ghar el melh": ["tunis", "tunisi", "melh", "sidi ali"],
-    "sousse / sahel": ["sousse", "susa", "hergla", "chott meriam", "monastir"],
-    "mahdia": ["mahdia", "rejiche"],
-    "sfax": ["sfax", "chaffar"],
-    "djerba": ["djerba", "zarzis", "aghir"],
-    "djerba / zarzis": ["djerba", "zarzis", "aghir"],
-
-    // ITALIA
-    "sicilia": ["sicilia", "palermo", "catania", "messina", "siracusa", "trapani", "agrigento", "ragusa", "cefalu", "taormina", "pozzallo", "milazzo", "marzamemi", "licata", "sciacca", "san vito"],
-    "sardegna": ["sardegna", "cagliari", "olbia", "sassari", "alghero", "oristano", "stintino", "villasimius"],
-    "liguria": ["liguria", "genova", "la spezia", "savona", "imperia", "sanremo"],
-    "toscana": ["toscana", "livorno", "grosseto", "pisa", "piombino", "orbetello", "elba"],
-    "lazio": ["lazio", "roma", "ostia", "anzio", "civitavecchia", "terracina", "gaeta"],
-    "campania": ["campania", "napoli", "salerno", "caserta", "cilento", "ischia", "capri"],
-    "calabria": ["calabria", "reggio", "tropea", "catanzaro", "crotone", "scalea"],
-    "puglia": ["puglia", "bari", "lecce", "taranto", "brindisi", "foggia", "salento", "gallipoli"]
-  };
-
-  // 3. Filtro Spot Intelligente
-  const spotFiltrati = listaSorgente.filter(spot => {
-    // Se il filtro è su "Tutte" o "all", mostra TUTTO
-    if (reg === "all" || reg === "Tutte" || reg === "") {
-      const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
-      return (tech === "all") || sTech.includes(tech.toLowerCase());
-    }
-
-    const sNome = (spot.name || spot.nome || "").toLowerCase();
-    const sDesc = (spot.description || spot.desc || "").toLowerCase();
-    const sReg = (spot.reg || spot.region || spot.regione || "").toLowerCase();
-    const sTech = (spot.technique || spot.tecnica || "").toLowerCase();
-
-    const matchTech = (tech === "all") || sTech.includes(tech.toLowerCase());
-
-    const regCercata = reg.toLowerCase().trim();
-    let matchReg = false;
-
-    // A. Controlla se la parola cercata è contenuta direttamente
-    if (sReg.includes(regCercata) || sNome.includes(regCercata) || sDesc.includes(regCercata)) {
-      matchReg = true;
-    } 
-    // B. Controlla nella mappa dei sinonimi
-    else if (mappaSinonimi[regCercata]) {
-      matchReg = mappaSinonimi[regCercata].some(k => 
-        sNome.includes(k) || sDesc.includes(k) || sReg.includes(k)
-      );
-    }
-
-    return matchReg && matchTech;
-  });
-
-  renderizzaListaEMappe(spotFiltrati);
-}
-
 function renderizzaListaEMappe(listaSpot) {
   // Pulizia vecchi marker
   if (spotItaliaMarkers && spotItaliaMarkers.length > 0) {
@@ -2635,7 +2498,7 @@ function importaSpot(event) {
 let spotsItalia = [];
 let spotsFranceExternal = [];
 let spotsTunisiaExternal = [];  
-let spotItaliaMap=null, spotItaliaMarkers=[], spotAttivo=null, spotTooltipAttivo=null;
+let spotAttivo=null, spotTooltipAttivo=null;
 const isMobile=()=>window.innerWidth<769;
 function initSpotItaliaMap(){
   if(spotItaliaMap){spotItaliaMap.remove();spotItaliaMap=null;}
@@ -2664,6 +2527,7 @@ if (mapEl) {
   /* Nessun marker all'avvio */
 }
 function aggiornaMappaSpotItalia(lista){
+  if(!spotItaliaMap) return;
   spotItaliaMarkers.forEach(m=>spotItaliaMap.removeLayer(m));
   spotItaliaMarkers=[];
   lista.forEach(spot=>{
@@ -2694,12 +2558,22 @@ function applicaFiltriSpot(){
 function mostraPannelloLista(lista,titolo){
   if(isMobile()){
     document.getElementById("spotModalLista")?.remove();
-    const html=lista.map(s=>`
-      <div class="spot-italia-item" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
-        <span class="si-ico">🎣</span>
-        <div class="si-info"><div class="si-nome">${s.name}</div><div class="si-sub">🐟 ${s.target}</div></div>
-        <span class="si-badge">${s.type}</span>
-      </div>`).join("");
+
+    const items = (lista || []).map((s, index) => {
+      const nome = s.name || s.nome || "Spot";
+      const target = s.target || "Varie specie";
+      const tecnica = s.type || s.technique || s.tecnica || "Spot";
+      return `
+        <div class="spot-italia-item" data-spot-index="${index}">
+          <span class="si-ico">🎣</span>
+          <div class="si-info">
+            <div class="si-nome">${nome}</div>
+            <div class="si-sub">🐟 ${target}</div>
+          </div>
+          <span class="si-badge">${tecnica}</span>
+        </div>`;
+    }).join("");
+
     document.body.insertAdjacentHTML("beforeend",`
       <div class="modal-spot-overlay" id="spotModalLista" onclick="chiudiModaleListaMobile(event)" style="z-index:9400;">
         <div class="modal-spot-box" style="max-height:70vh;">
@@ -2707,20 +2581,33 @@ function mostraPannelloLista(lista,titolo){
             <span style="font-weight:900;font-size:17px;">🎣 ${titolo} <span style="opacity:0.5;font-size:13px;">(${lista.length})</span></span>
             <button onclick="chiudiModaleListaMobile()" style="background:none;border:none;font-size:22px;cursor:pointer;margin:0;padding:0;color:#666;">✕</button>
           </div>
-          ${html||'<p style="opacity:0.5;text-align:center;padding:20px;">Nessuno spot trovato.</p>'}
+          ${items || '<p style="opacity:0.5;text-align:center;padding:20px;">Nessuno spot trovato.</p>'}
         </div>
       </div>`);
+
+    const modal = document.getElementById("spotModalLista");
+    modal?.querySelectorAll(".spot-italia-item").forEach((item, index) => {
+      item.addEventListener("click", () => onSpotSelezionato(lista[index]));
+    });
   } else {
     const header=document.getElementById("spotPanelHeader"),body=document.getElementById("spotPanelBody");
     if(!header||!body)return;
     header.textContent=`🎣 ${titolo} (${lista.length})`;
-    if(lista.length===0){body.innerHTML=`<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato.</p>`;return;}
-    body.innerHTML=lista.map(s=>`
-      <div class="spot-italia-item${spotAttivo===s?" active":""}" onclick="onSpotSelezionato(spotsItalia[${spotsItalia.indexOf(s)}])">
+    body.innerHTML="";
+    if(!lista || lista.length===0){
+      body.innerHTML=`<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato.</p>`;
+      return;
+    }
+    lista.forEach(s=>{
+      const item=document.createElement("div");
+      item.className="spot-italia-item"+(spotAttivo===s?" active":"");
+      item.innerHTML=`
         <span class="si-ico">🎣</span>
-        <div class="si-info"><div class="si-nome">${s.name}</div><div class="si-sub">🐟 ${s.target}</div></div>
-        <span class="si-badge">${s.type}</span>
-      </div>`).join("");
+        <div class="si-info"><div class="si-nome">${s.name||s.nome||"Spot"}</div><div class="si-sub">🐟 ${s.target||"Varie specie"}</div></div>
+        <span class="si-badge">${s.type||s.technique||s.tecnica||"Spot"}</span>`;
+      item.onclick=()=>onSpotSelezionato(s);
+      body.appendChild(item);
+    });
   }
 }
 function chiudiModaleListaMobile(e){if(!e||e.target.classList.contains("modal-spot-overlay"))document.getElementById("spotModalLista")?.remove();}
@@ -2762,6 +2649,7 @@ function mostraDettaglioPannello(spot) {
 
   // ID sicuro basato sullo spot, non sull'indice dell'array
   const spotId = encodeURIComponent(nome);
+  window.__spotItaliaDettaglio = spot;
 
   body.innerHTML = `
     <div class="spot-detail-panel">
@@ -2803,7 +2691,7 @@ function mostraDettaglioPannello(spot) {
       <button
         class="btn-salva-spot-italia"
         id="btnSalvaItalia_${spotId}"
-        onclick='salvaSpotItalia(${JSON.stringify(spot).replace(/'/g, "&#39;")})'>
+        onclick="salvaSpotItalia(window.__spotItaliaDettaglio)">
         📌 Salva nei miei spot
       </button>
 
@@ -2939,17 +2827,19 @@ function aggiornaLabelSalva(spot) {
 /* === TORNA ALLA LISTA DELLA REGIONE === */
 
 function tornaListaRegione(reg) {
-
-  const lista = spotsItalia.filter(
-    s =>
-      (s.reg || s.region || s.regione || "")
-        .toLowerCase()
-        .trim()
-      ===
-      String(reg)
-        .toLowerCase()
-        .trim()
-  );
+  const sorgente = nazioneAttiva === "fr" ? spotsFranceExternal :
+                   nazioneAttiva === "tn" ? spotsTunisiaExternal : spotsItalia;
+  const lista = sorgente.filter(s => {
+    const sReg = (s.reg || s.region || s.regione || "").toLowerCase().trim();
+    return sReg === String(reg).toLowerCase().trim();
+  });
+  lista.forEach(s => {
+    if (!s.coords) {
+      const lat = Number(s.lat ?? s.latitude);
+      const lon = Number(s.lon ?? s.lng ?? s.longitude);
+      if (Number.isFinite(lat) && Number.isFinite(lon)) s.coords = [lat, lon];
+    }
+  });
 
   mostraPannelloLista(lista, reg);
 
@@ -2957,9 +2847,8 @@ function tornaListaRegione(reg) {
 
   if (lista.length > 0) {
 
-    const bounds = L.latLngBounds(
-      lista.map(s => s.coords)
-    );
+    const coords = lista.map(s => s.coords).filter(c => Array.isArray(c) && c.length >= 2);
+    const bounds = L.latLngBounds(coords);
 
     if (bounds.isValid()) {
       spotItaliaMap.fitBounds(bounds, {
