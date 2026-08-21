@@ -2224,12 +2224,45 @@ function applicaFiltriSpot() {
       );
       if (regChiave && regionData[chiaveNazione].regions[regChiave]) {
         const regObj = regionData[chiaveNazione].regions[regChiave];
-        if (regObj && regObj.center) {
-          spotItaliaMap.setView(regObj.center, regObj.zoom || 8);
-        }
-      }
+       if (regObj) {
+  const spotRegione = listaSorgente.filter(spot => {
+    const sReg = (
+      spot.reg ||
+      spot.region ||
+      spot.regione ||
+      ""
+    ).toLowerCase().trim();
+
+    return sReg === regChiave.toLowerCase().trim();
+  });
+
+  if (spotRegione.length > 0) {
+    const bounds = L.latLngBounds(
+      spotRegione
+        .filter(s => {
+          const lat = Number(s.lat ?? s.coords?.[0]);
+          const lon = Number(s.lon ?? s.lng ?? s.coords?.[1]);
+          return Number.isFinite(lat) && Number.isFinite(lon);
+        })
+        .map(s => [
+          Number(s.lat ?? s.coords?.[0]),
+          Number(s.lon ?? s.lng ?? s.coords?.[1])
+        ])
+    );
+
+    if (bounds.isValid()) {
+      spotItaliaMap.fitBounds(bounds, {
+        padding: [40, 40],
+        maxZoom: 9
+      });
     }
+  } else if (regObj.center) {
+    spotItaliaMap.setView(regObj.center, 8);
+     }
+    }
+   }
   }
+ }
 
   // 2. Mappa Sinonimi Multilingua (connette tutti i possibili nomi HTML/Dati)
   const mappaSinonimi = {
