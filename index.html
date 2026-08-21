@@ -2544,9 +2544,10 @@ function applicaFiltriSpot() {
   } else if (nazioneAttiva === "fr") {
     listaSorgente = spotsFranceExternal;
     chiaveNazione = "francia";
-  } else if (nazioneAttiva === "tn") {
-    listaSorgente = spotsTunisiaExternal;
-  }
+ } else if (nazioneAttiva === "tn") {
+  listaSorgente = spotsTunisiaExternal;
+  chiaveNazione = "tunisia";
+}
 
   // 1. Spostamento Mappa Flessibile
   if (reg !== "all" && reg !== "Tutte") {
