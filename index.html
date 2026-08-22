@@ -432,17 +432,13 @@ body.dark .si-badge {
   background: #1e3a5f;
   color: #7dd3fc;
 }
-/* === MOBILE === */
-@media (max-width: 768px) {
   .spot-main-title {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100%;
   box-sizing: border-box;
-
   padding-top: 10px;
   font-weight: bold;
   font-size: 22px;
@@ -451,12 +447,21 @@ body.dark .si-badge {
 
 .spot-main-avatar {
   position: absolute;
-  left: 50%;
-  transform: translateX(-105px);
-
+  left: calc(50% - 105px);
   width: 70px;
   height: 70px;
   object-fit: contain;
+}
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .spot-main-title {
+    font-size: 15px;
+    padding-top: 6px;
+  }
+  .spot-main-avatar {
+    width: 42px;
+    height: 42px;
+    left: calc(50% - 75px);
   }
   .spot-italia-item {
     min-height: 56px;
@@ -483,7 +488,6 @@ body.dark .si-badge {
     padding: 3px 6px;
   }
 }
-
   background: #e0f2fe; color: #0369a1;
   font-size: 9px; font-weight: 800; padding: 2px 7px;
   border-radius: 6px; text-transform: uppercase; white-space:nowrap; flex-shrink:0;
