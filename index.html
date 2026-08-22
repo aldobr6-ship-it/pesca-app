@@ -537,6 +537,124 @@ body.dark .spot-detail-tips p { color:#93c5fd; }
   font-size:13px; width:100%; cursor:pointer; margin-top:8px;
 }
 body.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
+/* =========================================================
+   DETTAGLIO SPOT — MOBILE UNIFORME IT / FR / TN
+   ========================================================= */
+@media (max-width: 768px) {
+  .spot-detail-panel {
+    padding: 4px 0 2px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  /* Etichetta regione */
+  .spot-detail-panel .sdp-tag {
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 4px 9px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* Nome dello spot */
+  .spot-detail-panel h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  /* Griglia tecnica / target */
+  .spot-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+  .spot-detail-cell {
+    min-width: 0;
+    background: #f8fafc;
+    border-radius: 11px;
+    padding: 10px 11px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .sdc-lbl {
+    font-size: 9px;
+    font-weight: 700;
+    opacity: 0.5;
+
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .sdc-val {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+  /* Box consigli */
+  .spot-detail-tips {
+    background: #eff6ff;
+    border-radius: 12px;
+    padding: 11px 12px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .spot-detail-tips p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+  /* Pulsanti */
+  .btn-nav-spot,
+  .btn-salva-spot-italia,
+  .btn-back-lista {
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 11px;
+  }
+  .btn-nav-spot {
+    padding: 11px 12px;
+  }
+  .btn-salva-spot-italia {
+    padding: 11px 12px;
+    margin-top: 7px;
+  }
+  .btn-back-lista {
+    padding: 10px 12px;
+    margin-top: 7px;
+  }
+}
+/* =========================================================
+   DARK MODE MOBILE
+   ========================================================= */
+@media (max-width: 768px) {
+  body.dark .spot-detail-cell {
+    background: #334155;
+  }
+  body.dark .spot-detail-tips {
+    background: #1e3a5f;
+  }
+  body.dark .spot-detail-tips p {
+    color: #93c5fd;
+  }
+}
+```
 .modal-spot-overlay {
   position:fixed; inset:0; background:rgba(0,0,0,0.6);
   z-index:9500; display:flex; align-items:flex-end; animation: fadeIn 0.2s ease;
