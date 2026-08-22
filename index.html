@@ -340,21 +340,163 @@ body.dark .spot-panel-right { background: #1e293b; }
 .spot-panel-placeholder { text-align: center; padding: 40px 20px; opacity: 0.45; }
 .spot-panel-placeholder .ph-ico { font-size: 40px; display:block; margin-bottom:10px; }
 .spot-panel-placeholder p { font-size: 13px; line-height: 1.6; }
+```css
+/* === LISTA SPOT — GRAFICA UNIFORME IT / FR / TN === */
+
 .spot-italia-item {
-  background: #f8fafc; border-radius: 12px; padding: 12px 14px;
-  margin-bottom: 8px; display: flex; align-items: center; gap:10px;
-  cursor: pointer; transition: all 0.2s; border: 1px solid rgba(0,0,0,0.04);
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 11px 12px;
+  margin-bottom: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  cursor: pointer;
+  transition: all 0.2s;
+
+  border: 1px solid rgba(0,0,0,0.04);
+
+  /* Altezza uniforme */
+  min-height: 58px;
+  box-sizing: border-box;
+
+  /* Evita che i testi allarghino la card */
+  overflow: hidden;
 }
-.spot-italia-item:hover { background: #e0f2fe; transform: translateX(3px); }
-.spot-italia-item.active { background: linear-gradient(90deg,#e0f2fe,#bae6fd); border-left: 3px solid #0077b6; }
-body.dark .spot-italia-item { background: #334155; border-color:transparent; }
-body.dark .spot-italia-item:hover { background: #1e3a5f; }
-body.dark .spot-italia-item.active { background: #1e3a5f; border-left: 3px solid #38bdf8; }
-.si-ico  { font-size:22px; flex-shrink:0; }
-.si-info { flex:1; min-width:0; }
-.si-nome { font-weight:700; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.si-sub  { font-size:11px; opacity:0.6; margin-top:2px; }
+
+.spot-italia-item:hover {
+  background: #e0f2fe;
+  transform: translateX(3px);
+}
+
+.spot-italia-item.active {
+  background: linear-gradient(90deg,#e0f2fe,#bae6fd);
+  border-left: 3px solid #0077b6;
+}
+
+/* Icona */
+.si-ico {
+  font-size: 22px;
+  flex: 0 0 24px;
+  width: 24px;
+  text-align: center;
+}
+
+/* Contenitore testo */
+.si-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Nome spot — sempre una sola riga */
+.si-nome {
+  font-weight: 700;
+  font-size: 13px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  line-height: 18px;
+}
+
+/* Target — massimo 2 righe */
+.si-sub {
+  font-size: 11px;
+  opacity: 0.6;
+
+  margin-top: 2px;
+  line-height: 15px;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  overflow: hidden;
+}
+
+/* Badge tecnica — compatto e sempre allineato */
 .si-badge {
+  flex: 0 0 auto;
+  max-width: 105px;
+
+  background: #e0f2fe;
+  color: #0369a1;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  padding: 3px 7px;
+  border-radius: 6px;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  box-sizing: border-box;
+}
+
+/* === DARK MODE === */
+
+body.dark .spot-italia-item {
+  background: #334155;
+  border-color: transparent;
+}
+
+body.dark .spot-italia-item:hover {
+  background: #1e3a5f;
+}
+
+body.dark .spot-italia-item.active {
+  background: #1e3a5f;
+  border-left: 3px solid #38bdf8;
+}
+
+body.dark .si-badge {
+  background: #1e3a5f;
+  color: #7dd3fc;
+}
+
+/* === MOBILE === */
+
+@media (max-width: 768px) {
+
+  .spot-italia-item {
+    min-height: 56px;
+    padding: 10px 11px;
+    gap: 8px;
+  }
+
+  .si-ico {
+    font-size: 20px;
+    flex-basis: 22px;
+    width: 22px;
+  }
+
+  .si-nome {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .si-sub {
+    font-size: 10px;
+    line-height: 14px;
+    -webkit-line-clamp: 2;
+  }
+
+  .si-badge {
+    max-width: 88px;
+    font-size: 8px;
+    padding: 3px 6px;
+  }
+}
+```
+
   background: #e0f2fe; color: #0369a1;
   font-size: 9px; font-weight: 800; padding: 2px 7px;
   border-radius: 6px; text-transform: uppercase; white-space:nowrap; flex-shrink:0;
