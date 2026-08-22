@@ -435,13 +435,16 @@ body.dark .si-badge {
 /* === MOBILE === */
 @media (max-width: 768px) {
   .spot-main-avatar {
-    width: 60px;  /* Ingrandito da 42px */
-    height: 60px; /* Ingrandito da 42px */
+    width: 60px;       /* Larghezza desiderata */
+    max-width: 60px;   /* Blocca la larghezza massima */
+    min-width: 60px;   /* Impedisce il rimpicciolimento */
+    height: 60px;      /* Altezza proporzionata */
+    object-fit: cover; /* Evita che la foto si storti o si allunghi */
   }
   .spot-main-title {
     font-size: 15px;
     gap: 5px;
-    padding-left: 70px;  /* Aumentato per non sovrapporsi alla foto */
+    padding-left: 72px; /* Spazio aumentato per fare posto alla foto da 60px */
     padding-right: 52px;
   }
   .spot-italia-item {
