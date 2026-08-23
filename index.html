@@ -106,18 +106,51 @@ footer {
   border-radius: 18px 18px 0 0; z-index: 300;
 }
 body.dark footer { background: #1e293b; }
+
 footer button {
-  background: none; border: none; font-size: 12px;
-  color: #0a2a43; cursor: pointer; padding: 6px 4px;
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #0a2a43;
+  cursor: pointer;
+  padding: 6px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
+
 body.dark footer button { color: #e2e8f0; }
+
 footer button:hover { color: #0077b6; }
+
+/* Icone immagini footer */
+.footer-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .footer-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 button {
   background: linear-gradient(90deg,#0a2a43,#144d73);
-  border: none; padding: 10px 18px; border-radius: 20px;
-  color: white; font-weight: bold; cursor: pointer; transition: 0.25s; margin-top: 10px;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s;
+  margin-top: 10px;
 }
+
 button:hover { transform: scale(1.03); opacity: 0.92; }
 .btn-img {
   background: linear-gradient(135deg,#0077b6,#00b4d8);
@@ -734,7 +767,9 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
 </header>
 <div id="content"></div>
 <footer>
-  <button onclick="goTo(showHome)">🏠<span id="fLabelHome">Home</span></button>
+ <button onclick="goTo(showHome)">
+  <img src="./img/home_3D.png" alt="Home" class="footer-icon">
+  <span id="fLabelHome">Home</span></button>
   <button onclick="goTo(showTecniche)">🌊<span id="fLabelTecniche">Tecniche</span></button>
   <button onclick="goTo(showSpecie)">🐟<span id="fLabelSpecie">Specie</span></button>
   <button onclick="goTo(showMontature)">🎣<span id="fLabelMontature">Montature</span></button>
