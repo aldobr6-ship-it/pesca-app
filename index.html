@@ -2503,23 +2503,28 @@ const mappeRegioni = {
     "Medenine": [33.5124, 11.1205]
   }
 };
-
 function showCercaSpot() {
   regioneAttiva = "all"; // Reset regione al cambio schermata
-
   // 1. Header con pulsanti Switch Nazione
   let headerHTML = `
     <div class="spot-italia-header" style="text-align:center; padding: 10px 0;">
       <h3>🗺️ ${t('meteo')}</h3>
       <p style="margin:5px 0 12px; opacity:0.8;">${t('selezionaNazione')}</p>
       <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px;">
-        <button onclick="cambiaNazioneEsplorazione('it')" style="padding: 10px 16px; background: ${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;"> ${t('italia')}</button>
-        <button onclick="cambiaNazioneEsplorazione('fr')" style="padding: 10px 16px; background: ${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;">🇫🇷 ${typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr' ? 'France' : 'Francia'}</button>
-        <button onclick="cambiaNazioneEsplorazione('tn')" style="padding: 10px 16px; background: ${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color: white; border-radius: 10px; font-weight: bold; border: none; cursor: pointer; font-size:13px;"> ${t('tunisia')}</button>
+      
+<button onclick="cambiaNazioneEsplorazione('it')" style="padding:10px 16px; background:${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
+  🇮🇹 Italia
+</button>
+<button onclick="cambiaNazioneEsplorazione('fr')" style="padding:10px 16px; background:${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
+  🇫🇷 Francia
+</button>
+<button onclick="cambiaNazioneEsplorazione('tn')" style="padding:10px 16px; background:${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
+  🇹🇳 Tunisia
+</button>
+
       </div>
     </div>
   `;
-
   // 2. Generazione dinamica del menu a tendina Regioni per TUTTE le nazioni
   let opzioniRegioni = `<option value="all">🗺️ Tutte le regioni</option>`;
   const listaRegioniNazione = mappeRegioni[nazioneAttiva] || {};
@@ -2527,7 +2532,6 @@ function showCercaSpot() {
   Object.keys(listaRegioniNazione).forEach(reg => {
     opzioniRegioni += `<option value="${reg}">${reg}</option>`;
   });
-
   headerHTML += `
     <div class="filtri-row" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; padding: 0 10px;">
       <select class="filtro-select" id="filtroReg" onchange="applicaFiltriSpot()" style="padding: 8px; border-radius: 6px;">
@@ -2542,7 +2546,6 @@ function showCercaSpot() {
       </select>
     </div>
   `;
-
   // 3. Render del layout principale e Modale "Salva Spot"
   document.getElementById("content").innerHTML = `
     ${headerHTML}
@@ -2556,7 +2559,6 @@ function showCercaSpot() {
       </div>
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">⬅️ ${t('tornaHome')}</button>
-
     <!-- Modal Personalizzata per Salvare lo Spot -->
     <div id="saveSpotModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
       <div style="background:white; padding:20px; border-radius:12px; width:90%; max-width:400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
@@ -2571,21 +2573,17 @@ function showCercaSpot() {
       </div>
     </div>
   `;
-
   initMappaEsplorazioneNuova();
 }
-
 function cambiaNazioneEsplorazione(nazione) {
   nazioneAttiva = nazione;
   showCercaSpot();
 }
-
 function initMappaEsplorazioneNuova() {
   let centroMappa = [42.0, 12.5];
   let zoomIniziale = 6;
   let listaSpot = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
   let nomeNazione = "Italia";
-
   if (nazioneAttiva === "fr") {
     centroMappa = [46.5, 2.0];
     zoomIniziale = 5.5;
@@ -2598,9 +2596,7 @@ function initMappaEsplorazioneNuova() {
       .map(normalizzaSpotTunisia);
     nomeNazione = "Tunisia";
   }
-
   document.getElementById("nomeNazioneBadge").textContent = nomeNazione;
-
   // Reset Leaflet
   if (spotItaliaMap !== null) {
     try {
@@ -2610,9 +2606,7 @@ function initMappaEsplorazioneNuova() {
     }
     spotItaliaMap = null;
   }
-
   spotItaliaMarkers = [];
-
   spotItaliaMap = L.map('spotItaliaMap', {
     zoomControl: true,
     scrollWheelZoom: false,
@@ -2621,11 +2615,9 @@ function initMappaEsplorazioneNuova() {
   }).setView(centroMappa, zoomIniziale);
   const mapEl = document.getElementById('spotItaliaMap');
   if (mapEl) mapEl.style.touchAction = 'pan-y';
-
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
   }).addTo(spotItaliaMap);
-
   renderizzaListaEMappe(listaSpot);
 }
 function renderizzaListaEMappe(listaSpot) {
@@ -2637,14 +2629,10 @@ function renderizzaListaEMappe(listaSpot) {
       }
     });
   }
-
   spotItaliaMarkers = [];
-
   const panelBody = document.getElementById("listaSpotEsplorazione");
   if (!panelBody) return;
-
   panelBody.innerHTML = "";
-
   if (!listaSpot || listaSpot.length === 0) {
     panelBody.innerHTML = `
       <div class="spot-panel-placeholder">
@@ -2654,80 +2642,63 @@ function renderizzaListaEMappe(listaSpot) {
     `;
     return;
   }
-
   listaSpot.forEach((spot) => {
-
     // Coordinate compatibili con entrambi i formati
     const spotLat = Number(
       spot.lat ??
       spot.latitude ??
       spot.coords?.[0]
     );
-
     const spotLon = Number(
       spot.lon ??
       spot.lng ??
       spot.longitude ??
       spot.coords?.[1]
     );
-
     if (!Number.isFinite(spotLat) || !Number.isFinite(spotLon)) {
       return;
     }
-
     // Normalizza temporaneamente le coordinate
     // così il sistema nuovo può usare sempre spot.coords
     if (!spot.coords) {
       spot.coords = [spotLat, spotLon];
     }
-
     // Marker
 if (spotItaliaMap) {
   const marker = L.marker([spotLat, spotLon])
     .addTo(spotItaliaMap);
-
   spotItaliaMarkers.push(marker);
-
   // Click sul marker = apre il dettaglio completo
   marker.on("click", () => {
     onSpotSelezionato(spot);
   });
 }
-
     // Voce lista
     const item = document.createElement("div");
-
     item.className =
       "spot-italia-item" +
       (spotAttivo === spot ? " active" : "");
-
     item.innerHTML = `
       <span class="si-ico">🎣</span>
-
       <div class="si-info">
         <div class="si-nome">
           ${spot.name || spot.nome || "Spot"}
         </div>
-
         <div class="si-sub">
           🐟 ${spot.target || "Varie specie"}
         </div>
       </div>
-
       <span class="si-badge">
         ${spot.type || spot.technique || "Spot"}
       </span>
     `;
-
     // Click lista = stesso identico dettaglio del marker
     item.onclick = () => {
       onSpotSelezionato(spot);
     };
-
     panelBody.appendChild(item);
   });
 }
-
 /* === LOGICA POPUP MODALE SALVATAGGIO SPOT === */
 function openSaveSpotModal(spot) {
   currentSelectedSpotForSave = spot;
@@ -2735,24 +2706,19 @@ function openSaveSpotModal(spot) {
   document.getElementById("modalSpotNotes").value = "";
   document.getElementById("saveSpotModal").style.display = "flex";
 }
-
 function closeSaveSpotModal() {
   document.getElementById("saveSpotModal").style.display = "none";
   currentSelectedSpotForSave = null;
 }
-
 function confirmSaveSpot() {
   if (!currentSelectedSpotForSave) return;
-
   const notes = document.getElementById("modalSpotNotes").value;
   const savedSpots = JSON.parse(localStorage.getItem("mySavedSpots") || "[]");
-
   const newEntry = {
     ...currentSelectedSpotForSave,
     userNotes: notes,
     savedAt: new Date().toLocaleDateString()
   };
-
   savedSpots.push(newEntry);
   localStorage.setItem("mySavedSpots", JSON.stringify(savedSpots));
 
