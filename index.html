@@ -561,7 +561,7 @@ body.dark .si-badge {
   font-size:10px; font-weight:800; padding:3px 9px;
   border-radius:6px; text-transform:uppercase; margin-bottom:10px;
 }
-.spot-detail-panel h3 { margin:0 0 12px; font-size:17px; font-weight:900; line-height:1.3; }
+.spot-detail-panel h3 { margin:0 0 12px; font-size:19px; font-weight:900; line-height:1.3; }
 .spot-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
 .spot-detail-cell { background:#f8fafc; border-radius:10px; padding:10px 12px; }
 body.dark .spot-detail-cell { background:#334155; }
@@ -3146,30 +3146,22 @@ function mostraDettaglioPannello(spot) {
   window.__spotItaliaDettaglio = spot;
 
   body.innerHTML = `
-    <div class="spot-detail-panel">
-
-      <span class="sdp-tag">${regione}</span>
-
-      <h3>${nome}</h3>
-
+  <div class="spot-detail-panel">
+  <span class="sdp-tag">📍 ${regione}</span>
+  <h3 class="sdp-title">${nome}</h3>
       <div class="spot-detail-grid">
-
         <div class="spot-detail-cell">
           <div class="sdc-lbl">🎣 Tecnica</div>
           <div class="sdc-val">${tecnica}</div>
         </div>
-
         <div class="spot-detail-cell">
           <div class="sdc-lbl">🐟 Target</div>
           <div class="sdc-val">${target}</div>
         </div>
-
       </div>
-
       <div class="spot-detail-tips">
         <p>💡 ${tips}</p>
       </div>
-
       ${
         Number.isFinite(lat) && Number.isFinite(lon)
         ? `
@@ -3181,34 +3173,25 @@ function mostraDettaglioPannello(spot) {
         `
         : ""
       }
-
       <button
         class="btn-salva-spot-italia"
         id="btnSalvaItalia_${spotId}"
         onclick="salvaSpotItalia(window.__spotItaliaDettaglio)">
         📌 Salva nei miei spot
       </button>
-
       <button
         class="btn-back-lista"
         onclick='tornaListaRegione(${JSON.stringify(regione)})'>
         ← Tutti gli spot di ${regione}
       </button>
-
     </div>
   `;
-
   // Aggiorna subito lo stato del pulsante
   aggiornaLabelSalva(spot);
 }
-
-
 /* === SALVA SPOT ITALIA === */
-
 function salvaSpotItalia(spot) {
-
   if (!spot) return;
-
   const nome = spot.name || spot.nome || "Spot";
   const target = spot.target || "Varie specie";
   const tecnica =
@@ -3216,114 +3199,76 @@ function salvaSpotItalia(spot) {
     spot.technique ||
     spot.tecnica ||
     "Non specificata";
-
   const tips =
     spot.tips ||
     spot.description ||
     spot.desc ||
     "";
-
   const lat = Number(
     spot.lat ??
     spot.coords?.[0]
   );
-
   const lon = Number(
     spot.lon ??
     spot.lng ??
     spot.coords?.[1]
   );
-
   const spots = caricaSpot();
-
   const fonteCorrente = nazioneAttiva === "tn" ? "tunisia" : nazioneAttiva === "fr" ? "francia" : "italia";
-
   const giaSalvato = spots.find(
     s =>
       s.fonte === fonteCorrente &&
       s.nome === nome
   );
-
   if (giaSalvato) {
     alert(
       "Spot già salvato nei tuoi spot! Puoi trovarlo nella sezione Meteo."
     );
     return;
   }
-
   const nuovoSpot = {
     id: Date.now(),
-
     nome: nome,
-
     specie: target,
-
     montatura: tecnica,
-
     note: String(tips).slice(0, 80),
-
     lat: lat,
-
     lon: lon,
-
     data: new Date().toLocaleDateString("it-IT"),
-
     fonte: fonteCorrente
   };
-
   spots.unshift(nuovoSpot);
-
   salvaSpot(spots);
-
   aggiornaLabelSalva(spot);
-
   alert(
     "✅ Spot salvato! Trovi tutti i tuoi spot nella sezione Meteo."
   );
 }
-
-
 /* === AGGIORNA PULSANTE SALVATAGGIO === */
 
 function aggiornaLabelSalva(spot) {
-
   if (!spot) return;
-
   const nome = spot.name || spot.nome || "Spot";
-
   const spotId = encodeURIComponent(nome);
-
   const btn = document.getElementById(
     "btnSalvaItalia_" + spotId
   );
-
   if (!btn) return;
-
   const spots = caricaSpot();
-
   const fonteCorrente = nazioneAttiva === "tn" ? "tunisia" : nazioneAttiva === "fr" ? "francia" : "italia";
-
   const giaSalvato = spots.find(
     s =>
       s.fonte === fonteCorrente &&
       s.nome === nome
   );
-
   if (giaSalvato) {
-
     btn.textContent = "✅ Già salvato";
-
     btn.style.opacity = "0.6";
-
     btn.style.cursor = "default";
-
     btn.onclick = null;
   }
 }
-
-
 /* === TORNA ALLA LISTA DELLA REGIONE === */
-
 function tornaListaRegione(reg) {
   const sorgente = nazioneAttiva === "fr" ? spotsFranceExternal :
                    nazioneAttiva === "tn" ? spotsTunisiaExternal : spotsItalia;
@@ -3335,16 +3280,11 @@ function tornaListaRegione(reg) {
       if (Number.isFinite(lat) && Number.isFinite(lon)) s.coords = [lat, lon];
     }
   });
-
   mostraPannelloLista(lista, reg);
-
   aggiornaMappaSpotItalia(lista);
-
   if (lista.length > 0) {
-
     const coords = lista.map(s => s.coords).filter(c => Array.isArray(c) && c.length >= 2);
     const bounds = L.latLngBounds(coords);
-
     if (bounds.isValid()) {
       spotItaliaMap.fitBounds(bounds, {
         padding: [30, 30],
@@ -3352,14 +3292,11 @@ function tornaListaRegione(reg) {
       });
     }
   }
-
   const n = lista.length;
-
   if (document.getElementById("spotCount")) {
     document.getElementById("spotCount").textContent =
       n + " spot";
   }
-
   if (document.getElementById("mappaSpotCount")) {
     document.getElementById("mappaSpotCount").textContent =
       n + " visibili";
