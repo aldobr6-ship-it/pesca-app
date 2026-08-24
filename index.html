@@ -3049,7 +3049,7 @@ function applicaFiltriSpot(){
    }
   }
 }
-function mostraPannelloLista(lista,titolo){
+function mostraPannelloLista(lista, titolo) {
   const header = document.getElementById("spotPanelHeader");
   const body = document.getElementById("spotPanelBody");
 
@@ -3097,27 +3097,11 @@ function mostraPannelloLista(lista,titolo){
     }, 150);
   }
 }
-    const header=document.getElementById("spotPanelHeader"),body=document.getElementById("spotPanelBody");
-    if(!header||!body)return;
-    header.textContent=`🎣 ${titolo} (${lista.length})`;
-    body.innerHTML="";
-    if(!lista || lista.length===0){
-      body.innerHTML=`<p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">Nessuno spot trovato.</p>`;
-      return;
-    }
-    lista.forEach(s=>{
-      const item=document.createElement("div");
-      item.className="spot-italia-item"+(spotAttivo===s?" active":"");
-      item.innerHTML=`
-        <span class="si-ico">🎣</span>
-        <div class="si-info"><div class="si-nome">${s.name||s.nome||"Spot"}</div><div class="si-sub">🐟 ${s.target||"Varie specie"}</div></div>
-        <span class="si-badge">${s.type||s.technique||s.tecnica||"Spot"}</span>`;
-      item.onclick=()=>onSpotSelezionato(s);
-      body.appendChild(item);
-    });
+function chiudiModaleListaMobile(e) {
+  if (!e || e.target.classList.contains("modal-spot-overlay")) {
+    document.getElementById("spotModalLista")?.remove();
   }
 }
-function chiudiModaleListaMobile(e){if(!e||e.target.classList.contains("modal-spot-overlay"))document.getElementById("spotModalLista")?.remove();}
 function onSpotSelezionato(spot){
   spotAttivo=spot;
   if(spotItaliaMap){
