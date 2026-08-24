@@ -3050,55 +3050,53 @@ function applicaFiltriSpot(){
   }
 }
 function mostraPannelloLista(lista,titolo){
- if(isMobile()){
-  const vecchioModal = document.getElementById("spotModalLista");
-  if (vecchioModal) vecchioModal.remove();
-  const items = (lista || []).map((s, index) => {
-    const nome = s.name || s.nome || "Spot";
-    const target = s.target || "Varie specie";
-    const tecnica = s.type || s.technique || s.tecnica || "Spot";
-    return `
-      <div class="spot-italia-item" data-spot-index="${index}">
-        <span class="si-ico">🎣</span>
-        <div class="si-info">
-          <div class="si-nome">${nome}</div>
-          <div class="si-sub">🐟 ${target}</div>
-        </div>
-        <span class="si-badge">${tecnica}</span>
-      </div>`;
-  }).join("");
-  document.body.insertAdjacentHTML("beforeend", `
-    <div class="modal-spot-overlay" id="spotModalLista"
-         onclick="chiudiModaleListaMobile(event)"
-         style="z-index:9400;">
-      <div class="modal-spot-box" style="max-height:70vh;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-          <span style="font-weight:900;font-size:17px;">
-            🎣 ${titolo}
-            <span style="opacity:0.5;font-size:13px;">(${lista.length})</span>
-          </span>
-          <button
-            onclick="chiudiModaleListaMobile()"
-            style="background:none;border:none;font-size:22px;cursor:pointer;margin:0;padding:0;color:#666;">
-            ✕
-          </button>
-        </div>
-        ${
-          items ||
-          '<p style="opacity:0.5;text-align:center;padding:20px;">Nessuno spot trovato.</p>'
-        }
-      </div>
-    </div>
-  `);
-  const modal = document.getElementById("spotModalLista");
-  if (modal) {
-    modal.querySelectorAll(".spot-italia-item").forEach((item, index) => {
-      item.addEventListener("click", () => {
-        onSpotSelezionato(lista[index]);
-      });
-    });
+  const header = document.getElementById("spotPanelHeader");
+  const body = document.getElementById("spotPanelBody");
+
+  if (!header || !body) return;
+
+  header.textContent = `🎣 ${titolo} (${lista.length})`;
+  body.innerHTML = "";
+
+  if (!lista || lista.length === 0) {
+    body.innerHTML = `
+      <p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">
+        Nessuno spot trovato.
+      </p>`;
+    return;
   }
-  } else {
+
+  lista.forEach((s) => {
+    const item = document.createElement("div");
+
+    item.className =
+      "spot-italia-item" +
+      (spotAttivo === s ? " active" : "");
+
+    item.innerHTML = `
+      <span class="si-ico">🎣</span>
+      <div class="si-info">
+        <div class="si-nome">${s.name || s.nome || "Spot"}</div>
+        <div class="si-sub">🐟 ${s.target || "Varie specie"}</div>
+      </div>
+      <span class="si-badge">
+        ${s.type || s.technique || s.tecnica || "Spot"}
+      </span>
+    `;
+
+    item.onclick = () => onSpotSelezionato(s);
+    body.appendChild(item);
+  });
+
+  if (isMobile()) {
+    setTimeout(() => {
+      document.getElementById("spotPanelRight")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 150);
+  }
+}
     const header=document.getElementById("spotPanelHeader"),body=document.getElementById("spotPanelBody");
     if(!header||!body)return;
     header.textContent=`🎣 ${titolo} (${lista.length})`;
