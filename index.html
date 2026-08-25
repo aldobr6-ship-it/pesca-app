@@ -2576,9 +2576,18 @@ function showCercaSpot() {
       <h3>🗺️ ${t('meteo')}</h3>
       <p style="margin:5px 0 12px; opacity:0.8;">${t('selezionaNazione')}</p>
       <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px;">
-<button onclick="cambiaNazioneEsplorazione('it')" style="padding:10px 16px; background:${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;"><span class="flag flag-it"></span> Italia</button>
-<button onclick="cambiaNazioneEsplorazione('fr')" style="padding:10px 16px; background:${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;"><span class="flag flag-fr"></span> Francia</button>
-<button onclick="cambiaNazioneEsplorazione('tn')" style="padding:10px 16px; background:${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;"><span class="flag flag-tn"></span> Tunisia</button>
+      
+<button onclick="cambiaNazioneEsplorazione('it')" style="padding:10px 16px; background:${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
+  <img src="./img/bandiera_it.png" alt="Italia" style="width:22px;height:22px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
+  Italia
+</button>
+<button onclick="cambiaNazioneEsplorazione('fr')" style="padding:10px 16px; background:${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
+  <img src="./img/bandiera_fr.png" alt="Francia" style="width:22px;height:22px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
+  Francia
+</button>
+<button onclick="cambiaNazioneEsplorazione('tn')" style="padding:10px 16px; background:${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
+  🇹🇳 Tunisia
+</button>
       </div>
     </div>
   `;
