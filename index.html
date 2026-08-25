@@ -120,6 +120,13 @@ footer button {
 }
 body.dark footer button { color: #e2e8f0; }
 footer button:hover { color: #0077b6; }
+  body.home-active footer button:not(:last-child) {
+  display: none;
+}
+body.home-active footer {
+  justify-content: flex-end;
+  padding-right: 14px;
+}
 /* Icone immagini footer */
 .footer-icon {
   width: 36px;
@@ -246,7 +253,16 @@ body.dark .consiglio-card h3 { color: #7dd3fc; }
 .consiglio-row .testo { flex:1; }
 .consiglio-row .titolo { font-weight:700; font-size:13px; margin-bottom:2px; }
 .consiglio-row .valore { font-size:13px; opacity:0.75; line-height:1.5; }
-.mappa-card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.09); }
+.mappa-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+  position: sticky;
+  top: 70px;
+  z-index: 10;
+}
 .mappa-header {
   background: linear-gradient(90deg,#0a2a43,#144d73);
   padding: 10px 16px; display: flex; align-items:center; justify-content:space-between;
@@ -369,8 +385,12 @@ body.dark .filtro-select {
   .spot-split-layout { grid-template-columns: 2fr 1fr; gap: 14px; align-items: start; }
 }
 .spot-mappa-wrap {
-  background: white; border-radius: 20px; overflow: hidden;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: sticky; top: 70px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: relative;
+  top: 0;
 }
 #spotItaliaMap {
   height: 82vh;
@@ -839,6 +859,7 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
 <script>
 /* === NAVIGAZIONE + TEMA + CHIUDI APP === */
 function goTo(fn) {
+  document.body.classList.toggle("home-active", fn === showHome);
   window.scrollTo({ top: 0, behavior: 'instant' });
   fn();
 }
@@ -1233,6 +1254,7 @@ function chiudiApp() {
 <script>
 /* === HOME === */
 function showHome() {
+  document.body.classList.add("home-active");
   document.getElementById("content").innerHTML = `
     <h2 style="margin-top:0;">${t('benvenuto')}</h2>
     <p style="opacity:0.7;margin-bottom:20px;font-size:14px;">${t('seleziona')}</p>
