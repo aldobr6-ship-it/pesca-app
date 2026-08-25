@@ -318,6 +318,69 @@ body.dark .btn-chiudi-modal { background:#334155; color:#e2e8f0; }
   border-radius: 20px; padding: 16px 20px; color: white;
   margin-bottom: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.22);
 }
+  .flag {
+  display: inline-block;
+  width: 24px;
+  height: 16px;
+  margin-right: 7px;
+  vertical-align: -2px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Italia */
+.flag-it {
+  background: linear-gradient(
+    to right,
+    #009246 0%,
+    #009246 33.33%,
+    #ffffff 33.33%,
+    #ffffff 66.66%,
+    #ce2b37 66.66%,
+    #ce2b37 100%
+  );
+}
+
+/* Francia */
+.flag-fr {
+  background: linear-gradient(
+    to right,
+    #0055a4 0%,
+    #0055a4 33.33%,
+    #ffffff 33.33%,
+    #ffffff 66.66%,
+    #ef4135 66.66%,
+    #ef4135 100%
+  );
+}
+
+/* Tunisia */
+.flag-tn {
+  background: #e70013;
+}
+
+.flag-tn::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border-radius: 50%;
+  left: 7px;
+  top: 3px;
+}
+
+.flag-tn::after {
+  content: "★";
+  position: absolute;
+  color: #e70013;
+  font-size: 7px;
+  left: 10px;
+  top: 4px;
+  line-height: 1;
+}
 .spot-italia-header h3 { margin:0 0 3px; font-size:18px; }
 .spot-italia-header p  { margin:0; font-size:12px; opacity:0.75; }
 .spot-count-badge {
@@ -2511,9 +2574,9 @@ function showCercaSpot() {
       <h3>🗺️ ${t('meteo')}</h3>
       <p style="margin:5px 0 12px; opacity:0.8;">${t('selezionaNazione')}</p>
       <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px;">
-<button onclick="cambiaNazioneEsplorazione('it')" style="padding:10px 16px; background:${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">🇮🇹 Italia</button>
-<button onclick="cambiaNazioneEsplorazione('fr')" style="padding:10px 16px; background:${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">🇫🇷 Francia</button>
-<button onclick="cambiaNazioneEsplorazione('tn')" style="padding:10px 16px; background:${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">🇹🇳 Tunisia</button>
+<button onclick="cambiaNazioneEsplorazione('it')" style="padding:10px 16px; background:${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;"><span class="flag flag-it"></span> Italia</button>
+<button onclick="cambiaNazioneEsplorazione('fr')" style="padding:10px 16px; background:${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;"><span class="flag flag-fr"></span> Francia</button>
+<button onclick="cambiaNazioneEsplorazione('tn')" style="padding:10px 16px; background:${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;"><span class="flag flag-tn"></span> Tunisia</button>
       </div>
     </div>
   `;
