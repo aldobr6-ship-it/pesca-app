@@ -2819,7 +2819,7 @@ function generaGiorni(marine,meteo,ora){
 }
 function initMappaPrevisioni(lat,lon,miei_spots){
   if(prevMap){prevMap.remove();prevMap=null;}
-  prevMap=L.map("prevMap",{zoomControl:true}).setView([lat,lon],13);
+  prevMap=L.map("prevMap",{ zoomControl:true, scrollWheelZoom:false, touchZoom:false }).setView([lat,lon],13);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap",maxZoom:18}).addTo(prevMap);
   L.tileLayer("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png",{attribution:"© OpenSeaMap",opacity:0.8}).addTo(prevMap);
   const iconaGPS=L.divIcon({html:'<div style="font-size:28px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));">📍</div>',iconSize:[32,32],iconAnchor:[16,32],className:""});
