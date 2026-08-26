@@ -1526,8 +1526,489 @@
     "type": "Pesca a fondo",
     "target": "Orate Giganti, Mormore, Spigole",
     "tips": "Fondale riparato molto calmo. Sfruttare l'azione d'attesa notturna innescando il cannolicchio o il granchio vivo."
+  },
+   {
+    "name": "Porto di Mentone (Vieux Port molo est)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.7783,
+      7.5086
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Occhiate, Saraghi",
+    "tips": "Acque limpidissime al confine italiano. Pesca notturna fine con fili dello 0.10 e spallinate molto fluide."
+  },
+  {
+    "name": "Porto di Monaco (Molo Rainier III)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.7339,
+      7.4294
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi Maggiori, Occhiate Giganti, Spigole",
+    "tips": "Fondale artificiale profondo oltre gli 8 metri. Richiede canne da 7 o 8 metri e bigattini incollati con ghiaia."
+  },
+  {
+    "name": "Porto di Villefranche-sur-Mer (Banchina interna)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.7042,
+      7.3114
+    ],
+    "type": "Bolognese",
+    "target": "Occhiate, Spigole, Salpe",
+    "tips": "Baia profonda e riparata dai venti. Ottimo lo street fishing notturno rasente le cime delle boe e delle barche."
+  },
+  {
+    "name": "Porto di Nizza (Quai Commerce)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.6947,
+      7.2864
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Salpe",
+    "tips": "Fondale subito profondo. Usare galleggianti scorrevoli leggeri o lenze ben raggruppate per calare rapidi l'esca."
+  },
+  {
+    "name": "Porto di Antibes (Molo Foraneo Quai Nord)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.5883,
+      7.1294
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Occhiate",
+    "tips": "Molo esterno lungo con massicciata rocciosa artificiale. Sfruttare la scaduta di scirocco pescando nella schiuma."
+  },
+  {
+    "name": "Porto di Cannes (Molo Albert-Edouard)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.5514,
+      7.0169
+    ],
+    "type": "Bolognese",
+    "target": "Occhiate Giganti, Spigole, Saraghi",
+    "tips": "Acqua molto limpida. Pescare rigorosamente di notte con fiondate continue di pochissimi bigattini alla volta."
+  },
+  {
+    "name": "Porto di Saint-Tropez (Molo Jean-Réveille)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.2739,
+      6.6386
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Occhiate",
+    "tips": "Ingresso del porto turistico. Ottima l'azione all'alba trattenendo il galleggiante sul taglio della corrente esterna."
+  },
+  {
+    "name": "Porto di Saint-Malo (Moli interni del bacino)",
+    "reg": "Bretagna",
+    "coords": [
+      48.6447,
+      -2.0169
+    ],
+    "type": "Bolognese",
+    "target": "Spigole (Bars), Cefali, Vecchie",
+    "tips": "Fortissima escursione di marea. Pescare nelle due ore centrali dell'alta marea trattenendo la lenza vicino alle paratie."
+  },
+  {
+    "name": "Porto di Brest (Molo de la Praye)",
+    "reg": "Bretagna",
+    "coords": [
+      48.3814,
+      -4.4839
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Merluzzetti",
+    "tips": "Zona portuale profonda e battuta da forti correnti atlantiche. Usare galleggianti da 4-6 grammi e pasture al formaggio."
+  },
+  {
+    "name": "Porto di Concarneau (Banchine del centro storico)",
+    "reg": "Bretagna",
+    "coords": [
+      47.8714,
+      -3.9164
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali",
+    "tips": "Acque salmastre riparate dalle mura. Ottimo lo street fishing notturno sotto i lampioni usando il gamberetto vivo locale."
+  },
+  {
+    "name": "Porto di Lorient (Bacino di Keroman)",
+    "reg": "Bretagna",
+    "coords": [
+      47.7339,
+      -3.3669
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Sgombri",
+    "tips": "Zona portuale commerciale ricca di scarti di pesce. Sfruttare la pasturazione con sarda macinata stesi sul fondo."
+  },
+  {
+    "name": "Porto di Quiberon (Port Maria)",
+    "reg": "Bretagna",
+    "coords": [
+      47.4794,
+      -3.1214
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi oceanici, Vecchie",
+    "tips": "Molo esposto alle correnti della penisola. Pescare all'esterno del braccio artificiale durante la marea montante."
+  },
+  {
+    "name": "Porto di La Rochelle (Bassin des Chalutiers)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      46.1514,
+      -1.1514
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Bacino portuale riparato dalle mareggiate esterne. Pescare rasente i piloni di legno e le banchine galleggianti di notte."
+  },
+  {
+    "name": "Porto di Bayonne (Foce dell'Adour)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      43.5194,
+      -1.4694
+    ],
+    "type": "Bolognese",
+    "target": "Spigole giganti, Cefali",
+    "tips": "Forte corrente fluviale e salmastra. Richiede galleggianti a uovo pesanti (5-8g) e passate trattenute vicino alla sponda."
+  },
+  {
+    "name": "Porto di Saint-Jean-de-Luz (Molo esterno)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      43.3914,
+      -1.6669
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi oceanici, Spigole, Orate",
+    "tips": "Baia protetta dalle dighe nel Golfo di Guascogna. Ottimo con mareggiata esterna in scaduta pescando all'interno."
+  },
+  {
+    "name": "Porto di Arcachon (Banchine del porto turistico)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      44.6614,
+      -1.1539
+    ],
+    "type": "Bolognese",
+    "target": "Orate, Spigole, Cefali",
+    "tips": "Forti correnti dovute allo svuotamento della laguna (bacino). Pescare rigorosamente nei momenti di stasi della marea."
+  },
+  {
+    "name": "Porto di Royan (Imboccatura dell'estuario della Gironda)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      45.6194,
+      -1.0314
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Ombrine bocca d'oro",
+    "tips": "Acque fangose e ricche di nutrimento. Utilizzare esche visibili o pasture molto cariche all'inizio della marea calante."
+  },
+  {
+    "name": "Porto di Cherbourg (Diga di Querqueville)",
+    "reg": "Normandia",
+    "coords": [
+      49.6639,
+      -1.6947
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Merluzzetti (Tacauds)",
+    "tips": "Una delle dighe artificiali più grandi del canale della Manica. Richiede bolognesi da 7-8 metri e lenze pesanti appoggiate sul fondo."
+  },
+  {
+    "name": "Porto di Le Havre (Molo Nord)",
+    "reg": "Normandia",
+    "coords": [
+      49.4839,
+      0.0986
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Sgombri",
+    "tips": "Fondale profondo commerciale. Sfruttare i flussi di marea montante pescando all'ombra delle grandi strutture di cemento."
+  },
+  {
+    "name": "Porto di Dieppe (Canale d'ingresso delle navi)",
+    "reg": "Normandia",
+    "coords": [
+      49.9294,
+      1.0864
+    ],
+    "type": "Bolognese",
+    "target": "Spigole giganti, Cefali, Sogliole di fondo",
+    "tips": "Canale stretto battuto dalle maree. Pescare vicinissimo alla massicciata di pietra fermando il galleggiante nei giri di corrente."
+  },
+  {
+    "name": "Porto di Ouistreham (Porto canale delle chiuse)",
+    "reg": "Normandia",
+    "coords": [
+      49.2864,
+      -0.2539
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali",
+    "tips": "Sbocco del canale di Caen a mare. Le banchine vicino alle chiuse sono ottime dopo l'apertura delle paratie per il pesce in cerca di cibo."
+  },
+  {
+    "name": "Porto di Fécamp (Molo Sud)",
+    "reg": "Normandia",
+    "coords": [
+      49.7614,
+      0.3669
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Merluzzi",
+    "tips": "Fonfale caratterizzato da falesie di gesso. Pescare all'interno del canale d'ingresso riparati dai venti settentrionali di notte."
+  },
+  {
+    "name": "Porto di Mentone (Diga foranea est)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.7783,
+      7.5086
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Mormore",
+    "tips": "Fondale sabbioso-misto molto chiaro. Ideale l'azione notturna a grande distanza usando fili sottili in bobina."
+  },
+  {
+    "name": "Porto di Monaco (Molo Rainier III)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.7339,
+      7.4294
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Saraghi Maggiori, Gronghi",
+    "tips": "Fondale artificiale molto profondo. Usare piombi pesanti scorrevoli e innescare il granchio vivo o il bibi."
+  },
+  {
+    "name": "Porto di Villefranche-sur-Mer (Fondale della baia)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.7042,
+      7.3114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Pagelli, Triglie di scoglio",
+    "tips": "Rada profonda e fangosa con zone di detriti. Ottimo il ledgering leggero notturno con l'arenicola."
+  },
+  {
+    "name": "Porto di Nizza (Imboccatura Quai Commerce)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.6947,
+      7.2864
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Pagelli, Scorfani",
+    "tips": "Il fondale scende rapidamente oltre gli 8 metri. Usare piombi aerodinamici e calamenti a due ami sul fondo."
+  },
+  {
+    "name": "Porto di Antibes (Molo Foraneo Quai Nord)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.5883,
+      7.1294
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Saraghi Maggiori",
+    "tips": "Scogliera artificiale protesa nel largo. Innescare esche dure e selettive come la cozza con guscio o il bibi."
+  },
+  {
+    "name": "Porto di Cannes (Molo Albert-Edouard)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.5514,
+      7.0169
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Triglie di scoglio",
+    "tips": "Lanciare fuori dal molo sulla sabbia pulita. Usare terminali lunghi in fluorocarbon per vincere la diffidenza dei pesci."
+  },
+  {
+    "name": "Porto di Saint-Tropez (Esterno diga Jean-Réveille)",
+    "reg": "Costa Azzurra",
+    "coords": [
+      43.2739,
+      6.6386
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Mormore",
+    "tips": "Lanciare sulle radure sabbiose tra le praterie di posidonia. Ottimo l'innesco del verme americano di notte."
+  },
+  {
+    "name": "Porto di Saint-Malo (Moli esterni del bacino)",
+    "reg": "Bretagna",
+    "coords": [
+      48.6447,
+      -2.0169
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Razze, Rombi",
+    "tips": "Forte escursione di marea. Lanciare sul canale sabbioso profondo usando piombi a tenuta (spike) e trancio di sarda."
+  },
+  {
+    "name": "Porto di Brest (Banchine esterne de la Praye)",
+    "reg": "Bretagna",
+    "coords": [
+      48.3814,
+      -4.4839
+    ],
+    "type": "Pesca a fondo",
+    "target": "Grosse Spigole, Rombi, Gronghi",
+    "tips": "Fondale profondo con correnti costanti atlantiche. Utilizzare calamenti robusti a fondo con il bibi o il muriddu."
+  },
+  {
+    "name": "Porto di Concarneau (Imboccatura del canale)",
+    "reg": "Bretagna",
+    "coords": [
+      47.8714,
+      -3.9164
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Orate, Sogliole",
+    "tips": "Fondale sabbioso-fangoso ricco di crostacei. Molto redditizio l'innesco del granchio o del verme solitario."
+  },
+  {
+    "name": "Porto di Lorient (Moli industriali di Keroman)",
+    "reg": "Bretagna",
+    "coords": [
+      47.7339,
+      -3.3669
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Gronghi, Razze",
+    "tips": "Fondale fangoso portuale ricco di scarti di pesce. Sfruttare la pesca d'attesa notturna con la sarda intera sul fondo."
+  },
+  {
+    "name": "Porto di Quiberon (Diga esterna Port Maria)",
+    "reg": "Bretagna",
+    "coords": [
+      47.4794,
+      -3.1214
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi oceanici, Spigole, Vecchie",
+    "tips": "Massicciata artificiale rocciosa profonda. Calare l'esca stesa sul fondo rasente la base degli scogli esterni."
+  },
+  {
+    "name": "Porto di La Rochelle (Moli del Bassin des Chalutiers)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      46.1514,
+      -1.1514
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Spigole, Ombrine",
+    "tips": "Bacino riparato dal moto ondoso. Ottimo il ledgering con pasturatore (feeder) caricato a pasture chiare e bigattini."
+  },
+  {
+    "name": "Porto di Bayonne (Argine della foce dell'Adour)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      43.5194,
+      -1.4694
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole giganti, Ombrine bocca d'oro",
+    "tips": "Corrente fluviale violenta sul fondo. Usare piombi a piramide pesanti e inneschi vistosi come il verme americano."
+  },
+  {
+    "name": "Porto di Saint-Jean-de-Luz (Diga interna)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      43.3914,
+      -1.6669
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi oceanici, Orate, Spigole",
+    "tips": "Fondale misto protetto dalle forti mareggiate. Ottimo durante i picchi di alta marea con il granchio o il bibi."
+  },
+  {
+    "name": "Porto di Arcachon (Canali esterni del bacino)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      44.6614,
+      -1.1539
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Mormore Giganti",
+    "tips": "Forti correnti dovute allo svuotamento lagunare. Lanciare nei canaloni di sabbia pulita usando l'arenicola."
+  },
+  {
+    "name": "Porto di Royan (Moli dell'estuario della Gironda)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      45.6194,
+      -1.0314
+    ],
+    "type": "Pesca a fondo",
+    "target": "Ombrine bocca d'oro, Spigole, Cefali",
+    "tips": "Acque fangose ricche di oligoelementi. Usare esche dal forte potere olfattivo come il verme di Rimini o la sarda."
+  },
+  {
+    "name": "Porto di Cherbourg (Diga esterna di Querqueville)",
+    "reg": "Normandia",
+    "coords": [
+      49.6639,
+      -1.6947
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Razze, Merluzzetti",
+    "tips": "Una delle dighe più grandi della Manica. Richiede attrezzatura pesante da fondo e terminali corti per evitare grovigli."
+  },
+  {
+    "name": "Porto di Le Havre (Molo Nord esterno)",
+    "reg": "Normandia",
+    "coords": [
+      49.4839,
+      0.0986
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Sogliole, Sgombri di fondo",
+    "tips": "Fondale sabbioso-fangoso molto profondo. Sfruttare la marea montante pescando a fondo stesi sul fango con l'arenicola."
+  },
+  {
+    "name": "Porto di Dieppe (Canale d'ingresso massicciata)",
+    "reg": "Normandia",
+    "coords": [
+      49.9294,
+      1.0864
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole giganti, Sogliole, Passere",
+    "tips": "Canale stretto esposto a forti maree. Lanciare radenti alla barriera di pietra usando piombi a tenuta e coreano."
+  },
+  {
+    "name": "Porto di Ouistreham (Sbocco canale delle chiuse)",
+    "reg": "Normandia",
+    "coords": [
+      49.2864,
+      -0.2539
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Anguille, Sogliole",
+    "tips": "Fondale fangoso di foce salmastra. Sfruttare l'apertura delle paratie delle chiuse pescando a fondo con il bibi."
+  },
+  {
+    "name": "Porto di Fécamp (Molo Sud esterno)",
+    "reg": "Normandia",
+    "coords": [
+      49.7614,
+      0.3669
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Merluzzi, Passere",
+    "tips": "Fondale misto a ciottoli e roccia calcarea. Ottima la pesca notturna d'attesa innescando il cannolicchio o il muriddu."
   }
 ]
-
-  
-
