@@ -1299,15 +1299,15 @@ const tecnicheListIt = [
   { nome:"Spinning",       emoji:"🎣", desc:"Esche artificiali da riva", fn:"showSpinning" },
   { nome:"Eging",          emoji:"🦑", desc:"Seppie e calamari", fn:"showEging" },
   { nome:"Pesca a Fondo",  emoji:"⚓", desc:"Porto e scogliera", fn:"showFondo" },
-  { nome:"Galleggiante",   emoji:"🎈", desc:"Tecnica precisa e leggera", fn:"showGalleggiante" },
+  { nome:"Pesca alla Bolognese", emoji:"🎈", desc:"Tecnica precisa e leggera", fn:"showGalleggiante" },
   { nome:"Beach Ledgering", emoji:"🎣", desc:"Spiaggia, mare calmo", fn:"showBeachLedgering" }
 ];
 const tecnicheListFr = [
   { nome:"Surfcasting",    emoji:"🏖️", desc:"Plage, plombs lourds", fn:"showSurfcasting" },
   { nome:"Spinning",       emoji:"🎣", desc:"Leurres depuis la rive", fn:"showSpinning" },
   { nome:"Eging",          emoji:"🦑", desc:"Seiches et calamars", fn:"showEging" },
-  { nome:"Pêche au Fond",  emoji:"⚓", desc:"Port et rochers", fn:"showFondo" },
-  { nome:"Flotteur",   emoji:"🎈", desc:"Technique précise et légère", fn:"showGalleggiante" },
+  { nome:"Pêche à fond", emoji:"⚓", desc:"Port et rochers", fn:"showFondo" },
+  { nome:"Pêche à la Bolonaise / Pêche à l’anglaise", emoji:"🎈", desc:"Technique précise et légère", fn:"showGalleggiante" },
   { nome:"Beach Ledgering", emoji:"🎣", desc:"Plage, mer calme", fn:"showBeachLedgering" }
 ];
 const videoTecniche = {
@@ -2571,11 +2571,12 @@ function showCercaSpot() {
         ${opzioniRegioni}
       </select>
       <select class="filtro-select" id="filtroTech" onchange="applicaFiltriSpot()" style="padding: 8px; border-radius: 6px;">
-        <option value="all">🎣 Ogni tecnica</option>
-        <option value="Surfcasting">Surfcasting</option>
-        <option value="Spinning">Spinning</option>
-        <option value="Eging">Eging</option>
-        <option value="Bolognese">Bolognese/Fondo</option>
+       <option value="all">🎣 Ogni tecnica</option>
+       <option value="Surfcasting">Surfcasting / Beach Ledgering</option>
+       <option value="Spinning">Spinning</option>
+       <option value="Eging">Eging</option>
+       <option value="Bolognese">Bolognese</option>
+       <option value="Fondo">Pesca a Fondo</option>
       </select>
     </div>
   `;
@@ -3004,11 +3005,19 @@ function normalizzaSpotTunisia(spot){
 }
 function tecnicaSpotCorrisponde(spot, tecnicaFiltro){
   if(!tecnicaFiltro || tecnicaFiltro === "all") return true;
-  const testo = normalizzaTestoSpot(spot.type || spot.technique || spot.tecnica || "");
+  const testo = normalizzaTestoSpot(
+    spot.type || spot.technique || spot.tecnica || ""
+  );
   const f = normalizzaTestoSpot(tecnicaFiltro);
   if(!f) return true;
-  if(f === "bolognese") return testo.includes("bolognese") || testo.includes("fondo");
+  if(f === "bolognese") {
+    return testo.includes("bolognese");
+  }
+  if(f === "fondo") {
+    return testo.includes("fondo");
+  }
   return testo.includes(f);
+}
 }
 function applicaFiltriSpot(){
   const reg=document.getElementById("filtroReg")?.value||"all";
