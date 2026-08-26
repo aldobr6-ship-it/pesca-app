@@ -2968,6 +2968,237 @@
     "type": "Pesca a fondo",
     "target": "Orate Giganti, Saraghi, Triglie",
     "tips": "Fondale commerciale fangoso. Innescare esche selettive e dure come il bibi o il cannolicchio intero con guscio."
+  },
+   {
+    "name": "Porto di Maratea (Punta del Porto)",
+    "reg": "Basilicata",
+    "coords": [
+      40.0031,
+      15.7139
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Maggiori, Orate, Corvine",
+    "tips": "Fondale roccioso e profondo sulla costa tirrenica. Usare montature a un amo alto per staccare l'esca dagli scogli."
+  },
+  {
+    "name": "Foce del Bradano - Metaponto Lido",
+    "reg": "Basilicata",
+    "coords": [
+      40.3814,
+      16.8417
+    ],
+    "type": "Pesca a fondo",
+    "target": "Ombrine, Orate, Spigole",
+    "tips": "Fondale sabbioso-fangoso ionico molto ricco. Massima resa dopo le piene del fiume usando l'americano o il granchio."
+  },
+  {
+    "name": "Foce del Basento - Marina di Pisticci",
+    "reg": "Basilicata",
+    "coords": [
+      40.3294,
+      16.8214
+    ],
+    "type": "Pesca a fondo",
+    "target": "Mormore Giganti, Orate, Pesci Serra",
+    "tips": "Sabbia fine digradante. Lanciare nel canalone centrale a fondo con l'arenicola per i grufolatori diffidenti."
+  },
+  {
+    "name": "Porto di Giulianova (Molo Nord)",
+    "reg": "Abruzzo",
+    "coords": [
+      42.7539,
+      13.9783
+    ],
+    "type": "Pesca a fondo",
+    "target": "Mormore, Orate, Passere",
+    "tips": "Sabbia profonda esterna alla diga. Terminali lunghi e sottili per intercettare i branchi di mormore di passaggio."
+  },
+  {
+    "name": "Porto di Ortona (Molo Nord)",
+    "reg": "Abruzzo",
+    "coords": [
+      42.3583,
+      14.4114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Spigole",
+    "tips": "Fondale profondo misto a scogliera artificiale. Ottimo l'innesco del bibi o del cannolicchio intero di notte."
+  },
+  {
+    "name": "Porto di Vasto (Punta Penna)",
+    "reg": "Abruzzo",
+    "coords": [
+      42.1714,
+      14.7139
+    ],
+    "type": "Pesca a fondo",
+    "target": "Grosse Orate, Saraghi, Gronghi",
+    "tips": "Fondale profondo oltre i 7 metri. Calare la lenza sul gradino di fondo a ridosso delle massicciate esterne."
+  },
+  {
+    "name": "Porto di Termoli (Molo Sud)",
+    "reg": "Molise",
+    "coords": [
+      42.0039,
+      15.0014
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Pizzuti, Orate, Sformi",
+    "tips": "Lanciare sui piazzali di sabbia antistanti i blocchi rocciosi. Utilizzare piombi scorrevoli e terminali in fluorocarbon."
+  },
+  {
+    "name": "Foce del Biferno - Campomarino Lido",
+    "reg": "Molise",
+    "coords": [
+      41.9694,
+      15.0417
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Ombrine, Cefali",
+    "tips": "Ambiente salmastro fangoso. Ottimo l'innesco del verme coreano o della sarda in tranci durante i cambi di marea."
+  },
+  {
+    "name": "Porto di Trieste (Molo VII)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.6447,
+      13.7539
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Passere, Spigole",
+    "tips": "Fondale portuale profondo e fangoso. Molto redditizia la pesca d'attesa notturna con il bibi o il muriddu."
+  },
+  {
+    "name": "Porto di Monfalcone (Canale d'Accesso)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.7814,
+      13.5369
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Spigole, Cefali",
+    "tips": "Zona industriale riparata. Sfruttare le ore centrali del picco di alta marea pescando corti dalla banchina."
+  },
+  {
+    "name": "Porto di Grado (Molo Torpediniere)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.6764,
+      13.3839
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Passere di mare, Anguille",
+    "tips": "Forte escursione di marea della laguna. Utilizzare piombi a tenuta o pasturatori feeder caricati a sarda."
+  },
+  {
+    "name": "Porto Lignano - Marina Punta Faro",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.6964,
+      13.1447
+    ],
+    "type": "Pesca a fondo",
+    "target": "Mormore, Orate, Spigole",
+    "tips": "Fondale sabbioso-fangoso all'imboccatura del canale lagunare. Lanciare lungo le correnti di riflusso con arenicola."
+  },
+  {
+    "name": "Molo Audace - Trieste",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.6514,
+      13.7669
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Occhiate",
+    "tips": "Spot cittadino centrale con fondale profondo. Molto catturante l'azione notturna a ridosso delle banchine fiondando bigattini sfusi e pescando staccati dal fondo."
+  },
+  {
+    "name": "Diga Vecchia di Trieste (Porto Vecchio)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.6583,
+      13.7583
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Spigole, Orate",
+    "tips": "Struttura frangiflutti esposta a correnti costanti. Richiede l'uso di bolognesi da 7 metri per gestire la calata della lenza tra le buche del fondale roccioso."
+  },
+  {
+    "name": "Porto di Barcola (Moli esterni)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.6794,
+      13.7539
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Occhiate",
+    "tips": "Ottimo spot durante i cambi di luce (alba e crepuscolo). Usare galleggianti leggeri da 1.5 - 2 grammi e terminali lunghi in fluorocarbon dello 0.10."
+  },
+  {
+    "name": "Porto di Sistina (Duino-Aurisina)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.7725,
+      13.6339
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi Maggiori",
+    "tips": "Acqua molto limpida all'interno della baia rocciosa. Indispensabile la pesca notturna rasente le barche ormeggiate o le scogliere esterne con mareggiata leggera."
+  },
+  {
+    "name": "Porto di Muggia (Molo Esterno)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.6114,
+      13.7639
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Zona riparata dai venti meridionali. Sfruttare la pasturazione continua con sfarinati a base di formaggio per attirare i grossi cefali stesi sul fondo."
+  },
+  {
+    "name": "Foce dell'Isonzo - Punta Barene (Staranzano)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.7239,
+      13.5114
+    ],
+    "type": "Bolognese",
+    "target": "Spigole giganti, Cefali",
+    "tips": "Ambiente salmastro selvaggio soggetto a forti maree. Utilizzare galleggianti piombati a uovo per trattenere la passata in corrente nei pressi della foce."
+  },
+  {
+    "name": "Porto di Monfalcone (Canale dei pescatori)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.7947,
+      13.5386
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Orate",
+    "tips": "Canale industriale con acque più calde. Eccellente in inverno e inizio primavera; pescare a centro canale impostando una spallinata molto aperta."
+  },
+  {
+    "name": "Porto di Grado (Molo Torpediniere)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.6764,
+      13.3839
+    ],
+    "type": "Bolognese",
+    "target": "Orate, Spigole, Cefali",
+    "tips": "Punto strategico di scambio marea della laguna. Pescare nelle due ore a cavallo del picco di alta marea stendendo il terminale sul fondo sabbioso."
+  },
+  {
+    "name": "Foce del Tagliamento - Lignano Riviera (Marina Uno)",
+    "reg": "Friuli-Venezia Giulia",
+    "coords": [
+      45.6447,
+      13.1039
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Orate, Cefali",
+    "tips": "Confine salmastro. Molto redditizio l'innesco del gamberetto vivo locale o la corona di bigattini pescando a ridosso dei pali e delle strutture portuali."
   }
 ]
 
