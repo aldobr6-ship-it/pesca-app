@@ -3010,134 +3010,129 @@ function tecnicaSpotCorrisponde(spot, tecnicaFiltro){
   );
   const f = normalizzaTestoSpot(tecnicaFiltro);
   if(!f) return true;
-  if(f === "bolognese") {
+  if(f === "bolognese"){
     return testo.includes("bolognese");
   }
-  if(f === "fondo") {
+  if(f === "fondo"){
     return testo.includes("fondo");
   }
   return testo.includes(f);
 }
-}
 function applicaFiltriSpot(){
-  const reg=document.getElementById("filtroReg")?.value||"all";
-  const tech=document.getElementById("filtroTech")?.value||"all";
-  let sorgente = nazioneAttiva === "fr"
-    ? spotsFranceExternal
-    : nazioneAttiva === "tn"
-      ? spotsTunisiaExternal
-      : spotsItalia;
-  // Normalizzazione sicura degli spot Tunisia.
-  if(nazioneAttiva === "tn") {
-    sorgente = Array.isArray(sorgente) ? sorgente.map(normalizzaSpotTunisia) : [];
-  }
-  const filtrati = (Array.isArray(sorgente) ? sorgente : []).filter(s =>
-    regioneSpotCorrisponde(s, reg) && tecnicaSpotCorrisponde(s, tech)
-  );
-  filtrati.forEach(s=>{
-    if(!s.coords){
-      const lat=Number(s.lat ?? s.latitude ?? s.coords?.[0]);
-      const lon=Number(s.lon ?? s.lng ?? s.longitude ?? s.coords?.[1]);
-      if(Number.isFinite(lat)&&Number.isFinite(lon)) s.coords=[lat,lon];
-    }
-  });
-  aggiornaMappaSpotItalia(filtrati);
-  const n=filtrati.length;
-  if(document.getElementById("spotCount"))document.getElementById("spotCount").textContent=n+" spot";
-  if(document.getElementById("mappaSpotCount"))document.getElementById("mappaSpotCount").textContent=n+" visibili";
-  if(reg!=="all"||tech!=="all"){
-    mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
-    const coords=filtrati.map(s=>s.coords).filter(c=>Array.isArray(c)&&c.length>=2);
-    if (coords.length > 0 && spotItaliaMap) {
-  const bounds = L.latLngBounds(coords);
-  if (bounds.isValid()) {
-    spotItaliaMap.fitBounds(bounds, {
-      padding: [40, 40],
-      maxZoom: 11
-    });
-  }
-}function applicaFiltriSpot() {
-  const reg = document.getElementById("filtroReg")?.value || "all";
-  const tech = document.getElementById("filtroTech")?.value || "all";
-
+  const reg =
+    document.getElementById("filtroReg")?.value || "all";
+  const tech =
+    document.getElementById("filtroTech")?.value || "all";
   let sorgente =
     nazioneAttiva === "fr"
       ? spotsFranceExternal
       : nazioneAttiva === "tn"
         ? spotsTunisiaExternal
         : spotsItalia;
-  if (nazioneAttiva === "tn") {
+  if(nazioneAttiva === "tn"){
     sorgente = Array.isArray(sorgente)
       ? sorgente.map(normalizzaSpotTunisia)
       : [];
   }
-  const filtrati = (Array.isArray(sorgente) ? sorgente : []).filter((s) =>
-    regioneSpotCorrisponde(s, reg) &&
-    tecnicaSpotCorrisponde(s, tech)
-  );
-  filtrati.forEach((s) => {
-    if (!s.coords) {
+  const filtrati =
+    (Array.isArray(sorgente) ? sorgente : []).filter(
+      s =>
+        regioneSpotCorrisponde(s, reg) &&
+        tecnicaSpotCorrisponde(s, tech)
+    );
+  filtrati.forEach(s => {
+    if(!s.coords){
       const lat = Number(
-        s.lat ?? s.latitude ?? s.coords?.[0]
+        s.lat ??
+        s.latitude ??
+        s.coords?.[0]
       );
       const lon = Number(
-        s.lon ?? s.lng ?? s.longitude ?? s.coords?.[1]
+        s.lon ??
+        s.lng ??
+        s.longitude ??
+        s.coords?.[1]
       );
-      if (Number.isFinite(lat) && Number.isFinite(lon)) {
+      if(
+        Number.isFinite(lat) &&
+        Number.isFinite(lon)
+      ){
         s.coords = [lat, lon];
       }
     }
   });
   aggiornaMappaSpotItalia(filtrati);
   const n = filtrati.length;
-  if (document.getElementById("spotCount")) {
-    document.getElementById("spotCount").textContent = n + " spot";
+  if(document.getElementById("spotCount")){
+    document.getElementById("spotCount").textContent =
+      n + " spot";
   }
-  if (document.getElementById("mappaSpotCount")) {
-    document.getElementById("mappaSpotCount").textContent = n + " visibili";
+  if(document.getElementById("mappaSpotCount")){
+    document.getElementById("mappaSpotCount").textContent =
+      n + " visibili";
   }
-  if (reg !== "all" || tech !== "all") {
+  if(reg !== "all" || tech !== "all"){
     mostraPannelloLista(
       filtrati,
-      reg !== "all" ? reg : "Risultati filtro"
+      reg !== "all"
+        ? reg
+        : "Risultati filtro"
     );
     const coords = filtrati
-      .map((s) => s.coords)
+      .map(s => s.coords)
       .filter(
-        (c) => Array.isArray(c) && c.length >= 2
+        c =>
+          Array.isArray(c) &&
+          c.length >= 2
       );
-    if (coords.length > 0 && spotItaliaMap) {
+    if(coords.length > 0 && spotItaliaMap){
       const bounds = L.latLngBounds(coords);
-      if (bounds.isValid()) {
-        spotItaliaMap.fitBounds(bounds, {
-          padding: [40, 40],
-          maxZoom: 11
-        });
+      if(bounds.isValid()){
+        spotItaliaMap.fitBounds(
+          bounds,
+          {
+            padding: [40, 40],
+            maxZoom: 11
+          }
+        );
       }
     }
-  } else {
+  }
+  else {
     mostraPannelloLista(
       filtrati,
       "Tutte le regioni"
     );
     const coordsTutti = filtrati
-      .map((s) => s.coords)
+      .map(s => s.coords)
       .filter(
-        (c) => Array.isArray(c) && c.length >= 2
+        c =>
+          Array.isArray(c) &&
+          c.length >= 2
       );
-    if (coordsTutti.length > 0 && spotItaliaMap) {
-      const bounds = L.latLngBounds(coordsTutti);
-      if (bounds.isValid()) {
-        spotItaliaMap.fitBounds(bounds, {
-          padding: [30, 30],
-          maxZoom: 7
-        });
+    if(
+      coordsTutti.length > 0 &&
+      spotItaliaMap
+    ){
+      const bounds =
+        L.latLngBounds(coordsTutti);
+      if(bounds.isValid()){
+        spotItaliaMap.fitBounds(
+          bounds,
+          {
+            padding: [30, 30],
+            maxZoom: 7
+          }
+        );
       }
     }
     const header =
-      document.getElementById("spotPanelHeader");
-    if (header) {
-      header.textContent = "📋 Tutti gli spot";
+      document.getElementById(
+        "spotPanelHeader"
+      );
+    if(header){
+      header.textContent =
+        "📋 Tutti gli spot";
     }
   }
 }
