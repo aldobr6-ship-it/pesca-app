@@ -2630,7 +2630,7 @@
   },
   {
     "name": "Porto di Pescara (PE)",
-    "reg": "Abruzzo",
+    "reg":  "Abruzzo-Molise",
     "coords": [
       42.4694,
       14.2294
@@ -2927,7 +2927,7 @@
   },
   {
     "name": "Porto di Pescara (PE)",
-    "reg": "Abruzzo",
+    "reg":  "Abruzzo-Molise",
     "coords": [
       42.4694,
       14.2294
@@ -3004,7 +3004,7 @@
   },
   {
     "name": "Porto di Giulianova (Molo Nord)",
-    "reg": "Abruzzo",
+    "reg":  "Abruzzo-Molise",
     "coords": [
       42.7539,
       13.9783
@@ -3015,7 +3015,7 @@
   },
   {
     "name": "Porto di Ortona (Molo Nord)",
-    "reg": "Abruzzo",
+    "reg":  "Abruzzo-Molise",
     "coords": [
       42.3583,
       14.4114
@@ -3026,7 +3026,7 @@
   },
   {
     "name": "Porto di Vasto (Punta Penna)",
-    "reg": "Abruzzo",
+    "reg":  "Abruzzo-Molise",
     "coords": [
       42.1714,
       14.7139
