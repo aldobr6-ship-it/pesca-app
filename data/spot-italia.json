@@ -2374,5 +2374,600 @@
     "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
     "tips": "Spot spinning in Italia."
+  },
+  {
+    "name": "Porto di Sestri Levante (GE)",
+    "reg": "Liguria",
+    "coords": [
+      44.2721,
+      9.3942
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Cefali",
+    "tips": "Pescare all'interno del porto con mareggiata o dal molo esterno a mare calmo. Pasturare a bigattini."
+  },
+  {
+    "name": "Porto di Savona (SV)",
+    "reg": "Liguria",
+    "coords": [
+      44.3168,
+      8.4912
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Occhiate",
+    "tips": "Ottima illuminazione notturna. Pesca fine con fili sottili e galleggianti leggeri sotto i lampioni."
+  },
+  {
+    "name": "Porto di Oneglia (IM)",
+    "reg": "Liguria",
+    "coords": [
+      43.8864,
+      8.0431
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Orate",
+    "tips": "Molo foraneo esterno ottimo con mare in scaduta. Scogliera profonda artificiale, esca radente il fondo."
+  },
+  {
+    "name": "Canale di Fiumicino (RM)",
+    "reg": "Lazio",
+    "coords": [
+      41.7714,
+      12.2239
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Spigole giganti",
+    "tips": "Spot storico italiano. Corrente forte, usare galleggianti a uovo o passate trattenute con gambero vivo."
+  },
+  {
+    "name": "Porto di Civitavecchia (RM)",
+    "reg": "Lazio",
+    "coords": [
+      42.0964,
+      11.7894
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Spigole, Orate",
+    "tips": "Fondale profondo oltre i 7 metri. Richiede canne da 7 o 8 metri e lenze pesanti ben raggruppate."
+  },
+  {
+    "name": "Porto Ercole (GR)",
+    "reg": "Toscana",
+    "coords": [
+      42.3914,
+      11.2114
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Occhiate, Saraghi",
+    "tips": "Acqua molto limpida. Pescare rigorosamente di notte o all'alba con terminali dello 0.10 e fluorocarbon."
+  },
+  {
+    "name": "Porto di Livorno (LI)",
+    "reg": "Toscana",
+    "coords": [
+      43.5514,
+      10.2986
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Diga della Meloria e moli interni ottimi con pasture a base di formaggio o sarda per i cefali."
+  },
+  {
+    "name": "Porto di Napoli - Molo Beverello (NA)",
+    "reg": "Campania",
+    "coords": [
+      40.8364,
+      14.2583
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Occhiate",
+    "tips": "Zona di forte transito di traghetti che muovono il fondo. Ottimo lo street fishing notturno estivo."
+  },
+  {
+    "name": "Foce del Sele (SA)",
+    "reg": "Campania",
+    "coords": [
+      40.4794,
+      14.9314
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali",
+    "tips": "Acque salmastre. Perfetto dopo una piovuta quando l'acqua schiarisce. Esca regina: bigattino o gamberetto."
+  },
+  {
+    "name": "Porto di Pozzuoli (NA)",
+    "reg": "Campania",
+    "coords": [
+      40.8264,
+      14.1169
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Orate",
+    "tips": "Molo calmo interno ideale per l'inverno. Fondale sabbioso e roccioso misto, pescare staccati dal fondo."
+  },
+  {
+    "name": "Porto di Manfredonia (FG)",
+    "reg": "Puglia",
+    "coords": [
+      41.6264,
+      15.9294
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Saraghi",
+    "tips": "Molo di ponente ottimo durante le mareggiate di levante. Pasturare con bigattino sfuso e incollato."
+  },
+  {
+    "name": "Molo San Cataldo - Porto di Taranto (TA)",
+    "reg": "Puglia",
+    "coords": [
+      40.4794,
+      17.2186
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Orate, Occhiate",
+    "tips": "Fondale profondo e correnti costanti. Usare canne da 7 metri con montature a spallinata molto aperta."
+  },
+  {
+    "name": "Porto di Otranto (LE)",
+    "reg": "Puglia",
+    "coords": [
+      40.1494,
+      18.4947
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Spigole, Salpe",
+    "tips": "Acqua cristallina. Pescare di notte o all'alba con terminali lunghi in fluorocarbon dello 0.10."
+  },
+  {
+    "name": "Molo Nord - Porto di Catania (CT)",
+    "reg": "Sicilia",
+    "coords": [
+      37.5028,
+      15.1014
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Occhiate, Saraghi",
+    "tips": "Presenza di forte corrente marina. Ottimo l'innesco del gamberetto vivo o del coreano radente il fondo."
+  },
+  {
+    "name": "Molo Trapezoidale - Porto di Palermo (PA)",
+    "reg": "Sicilia",
+    "coords": [
+      38.1264,
+      13.3694
+    ],
+    "type": "Bolognese",
+    "target": "Cefali, Spigole, Salpe",
+    "tips": "Spot cittadino con illuminazione artificiale. Usare galleggianti leggeri e pasture a base di formaggio."
+  },
+  {
+    "name": "Porto Novo - Siracusa (SR)",
+    "reg": "Sicilia",
+    "coords": [
+      37.0639,
+      15.2864
+    ],
+    "type": "Bolognese",
+    "target": "Orate, Saraghi, Spigole",
+    "tips": "Fondale misto roccia e sabbia. Esca consigliata: bigattino steso sul fondo per intercettare i grufolatori."
+  },
+  {
+    "name": "Porto di Crotone (KR)",
+    "reg": "Calabria",
+    "coords": [
+      39.0883,
+      17.1364
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Orate, Occhiate",
+    "tips": "Ottima resa all'imboccatura del porto durante i cambi di marea. Usare pasture chiare a base di sarda."
+  },
+  {
+    "name": "Porto di Reggio Calabria (RC)",
+    "reg": "Calabria",
+    "coords": [
+      38.1214,
+      15.6514
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Occhiate, Saraghi",
+    "tips": "Correnti dello Stretto molto intense. Utilizzare galleggianti piombati o a uovo per mantenere la passata."
+  },
+  {
+    "name": "Porto di Ancona - Molo Sud (AN)",
+    "reg": "Marche",
+    "coords": [
+      43.6214,
+      13.5114
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Boghe",
+    "tips": "Scogliera artificiale esposta ai venti. Pescare all'interno del molo foraneo con mare molto mosso fuori."
+  },
+  {
+    "name": "Porto di San Benedetto del Tronto (AP)",
+    "reg": "Marche",
+    "coords": [
+      42.9539,
+      13.8883
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Saraghi",
+    "tips": "Fondale medio-basso. Richiede una spallinata molto fluida ed esca leggera per assecondare la risacca."
+  },
+  {
+    "name": "Porto di Chioggia - Diga Sottomarina (VE)",
+    "reg": "Veneto",
+    "coords": [
+      45.2264,
+      12.3014
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Orate, Cefali",
+    "tips": "Forte escursione di marea della laguna. Pescare nelle due ore centrali del picco di alta marea."
+  },
+  {
+    "name": "Foce del Tagliamento - Bibione (VE)",
+    "reg": "Veneto",
+    "coords": [
+      45.6417,
+      13.1014
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali",
+    "tips": "Ambiente salmastro. Molto redditizio dopo le mareggiate autunnali usando come esca la corona di bigattini."
+  },
+  {
+    "name": "Porto Canale di Cervia (RA)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.2669,
+      12.3583
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali",
+    "tips": "Street fishing classico lungo le banchine. Ideale la pesca notturna rasente le barche ormeggiate."
+  },
+  {
+    "name": "Porto di Pescara (PE)",
+    "reg": "Abruzzo",
+    "coords": [
+      42.4694,
+      14.2294
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Molo foraneo esposto ai quadranti settentrionali. Pescare all'alba trattenendo il galleggiante in corrente."
+  },
+  {
+    "name": "Porto di Termoli (CB)",
+    "reg": "Molise",
+    "coords": [
+      42.0039,
+      15.0014
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Spigole, Occhiate",
+    "tips": "Scogliera esterna profonda. Usare canne bolognesi da 7 o 8 metri per superare il gradino roccioso artificiale."
+  },
+  {
+    "name": "Porto di Arbatax (NU)",
+    "reg": "Sardegna",
+    "coords": [
+      39.9364,
+      9.7042
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi Maggiori, Spigole, Orate",
+    "tips": "Fondale profondo oltre i 9 metri. Obbligatorio incollare i bigattini con ghiaia per far scendere la pastura."
+  },
+  {
+    "name": "Molo di Ponente - Porto di Cagliari (CA)",
+    "reg": "Sardegna",
+    "coords": [
+      39.2114,
+      9.1083
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Presenza di navi commerciali. Sfruttare la scia dei motori che alzano nutrimento dal fondo sabbioso."
+  },
+  {
+    "name": "Porto di Sestri Levante (GE)",
+    "reg": "Liguria",
+    "coords": [
+      44.2721,
+      9.3942
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Triglie",
+    "tips": "Fondale misto a ridosso dei moli esterni. Ottimo l'uso del piombo scorrevole con esca tipo bibi o granchio."
+  },
+  {
+    "name": "Porto di Savona (SV)",
+    "reg": "Liguria",
+    "coords": [
+      44.3168,
+      8.4912
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Ombrine",
+    "tips": "Pescare sul fondo sabbioso del canale di ingresso. Usare terminali lunghi in fluorocarbon con arenicola."
+  },
+  {
+    "name": "Porto di Oneglia (IM)",
+    "reg": "Liguria",
+    "coords": [
+      43.8864,
+      8.0431
+    ],
+    "type": "Pesca a fondo",
+    "target": "Grosse Orate, Saraghi",
+    "tips": "Lanciare nei pressi della sabbia vicino alla barriera artificiale esterna. Esca consigliata: verme di Rimini."
+  },
+  {
+    "name": "Canale di Fiumicino (RM)",
+    "reg": "Lazio",
+    "coords": [
+      41.7714,
+      12.2239
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Anguille, Gronghi",
+    "tips": "Uscita del canale con corrente sul fondo. Usare piombi a piramide pesanti e trancio di sarda o pasturatore feeder."
+  },
+  {
+    "name": "Porto di Civitavecchia (RM)",
+    "reg": "Lazio",
+    "coords": [
+      42.0964,
+      11.7894
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Orate, Pagelli",
+    "tips": "Fondale molto profondo e pulito. Ottima resa nelle ore notturne montando un pater noster a due braccioli."
+  },
+  {
+    "name": "Porto Ercole (GR)",
+    "reg": "Toscana",
+    "coords": [
+      42.3914,
+      11.2114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Mormore",
+    "tips": "Acque chiare e fondale sabbioso fuori dal molo. Pescare di notte a lunga distanza con filo sottile in bobina."
+  },
+  {
+    "name": "Porto di Livorno (LI)",
+    "reg": "Toscana",
+    "coords": [
+      43.5514,
+      10.2986
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Razze",
+    "tips": "Banchine interne e zone industriali. Funziona molto bene l'innesco del bibi o della cozza intera aperta."
+  },
+  {
+    "name": "Porto di Napoli - Molo Beverello (NA)",
+    "reg": "Campania",
+    "coords": [
+      40.8364,
+      14.2583
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Spigole, Gronghi",
+    "tips": "Fondale fangoso ricco di nutrimento. Ottimi risultati pescando a fondo di notte tra le cime degli ormeggi."
+  },
+  {
+    "name": "Foce del Sele (SA)",
+    "reg": "Campania",
+    "coords": [
+      40.4794,
+      14.9314
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Ombrine, Cefali",
+    "tips": "Ambiente di foce con fango e detriti. Usare esche vistose e odorose come l'americano o il trancio di cefalo."
+  },
+  {
+    "name": "Porto di Pozzuoli (NA)",
+    "reg": "Campania",
+    "coords": [
+      40.8264,
+      14.1169
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Triglie",
+    "tips": "Fondale misto all'esterno della diga foranea. Ideale l'alba e il tramonto pescando a ledgering leggero."
+  },
+  {
+    "name": "Porto di Manfredonia (FG)",
+    "reg": "Puglia",
+    "coords": [
+      41.6264,
+      15.9294
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Saraghi",
+    "tips": "Ampio golfo sabbioso. Lanciare fuori dal molo con montature a piombo scorrevole leggero e arenicola come esca."
+  },
+  {
+    "name": "Molo San Cataldo - Porto di Taranto (TA)",
+    "reg": "Puglia",
+    "coords": [
+      40.4794,
+      17.2186
+    ],
+    "type": "Pesca a fondo",
+    "target": "Grosse Orate, Saraghi Pizzuti",
+    "tips": "Fondale profondo con detriti e cozze. Innescare il granchio vivo o la cozza con guscio per evitare i piccoli pesci."
+  },
+  {
+    "name": "Porto di Otranto (LE)",
+    "reg": "Puglia",
+    "coords": [
+      40.1494,
+      18.4947
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Maggiori, Orate, Prati",
+    "tips": "Acqua limpidissima. Richiede calamenti lunghi (oltre i 2 metri) in puro fluorocarbon e ami piccoli molto robusti."
+  },
+  {
+    "name": "Molo Nord - Porto di Catania (CT)",
+    "reg": "Sicilia",
+    "coords": [
+      37.5028,
+      15.1014
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Spigole",
+    "tips": "Zona rocciosa e sabbiosa alla base del molo. Molto efficace il coreano o il cordolo di verme di Rimini sul fondo."
+  },
+  {
+    "name": "Molo Trapezoidale - Porto di Palermo (PA)",
+    "reg": "Sicilia",
+    "coords": [
+      38.1264,
+      13.3694
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Gronghi",
+    "tips": "Pesca a fondo classica da banchina. Ottima l'azione notturna utilizzando come segnalatore di abboccata il vettino."
+  },
+  {
+    "name": "Porto Novo - Siracusa (SR)",
+    "reg": "Sicilia",
+    "coords": [
+      37.0639,
+      15.2864
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Saraghi",
+    "tips": "Fondale misto posidonia e sabbia. Lanciare nelle radure chiare tenendo la lenza ben tesa per avvertire le toccate."
+  },
+  {
+    "name": "Porto di Crotone (KR)",
+    "reg": "Calabria",
+    "coords": [
+      39.0883,
+      17.1364
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Ombrine",
+    "tips": "Sabbia profonda all'esterno dello sbarramento artificiale. Consigliati terminali a due ami corti per evitare grovigli."
+  },
+  {
+    "name": "Porto di Reggio Calabria (RC)",
+    "reg": "Calabria",
+    "coords": [
+      38.1214,
+      15.6514
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Pagelli, Occhiate di fondo",
+    "tips": "Forti correnti dello Stretto. Usare piombi aerodinamici pesanti e fili trecciati in bobina per non perdere sensibilità."
+  },
+  {
+    "name": "Porto di Ancona - Molo Sud (AN)",
+    "reg": "Marche",
+    "coords": [
+      43.6214,
+      13.5114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Saraghi, Passere",
+    "tips": "Fondale sabbioso-fangoso tipico dell'Adriatico. Ottima la pesca a fondo a ridosso delle massicciate esterne."
+  },
+  {
+    "name": "Porto di San Benedetto del Tronto (AP)",
+    "reg": "Marche",
+    "coords": [
+      42.9539,
+      13.8883
+    ],
+    "type": "Pesca a fondo",
+    "target": "Mormore, Orate, Spigole",
+    "tips": "Fondale digradante molto basso. Lanciare a ridosso del canale di navigazione usando come esca l'arenicola."
+  },
+  {
+    "name": "Porto di Chioggia - Diga Sottomarina (VE)",
+    "reg": "Veneto",
+    "coords": [
+      45.2264,
+      12.3014
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Spigole, Passere",
+    "tips": "Correnti di marea molto intense. Richiede l'utilizzo di piombi a tenuta sul fondo (spike o piramidi) durante il flusso."
+  },
+  {
+    "name": "Foce del Tagliamento - Bibione (VE)",
+    "reg": "Veneto",
+    "coords": [
+      45.6417,
+      13.1014
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Orate, Anguille",
+    "tips": "Fondale fangoso di foce. Ottimo l'innesco del bibi o del verme americano per resistere ai piccoli pesci di disturbo."
+  },
+  {
+    "name": "Porto Canale di Cervia (RA)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.2669,
+      12.3583
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Passere di mare",
+    "tips": "Pesca da terra corta all'interno delle banchine o all'imboccatura del molo. Perfetto l'innesco del verme coreano."
+  },
+  {
+    "name": "Porto di Pescara (PE)",
+    "reg": "Abruzzo",
+    "coords": [
+      42.4694,
+      14.2294
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Cefali",
+    "tips": "Sabbia pulita esterna al porto. Usare terminali lunghi e sottili per ingannare le mormore diffidenti diurne."
+  },
+  {
+    "name": "Porto di Termoli (CB)",
+    "reg": "Molise",
+    "coords": [
+      42.0039,
+      15.0014
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Orate, Gronghi",
+    "tips": "Fondale profondo vicino ai blocchi. Sganciare la montatura sul fondo sabbioso antistante la scogliera."
+  },
+  {
+    "name": "Porto di Arbatax (NU)",
+    "reg": "Sardegna",
+    "coords": [
+      39.9364,
+      9.7042
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Maggiori, Orate, Occhiate",
+    "tips": "Fondale roccioso e limpido con elevata profondità. Usare un mini pasturatore da fondo per raggruppare i pesci."
+  },
+  {
+    "name": "Molo di Ponente - Porto di Cagliari (CA)",
+    "reg": "Sardegna",
+    "coords": [
+      39.2114,
+      9.1083
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Giganti, Saraghi, Triglie",
+    "tips": "Fondale commerciale fangoso. Innescare esche selettive e dure come il bibi o il cannolicchio intero con guscio."
   }
 ]
+
