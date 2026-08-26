@@ -3059,7 +3059,7 @@
   },
   {
     "name": "Porto di Trieste (Molo VII)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.6447,
       13.7539
@@ -3070,7 +3070,7 @@
   },
   {
     "name": "Porto di Monfalcone (Canale d'Accesso)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.7814,
       13.5369
@@ -3081,7 +3081,7 @@
   },
   {
     "name": "Porto di Grado (Molo Torpediniere)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.6764,
       13.3839
@@ -3092,7 +3092,7 @@
   },
   {
     "name": "Porto Lignano - Marina Punta Faro",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.6964,
       13.1447
@@ -3103,7 +3103,7 @@
   },
   {
     "name": "Molo Audace - Trieste",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.6514,
       13.7669
@@ -3114,7 +3114,7 @@
   },
   {
     "name": "Diga Vecchia di Trieste (Porto Vecchio)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.6583,
       13.7583
@@ -3125,7 +3125,7 @@
   },
   {
     "name": "Porto di Barcola (Moli esterni)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.6794,
       13.7539
@@ -3136,7 +3136,7 @@
   },
   {
     "name": "Porto di Sistina (Duino-Aurisina)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.7725,
       13.6339
@@ -3147,7 +3147,7 @@
   },
   {
     "name": "Porto di Muggia (Molo Esterno)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.6114,
       13.7639
@@ -3158,7 +3158,7 @@
   },
   {
     "name": "Foce dell'Isonzo - Punta Barene (Staranzano)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.7239,
       13.5114
@@ -3169,7 +3169,7 @@
   },
   {
     "name": "Porto di Monfalcone (Canale dei pescatori)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.7947,
       13.5386
@@ -3180,7 +3180,7 @@
   },
   {
     "name": "Porto di Grado (Molo Torpediniere)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.6764,
       13.3839
@@ -3191,7 +3191,7 @@
   },
   {
     "name": "Foce del Tagliamento - Lignano Riviera (Marina Uno)",
-    "reg": "Friuli-Venezia Giulia",
+    "reg": "Friuli-VG",
     "coords": [
       45.6447,
       13.1039
