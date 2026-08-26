@@ -1,1190 +1,2378 @@
 [
   {
-    "nome": "Porto Corsini (Ravenna)",
-    "lat": 44.4947,
-    "lon": 12.2853,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Emilia-Romagna"
+    "name": "Sestri Levante (GE)",
+    "reg": "Liguria",
+    "coords": [
+      44.27,
+      9.392
+    ],
+    "type": "Spinning",
+    "target": "Spigole, Serra, Barracuda",
+    "tips": "Vicino foce torrente. Ottimo con mare mosso ed esca viva o jig. Alba e tramonto ideali."
   },
   {
-    "nome": "Molo di Rimini (Il Rockisland)",
-    "lat": 44.0772,
-    "lon": 12.5739,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Emilia-Romagna"
+    "name": "Celle Ligure (SV)",
+    "reg": "Liguria",
+    "coords": [
+      44.341,
+      8.547
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Saraghi",
+    "tips": "Spiaggia sabbiosa profonda. Ottima in inverno dopo mareggiate con arenicola e americano."
   },
   {
-    "nome": "Cesenatico e Cervia",
-    "lat": 44.2045,
-    "lon": 12.4042,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Emilia-Romagna"
+    "name": "Sanremo - Diga Foranea (IM)",
+    "reg": "Liguria",
+    "coords": [
+      43.815,
+      7.785
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Occhiate, Spigole",
+    "tips": "Scogliere profonde e riparate dal vento. Galleggiante fisso con bigattino o gambero."
   },
   {
-    "nome": "Diga di Chioggia e Sottomarina",
-    "lat": 45.2341,
-    "lon": 12.3025,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Veneto"
+    "name": "Camogli - Scogliera (GE)",
+    "reg": "Liguria",
+    "coords": [
+      44.347,
+      9.153
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Dentici, Barracuda",
+    "tips": "Scogliera ripida con acque profonde. Jig medi e minnow per predatori. Ottimo in estate."
   },
   {
-    "nome": "Moli di Caorle e Jesolo",
-    "lat": 45.5947,
-    "lon": 12.8883,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Veneto"
+    "name": "La Spezia - Porto Venere (SP)",
+    "reg": "Liguria",
+    "coords": [
+      44.052,
+      9.838
+    ],
+    "type": "Spinning",
+    "target": "Saraghi, Spigole, Barracuda",
+    "tips": "Scogliere del Golfo dei Poeti. Zona rinomata per spinning da riva. Acque pulite e profonde."
   },
   {
-    "nome": "Albarella e Delta del Po",
-    "lat": 45.0747,
-    "lon": 12.3486,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Veneto"
+    "name": "Castiglioncello (LI)",
+    "reg": "Toscana",
+    "coords": [
+      43.403,
+      10.412
+    ],
+    "type": "Spinning",
+    "target": "Barracuda, Serra, Spigole",
+    "tips": "Scogliera alta con acqua limpida. Minnow e jig leggeri. Ottimo in estate al tramonto."
   },
   {
-    "nome": "Molo Audace (Trieste)",
-    "lat": 45.6517,
-    "lon": 13.7661,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Friuli-VG"
+    "name": "Foce dell'Ombrone (GR)",
+    "reg": "Toscana",
+    "coords": [
+      42.662,
+      11.002
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Spigole, Corvine",
+    "tips": "Ambiente naturale protetto. Predatori in caccia nei canali di foce. Mattina presto ideale."
   },
   {
-    "nome": "Diga di Barcola e i Topolini",
-    "lat": 45.6794,
-    "lon": 13.7533,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Friuli-VG"
+    "name": "Marina di Pisa (PI)",
+    "reg": "Toscana",
+    "coords": [
+      43.673,
+      10.272
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Orate, Cefali",
+    "tips": "Scogliere e moli. Variare grammatura in base a corrente. Bigattino e gambero."
   },
   {
-    "nome": "Grado e Lignano Sabbiadoro",
-    "lat": 45.6756,
-    "lon": 13.5228,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Friuli-VG"
+    "name": "Follonica - Puntone (GR)",
+    "reg": "Toscana",
+    "coords": [
+      42.921,
+      10.753
+    ],
+    "type": "Spinning",
+    "target": "Spigole, Serra, Orate",
+    "tips": "Il Puntone è punto strategico per spigole con minnow bianchi. Scogliere proteggono il lancio."
   },
   {
-    "nome": "Molo di Sanremo",
-    "lat": 43.8142,
-    "lon": 7.7811,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Liguria"
+    "name": "Livorno - Calafuria (LI)",
+    "reg": "Toscana",
+    "coords": [
+      43.472,
+      10.36
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Spigole, Murene",
+    "tips": "Scogli selvaggi a sud di Livorno. Accesso impegnativo ma ottimi risultati."
   },
   {
-    "nome": "Porto di Imperia (Molo Lungo)",
-    "lat": 43.8761,
-    "lon": 8.0264,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Liguria"
+    "name": "Isola d'Elba - Capo Enfola",
+    "reg": "Toscana",
+    "coords": [
+      42.82,
+      10.268
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Dentici, Barracuda",
+    "tips": "Punta estrema dell'isola con correnti forti. Jig pesanti. Estate per ricciole e dentici."
   },
   {
-    "nome": "Savona (Molo delle Fornaci e Porto)",
-    "lat": 44.3014,
-    "lon": 8.4797,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Liguria"
+    "name": "Sabaudia (LT)",
+    "reg": "Lazio",
+    "coords": [
+      41.298,
+      13.003
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Mormore, Spigole",
+    "tips": "Spiaggia nel Parco Nazionale del Circeo. Fondali sabbiosi ideali. Notte per orate."
   },
   {
-    "nome": "Porto di Genova (Aree esterne e moli accessibili)",
-    "lat": 44.4022,
-    "lon": 8.9225,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Liguria"
+    "name": "Santa Marinella (RM)",
+    "reg": "Lazio",
+    "coords": [
+      42.034,
+      11.855
+    ],
+    "type": "Surfcasting",
+    "target": "Saraghi, Spigole, Mormore",
+    "tips": "Spot misto tra foce e rocce. Piazzare le canne verso vento. Ottima per mormore in primavera."
   },
   {
-    "nome": "Arenzano e Cogoleto",
-    "lat": 44.4003,
-    "lon": 8.6869,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Liguria"
+    "name": "Gaeta - Serapo (LT)",
+    "reg": "Lazio",
+    "coords": [
+      41.202,
+      13.571
+    ],
+    "type": "Spinning",
+    "target": "Spigole, Saraghi, Dentici",
+    "tips": "Scogliera calcarea con acque cristalline. Ottimo per spinning e bolognese. Autunno ideale."
   },
   {
-    "nome": "Sestri Levante (Molo e Baia del Silenzio)",
-    "lat": 44.2725,
-    "lon": 9.3942,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Liguria"
+    "name": "Civitavecchia - Diga (RM)",
+    "reg": "Lazio",
+    "coords": [
+      42.091,
+      11.791
+    ],
+    "type": "Bolognese",
+    "target": "Cefali, Orate, Spigole",
+    "tips": "Diga foranea lunga, accesso gratuito. Bolognese con bigattino. Sera e notte per spigole."
   },
   {
-    "nome": "Chiavari e Rapallo",
-    "lat": 44.3125,
-    "lon": 9.3172,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Liguria"
+    "name": "Isola di Ponza (LT)",
+    "reg": "Lazio",
+    "coords": [
+      40.892,
+      12.961
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Dentici, Barracuda",
+    "tips": "Isola pontina con scogliere profonde. Acque cristalline. Estate per pelagici di passo."
   },
   {
-    "nome": "La Spezia (Diga Foranea e Porto Venere)",
-    "lat": 44.0506,
-    "lon": 9.8519,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Liguria"
+    "name": "Molo Beverello (NA)",
+    "reg": "Campania",
+    "coords": [
+      40.838,
+      14.258
+    ],
+    "type": "Spinning",
+    "target": "Serra, Spigole, Barracuda",
+    "tips": "Fondo sabbioso 1.5-5m. Spinning urbano efficace all'alba. Minnow e jig leggeri."
   },
   {
-    "nome": "Scogliera del Romito (Livorno)",
-    "lat": 43.4839,
-    "lon": 10.3392,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Toscana"
+    "name": "Porto di Acquamorta (NA)",
+    "reg": "Campania",
+    "coords": [
+      40.806,
+      14.043
+    ],
+    "type": "Spinning",
+    "target": "Spigole, Barracuda, Ricciole",
+    "tips": "Zona di transito predatori all'imboccatura del porto. Esca viva molto efficace."
   },
   {
-    "nome": "Porto di Piombino",
-    "lat": 42.9238,
-    "lon": 10.5484,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Toscana"
+    "name": "Mergellina (NA)",
+    "reg": "Campania",
+    "coords": [
+      40.828,
+      14.221
+    ],
+    "type": "Bolognese",
+    "target": "Occhiate, Saraghi, Spigole",
+    "tips": "Scogliera esterna profonda. Bolognese con bigattino. Ottimo in autunno e inverno."
   },
   {
-    "nome": "Diga foranea di Talamone",
-    "lat": 42.5539,
-    "lon": 11.1347,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Toscana"
+    "name": "Palinuro - Capo (SA)",
+    "reg": "Campania",
+    "coords": [
+      40.027,
+      15.286
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Dentici, Barracuda",
+    "tips": "Capo roccioso nel Cilento. Jig pesanti e minnow. Estate per ricciole. Acque trasparenti."
   },
   {
-    "nome": "Porto di Civitavecchia (Antemurale)",
-    "lat": 42.0986,
-    "lon": 11.7852,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Lazio"
+    "name": "Agropoli - Molo (SA)",
+    "reg": "Campania",
+    "coords": [
+      40.349,
+      14.993
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Orate, Spigole",
+    "tips": "Porto e molo foraneo. Bolognese con gambero. Ottimo tutto l'anno nel Cilento."
   },
   {
-    "nome": "Molo di Fiumicino",
-    "lat": 41.7686,
-    "lon": 12.2214,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Lazio"
+    "name": "Ischia - Punta Imperatore",
+    "reg": "Campania",
+    "coords": [
+      40.708,
+      13.853
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Dentici, Lecce",
+    "tips": "Punta meridionale di Ischia. Correnti forti. Jig e esca viva per grossi predatori."
   },
   {
-    "nome": "Scogliere di Anzio/Nettuno",
-    "lat": 41.4447,
-    "lon": 12.6319,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Lazio"
+    "name": "Capri - Faraglioni (NA)",
+    "reg": "Campania",
+    "coords": [
+      40.547,
+      14.257
+    ],
+    "type": "Spinning",
+    "target": "Dentici, Cernie, Barracuda",
+    "tips": "Intorno ai Faraglioni. Spinning e traina. Estate per pelagici di superficie."
   },
   {
-    "nome": "Pozzuoli (Molo calcareo)",
-    "lat": 40.8222,
-    "lon": 14.1164,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Campania"
+    "name": "Spiaggia Sabbia d'Oro (CS)",
+    "reg": "Calabria",
+    "coords": [
+      39.671,
+      15.823
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Mormore, Saraghi",
+    "tips": "Fondo ricco di crostacei. Primo gradino sabbioso a 80m. Autunno e inverno ideali."
   },
   {
-    "nome": "Porto di Salerno",
-    "lat": 40.6756,
-    "lon": 14.7461,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Campania"
+    "name": "Scilla - Chianalea (RC)",
+    "reg": "Calabria",
+    "coords": [
+      38.256,
+      15.717
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Barracuda, Pesce Spada",
+    "tips": "Punta rocciosa con correnti dello Stretto. Jig pesanti. Estate per pesce spada."
   },
   {
-    "nome": "Scogliera di Castellammare di Stabia",
-    "lat": 40.6978,
-    "lon": 14.4719,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Campania"
+    "name": "Cirella - Scogliera (CS)",
+    "reg": "Calabria",
+    "coords": [
+      39.718,
+      15.811
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Corvine",
+    "tips": "Punto d'ingresso lato mare prima della scogliera. Fondale misto profondo."
   },
   {
-    "nome": "Scogliera di Reggio Calabria",
-    "lat": 38.1219,
-    "lon": 15.6489,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Calabria"
+    "name": "Capo Vaticano (VV)",
+    "reg": "Calabria",
+    "coords": [
+      38.62,
+      15.829
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Dentici, Serra",
+    "tips": "Promontorio granitico sul Tirreno. Jig e popper per ricciole. Estate ottima."
   },
   {
-    "nome": "Porto di Vibo Valentia",
-    "lat": 38.7189,
-    "lon": 16.1264,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Calabria"
+    "name": "Crotone - Capo Rizzuto (KR)",
+    "reg": "Calabria",
+    "coords": [
+      38.929,
+      17.1
+    ],
+    "type": "Spinning",
+    "target": "Dentici, Barracuda, Saraghi",
+    "tips": "Area Marina Protetta: rispettare i confini. Fuori zona protetta fondali eccezionali."
   },
   {
-    "nome": "Roccella Jonica",
-    "lat": 38.3242,
-    "lon": 16.4253,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Calabria"
+    "name": "Tropea - Scogliera (VV)",
+    "reg": "Calabria",
+    "coords": [
+      38.676,
+      15.897
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Spigole, Orate",
+    "tips": "Scogliera sotto il borgo medievale. Acque cristalline tutto l'anno."
   },
   {
-    "nome": "Porto di Maratea",
-    "lat": 40.0039,
-    "lon": 15.7139,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Basilicata"
+    "name": "Siderno - Spiaggia (RC)",
+    "reg": "Calabria",
+    "coords": [
+      38.27,
+      16.3
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Mormore, Pagelli",
+    "tips": "Spiaggia ionica lunga. Lanci lunghi con piombi da 100-150g. Primavera e autunno."
   },
   {
-    "nome": "Foce del Bradano (Metaponto)",
-    "lat": 40.3956,
-    "lon": 16.8344,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Basilicata"
+    "name": "Baia Verde (LE)",
+    "reg": "Puglia",
+    "coords": [
+      40.038,
+      18.008
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Saraghi, Mormore",
+    "tips": "Fondale misto con posidonia. Ottimo in autunno. Piombi da 80-120g con arenicola."
   },
   {
-    "nome": "Molo di Taranto",
-    "lat": 40.4772,
-    "lon": 17.2189,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Puglia"
+    "name": "Punta Pizzo (LE)",
+    "reg": "Puglia",
+    "coords": [
+      39.952,
+      18.354
+    ],
+    "type": "Spinning",
+    "target": "Barracuda, Serra, Lecce",
+    "tips": "Punta estrema del Salento. Correnti del Canale d'Otranto. Jig e minnow. Estate."
   },
   {
-    "nome": "Porto di Brindisi (Diga di Punta Riso)",
-    "lat": 40.6586,
-    "lon": 17.9739,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Puglia"
+    "name": "Gallipoli - Molo (LE)",
+    "reg": "Puglia",
+    "coords": [
+      40.056,
+      17.993
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Occhiate, Spigole",
+    "tips": "Molo del porto vecchio. Bolognese con bigattino. Acque profonde già a pochi metri."
   },
   {
-    "nome": "Scogliere di Otranto",
-    "lat": 40.1472,
-    "lon": 18.4947,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Puglia"
+    "name": "Otranto - Scogliera (LE)",
+    "reg": "Puglia",
+    "coords": [
+      40.145,
+      18.491
+    ],
+    "type": "Spinning",
+    "target": "Dentici, Cernie, Barracuda",
+    "tips": "Scogliere del Capo d'Otranto. Acque trasparenti. Jig pesanti per fondali profondi."
   },
   {
-    "nome": "Porto di Pescara",
-    "lat": 42.4697,
-    "lon": 14.2319,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Abruzzo-Molise"
+    "name": "Polignano a Mare (BA)",
+    "reg": "Puglia",
+    "coords": [
+      40.993,
+      17.221
+    ],
+    "type": "Spinning",
+    "target": "Saraghi, Spigole, Barracuda",
+    "tips": "Scogliere calcaree caratteristiche. Spinning da riva con jig leggeri. Autunno ideale."
   },
   {
-    "nome": "Molo di Giulianova",
-    "lat": 42.7539,
-    "lon": 13.9722,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Abruzzo-Molise"
+    "name": "Gargano - Vieste (FG)",
+    "reg": "Puglia",
+    "coords": [
+      41.881,
+      16.174
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Dentici, Barracuda",
+    "tips": "Promontorio del Gargano. Fondali rocciosi. Jig e esca viva. Estate per pelagici."
   },
   {
-    "nome": "Scogliera di Ortona",
-    "lat": 42.3564,
-    "lon": 14.4128,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Abruzzo-Molise"
+    "name": "Manfredonia - Diga (FG)",
+    "reg": "Puglia",
+    "coords": [
+      41.63,
+      15.917
+    ],
+    "type": "Bolognese",
+    "target": "Cefali, Saraghi, Spigole",
+    "tips": "Diga foranea del Golfo. Bolognese con bigattino e pane. Cefali abbondanti in estate."
   },
   {
-    "nome": "Porto di Termoli",
-    "lat": 42.0039,
-    "lon": 15.0047,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Abruzzo-Molise"
+    "name": "Taranto - Mar Piccolo (TA)",
+    "reg": "Puglia",
+    "coords": [
+      40.476,
+      17.231
+    ],
+    "type": "Bolognese",
+    "target": "Orate, Spigole, Cefali",
+    "tips": "Mar Piccolo unico al mondo. Acque calme e ricche. Bolognese leggera. Tutto l'anno."
   },
   {
-    "nome": "Scogliere artificiali di Campomarino",
-    "lat": 41.9619,
-    "lon": 15.0347,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Abruzzo-Molise"
+    "name": "Porto di Maratea (PZ)",
+    "reg": "Basilicata",
+    "coords": [
+      39.991,
+      15.708
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Saraghi",
+    "tips": "Porto turistico con scogliere esterne profonde. Bolognese e galleggiante."
   },
   {
-    "nome": "Porto di Ancona (Passetto/Moli)",
-    "lat": 43.6169,
-    "lon": 13.5292,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Marche"
+    "name": "Metaponto - Lido (MT)",
+    "reg": "Basilicata",
+    "coords": [
+      40.355,
+      16.832
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Corvine",
+    "tips": "Lunga spiaggia ionica. Fondali bassi e sabbiosi. Surfcasting con piombi medi."
   },
   {
-    "nome": "Civitanova Marche",
-    "lat": 43.3086,
-    "lon": 13.7347,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Marche"
+    "name": "Marina di Policoro (MT)",
+    "reg": "Basilicata",
+    "coords": [
+      40.196,
+      16.7
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Mormore, Pagelli",
+    "tips": "Foce del Sinni. Predatori in caccia nelle acque miste. Alba e tramonto ideali."
   },
   {
-    "nome": "San Benedetto del Tronto",
-    "lat": 42.9556,
-    "lon": 13.8894,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Marche"
+    "name": "Termoli - Molo Sud (CB)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.003,
+      14.997
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Spot iconico Adriatico centrale. Molo lungo, accesso gratuito. Bolognese e fondo."
   },
   {
-    "nome": "Capo Caccia (Alghero)",
-    "lat": 40.5639,
-    "lon": 8.1639,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Sardegna"
+    "name": "Trabocchi - Pescara (CH)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.471,
+      14.214
+    ],
+    "type": "Spinning",
+    "target": "Serra, Spigole, Palamite",
+    "tips": "Pesca tra le strutture storiche dei trabocchi. Predatori in caccia all'alba."
   },
   {
-    "nome": "Porto di Cagliari (Molo di levante)",
-    "lat": 39.2047,
-    "lon": 9.1128,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Sardegna"
+    "name": "Francavilla al Mare (CH)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.419,
+      14.289
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Spigole",
+    "tips": "Spiaggia adriatica profonda. Surfcasting classico con arenicola. Autunno ottimo."
   },
   {
-    "nome": "Golfo Aranci",
-    "lat": 41.0039,
-    "lon": 9.6194,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Sardegna"
+    "name": "Alba Adriatica (TE)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.831,
+      13.935
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Sogliole",
+    "tips": "Spiaggia sabbiosa nordadriatica. Fondali degradanti. Notte per orate e mormore."
   },
   {
-    "nome": "Portopalo di Capo Passero",
-    "lat": 36.6719,
-    "lon": 15.1347,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Sicilia"
+    "name": "Vasto - Marina (CH)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.104,
+      14.706
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Occhiate",
+    "tips": "Porto e scogliera artificiale. Bolognese con bigattino. Buona concentrazione di pesce."
   },
   {
-    "nome": "Molo di Milazzo",
-    "lat": 38.2239,
-    "lon": 15.2447,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Sicilia"
+    "name": "Sassonia di Fano (PU)",
+    "reg": "Marche",
+    "coords": [
+      43.844,
+      13.023
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Saraghi",
+    "tips": "Spiaggia ciottoli e sabbia. Ottima per apertura stagione. Piombo aerodynamico."
   },
   {
-    "nome": "Porto di Catania",
-    "lat": 37.4956,
-    "lon": 15.0947,
-    "desc": "Spot eging in Italia.",
-    "technique": "Eging",
-    "target": "Seppie • Calamari • Polpi",
-    "region": "Sicilia"
+    "name": "Ancona - Molo Nord (AN)",
+    "reg": "Marche",
+    "coords": [
+      43.618,
+      13.508
+    ],
+    "type": "Bolognese",
+    "target": "Cefali, Spigole, Orate",
+    "tips": "Molo lungo con fondali profondi. Bolognese e galleggiante. Sera per spigole."
   },
   {
-    "nome": "Spiaggia di Voltri (Genova)",
-    "lat": 44.4264,
-    "lon": 8.7533,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "San Benedetto del Tronto (AP)",
+    "reg": "Marche",
+    "coords": [
+      42.944,
+      13.879
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Corvine",
+    "tips": "Spiaggia adriatica lunga. Surfcasting con piombi da 100-150g. Autunno ideale."
+  },
+  {
+    "name": "Senigallia - Rotonda (AN)",
+    "reg": "Marche",
+    "coords": [
+      43.718,
+      13.218
+    ],
+    "type": "Spinning",
+    "target": "Spigole, Serra, Sugarelli",
+    "tips": "Pontile della Rotonda. Spinning e bolognese. Alba e tramonto ideali per spigole."
+  },
+  {
+    "name": "Porto Corsini (RA)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.492,
+      12.285
+    ],
+    "type": "Bolognese",
+    "target": "Orate, Spigole, Cefali",
+    "tips": "Diga Nord molto lunga. Richiede camminata. Bolognese con bigattino. Tutto l'anno."
+  },
+  {
+    "name": "Rimini - Molo di Levante (RN)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.064,
+      12.575
+    ],
+    "type": "Spinning",
+    "target": "Serra, Spigole, Sugarelli",
+    "tips": "Molo storico. Spinning con jig leggeri. Alba per spigole. Estate per serra."
+  },
+  {
+    "name": "Lido di Spina (FE)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.727,
+      12.271
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Mormore, Sogliole",
+    "tips": "Delta del Po zona Comacchio. Fondali bassi e sabbiosi. Surfcasting leggero."
+  },
+  {
+    "name": "Cesenatico - Diga (FC)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.201,
+      12.396
+    ],
+    "type": "Bolognese",
+    "target": "Orate, Spigole, Cefali",
+    "tips": "Diga del porto. Bolognese con bigattino e gambero. Ottima tutto l'anno."
+  },
+  {
+    "name": "Diga Sottomarina (VE)",
+    "reg": "Veneto",
+    "coords": [
+      45.218,
+      12.302
+    ],
+    "type": "Spinning",
+    "target": "Serra, Branzini, Palamite",
+    "tips": "Correnti forti all'imboccatura della laguna. Precisione nei lanci fondamentale."
+  },
+  {
+    "name": "Jesolo - Piave Vecchia (VE)",
+    "reg": "Veneto",
+    "coords": [
+      45.53,
+      12.701
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Sogliole",
+    "tips": "Foce del Piave. Fondali misti. Surfcasting con arenicola. Autunno ottimo."
+  },
+  {
+    "name": "Chioggia - Murazzi (VE)",
+    "reg": "Veneto",
+    "coords": [
+      45.221,
+      12.278
+    ],
+    "type": "Bolognese",
+    "target": "Orate, Spigole, Cefali",
+    "tips": "Lunga barriera di massi. Bolognese e fondo. Ottimo per pesce bianco e predatori."
+  },
+  {
+    "name": "Porto Levante - Delta Po (RO)",
+    "reg": "Veneto",
+    "coords": [
+      45.0,
+      12.353
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Mormore, Anguille",
+    "tips": "Foci del Po. Zona selvaggia. Surfcasting in canali e scanni. Kayak utile."
+  },
+  {
+    "name": "Trieste - Molo Audace (TS)",
+    "reg": "Friuli-VG",
+    "coords": [
+      45.651,
+      13.765
+    ],
+    "type": "Eging",
+    "target": "Calamari, Seppie, Spigole",
+    "tips": "Spot tecnico urbano. Ottimo eging in inverno. Alba e tramonto per spigole."
+  },
+  {
+    "name": "Trieste - Barcola (TS)",
+    "reg": "Friuli-VG",
+    "coords": [
+      45.672,
+      13.743
+    ],
+    "type": "Spinning",
+    "target": "Spigole, Cefali, Saraghi",
+    "tips": "Zona frequentata dai locali. Pesca notturna per spigole. Spinning leggero."
+  },
+  {
+    "name": "Lignano - Foce Tagliamento (UD)",
+    "reg": "Friuli-VG",
+    "coords": [
+      45.692,
+      13.135
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Spigole, Mormore",
+    "tips": "Foce del Tagliamento. Ottimo per orate e spigole in caccia. Attenzione alle correnti."
+  },
+  {
+    "name": "Castelsardo (SS)",
+    "reg": "Sardegna",
+    "coords": [
+      40.915,
+      8.712
+    ],
+    "type": "Spinning",
+    "target": "Dentici, Lecce, Spigole",
+    "tips": "Fondale misto con grotte e posidonia. Jig e minnow. Estate per dentici."
+  },
+  {
+    "name": "Golfo Aranci - Spiaggia Bianca",
+    "reg": "Sardegna",
+    "coords": [
+      40.992,
+      9.615
+    ],
+    "type": "Surfcasting",
+    "target": "Spigole, Orate, Mormore",
+    "tips": "Spiaggia bianchissima. Fondale misto sabbia/roccia/posidonia."
+  },
+  {
+    "name": "Alghero - Lazzaretto (SS)",
+    "reg": "Sardegna",
+    "coords": [
+      40.592,
+      8.243
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Spigole, Orate",
+    "tips": "Pesca a fondo su spiaggia e rocce. Bolognese con bigattino e gambero."
+  },
+  {
+    "name": "Cagliari - Poetto (CA)",
+    "reg": "Sardegna",
+    "coords": [
+      39.211,
+      9.17
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Spigole",
+    "tips": "Spiaggia lunga 8km. Fondali sabbiosi. Surfcasting in primavera e autunno."
+  },
+  {
+    "name": "Villasimius - Capo Carbonara",
+    "reg": "Sardegna",
+    "coords": [
+      39.122,
+      9.511
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Dentici, Barracuda",
+    "tips": "Punta sudest della Sardegna. AMP: rispettare i confini. Fondali profondi fuori zona."
+  },
+  {
+    "name": "Oristano - Sinis (OR)",
+    "reg": "Sardegna",
+    "coords": [
+      39.904,
+      8.444
+    ],
+    "type": "Surfcasting",
+    "target": "Spigole, Orate, Mormore",
+    "tips": "Penisola del Sinis. Spiagge spettacolari e selvagge. Accesso regolamentato in AMP."
+  },
+  {
+    "name": "Olbia - Golfo (OT)",
+    "reg": "Sardegna",
+    "coords": [
+      40.917,
+      9.502
+    ],
+    "type": "Spinning",
+    "target": "Spigole, Barracuda, Serra",
+    "tips": "Golfo di Olbia. Lagune e foci per spigole allo spinning. Alba ideale."
+  },
+  {
+    "name": "Piscinas - Spiaggia (SU)",
+    "reg": "Sardegna",
+    "coords": [
+      39.432,
+      8.429
+    ],
+    "type": "Surfcasting",
+    "target": "Spigole, Orate, Mormore",
+    "tips": "Spiaggia remota nel Sulcis. Dune di sabbia alte. Surfcasting su fondali profondi."
+  },
+  {
+    "name": "Roccalumera (ME)",
+    "reg": "Sicilia",
+    "coords": [
+      37.981,
+      15.397
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Saraghi, Spigole, Pagelli",
+    "tips": "Fondale sabbioso grana grossa. Primo gradino a 10-15m. Campione mondiale surfcasting."
+  },
+  {
+    "name": "Stretto di Messina (ME)",
+    "reg": "Sicilia",
+    "coords": [
+      38.18,
+      15.553
+    ],
+    "type": "Spinning",
+    "target": "Spigole, Ricciole, Lecce, Dentici",
+    "tips": "Correnti fortissime e costanti. Usare jig affondanti. Alba e tramonto ideali."
+  },
+  {
+    "name": "Milazzo - Spiaggia Tono (ME)",
+    "reg": "Sicilia",
+    "coords": [
+      38.222,
+      15.245
+    ],
+    "type": "Surfcasting",
+    "target": "Mormore, Orate, Saraghi",
+    "tips": "Fiumara con grossi ciottoli. Profondità 3m a 100m dalla riva. Corallino efficace."
+  },
+  {
+    "name": "Mondello (PA)",
+    "reg": "Sicilia",
+    "coords": [
+      38.208,
+      13.328
+    ],
+    "type": "Spinning",
+    "target": "Spigole, Barracuda, Saraghi",
+    "tips": "Scogliere e vecchi moli. Ottimo in notturna per spigole. Minnow e jerkbait."
+  },
+  {
+    "name": "Cefalù - Scogliera (PA)",
+    "reg": "Sicilia",
+    "coords": [
+      38.039,
+      14.022
+    ],
+    "type": "Spinning",
+    "target": "Saraghi, Dentici, Barracuda",
+    "tips": "Scogliera calcarea con fondali profondi. Rockfishing con jig leggeri."
+  },
+  {
+    "name": "Lago Rosamarina (PA)",
+    "reg": "Sicilia",
+    "coords": [
+      37.936,
+      13.624
+    ],
+    "type": "Bassfishing",
+    "target": "Black Bass, Carassio",
+    "tips": "Lago artificiale. Principale spot bass Sicilia occidentale. Soft bait e jig."
+  },
+  {
+    "name": "Scogliera di Ognina (CT)",
+    "reg": "Sicilia",
+    "coords": [
+      37.524,
+      15.115
+    ],
+    "type": "Spinning",
+    "target": "Saraghi, Barracuda, Spigole",
+    "tips": "Rock fishing su scogliera lavica. Fondali mossi e ricchi. Porticciolo pittoresco."
+  },
+  {
+    "name": "La Playa (CT)",
+    "reg": "Sicilia",
+    "coords": [
+      37.472,
+      15.088
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Mormore, Spigole",
+    "tips": "Spiaggia sabbiosa lunga. Ottima in primavera e autunno. Vicino foce Simeto."
+  },
+  {
+    "name": "Laghi di Lentini (SR/CT)",
+    "reg": "Sicilia",
+    "coords": [
+      37.279,
+      14.978
+    ],
+    "type": "Bassfishing",
+    "target": "Black Bass, Carpe, Lucci",
+    "tips": "Sistema di laghi artificiali. Ottimo in primavera. Accesso da riva in più punti."
+  },
+  {
+    "name": "Marzamemi (SR)",
+    "reg": "Sicilia",
+    "coords": [
+      36.745,
+      15.133
+    ],
+    "type": "Spinning",
+    "target": "Tonno, Ricciole, Dentici, Barracuda",
+    "tips": "Hot spot storico. Isola delle Correnti a 300m. Luglio-Settembre per tonno."
+  },
+  {
+    "name": "Portopalo di Capo Passero (SR)",
+    "reg": "Sicilia",
+    "coords": [
+      36.681,
+      15.148
+    ],
+    "type": "Spinning",
+    "target": "Tonno, Ricciole, Serra",
+    "tips": "Punta più meridionale della Sicilia. Correnti dello Stretto di Sicilia. Jig pesanti."
+  },
+  {
+    "name": "Area Plemmirio (SR)",
+    "reg": "Sicilia",
+    "coords": [
+      37.002,
+      15.319
+    ],
+    "type": "Spinning",
+    "target": "Cernie, Dentici, Spigole",
+    "tips": "AMP: rispettare zone A e B. Fondali eccezionali fuori zona protetta."
+  },
+  {
+    "name": "San Vito Lo Capo (TP)",
+    "reg": "Sicilia",
+    "coords": [
+      38.175,
+      12.732
+    ],
+    "type": "Spinning",
+    "target": "Ricciole, Dentici, Saraghi, Caponi",
+    "tips": "Scogliere su canale di Sicilia. Ottobre famoso per Capone. Traina d'altura da porto."
+  },
+  {
+    "name": "Mazara del Vallo (TP)",
+    "reg": "Sicilia",
+    "coords": [
+      37.651,
+      12.592
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Cefali, Spigole",
+    "tips": "Light Shore Fishing da molo e diga foranea. Tecnica leggera galleggiante."
+  },
+  {
+    "name": "Marsala - Stagnone (TP)",
+    "reg": "Sicilia",
+    "coords": [
+      37.803,
+      12.44
+    ],
+    "type": "Bolognese",
+    "target": "Cefali, Spigole, Orate",
+    "tips": "Laguna bassa con fondale misto. Galleggiante leggero. Zona riserva: rispettare confini."
+  },
+  {
+    "name": "Sciacca - Porto (AG)",
+    "reg": "Sicilia",
+    "coords": [
+      37.507,
+      13.082
+    ],
+    "type": "Surfcasting",
+    "target": "Orate XXL, Mormore, Saraghi",
+    "tips": "Costa 33km ideale surfcasting. Porto con scogliera esterna. Ottimo tutto l'anno."
+  },
+  {
+    "name": "Porto Palo di Menfi (AG)",
+    "reg": "Sicilia",
+    "coords": [
+      37.558,
+      12.955
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Mormore, Spigole",
+    "tips": "Grandi spiagge sabbiose. PAF e surfcasting. Fondali degradanti con posidonia."
+  },
+  {
+    "name": "Marina di Ragusa (RG)",
+    "reg": "Sicilia",
+    "coords": [
+      36.782,
+      14.55
+    ],
+    "type": "Surfcasting",
+    "target": "Orate, Mormore, Spigole",
+    "tips": "Spiaggia sabbiosa lunga. Ottima fuori stagione balneare."
+  },
+  {
+    "name": "Pozzallo - Molo (RG)",
+    "reg": "Sicilia",
+    "coords": [
+      36.726,
+      14.847
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Occhiate, Spigole",
+    "tips": "Molo foraneo lungo. Accesso facile. Galleggiante e bolognese in ogni stagione."
+  },
+  {
+    "name": "Gela - Litorale (CL)",
+    "reg": "Sicilia",
+    "coords": [
+      37.066,
+      14.25
+    ],
+    "type": "Surfcasting",
+    "target": "Orate XXL, Mormore, Saraghi",
+    "tips": "Litorale sabbioso profondo costa meridionale. Orate di grossa taglia in autunno."
+  },
+  {
+    "name": "Lago Pozzillo (EN)",
+    "reg": "Sicilia",
+    "coords": [
+      37.643,
+      14.629
+    ],
+    "type": "Bassfishing",
+    "target": "Black Bass, Carpe, Persico",
+    "tips": "Principale lago artificiale siciliano per il bass. Primavera e autunno ideali."
+  },
+  {
+    "name": "Porto Corsini (Ravenna)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.4947,
+      12.2853
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Molo di Rimini (Il Rockisland)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.0772,
+      12.5739
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Cesenatico e Cervia",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.2045,
+      12.4042
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Diga di Chioggia e Sottomarina",
+    "reg": "Veneto",
+    "coords": [
+      45.2341,
+      12.3025
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Moli di Caorle e Jesolo",
+    "reg": "Veneto",
+    "coords": [
+      45.5947,
+      12.8883
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Albarella e Delta del Po",
+    "reg": "Veneto",
+    "coords": [
+      45.0747,
+      12.3486
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Diga di Barcola e i Topolini",
+    "reg": "Friuli-VG",
+    "coords": [
+      45.6794,
+      13.7533
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Grado e Lignano Sabbiadoro",
+    "reg": "Friuli-VG",
+    "coords": [
+      45.6756,
+      13.5228
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Molo di Sanremo",
+    "reg": "Liguria",
+    "coords": [
+      43.8142,
+      7.7811
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Imperia (Molo Lungo)",
+    "reg": "Liguria",
+    "coords": [
+      43.8761,
+      8.0264
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Savona (Molo delle Fornaci e Porto)",
+    "reg": "Liguria",
+    "coords": [
+      44.3014,
+      8.4797
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Genova (Aree esterne e moli accessibili)",
+    "reg": "Liguria",
+    "coords": [
+      44.4022,
+      8.9225
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Arenzano e Cogoleto",
+    "reg": "Liguria",
+    "coords": [
+      44.4003,
+      8.6869
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Sestri Levante (Molo e Baia del Silenzio)",
+    "reg": "Liguria",
+    "coords": [
+      44.2725,
+      9.3942
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Chiavari e Rapallo",
+    "reg": "Liguria",
+    "coords": [
+      44.3125,
+      9.3172
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "La Spezia (Diga Foranea e Porto Venere)",
+    "reg": "Liguria",
+    "coords": [
+      44.0506,
+      9.8519
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Scogliera del Romito (Livorno)",
+    "reg": "Toscana",
+    "coords": [
+      43.4839,
+      10.3392
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Piombino",
+    "reg": "Toscana",
+    "coords": [
+      42.9238,
+      10.5484
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Diga foranea di Talamone",
+    "reg": "Toscana",
+    "coords": [
+      42.5539,
+      11.1347
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Civitavecchia (Antemurale)",
+    "reg": "Lazio",
+    "coords": [
+      42.0986,
+      11.7852
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Molo di Fiumicino",
+    "reg": "Lazio",
+    "coords": [
+      41.7686,
+      12.2214
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Scogliere di Anzio/Nettuno",
+    "reg": "Lazio",
+    "coords": [
+      41.4447,
+      12.6319
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Pozzuoli (Molo calcareo)",
+    "reg": "Campania",
+    "coords": [
+      40.8222,
+      14.1164
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Salerno",
+    "reg": "Campania",
+    "coords": [
+      40.6756,
+      14.7461
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Scogliera di Castellammare di Stabia",
+    "reg": "Campania",
+    "coords": [
+      40.6978,
+      14.4719
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Scogliera di Reggio Calabria",
+    "reg": "Calabria",
+    "coords": [
+      38.1219,
+      15.6489
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Vibo Valentia",
+    "reg": "Calabria",
+    "coords": [
+      38.7189,
+      16.1264
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Roccella Jonica",
+    "reg": "Calabria",
+    "coords": [
+      38.3242,
+      16.4253
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Maratea",
+    "reg": "Basilicata",
+    "coords": [
+      40.0039,
+      15.7139
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Foce del Bradano (Metaponto)",
+    "reg": "Basilicata",
+    "coords": [
+      40.3956,
+      16.8344
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Molo di Taranto",
+    "reg": "Puglia",
+    "coords": [
+      40.4772,
+      17.2189
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Brindisi (Diga di Punta Riso)",
+    "reg": "Puglia",
+    "coords": [
+      40.6586,
+      17.9739
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Scogliere di Otranto",
+    "reg": "Puglia",
+    "coords": [
+      40.1472,
+      18.4947
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Pescara",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.4697,
+      14.2319
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Molo di Giulianova",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.7539,
+      13.9722
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Scogliera di Ortona",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.3564,
+      14.4128
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Termoli",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.0039,
+      15.0047
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Scogliere artificiali di Campomarino",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      41.9619,
+      15.0347
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Ancona (Passetto/Moli)",
+    "reg": "Marche",
+    "coords": [
+      43.6169,
+      13.5292
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Civitanova Marche",
+    "reg": "Marche",
+    "coords": [
+      43.3086,
+      13.7347
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "San Benedetto del Tronto",
+    "reg": "Marche",
+    "coords": [
+      42.9556,
+      13.8894
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Capo Caccia (Alghero)",
+    "reg": "Sardegna",
+    "coords": [
+      40.5639,
+      8.1639
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Cagliari (Molo di levante)",
+    "reg": "Sardegna",
+    "coords": [
+      39.2047,
+      9.1128
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Golfo Aranci",
+    "reg": "Sardegna",
+    "coords": [
+      41.0039,
+      9.6194
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Portopalo di Capo Passero",
+    "reg": "Sicilia",
+    "coords": [
+      36.6719,
+      15.1347
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Molo di Milazzo",
+    "reg": "Sicilia",
+    "coords": [
+      38.2239,
+      15.2447
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Porto di Catania",
+    "reg": "Sicilia",
+    "coords": [
+      37.4956,
+      15.0947
+    ],
+    "type": "Eging",
+    "target": "Seppie • Calamari • Polpi",
+    "tips": "Spot eging in Italia."
+  },
+  {
+    "name": "Spiaggia di Voltri (Genova)",
+    "reg": "Liguria",
+    "coords": [
+      44.4264,
+      8.7533
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Liguria"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia d'Oro (Imperia)",
-    "lat": 43.8756,
-    "lon": 8.0194,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia d'Oro (Imperia)",
+    "reg": "Liguria",
+    "coords": [
+      43.8756,
+      8.0194
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Liguria"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Arenile di Pietra Ligure",
-    "lat": 44.1483,
-    "lon": 8.2847,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Arenile di Pietra Ligure",
+    "reg": "Liguria",
+    "coords": [
+      44.1483,
+      8.2847
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Liguria"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Rimigliano (Livorno)",
-    "lat": 43.0139,
-    "lon": 10.5361,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Rimigliano (Livorno)",
+    "reg": "Toscana",
+    "coords": [
+      43.0139,
+      10.5361
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Toscana"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Marina di Vecchiano (Pisa)",
-    "lat": 43.7844,
-    "lon": 10.2644,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Marina di Vecchiano (Pisa)",
+    "reg": "Toscana",
+    "coords": [
+      43.7844,
+      10.2644
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Toscana"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Feniglia (Grosseto)",
-    "lat": 42.4186,
-    "lon": 11.2139,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Feniglia (Grosseto)",
+    "reg": "Toscana",
+    "coords": [
+      42.4186,
+      11.2139
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Toscana"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Sabaudia (Bufalara)",
-    "lat": 41.3117,
-    "lon": 12.9819,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Sabaudia (Bufalara)",
+    "reg": "Lazio",
+    "coords": [
+      41.3117,
+      12.9819
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Lazio"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Marina di Montalto di Castro",
-    "lat": 42.3164,
-    "lon": 11.5219,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Marina di Montalto di Castro",
+    "reg": "Lazio",
+    "coords": [
+      42.3164,
+      11.5219
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Lazio"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Torre Astura (Nettuno)",
-    "lat": 41.4114,
-    "lon": 12.7725,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Torre Astura (Nettuno)",
+    "reg": "Lazio",
+    "coords": [
+      41.4114,
+      12.7725
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Lazio"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Playa di Eboli (Salerno)",
-    "lat": 40.5439,
-    "lon": 14.9083,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Playa di Eboli (Salerno)",
+    "reg": "Campania",
+    "coords": [
+      40.5439,
+      14.9083
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Campania"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Licola (Pozzuoli)",
-    "lat": 40.8656,
-    "lon": 14.0486,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Licola (Pozzuoli)",
+    "reg": "Campania",
+    "coords": [
+      40.8656,
+      14.0486
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Campania"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Marina di Ascea (Cilento)",
-    "lat": 40.1344,
-    "lon": 15.1539,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Marina di Ascea (Cilento)",
+    "reg": "Campania",
+    "coords": [
+      40.1344,
+      15.1539
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Campania"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Mortelle (Reggio Calabria)",
-    "lat": 38.2567,
-    "lon": 15.6514,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Mortelle (Reggio Calabria)",
+    "reg": "Calabria",
+    "coords": [
+      38.2567,
+      15.6514
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Calabria"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Amantea (Cosenza)",
-    "lat": 39.1242,
-    "lon": 16.0664,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Amantea (Cosenza)",
+    "reg": "Calabria",
+    "coords": [
+      39.1242,
+      16.0664
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Calabria"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Sellia Marina (Catanzaro)",
-    "lat": 38.8894,
-    "lon": 16.7461,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Sellia Marina (Catanzaro)",
+    "reg": "Calabria",
+    "coords": [
+      38.8894,
+      16.7461
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Calabria"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Metaponto (Matera)",
-    "lat": 40.3547,
-    "lon": 16.8286,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Marina di Pisticci",
+    "reg": "Basilicata",
+    "coords": [
+      40.3086,
+      16.8114
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Basilicata"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Marina di Pisticci",
-    "lat": 40.3086,
-    "lon": 16.8114,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Torre dell'Orso (Lecce)",
+    "reg": "Puglia",
+    "coords": [
+      40.2739,
+      18.4264
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Basilicata"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Torre dell'Orso (Lecce)",
-    "lat": 40.2739,
-    "lon": 18.4264,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Lido di Classi (Barletta-Andria-Trani)",
+    "reg": "Puglia",
+    "coords": [
+      41.3417,
+      16.1139
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Puglia"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Lido di Classi (Barletta-Andria-Trani)",
-    "lat": 41.3417,
-    "lon": 16.1139,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Ginosa Marina (Taranto)",
+    "reg": "Puglia",
+    "coords": [
+      40.4242,
+      16.8814
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Puglia"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Ginosa Marina (Taranto)",
-    "lat": 40.4242,
-    "lon": 16.8814,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Pineto (Teramo)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.6083,
+      14.0739
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Puglia"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Pineto (Teramo)",
-    "lat": 42.6083,
-    "lon": 14.0739,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Lido di Casalbordino (Chieti)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.1944,
+      14.6186
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Lido di Casalbordino (Chieti)",
-    "lat": 42.1944,
-    "lon": 14.6186,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Rio Vivo (Termoli)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      41.9947,
+      15.0069
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Arenile di Alba Adriatica",
-    "lat": 42.8242,
-    "lon": 13.9314,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Marina di Montenero di Bisaccia",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.0639,
+      14.7894
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Rio Vivo (Termoli)",
-    "lat": 41.9947,
-    "lon": 15.0069,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Palombina (Ancona)",
+    "reg": "Marche",
+    "coords": [
+      43.6264,
+      13.4486
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Marina di Montenero di Bisaccia",
-    "lat": 42.0639,
-    "lon": 14.7894,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Marina di Palmense (Fermo)",
+    "reg": "Marche",
+    "coords": [
+      43.1814,
+      13.7844
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Palombina (Ancona)",
-    "lat": 43.6264,
-    "lon": 13.4486,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Marotta (Pesaro-Urbino)",
+    "reg": "Marche",
+    "coords": [
+      43.7686,
+      13.1439
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Marche"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Marina di Palmense (Fermo)",
-    "lat": 43.1814,
-    "lon": 13.7844,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Lido di Dante (Ravenna)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.3856,
+      12.3083
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Marche"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Marotta (Pesaro-Urbino)",
-    "lat": 43.7686,
-    "lon": 13.1439,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Porto Garibaldi (Ferrara)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.6756,
+      12.2464
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Marche"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Lido di Dante (Ravenna)",
-    "lat": 44.3856,
-    "lon": 12.3083,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Misano Adriatico",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      43.9856,
+      12.7042
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Emilia-Romagna"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Porto Garibaldi (Ferrara)",
-    "lat": 44.6756,
-    "lon": 12.2464,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Boccasette (Rovigo)",
+    "reg": "Veneto",
+    "coords": [
+      44.9814,
+      12.4439
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Emilia-Romagna"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Misano Adriatico",
-    "lat": 43.9856,
-    "lon": 12.7042,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Lido di Venezia (Alberoni)",
+    "reg": "Veneto",
+    "coords": [
+      45.3444,
+      12.3214
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Emilia-Romagna"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Boccasette (Rovigo)",
-    "lat": 44.9814,
-    "lon": 12.4439,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Eraclea Mare",
+    "reg": "Veneto",
+    "coords": [
+      45.5447,
+      12.7486
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Veneto"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Lido di Venezia (Alberoni)",
-    "lat": 45.3444,
-    "lon": 12.3214,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Grado Pineta",
+    "reg": "Friuli-VG",
+    "coords": [
+      45.6794,
+      13.4347
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Veneto"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Eraclea Mare",
-    "lat": 45.5447,
-    "lon": 12.7486,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Arenile di Piscinas (Arbus)",
+    "reg": "Sardegna",
+    "coords": [
+      39.5394,
+      8.4486
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Veneto"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Grado Pineta",
-    "lat": 45.6794,
-    "lon": 13.4347,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di Platamona (Sassari)",
+    "reg": "Sardegna",
+    "coords": [
+      40.8242,
+      8.4894
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Friuli-VG"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Lignano Riviera (Foce del Tagliamento)",
-    "lat": 45.6417,
-    "lon": 13.0983,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Poetto di Cagliari (Quartu Sant'Elena)",
+    "reg": "Sardegna",
+    "coords": [
+      39.2139,
+      9.1844
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Friuli-VG"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Arenile di Piscinas (Arbus)",
-    "lat": 39.5394,
-    "lon": 8.4486,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Playa di Catania",
+    "reg": "Sicilia",
+    "coords": [
+      37.4586,
+      15.1014
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Sardegna"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Spiaggia di Platamona (Sassari)",
-    "lat": 40.8242,
-    "lon": 8.4894,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Spiaggia di San Vito Lo Capo (Trapani)",
+    "reg": "Sicilia",
+    "coords": [
+      38.1794,
+      12.7347
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Sardegna"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Poetto di Cagliari (Quartu Sant'Elena)",
-    "lat": 39.2139,
-    "lon": 9.1844,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
+    "name": "Marina di Modica (Ragusa)",
+    "reg": "Sicilia",
+    "coords": [
+      36.7083,
+      14.7814
+    ],
+    "type": "Surfcasting",
     "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Sardegna"
+    "tips": "Spot surfcasting in Italia."
   },
   {
-    "nome": "Playa di Catania",
-    "lat": 37.4586,
-    "lon": 15.1014,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
-    "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Sicilia"
-  },
-  {
-    "nome": "Spiaggia di San Vito Lo Capo (Trapani)",
-    "lat": 38.1794,
-    "lon": 12.7347,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
-    "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Sicilia"
-  },
-  {
-    "nome": "Marina di Modica (Ragusa)",
-    "lat": 36.7083,
-    "lon": 14.7814,
-    "desc": "Spot surfcasting in Italia.",
-    "technique": "Surfcasting",
-    "target": "Orata • Mormora • Spigola • Serra",
-    "region": "Sicilia"
-  },
-  {
-    "nome": "Foce del Centa (Albenga)",
-    "lat": 44.0417,
-    "lon": 8.2253,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Centa (Albenga)",
+    "reg": "Liguria",
+    "coords": [
+      44.0417,
+      8.2253
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Liguria"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Scogliera di Punta Chiappa (Camogli)",
-    "lat": 44.3214,
-    "lon": 9.1417,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Scogliera di Punta Chiappa (Camogli)",
+    "reg": "Liguria",
+    "coords": [
+      44.3214,
+      9.1417
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Liguria"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Molo del Porto di Oneglia (Imperia)",
-    "lat": 43.8864,
-    "lon": 8.0431,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Molo del Porto di Oneglia (Imperia)",
+    "reg": "Liguria",
+    "coords": [
+      43.8864,
+      8.0431
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Liguria"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Arno (Marina di Pisa)",
-    "lat": 43.6811,
-    "lon": 10.2742,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Arno (Marina di Pisa)",
+    "reg": "Toscana",
+    "coords": [
+      43.6811,
+      10.2742
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Toscana"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Scogliere di Castiglioncello (Livorno)",
-    "lat": 43.4042,
-    "lon": 10.4094,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Canale di Canale d'Ansedonia (Orbetello)",
+    "reg": "Toscana",
+    "coords": [
+      42.4117,
+      11.2847
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Toscana"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Canale di Canale d'Ansedonia (Orbetello)",
-    "lat": 42.4117,
-    "lon": 11.2847,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Tevere (Fiumara Grande, Ostia)",
+    "reg": "Lazio",
+    "coords": [
+      41.7761,
+      12.2139
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Toscana"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Tevere (Fiumara Grande, Ostia)",
-    "lat": 41.7761,
-    "lon": 12.2139,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Porto di Gaeta (Punta Stendardo)",
+    "reg": "Lazio",
+    "coords": [
+      41.2139,
+      13.5939
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Lazio"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Porto di Gaeta (Punta Stendardo)",
-    "lat": 41.2139,
-    "lon": 13.5939,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Canale di Rio Martino (Latina)",
+    "reg": "Lazio",
+    "coords": [
+      41.3856,
+      12.9169
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Lazio"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Canale di Rio Martino (Latina)",
-    "lat": 41.3856,
-    "lon": 12.9169,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Sele (Paestum)",
+    "reg": "Campania",
+    "coords": [
+      40.4806,
+      14.9317
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Lazio"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Sele (Paestum)",
-    "lat": 40.4806,
-    "lon": 14.9317,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Molo Sigfrido di Pozzuoli",
+    "reg": "Campania",
+    "coords": [
+      40.8219,
+      14.1147
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Campania"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Molo Sigfrido di Pozzuoli",
-    "lat": 40.8219,
-    "lon": 14.1147,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Neto (Crotone)",
+    "reg": "Calabria",
+    "coords": [
+      39.1983,
+      17.1439
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Campania"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Scogliera di Capo Palinuro (Centola)",
-    "lat": 40.0264,
-    "lon": 15.2756,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Molo San Cataldo di Gioia Tauro",
+    "reg": "Calabria",
+    "coords": [
+      38.4417,
+      15.8986
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Campania"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Neto (Crotone)",
-    "lat": 39.1983,
-    "lon": 17.1439,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Punta Pellaro (Reggio Calabria)",
+    "reg": "Calabria",
+    "coords": [
+      38.0264,
+      15.6319
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Calabria"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Molo San Cataldo di Gioia Tauro",
-    "lat": 38.4417,
-    "lon": 15.8986,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Agri (Policoro)",
+    "reg": "Basilicata",
+    "coords": [
+      40.2114,
+      16.7369
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Calabria"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Punta Pellaro (Reggio Calabria)",
-    "lat": 38.0264,
-    "lon": 15.6319,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Pontile di Nova Siri Marina",
+    "reg": "Basilicata",
+    "coords": [
+      40.1417,
+      16.6864
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Calabria"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Agri (Policoro)",
-    "lat": 40.2114,
-    "lon": 16.7369,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Ofanto (Barletta)",
+    "reg": "Puglia",
+    "coords": [
+      41.3486,
+      16.1114
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Basilicata"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Pontile di Nova Siri Marina",
-    "lat": 40.1417,
-    "lon": 16.6864,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Scogliera di Torre Sant'Andrea (Melendugno)",
+    "reg": "Puglia",
+    "coords": [
+      40.2539,
+      18.4447
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Basilicata"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Ofanto (Barletta)",
-    "lat": 41.3486,
-    "lon": 16.1114,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Diga del Porto di Manfredonia",
+    "reg": "Puglia",
+    "coords": [
+      41.6214,
+      15.9347
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Puglia"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Scogliera di Torre Sant'Andrea (Melendugno)",
-    "lat": 40.2539,
-    "lon": 18.4447,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Vomano (Roseto degli Abruzzi)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.6686,
+      14.0242
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Puglia"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Diga del Porto di Manfredonia",
-    "lat": 41.6214,
-    "lon": 15.9347,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Molo Sud del Porto di San Salvo",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.0639,
+      14.7894
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Puglia"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Vomano (Roseto degli Abruzzi)",
-    "lat": 42.6686,
-    "lon": 14.0242,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Scogliera di Punta Aderci (Vasto)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.1806,
+      14.6869
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Molo Sud del Porto di San Salvo",
-    "lat": 42.0639,
-    "lon": 14.7894,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Biferno (Campomarino)",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      41.9794,
+      15.0319
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Scogliera di Punta Aderci (Vasto)",
-    "lat": 42.1806,
-    "lon": 14.6869,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Molo Nord del Porto di Termoli",
+    "reg": "Abruzzo-Molise",
+    "coords": [
+      42.0056,
+      15.0064
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Biferno (Campomarino)",
-    "lat": 41.9794,
-    "lon": 15.0319,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Metauro (Fano)",
+    "reg": "Marche",
+    "coords": [
+      43.8417,
+      13.0486
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Molo Nord del Porto di Termoli",
-    "lat": 42.0056,
-    "lon": 15.0064,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Tronto (Porto d'Ascoli)",
+    "reg": "Marche",
+    "coords": [
+      42.9003,
+      13.9164
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Abruzzo-Molise"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Metauro (Fano)",
-    "lat": 43.8417,
-    "lon": 13.0486,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Scogliera del Passetto (Ancona)",
+    "reg": "Marche",
+    "coords": [
+      43.6194,
+      13.5386
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Marche"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Tronto (Porto d'Ascoli)",
-    "lat": 42.9003,
-    "lon": 13.9164,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Reno (Casal Borsetti)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.5364,
+      12.2847
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Marche"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Scogliera del Passetto (Ancona)",
-    "lat": 43.6194,
-    "lon": 13.5386,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Invaso del Ponte di Tiberio (Rimini - Zona Canale)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.0639,
+      12.5647
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Marche"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Reno (Casal Borsetti)",
-    "lat": 44.5364,
-    "lon": 12.2847,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Rubicone (Gatteo a Mare)",
+    "reg": "Emilia-Romagna",
+    "coords": [
+      44.1761,
+      12.4347
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Emilia-Romagna"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Invaso del Ponte di Tiberio (Rimini - Zona Canale)",
-    "lat": 44.0639,
-    "lon": 12.5647,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Adige (Rosolina Mare)",
+    "reg": "Veneto",
+    "coords": [
+      45.1614,
+      12.3319
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Emilia-Romagna"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Rubicone (Gatteo a Mare)",
-    "lat": 44.1761,
-    "lon": 12.4347,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Piave (Cortellazzo / Jesolo)",
+    "reg": "Veneto",
+    "coords": [
+      45.5264,
+      12.7214
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Emilia-Romagna"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Adige (Rosolina Mare)",
-    "lat": 45.1614,
-    "lon": 12.3319,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Bocca di Porto di Malamocco (Lido di Venezia)",
+    "reg": "Veneto",
+    "coords": [
+      45.3339,
+      12.3164
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Veneto"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Piave (Cortellazzo / Jesolo)",
-    "lat": 45.5264,
-    "lon": 12.7214,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Isonzo (Isola della Cona)",
+    "reg": "Friuli-VG",
+    "coords": [
+      45.7114,
+      13.5417
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Veneto"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Bocca di Porto di Malamocco (Lido di Venezia)",
-    "lat": 45.3339,
-    "lon": 12.3164,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Canale di Canovella de' Zoppoli (Duino-Aurisina)",
+    "reg": "Friuli-VG",
+    "coords": [
+      45.7539,
+      13.6847
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Veneto"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Isonzo (Isola della Cona)",
-    "lat": 45.7114,
-    "lon": 13.5417,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Coghinas (Valledoria)",
+    "reg": "Sardegna",
+    "coords": [
+      40.9347,
+      8.8164
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Friuli-VG"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Canale di Canovella de' Zoppoli (Duino-Aurisina)",
-    "lat": 45.7539,
-    "lon": 13.6847,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Scogliera di Capo Carbonara (Villasimius)",
+    "reg": "Sardegna",
+    "coords": [
+      39.1025,
+      9.5214
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Friuli-VG"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Coghinas (Valledoria)",
-    "lat": 40.9347,
-    "lon": 8.8164,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Porto Foraneo di Olbia (Isola Bianca)",
+    "reg": "Sardegna",
+    "coords": [
+      40.9239,
+      9.5194
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Sardegna"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Scogliera di Capo Carbonara (Villasimius)",
-    "lat": 39.1025,
-    "lon": 9.5214,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Foce del Fiume Simeto (Catania)",
+    "reg": "Sicilia",
+    "coords": [
+      37.4014,
+      15.1064
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Sardegna"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Porto Foraneo di Olbia (Isola Bianca)",
-    "lat": 40.9239,
-    "lon": 9.5194,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Scogliera di Capo d'Orlando (Messina)",
+    "reg": "Sicilia",
+    "coords": [
+      38.1639,
+      14.7431
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Sardegna"
+    "tips": "Spot spinning in Italia."
   },
   {
-    "nome": "Foce del Fiume Simeto (Catania)",
-    "lat": 37.4014,
-    "lon": 15.1064,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
+    "name": "Molo Foraneo del Porto di Sciacca (Agrigento)",
+    "reg": "Sicilia",
+    "coords": [
+      37.5003,
+      13.0764
+    ],
+    "type": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
-    "region": "Sicilia"
-  },
-  {
-    "nome": "Scogliera di Capo d'Orlando (Messina)",
-    "lat": 38.1639,
-    "lon": 14.7431,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
-    "target": "Spigola • Serra • Predatori costieri",
-    "region": "Sicilia"
-  },
-  {
-    "nome": "Molo Foraneo del Porto di Sciacca (Agrigento)",
-    "lat": 37.5003,
-    "lon": 13.0764,
-    "desc": "Spot spinning in Italia.",
-    "technique": "Spinning",
-    "target": "Spigola • Serra • Predatori costieri",
-    "region": "Sicilia"
+    "tips": "Spot spinning in Italia."
   }
 ]
