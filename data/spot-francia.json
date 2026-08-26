@@ -1042,5 +1042,492 @@
     "technique": "Spinning",
     "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
     "region": "Corse"
+  },
+  {
+    "name": "Vieux-Port de Marseille (Molo Saint-Jean)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.2947,
+      5.3614
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Cefali",
+    "tips": "Spot cittadino storico. Pescare di notte sotto i lampioni rasente le banchine dei pescherecci con il bigattino."
+  },
+  {
+    "name": "Digue du Large - Porto di Marsiglia",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.3114,
+      5.3447
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi Maggiori, Occhiate, Spigole",
+    "tips": "Grande barriera frangiflutti esterna. Fondale profondo, usare canne da 7-8 metri e pasture pesanti a base di formaggio."
+  },
+  {
+    "name": "Porto di Tolone (Quai Cronstadt)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.1214,
+      5.9339
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Boghe",
+    "tips": "Zona riparata all'interno della grande rada. Ottimo l'innesco del pane francese o del coreano."
+  },
+  {
+    "name": "Porto di Cannes (Molo Albert-Edouard)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.5514,
+      7.0169
+    ],
+    "type": "Bolognese",
+    "target": "Occhiate Giganti, Spigole, Saraghi",
+    "tips": "Acque molto limpide e barche di lusso. Pesca di precisione notturna con terminali invisibili in fluorocarbon dello 0.10."
+  },
+  {
+    "name": "Porto di Nizza (Quai Commerce)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.6947,
+      7.2864
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Salpe",
+    "tips": "Fondale subito molto profondo oltre i 6 metri. Richiede galleggianti scorrevoli leggeri o spallinate molto raggruppate."
+  },
+  {
+    "name": "Porto di Antibes (Molo Foraneo Quai Nord)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.5883,
+      7.1294
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Occhiate",
+    "tips": "Molo esterno molto lungo con fondale roccioso artificiale. Sfruttare la scaduta di scirocco pescando nella schiuma."
+  },
+  {
+    "name": "Porto di Mentone (Vieux Port molo est)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.7783,
+      7.5086
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Occhiate, Saraghi",
+    "tips": "A ridosso del confine italiano. Acque trasparenti, consigliata l'azione all'alba con lenze molto sottili e spallinate fluide."
+  },
+  {
+    "name": "Porto di La Ciotat (Banchina pescherecci)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.1764,
+      5.6083
+    ],
+    "type": "Bolognese",
+    "target": "Cefali, Spigole, Saraghi",
+    "tips": "Zona riparata ideale per le giornate di forte maestrale. Pasturare con sarda macinata e formaggio radente le cime degli ormeggi."
+  },
+  {
+    "name": "Porto di Cassis (Molo esterno)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.2114,
+      5.5369
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi Maggiori, Occhiate, Salpe",
+    "tips": "Fondale caratterizzato da falesie bianche calcaree esterne. Usare pasture chiare e innescare il fiocco di pane o il bigattino."
+  },
+  {
+    "name": "Porto di Sète (Molo Saint-Louis)",
+    "reg": "Occitania",
+    "coords": [
+      43.3986,
+      3.6986
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Orate, Cefali",
+    "tips": "Punto di unione tra il canale e il mare. Forti correnti di marea, trattenere il galleggiante nella scia della pastura."
+  },
+  {
+    "name": "Port-Vendres (Molo esterno)",
+    "reg": "Occitania",
+    "coords": [
+      42.5214,
+      3.1114
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi Pizzuti, Spigole, Occhiate",
+    "tips": "Fondale roccioso profondo vicino ai Pirenei. Ottimo con mareggiata da Est in scaduta pescando nella schiuma."
+  },
+  {
+    "name": "Grau-du-Roi (Canale marittimo)",
+    "reg": "Occitania",
+    "coords": [
+      43.5364,
+      4.1347
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali",
+    "tips": "Canale artificiale molto pescoso. Pescare corti a centro canale all'alba utilizzando come esca il gamberetto vivo."
+  },
+  {
+    "name": "Porto di Agde (Banchina dell'Hérault)",
+    "reg": "Occitania",
+    "coords": [
+      43.2864,
+      3.4725
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Tratto fluviale-salmastro soggetto a forti escursioni termiche. Ottimo dopo le piene quando l'acqua schiarisce usando il coreano."
+  },
+  {
+    "name": "Port Camargue (Canale d'ingresso principale)",
+    "reg": "Occitania",
+    "coords": [
+      43.5169,
+      4.1294
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Orate, Saraghi",
+    "tips": "Grande area marina protetta artificiale. Pescare lungo i muraglioni di notte innescando il gamberetto vivo a ridosso delle boe."
+  },
+  {
+    "name": "Port-la-Nouvelle (Canale delle lagune)",
+    "reg": "Occitania",
+    "coords": [
+      43.0214,
+      3.0514
+    ],
+    "type": "Bolognese",
+    "target": "Spigole giganti, Cefali, Orate",
+    "tips": "Canale di collegamento con l'Étang de Bages. Corrente molto violenta, richiede galleggianti piombati a uovo da 5-8 grammi."
+  },
+  {
+    "name": "Porto di Gruissan (Moli esterni)",
+    "reg": "Occitania",
+    "coords": [
+      43.1039,
+      3.1114
+    ],
+    "type": "Bolognese",
+    "target": "Orate, Spigole, Occhiate",
+    "tips": "Fondale misto a sabbia all'imboccatura del bacino artificiale. Pasturare a bigattini incollati per contrastare il vento di tramontana."
+  },
+  {
+    "name": "Porto di Ajaccio (Molo jetée de la Citadelle)",
+    "reg": "Corsica",
+    "coords": [
+      41.9264,
+      8.7447
+    ],
+    "type": "Bolognese",
+    "target": "Grosse Spigole, Saraghi, Occhiate",
+    "tips": "Acque incontaminate e profonde. Pasturare costantemente a piccoli tocchi con bigattini sfusi durante i cambi di luce."
+  },
+  {
+    "name": "Porto di Bastia (Vieux-Port)",
+    "reg": "Corsica",
+    "coords": [
+      42.6964,
+      9.4514
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Spigole, Cefali",
+    "tips": "Ingresso del porto vecchio riparato dai venti occidentali. Pescare radenti il fondo vicino ai blocchi di cemento artificiali."
+  },
+  {
+    "name": "Porto di Bonifacio (Fondo del fiordo)",
+    "reg": "Corsica",
+    "coords": [
+      41.3883,
+      9.1614
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Occhiate Giganti",
+    "tips": "Ambiente unico riparato all'interno delle scogliere bianche. Pesca fine notturna rasente le banchine dei mega yacht."
+  },
+  {
+    "name": "Porto di Calvi (Molo turistico sotto la cittadella)",
+    "reg": "Corsica",
+    "coords": [
+      42.5694,
+      8.7583
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi Maggiori, Occhiate, Spigole",
+    "tips": "Acqua limpidissima con fondale misto a grandi massi. Obbligatorio pescare di notte con terminali lunghi in fluorocarbon."
+  },
+  {
+    "name": "Porto di Propriano (Diga foranea principale)",
+    "reg": "Corsica",
+    "coords": [
+      41.6786,
+      8.9014
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Tanute, Spigole",
+    "tips": "Esposto al mare aperto del golfo di Valinco. Molto redditizio durante le mareggiate da ovest pescando all'interno del molo."
+  },
+  {
+    "name": "Porto di Porto-Vecchio (Banchine commerciali)",
+    "reg": "Corsica",
+    "coords": [
+      41.5914,
+      9.2883
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Situato in fondo a una baia molto profonda e calma. Ottimo per sessioni invernali diurne con pasture al formaggio."
+  },
+  {
+    "name": "Vieux-Port de Marseille (Molo Saint-Jean)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.2947,
+      5.3614
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Gronghi",
+    "tips": "Fondale fangoso molto ricco. Innescare il granchio vivo o il bibi di notte tra gli ormeggi dei pescherecci."
+  },
+  {
+    "name": "Digue du Large - Porto di Marsiglia",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.3114,
+      5.3447
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Maggiori, Orate Reali, Pagelli",
+    "tips": "Fondale esterno profondo e roccioso. Usare piombi pesanti e montature short-arm resistenti per evitare incagli."
+  },
+  {
+    "name": "Porto di Tolone (Grande Rada / Quai Cronstadt)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.1214,
+      5.9339
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Spigole di fondo",
+    "tips": "Fondale misto a sabbia fine all'interno del bacino. Ottima la pesca d'attesa a ledgering con l'arenicola."
+  },
+  {
+    "name": "Porto di Cannes (Molo Albert-Edouard)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.5514,
+      7.0169
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Triglie di scoglio",
+    "tips": "Lanciare fuori dal molo sulla sabbia pulita. Usare terminali lunghi in fluorocarbon per vincere la diffidenza dei pesci."
+  },
+  {
+    "name": "Porto di Nizza (Imboccatura Quai Commerce)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.6947,
+      7.2864
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Pagelli, Scorfani",
+    "tips": "Il fondale scende rapidamente oltre gli 8 metri. Usare piombi aerodinamici e calamenti a due ami sul fondo."
+  },
+  {
+    "name": "Porto di Antibes (Molo Foraneo Quai Nord)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.5883,
+      7.1294
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Saraghi Maggiori",
+    "tips": "Scogliera artificiale protesa nel largo. Innescare esche dure e selettive come la cozza con guscio o il bibi."
+  },
+  {
+    "name": "Porto di Mentone (Diga foranea est)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.7783,
+      7.5086
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Mormore",
+    "tips": "Fondale sabbioso-misto molto chiaro. Ideale l'azione notturna a grande distanza usando fili sottili in bobina."
+  },
+  {
+    "name": "Porto di La Ciotat (Banchine esterne)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.1764,
+      5.6083
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi Pizzuti, Gronghi",
+    "tips": "Riparato dal vento di maestrale. Calare l'esca sul gradino di fondo a ridosso delle massicciate artificiali."
+  },
+  {
+    "name": "Porto di Cassis (Molo esterno falesie)",
+    "reg": "Provenza-Alpi-Costa Azzurra",
+    "coords": [
+      43.2114,
+      5.5369
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Orate, Triglie",
+    "tips": "Fondale roccioso calcareo. Usare un montaggio con piombo scorrevole leggero per assecondare la risacca marina."
+  },
+  {
+    "name": "Porto di Sète (Molo Saint-Louis)",
+    "reg": "Occitania",
+    "coords": [
+      43.3986,
+      3.6986
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Giganti, Spigole, Ombrine",
+    "tips": "Punto strategico di scambio marea. Usare piombi piatti a saponetta per contrastare la corrente del canale."
+  },
+  {
+    "name": "Port-Vendres (Molo esterno profondo)",
+    "reg": "Occitania",
+    "coords": [
+      42.5214,
+      3.1114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Pizzuti, Mostelle, Corvine",
+    "tips": "Zona rocciosa e profonda ai piedi dei Pirenei. Innescare il verme solitario o strisce di seppia fresca."
+  },
+  {
+    "name": "Grau-du-Roi (Imboccatura Canale marittimo)",
+    "reg": "Occitania",
+    "coords": [
+      43.5364,
+      4.1347
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Orate, Anguille",
+    "tips": "Fondale fangoso ricco di nutrimento. Ottimi risultati pescando a fondo di notte con il verme americano."
+  },
+  {
+    "name": "Porto di Agde (Tratto terminale Hérault)",
+    "reg": "Occitania",
+    "coords": [
+      33.2864,
+      3.4725
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Spigole, Passere di mare",
+    "tips": "Fondale salmastro. Molto efficace la pesca a feeder (pasturatore) caricato con sarda trita e bigattini."
+  },
+  {
+    "name": "Port Camargue (Muraglioni canale d'ingresso)",
+    "reg": "Occitania",
+    "coords": [
+      43.5169,
+      4.1294
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Mormore, Saraghi",
+    "tips": "Fondale sabbioso pulito. Lanciare a centro canale bloccando la lenza sul fondo, ottima l'arenicola."
+  },
+  {
+    "name": "Port-la-Nouvelle (Canale delle lagune esterno)",
+    "reg": "Occitania",
+    "coords": [
+      43.0214,
+      3.0514
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Giganti, Spigole, Ombrine",
+    "tips": "Forte corrente di marea sul fondo. Utilizzare piombi a piramide pesanti per mantenere ferma l'esca."
+  },
+  {
+    "name": "Porto di Gruissan (Moli d'ingresso esterni)",
+    "reg": "Occitania",
+    "coords": [
+      43.1039,
+      3.1114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Razze",
+    "tips": "Sabbia e fango profondo. Consigliato l'uso di terminali lunghi muniti di un piccolo pop-up per sollevare l'esca."
+  },
+  {
+    "name": "Porto di Ajaccio (Molo jetée de la Citadelle)",
+    "reg": "Corsica",
+    "coords": [
+      41.9264,
+      8.7447
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Maggiori, Orate Reali",
+    "tips": "Acque limpidissime e profonde. Obbligatorio l'uso di calamenti lunghi in puro fluorocarbon di notte."
+  },
+  {
+    "name": "Porto di Bastia (Diga esterna Vieux-Port)",
+    "reg": "Corsica",
+    "coords": [
+      42.6964,
+      9.4514
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Orate, Gronghi",
+    "tips": "Lanciare a ridosso delle grandi scogliere artificiali esterne. Ottimo l'innesco del bibi o del gambero intero."
+  },
+  {
+    "name": "Porto di Bonifacio (Banchine interne del fiordo)",
+    "reg": "Corsica",
+    "coords": [
+      41.3883,
+      9.1614
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Spigole, Scorfani",
+    "tips": "Zona totalmente protetta e profonda. Pescare corti sul fondale fangoso all'ombra delle grandi imbarcazioni."
+  },
+  {
+    "name": "Porto di Calvi (Molo esterno sotto la fortezza)",
+    "reg": "Corsica",
+    "coords": [
+      42.5694,
+      8.7583
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Maggiori, Tanute, Corvine",
+    "tips": "Fondale roccioso frastagliato molto profondo. Usare montature short-arm sollevate dal fondo per limitare gli incagli."
+  },
+  {
+    "name": "Porto di Propriano (Diga foranea principale)",
+    "reg": "Corsica",
+    "coords": [
+      41.6786,
+      8.9014
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Orate, Pagelli",
+    "tips": "Fondale aperto nel golfo. Sganciare la montatura sul fondo sabbioso antistante i blocchi di cemento esterni."
+  },
+  {
+    "name": "Porto di Porto-Vecchio (Moli commerciali)",
+    "reg": "Corsica",
+    "coords": [
+      41.5914,
+      9.2883
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Giganti, Mormore, Spigole",
+    "tips": "Fondale riparato molto calmo. Sfruttare l'azione d'attesa notturna innescando il cannolicchio o il granchio vivo."
   }
 ]
+
+  
+
