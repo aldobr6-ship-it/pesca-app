@@ -1183,7 +1183,7 @@
   },
   {
     "name": "Porto di Houmt Souk (Isola di Djerba)",
-    "reg": "Medenine",
+    "reg": "Djerba",
     "coords": [
       33.8864,
       10.8583
@@ -1491,7 +1491,7 @@
   },
   {
     "name": "Porto di Houmt Souk (Isola di Djerba)",
-    "reg": "Medenine",
+    "reg": "Djerba",
     "coords": [
       33.8864,
       10.8583
@@ -1601,7 +1601,7 @@
   },
   {
     "name": "Porto di Houmt Souk (Isola di Djerba)",
-    "reg": "Medenine",
+    "reg": "Djerba",
     "coords": [
       33.8864,
       10.8583
@@ -1612,7 +1612,7 @@
   },
   {
     "name": "Molo di Aghir (Isola di Djerba)",
-    "reg": "Medenine",
+    "reg": "Djerba",
     "coords": [
       33.7539,
       11.0114
@@ -1733,7 +1733,7 @@
   },
   {
     "name": "Porto di Houmt Souk (Isola di Djerba)",
-    "reg": "Medenine (Djerba)",
+    "reg": "Djerba",
     "coords": [
       33.8864,
       10.8583
@@ -1744,7 +1744,7 @@
   },
   {
     "name": "Molo di Aghir (Isola di Djerba)",
-    "reg": "Medenine (Djerba)",
+    "reg": "Djerba",
     "coords": [
       33.7539,
       11.0114
@@ -1755,7 +1755,7 @@
   },
   {
     "name": "Pontile di El Kantara (Djerba - Sotto il ponte romano)",
-    "reg": "Medenine (Djerba)",
+    "reg": "Djerba",
     "coords": [
       33.6794,
       10.9533
