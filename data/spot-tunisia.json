@@ -1763,5 +1763,95 @@
     "type": "Pesca a fondo",
     "target": "Spigole, Orate Giganti, Saraghi",
     "tips": "Correnti fortissime sotto il ponte. Obbligatorio usare piombi pesanti a tenuta (spike) e innescare il granchio vivo."
+  },
+  {
+    "nome": "Porto di Kélibia (Molo Est)",
+    "lat": 36.8344,
+    "lon": 11.1122,
+    "desc": "Uno dei porti pescherecci più importanti della regione, dominato dalla fortezza. Il molo foraneo esterno offre ottimi fondali per la bolognese, con correnti costanti.",
+    "technique": "Bolognese",
+    "target": "Cefali, spigole, saraghi e orate",
+    "region": "Cap Bon"
+  },
+  {
+    "nome": "Scogliere di El Haouaria (Vicino alle Grotte Puniche)",
+    "lat": 37.0583,
+    "lon": 10.9992,
+    "desc": "Punta settentrionale di Cap Bon con scogliere frastagliate e acque cristalline. Richiede canne lunghe (7 metri) per superare i massi sommersi e gestire la trattenuta con mare leggermente mosso.",
+    "technique": "Bolognese",
+    "target": "Saraghi maggiori, occhiate e spigole",
+    "region": "Cap Bon"
+  },
+  {
+    "nome": "Porticciolo di Sidi Daoud",
+    "lat": 37.0164,
+    "lon": 10.9135,
+    "desc": "Famoso storicamente per la mattanza delle tonnare, offre banchine e scogliere riparate ideali per una pesca a passata tecnica a ridosso delle strutture.",
+    "technique": "Bolognese",
+    "target": "Cefali calamita, spigole e occhiate",
+    "region": "Cap Bon"
+  },
+  {
+    "nome": "Scogliera di Korbous (Sorgenti Termali)",
+    "lat": 36.8228,
+    "lon": 10.5739,
+    "desc": "Zona costiera con falesie dove l'acqua calda termale si riversa in mare, creando un microclima che attira moltissimo pesce bianco.",
+    "technique": "Bolognese",
+    "target": "Salpe, saraghi, occhiate e cefali",
+    "region": "Cap Bon"
+  },
+  {
+    "nome": "Molo di Yasmine Hammamet",
+    "lat": 36.3715,
+    "lon": 10.5368,
+    "desc": "Grande porto turistico nella parte meridionale della penisola. Le scogliere esterne offrono un fondale sabbioso/misto profondo, ideale per pescare a mezz'acqua con il bigattino o il pastarello.",
+    "technique": "Bolognese",
+    "target": "Spigole, orate e boga",
+    "region": "Cap Bon"
+  },
+  {
+    "nome": "Spiaggia di Mansoura (Kélibia)",
+    "lat": 36.8521,
+    "lon": 11.1214,
+    "desc": "Spiaggia di sabbia bianca finissima con fondale che degrada dolcemente, intervallato da zone di grotto. Eccezionale per la pesca a fondo a lunga distanza sia diurna che notturna.",
+    "technique": "Pesca a fondo / Surfcasting",
+    "target": "Orate, mormore e saraghi pizzuti",
+    "region": "Cap Bon"
+  },
+  {
+    "nome": "Spiaggia di El Haouaria (Plage Ras el Drak)",
+    "lat": 37.0754,
+    "lon": 11.0342,
+    "desc": "Grande spiaggia esposta alle correnti del Canale di Sicilia. Con mare mosso attira grandi predatori accostati nei canaloni di sabbia creati dalle onde.",
+    "technique": "Pesca a fondo / Surfcasting pesante",
+    "target": "Spigole, ombrine e grosse orate",
+    "region": "Cap Bon"
+  },
+  {
+    "nome": "Spiaggia di Korba (Plage Tazarka)",
+    "lat": 36.5684,
+    "lon": 10.8711,
+    "desc": "Lungo litorale sabbioso della costa orientale, molto lineare e pulito. Perfetto per il beach ledgering leggero alla ricerca di grufolatori sulla corta e media distanza.",
+    "technique": "Pesca a fondo / Beach Ledgering",
+    "target": "Mormore, triglie di fango e sogliole",
+    "region": "Cap Bon"
+  },
+  {
+    "nome": "Spiaggia di Nabeul (Plage Maamoura)",
+    "lat": 36.4612,
+    "lon": 10.7985,
+    "desc": "Zona sabbiosa situata vicino a una laguna costiera. Il costante ricambio biologico attira pesci da fondo di ottima taglia, soprattutto durante le mareggiate in scaduta.",
+    "technique": "Pesca a fondo / Surfcasting",
+    "target": "Orate, spigole e leccie stella",
+    "region": "Cap Bon"
+  },
+  {
+    "nome": "Baia di Hammamet (Spiaggia Nord)",
+    "lat": 36.4125,
+    "lon": 10.6314,
+    "desc": "Spiaggia ampia e riparata dai venti settentrionali. Il fondale è interamente sabbioso e pulito, ideale per pescare con piombi leggeri e terminali lunghi (long arm) senza rischio di incaglio.",
+    "technique": "Pesca a fondo / Beach Ledgering",
+    "target": "Mormore, orate e ombrine",
+    "region": "Cap Bon"
   }
 ]
