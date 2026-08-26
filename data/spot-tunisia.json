@@ -1,182 +1,1046 @@
 [
-{
-    "nome": "Plage de Tabarka (El Corniche)",
-    "lat": 36.9582,
-    "lon": 8.7621,
-    "desc": "Zone nord-ouest caractérisée par des fonds mixtes de sable et de roche. Excellente exposition aux vagues du large, idéale par mer agitée.",
-    "technique": "Surfcasting lourd / Shore Spinning par mer formée (Jerbaits, Lipless)",
-    "target": "Loups (Bar), Grands Sars, Daurades Royales",
-    "region": "Biserta"
+  {
+    "nome": "Diga del Porto di Marsiglia (Digue du Large)",
+    "lat": 43.3164,
+    "lon": 5.3486,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
   },
   {
-    "nome": "Cap Serrat (Bizerte)",
-    "lat": 37.2345,
-    "lon": 9.2134,
-    "desc": "Plage sauvage et isolée avec une forte bathymétrie. Un spot mythique en automne. La force des courants exige des plombées lourdes (pyramides).",
-    "technique": "Surfcasting lourd de tempête / Heavy Spinning (Poppers, Skipping lures)",
-    "target": "Daurades Royales géantes, Loups, Maigres, Tassergals",
-    "region": "Biserta" 
+    "nome": "Molo del Porto di La Ciotat",
+    "lat": 43.1761,
+    "lon": 5.6114,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
   },
   {
-    "nome": "Plage de Rimel (Bizerte)",
-    "lat": 37.2654,
-    "lon": 9.9212,
-    "desc": "Adossée à une forêt de pins, cette grande plage offre une belle exposition aux vents d'Est. Fonds sableux propres, parfaits pour la recherche nocturne.",
-    "technique": "Surfcasting léger de ricerca / Beach Ledgering",
-    "target": "Marbrés, Daurades Royales, Ombres de mer",
-    "region": "Biserta"  
+    "nome": "Molo del Porto di Tolone (Mourillon)",
+    "lat": 43.1114,
+    "lon": 5.9417,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
   },
   {
-    "nome": "Plage de Sidi Ali El Mekki (Ghar El Melh)",
-    "lat": 37.1685,
-    "lon": 10.2310,
-    "desc": "Grande plage de sable fine à pente douce. Idéale à longue distance et pour la pêche nocturne par mer calme.",
-    "technique": "Beach Ledgering de grande distance (Montage Long Arm ultra-fin)",
-    "target": "Marbrés, Daurades Royales, Soles",
-    "region": "Biserta"  
+    "nome": "Porto del Vecchio Bacino di Cannes",
+    "lat": 43.5517,
+    "lon": 7.0139,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
   },
   {
-    "nome": "Plage d'El Haouaria (Cap Bon)",
-    "lat": 37.0520,
-    "lon": 11.0154,
-    "desc": "Pointe extrême du Cap Bon, zone de courants intenses où la Méditerranée rencontre des flux profonds. Fonds rocheux et sableux.",
-    "technique": "Pêche au vif (Téléphérique) / Rock Spinning lourd (Popper, Stickbait coulant)",
-    "target": "Sars, Liches, Dentis, Tassergals",
-    "region": "Cap Bon"  
+    "nome": "Molo Est del Porto di Nizza",
+    "lat": 43.6939,
+    "lon": 7.2864,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
   },
   {
-    "nome": "Plage de Kelibia (La Mansourah)",
-    "lat": 36.8488,
-    "lon": 11.1215,
-    "desc": "Sable blanc très fin et eau cristalline. Ce spot est célèbre pour la clarté de ses eaux, nécessitant de déjouer la méfiance des poissons.",
-    "technique": "Beach Ledgering de finesse nocturne / Fluorocarbone obligatoire",
-    "target": "Daurades Royales, Marbrés di grande taille",
-    "region": "Cap Bon"  
+    "nome": "Grande Diga di Sète (Mole St. Louis)",
+    "lat": 43.3956,
+    "lon": 3.7014,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Occitanie"
   },
   {
-    "nome": "Plage de Korba (Cap Bon)",
-    "lat": 36.5684,
-    "lon": 11.1648,
-    "desc": "Une très longue plage de sable rectiligne interrompue par des passes lagunaires. Les zones proches des embouchures sont d'excellents couloirs après les tempêtes.",
-    "technique": "Surfcasting de moyenne distance / Spinning aux leurres souples (Soft baits)",
-    "target": "Loups, Daurades Royales, Marbrés",
-    "region": "Cap Bon"  
+    "nome": "Molo del Porto di Grau-du-Roi",
+    "lat": 43.5339,
+    "lon": 4.1319,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Occitanie"
   },
   {
-    "nome": "Plage de Menzel Temime",
-    "lat": 36.7812,
-    "lon": 11.0345,
-    "desc": "Plage profonde ouverte sur le large avec des barres de sable changeantes. Très productive par mer formée pour atteindre les canaloni externes.",
-    "technique": "Surfcasting technique avec montages clippés (Pulley Rig clippato)",
-    "target": "Gros Sars, Daurades Royales, Ombrines",
-    "region": "Cap Bon"  
+    "nome": "Molo del Porto Foraneo di Brest",
+    "lat": 48.3814,
+    "lon": -4.4783,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
   },
   {
-    "nome": "Chott Meriam (Sousse)",
-    "lat": 35.9124,
-    "lon": 10.5612,
-    "desc": "Plage emblématique de la région du Sahel. Profil di spiaggia plat propice alla ricerca des poissons fouisseurs. Très productif à la tombée de la nuit.",
-    "technique": "Beach Ledgering traditionnel aux vers (Arenicola, Coreano)",
-    "target": "Marbrés, Daurades, Rougets de roche",
-    "region": "Sousse / Sahel"  
+    "nome": "Porto di Concarneau (Zona moli interni)",
+    "lat": 47.8725,
+    "lon": -3.9164,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
   },
   {
-    "nome": "Plage d'Herglat (Sousse)",
-    "lat": 36.0315,
-    "lon": 10.5142,
-    "desc": "Située près de l'embouchure du lac d'Hergla, cette zone mixte attire les prédateurs en activité de chasse, notamment à l'aube et au crépuscule.",
-    "technique": "Sea Spinning aux leurres de surface (WTD, Poppers) / Pêche au vif",
-    "target": "Loups, Tassergals, Liches, Mulets",
-    "region": "Sousse / Sahel"  
+    "nome": "Molo dei Pescatori di La Rochelle (Les Minimes)",
+    "lat": 46.1417,
+    "lon": -1.1686,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
   },
   {
-    "nome": "Plage de Monastir (Skanes)",
-    "lat": 35.7724,
-    "lon": 10.7415,
-    "desc": "Baie de sable fin abritée de la grande houle. Excellente avec des lignes fines et des appâts délicats pendant la saison estivale.",
-    "technique": "Beach Ledgering ultra-léger / Finesse Spinning (Leurres souples légers)",
-    "target": "Marbrés, Orphies, Petits Sars, Loups",
-    "region": "Sousse / Sahel"  
+    "nome": "Molo del Porto di Les Sables-d'Olonne",
+    "lat": 46.4914,
+    "lon": -1.7947,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
   },
   {
-    "nome": "Plage de Rejiche (Mahdia)",
-    "lat": 35.4641,
-    "lon": 11.0425,
-    "desc": "Fond sablonneux propre et très riche en micro-organismes. Les brisants extérieurs abritent de beaux spécimens.",
-    "technique": "Surfcasting de ricerca à moyenne distance (Montage Bi-amo)",
-    "target": "Marbrés record, Daurades, Ombrines",
-    "region": "Mahdia"  
+    "nome": "Molo d'Eyrac (Bacino di Arcachon)",
+    "lat": 44.6647,
+    "lon": -1.1614,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
   },
   {
-    "nome": "Plage de Chaffar (Sfax)",
-    "lat": 34.5420,
-    "lon": 10.5284,
-    "desc": "Zone caractérisée par des eaux chaudes et des variations de marée légères. Pente très douce, nécessite d'atteindre de grandes distances.",
-    "technique": "Surfcasting de grande distance / Emploi de montages clippés obligatoires",
-    "target": "Marbrés, Mulets, Daurades",
-    "region": "Sfax"   
+    "nome": "Molo Nord del Porto di Saint-Jean-de-Luz",
+    "lat": 43.3914,
+    "lon": -1.6669,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
   },
   {
-    "nome": "Plage de Sidi Mahrez (Djerba)",
-    "lat": 33.8950,
-    "lon": 11.0022,
-    "desc": "Spot d'Afrique du Nord très chaud. Les courants côtiers du Sud apportent une faune variée. Pêche d'attente efficace avec des appâts volumineux.",
-    "technique": "Surfcasting lourd d'attente / Shore Spinning aux casting jigs",
-    "target": "Gros Sars, Daurades, Raies, Tassergals",
-    "region": "Djerba"   
+    "nome": "Diga Nord del Porto di Le Havre",
+    "lat": 49.4811,
+    "lon": 0.0917,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
   },
   {
-    "nome": "Plage d'Aghir (Djerba Sud)",
-    "lat": 33.7548,
-    "lon": 11.0114,
-    "desc": "Sable mêlé à des herbiers de posidonies en second plan. La présence de végétation attire les poissons qui s'en nourrissent.",
-    "technique": "Surfcasting sur fond mixte / Utilisation de mini-traves rigides anti-tangle",
-    "target": "Daurades Royales, Sars Tambours, Carangues",
-    "region": "Djerba"  
+    "nome": "Molo del Porto di Cherbourg",
+    "lat": 49.6447,
+    "lon": -1.6194,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
   },
   {
-    "nome": "Plage de Zarzis (Sonia)",
-    "lat": 33.5124,
-    "lon": 11.1205,
-    "desc": "À l'extrême sud, une plage sauvage soumise aux marées locales. Les courants profonds ramènent du poisson du large. Idéal pour la nuit.",
-    "technique": "Surfcasting lourd de nuit / Gros appâts (Bibi, seiche entière)",
-    "target": "Grands Sars, Daurades, Maigres, Raies",
-    "region": "Sfax"  
+    "nome": "Molo del Canale di Ouistreham",
+    "lat": 49.2883,
+    "lon": -0.2486,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
   },
   {
-    "nome": "Plage d'Hammamet Centre (Près de la Médina)",
-    "lat": 36.3945,
-    "lon": 10.6120,
-    "desc": "Plage historique au pied du fort. Le fond de sable présente des débris rocheux éparpillés. Idéal pour déjouer les poissons méfiants la nuit.",
-    "technique": "Beach Ledgering de finesse / Spinning léger aux poissons nageurs (Jerks minnow)",
-    "target": "Daurades Royales, Marbrés, Sars, Loups",
-    "region": "Tunisi"  
+    "nome": "Diga Carnot (Boulogne-sur-Mer)",
+    "lat": 50.7322,
+    "lon": 1.5647,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
   },
   {
-    "nome": "Plage de Yasmine Hammamet",
-    "lat": 36.3621,
-    "lon": 10.5392,
-    "desc": "Grande plage de sable fin à pente douce. Les vagues créent de l'effets de canaloni parallèles au rivage. Très productif en automne.",
-    "technique": "Surfcasting léger à moyenne distance / Montage Paternoster à 2 o 3 empiles",
-    "target": "Marbrés de taille record, Soles, Daurades",
-    "region": "Tunisi"  
+    "nome": "Molo Ovest del Porto di Calais",
+    "lat": 50.9678,
+    "lon": 1.8414,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
   },
   {
-    "nome": "Digue du Port de Plaisance (Yasmine Marina)",
-    "lat": 36.3685,
-    "lon": 10.5348,
-    "desc": "L'extrémité externe de la digue offre un accès direct à des eaux plus profondes. Parfait pour le lancer lourd o le vif en bordure.",
-    "technique": "Spinning lourd de digue (Stickbaits, Poppers, Long Jerks) / Pêche au vif",
-    "target": "Loups (Bar), Tassergals, Grands Sars, Liches",
-    "region": "Tunisi"  
+    "nome": "Diga di Dunkerque (Molo di Est)",
+    "lat": 51.0539,
+    "lon": 2.3619,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
   },
   {
-    "nome": "Plage de Mrezga (Hammamet Nord)",
-    "lat": 36.4312,
-    "lon": 10.6654,
-    "desc": "Zone de transition caractérisée par une pente légèrement plus prononcée. Idéale par mer formée (vent d'Est/Sud-Est).",
-    "technique": "Surfcasting lourd de vague / Spinning intermédiaire face au vent",
-    "target": "Daurades Royales, Ombrines, Loups",
-    "region": "Tunisi"  
+    "nome": "Diga Nord di Dieppe",
+    "lat": 49.9347,
+    "lon": 1.0847,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Molo Est del Porto di Fécamp",
+    "lat": 49.7594,
+    "lon": 0.3664,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Diga Sud di Le Havre",
+    "lat": 49.4739,
+    "lon": 0.1014,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Molo di Courseulles-sur-Mer",
+    "lat": 49.3372,
+    "lon": -0.4586,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Diga Est del Porto di Cherbourg",
+    "lat": 49.6514,
+    "lon": -1.6039,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Porto di Granville (Molo Ovest)",
+    "lat": 48.8339,
+    "lon": -1.6083,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Molo Nero di Saint-Malo (Le Môle Noire)",
+    "lat": 48.6447,
+    "lon": -2.0319,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Porto di Erquy (Diga nuova)",
+    "lat": 48.6347,
+    "lon": -2.4739,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Molo del Porto di Paimpol",
+    "lat": 48.7806,
+    "lon": -3.0414,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Diga di Roscoff (Port de Bloscon)",
+    "lat": 48.7214,
+    "lon": -3.9669,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Molo del Porto di Camaret-sur-Mer",
+    "lat": 48.2772,
+    "lon": -4.5939,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Molo di Douarnenez (Port de Rosmeur)",
+    "lat": 48.0947,
+    "lon": -4.3214,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Porto di Audierne (Molo del Goyen)",
+    "lat": 48.0169,
+    "lon": -4.5347,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Molo del Porto di Lorient (Keroman)",
+    "lat": 47.7286,
+    "lon": -3.3669,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Diga del Porto di Quiberon (Port Maria)",
+    "lat": 47.4794,
+    "lon": -3.1214,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Molo del Porto di Le Croisic",
+    "lat": 47.2947,
+    "lon": -2.5214,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Diga di Pornichet (La Baule)",
+    "lat": 47.2586,
+    "lon": -2.3417,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Molo di Saint-Gilles-Croix-de-Vie",
+    "lat": 46.6947,
+    "lon": -1.9486,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Diga del Porto di La Cotinière (Isola d'Oleron)",
+    "lat": 45.9139,
+    "lon": -1.3314,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Molo del Porto di Royan (Foce della Gironda)",
+    "lat": 45.6194,
+    "lon": -1.0319,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Molo di Cap Ferret (Interno bacino Arcachon)",
+    "lat": 44.6539,
+    "lon": -1.2414,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Diga Nord del Porto di Capbreton",
+    "lat": 43.6556,
+    "lon": -1.4486,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Diga di Socoa (Saint-Jean-de-Luz)",
+    "lat": 43.3969,
+    "lon": -1.6814,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Molo del Porto di Hendaye (Confine Spagna)",
+    "lat": 43.3756,
+    "lon": -1.7761,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Molo del Porto di Port-Vendres",
+    "lat": 42.5214,
+    "lon": 3.1114,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Diga del Porto di Argeles-sur-Mer",
+    "lat": 42.5556,
+    "lon": 3.0486,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Molo di Gruissan Port",
+    "lat": 43.1042,
+    "lon": 3.1347,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Diga Est di Valras-Plage",
+    "lat": 43.2439,
+    "lon": 3.2986,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Molo del Porto di Frontignan",
+    "lat": 43.4319,
+    "lon": 3.8086,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Diga Ovest di Port-Camargue",
+    "lat": 43.5186,
+    "lon": 4.1264,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Molo del Porto di Carro (Martigues)",
+    "lat": 43.3264,
+    "lon": 5.0414,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Scogliera di Cassis (Vicino alle Calanques)",
+    "lat": 43.2114,
+    "lon": 5.5347,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Molo del Porto di Sanary-sur-Mer",
+    "lat": 43.1169,
+    "lon": 5.7986,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Diga del Porto di Hyères",
+    "lat": 43.0883,
+    "lon": 6.1586,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Molo del Porto di Saint-Tropez",
+    "lat": 43.2725,
+    "lon": 6.6364,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Diga del Porto di Antibes (Port Vauban)",
+    "lat": 43.5883,
+    "lon": 7.1294,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Molo del Porto di Villefranche-sur-Mer",
+    "lat": 43.7003,
+    "lon": 7.3114,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Molo del Porto di Mentone (Confine Italia)",
+    "lat": 43.7761,
+    "lon": 7.5114,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Molo del Porto di Bastia (Terminal Traghetti)",
+    "lat": 42.7014,
+    "lon": 9.4539,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Corse"
+  },
+  {
+    "nome": "Porto di Ajaccio (Diga di Tino Rossi)",
+    "lat": 41.9264,
+    "lon": 8.7431,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Corse"
+  },
+  {
+    "nome": "Molo del Porto di Porto Vecchio",
+    "lat": 41.5894,
+    "lon": 9.2883,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Corse"
+  },
+  {
+    "nome": "Diga del Porto di Bonifacio",
+    "lat": 41.3894,
+    "lon": 9.1586,
+    "desc": "Spot da porto, molo o scogliera per eging.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Corse"
+  },
+  {
+    "nome": "Spiaggia di Biscarrosse Plage",
+    "lat": 44.4447,
+    "lon": -1.2533,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di Mimizan Plage",
+    "lat": 44.2045,
+    "lon": -1.3014,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di Lacanau Océan",
+    "lat": 45.0014,
+    "lon": -1.2025,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di Hendaye (Grande Plage)",
+    "lat": 43.3739,
+    "lon": -1.7739,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di Cap Ferret (Lato Oceano)",
+    "lat": 44.6239,
+    "lon": -1.2586,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di La Faute-sur-Mer",
+    "lat": 46.3114,
+    "lon": -1.3194,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di Saint-Gilles-Croix-de-Vie (Grande Plage)",
+    "lat": 46.6886,
+    "lon": -1.9364,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di Vert-Bois (Isola d'Oléron)",
+    "lat": 45.8447,
+    "lon": -1.2464,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di Keremma (Tréflez)",
+    "lat": 48.6539,
+    "lon": -4.2414,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Spiaggia di Baie d'Audierne (La Torche)",
+    "lat": 47.8386,
+    "lon": -4.3314,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Spiaggia di Pentrez (Saint-Nic)",
+    "lat": 48.1983,
+    "lon": -4.2864,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Spiaggia di Omaha Beach (Colleville-sur-Mer)",
+    "lat": 49.3694,
+    "lon": -0.8447,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Spiaggia di Wissant (Tra Cap Blanc-Nez e Cap Gris-Nez)",
+    "lat": 50.8894,
+    "lon": 1.6586,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Spiaggia di Berck-sur-Mer",
+    "lat": 50.4083,
+    "lon": 1.5539,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Spiaggia di Deauville",
+    "lat": 49.3639,
+    "lon": 0.0686,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Spiaggia di Leucate Plage",
+    "lat": 42.9056,
+    "lon": 3.0417,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Spiaggia di Serignan Plage",
+    "lat": 43.2139,
+    "lon": 3.3347,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Spiaggia di Aresquiers (Frontignan)",
+    "lat": 43.4547,
+    "lon": 3.8214,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Spiaggia di Torreilles Plage",
+    "lat": 42.7614,
+    "lon": 3.0319,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Spiaggia di Piémanson (Salin-de-Giraud)",
+    "lat": 43.3444,
+    "lon": 4.7814,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Spiaggia di Beauduc (Saintes-Maries-de-la-Mer)",
+    "lat": 43.4117,
+    "lon": 4.5883,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Spiaggia di Les Salins (Hyères)",
+    "lat": 43.1114,
+    "lon": 6.2042,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Spiaggia di Pampelonne (Ramatuelle)",
+    "lat": 43.2286,
+    "lon": 6.6639,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Spiaggia della Marana (Corsica - Bastia)",
+    "lat": 42.6364,
+    "lon": 9.4539,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Corse"
+  },
+  {
+    "nome": "Spiaggia di Ricanto (Corsica - Ajaccio)",
+    "lat": 41.9214,
+    "lon": 8.7847,
+    "desc": "Spot di pesca dalla spiaggia adatto al surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Spigole, Orate, Mormore e Saraghi",
+    "region": "Corse"
+  },
+  {
+    "nome": "Punta di Cap Gris-Nez (Scogliere naturali)",
+    "lat": 50.8712,
+    "lon": 1.5834,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Foce del Fiume Somme (Saint-Valery-sur-Somme)",
+    "lat": 50.1883,
+    "lon": 1.6319,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Scogliere di Étretat (Sotto le falesie)",
+    "lat": 49.7086,
+    "lon": 0.2014,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Foce del Fiume Vire (Grandcamp-Maisy)",
+    "lat": 49.3947,
+    "lon": -1.0447,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Punta di Barfleur (Scogliere profonde)",
+    "lat": 49.6869,
+    "lon": -1.2614,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Punta del Raz (Pointe du Raz)",
+    "lat": 48.0386,
+    "lon": -4.7369,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Punta di Penmarch (Vicino al Faro d'Eckmühl)",
+    "lat": 47.7978,
+    "lon": -4.3739,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Foce del Fiume Odet (Bénodet)",
+    "lat": 47.8686,
+    "lon": -4.1114,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Costa di Granito Rosa (Ploumanac'h)",
+    "lat": 48.8319,
+    "lon": -3.4814,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Punta di Conguel (Quiberon)",
+    "lat": 47.4669,
+    "lon": -3.1014,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Foce del Fiume Vilaine (Arzal)",
+    "lat": 47.5056,
+    "lon": -2.4814,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Punta di Chassiron (Isola d'Oléron)",
+    "lat": 46.0472,
+    "lon": -1.4114,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Foce della Gironda (Royan)",
+    "lat": 45.6139,
+    "lon": -1.0447,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Passaggio del Bacino di Arcachon (Cap Ferret)",
+    "lat": 44.6214,
+    "lon": -1.2486,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Punta di Sainte-Barbe (Saint-Jean-de-Luz)",
+    "lat": 43.3986,
+    "lon": -1.6614,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Foce del Fiume Adour (Anglet/Bayonne)",
+    "lat": 43.5286,
+    "lon": -1.5214,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Scogliere di Cap Leucate",
+    "lat": 42.9114,
+    "lon": 3.0539,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Foce del Fiume Hérault (Grau d'Agde)",
+    "lat": 43.2786,
+    "lon": 3.4417,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Foce del Fiume Orb (Valras-Plage)",
+    "lat": 43.2444,
+    "lon": 3.3014,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Foce del Grande Rodano (Grand Rhône - Port-Saint-Louis)",
+    "lat": 43.3283,
+    "lon": 4.8364,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Foce del Piccolo Rodano (Petit Rhône - Saintes-Maries)",
+    "lat": 43.4517,
+    "lon": 4.3986,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Molo della diga di Carro (Martigues)",
+    "lat": 43.3264,
+    "lon": 5.0414,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Punta di Cap Lardier (Ramatuelle)",
+    "lat": 43.1669,
+    "lon": 6.6264,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Molo esterno del Porto di Fréjus",
+    "lat": 43.4186,
+    "lon": 6.7586,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Punta di Cap d'Antibes (Scogliere profonde)",
+    "lat": 43.5417,
+    "lon": 7.1214,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Molo del Porto di Nizza (Diga esterna)",
+    "lat": 43.6886,
+    "lon": 7.2883,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "PACA / Côte d'Azur"
+  },
+  {
+    "nome": "Foce del Fiume Golo (Bastia)",
+    "lat": 42.5286,
+    "lon": 9.5319,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Corse"
+  },
+  {
+    "nome": "Scogliere di Capo Corso (Pointe de la Parata)",
+    "lat": 41.9364,
+    "lon": 8.6083,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Corse"
+  },
+  {
+    "nome": "Molo foraneo del Porto di Propriano",
+    "lat": 41.6786,
+    "lon": 8.8947,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Corse"
+  },
+  {
+    "nome": "Scogliere della falesia di Bonifacio",
+    "lat": 41.3839,
+    "lon": 9.1514,
+    "desc": "Spot da scogliera, foce o struttura portuale per spinning.",
+    "technique": "Spinning",
+    "target": "Spigole, Serra, Barracuda, Leccie e Ricciole",
+    "region": "Corse"
   }
 ]
