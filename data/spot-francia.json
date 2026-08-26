@@ -2010,5 +2010,95 @@
     "type": "Pesca a fondo",
     "target": "Spigole, Merluzzi, Passere",
     "tips": "Fondale misto a ciottoli e roccia calcarea. Ottima la pesca notturna d'attesa innescando il cannolicchio o il muriddu."
+  },
+  {
+    "nome": "Fiume Adour a Dax",
+    "lat": 43.7125,
+    "lon": -1.0534,
+    "desc": "Spot fluviale con corrente sostenuta e buona profondità, perfetto per passate lunghe controllando la linea.",
+    "technique": "Bolognese",
+    "target": "Cavedani, barbi e gardon",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Diga di Sainte-Barbe (Saint-Jean-de-Luz)",
+    "lat": 43.3958,
+    "lon": -1.6631,
+    "desc": "Struttura portuale e scogliera artificiale protetta dal moto ondoso, ottima per pescare a fondo e a mezz'acqua con il galleggiante.",
+    "technique": "Bolognese",
+    "target": "Spigole, saraghi e cefali",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Porto di Capbreton",
+    "lat": 43.6542,
+    "lon": -1.4428,
+    "desc": "Molo e banchine interne riparate dove la corrente di marea permette di effettuare passate precise con esche naturali.",
+    "technique": "Bolognese",
+    "target": "Spigole, orate e cefali",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Fiume Lot a Villeneuve-sur-Lot",
+    "lat": 44.4072,
+    "lon": 0.7042,
+    "desc": "Fiume ampio e profondo con correnti regolari, ideale per l'uso di canne lunghe (6-7 metri) e pasture pesanti.",
+    "technique": "Bolognese",
+    "target": "Breme, carpe e gardon",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Fiume Charente a Jarnac",
+    "lat": 45.6811,
+    "lon": -0.1772,
+    "desc": "Tratto di fiume lento e profondo, perfetto per la pesca al colpo a lunga distanza gestendo la trattenuta del galleggiante.",
+    "technique": "Bolognese",
+    "target": "Gardon, breme e scardove",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di Biscarrosse Plage",
+    "lat": 44.4442,
+    "lon": -1.2514,
+    "desc": "Tipica spiaggia oceanica esposta, eccellente per la pesca a fondo pesante (surfcasting) tra i canaloni di marea.",
+    "technique": "Pesca a fondo / Surfcasting",
+    "target": "Spigole, ombrine e saraghi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Banchine di Royan (Estuario della Gironda)",
+    "lat": 45.6214,
+    "lon": -1.0289,
+    "desc": "Zona di estuario con forte corrente e fondale misto, ideale per piombi pesanti a tenuta sulla scogliera o dal molo.",
+    "technique": "Pesca a fondo",
+    "target": "Orate, spigole e ombrine boccadoro",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Lago di Biscarrosse e Parentis",
+    "lat": 44.3411,
+    "lon": -1.1442,
+    "desc": "Grande lago interno con praterie acquatiche e fondali sabbioso-fangosi, perfetto per il carpfishing e il feeder pesante.",
+    "technique": "Pesca a fondo / Feeder / Carpfishing",
+    "target": "Carpe, tinche e grandi abramidi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Fiume Dordogna a Bergerac",
+    "lat": 44.8512,
+    "lon": 0.4825,
+    "desc": "Tratto fluviale ampio con fondale ciottoloso e prismate artificiali, ideale per bloccare il pasturatore (feeder) nella corrente.",
+    "technique": "Pesca a fondo / Feeder",
+    "target": "Barbi, cavedani e carpe",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Spiaggia di Hendaye (Plage d'Hendaye)",
+    "lat": 43.3725,
+    "lon": -1.7753,
+    "desc": "Spiaggia sabbiosa riparata vicino al confine spagnolo, ottima per una pesca a fondo più leggera e con mare calmo.",
+    "technique": "Pesca a fondo / Beach Ledgering",
+    "target": "Mormore, sogliole e orate",
+    "region": "Nouvelle-Aquitaine"
   }
 ]
