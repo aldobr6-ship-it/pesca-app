@@ -1015,5 +1015,512 @@
     "technique": "Spinning",
     "target": "Spigola • Serra • Predatori costieri",
     "region": "Djerba"
+  },
+  {
+    "name": "Porto di Tabarka (Port de Pêche)",
+    "reg": "Jendouba",
+    "coords": [
+      36.9586,
+      8.7583
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Cefali",
+    "tips": "Pescare dai moli esterni riparati. Ottimo con mareggiata leggera in entrata usando il bigattino o il coreano."
+  },
+  {
+    "name": "Molo dei pescatori di Melloula (Tabarka)",
+    "reg": "Jendouba",
+    "coords": [
+      36.9639,
+      8.7114
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi, Spigole, Occhiate",
+    "tips": "Zona rocciosa e profonda. Usare canne da 7 metri per superare gli scogli e pasturare costantemente a risacca."
+  },
+  {
+    "name": "Canale di Biserta",
+    "reg": "Bizerte",
+    "coords": [
+      37.2714,
+      9.8739
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Spot mitico per lo street fishing notturno sotto i lampioni. Corrente sostenuta, usare galleggianti a uovo."
+  },
+  {
+    "name": "Molo del Porto di Ghar El Melh",
+    "reg": "Bizerte",
+    "coords": [
+      37.1686,
+      10.1947
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Sformi",
+    "tips": "Imboccatura del porto ottima durante i cambi di marea. Innescare il gamberetto vivo o il coreano locale."
+  },
+  {
+    "name": "Canale di La Goulette",
+    "reg": "Tunisi",
+    "coords": [
+      36.8114,
+      10.3014
+    ],
+    "type": "Bolognese",
+    "target": "Spigole giganti, Cefali, Serra",
+    "tips": "Il punto caldo storico della capitale. Pescare sotto i lampioni rasente le banchine con fili robusti."
+  },
+  {
+    "name": "Porto di Sidi Bou Said",
+    "reg": "Tunisi",
+    "coords": [
+      36.8669,
+      10.3486
+    ],
+    "type": "Bolognese",
+    "target": "Occhiate, Spigole, Saraghi",
+    "tips": "Acqua molto limpida all'esterno del porto turistico. Richiede pesca fine notturna con terminali lunghi."
+  },
+  {
+    "name": "Molo di Gammarth Marina",
+    "reg": "Tunisi",
+    "coords": [
+      36.9364,
+      10.2914
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Triglie",
+    "tips": "Scogliera artificiale esposta. Ottima l'alba pescando staccati dal fondo con pane o bigattini."
+  },
+  {
+    "name": "Porto di Kélibia",
+    "reg": "Nabeul",
+    "coords": [
+      36.8364,
+      11.1169
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi Maggiori, Spigole, Salpe",
+    "tips": "Il molo foraneo esterno offre profondità e schiuma. Ideale con vento di scirocco moderato."
+  },
+  {
+    "name": "Porto di Hammamet (Vecchio forte)",
+    "reg": "Nabeul",
+    "coords": [
+      36.3947,
+      10.6125
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Occhiate, Cefali",
+    "tips": "Pescare sotto le mura della fortezza di notte. Fondale misto, usare pasture saporite al formaggio."
+  },
+  {
+    "name": "Molo canale di Hergla",
+    "reg": "Sousse",
+    "coords": [
+      36.0314,
+      10.5125
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali",
+    "tips": "Canale di uscita della laguna ricco di foraggio. Pescare in trattenuta nella scia della corrente."
+  },
+  {
+    "name": "Molo del Porto di Sousse",
+    "reg": "Sousse",
+    "coords": [
+      35.8283,
+      10.6447
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Cefali, Orate",
+    "tips": "Zona commerciale profonda. Muovendosi lungo i moli interni si insidiano spigole attive all'ombra delle navi."
+  },
+  {
+    "name": "Porto di Monastir",
+    "reg": "Monastir",
+    "coords": [
+      35.7789,
+      10.8341
+    ],
+    "type": "Bolognese",
+    "target": "Occhiate, Saraghi, Spigole",
+    "tips": "Moli esterni molto puliti. Sfruttare la pasturazione a bigattino sfuso durante i cambi di luce."
+  },
+  {
+    "name": "Porto di Mahdia (Zona faro)",
+    "reg": "Mahdia",
+    "coords": [
+      35.5056,
+      11.0764
+    ],
+    "type": "Bolognese",
+    "target": "Saraghi Pizzuti, Spigole, Cefali",
+    "tips": "Punta protesa nel mare con fondale roccioso battuto. Richiede canne robuste per gestire i grossi saraghi."
+  },
+  {
+    "name": "Porto di Sfax (Moli interni)",
+    "reg": "Sfax",
+    "coords": [
+      34.7294,
+      10.7694
+    ],
+    "type": "Bolognese",
+    "target": "Cefali, Spigole",
+    "tips": "Acque calme e ricche di nutrienti. Tecnica regina con il pastarello di pane o la sarda macinata."
+  },
+  {
+    "name": "Diga Foranea di Gabès",
+    "reg": "Gabès",
+    "coords": [
+      33.9014,
+      10.1114
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Saraghi, Orate",
+    "tips": "Fondale profondo esposto alla marea. Pescare stesi sul fondo con galleggianti scorrevoli da 4-5 grammi."
+  },
+  {
+    "name": "Porto di Houmt Souk (Isola di Djerba)",
+    "reg": "Medenine",
+    "coords": [
+      33.8864,
+      10.8583
+    ],
+    "type": "Bolognese",
+    "target": "Spigole, Orate, Cefali",
+    "tips": "I moli esterni intercettano i flussi di pesce della laguna. Ottimo al culmine dell'alta marea."
+  },
+  {
+    "name": "Porto di Tabarka (Port de Pêche)",
+    "reg": "Jendouba",
+    "coords": [
+      36.9586,
+      8.7583
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Pagelli",
+    "tips": "Lanciare all'imboccatura esterna su fondale misto. Ottimo l'innesco del bibi o del verme solitario di notte."
+  },
+  {
+    "name": "Molo dei pescatori di Melloula (Tabarka)",
+    "reg": "Jendouba",
+    "coords": [
+      36.9639,
+      8.7114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Maggiori, Tanute, Corvine",
+    "tips": "Fondale roccioso e frastagliato. Usare piombi a perdere o montature short-arm corte per evitare incagli."
+  },
+  {
+    "name": "Scogliere di Cap Negro (Sidi Mechreg)",
+    "reg": "Bizerte",
+    "coords": [
+      37.0319,
+      8.9344
+    ],
+    "type": "Pesca a fondo",
+    "target": "Grosse Orate, Dotti, Saraghi",
+    "tips": "Spot selvaggio con roccia e posidonia. Richiede fili robusti in bobina e piombi pesanti idrodinamici."
+  },
+  {
+    "name": "Canale di Biserta (Zona imboccatura)",
+    "reg": "Bizerte",
+    "coords": [
+      37.2714,
+      9.8739
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Spigole, Gronghi",
+    "tips": "Forte corrente sul fondo causata dallo scambio lagunare. Usare piombi a saponetta e terminali lunghi."
+  },
+  {
+    "name": "Diga di Menzel Bourguiba (Interno lago di Biserta)",
+    "reg": "Bizerte",
+    "coords": [
+      37.1539,
+      9.7947
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Anguille",
+    "tips": "Fondale fangoso e ricco di molluschi. Utilizzare il pasturatore (feeder) caricato a sarda o bigattini."
+  },
+  {
+    "name": "Scogliera del Faro di Cap Blanc",
+    "reg": "Bizerte",
+    "coords": [
+      37.3364,
+      9.8386
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Pizzuti, Dotti, Denticiotti",
+    "tips": "Fondale subito profondo e roccioso. Pesca pesante a fondo rasente lo scalino di roccia, esca dura selettiva."
+  },
+  {
+    "name": "Diga Vecchia di Cap Zebib (Metline)",
+    "reg": "Bizerte",
+    "coords": [
+      37.2714,
+      10.0639
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Orate, Triglie di scoglio",
+    "tips": "Presenza di forti correnti laterali. Lanciare nelle radure di sabbia tra le praterie di posidonia."
+  },
+  {
+    "name": "Molo del Porto di Ghar El Melh",
+    "reg": "Bizerte",
+    "coords": [
+      37.1686,
+      10.1947
+    ],
+    "type": "Pesca a fondo",
+    "target": "Mormore, Orate, Sformi",
+    "tips": "Fondale sabbioso-misto pulito. Molto redditizio il ledgering leggero all'alba con l'arenicola locale."
+  },
+  {
+    "name": "Canale di La Goulette",
+    "reg": "Tunisi",
+    "coords": [
+      36.8114,
+      10.3014
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Giganti, Spigole, Ombrine",
+    "tips": "Fondale portuale profondo. Sfruttare l'azione notturna innescando il granchio vivo o il bibi sul fondo del canale."
+  },
+  {
+    "name": "Scogliera di La Marsa (Zona Corniche)",
+    "reg": "Tunisi",
+    "coords": [
+      36.8839,
+      10.3347
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi, Orate, Triglie",
+    "tips": "Fondale misto roccia e sabbia a corta distanza. Usare piombi scorrevoli leggeri per assecondare la risacca."
+  },
+  {
+    "name": "Molo di Gammarth Marina",
+    "reg": "Tunisi",
+    "coords": [
+      36.9364,
+      10.2914
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Saraghi",
+    "tips": "Lanciare dal molo foraneo verso il largo sulla sabbia pulita. Consigliato l'uso dell'americano o del bibi."
+  },
+  {
+    "name": "Pontile di Radès (Foce del canale)",
+    "reg": "Tunisi",
+    "coords": [
+      36.8042,
+      10.2786
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Gronghi, Serra",
+    "tips": "Acque calde industriali. Pescare a fondo di notte con il trancio di sarda o il cefalo vivo sul fondo."
+  },
+  {
+    "name": "Porto di Kélibia (Lato esterno molo foraneo)",
+    "reg": "Nabeul",
+    "coords": [
+      36.8364,
+      11.1169
+    ],
+    "type": "Pesca a fondo",
+    "target": "Grosse Orate, Saraghi, Pagelli",
+    "tips": "Spot profondo esposto al mare aperto. Terminali lunghi in fluorocarbon e ami d'acciaio per resistere alle orate."
+  },
+  {
+    "name": "Porto di Hammamet (Vecchio forte)",
+    "reg": "Nabeul",
+    "coords": [
+      36.3947,
+      10.6125
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Saraghi",
+    "tips": "Fondale sabbioso misto vicino alle mura. Ottima la pesca d'attesa nelle notti di luna piena con l'arenicola."
+  },
+  {
+    "name": "Molo canale di Hergla",
+    "reg": "Sousse",
+    "coords": [
+      36.0314,
+      10.5125
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Orate, Cefali di fondo",
+    "tips": "Uscita della laguna. Usare piombi leggeri a scorrere per far muovere l'esca naturalmente sul fondale."
+  },
+  {
+    "name": "Diga del Porto di Chott Meriem",
+    "reg": "Sousse",
+    "coords": [
+      35.9286,
+      10.5639
+    ],
+    "type": "Pesca a fondo",
+    "target": "Mormore, Orate, Razze",
+    "tips": "Fondale sabbioso finissimo. Lanciare a lunga distanza con fili sottili in bobina (beach ledgering)."
+  },
+  {
+    "name": "Molo del Porto di Sousse",
+    "reg": "Sousse",
+    "coords": [
+      35.8283,
+      10.6447
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Pagelli, Gronghi",
+    "tips": "Moli commerciali interni profondi. Sfruttare le ore notturne calando l'esca parallelamente alle banchine."
+  },
+  {
+    "name": "Scogliera di Monastir (Zona Falaise)",
+    "reg": "Monastir",
+    "coords": [
+      35.7769,
+      10.8114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Maggiori, Orate, Triglie",
+    "tips": "Scogliera naturale alta con fondale misto roccia/alga. Richiede l'uso del gambero o del bibi per evitare il disturbo."
+  },
+  {
+    "name": "Porticciolo di Ksibet El Mediouni",
+    "reg": "Monastir",
+    "coords": [
+      35.6847,
+      10.8586
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore",
+    "tips": "Fondale interno molto basso e calmo. Pesca finissima a ledgering con piombi da 20-30 grammi e fili invisibili."
+  },
+  {
+    "name": "Porto di Mahdia (Zona faro)",
+    "reg": "Mahdia",
+    "coords": [
+      35.5056,
+      11.0764
+    ],
+    "type": "Pesca a fondo",
+    "target": "Saraghi Pizzuti, Orate, Scorfani",
+    "tips": "Punta rocciosa battuta dalle correnti del canale. Usare montature corte e robuste rasente la base della barriera."
+  },
+  {
+    "name": "Scogliera di Salakta",
+    "reg": "Mahdia",
+    "coords": [
+      35.3944,
+      11.0514
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Triglie di fango",
+    "tips": "Fondale misto a ridosso delle rocce piatte. Innescare il verme solitario o pezzi di seppia fresca."
+  },
+  {
+    "name": "Molo di Chebba",
+    "reg": "Mahdia",
+    "coords": [
+      35.2339,
+      11.1514
+    ],
+    "type": "Pesca a fondo",
+    "target": "Mormore Giganti, Orate, Sformi",
+    "tips": "La costa digrada dolcemente verso la sabbia. Lanciare fuori dal molo cercando la massima distanza con l'arenicola."
+  },
+  {
+    "name": "Isole Kerkennah (Molo di Sidi Youssef)",
+    "reg": "Sfax",
+    "coords": [
+      34.6556,
+      10.9814
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Spigole, Saraghi",
+    "tips": "Spot eccellente durante il giro di marea. Lanciare nel taglio di corrente che muove il nutrimento sulle secche."
+  },
+  {
+    "name": "Molo del Porto di Mahres",
+    "reg": "Sfax",
+    "coords": [
+      34.5264,
+      10.5056
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Razze",
+    "tips": "Fondale fangoso molto ricco di vermi locali. Ottimo l'utilizzo del pasturatore da fondo riempito con pastura al formaggio."
+  },
+  {
+    "name": "Porto di Sfax (Moli interni)",
+    "reg": "Sfax",
+    "coords": [
+      34.7294,
+      10.7694
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Spigole di fondo",
+    "tips": "Zona industriale riparata. Pescare a fondo d'attesa rasente le strutture metalliche usando come esca la cozza."
+  },
+  {
+    "name": "Diga Foranea di Gabès",
+    "reg": "Gabès",
+    "coords": [
+      33.9014,
+      10.1114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate Reali, Saraghi, Ombrine",
+    "tips": "Fondale profondo soggetto a forti escursioni di marea. Usare piombi a piramide per mantenere ferma l'esca."
+  },
+  {
+    "name": "Diga del Porto di Zarat",
+    "reg": "Gabès",
+    "coords": [
+      33.6814,
+      10.3447
+    ],
+    "type": "Pesca a fondo",
+    "target": "Mormore, Orate, Triglie",
+    "tips": "Fondale sabbioso misto a alghe basse. Usare terminali lunghi (pop-up) per tenere l'esca sollevata dalla posidonia."
+  },
+  {
+    "name": "Porto di Houmt Souk (Isola di Djerba)",
+    "reg": "Medenine",
+    "coords": [
+      33.8864,
+      10.8583
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Saraghi, Spigole",
+    "tips": "Lanciare dal lato esterno verso i canali di marea deep. Massima resa durante il picco di alta marea."
+  },
+  {
+    "name": "Molo di Aghir (Isola di Djerba)",
+    "reg": "Medenine",
+    "coords": [
+      33.7539,
+      11.0114
+    ],
+    "type": "Pesca a fondo",
+    "target": "Orate, Mormore, Razze",
+    "tips": "Zona pianeggiante con sabbia e roccia piatta. Sfruttare i calamenti sottili e l'arenicola per i grufolatori diurni."
+  },
+  {
+    "name": "Pontile di El Kantara (Sotto il ponte romano)",
+    "reg": "Medenine",
+    "coords": [
+      33.6794,
+      10.9533
+    ],
+    "type": "Pesca a fondo",
+    "target": "Spigole, Orate Giganti, Saraghi",
+    "tips": "Correnti fortissime sotto il ponte. Obbligatorio usare piombi pesanti a tenuta (spike) e innescare il granchio vivo."
   }
 ]
+
