@@ -3048,12 +3048,15 @@ function applicaFiltriSpot(){
   if(reg!=="all"||tech!=="all"){
     mostraPannelloLista(filtrati,reg!=="all"?reg:"Risultati filtro");
     const coords=filtrati.map(s=>s.coords).filter(c=>Array.isArray(c)&&c.length>=2);
-    if(coords.length>0 && spotItaliaMap){
-      const bounds=L.latLngBounds(coords);
-     if (bounds.isValid()) { spotItaliaMap.fitBounds(bounds, { padding: [40, 40],  maxZoom: 11
-  });
+    if (coords.length > 0 && spotItaliaMap) {
+  const bounds = L.latLngBounds(coords);
+  if (bounds.isValid()) {
+    spotItaliaMap.fitBounds(bounds, {
+      padding: [40, 40],
+      maxZoom: 11
+    });
+  }
 }
-    }
  } else {
   /*
    * TUTTE LE REGIONI
