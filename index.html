@@ -1390,11 +1390,11 @@ function showGalleggiante() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div>
-          <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷  === "fr" ? "Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
           <div id="galleggFissoBox" class="image-box"></div>
         </div>
         <div>
-          <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷  === "fr" ? "Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
           <div id="galleggScorrBox" class="image-box"></div>
         </div>
       </div>
@@ -1403,7 +1403,7 @@ function showGalleggiante() {
     <div class="card"><b>${t('controLabel')}</b><br>${txt.contro}</div>
     <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
     <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
-    <div class="card"><b>${t('videoTutorial')}</b><br><a href="${linguaAttuale === 'fr' ? videoTecniche.galleggiante.fr : videoTecniche.galleggiante.it}" target="_blank" rel="noopener">${t('guardaSuYoutube')}</a></div>
+    <div class="card"><b>${t('videoTutorial')}</b><br><a href=" === 'fr' ? videoTecniche.galleggiante.fr : videoTecniche.galleggiante.it}" target="_blank" rel="noopener">${t('guardaSuYoutube')}</a></div>
     <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
 }
 function showSpinning() {
@@ -2556,17 +2556,17 @@ function showCercaSpot() {
       
 <button onclick="cambiaNazioneEsplorazione('it')" style="padding:10px 16px; background:${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
   <img src="./img/bandiera_it.png" alt="Italia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-  ${t('nazioneItalia')}
+  ${t('Italia')}
 </button>
 
 <button onclick="cambiaNazioneEsplorazione('fr')" style="padding:10px 16px; background:${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
   <img src="./img/bandiera_fr.png" alt="Francia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-  ${t('nazioneFrancia')}
+  ${t('Francia')}
 </button>
 
 <button onclick="cambiaNazioneEsplorazione('tn')" style="padding:10px 16px; background:${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
   <img src="./img/bandiera_tn.png" alt="Tunisia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-  ${t('nazioneTunisia')}
+  ${t('Tunisia')}
 </button>
       </div>
     </div>
