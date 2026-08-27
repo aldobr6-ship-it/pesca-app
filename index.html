@@ -526,7 +526,6 @@ body.dark .si-badge {
   font-size: 22px;
   color: white;
 }
-
 .spot-main-avatar {
   position: absolute;
   left: calc(50% - 175px);
@@ -749,7 +748,6 @@ body.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
     color: #93c5fd;
   }
 }
-```
 .modal-spot-overlay {
   position:fixed; inset:0; background:rgba(0,0,0,0.6);
   z-index:9500; display:flex; align-items:flex-end; animation: fadeIn 0.2s ease;
@@ -802,8 +800,7 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
   <img src="./img/io_e_il_pesce.png" alt="Avatar" class="spot-main-avatar">
   <span>🎣 AdelTechnic-FISH</span>
 </div>
-  <div style="position:absolute; left:14px; top:50%; transform:translateY(-50%); display:flex; gap:4px;">
-    
+  <div style="position:absolute; left:14px; top:50%; transform:translateY(-50%); display:flex; gap:4px;">  
 <!-- Pulsante Italiano -->
 <button onclick="cambiaLingua('it')" id="btnLangIt" style="background:none; padding:2px; margin:0; box-shadow:none; border-radius:6px; display:flex; flex-direction:column; align-items:center; gap:1px;">
   <img src="./img/bandiera_it.png" style="width:23px;height:23px;border-radius:50%;object-fit:cover;display:block;">
@@ -1058,9 +1055,9 @@ const traduzioni = {
     tornaTuttiNodi: "⬅️ Retour à tous les nœuds",
     noMontaturaTrovato: "Aucun montage trouvé pour",
     tornaTutteMontature: "⬅️ Retour à tous les montages",
-    montatureCount: "montages • touchez pour le détail",
+    montatureCount: "montages • Cliquez pour le détail",
     schemaTecnico: "📐 Schéma Technique",
-    toccaIngrandire: "🔍 Touchez pour agrandir",
+    toccaIngrandire: "🔍 Cliquez pour agrandir",
     quandoUsare: "🕐 Quand l'utiliser",
     target: "🐟 Cibles",
     escheConsigliate: "🐛 Appâts recommandés",
@@ -1075,7 +1072,7 @@ const traduzioni = {
     quandoUsarla: "📅 Quand l'utiliser",
     attrezzaturaBase: "🎒 Équipement de base",
     montatureDedicate: "🎣 Montages dédiés",
-    toccaSchema: "Touchez pour voir le schéma",
+    toccaSchema: "Cliquez pour voir le Schéma",
     proLabel: "✅ Avantages",
     controLabel: "❌ Inconvénients",
     videoTutorial: "🎥 Tutoriel vidéo",
@@ -1112,7 +1109,7 @@ const traduzioni = {
     erroreMeteo: "Erreur de chargement des données météo. Vérifiez la connexion.",
     seiQui: "📍 Vous êtes ici",
     nessunoSpotSalvato: "Aucun spot sauvegardé.",
-    vaiSulPosto: "Allez sur place et touchez 📌 Sauvegarder le spot !",
+    vaiSulPosto: "Allez sur place et cliquez 📌 Sauvegarder le spot !",
     quandoPescareOggi: "🌙 Quand Pêcher Aujourd'hui",
     calcoloCondizioni: "Calcul des conditions de pêche…",
     confermaGPS: "📍 Pour calculer solunaire et marées précises\npuis-je utiliser votre position GPS ?\n\nOK = utiliser le GPS\nAnnuler = utiliser la position centrale de l'Italie",
@@ -1154,7 +1151,7 @@ const traduzioni = {
     spotCaricamento: "Chargement des spots en cours... / Aucune donnée",
     visibili: "visibles",
     nessunSpotTrovato: "Aucun spot trouvé.",
-    usaFiltri: "Utilisez les filtres puis <strong>Charger →</strong> pour voir les spots, ou touchez un marqueur 🎣",
+    usaFiltri: "Utilisez les filtres puis <strong>Charger →</strong> pour voir les spots, ou cliquez un marqueur 🎣",
     risultatiFiltro: "Résultats du filtre",
     tecnicaCampo: "🎣 Technique",
     ottieniIndicazioni: "🧭 Obtenir l'itinéraire →",
@@ -1521,7 +1518,7 @@ function cardNodo(n) {
         <img src="./img/nodo.png" alt="${n.nome}" style="width:55px;height:55px;object-fit:contain;display:block;margin:0 auto 4px;">
 ${n.nome}
 <small style="display:block;font-size:10px;font-weight:500;opacity:0.8;margin-top:3px;">
-  ${linguaAttuale === "fr" ? "👆 Touchez pour voir la photo" : "👆 Tocca per vedere la foto"}
+  ${linguaAttuale === "fr" ? "👆 Cliquez pour voir la photo" : "👆 Clicca per vedere la foto"}
 </small>
       </button>
       <div id="${id}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
@@ -2047,7 +2044,7 @@ function cardSpecie(key) {
     <img src="./img/specie_3d.png" alt="${specie[key].nome}" style="width:75px;height:75px;object-fit:contain;">
     <div style="font-weight:700;font-size:13px;line-height:1.3;color:#3d2b0a;">${specie[key].nome}</div>
     <small style="display:block;font-size:10px;font-weight:500;opacity:0.7;margin-top:3px;">
-      ${linguaAttuale === "fr" ? "👆 Touchez pour voir la photo" : "👆 Tocca per vedere la foto"}
+      ${linguaAttuale === "fr" ? "👆 Cliquez pour voir la photo" : "👆 Clicca per vedere la foto"}
     </small>
   </div>`;
 }
