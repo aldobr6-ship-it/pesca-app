@@ -2299,7 +2299,7 @@ function trovaIndiceOra(times,ora){const s=ora.toISOString().slice(0,13);const i
 function stelleRating(r){return"⭐".repeat(r)+"☆".repeat(5-r);}
 function direzioneVento(deg){return["N","NE","E","SE","S","SO","O","NO"][Math.round(deg/45)%8]||"—";}
 function iconaMeteo(c){if(c===0)return"☀️";if(c<=2)return"🌤️";if(c<=3)return"☁️";if(c<=49)return"🌫️";if(c<=55)return"🌦️";if(c<=65)return"🌧️";if(c<=77)return"❄️";if(c<=82)return"🌦️";if(c<=99)return"⛈️";return"🌡️";}
-function descrizioneMeteo(c){if(c===0)return"Sereno";if(c<=2)return"Poco nuv.";if(c<=3)return"Coperto";if(c<=49)return"Nebbia";if(c<=55)return"Pioggerella";if(c<=65)return"Pioggia";if(c<=77)return"Neve";if(c<=82)return"Rovesci";if(c<=99)return"Temporale";return"—";}
+function descrizioneMeteo(c){const fr = linguaAttuale === "fr";if(c===0) return fr ? "Ciel dégagé" : "Sereno";if(c<=2) return fr ? "Peu nuageux" : "Poco nuv.";if(c<=3) return fr ? "Couvert" : "Coperto";if(c<=49) return fr ? "Brouillard" : "Nebbia";if(c<=55) return fr ? "Bruine" : "Pioggerella";if(c<=65) return fr ? "Pluie" : "Pioggia";if(c<=77) return fr ? "Neige" : "Neve";if(c<=82) return fr ? "Averses" : "Rovesci";if(c<=99) return fr ? "Orage" : "Temporale";return "—";}
 function formatOra(s){if(!s)return"--:--";try{return s.slice(11,16);}catch(e){return"--:--";}}
 function mostraErroreGPS(msg){document.getElementById("content").innerHTML=`<div class="prev-errore"><span class="ico">📡</span><p>${msg}</p><button onclick="goTo(showPrevisioni)">${t('riprova')}</button></div>`;}
 </script>
