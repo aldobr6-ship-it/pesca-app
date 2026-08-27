@@ -1518,7 +1518,8 @@ function cardNodo(n) {
   return `
     <div style="display:flex;flex-direction:column;align-items:center;">
       <button onclick="toggleNodo('${id}')" style="width:100%;padding:10px 6px;border-radius:13px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#0077b6,#00b4d8);border:none;color:white;cursor:pointer;margin-bottom:6px;line-height:1.3;box-shadow:0 4px 12px rgba(0,0,0,0.16);">
-        🧵 ${n.nome}
+        <img src="./img/nodo.png" alt="${n.nome}" style="width:55px;height:55px;object-fit:contain;display:block;margin:0 auto 4px;">
+${n.nome}
       </button>
       <div id="${id}" style="display:none;width:100%;text-align:center;margin-bottom:8px;">
        <img src="${n.img}" onclick="mostraEscaFullscreen(event,'${n.img}','${n.nome}')" class="img-box-bg" style="width:100%;height:140px;object-fit:contain;border-radius:12px;margin-bottom:6px;cursor:zoom-in;" onerror="imgFallback(this,'${n.nome} non disponibile')">
@@ -1558,7 +1559,10 @@ function filtraNodi() {
 }
 function showNodi() {
   document.getElementById("content").innerHTML = `
-    <h2>🧵 ${t('nodi')}</h2>
+    <h2 style="display:flex;align-items:center;justify-content:center;gap:10px;">
+  <img src="./img/nodo_titolo.png" alt="${t('nodi')}" style="height:50px;width:auto;object-fit:contain;">
+  ${t('nodi')}
+</h2>
     <div class="card">
       <input type="text" id="searchNodi" placeholder="${t('cercaNodo')}"
         style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
