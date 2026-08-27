@@ -2566,7 +2566,7 @@ function showCercaSpot() {
 
 <button onclick="cambiaNazioneEsplorazione('tn')" style="padding:10px 16px; background:${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
   <img src="./img/bandiera_tn.png" alt="Tunisia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-  ${linguaAttuale === "fr" ? "Tunisie" : "Italia"}
+  ${linguaAttuale === "fr" ? "Tunisie" : "Tunisia"}
 </button>
       </div>
     </div>
@@ -3238,7 +3238,7 @@ function mostraDettaglioPannello(spot) {
         <button
           class="btn-nav-spot"
           onclick="window.open('https://www.google.com/maps?q=${lat},${lon}','_blank')">
-          🧭 Ottieni indicazioni →
+          ${t("ottieniIndicazioni")}
         </button>
         `
         : ""
@@ -3247,7 +3247,7 @@ function mostraDettaglioPannello(spot) {
         class="btn-salva-spot-italia"
         id="btnSalvaItalia_${spotId}"
         onclick="salvaSpotItalia(window.__spotItaliaDettaglio)">
-        📌 Salva nei miei spot
+        ${t("salvaNeiMieiSpot")}
       </button>
       <button
         class="btn-back-lista"
