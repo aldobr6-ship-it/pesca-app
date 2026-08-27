@@ -1128,7 +1128,7 @@ const traduzioni = {
     aggiornaBtn: "🔄 Actualiser",
     circaOre: "~2 heures", circaUnOra: "~1 heure",
     cercaSpotTunisia: "🗺️ Chercher un Spot en Tunisie",
-   selezionaNazione: "Choisir le Pays de Pêche :",
+   selezionaNazione: "Choisir le pays de pêche :",
    italia: "🇮🇹 Italie",
    tunisia: "🇹🇳 Tunisie",
 /* === NOUVELLES CLÉS FR === */
@@ -1928,7 +1928,9 @@ const regionData = {
       "Sousse / Sahel": { center: [35.8256, 10.6411], zoom: 9 },
       "Mahdia": { center: [35.5047, 11.0622], zoom: 10 },
       "Sfax": { center: [34.7406, 10.7603], zoom: 9 },
-      "Djerba": { center: [33.8075, 10.8451], zoom: 10 }
+      "Gabès": { center: [33.8883, 10.1264], zoom: 9 },
+      "Djerba": { center: [33.8075, 10.8451], zoom: 10 },
+      "Medenine": { center: [33.5124, 11.1205], zoom: 9 }
     }
   }
 };
@@ -2384,9 +2386,12 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
          📍 GPS non disponibile. Prévisions basées sur la capitale.
        </div>`
     : "";
-  var testobottone = t('cercaSpotItalia');
-  if (nazioneAttiva === "fr") { testobottone = linguaAttuale === "fr" ? "🔍 Explorer les Spots France" : "🔍 Esplora Spot Francia"; }
-  if (nazioneAttiva === "tn") { testobottone = linguaAttuale === "fr" ? "🔍 Explorer les Spots Tunisie" : "🔍 Esplora Spot Tunisia"; }
+  var testobottone =
+    nazioneAttiva === "fr"
+      ? (linguaAttuale === "fr" ? "🔍 Explorer les Spots France" : "🔍 Esplora Spot Francia")
+      : nazioneAttiva === "tn"
+        ? (linguaAttuale === "fr" ? "🔍 Explorer les Spots Tunisie" : "🔍 Esplora Spot Tunisia")
+        : t('cercaSpotItalia');
   // Calcolo sicuro dell'orario dell'alba per evitare blocchi sintattici
   var oraAlba = "--:--";
   if (meteo && meteo.daily && meteo.daily.sunrise && meteo.daily.sunrise[0]) {
@@ -2489,10 +2494,57 @@ const mappeRegioni = {
     "Sousse / Sahel": [35.8256, 10.6369],
     "Mahdia": [35.5047, 11.0622],
     "Sfax": [34.7406, 10.7603],
+    "Gabès": [33.8883, 10.1264],
     "Djerba": [33.8075, 10.8451],
     "Medenine": [33.5124, 11.1205]
   }
 };
+function etichettaRegioneSpot(reg) {
+  if (linguaAttuale !== "fr") return reg;
+
+  const labels = {
+    // Italie
+    "Liguria": "Ligurie",
+    "Toscana": "Toscane",
+    "Lazio": "Latium",
+    "Campania": "Campanie",
+    "Calabria": "Calabre",
+    "Puglia": "Pouilles",
+    "Basilicata": "Basilicate",
+    "Abruzzo-Molise": "Abruzzes / Molise",
+    "Marche": "Marches",
+    "Emilia-Romagna": "Émilie-Romagne",
+    "Veneto": "Vénétie",
+    "Friuli-VG": "Frioul-Vénétie Julienne",
+    "Sardegna": "Sardaigne",
+    "Sicilia": "Sicile",
+
+    // France
+    "PACA / Côte d'Azur": "PACA / Côte d'Azur",
+    "Bretagne": "Bretagne",
+    "Occitanie": "Occitanie",
+    "Nouvelle-Aquitaine": "Nouvelle-Aquitaine",
+    "Normandie": "Normandie",
+    "Corse": "Corse",
+
+    // Tunisie
+    "Biserta": "Bizerte",
+    "Bizerte": "Bizerte",
+    "Cap Bon": "Cap Bon",
+    "Tunisi": "Tunis",
+    "Sousse / Sahel": "Sousse / Sahel",
+    "Sousse": "Sousse",
+    "Mahdia": "Mahdia",
+    "Sfax": "Sfax",
+    "Gabès": "Gabès",
+    "Gabes": "Gabès",
+    "Djerba": "Djerba",
+    "Medenine": "Médenine"
+  };
+
+  return labels[reg] || reg;
+}
+
 function showCercaSpot() {
   regioneAttiva = "all"; // Reset regione al cambio schermata
   // 1. Header con pulsanti Switch Nazione
@@ -2504,17 +2556,17 @@ function showCercaSpot() {
       
 <button onclick="cambiaNazioneEsplorazione('it')" style="padding:10px 16px; background:${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
   <img src="./img/bandiera_it.png" alt="Italia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-  Italia
+  ${t('nazioneItalia')}
 </button>
 
 <button onclick="cambiaNazioneEsplorazione('fr')" style="padding:10px 16px; background:${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
   <img src="./img/bandiera_fr.png" alt="Francia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-  Francia
+  ${t('nazioneFrancia')}
 </button>
 
 <button onclick="cambiaNazioneEsplorazione('tn')" style="padding:10px 16px; background:${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color:white; border-radius:10px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
   <img src="./img/bandiera_tn.png" alt="Tunisia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-  Tunisia
+  ${t('nazioneTunisia')}
 </button>
       </div>
     </div>
@@ -2524,7 +2576,7 @@ function showCercaSpot() {
   const listaRegioniNazione = mappeRegioni[nazioneAttiva] || {};
 
   Object.keys(listaRegioniNazione).forEach(reg => {
-    opzioniRegioni += `<option value="${reg}">${reg}</option>`;
+    opzioniRegioni += `<option value="${reg}">${etichettaRegioneSpot(reg)}</option>`;
   });
   headerHTML += `
     <div class="filtri-row" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; padding: 0 10px;">
@@ -2549,7 +2601,7 @@ function showCercaSpot() {
         <div id="spotItaliaMap"></div> 
       </div>
       <div class="spot-panel-right" id="spotPanelRight">
-        <div class="spot-panel-header" id="spotPanelHeader">📍 Spot <span id="nomeNazioneBadge"></span></div>
+        <div class="spot-panel-header" id="spotPanelHeader">📍 ${t("spot")} <span id="nomeNazioneBadge"></span></div>
         <div class="spot-panel-body" id="spotPanelBody"><div id="listaSpotEsplorazione"></div></div>
       </div>
     </div>
@@ -2557,13 +2609,13 @@ function showCercaSpot() {
     <!-- Modal Personalizzata per Salvare lo Spot -->
     <div id="saveSpotModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
       <div style="background:white; padding:20px; border-radius:12px; width:90%; max-width:400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-        <h3 style="margin-top:0; color:#0a2a43;">⭐ Salva Spot</h3>
+        <h3 style="margin-top:0; color:#0a2a43;">${t("salvaSpotTitolo")}</h3>
         <p id="modalSpotTitle" style="font-weight:bold; margin-bottom:8px; color:#0077b6;"></p>
-        <label style="font-size:12px; font-weight:bold; color:#555;">Note personali (esca, meteo, note):</label>
-        <textarea id="modalSpotNotes" rows="3" style="width:100%; margin-top:5px; padding:8px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box;" placeholder="Es: Ottimo con mareggiata da Scirocco, esca usata: bibi..."></textarea>
+        <label style="font-size:12px; font-weight:bold; color:#555;">${t("notePersonali")}</label>
+        <textarea id="modalSpotNotes" rows="3" style="width:100%; margin-top:5px; padding:8px; border-radius:6px; border:1px solid #ccc; box-sizing:border-box;" placeholder="${t("placeholderNoteSpot")}"></textarea>
         <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:15px;">
-          <button onclick="closeSaveSpotModal()" style="padding:8px 12px; background:#6c757d; color:white; border:none; border-radius:6px; cursor:pointer;">Annulla</button>
-          <button onclick="confirmSaveSpot()" style="padding:8px 12px; background:#2a9d8f; color:white; border:none; border-radius:6px; cursor:pointer;">Conferma e Salva</button>
+          <button onclick="closeSaveSpotModal()" style="padding:8px 12px; background:#6c757d; color:white; border:none; border-radius:6px; cursor:pointer;">${t("annulla")}</button>
+          <button onclick="confirmSaveSpot()" style="padding:8px 12px; background:#2a9d8f; color:white; border:none; border-radius:6px; cursor:pointer;">${t("confermaSalva")}</button>
         </div>
       </div>
     </div>
@@ -2578,18 +2630,18 @@ function initMappaEsplorazioneNuova() {
   let centroMappa = [42.0, 12.5];
   let zoomIniziale = 6;
   let listaSpot = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
-  let nomeNazione = "Italia";
+  let nomeNazione = t("nazioneItalia");
   if (nazioneAttiva === "fr") {
     centroMappa = [46.5, 2.0];
     zoomIniziale = 5.5;
     listaSpot = Array.isArray(spotsFranceExternal) ? spotsFranceExternal : [];
-    nomeNazione = "France";
+    nomeNazione = t("nazioneFrancia");
   } else if (nazioneAttiva === "tn") {
     centroMappa = [35.5, 9.5];
     zoomIniziale = 7;
     listaSpot = (Array.isArray(spotsTunisiaExternal) ? spotsTunisiaExternal : [])
       .map(normalizzaSpotTunisia);
-    nomeNazione = "Tunisia";
+    nomeNazione = t("nazioneTunisia");
   }
   document.getElementById("nomeNazioneBadge").textContent = nomeNazione;
   // Reset Leaflet
@@ -2632,7 +2684,7 @@ function renderizzaListaEMappe(listaSpot) {
     panelBody.innerHTML = `
       <div class="spot-panel-placeholder">
         <span class="ph-ico">🎣</span>
-        <p>Nessun spot trovato in questa zona</p>
+        <p>${t("nessunSpotZona")}</p>
       </div>
     `;
     return;
@@ -2935,20 +2987,16 @@ function regioneSpotCorrisponde(spot, regioneFiltro){
     "tunisi": ["tunisi","tunis","tunis / ghar el melh"],
     "tunis / ghar el melh": ["tunisi","tunis","tunis / ghar el melh"],
     "sousse / sahel": ["sousse / sahel","sousse","sahel"],
-    "djerba": ["djerba","djerba / zarzis"],
-    "djerba / zarzis": ["djerba","djerba / zarzis"],
-    "medenine": ["medenine","djerba","djerba / zarzis"]
+    "djerba": ["djerba"],
+    "medenine": ["medenine"],
+    "gabes": ["gabes"],
+    "gabs": ["gabs"],
+    "gabès": ["gabès"]
   };
   return (alias[f] || []).some(a => r === normalizzaTestoSpot(a));
 }
 function normalizzaSpotTunisia(spot){
   if(!spot || typeof spot !== "object") return spot;
-  // I dati forniti hanno Zarzis dentro Sfax: lo riallineiamo
-  // alla regione geografica usata dal menu, senza modificare il JSON originale.
-  const nome = normalizzaTestoSpot(spot.nome || spot.name || "");
-  if(nome.includes("zarzis")){
-    spot.region = "Djerba";
-  }
   const lat = Number(spot.lat ?? spot.latitude ?? spot.coords?.[0]);
   const lon = Number(spot.lon ?? spot.lng ?? spot.longitude ?? spot.coords?.[1]);
   if(Number.isFinite(lat) && Number.isFinite(lon) && !spot.coords){
@@ -3093,12 +3141,12 @@ function mostraPannelloLista(lista, titolo) {
   const header = document.getElementById("spotPanelHeader");
   const body = document.getElementById("spotPanelBody");
   if (!header || !body) return;
-  header.textContent = `🎣 ${titolo} (${lista.length})`;
+  header.textContent = `🎣 ${etichettaRegioneSpot(titolo)} (${lista.length})`;
   body.innerHTML = "";
   if (!lista || lista.length === 0) {
     body.innerHTML = `
       <p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">
-        Nessuno spot trovato.
+        ${t("nessunSpotTrovato")}
       </p>`;
     return;
   }
@@ -3169,15 +3217,15 @@ function mostraDettaglioPannello(spot) {
   window.__spotItaliaDettaglio = spot;
   body.innerHTML = `
   <div class="spot-detail-panel">
-  <span class="sdp-tag">📍 ${regione}</span>
+  <span class="sdp-tag">📍 ${etichettaRegioneSpot(regione)}</span>
   <h3 class="sdp-title">${nome}</h3>
       <div class="spot-detail-grid">
         <div class="spot-detail-cell">
-          <div class="sdc-lbl">🎣 Tecnica</div>
+          <div class="sdc-lbl">${t("tecnicaCampo")}</div>
           <div class="sdc-val">${tecnica}</div>
         </div>
         <div class="spot-detail-cell">
-          <div class="sdc-lbl">🐟 Target</div>
+          <div class="sdc-lbl">${t("target")}</div>
           <div class="sdc-val">${target}</div>
         </div>
       </div>
@@ -3204,7 +3252,7 @@ function mostraDettaglioPannello(spot) {
       <button
         class="btn-back-lista"
         onclick='tornaListaRegione(${JSON.stringify(regione)})'>
-        ← Tutti gli spot di ${regione}
+        ${t("tuttiGliSpotDi")} ${etichettaRegioneSpot(regione)}
       </button>
     </div>
   `;
@@ -3283,7 +3331,7 @@ function aggiornaLabelSalva(spot) {
       s.nome === nome
   );
   if (giaSalvato) {
-    btn.textContent = "✅ Già salvato";
+    btn.textContent = t("giaSalvato");
     btn.style.opacity = "0.6";
     btn.style.cursor = "default";
     btn.onclick = null;
