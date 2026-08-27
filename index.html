@@ -2402,15 +2402,15 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
    <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; padding: 5px 0;">
   <button onclick="cambiaNazioneHome('it')" style="flex:1; padding:10px; background:${nazioneAttiva === 'it' ? '#0077b6' : '#6c757d'}; color:white; border-radius:12px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
     <img src="./img/bandiera_it.png" alt="Italia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-    Italia
+    ${linguaAttuale === "fr" ? "Italie" : "Italia"}
   </button>
   <button onclick="cambiaNazioneHome('fr')" style="flex:1; padding:10px; background:${nazioneAttiva === 'fr' ? '#0077b6' : '#6c757d'}; color:white; border-radius:12px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
     <img src="./img/bandiera_fr.png" alt="Francia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-    Francia
+    ${linguaAttuale === "fr" ? "France" : "Francia"}
   </button>
   <button onclick="cambiaNazioneHome('tn')" style="flex:1; padding:10px; background:${nazioneAttiva === 'tn' ? '#0077b6' : '#6c757d'}; color:white; border-radius:12px; font-weight:bold; border:none; cursor:pointer; font-size:13px;">
     <img src="./img/bandiera_tn.png" alt="Tunisia" style="width:23px;height:23px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">
-    Tunisia
+    ${linguaAttuale === "fr" ? "Tunisie" : "Tunisia"}
   </button>
 </div>
     ${alertGPSHTML}
@@ -2630,18 +2630,18 @@ function initMappaEsplorazioneNuova() {
   let centroMappa = [42.0, 12.5];
   let zoomIniziale = 6;
   let listaSpot = (typeof spotsItalia !== 'undefined' ? spotsItalia : []);
-  let nomeNazione = t("nazioneItalia");
+  let nomeNazione = linguaAttuale === "fr" ? "Italie" : "Italia";
   if (nazioneAttiva === "fr") {
     centroMappa = [46.5, 2.0];
     zoomIniziale = 5.5;
     listaSpot = Array.isArray(spotsFranceExternal) ? spotsFranceExternal : [];
-    nomeNazione = t("nazioneFrancia");
+    nomeNazione = linguaAttuale === "fr" ? "France" : "Francia";
   } else if (nazioneAttiva === "tn") {
     centroMappa = [35.5, 9.5];
     zoomIniziale = 7;
     listaSpot = (Array.isArray(spotsTunisiaExternal) ? spotsTunisiaExternal : [])
       .map(normalizzaSpotTunisia);
-    nomeNazione = t("nazioneTunisia");
+    nomeNazione = linguaAttuale === "fr" ? "Tunisie" : "Tunisia";
   }
   document.getElementById("nomeNazioneBadge").textContent = nomeNazione;
   // Reset Leaflet
