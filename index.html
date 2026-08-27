@@ -2032,6 +2032,9 @@ function showSpecie() {
    <h2 style="display:flex;align-items:center;justify-content:center;gap:10px;">
   <img src="./img/specie_titolo.png" alt="${t('specie')}" style="height:70px;width:auto;object-fit:contain;">
   ${t('specie')}
+  <small style="display:block;font-size:10px;font-weight:500;opacity:0.8;margin-top:3px;">
+  ${linguaAttuale === "fr" ? "👆 Touchez pour voir la photo" : "👆 Tocca per vedere la foto"}
+</small>
 </h2>
     <div class="card">
       <input type="text" id="searchInput" placeholder="${t('cercaSpecie')}"
