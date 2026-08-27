@@ -1502,7 +1502,7 @@
   },
   {
     "name": "Molo di Aghir (Isola di Djerba)",
-    "reg": "Medenine",
+    "reg": "Djerba",
     "coords": [
       33.7539,
       11.0114
@@ -1513,7 +1513,7 @@
   },
   {
     "name": "Pontile di El Kantara (Sotto il ponte romano)",
-    "reg": "Medenine",
+    "reg": "Djerba",
     "coords": [
       33.6794,
       10.9533
@@ -1521,28 +1521,6 @@
     "type": "Pesca a fondo",
     "target": "Spigole, Orate Giganti, Saraghi",
     "tips": "Correnti fortissime sotto il ponte. Obbligatorio usare piombi pesanti a tenuta (spike) e innescare il granchio vivo."
-  },
-{
-    "name": "Porto di Kélibia",
-    "reg": "Nabeul (Cap Bon)",
-    "coords": [
-      36.8364,
-      11.1169
-    ],
-    "type": "Bolognese",
-    "target": "Saraghi Maggiori, Spigole, Salpe",
-    "tips": "Il molo foraneo esterno offre profondità e schiuma. Ideale con vento di scirocco moderato."
-  },
-  {
-    "name": "Porto di Hammamet (Vecchio forte)",
-    "reg": "Nabeul (Cap Bon)",
-    "coords": [
-      36.3947,
-      10.6125
-    ],
-    "type": "Bolognese",
-    "target": "Spigole, Occhiate, Cefali",
-    "tips": "Pescare sotto le mura della fortezza di notte. Fondale misto, usare pasture saporite al formaggio."
   },
   {
     "name": "Molo di Beni Khiar",
@@ -1567,17 +1545,6 @@
     "tips": "Fondale roccioso profondo e acque limpidissime. Richiede canne lunghe e terminali invisibili di notte."
   },
   {
-    "name": "Porto di Sfax (Moli interni)",
-    "reg": "Sfax",
-    "coords": [
-      34.7294,
-      10.7694
-    ],
-    "type": "Bolognese",
-    "target": "Cefali, Spigole",
-    "tips": "Acque calme e ricche di nutrienti. Tecnica regina con il pastarello di pane o la sarda macinata."
-  },
-  {
     "name": "Molo del Porto di Mahres",
     "reg": "Sfax",
     "coords": [
@@ -1600,17 +1567,6 @@
     "tips": "Punto di forte scambio idrico tra le secche lagunari. Pescare sul taglio della corrente durante l'alta marea."
   },
   {
-    "name": "Porto di Houmt Souk (Isola di Djerba)",
-    "reg": "Djerba",
-    "coords": [
-      33.8864,
-      10.8583
-    ],
-    "type": "Bolognese",
-    "target": "Spigole, Orate, Cefali",
-    "tips": "I moli esterni intercettano i flussi di pesce della laguna. Ottimo al culmine dell'alta marea."
-  },
-  {
     "name": "Molo di Aghir (Isola di Djerba)",
     "reg": "Djerba",
     "coords": [
@@ -1623,7 +1579,7 @@
   },
   {
     "name": "Pontile di El Kantara (Djerba - Sotto il ponte romano)",
-    "reg": "Medenine",
+    "reg": "Djerba",
     "coords": [
       33.6794,
       10.9533
@@ -1642,17 +1598,6 @@
     "type": "Bolognese",
     "target": "Spigole, Orate, Saraghi",
     "tips": "Molo foraneo profondo. Molto redditizio all'alba impostando una spallinata fluida e innescando il coreano."
-  },
-  {
-    "name": "Porto di Mahdia (Zona faro)",
-    "reg": "Mahdia",
-    "coords": [
-      35.5056,
-      11.0764
-    ],
-    "type": "Bolognese",
-    "target": "Saraghi Pizzuti, Spigole, Cefali",
-    "tips": "Punta protesa nel mare con fondale roccioso battuto. Richiede canne robuste per gestire i grossi saraghi."
   },
   {
     "name": "Molo di Chebba",
@@ -1675,28 +1620,6 @@
     "type": "Bolognese",
     "target": "Saraghi, Occhiate, Salpe",
     "tips": "Rocce piatte naturali affioranti. Pescare nella schiuma sollevata dalla risacca con galleggianti corti e tozzi."
-  },
-{
-    "name": "Porto di Kélibia (Lato esterno molo foraneo)",
-    "reg": "Nabeul (Cap Bon)",
-    "coords": [
-      36.8364,
-      11.1169
-    ],
-    "type": "Pesca a fondo",
-    "target": "Grosse Orate, Saraghi, Pagelli",
-    "tips": "Spot profondo esposto al mare aperto. Terminali lunghi in fluorocarbon e ami d'acciaio per resistere alle orate."
-  },
-  {
-    "name": "Porto di Hammamet (Vecchio forte)",
-    "reg": "Nabeul (Cap Bon)",
-    "coords": [
-      36.3947,
-      10.6125
-    ],
-    "type": "Pesca a fondo",
-    "target": "Orate, Mormore, Saraghi",
-    "tips": "Fondale sabbioso misto vicino alle mura. Ottima la pesca d'attesa nelle notti di luna piena con l'arenicola."
   },
   {
     "name": "Molo di Korba",
@@ -1730,39 +1653,6 @@
     "type": "Pesca a fondo",
     "target": "Orate, Saraghi, Triglie di scoglio",
     "tips": "Fondale misto roccia e sabbia a corta distanza. Usare piombi leggeri per assecondare la risacca serale."
-  },
-  {
-    "name": "Porto di Houmt Souk (Isola di Djerba)",
-    "reg": "Djerba",
-    "coords": [
-      33.8864,
-      10.8583
-    ],
-    "type": "Pesca a fondo",
-    "target": "Orate, Saraghi, Spigole",
-    "tips": "Lanciare dal lato esterno verso i canali di marea deep. Massima resa durante il picco di alta marea."
-  },
-  {
-    "name": "Molo di Aghir (Isola di Djerba)",
-    "reg": "Djerba",
-    "coords": [
-      33.7539,
-      11.0114
-    ],
-    "type": "Pesca a fondo",
-    "target": "Orate, Mormore, Razze",
-    "tips": "Zona pianeggiante con sabbia e roccia piatta. Sfruttare i calamenti sottili e l'arenicola per i grufolatori diurni."
-  },
-  {
-    "name": "Pontile di El Kantara (Djerba - Sotto il ponte romano)",
-    "reg": "Djerba",
-    "coords": [
-      33.6794,
-      10.9533
-    ],
-    "type": "Pesca a fondo",
-    "target": "Spigole, Orate Giganti, Saraghi",
-    "tips": "Correnti fortissime sotto il ponte. Obbligatorio usare piombi pesanti a tenuta (spike) e innescare il granchio vivo."
   },
   {
     "nome": "Porto di Kélibia (Molo Est)",
@@ -1854,7 +1744,7 @@
     "target": "Mormore, orate e ombrine",
     "region": "Cap Bon"
   },
-    {
+  {
     "nome": "Spiaggia di Lemaya (Plage Lemaya)",
     "lat": 33.9842,
     "lon": 10.0521,
@@ -1899,7 +1789,7 @@
     "target": "Mormore, triglie di fango e sogliole",
     "region": "Gabès"
   },
-    {
+  {
     "nome": "Spiaggia di Casino (Plage du Casino)",
     "lat": 33.8864,
     "lon": 10.1258,
