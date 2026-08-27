@@ -411,7 +411,7 @@ body.dark .filtro-select {
 .spot-panel-right {
   background: white; border-radius: 20px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.12); overflow: hidden;
-  min-height: 200px; display: flex; flex-direction: column;
+  max-height: 82vh; display: flex; flex-direction: column;
 }
 body.dark .spot-panel-right { background: #1e293b; }
 .spot-panel-header {
@@ -1946,7 +1946,9 @@ function updateRegions() {
   Object.keys(data.regions).forEach(region => {
     const option = document.createElement("option");
     option.value = region === "Tutte" ? "ALL" : region;
-    option.textContent = region === "Tutte" ? "Tutte le regioni" : region;
+    option.textContent = region === "Tutte"
+  ? (linguaAttuale === "fr" ? "Toutes les régions" : "Tutte le regioni")
+  : (linguaAttuale === "fr" ? etichettaRegioneSpot(region) : region);
     regionSelect.appendChild(option);
   });
   if (window.map) {
@@ -2573,7 +2575,7 @@ function showCercaSpot() {
   `;
   // 2. Generazione dinamica del menu a tendina Regioni per TUTTE le nazioni
   let opzioniRegioni = `<option value="all">🗺️ ${linguaAttuale === "fr" ? "Toutes les régions" : "Tutte le regioni"}</option>`;
-  const listaRegioniNazione = mappeRegioni[nazioneAttiva] || {};
+   const listaRegioniNazione = mappeRegioni[nazioneAttiva] || {};
 
   Object.keys(listaRegioniNazione).forEach(reg => {
     opzioniRegioni += `<option value="${reg}">${etichettaRegioneSpot(reg)}</option>`;
