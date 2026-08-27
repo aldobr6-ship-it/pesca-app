@@ -1853,5 +1853,455 @@
     "technique": "Pesca a fondo / Beach Ledgering",
     "target": "Mormore, orate e ombrine",
     "region": "Cap Bon"
+  },
+    {
+    "nome": "Spiaggia di Lemaya (Plage Lemaya)",
+    "lat": 33.9842,
+    "lon": 10.0521,
+    "desc": "Grande spiaggia sabbiosa a nord del centro cittadino, caratterizzata da ampie secche interrotte da canaloni naturali creati dalle maree, ottima per il surfcasting a lunga distanza.",
+    "technique": "Surfcasting",
+    "target": "Grosse orate, mormore e spigole",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Gannouch (Plage de Ghannouch)",
+    "lat": 33.9314,
+    "lon": 10.0815,
+    "desc": "Situata vicino alla zona industriale e portuale, questa spiaggia risente di forti correnti che muovono il fondale sabbioso, attirando predatori e grufolatori in cerca di cibo.",
+    "technique": "Surfcasting",
+    "target": "Spigole, orate e leccie stella",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Chott El Romman",
+    "lat": 33.8958,
+    "lon": 10.1142,
+    "desc": "Litorale molto ampio e lineare con fondale sabbioso pulito e digradante. Rende al massimo durante le ore notturne o con mareggiata in scaduta.",
+    "technique": "Surfcasting",
+    "target": "Mormore, ombrine e saraghi",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Zarat (Plage de Zarat)",
+    "lat": 33.6825,
+    "lon": 10.3411,
+    "desc": "Situata nella parte meridionale del governatorato, vicino al villaggio di pescatori. È una zona selvaggia con un ecosistema ricchissimo e forte escursione di marea.",
+    "technique": "Surfcasting",
+    "target": "Orate reali, ombrine boccadoro e squali piatti",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Kettana (Plage de Kettana)",
+    "lat": 33.7844,
+    "lon": 10.2235,
+    "desc": "Spiaggia isolata e poco frequentata dai bagnanti, perfetta per impostare battute di pesca diurne a beach ledgering o surfcasting leggero sulla media distanza.",
+    "technique": "Surfcasting",
+    "target": "Mormore, triglie di fango e sogliole",
+    "region": "Gabès"
+  },
+    {
+    "nome": "Spiaggia di Casino (Plage du Casino)",
+    "lat": 33.8864,
+    "lon": 10.1258,
+    "desc": "La spiaggia cittadina principale di Gabès. Nonostante la vicinanza al centro, le sue secche sabbiose sono eccellenti per il surfcasting notturno quando i bagnanti lasciano il litorale.",
+    "technique": "Surfcasting",
+    "target": "Mormore, leccie stella e orate",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Oudref (Plage d'Oudref / Akarit)",
+    "lat": 34.0722,
+    "lon": 10.0214,
+    "desc": "Situata nella zona nord della regione, vicino alla foce dell'Oued Akarit. La presenza di acqua dolce e fango misto a sabbia crea un'area di pascolo pazzesca per i pesci di fondo.",
+    "technique": "Surfcasting",
+    "target": "Spigole, grosse orate e cefali",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Bouchemma",
+    "lat": 33.9145,
+    "lon": 10.0632,
+    "desc": "Tratto di costa selvaggio e poco antropizzato. Presenta un fondale sabbioso molto basso che richiede lanci lunghi per raggiungere la fascia di passaggio dei grufolatori.",
+    "technique": "Surfcasting",
+    "target": "Mormore e ombrine",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Teboulbou (Plage de Thyna / Teboulbou)",
+    "lat": 33.8511,
+    "lon": 10.1584,
+    "desc": "Zona costiera situata a sud del porto di Gabès. Il fondale è ricco di piccoli canali naturali dove il pesce entra in attività soprattutto durante il picco di alta marea.",
+    "technique": "Surfcasting",
+    "target": "Orate, saraghi e triglie di fango",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Hicha (Plage d'El Hicha)",
+    "lat": 34.1852,
+    "lon": 10.0089,
+    "desc": "Si trova al confine settentrionale del governatorato di Gabès. È una spiaggia completamente incontaminata, battuta da forti venti laterali, ideale per il surfcasting pesante in condizioni di mare mosso.",
+    "technique": "Surfcasting",
+    "target": "Spigole, ombrine boccadoro e pesci serra",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Porto Peschereccio di Gabès (Molo Est)",
+    "lat": 33.8994,
+    "lon": 10.1165,
+    "desc": "La punta esterna del molo foraneo offre acque profonde e forti correnti. Spot ideale per lo spinning con jerkbait e popper a caccia di predatori pelagici.",
+    "technique": "Spinning",
+    "target": "Pesci serra, leccie e barracuda",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Foce dell'Oued Gabès (Oasi Marittima)",
+    "lat": 33.8828,
+    "lon": 10.1294,
+    "desc": "Punto d'incontro tra le acque dell'oasi e il mare. Il costante apporto di nutrimento attira moltissimo pesce foraggio, rendendolo lo spot perfetto per lo spinning leggero con esche siliconiche.",
+    "technique": "Spinning",
+    "target": "Spigole e leccie stella",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Barriera Frangiflutti di Ghannouch",
+    "lat": 33.9392,
+    "lon": 10.0911,
+    "desc": "Scogliera artificiale protettiva vicino alla zona industriale. Le correnti e le strutture sommerse creano l'habitat perfetto per i predatori che cacciano a ridosso dei massi.",
+    "technique": "Spinning",
+    "target": "Spigole, barracuda e pesci serra",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Porticciolo di Zarat (Banchine esterne)",
+    "lat": 33.6745,
+    "lon": 10.3524,
+    "desc": "Piccolo scalo peschereccio a sud di Gabès. L'uscita del canale e le banchine esterne sono ottime durante i cambi di marea per insidiare i predatori in caccia.",
+    "technique": "Spinning",
+    "target": "Spigole e pesci serra",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Foce dell'Oued Akarit",
+    "lat": 34.0681,
+    "lon": 10.0247,
+    "desc": "Foce fluviale nella zona nord della regione. La variazione di salinità e il movimento dell'acqua attirano i branchi di cefali e, di conseguenza, i grandi predatori costieri.",
+    "technique": "Spinning",
+    "target": "Grandi spigole e leccie amia",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Molo Turistico di Casino Plage",
+    "lat": 33.8852,
+    "lon": 10.1271,
+    "desc": "Pontile e scogliera situati sul litorale cittadino. Offre un ottimo raggio di azione per lo spinning notturno o all'alba, specialmente nei periodi di mareggiata in scaduta.",
+    "technique": "Spinning",
+    "target": "Spigole e leccie stella",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Scogliera della Centrale Termica (Gabès Sud)",
+    "lat": 33.8644,
+    "lon": 10.1415,
+    "desc": "Zona costiera caratterizzata dallo scarico di acque calde della centrale. Questo flusso crea un hotspot termico permanente che attira costantemente branchi di predatori anche in pieno inverno.",
+    "technique": "Spinning",
+    "target": "Pesci serra, barracuda e leccie",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Canale di Scarico di Teboulbou",
+    "lat": 33.8421,
+    "lon": 10.1632,
+    "desc": "Sbocco d'acqua artificiale che muove costantemente il fondale sabbioso circostante. Ottimo per pescare con piccoli metal jig o wtd nelle ore di sole alto.",
+    "technique": "Spinning",
+    "target": "Leccie stella, aguglie e spigole",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Secche di Kettana",
+    "lat": 33.7712,
+    "lon": 10.2418,
+    "desc": "Punta costiera mista a rocce e sabbia dove il fondale crea delle piccole secche naturali raggiungibili con lunghi lanci. Ottima per lo spinning pesante con popper.",
+    "technique": "Spinning",
+    "target": "Leccie amia e grandi pesci serra",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Molo Nord della Zona Industriale",
+    "lat": 33.9218,
+    "lon": 10.0894,
+    "desc": "Struttura artificiale interdetta alle spiagge balneari. La tranquillità del posto e la profondità del fondale attirano predatori di taglia importante durante le ore notturne.",
+    "technique": "Spinning",
+    "target": "Barracuda, pesci serra e spigole",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Porto Peschereccio di Gabès (Interno Banchine)",
+    "lat": 33.8981,
+    "lon": 10.1152,
+    "desc": "Le banchine interne del porto, illuminate di notte, attirano minutaglia e di conseguenza grandi branchi di seppie e calamari. Fondale fangoso e profondo.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Molo Foraneo di Ghannouch",
+    "lat": 33.9385,
+    "lon": 10.0924,
+    "desc": "Scogliera artificiale esposta alle correnti esterne. La presenza di massi sommersi crea il nascondiglio ideale per le secche e i calamari in caccia nei cambi di luce.",
+    "technique": "Eging",
+    "target": "Calamari e seppie",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Porticciolo di Zarat (Canale d'Ingresso)",
+    "lat": 33.6738,
+    "lon": 10.3519,
+    "desc": "Il canale d'ingresso del porticciolo risente molto delle maree. Durante l'alta marea, i cefalopodi entrano nel canale per cacciare i piccoli crostacei.",
+    "technique": "Eging",
+    "target": "Seppie",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Pontile di Casino Plage",
+    "lat": 33.8845,
+    "lon": 10.1265,
+    "desc": "Struttura cittadina con pali sommersi che creano ombra e riparo. Molto comodo per l'eging notturno a caccia di seppie sulla corta distanza.",
+    "technique": "Eging",
+    "target": "Seppie",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Scogliera Sud della Centrale Termica",
+    "lat": 33.8631,
+    "lon": 10.1428,
+    "desc": "La zona riscaldata dallo scarico attira costantemente gamberetti e piccoli pesci. Questo microclima rende lo spot attivo per i cefalopodi anche nei mesi più freddi.",
+    "technique": "Eging",
+    "target": "Seppie e calamari",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Banchina Industriale Nord (Gabès)",
+    "lat": 33.9225,
+    "lon": 10.0902,
+    "desc": "Zona con banchine alte e fondale profondo. Ottimo spot per far lavorare gli egi di taglia 3.0 o 3.5 a stretto contatto con il fondo fangoso.",
+    "technique": "Eging",
+    "target": "Grandi calamari",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Foce dell'Oued Gabès (Lati in muratura)",
+    "lat": 33.8835,
+    "lon": 10.1281,
+    "desc": "Il tratto terminale canalizzato del fiume offre sponde pulite da cui lanciare. Le seppie si concentrano qui per intercettare il passaggio del pesce foraggio.",
+    "technique": "Eging",
+    "target": "Seppie",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Anfratti Rocciosi di Kettana",
+    "lat": 33.7725,
+    "lon": 10.2405,
+    "desc": "Punto costiero dove la sabbia lascia spazio a piccoli banchi di roccia naturale sommersa. Richiede egi a affondamento lento (shallow) per evitare incagli.",
+    "technique": "Eging",
+    "target": "Seppie",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Teboulbou (Vicino alle vecchie strutture)",
+    "lat": 33.8434,
+    "lon": 10.1612,
+    "desc": "Presenza di vecchi pali in legno e detriti sommersi su fondale basso. Spot ideale per l'eging a vista all'alba o al tramonto con mare calmo.",
+    "technique": "Eging",
+    "target": "Seppie",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Scogliera di Chott El Romman",
+    "lat": 33.8942,
+    "lon": 10.1158,
+    "desc": "Tratto di scogliera artificiale lineare che unisce la spiaggia al porto. Offre un corridoio di transito perfetto per i calamari durante le ore notturne.",
+    "technique": "Eging",
+    "target": "Calamari e seppie",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Porto Peschereccio di Gabès (Molo Interno)",
+    "lat": 33.8988,
+    "lon": 10.1159,
+    "desc": "Banchine interne con fondale profondo e correnti calme. Ideale per la pesca al colpo con galleggianti leggeri da 1-2 grammi, pasturando a fionda con bigattino o sarda tritata.",
+    "technique": "Bolognese",
+    "target": "Cefali, spigole e saraghi",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Molo Est di Ghannouch",
+    "lat": 33.9379,
+    "lon": 10.0931,
+    "desc": "Scogliera artificiale esposta a correnti marine costanti. Richiede l'uso di canne lunghe (7 metri) per superare i massi sommersi alla base e trattenere l'esca nella schiuma.",
+    "technique": "Bolognese",
+    "target": "Saraghi maggiori, occhiate e spigole",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Foce Canalizzata dell'Oued Gabès",
+    "lat": 33.8831,
+    "lon": 10.1288,
+    "desc": "Il canale terminale del fiume risente molto dell'escursione di marea. Durante l'alta marea si crea una corrente di risalita perfetta per la pesca a passata sfiorando il fondo.",
+    "technique": "Bolognese",
+    "target": "Cefali calamita e spigole",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Pontile di Casino Plage (Lati esterni)",
+    "lat": 33.8849,
+    "lon": 10.1268,
+    "desc": "Struttura cittadina con pali che offrono ombra. Ottimo spot per pescare a mezz'acqua con il pastarello (impasto di sarda e pane) o con il verme di sabbia locale.",
+    "technique": "Bolognese",
+    "target": "Salpe, cefali e leccie stella",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Scogliera della Centrale Termica",
+    "lat": 33.8638,
+    "lon": 10.1422,
+    "desc": "Hotspot termico grazie allo scarico di acque calde. La costante presenza di minutaglia attira i pesci bianchi e i predatori; molto tecnico a causa della corrente artificiale.",
+    "technique": "Bolognese",
+    "target": "Spigole, cefali e occhiate",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Banchina Industriale Nord (Gabès)",
+    "lat": 33.9221,
+    "lon": 10.0898,
+    "desc": "Pareti verticali con fondale importante fin sotto la punta della canna. Permette l'utilizzo di galleggianti scorrevoli o piombature raggruppate per calare l'esca rapidamente.",
+    "technique": "Bolognese",
+    "target": "Grandi cefali e spigole",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Porticciolo di Zarat (Molo di Sottoflutto)",
+    "lat": 33.6741,
+    "lon": 10.3521,
+    "desc": "Piccola scogliera riparata nella parte sud del governatorato. Acque calme adatte alla pesca di precisione nelle ore dell'alba e del tramonto utilizzando terminali sottili.",
+    "technique": "Bolognese",
+    "target": "Saraghi, orate e salpe",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Canale di Scarico di Teboulbou",
+    "lat": 33.8425,
+    "lon": 10.1628,
+    "desc": "Sbocco d'acqua che crea una scia di schiuma e turbolenza sulla spiaggia sabbiosa. Posizionandosi sui massi laterali si può far compiere al galleggiante una passata naturale.",
+    "technique": "Bolognese",
+    "target": "Spigole e leccie stella",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Molo Nord della Zona Industriale",
+    "lat": 33.9212,
+    "lon": 10.0889,
+    "desc": "Zona artificiale profonda e poco disturbata dal turismo balneare. Ottimo spot per impostare una sessione di pesca notturna alla ricerca dei grandi esemplari di spigola.",
+    "technique": "Bolognese",
+    "target": "Spigole e saraghi",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Scogliera Lineare di Chott El Romman",
+    "lat": 33.8948,
+    "lon": 10.1162,
+    "desc": "Tratto di massi frangiflutti parallelo alla costa. Il fondale digrada lentamente, richiedendo un lancio del galleggiante leggermente più distante rispetto alla banchina portuale.",
+    "technique": "Bolognese",
+    "target": "Cefali, occhiate e saraghi",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Lemaya (Plage Lemaya)",
+    "lat": 33.9842,
+    "lon": 10.0521,
+    "desc": "Grande spiaggia sabbiosa a nord di Gabès. Caratterizzata da ampie secche interrotte da canaloni naturali, è uno spot perfetto per posizionare esche sul fondo alla ricerca dei grufolatori.",
+    "technique": "Pesca a Fondo",
+    "target": "Grosse orate, mormore e spigole",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Gannouch (Plage de Ghannouch)",
+    "lat": 33.9314,
+    "lon": 10.0815,
+    "desc": "Litorale sabbioso esposto a forti correnti marine vicino alla zona industriale. Il movimento dell'acqua scalza continuamente il fondale, portando alla luce anellidi e molluschi.",
+    "technique": "Pesca a Fondo",
+    "target": "Spigole, orate e leccie stella",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Chott El Romman",
+    "lat": 33.8958,
+    "lon": 10.1142,
+    "desc": "Litorale molto lineare con fondale sabbioso pulito. Ottimo spot per una pesca a fondo leggera o beach ledgering con lunghi terminali per insidiare il pesce diffidente.",
+    "technique": "Pesca a Fondo",
+    "target": "Mormore, ombrine e saraghi",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Zarat (Plage de Zarat)",
+    "lat": 33.6825,
+    "lon": 10.3411,
+    "desc": "Area selvaggia a sud del governatorato con una fortissima escursione di marea. Il fondale ricco di nutrimento la rende una delle mete migliori per la caccia ai grandi esemplari.",
+    "technique": "Pesca a Fondo",
+    "target": "Orate reali, ombrine boccadoro e squali piatti",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Kettana (Plage de Kettana)",
+    "lat": 33.7844,
+    "lon": 10.2235,
+    "desc": "Spiaggia isolata e molto tranquilla con fondale misto a chiazze di grotto sommerso. Richiede l'uso di piombi a perdere o con alette per evitare l'incaglio durante il recupero.",
+    "technique": "Pesca a Fondo",
+    "target": "Mormore, triglie di fango e sogliole",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Casino (Plage du Casino)",
+    "lat": 33.8864,
+    "lon": 10.1258,
+    "desc": "Arenile cittadino molto ampio. Durante le ore notturne, il pascolo delle mormore si sposta a ridosso del bagnasciuga, permettendo ottime catture anche a corta distanza.",
+    "technique": "Pesca a Fondo",
+    "target": "Mormore, leccie stella e orate",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Oudref (Plage d'Oudref / Akarit)",
+    "lat": 34.0722,
+    "lon": 10.0214,
+    "desc": "Spiaggia situata nei pressi della foce dell'Oued Akarit. Il mix di acqua dolce e fango crea una zona di pascolo fangoso-sabbiosa amatissima da tutte le specie costiere.",
+    "technique": "Pesca a Fondo",
+    "target": "Spigole, grosse orate e cefali",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Bouchemma",
+    "lat": 33.9145,
+    "lon": 10.0632,
+    "desc": "Tratto di costa incontaminato e scarsamente frequentato. Presenta un fondale molto basso che obbliga a lanciare zavorre aerodinamiche per raggiungere i canali di passaggio del pesce.",
+    "technique": "Pesca a Fondo",
+    "target": "Mormore e ombrine",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Teboulbou (Plage de Thyna / Teboulbou)",
+    "lat": 33.8511,
+    "lon": 10.1584,
+    "desc": "Arenile posizionato a sud del porto. Il fondale sabbioso è modellato dalle maree e i pesci entrano in forte attività di alimentazione soprattutto durante il picco di alta marea.",
+    "technique": "Pesca a Fondo",
+    "target": "Orate, saraghi e triglie di fango",
+    "region": "Gabès"
+  },
+  {
+    "nome": "Spiaggia di Hicha (Plage d'El Hicha)",
+    "lat": 34.1852,
+    "lon": 10.0089,
+    "desc": "Situata al confine nord della regione di Gabès. Spiaggia totalmente aperta e battuta dal vento, ideale per tenere tese le lenze sul fondo quando il mare inizia a muoversi.",
+    "technique": "Pesca a Fondo",
+    "target": "Spigole, ombrine boccadoro e pesci serra",
+    "region": "Gabès"
   }
 ]
