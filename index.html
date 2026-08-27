@@ -2572,7 +2572,7 @@ function showCercaSpot() {
     </div>
   `;
   // 2. Generazione dinamica del menu a tendina Regioni per TUTTE le nazioni
-  let opzioniRegioni = `<option value="all">🗺️ Tutte le regioni</option>`;
+  let opzioniRegioni = `<option value="all">🗺️ ${linguaAttuale === "fr" ? "Toutes les régions" : "Tutte le regioni"}</option>`;
   const listaRegioniNazione = mappeRegioni[nazioneAttiva] || {};
 
   Object.keys(listaRegioniNazione).forEach(reg => {
@@ -2584,7 +2584,7 @@ function showCercaSpot() {
         ${opzioniRegioni}
       </select>
       <select class="filtro-select" id="filtroTech" onchange="applicaFiltriSpot()" style="padding: 8px; border-radius: 6px;">
-       <option value="all">🎣 Ogni tecnica</option>
+       <option value="all">🎣 ${linguaAttuale === "fr" ? "Toutes les techniques" : "Ogni tecnica"}</option>
        <option value="Surfcasting">Surfcasting / Beach Ledgering</option>
        <option value="Spinning">Spinning</option>
        <option value="Eging">Eging</option>
