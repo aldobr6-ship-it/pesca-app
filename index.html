@@ -1390,11 +1390,11 @@ function showGalleggiante() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div>
-          <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷  === "fr" ? "Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
           <div id="galleggFissoBox" class="image-box"></div>
         </div>
         <div>
-          <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷  === "fr" ? "Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
           <div id="galleggScorrBox" class="image-box"></div>
         </div>
       </div>
