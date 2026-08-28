@@ -1663,7 +1663,7 @@ function chiudiEscaFullscreen(event) {
 function cardMontatura(m) {
   return `
     <div onclick="goTo(()=>showMontaturaDetail('${m.id}'))" style="background:linear-gradient(135deg,#a8d8ea,#6bbfd8);border-radius:12px;padding:8px 4px;box-shadow:0 3px 8px rgba(0,0,0,0.14);cursor:pointer;text-align:center;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:3px;">
-      <span style="font-size:18px;">${m.emoji}</span>
+      <img src="./img/montatura_pesca.png" alt="${m.nome}" style="width:65px;height:65px;object-fit:contain;display:block;margin:0 auto;">
       <div style="font-weight:700;font-size:11px;line-height:1.25;color:#0a2a43;">${m.nome}</div>
     </div>`;
 }
@@ -1700,7 +1700,10 @@ function filtraMontature() {
 }
 function showMontature() {
   document.getElementById("content").innerHTML = `
-    <h2 style="margin-top:0;">🎣 ${t('montature')}</h2>
+    <h2 style="display:flex;align-items:center;justify-content:center;gap:10px;">
+  <img src="./img/montatura_pesca_titolo.png" alt="${t('montature')}" style="height:50px;width:auto;object-fit:contain;">
+  ${t('montature')}
+</h2>
     <div class="card">
       <input type="text" id="searchMontature" placeholder="${t('cercaMontatura')}"
         style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;"
