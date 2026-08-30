@@ -2055,7 +2055,7 @@ function cardSpecie(key) {
   </div>`;
 }
 function mostraTutteLeSpecie() {
-  let html = "<div style='display:grid;grid-template-columns:repeat(4,1fr);gap:10px;'>";
+  let html = "<div style='display:grid;grid-template-columns:repeat(5,1fr);gap:10px;'>";
   for (let key in specie) html += cardSpecie(key);
   html += "</div>";
   document.getElementById("listaSpecie").innerHTML = html;
