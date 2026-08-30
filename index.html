@@ -1296,7 +1296,9 @@ function caricaLingua() {
 function aggiornaLabelTema() {
   const label = document.getElementById("temaLabel");
   if (label) {
-    label.textContent = document.body.classList.contains("dark") ? "Tema Chiaro" : "Tema Scuro";
+    label.textContent = document.body.classList.contains("dark")
+      ? (linguaAttuale === "fr" ? "Thème clair" : "Tema Chiaro")
+      : (linguaAttuale === "fr" ? "Thème sombre" : "Tema Scuro");
   }
 }
 /* MODIFICA 4 — Chiudi app con conferma */
