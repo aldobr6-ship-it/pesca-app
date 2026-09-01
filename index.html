@@ -1781,8 +1781,8 @@ function showMontature() {
 }
 function showMontaturaDetail(id) {
   const m = montatureData.find(x => x.id === id); if (!m) return;
-  const imgMontatura = linguaAttuale === "fr"
-  ? `./img/montature/fr/${m.id}.jpg`
+ const imgMontatura = linguaAttuale === "fr"
+  ? m.img.replace("./img/montature/", "./img/montature/fr/")
   : m.img;
   document.getElementById("content").innerHTML = `
     <div style="animation:fadeIn 0.3s ease; padding-bottom: 20px;">
