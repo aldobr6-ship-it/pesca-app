@@ -1781,6 +1781,9 @@ function showMontature() {
 }
 function showMontaturaDetail(id) {
   const m = montatureData.find(x => x.id === id); if (!m) return;
+  const imgMontatura = linguaAttuale === "fr"
+  ? `./img/montature/fr/${m.id}.jpg`
+  : m.img;
   document.getElementById("content").innerHTML = `
     <div style="animation:fadeIn 0.3s ease; padding-bottom: 20px;">
           <!-- Intestazione -->
@@ -1828,7 +1831,7 @@ function showMontaturaDetail(id) {
         </div>
         <!-- COLONNA FOTO (Destra) -->
         <div class="card" style="flex: 1; min-width: 280px; text-align:center; padding:14px; margin:0; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#fff; border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
-          <img src="${m.img}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${m.img}','${m.nome}')" style="max-width:100%; max-height:220px; width:auto; height:auto; display:block; margin:0 auto; border-radius:10px; cursor:zoom-in; object-fit:contain;"
+          <img src="${imgMontatura}" alt="Schema ${m.nome}" onclick="mostraEscaFullscreen(event,'${imgMontatura}','${m.nome}')" style="max-width:100%; max-height:220px; width:auto; height:auto; display:block; margin:0 auto; border-radius:10px; cursor:zoom-in; object-fit:contain;"
             onerror="imgFallback(this,'Schema ${m.nome} non disponibile')">
           <p style="text-align:center;font-size:11px;opacity:0.5;margin:8px 0 0;">${t('toccaIngrandire')}</p>
         </div>
