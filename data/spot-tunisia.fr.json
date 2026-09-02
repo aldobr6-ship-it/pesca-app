@@ -1,0 +1,2312 @@
+[
+  {
+    "nome": "Les Aiguilles de Tabarka (Les Aiguilles)",
+    "lat": 36.9625,
+    "lon": 8.7472,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée des pêcheurs de Melloula (Tabarka)",
+    "lat": 36.9639,
+    "lon": 8.7114,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Tabarka (Port de Pêche)",
+    "lat": 36.9586,
+    "lon": 8.7583,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Digue de Menzel Bourguiba (Intérieur lago di Biserta)",
+    "lat": 37.1539,
+    "lon": 9.7947,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Ancienne digue de Cap Zebib (Metline)",
+    "lat": 37.2714,
+    "lon": 10.0639,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée du Port de Ghar El Melh",
+    "lat": 37.1686,
+    "lon": 10.1947,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée de Sidi Mechreg (Plage e rochers)",
+    "lat": 37.1614,
+    "lon": 9.1844,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse du Phare di Cap Blanc",
+    "lat": 37.3364,
+    "lon": 9.8386,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de Cap Negro (Sidi Mechreg)",
+    "lat": 37.0319,
+    "lon": 8.9344,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Canal de La Goulette (Sous les lampadaires)",
+    "lat": 36.8114,
+    "lon": 10.3014,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée de Gammarth Marina",
+    "lat": 36.9364,
+    "lon": 10.2914,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Ponton de Radès (Embouchure du canal)",
+    "lat": 36.8042,
+    "lon": 10.2786,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Port de la Goulette",
+    "lat": 36.8139,
+    "lon": 10.3114,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Sidi Bou Said",
+    "lat": 36.8669,
+    "lon": 10.3486,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse de La Marsa (Zone Corniche)",
+    "lat": 36.8839,
+    "lon": 10.3347,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée de Korba",
+    "lat": 36.5739,
+    "lon": 11.1614,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Hammamet (Ancienne forteresse)",
+    "lat": 36.3947,
+    "lon": 10.6125,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Kélibia (Lato extérieur jetée extérieur)",
+    "lat": 36.8364,
+    "lon": 11.1169,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse de Beni Khiar",
+    "lat": 36.4614,
+    "lon": 10.7933,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de El Haouaria (Pointe du Cap Bon)",
+    "lat": 37.0514,
+    "lon": 11.0189,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Digue du Port de Chott Meriem",
+    "lat": 35.9286,
+    "lon": 10.5639,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée du canal de Hergla",
+    "lat": 36.0314,
+    "lon": 10.5125,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée du Port de Sousse",
+    "lat": 35.8283,
+    "lon": 10.6447,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Petit port de Ksibet El Mediouni",
+    "lat": 35.6847,
+    "lon": 10.8586,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Monastir",
+    "lat": 35.7789,
+    "lon": 10.8341,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse de Monastir (Zone Falaise)",
+    "lat": 35.7769,
+    "lon": 10.8114,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée de Chebba",
+    "lat": 35.2339,
+    "lon": 11.1514,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Mahdia",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Mahdia (Zone phare)",
+    "lat": 35.5056,
+    "lon": 11.0764,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Mahdia",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse de Salakta",
+    "lat": 35.3944,
+    "lon": 11.0514,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Mahdia",
+    "tips": ""
+  },
+  {
+    "nome": "Îles Kerkennah (Jetée de Sidi Youssef)",
+    "lat": 34.6556,
+    "lon": 10.9814,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée du Port de Mahres",
+    "lat": 34.5264,
+    "lon": 10.5056,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Sfax (Jetées intérieurs)",
+    "lat": 34.7294,
+    "lon": 10.7694,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Digue du Port de Zarat",
+    "lat": 33.6814,
+    "lon": 10.3447,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Digue extérieure de Gabès",
+    "lat": 33.9014,
+    "lon": 10.1114,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée de Aghir (Île de Djerba)",
+    "lat": 33.7539,
+    "lon": 11.0114,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Ponton de El Kantara (Sotto le pont romain)",
+    "lat": 33.6794,
+    "lon": 10.9533,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Houmt Souk (Île de Djerba)",
+    "lat": 33.8864,
+    "lon": 10.8583,
+    "desc": "Spot d'Eging en Tunisie.",
+    "technique": "Eging",
+    "target": "Seiches • Calmars • Poulpes",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Cap Negro (Sidi Mechreg)",
+    "lat": 37.0264,
+    "lon": 8.9539,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Sidi el Barrak",
+    "lat": 37.0417,
+    "lon": 8.9864,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Zouaraa (Babouch, près Tabarka)",
+    "lat": 36.9856,
+    "lon": 8.8722,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Ain Damous",
+    "lat": 37.3114,
+    "lon": 9.7461,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Cap Tassergalt",
+    "lat": 37.2341,
+    "lon": 9.2125,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Metline",
+    "lat": 37.2447,
+    "lon": 10.0539,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Plage des Grottes",
+    "lat": 37.3339,
+    "lon": 9.8514,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Rimel (Rimel Plage)",
+    "lat": 37.2614,
+    "lon": 9.9194,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Sidi Ali El Mekki (Ghar El Melh)",
+    "lat": 37.1694,
+    "lon": 10.2447,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Chattrana (La Marsa / Gammarth)",
+    "lat": 36.9169,
+    "lon": 10.3125,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Ezzahra / Radès",
+    "lat": 36.7447,
+    "lon": 10.3083,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Gammarth (Zone Dar Naouar)",
+    "lat": 36.9214,
+    "lon": 10.2986,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Kalâat el-Andalous",
+    "lat": 37.0639,
+    "lon": 10.1614,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Raoued (Raoued Plage)",
+    "lat": 36.9447,
+    "lon": 10.2114,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Digue de Yasmine Hammamet",
+    "lat": 36.3725,
+    "lon": 10.5369,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Azmour",
+    "lat": 36.8947,
+    "lon": 11.0083,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Beni Khiar",
+    "lat": 36.4583,
+    "lon": 10.7914,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Daroufa",
+    "lat": 36.7214,
+    "lon": 11.0883,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de El Haouaria (Ras el Drak)",
+    "lat": 37.0214,
+    "lon": 11.0539,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Hammamet Sud (Zone Hotel / Bouficha)",
+    "lat": 36.3814,
+    "lon": 10.5539,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Korba (Grande plage)",
+    "lat": 36.5639,
+    "lon": 11.1686,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Maamoura (Près Nabeul)",
+    "lat": 36.4647,
+    "lon": 10.8042,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Menzel Temime",
+    "lat": 36.7814,
+    "lon": 11.0264,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Soliman Plage",
+    "lat": 36.7014,
+    "lon": 10.4539,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Sidi Mansour (Cap Bon Nord)",
+    "lat": 37.0319,
+    "lon": 11.0314,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Tazarka",
+    "lat": 36.5417,
+    "lon": 11.1447,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Chott Meriem",
+    "lat": 35.9386,
+    "lon": 10.5694,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Hergla (Plage ouverte)",
+    "lat": 36.0286,
+    "lon": 10.5194,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Salloum (Enfidha)",
+    "lat": 36.1417,
+    "lon": 10.4347,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Tantana",
+    "lat": 35.9003,
+    "lon": 10.5947,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Bekalta",
+    "lat": 35.6319,
+    "lon": 11.0417,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Khniss",
+    "lat": 35.7194,
+    "lon": 10.8417,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Skanes",
+    "lat": 35.7761,
+    "lon": 10.7447,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Chebba (Grande plage)",
+    "lat": 35.2314,
+    "lon": 11.1614,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Mahdia",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Rejiche",
+    "lat": 35.4669,
+    "lon": 11.0431,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Mahdia",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Salakta",
+    "lat": 35.3914,
+    "lon": 11.0486,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Mahdia",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Chafchar (Sfax sud)",
+    "lat": 34.6114,
+    "lon": 10.7042,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Nakta",
+    "lat": 34.5639,
+    "lon": 10.5347,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Sidi Mansour (Sfax)",
+    "lat": 34.7814,
+    "lon": 10.8669,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Gabès Plage",
+    "lat": 33.8883,
+    "lon": 10.1169,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Lemaya",
+    "lat": 33.9364,
+    "lon": 10.1264,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Sfax",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Aghir (Djerba)",
+    "lat": 33.7583,
+    "lon": 11.0214,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de El Hachen (Zarzis)",
+    "lat": 33.5614,
+    "lon": 11.1139,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Hessi Jerbi (Zarzis nord)",
+    "lat": 33.6447,
+    "lon": 11.0669,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Lella Hadhria (Djerba)",
+    "lat": 33.8214,
+    "lon": 11.0486,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Seguia (Djerba est)",
+    "lat": 33.8042,
+    "lon": 11.0447,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Sidi Mahrez (Djerba - Zone Hotel)",
+    "lat": 33.8794,
+    "lon": 10.9883,
+    "desc": "Spot de Surfcasting en Tunisie.",
+    "technique": "Surfcasting",
+    "target": "Daurade royale • Marbré • Bar • Tassergal",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Embouchure de l'Oued El Kébir (Tabarka)",
+    "lat": 36.9539,
+    "lon": 8.7725,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses du Phare di Tabarka",
+    "lat": 36.9639,
+    "lon": 8.7533,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de Cap Negro (Sidi Mechreg)",
+    "lat": 37.0264,
+    "lon": 8.9539,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Plage Rocciosa di Berkoukech",
+    "lat": 36.9694,
+    "lon": 8.8214,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Canal de Biserta (Street spinning)",
+    "lat": 37.2714,
+    "lon": 9.8739,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Digue extérieure de Ghar El Melh",
+    "lat": 37.1686,
+    "lon": 10.1947,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Embouchure de l'Oued Tinja (Canal intérieur)",
+    "lat": 37.1614,
+    "lon": 9.7583,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée Nord du Port de Biserta",
+    "lat": 37.2794,
+    "lon": 9.8894,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de Cap Blanc",
+    "lat": 37.3364,
+    "lon": 9.8386,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de Cap Zebib (Metline)",
+    "lat": 37.2714,
+    "lon": 10.0639,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Bizerte",
+    "tips": ""
+  },
+  {
+    "nome": "Canal de La Goulette",
+    "lat": 36.8114,
+    "lon": 10.3014,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Digue nord de Gammarth Marina",
+    "lat": 36.9364,
+    "lon": 10.2914,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Embouchure du Canal de Radès",
+    "lat": 36.8042,
+    "lon": 10.2786,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Sidi Bou Said (Extérieur port touristique)",
+    "lat": 36.8669,
+    "lon": 10.3486,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Tunis",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée Foraneo di Kélibia (Lato extérieur)",
+    "lat": 36.8364,
+    "lon": 11.1169,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Sidi Daoud",
+    "lat": 37.0164,
+    "lon": 10.9139,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de El Haouaria (Grotte romane)",
+    "lat": 37.0514,
+    "lon": 11.0189,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de Karkouane",
+    "lat": 36.9694,
+    "lon": 11.1114,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de Korbous (Sorgenti chaudes)",
+    "lat": 36.8214,
+    "lon": 10.5739,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Canal de Oued El Hammam",
+    "lat": 35.8556,
+    "lon": 10.6083,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Digue du Port de Hergla",
+    "lat": 36.0314,
+    "lon": 10.5125,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée du Port de Port El Kantaoui",
+    "lat": 35.8947,
+    "lon": 10.6039,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse \"La Falaise\" di Monastir",
+    "lat": 35.7769,
+    "lon": 10.8114,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Sousse / Sahel",
+    "tips": ""
+  },
+  {
+    "nome": "Digue extérieure du Port de Mahdia",
+    "lat": 35.5056,
+    "lon": 11.0764,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Mahdia",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de Salakta",
+    "lat": 35.3944,
+    "lon": 11.0514,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Mahdia",
+    "tips": ""
+  },
+  {
+    "nome": "Digue du Port de Zarzis",
+    "lat": 33.4914,
+    "lon": 11.1214,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée du Port de Houmt Souk (Djerba)",
+    "lat": 33.8864,
+    "lon": 10.8583,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Ponte Romano di El Kantara (Djerba)",
+    "lat": 33.6794,
+    "lon": 10.9533,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Pointe de Ras R'mal (Île des Fenicotteri)",
+    "lat": 33.9114,
+    "lon": 10.9169,
+    "desc": "Spot de Spinning en Tunisie.",
+    "technique": "Spinning",
+    "target": "Bar • Tassergal • Prédateurs côtiers",
+    "region": "Djerba",
+    "tips": ""
+  },
+  {
+    "nome": "Port de Tabarka (Port de Pêche)",
+    "lat": 36.9586,
+    "lon": 8.7583,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Sars, Mulets",
+    "region": "Bizerte",
+    "tips": "Pêcher des moli extérieurs abrités. Excellent avec mer agitée légère à entrata usando le asticot ou le ver de Corée."
+  },
+  {
+    "nome": "Jetée des pêcheurs de Melloula (Tabarka)",
+    "lat": 36.9639,
+    "lon": 8.7114,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Sars, Bars, Oblades",
+    "region": "Bizerte",
+    "tips": "Zone rocheuse et profonde. Utiliser cannes de 7 mètres pour dépasser gli rochers et amorcer constamment à ressac."
+  },
+  {
+    "nome": "Canal de Biserta",
+    "lat": 37.2714,
+    "lon": 9.8739,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Mulets, Daurades royales",
+    "region": "Bizerte",
+    "tips": "Spot mitico pour le street fishing nocturne sous les lampadaires. Courant soutenue, utiliser flotteurs à uovo."
+  },
+  {
+    "nome": "Jetée du Port de Ghar El Melh",
+    "lat": 37.1686,
+    "lon": 10.1947,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Sars, Sformi",
+    "region": "Bizerte",
+    "tips": "Imboccatura du port excellente pendant les changements de marée. Escher le crevette vivant ou le ver de Corée local."
+  },
+  {
+    "nome": "Canal de La Goulette",
+    "lat": 36.8114,
+    "lon": 10.3014,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars géants, Mulets, Tassergal",
+    "region": "Tunis",
+    "tips": "Le spot chaud storico de la capitale. Pêcher sous les lampadaires au ras de le quais avec lignes robustes."
+  },
+  {
+    "nome": "Port de Sidi Bou Said",
+    "lat": 36.8669,
+    "lon": 10.3486,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Oblades, Bars, Sars",
+    "region": "Tunis",
+    "tips": "Eau très limpida all'extérieur du port touristique. Requiert pêche fine nocturne avec bas de ligne longs."
+  },
+  {
+    "nome": "Jetée de Gammarth Marina",
+    "lat": 36.9364,
+    "lon": 10.2914,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Sars, Rougets",
+    "region": "Tunis",
+    "tips": "Côte rocheuse artificiel exposée. Excellente l'aube en pêchant staccati du fond avec pain ou asticots."
+  },
+  {
+    "nome": "Port de Kélibia",
+    "lat": 36.8364,
+    "lon": 11.1169,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Gros sars, Bars, Salpes",
+    "region": "Cap Bon",
+    "tips": "Le jetée extérieur extérieur offre profondeur et écume. Idéal avec vent de scirocco modéré."
+  },
+  {
+    "nome": "Port de Hammamet (Ancienne forteresse)",
+    "lat": 36.3947,
+    "lon": 10.6125,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Oblades, Mulets",
+    "region": "Cap Bon",
+    "tips": "Pêcher sous le mura de la fortezza de nuit. Fond mixte, utiliser amorces savoureuses al fromage."
+  },
+  {
+    "nome": "Jetée du canal de Hergla",
+    "lat": 36.0314,
+    "lon": 10.5125,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Mulets",
+    "region": "Sousse / Sahel",
+    "tips": "Canal de uscita de la lagune riche de poissons-fourrage. Pêcher à trattenuta dans la sillage de la courant."
+  },
+  {
+    "nome": "Jetée du Port de Sousse",
+    "lat": 35.8283,
+    "lon": 10.6447,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Mulets, Daurades royales",
+    "region": "Sousse / Sahel",
+    "tips": "Zone commercial profonde. Muovendosi long les moli intérieurs se insidiano bars attive all'ombre des navi."
+  },
+  {
+    "nome": "Port de Monastir",
+    "lat": 35.7789,
+    "lon": 10.8341,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Oblades, Sars, Bars",
+    "region": "Sousse / Sahel",
+    "tips": "Jetées extérieurs très propres. Exploiter la amorçage à asticot sfuso pendant les changements de lumière."
+  },
+  {
+    "nome": "Port de Mahdia (Zone phare)",
+    "lat": 35.5056,
+    "lon": 11.0764,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Sars à museau pointu, Bars, Mulets",
+    "region": "Mahdia",
+    "tips": "Pointe protesa dans le mer avec fond rocheux exposé. Requiert cannes robustes pour gestire les gros sars."
+  },
+  {
+    "nome": "Port de Sfax (Jetées intérieurs)",
+    "lat": 34.7294,
+    "lon": 10.7694,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Mulets, Bars",
+    "region": "Sfax",
+    "tips": "Eaux calmes et riches de nutriments. Tecnica reine avec le pâte de pain ou la sardine macinata."
+  },
+  {
+    "nome": "Digue extérieure de Gabès",
+    "lat": 33.9014,
+    "lon": 10.1114,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Sars, Daurades royales",
+    "region": "Gabès",
+    "tips": "Fond profond exposé à la marée. Pêcher posés sur le fond avec flotteurs coulissants de 4-5 grammes."
+  },
+  {
+    "nome": "Port de Houmt Souk (Île de Djerba)",
+    "lat": 33.8864,
+    "lon": 10.8583,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Daurades royales, Mulets",
+    "region": "Djerba",
+    "tips": "Les moli extérieurs interceptent les flux de poisson de la lagune. Excellent al pic dell'alta marée."
+  },
+  {
+    "nome": "Port de Tabarka (Port de Pêche)",
+    "lat": 36.9586,
+    "lon": 8.7583,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Sars, Pageots",
+    "region": "Bizerte",
+    "tips": "Lancer all'imboccatura extérieure su fond mixte. Excellent l'innesco du bibi ou du ver solitario de nuit."
+  },
+  {
+    "nome": "Jetée des pêcheurs de Melloula (Tabarka)",
+    "lat": 36.9639,
+    "lon": 8.7114,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Gros sars, Tanute, Corbs",
+    "region": "Bizerte",
+    "tips": "Fond rocheux et accidenté. Utiliser plombs à perdre ou montature short-arm corte pour éviter incagli."
+  },
+  {
+    "nome": "Côtes rocheuses de Cap Negro (Sidi Mechreg)",
+    "lat": 37.0319,
+    "lon": 8.9344,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Grossess daurades royales, Mérous bruns, Sars",
+    "region": "Bizerte",
+    "tips": "Spot selvaggio avec roche et posidonie. Requiert lignes robustes à bobine et plombs lourds idrodinamici."
+  },
+  {
+    "nome": "Canal de Biserta (Zone imboccatura)",
+    "lat": 37.2714,
+    "lon": 9.8739,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Bars, Congres",
+    "region": "Bizerte",
+    "tips": "Forte courant sur le fond causata dallo échange lagunaire. Utiliser plombs à saponetta et bas de ligne longs."
+  },
+  {
+    "nome": "Digue de Menzel Bourguiba (Intérieur lago di Biserta)",
+    "lat": 37.1539,
+    "lon": 9.7947,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Marbrés, Anguilles",
+    "region": "Bizerte",
+    "tips": "Fond vaseux et riche de mollusques. Utiliser le cage feeder (feeder) chargé à sardine ou asticots."
+  },
+  {
+    "nome": "Côte rocheuse du Phare di Cap Blanc",
+    "lat": 37.3364,
+    "lon": 9.8386,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Sars à museau pointu, Mérous bruns, Petits dentés",
+    "region": "Bizerte",
+    "tips": "Fond subito profond et rocheux. Pêche lourd à fond au ras de le cassure de roche, appât dure sélective."
+  },
+  {
+    "nome": "Ancienne digue de Cap Zebib (Metline)",
+    "lat": 37.2714,
+    "lon": 10.0639,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Sars, Daurades royales, Rougets de roche",
+    "region": "Bizerte",
+    "tips": "Presenza de forts courants latéraux. Lancer dans les clairières de sable entre le praterie de posidonie."
+  },
+  {
+    "nome": "Jetée du Port de Ghar El Melh",
+    "lat": 37.1686,
+    "lon": 10.1947,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Marbrés, Daurades royales, Sformi",
+    "region": "Bizerte",
+    "tips": "Fond sableux-mixte propre. Très redditizio le ledgering léger all'aube avec l'arénoque local."
+  },
+  {
+    "nome": "Canal de La Goulette",
+    "lat": 36.8114,
+    "lon": 10.3014,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades géantes, Bars, Ombrines",
+    "region": "Tunis",
+    "tips": "Fond portuaire profond. Exploiter l'action nocturne en eschant le crabe vivant ou le bibi sur le fond du canal."
+  },
+  {
+    "nome": "Côte rocheuse de La Marsa (Zone Corniche)",
+    "lat": 36.8839,
+    "lon": 10.3347,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Sars, Daurades royales, Rougets",
+    "region": "Tunis",
+    "tips": "Fond mixte roche et sable à courte distance. Utiliser plombs coulissants légers pour assecondare la ressac."
+  },
+  {
+    "nome": "Jetée de Gammarth Marina",
+    "lat": 36.9364,
+    "lon": 10.2914,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Marbrés, Sars",
+    "region": "Tunis",
+    "tips": "Lancer du jetée extérieur vers le largo sur la sable propre. Consigliato l’utilisation dell'americano ou du bibi."
+  },
+  {
+    "nome": "Ponton de Radès (Embouchure du canal)",
+    "lat": 36.8042,
+    "lon": 10.2786,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Bars, Congres, Tassergal",
+    "region": "Tunis",
+    "tips": "Eaux chaudes industriali. Pêcher à fond de nuit avec le morceau de sardine ou le cefalo vivant sur le fond."
+  },
+  {
+    "nome": "Port de Kélibia (Lato extérieur jetée extérieur)",
+    "lat": 36.8364,
+    "lon": 11.1169,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Grossess daurades royales, Sars, Pageots",
+    "region": "Cap Bon",
+    "tips": "Spot profond exposé al mer ouvert. Terminali longs à fluorocarbon et hameçons d'acciaio pour resistere aux daurades royales."
+  },
+  {
+    "nome": "Port de Hammamet (Ancienne forteresse)",
+    "lat": 36.3947,
+    "lon": 10.6125,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Marbrés, Sars",
+    "region": "Cap Bon",
+    "tips": "Fond sableux mixte près aux mura. Excellente la pêche d'attesa dans les nuits de luna piena avec l'arénoque."
+  },
+  {
+    "nome": "Jetée du canal de Hergla",
+    "lat": 36.0314,
+    "lon": 10.5125,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Bars, Daurades royales, Mulets di fond",
+    "region": "Sousse / Sahel",
+    "tips": "Uscita de la lagune. Utiliser plombs légers à scorrere pour far muovere l'appât naturalmente sur le fond."
+  },
+  {
+    "nome": "Digue du Port de Chott Meriem",
+    "lat": 35.9286,
+    "lon": 10.5639,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Marbrés, Daurades royales, Razze",
+    "region": "Sousse / Sahel",
+    "tips": "Fond sableux finissimo. Lancer à longue distance avec lignes sottili à bobine (beach ledgering)."
+  },
+  {
+    "nome": "Jetée du Port de Sousse",
+    "lat": 35.8283,
+    "lon": 10.6447,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Pageots, Congres",
+    "region": "Sousse / Sahel",
+    "tips": "Jetées commerciali intérieurs profonds. Exploiter le heures nocturnes calando l'appât parallelamente aux quais."
+  },
+  {
+    "nome": "Côte rocheuse de Monastir (Zone Falaise)",
+    "lat": 35.7769,
+    "lon": 10.8114,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Gros sars, Daurades royales, Rougets",
+    "region": "Sousse / Sahel",
+    "tips": "Côte rocheuse naturale alta avec fond mixte roche/alga. Requiert l’utilisation du crevette ou du bibi pour éviter le disturbo."
+  },
+  {
+    "nome": "Petit port de Ksibet El Mediouni",
+    "lat": 35.6847,
+    "lon": 10.8586,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Marbrés",
+    "region": "Sousse / Sahel",
+    "tips": "Fond intérieur très bas et calmes. Pêche finissima à ledgering avec plombs de 20-30 grammes et lignes invisibles."
+  },
+  {
+    "nome": "Port de Mahdia (Zone phare)",
+    "lat": 35.5056,
+    "lon": 11.0764,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Sars à museau pointu, Daurades royales, Scorfani",
+    "region": "Mahdia",
+    "tips": "Pointe rocheuse exposée des courants du canal. Utiliser montature corte et robustes au ras de la base de la barriera."
+  },
+  {
+    "nome": "Côte rocheuse de Salakta",
+    "lat": 35.3944,
+    "lon": 11.0514,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Sars, Rougets di vase",
+    "region": "Mahdia",
+    "tips": "Fond mixte à à proximité des rochers piatte. Escher le ver solitario ou morceaux de seiche fraîche."
+  },
+  {
+    "nome": "Jetée de Chebba",
+    "lat": 35.2339,
+    "lon": 11.1514,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Grands marbrés, Daurades royales, Sformi",
+    "region": "Mahdia",
+    "tips": "La côte digrada dolcemente vers la sable. Lancer fuori du jetée cercando la massima distance avec l'arénoque."
+  },
+  {
+    "nome": "Îles Kerkennah (Jetée de Sidi Youssef)",
+    "lat": 34.6556,
+    "lon": 10.9814,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Bars, Sars",
+    "region": "Sfax",
+    "tips": "Spot eccellente pendant le giro de marée. Lancer dans le taglio de courant qui muove le nutrimento sur les hauts-fonds."
+  },
+  {
+    "nome": "Jetée du Port de Mahres",
+    "lat": 34.5264,
+    "lon": 10.5056,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Marbrés, Razze",
+    "region": "Sfax",
+    "tips": "Fond vaseux très riche de vers locaux. Excellent l'utilizzo du cage feeder de fond rempli avec amorce al fromage."
+  },
+  {
+    "nome": "Port de Sfax (Jetées intérieurs)",
+    "lat": 34.7294,
+    "lon": 10.7694,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Bars di fond",
+    "region": "Sfax",
+    "tips": "Zone industriel abritée. Pêcher à fond d'attesa au ras de le structures metalliche usando come appât la cozza."
+  },
+  {
+    "nome": "Digue extérieure de Gabès",
+    "lat": 33.9014,
+    "lon": 10.1114,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Sars, Ombrines",
+    "region": "Gabès",
+    "tips": "Fond profond soggetto à forts escursioni de marée. Utiliser plombs à pyramide pour maintenir immobile l'appât."
+  },
+  {
+    "nome": "Digue du Port de Zarat",
+    "lat": 33.6814,
+    "lon": 10.3447,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Marbrés, Daurades royales, Rougets",
+    "region": "Gabès",
+    "tips": "Fond sableux mixte à alghe basses. Utiliser bas de ligne longs (pop-up) pour maintenir l'appât sollevata de la posidonie."
+  },
+  {
+    "nome": "Port de Houmt Souk (Île de Djerba)",
+    "lat": 33.8864,
+    "lon": 10.8583,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Sars, Bars",
+    "region": "Djerba",
+    "tips": "Lancer du lato extérieur vers les canali de marée deep. Massima resa pendant le pic de marée haute."
+  },
+  {
+    "nome": "Jetée de Aghir (Île de Djerba)",
+    "lat": 33.7539,
+    "lon": 11.0114,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Marbrés, Razze",
+    "region": "Djerba",
+    "tips": "Zone pianeggiante avec sable et roche piatta. Exploiter les calamenti sottili et l'arénoque pour les poissons fouilleurs diurni."
+  },
+  {
+    "nome": "Ponton de El Kantara (Sotto le pont romain)",
+    "lat": 33.6794,
+    "lon": 10.9533,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Bars, Daurades géantes, Sars",
+    "region": "Djerba",
+    "tips": "Courants très fortes sous le pont. Obbligatorio utiliser plombs lourds à tenuta (spike) et escher le crabe vivant."
+  },
+  {
+    "nome": "Jetée de Beni Khiar",
+    "lat": 36.4614,
+    "lon": 10.7933,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Sars, Oblades",
+    "region": "Cap Bon",
+    "tips": "Jetée calmes parfait pour la pêche nocturne. Utiliser flotteurs légers de 1.5g et asticot à passare."
+  },
+  {
+    "nome": "Port de El Haouaria (Pointe du Cap Bon)",
+    "lat": 37.0514,
+    "lon": 11.0189,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Sars à museau pointu, Oblades Géants",
+    "region": "Cap Bon",
+    "tips": "Fond rocheux profond et eaux très limpides. Requiert cannes longues et bas de ligne invisibles de nuit."
+  },
+  {
+    "nome": "Jetée du Port de Mahres",
+    "lat": 34.5264,
+    "lon": 10.5056,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Mulets, Sars",
+    "region": "Sfax",
+    "tips": "Fond vaseux très calmes. Street fishing nocturne au ras de les bateaux de pêche ormeggiati avec ver de Corée local."
+  },
+  {
+    "nome": "Îles Kerkennah (Jetée de Sidi Youssef)",
+    "lat": 34.6556,
+    "lon": 10.9814,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Sars, Oblades",
+    "region": "Sfax",
+    "tips": "Punto de fort échange idrico entre le hauts-fonds lagunari. Pêcher sur le taglio de la courant pendant l'alta marée."
+  },
+  {
+    "nome": "Jetée de Aghir (Île de Djerba)",
+    "lat": 33.7539,
+    "lon": 11.0114,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Daurades royales, Sars, Mulets",
+    "region": "Djerba",
+    "tips": "Zone pianeggiante avec fond mixte. Pêcher corti dans les heures serali trattenendo l'appât près aux rochers artificiali."
+  },
+  {
+    "nome": "Ponton de El Kantara (Djerba - Sotto le pont romain)",
+    "lat": 33.6794,
+    "lon": 10.9533,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Grosses Bars, Sars",
+    "region": "Djerba",
+    "tips": "Courants très fortes dans le canal. Utiliser flotteurs à uovo lourds trattenendo la lenza dans la sillage des piloni."
+  },
+  {
+    "nome": "Port de Zarzis",
+    "lat": 33.4914,
+    "lon": 11.1214,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Daurades royales, Sars",
+    "region": "Médenine",
+    "tips": "Jetée extérieur profond. Très redditizio all'aube impostando une spallinata fluida et en eschant le ver de Corée."
+  },
+  {
+    "nome": "Jetée de Chebba",
+    "lat": 35.2339,
+    "lon": 11.1514,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Bars, Oblades, Gros sars",
+    "region": "Mahdia",
+    "tips": "Le jetée se allunga su un fond sableux digradante. Pêcher à mezz'eau de nuit fiondando asticots."
+  },
+  {
+    "nome": "Côte rocheuse de Salakta",
+    "lat": 35.3944,
+    "lon": 11.0514,
+    "desc": "",
+    "technique": "Bolognaise",
+    "target": "Sars, Oblades, Salpes",
+    "region": "Mahdia",
+    "tips": "Rocce piatte naturels affioranti. Pêcher dans la écume sollevata de la ressac avec flotteurs corti et tozzi."
+  },
+  {
+    "nome": "Jetée de Korba",
+    "lat": 36.5739,
+    "lon": 11.1614,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Grands marbrés, Daurades royales",
+    "region": "Cap Bon",
+    "tips": "Le jetée taille le hauts-fonds sableux extérieures. Lancer à fond à à proximité de la plage avec plomb coulissants et arénoque."
+  },
+  {
+    "nome": "Côtes rocheuses de El Haouaria (Pointe du Cap Bon)",
+    "lat": 37.0514,
+    "lon": 11.0189,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Sars à museau pointu, Petits dentés, Tanute",
+    "region": "Cap Bon",
+    "tips": "Fond subito profond et rocheux. Pêche lourd à fond avec plomb à perdre, utiliser appâts dure come la seiche."
+  },
+  {
+    "nome": "Côte rocheuse de Beni Khiar",
+    "lat": 36.4614,
+    "lon": 10.7933,
+    "desc": "",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, Sars, Rougets de roche",
+    "region": "Cap Bon",
+    "tips": "Fond mixte roche et sable à courte distance. Utiliser plombs légers pour assecondare la ressac serale."
+  },
+  {
+    "nome": "Port de Kélibia (Jetée Est)",
+    "lat": 36.8344,
+    "lon": 11.1122,
+    "desc": "Uno des porti bateaux de pêche più importanti de la région, dominato de la fortezza. Le jetée extérieur extérieur offre ottimi fonds pour la bolognese, avec courants constants.",
+    "technique": "Bolognaise",
+    "target": "Mulets, bars, sars et daurades royales",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Côtes rocheuses de El Haouaria (Près aux Grotte Puniche)",
+    "lat": 37.0583,
+    "lon": 10.9992,
+    "desc": "Pointe settentrionale de Cap Bon avec côtes rocheuses frastagliate et eaux cristalline. Requiert cannes longues (7 mètres) pour dépasser les blocs rocheux submergés et gestire la trattenuta avec mer leggermente mosso.",
+    "technique": "Bolognaise",
+    "target": "Sars majeurs, oblades et bars",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Petit port de Sidi Daoud",
+    "lat": 37.0164,
+    "lon": 10.9135,
+    "desc": "Historiquement célèbre pour la mattanza des tonnare, offre des quais et des zones rocheuses abrités ideali pour une pêche à la passée technique à proximité des structures.",
+    "technique": "Bolognaise",
+    "target": "Mulets cabots, bars et oblades",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse de Korbous (Sorgenti Termali)",
+    "lat": 36.8228,
+    "lon": 10.5739,
+    "desc": "Zone côtière avec falesie où l'eau chaude termale se riversa à mer, creando un microclimatt qui attire moltissimo poisson bianco.",
+    "technique": "Bolognaise",
+    "target": "Salpes, sars, oblades et mulets",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée de Yasmine Hammamet",
+    "lat": 36.3715,
+    "lon": 10.5368,
+    "desc": "Grand port de plaisance dans la partie méridionale de la péninsule. Le côtes rocheuses extérieures offrent un fond sableux/mixte profond, idéal pour pêcher entre deux eaux avec le asticot ou le pâte.",
+    "technique": "Bolognaise",
+    "target": "Bars, daurades royales et boga",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Mansoura (Kélibia)",
+    "lat": 36.8521,
+    "lon": 11.1214,
+    "desc": "Plage de sable bianca finissima avec fond qui degrada dolcemente, intervallato de zone de grotto. Eccezionale pour la pêche à fond à longue distance sia diurna qui nocturne.",
+    "technique": "Pêche de fond / Surfcasting",
+    "target": "Daurades royales, marbrés et sars pizzuti",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de El Haouaria (Plage Ras el Drak)",
+    "lat": 37.0754,
+    "lon": 11.0342,
+    "desc": "Grande plage exposée aux courants du Canal de Sicilia. Con mer mosso attire grands prédateurs accostati dans les chenaux de sable creati des onde.",
+    "technique": "Pêche de fond / Surfcasting lourd",
+    "target": "Bars, ombrines et grosses daurades royales",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Korba (Plage Tazarka)",
+    "lat": 36.5684,
+    "lon": 10.8711,
+    "desc": "Lungo litorale sableux de la côte orientale, très linéaire et propre. Parfait pour le beach ledgering léger à la ricerca de poissons fouilleurs sur la courte et media distance.",
+    "technique": "Pêche de fond / Beach Ledgering",
+    "target": "Marbrés, triglie di vase et sogliole",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Nabeul (Plage Maamoura)",
+    "lat": 36.4612,
+    "lon": 10.7985,
+    "desc": "Zone sableuse située près à une lagune côtière. Le constant richangementso biologico attire poissons de fond de excellente taille, surtout pendant le mareggiate à scaduta.",
+    "technique": "Pêche de fond / Surfcasting",
+    "target": "Daurades royales, bars et liches étoile",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Baie de Hammamet (Plage Nord)",
+    "lat": 36.4125,
+    "lon": 10.6314,
+    "desc": "Plage vaste et abritée des vents septentrionaux. Le fond est entièrement sableux et propre, idéal pour pêcher avec plombs légers et bas de ligne longs (long arm) sans risque de incaglio.",
+    "technique": "Pêche de fond / Beach Ledgering",
+    "target": "Marbrés, daurades royales et ombrines",
+    "region": "Cap Bon",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Lemaya (Plage Lemaya)",
+    "lat": 33.9842,
+    "lon": 10.0521,
+    "desc": "Grande plage sableuse à au nord du centre-ville, caratterizzata de vastes hauts-fonds entrecoupés de chenaux naturels creati des marées, excellente pour le surfcasting à longue distance.",
+    "technique": "Surfcasting",
+    "target": "Grossess daurades royales, marbrés et bars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Gannouch (Plage de Ghannouch)",
+    "lat": 33.9314,
+    "lon": 10.0815,
+    "desc": "Située près à la zone industriel et portuaire, questa plage risente de forts courants qui muovono le fond sableux, attirando prédateurs et poissons fouilleurs à recherche de cibo.",
+    "technique": "Surfcasting",
+    "target": "Bars, daurades royales et liches étoile",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Chott El Romman",
+    "lat": 33.8958,
+    "lon": 10.1142,
+    "desc": "Litorale très vaste et linéaire avec fond sableux propre et digradante. Rende al massimo pendant le heures nocturnes ou avec mer agitée à scaduta.",
+    "technique": "Surfcasting",
+    "target": "Marbrés, ombrines et sars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Zarat (Plage de Zarat)",
+    "lat": 33.6825,
+    "lon": 10.3411,
+    "desc": "Située dans la parte meridionale du gouvernorat, près al villaggio de pêcheurs. Est une zone selvaggia avec un ecosistema ricchissimo et fort amplitude de marée.",
+    "technique": "Surfcasting",
+    "target": "Daurades royales reali, ombrines à bouche dorée et squali piatti",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Kettana (Plage de Kettana)",
+    "lat": 33.7844,
+    "lon": 10.2235,
+    "desc": "Plage isolata et poco frequentata des baigneurs, perfetta pour impostare battute de pêche diurne à beach ledgering ou surfcasting léger sur la media distance.",
+    "technique": "Surfcasting",
+    "target": "Marbrés, triglie di vase et sogliole",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Casino (Plage du Casino)",
+    "lat": 33.8864,
+    "lon": 10.1258,
+    "desc": "La principale plage urbaine de Gabès. Malgré la proximité du centre, le sue hauts-fonds sableux sono eccellenti pour le surfcasting nocturne lorsque les baigneurs quittent le littoral.",
+    "technique": "Surfcasting",
+    "target": "Marbrés, liches étoile et daurades royales",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Oudref (Plage d'Oudref / Akarit)",
+    "lat": 34.0722,
+    "lon": 10.0214,
+    "desc": "Située dans la zone nord de la région, près à la embouchure dell'Oued Akarit. La présence de eau dolce et vase mixte à sable crée un'area de pascolo pazzesca pour les poissons de fond.",
+    "technique": "Surfcasting",
+    "target": "Bars, grosses daurades royales et mulets",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Bouchemma",
+    "lat": 33.9145,
+    "lon": 10.0632,
+    "desc": "Tronçon de côte selvaggio et poco antropizzato. Presenta un fond sableux très bas qui requiert lanci longs pour raggiungere la fasillage de passaggio des poissons fouilleurs.",
+    "technique": "Surfcasting",
+    "target": "Marbrés et ombrines",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Teboulbou (Plage de Thyna / Teboulbou)",
+    "lat": 33.8511,
+    "lon": 10.1584,
+    "desc": "Zone côtière située à sud du port de Gabès. Le fond est riche de petits canali naturels où le poisson entra à activité surtout pendant le pic de marée haute.",
+    "technique": "Surfcasting",
+    "target": "Daurades royales, sars et triglie di vase",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Hicha (Plage d'El Hicha)",
+    "lat": 34.1852,
+    "lon": 10.0089,
+    "desc": "Se trova al frontière settentrionale du gouvernorat de Gabès. Est une plage completamente incontaminata, exposée de forts vents latéraux, idéal pour le surfcasting lourd à condizioni de mer mosso.",
+    "technique": "Surfcasting",
+    "target": "Bars, ombrines à bouche dorée et tassergals",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Port Peschereccio di Gabès (Jetée Est)",
+    "lat": 33.8994,
+    "lon": 10.1165,
+    "desc": "La extrémité de la jetée extérieure offre eaux profondes et forts courants. Spot idéal pour le spinning avec jerkbaits et poppers à la recherche de prédateurs pélagiques.",
+    "technique": "Spinning",
+    "target": "Pesci tassergal, liches et barracuda",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Embouchure de l'Oued Gabès (Oasi Marittima)",
+    "lat": 33.8828,
+    "lon": 10.1294,
+    "desc": "Punto d'incontro entre le eaux dell'oasi et le mer. Le constant apporto de nutrimento attire moltissimo poisson poissons-fourrage, rendendolo le spot parfait pour le spinning léger avec appâts siliconiche.",
+    "technique": "Spinning",
+    "target": "Bars et liches étoile",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Brise-lames de Ghannouch",
+    "lat": 33.9392,
+    "lon": 10.0911,
+    "desc": "Côte rocheuse artificiel protettiva près à la zone industriel. Le courants et le structures sommerse creano l'habitat parfait pour les prédateurs qui cacciano à à proximité des blocs rocheux.",
+    "technique": "Spinning",
+    "target": "Bars, barracuda et tassergals",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Petit port de Zarat (Banchine extérieures)",
+    "lat": 33.6745,
+    "lon": 10.3524,
+    "desc": "Piccolo scalo bateau de pêche à sud de Gabès. L'uscita du canal et le quais extérieures sono excellentes pendant les changements de marée pour insidiare les prédateurs à recherche.",
+    "technique": "Spinning",
+    "target": "Bars et tassergals",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Embouchure de l'Oued Akarit",
+    "lat": 34.0681,
+    "lon": 10.0247,
+    "desc": "Embouchure fluviale dans la zone nord de la région. La variation de salinité et le mouvement de l'eau attirent les bancs de mulets et, de conseguenza, les grands prédateurs côtiers.",
+    "technique": "Spinning",
+    "target": "Grandi bars et liches amia",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée Turistico di Casino Plage",
+    "lat": 33.8852,
+    "lon": 10.1271,
+    "desc": "Ponton et côte rocheuse situati sur le litorale urbain. Offre un excellent raggio de action pour le spinning nocturne ou all'aube, specialmente dans les periodi de mer agitée à scaduta.",
+    "technique": "Spinning",
+    "target": "Bars et liches étoile",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse dula Centrale Termica (Gabès Sud)",
+    "lat": 33.8644,
+    "lon": 10.1415,
+    "desc": "Zone côtière caratterizzata dallo rejet d'eaux chaudes de la centrale. Questo flusso crée un hotspot termico permanente qui attire constamment branchi de prédateurs également à pieno inverno.",
+    "technique": "Spinning",
+    "target": "Pesci tassergal, barracuda et liches",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Canal de Scarico di Teboulbou",
+    "lat": 33.8421,
+    "lon": 10.1632,
+    "desc": "Sbocco d'eau artificiel qui muove constamment le fond sableux circostante. Excellent pour pêcher avec petits metal jig ou wtd dans les heures de sole alto.",
+    "technique": "Spinning",
+    "target": "Liches étoiles, orphies et bars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Secche di Kettana",
+    "lat": 33.7712,
+    "lon": 10.2418,
+    "desc": "Pointe côtière mixte à rochers et sable où le fond crée des petites hauts-fonds naturels raggiungibili avec longs lanci. Excellente pour le spinning lourd avec popper.",
+    "technique": "Spinning",
+    "target": "Liches amies et grands tassergals",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée Nord della Zone Industriale",
+    "lat": 33.9218,
+    "lon": 10.0894,
+    "desc": "Structure artificiel interdite aux plages balnéaires. La tranquillité du spot et la profondeur du fond attirent prédateurs de taille important pendant le heures nocturnes.",
+    "technique": "Spinning",
+    "target": "Barracuda, tassergals et bars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Port Peschereccio di Gabès (Intérieur Banchine)",
+    "lat": 33.8981,
+    "lon": 10.1152,
+    "desc": "Le quais intérieurs du port, éclairés la nuit, attirent les petits poissons et de conseguenza grands branchi de seiches et calmars. Fond vaseux et profond.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée Foraneo di Ghannouch",
+    "lat": 33.9385,
+    "lon": 10.0924,
+    "desc": "Côte rocheuse artificiel exposée aux courants extérieures. La présence de blocs rocheux submergés crée le nascondiglio idéal pour le hauts-fonds et les calmars à recherche dans les changements de lumière.",
+    "technique": "Eging",
+    "target": "Calmars et seiches",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Petit port de Zarat (Canal d'Ingresso)",
+    "lat": 33.6738,
+    "lon": 10.3519,
+    "desc": "Le canal d'entrée du petit port est fortement influencé par les marées. Pendant l'alta marée, les céphalopodes entrent dans le canal pour chasser les petits crustacés.",
+    "technique": "Eging",
+    "target": "Seiches",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Ponton de Casino Plage",
+    "lat": 33.8845,
+    "lon": 10.1265,
+    "desc": "Structure urbaine avec pali submergés qui creano ombre et riparo. Très comodo pour l'eging nocturne à recherche de seiches sur la courte distance.",
+    "technique": "Eging",
+    "target": "Seiches",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse Sud della Centrale Termica",
+    "lat": 33.8631,
+    "lon": 10.1428,
+    "desc": "La zone riscaldata dallo rejet attire constamment crevettes et petits poissons. Questo microclimatt rend le spot actif pour les céphalopodes également pendant les mois les plus froids.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Banchina Industriale Nord (Gabès)",
+    "lat": 33.9225,
+    "lon": 10.0902,
+    "desc": "Zone avec quais alte et fond profond. Excellent spot pour far lavorare gli egi de taille 3.0 ou 3.5 à stretto contatto avec le fond vaseux.",
+    "technique": "Eging",
+    "target": "Gros calmars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Embouchure de l'Oued Gabès (Lati à muratura)",
+    "lat": 33.8835,
+    "lon": 10.1281,
+    "desc": "Le tronçon terminal canalisé du fleuve offre berges dégagées de cui lancer. Le les seiches se concentrent qui pour intercepter le passage des poissons-fourrage.",
+    "technique": "Eging",
+    "target": "Seiches",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Anfractuosités rocheuses de Kettana",
+    "lat": 33.7725,
+    "lon": 10.2405,
+    "desc": "Punto costiero où la sable lasillage spazio à petits banchi de roche naturale sommersa. Requiert egi à affondamento lento (shallow) pour éviter incagli.",
+    "technique": "Eging",
+    "target": "Seiches",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Teboulbou (Près aux vecchie structures)",
+    "lat": 33.8434,
+    "lon": 10.1612,
+    "desc": "Presenza de vecchi pali à legno et detriti submergés su fond bas. Spot idéal pour l'eging à vista all'aube ou al coucher du soleil avec mer calmes.",
+    "technique": "Eging",
+    "target": "Seiches",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse de Chott El Romman",
+    "lat": 33.8942,
+    "lon": 10.1158,
+    "desc": "Tronçon de côte rocheuse artificiel linéaire qui unisce la plage al port. Offre un corridoio de transito parfait pour les calmars pendant le heures nocturnes.",
+    "technique": "Eging",
+    "target": "Calmars et seiches",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Port Peschereccio di Gabès (Jetée Intérieur)",
+    "lat": 33.8988,
+    "lon": 10.1159,
+    "desc": "Quais intérieurs avec fond profond et courants calmes. Idéal pour la pêche au coup avec flotteurs légers de 1-2 grammes, en amorçant à la fronde avec des asticots ou de la sardines hachée.",
+    "technique": "Bolognaise",
+    "target": "Mulets, bars et sars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée Est di Ghannouch",
+    "lat": 33.9379,
+    "lon": 10.0931,
+    "desc": "Côte rocheuse artificiel exposée à courants marine constants. Requiert l’utilisation de cannes longues (7 mètres) pour dépasser les blocs rocheux submergés à la base et trattenere l'appât dans la écume.",
+    "technique": "Bolognaise",
+    "target": "Sars majeurs, oblades et bars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Embouchure Canalizzata dell'Oued Gabès",
+    "lat": 33.8831,
+    "lon": 10.1288,
+    "desc": "Le canal terminal du fleuve risente très dell'amplitude de marée. Pendant l'alta marée se crée une courant montant perfetta pour la pêche à la passée en frôlant le fond.",
+    "technique": "Bolognaise",
+    "target": "Mulets cabots et bars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Ponton de Casino Plage (Lati extérieurs)",
+    "lat": 33.8849,
+    "lon": 10.1268,
+    "desc": "Structure urbaine avec pali qui offrent ombre. Excellent spot pour pêcher entre deux eaux avec le pâte (impasto de sardine et pain) ou avec le ver de sable local.",
+    "technique": "Bolognaise",
+    "target": "Salpes, mulets et liches étoile",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse dula Centrale Termica",
+    "lat": 33.8638,
+    "lon": 10.1422,
+    "desc": "Hotspot termico grazie allo rejet d'eaux chaudes. La constant présence de petits poissons attire les poissons blancs et les prédateurs; très technique en raison du courant artificiel.",
+    "technique": "Bolognaise",
+    "target": "Bars, mulets et oblades",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Banchina Industriale Nord (Gabès)",
+    "lat": 33.9221,
+    "lon": 10.0898,
+    "desc": "Pareti verticali avec fond important fin sous la pointe de la cannes. Permette l'utilizzo de flotteurs coulissants ou piombature raggruppate pour calare l'appât rapidamente.",
+    "technique": "Bolognaise",
+    "target": "Grandi mulets et bars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Petit port de Zarat (Jetée de Sottoflutto)",
+    "lat": 33.6741,
+    "lon": 10.3521,
+    "desc": "Piccola côte rocheuse abritée dans la parte sud du gouvernorat. Eaux calmes adatte à la pêche de precisione dans les heures dell'aube et du coucher du soleil utilizzando bas de ligne sottili.",
+    "technique": "Bolognaise",
+    "target": "Sars, daurades royales et salpe",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Canal de Scarico di Teboulbou",
+    "lat": 33.8425,
+    "lon": 10.1628,
+    "desc": "Sbocco d'eau qui crée une sillage de écume et turbolenza sur la plage sableuse. Posizionandosi sur les blocs rocheux latéraux se può far compiere al flotteur une passata naturale.",
+    "technique": "Bolognaise",
+    "target": "Bars et liches étoile",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Jetée Nord della Zone Industriale",
+    "lat": 33.9212,
+    "lon": 10.0889,
+    "desc": "Zone artificiel profonde et poco disturbata du turismo balneare. Excellent spot pour impostare une sessione de pêche nocturne à la ricerca des grands esemplari de bar.",
+    "technique": "Bolognaise",
+    "target": "Bars et sars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Côte rocheuse Lineare di Chott El Romman",
+    "lat": 33.8948,
+    "lon": 10.1162,
+    "desc": "Tronçon de blocs rocheux frangiflutti parallelo à la côte. Le fond digrada lentamente, richiedendo un lancio du flotteur leggermente più distante rispetto à la banchina portuaire.",
+    "technique": "Bolognaise",
+    "target": "Mulets, oblades et sars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Lemaya (Plage Lemaya)",
+    "lat": 33.9842,
+    "lon": 10.0521,
+    "desc": "Grande plage sableuse au nord de Gabès. Caratterizzata de vastes hauts-fonds entrecoupés de chenaux naturels, est uno spot parfait pour présenter les appâts sur le fond à la ricerca des poissons fouilleurs.",
+    "technique": "Pêche de fond",
+    "target": "Grossess daurades royales, marbrés et bars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Gannouch (Plage de Ghannouch)",
+    "lat": 33.9314,
+    "lon": 10.0815,
+    "desc": "Litorale sableux exposé à forts courants marine près à la zone industriel. Le mouvement de l'eau scalza continuamente le fond, portando à la lumière anellidi et mollusques.",
+    "technique": "Pêche de fond",
+    "target": "Bars, daurades royales et liches étoile",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Chott El Romman",
+    "lat": 33.8958,
+    "lon": 10.1142,
+    "desc": "Litorale très linéaire avec fond sableux propre. Excellent spot pour une pêche à fond légère ou beach ledgering avec longs bas de ligne pour insidiare le poisson diffidente.",
+    "technique": "Pêche de fond",
+    "target": "Marbrés, ombrines et sars",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Zarat (Plage de Zarat)",
+    "lat": 33.6825,
+    "lon": 10.3411,
+    "desc": "Zone sauvage au sud du gouvernorat avec une très fort amplitude de marée. Le fond riche en nutriments la rend l'une des meilleures destinations pour la recherche des gros spécimens.",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales reali, ombrines à bouche dorée et squali piatti",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Kettana (Plage de Kettana)",
+    "lat": 33.7844,
+    "lon": 10.2235,
+    "desc": "Plage isolata et très tranquilla avec fond mixte à chiazze de grotto submergé. Requiert l’utilisation de plombs à perdre ou avec alette pour éviter l'incaglio pendant le recupero.",
+    "technique": "Pêche de fond",
+    "target": "Marbrés, triglie di vase et sogliole",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Casino (Plage du Casino)",
+    "lat": 33.8864,
+    "lon": 10.1258,
+    "desc": "Grande plage urbaine. Pendant la nuit, l'activité alimentaire des marbrés se sposta près du bord de l'eau, permettendo excellentes prises même à courte distance.",
+    "technique": "Pêche de fond",
+    "target": "Marbrés, liches étoile et daurades royales",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Oudref (Plage d'Oudref / Akarit)",
+    "lat": 34.0722,
+    "lon": 10.0214,
+    "desc": "Plage située dans les pressi de la embouchure dell'Oued Akarit. Le mix de eau dolce et vase crée une zone de pascolo vaseux-sableuse amatissima de tutte le specie costiere.",
+    "technique": "Pêche de fond",
+    "target": "Bars, grosses daurades royales et mulets",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Bouchemma",
+    "lat": 33.9145,
+    "lon": 10.0632,
+    "desc": "Tronçon de côte incontaminato et scarsamente frequentato. Presenta un fond très bas qui obbliga à lancer zavorre aerodinamiche pour raggiungere les canali de passaggio du poisson.",
+    "technique": "Pêche de fond",
+    "target": "Marbrés et ombrines",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Teboulbou (Plage de Thyna / Teboulbou)",
+    "lat": 33.8511,
+    "lon": 10.1584,
+    "desc": "Plage située au sud du port. Le fond sableux est façonné par les marées et les poissons entrano à fort activité alimentaire surtout pendant le pic de marée haute.",
+    "technique": "Pêche de fond",
+    "target": "Daurades royales, sars et triglie di vase",
+    "region": "Gabès",
+    "tips": ""
+  },
+  {
+    "nome": "Plage de Hicha (Plage d'El Hicha)",
+    "lat": 34.1852,
+    "lon": 10.0089,
+    "desc": "Située al frontière nord de la région de Gabès. Plage totalement ouverte et exposée du vent, idéal pour maintenir tendues le lignes sur le fond lorsque le mer commence à à bouger.",
+    "technique": "Pêche de fond",
+    "target": "Bars, ombrines à bouche dorée et tassergals",
+    "region": "Gabès",
+    "tips": ""
+  }
+]
