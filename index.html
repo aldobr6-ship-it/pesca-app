@@ -3819,7 +3819,7 @@ async function avviaApp() {
   fetch(fileSpecie).catch(() => null),
   fetch("./data/spot-italia.json").catch(() => null),
   fetch("./data/spot-francia.json").catch(() => null),
-  fetch("./data/spot-tunisia.json").catch(() => null)
+  fetch(linguaSalvata === "fr" ? "./data/spot-tunisia.fr.json" : "./data/spot-tunisia.json")
 ]);
     if (resNodi && resNodi.ok) nodiData = await resNodi.json();
     if (resMontature && resMontature.ok) montatureData = await resMontature.json();
