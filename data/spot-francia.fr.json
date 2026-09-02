@@ -1,0 +1,2104 @@
+[
+  {
+    "nome": "Digue du Port de Marsiglia (Digue du Large)",
+    "lat": 43.3164,
+    "lon": 5.3486,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée du Port de La Ciotat",
+    "lat": 43.1761,
+    "lon": 5.6114,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée du Port de Tolone (Mourillon)",
+    "lat": 43.1114,
+    "lon": 5.9417,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Port du Vecchio Bacino de Cannes",
+    "lat": 43.5517,
+    "lon": 7.0139,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée Est du Port de Nizza",
+    "lat": 43.6939,
+    "lon": 7.2864,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Grande Digue de Sète (Mole St. Louis)",
+    "lat": 43.3956,
+    "lon": 3.7014,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Jetée du Port de Grau-du-Roi",
+    "lat": 43.5339,
+    "lon": 4.1319,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Jetée du Port Foraneo de Brest",
+    "lat": 48.3814,
+    "lon": -4.4783,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Port de Concarneau (Zone jetées interni)",
+    "lat": 47.8725,
+    "lon": -3.9164,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Jetée des Pêchetori de La Rochelle (Les Minimes)",
+    "lat": 46.1417,
+    "lon": -1.1686,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Jetée du Port de Les Sables-d'Olonne",
+    "lat": 46.4914,
+    "lon": -1.7947,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Jetée d'Eyrac (Bacino de Arcachon)",
+    "lat": 44.6647,
+    "lon": -1.1614,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Jetée Nord du Port de Saint-Jean-de-Luz",
+    "lat": 43.3914,
+    "lon": -1.6669,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Digue Nord du Port de Le Havre",
+    "lat": 49.4811,
+    "lon": 0.0917,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Jetée du Port de Cherbourg",
+    "lat": 49.6447,
+    "lon": -1.6194,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Jetée du Canal de Ouistreham",
+    "lat": 49.2883,
+    "lon": -0.2486,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Digue Carnot (Boulogne-sur-Mer)",
+    "lat": 50.7322,
+    "lon": 1.5647,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Jetée Ovest du Port de Calais",
+    "lat": 50.9678,
+    "lon": 1.8414,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Digue de Dunkerque (Jetée de Est)",
+    "lat": 51.0539,
+    "lon": 2.3619,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Digue Nord de Dieppe",
+    "lat": 49.9347,
+    "lon": 1.0847,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Jetée Est du Port de Fécamp",
+    "lat": 49.7594,
+    "lon": 0.3664,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Digue Sud de Le Havre",
+    "lat": 49.4739,
+    "lon": 0.1014,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Jetée de Courseulles-sur-Mer",
+    "lat": 49.3372,
+    "lon": -0.4586,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Digue Est du Port de Cherbourg",
+    "lat": 49.6514,
+    "lon": -1.6039,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Port de Granville (Jetée Ovest)",
+    "lat": 48.8339,
+    "lon": -1.6083,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Jetée Nero de Saint-Malo (Le Môle Noire)",
+    "lat": 48.6447,
+    "lon": -2.0319,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Port de Erquy (Digue nuova)",
+    "lat": 48.6347,
+    "lon": -2.4739,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Jetée du Port de Paimpol",
+    "lat": 48.7806,
+    "lon": -3.0414,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Digue de Roscoff (Port de Bloscon)",
+    "lat": 48.7214,
+    "lon": -3.9669,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Jetée du Port de Camert-sur-Mer",
+    "lat": 48.2772,
+    "lon": -4.5939,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Jetée de Douarnenez (Port de Rosmeur)",
+    "lat": 48.0947,
+    "lon": -4.3214,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Port de Audierne (Jetée du Goyen)",
+    "lat": 48.0169,
+    "lon": -4.5347,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Jetée du Port de Lorient (Keroman)",
+    "lat": 47.7286,
+    "lon": -3.3669,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Digue du Port de Quiberon (Port Maria)",
+    "lat": 47.4794,
+    "lon": -3.1214,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Jetée du Port de Le Croisic",
+    "lat": 47.2947,
+    "lon": -2.5214,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Digue de Pornichet (La Baule)",
+    "lat": 47.2586,
+    "lon": -2.3417,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Jetée de Saint-Gilles-Croix-de-Vie",
+    "lat": 46.6947,
+    "lon": -1.9486,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Digue du Port de La Cotinière (Isola d'Oleron)",
+    "lat": 45.9139,
+    "lon": -1.3314,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Jetée du Port de Royan (Embouchure de la Gironda)",
+    "lat": 45.6194,
+    "lon": -1.0319,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Jetée de Cap Ferret (Interno bacino Arcachon)",
+    "lat": 44.6539,
+    "lon": -1.2414,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Digue Nord du Port de Capbreton",
+    "lat": 43.6556,
+    "lon": -1.4486,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Digue de Socoa (Saint-Jean-de-Luz)",
+    "lat": 43.3969,
+    "lon": -1.6814,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Jetée du Port de Hendaye (Confine Spagna)",
+    "lat": 43.3756,
+    "lon": -1.7761,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Jetée du Port de Port-Vendres",
+    "lat": 42.5214,
+    "lon": 3.1114,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Digue du Port de Argeles-sur-Mer",
+    "lat": 42.5556,
+    "lon": 3.0486,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Jetée de Gruissan Port",
+    "lat": 43.1042,
+    "lon": 3.1347,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Digue Est de Valras-Plage",
+    "lat": 43.2439,
+    "lon": 3.2986,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Jetée du Port de Frontignan",
+    "lat": 43.4319,
+    "lon": 3.8086,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Digue Ovest de Port-Camargue",
+    "lat": 43.5186,
+    "lon": 4.1264,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Jetée du Port de Carro (Martigues)",
+    "lat": 43.3264,
+    "lon": 5.0414,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Falaises de Cassis (Vicino alle Calanques)",
+    "lat": 43.2114,
+    "lon": 5.5347,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée du Port de Sanary-sur-Mer",
+    "lat": 43.1169,
+    "lon": 5.7986,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Digue du Port de Hyères",
+    "lat": 43.0883,
+    "lon": 6.1586,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée du Port de Saint-Tropez",
+    "lat": 43.2725,
+    "lon": 6.6364,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Digue du Port de Antibes (Port Vauban)",
+    "lat": 43.5883,
+    "lon": 7.1294,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée du Port de Villefranche-sur-Mer",
+    "lat": 43.7003,
+    "lon": 7.3114,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée du Port de Mentone (Confine Italia)",
+    "lat": 43.7761,
+    "lon": 7.5114,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée du Port de Bastia (Terminal Traghetti)",
+    "lat": 42.7014,
+    "lon": 9.4539,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Corse"
+  },
+  {
+    "nome": "Port de Ajaccio (Digue de Tino Rossi)",
+    "lat": 41.9264,
+    "lon": 8.7431,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Corse"
+  },
+  {
+    "nome": "Jetée du Port de Port Vecchio",
+    "lat": 41.5894,
+    "lon": 9.2883,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Corse"
+  },
+  {
+    "nome": "Digue du Port de Bonifacio",
+    "lat": 41.3894,
+    "lon": 9.1586,
+    "desc": "Spot depuis port, jetée ou enrochement pour l’eging.",
+    "technique": "Eging",
+    "target": "Seiches et calmars",
+    "region": "Corse"
+  },
+  {
+    "nome": "Plage de Biscarrosse Plage",
+    "lat": 44.4447,
+    "lon": -1.2533,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de Mimizan Plage",
+    "lat": 44.2045,
+    "lon": -1.3014,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de Lacanau Océan",
+    "lat": 45.0014,
+    "lon": -1.2025,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de Hendaye (Grande Plage)",
+    "lat": 43.3739,
+    "lon": -1.7739,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de Cap Ferret (Lato Oceano)",
+    "lat": 44.6239,
+    "lon": -1.2586,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de La Faute-sur-Mer",
+    "lat": 46.3114,
+    "lon": -1.3194,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de Saint-Gilles-Croix-de-Vie (Grande Plage)",
+    "lat": 46.6886,
+    "lon": -1.9364,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de Vert-Bois (Isola d'Oléron)",
+    "lat": 45.8447,
+    "lon": -1.2464,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de Keremma (Tréflez)",
+    "lat": 48.6539,
+    "lon": -4.2414,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Plage de Baie d'Audierne (La Torche)",
+    "lat": 47.8386,
+    "lon": -4.3314,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Plage de Pentrez (Saint-Nic)",
+    "lat": 48.1983,
+    "lon": -4.2864,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Plage de Omaha Beach (Colleville-sur-Mer)",
+    "lat": 49.3694,
+    "lon": -0.8447,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Plage de Wissant (Tra Cap Blanc-Nez et Cap Gris-Nez)",
+    "lat": 50.8894,
+    "lon": 1.6586,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Plage de Berck-sur-Mer",
+    "lat": 50.4083,
+    "lon": 1.5539,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Plage de Deauville",
+    "lat": 49.3639,
+    "lon": 0.0686,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Plage de Leucate Plage",
+    "lat": 42.9056,
+    "lon": 3.0417,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Plage de Serignan Plage",
+    "lat": 43.2139,
+    "lon": 3.3347,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Plage de Aresquiers (Frontignan)",
+    "lat": 43.4547,
+    "lon": 3.8214,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Plage de Torreilles Plage",
+    "lat": 42.7614,
+    "lon": 3.0319,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Plage de Piémanson (Salin-de-Giraud)",
+    "lat": 43.3444,
+    "lon": 4.7814,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Plage de Beauduc (Saintes-Maries-de-la-Mer)",
+    "lat": 43.4117,
+    "lon": 4.5883,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Plage de Les Salins (Hyères)",
+    "lat": 43.1114,
+    "lon": 6.2042,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Plage de Pampelonne (Ramatuelle)",
+    "lat": 43.2286,
+    "lon": 6.6639,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Plage de la Marana (Corse - Bastia)",
+    "lat": 42.6364,
+    "lon": 9.4539,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Corse"
+  },
+  {
+    "nome": "Plage de Ricanto (Corse - Ajaccio)",
+    "lat": 41.9214,
+    "lon": 8.7847,
+    "desc": "Spot de pêche depuis la plage adapté au surfcasting.",
+    "technique": "Surfcasting",
+    "target": "Bars, Daurades, Marbrés et Sars",
+    "region": "Corse"
+  },
+  {
+    "nome": "Pointe de Cap Gris-Nez (Scogliere naturali)",
+    "lat": 50.8712,
+    "lon": 1.5834,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Embouchure du Rivière Somme (Saint-Valery-sur-Somme)",
+    "lat": 50.1883,
+    "lon": 1.6319,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Scogliere de Étretat (Sotto le falesie)",
+    "lat": 49.7086,
+    "lon": 0.2014,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Embouchure du Rivière Vire (Grandcamp-Maisy)",
+    "lat": 49.3947,
+    "lon": -1.0447,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Pointe de Barfleur (Scogliere profonde)",
+    "lat": 49.6869,
+    "lon": -1.2614,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Normandie"
+  },
+  {
+    "nome": "Pointe du Raz (Pointe du Raz)",
+    "lat": 48.0386,
+    "lon": -4.7369,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Pointe de Penmarch (Vicino al Faro d'Eckmühl)",
+    "lat": 47.7978,
+    "lon": -4.3739,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Embouchure du Rivière Odet (Bénodet)",
+    "lat": 47.8686,
+    "lon": -4.1114,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Costa de Granito Rosa (Ploumanac'h)",
+    "lat": 48.8319,
+    "lon": -3.4814,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Pointe de Conguel (Quiberon)",
+    "lat": 47.4669,
+    "lon": -3.1014,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Embouchure du Rivière Vilaine (Arzal)",
+    "lat": 47.5056,
+    "lon": -2.4814,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Bretagne"
+  },
+  {
+    "nome": "Pointe de Chassiron (Isola d'Oléron)",
+    "lat": 46.0472,
+    "lon": -1.4114,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Embouchure de la Gironda (Royan)",
+    "lat": 45.6139,
+    "lon": -1.0447,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Passaggio du Bacino de Arcachon (Cap Ferret)",
+    "lat": 44.6214,
+    "lon": -1.2486,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Pointe de Sainte-Barbe (Saint-Jean-de-Luz)",
+    "lat": 43.3986,
+    "lon": -1.6614,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Embouchure du Rivière Adour (Anglet/Bayonne)",
+    "lat": 43.5286,
+    "lon": -1.5214,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Scogliere de Cap Leucate",
+    "lat": 42.9114,
+    "lon": 3.0539,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Embouchure du Rivière Hérault (Grau d'Agde)",
+    "lat": 43.2786,
+    "lon": 3.4417,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Embouchure du Rivière Orb (Valras-Plage)",
+    "lat": 43.2444,
+    "lon": 3.3014,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Occitanie"
+  },
+  {
+    "nome": "Embouchure du Grande Rodano (Grand Rhône - Port-Saint-Louis)",
+    "lat": 43.3283,
+    "lon": 4.8364,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Embouchure du Piccolo Rodano (Petit Rhône - Saintes-Maries)",
+    "lat": 43.4517,
+    "lon": 4.3986,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée de la digue de Carro (Martigues)",
+    "lat": 43.3264,
+    "lon": 5.0414,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Pointe de Cap Lardier (Ramatuelle)",
+    "lat": 43.1669,
+    "lon": 6.6264,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée extérieur du Port de Fréjus",
+    "lat": 43.4186,
+    "lon": 6.7586,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Pointe de Cap d'Antibes (Scogliere profonde)",
+    "lat": 43.5417,
+    "lon": 7.1214,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Jetée du Port de Nizza (Digue extérieure)",
+    "lat": 43.6886,
+    "lon": 7.2883,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Provence-Alpes-Côte d’Azur"
+  },
+  {
+    "nome": "Embouchure du Rivière Golo (Bastia)",
+    "lat": 42.5286,
+    "lon": 9.5319,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Corse"
+  },
+  {
+    "nome": "Scogliere de Capo Corso (Pointe de la Parata)",
+    "lat": 41.9364,
+    "lon": 8.6083,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Corse"
+  },
+  {
+    "nome": "Jetée foraneo du Port de Propriano",
+    "lat": 41.6786,
+    "lon": 8.8947,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Corse"
+  },
+  {
+    "nome": "Scogliere de la falesia de Bonifacio",
+    "lat": 41.3839,
+    "lon": 9.1514,
+    "desc": "Spot depuis les rochers, une embouchure ou une structure portuaire pour le spinning.",
+    "technique": "Spinning",
+    "target": "Bars, Tassergals, Barracudas, Liches et sérioles",
+    "region": "Corse"
+  },
+  {
+    "name": "Vieux-Port de Marseille (Jetée Saint-Jean)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.2947,
+      5.3614
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Sars, Mulets",
+    "tips": "Spot cittadino storico. Pêcher de nuit sous i lampioni rasente le quais des bateaux de pêche avec il asticot."
+  },
+  {
+    "name": "Digue du Large - Port de Marsiglia",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.3114,
+      5.3447
+    ],
+    "type": "Bolognese",
+    "target": "Gros sars, Oblades, Bars",
+    "tips": "Grande barriera frangiflutti extérieure. Fond profond, utiliser cannes da 7-8 metri et pasture lourds a base de fromage."
+  },
+  {
+    "name": "Port de Tolone (Quai Cronstadt)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.1214,
+      5.9339
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Bogues",
+    "tips": "Zone abritée all'intérieur de la grande rada. Excellent l'appâts du pain français o du ver marin coréen."
+  },
+  {
+    "name": "Port de Cannes (Jetée Albert-Edouard)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.5514,
+      7.0169
+    ],
+    "type": "Bolognese",
+    "target": "Grosses oblades, Bars, Sars",
+    "tips": "Acque très limpide et bateaux de luxe. Pêche de precisione nocturne avec bas de ligne invisibili in fluorocarbone dello 0.10."
+  },
+  {
+    "name": "Port de Nizza (Quai Commerce)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.6947,
+      7.2864
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Sars, Saupes",
+    "tips": "Fond immédiatement très profond au-delà de i 6 metri. Nécessite flotteurs scorrevoli légers o spallinate très raggruppate."
+  },
+  {
+    "name": "Port de Antibes (Jetée Foraneo Quai Nord)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.5883,
+      7.1294
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Sars, Oblades",
+    "tips": "Jetée extérieur très lungo avec fond rocheux artificiel. Profiter de la fin de coup de mer de sirocco en pêchant nella écume."
+  },
+  {
+    "name": "Port de Mentone (Vieux Port jetée est)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.7783,
+      7.5086
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Oblades, Sars",
+    "tips": "A ridosso du confine italiano. Acque transparentes, consigliata l'azione all'aube avec lignes très sottili et spallinate fluide."
+  },
+  {
+    "name": "Port de La Ciotat (Quai bateaux de pêche)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.1764,
+      5.6083
+    ],
+    "type": "Bolognese",
+    "target": "Mulets, Bars, Sars",
+    "tips": "Zone abritée idéal pour le journées de fort mistral. Pasturare avec sardines broyée et fromage radente le têtes des amarres."
+  },
+  {
+    "name": "Port de Cassis (Jetée extérieur)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.2114,
+      5.5369
+    ],
+    "type": "Bolognese",
+    "target": "Gros sars, Oblades, Saupes",
+    "tips": "Fond caratterizzato da falesie bianche calcaree esterne. Utiliser pasture chiare et appâtsr il fiocco de pane o il asticot."
+  },
+  {
+    "name": "Port de Sète (Jetée Saint-Louis)",
+    "reg": "Occitanie",
+    "coords": [
+      43.3986,
+      3.6986
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Daurades, Mulets",
+    "tips": "Punto de unione tra il canal et il mer. Forti courants de marée, retenir il flotteur nella scia de la amorce."
+  },
+  {
+    "name": "Port-Vendres (Jetée extérieur)",
+    "reg": "Occitanie",
+    "coords": [
+      42.5214,
+      3.1114
+    ],
+    "type": "Bolognese",
+    "target": "Sars à tête, Bars, Oblades",
+    "tips": "Fond rocheux profond près de ai Pirenei. Excellent avec coup de mer d’est in fin de coup de mer en pêchant nella écume."
+  },
+  {
+    "name": "Grau-du-Roi (Canal marittimo)",
+    "reg": "Occitanie",
+    "coords": [
+      43.5364,
+      4.1347
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets",
+    "tips": "Canal artificiel très pescoso. Pêcher corti au centre du canal all'aube utilizzando come appât il crevette vivante."
+  },
+  {
+    "name": "Port de Agde (Quai dell'Hérault)",
+    "reg": "Occitanie",
+    "coords": [
+      43.2864,
+      3.4725
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Daurades",
+    "tips": "Tratto fluviale-salmastro soggetto a forti escursioni termiche. Excellent dopo le piene quando l'eau schiarisce usando il ver marin coréen."
+  },
+  {
+    "name": "Port Camargue (Canal d'ingresso principale)",
+    "reg": "Occitanie",
+    "coords": [
+      43.5169,
+      4.1294
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Daurades, Sars",
+    "tips": "Grande area marina protetta artificiel. Pêcher lungo i muraglioni de nuit en eschant il crevette vivante au ras des bouées."
+  },
+  {
+    "name": "Port-la-Nouvelle (Canal des lagune)",
+    "reg": "Occitanie",
+    "coords": [
+      43.0214,
+      3.0514
+    ],
+    "type": "Bolognese",
+    "target": "Bars giganti, Mulets, Daurades",
+    "tips": "Canal de collegamento avec l'Étang de Bages. Corrente très violenta, nécessite flotteurs piombati a uovo da 5-8 grammi."
+  },
+  {
+    "name": "Port de Gruissan (Jetées esterni)",
+    "reg": "Occitanie",
+    "coords": [
+      43.1039,
+      3.1114
+    ],
+    "type": "Bolognese",
+    "target": "Daurades, Bars, Oblades",
+    "tips": "Fond misto a sable all'entrée du bacino artificiel. Pasturare a asticots incollati pour contrastare il vent de tramontane."
+  },
+  {
+    "name": "Port de Ajaccio (Jetée jetée de la Citadelle)",
+    "reg": "Corse",
+    "coords": [
+      41.9264,
+      8.7447
+    ],
+    "type": "Bolognese",
+    "target": "Grosse Bars, Sars, Oblades",
+    "tips": "Acque incontaminate et profonde. Pasturare costantemente a piccoli tocchi avec asticots sfusi pendant i cambi de luce."
+  },
+  {
+    "name": "Port de Bastia (Vieux-Port)",
+    "reg": "Corse",
+    "coords": [
+      42.6964,
+      9.4514
+    ],
+    "type": "Bolognese",
+    "target": "Sars, Bars, Mulets",
+    "tips": "Ingresso du port vecchio abrité dai vents occidentali. Pêcher radenti il fondo près de ai blocs de béton artificiali."
+  },
+  {
+    "name": "Port de Bonifacio (Fondo du fiordo)",
+    "reg": "Corse",
+    "coords": [
+      41.3883,
+      9.1614
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Grosses oblades",
+    "tips": "Ambiente unico abrité all'intérieur des scogliere bianche. Pêche fine nocturne rasente le quais des mega yacht."
+  },
+  {
+    "name": "Port de Calvi (Jetée turistico sous la cittadella)",
+    "reg": "Corse",
+    "coords": [
+      42.5694,
+      8.7583
+    ],
+    "type": "Bolognese",
+    "target": "Gros sars, Oblades, Bars",
+    "tips": "Acqua limpidissima avec fond mixte a grands massi. Obligatoire : pêcher de nuit avec bas de ligne longs in fluorocarbone."
+  },
+  {
+    "name": "Port de Propriano (Digue foranea principale)",
+    "reg": "Corse",
+    "coords": [
+      41.6786,
+      8.9014
+    ],
+    "type": "Bolognese",
+    "target": "Sars, Tanudes, Bars",
+    "tips": "Esposto al mer aperto du golfo de Valinco. Molto redditizio pendant le merggiate da ovest en pêchant all'intérieur du jetée."
+  },
+  {
+    "name": "Port de Port-Vecchio (Banchine commerciali)",
+    "reg": "Corse",
+    "coords": [
+      41.5914,
+      9.2883
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Daurades",
+    "tips": "Situato in fondo a une baia très profonde et calma. Excellent pour sessioni hivernales diurne avec pasture al fromage."
+  },
+  {
+    "name": "Vieux-Port de Marseille (Jetée Saint-Jean)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.2947,
+      5.3614
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Sars, Congres",
+    "tips": "Fond vaseux très ricco. Innappâtre il crabe vivant o il ver marin bibi de nuit tra gli amarres des bateaux de pêche."
+  },
+  {
+    "name": "Digue du Large - Port de Marsiglia",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.3114,
+      5.3447
+    ],
+    "type": "Pêche à fond",
+    "target": "Gros sars, Daurades Reali, Pageots",
+    "tips": "Fond extérieur profond et rocheux. Utiliser plombs lourds et montages short-arm resistenti pour evitare incagli."
+  },
+  {
+    "name": "Port de Tolone (Grande Rada / Quai Cronstadt)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.1214,
+      5.9339
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Marbrés, Bars de fondo",
+    "tips": "Fond misto a sable fin all'intérieur du bacino. Excellente la pêche d'attesa a ledgering avec l'arénicole."
+  },
+  {
+    "name": "Port de Cannes (Jetée Albert-Edouard)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.5514,
+      7.0169
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Sars, Rougets de roche",
+    "tips": "Lancer fuori dal jetée sulla sable pulita. Utiliser bas de ligne longs in fluorocarbone pour vincere la diffidenza des pesci."
+  },
+  {
+    "name": "Port de Nizza (Imentréetura Quai Commerce)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.6947,
+      7.2864
+    ],
+    "type": "Pêche à fond",
+    "target": "Sars, Pageots, Rascasses",
+    "tips": "Il fond scende rapidamente au-delà de gli 8 metri. Utiliser plombs aerodinamici et calamenti a due ami sul fondo."
+  },
+  {
+    "name": "Port de Antibes (Jetée Foraneo Quai Nord)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.5883,
+      7.1294
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades Reali, Gros sars",
+    "tips": "Falaises artificiel protesa dans le largo. Innappâtre appâts dure et selettive come la cozza avec guscio o il ver marin bibi."
+  },
+  {
+    "name": "Port de Mentone (Digue foranea est)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.7783,
+      7.5086
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Sars, Marbrés",
+    "tips": "Fond sableux-misto très chiaro. Ideale l'azione nocturne a grande distanza usando fili sottili in bobina."
+  },
+  {
+    "name": "Port de La Ciotat (Banchine esterne)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.1764,
+      5.6083
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Sars à tête, Congres",
+    "tips": "Riparato dal vent de maestrale. Calare l'appât sul gradino de fondo au ras des massicciate artificiali."
+  },
+  {
+    "name": "Port de Cassis (Jetée extérieur falesie)",
+    "reg": "Provence-Alpes-Côte d’Azur",
+    "coords": [
+      43.2114,
+      5.5369
+    ],
+    "type": "Pêche à fond",
+    "target": "Sars, Daurades, Triglie",
+    "tips": "Fond rocheux calcareo. Utiliser un montaggio avec plomb scorrevole leggero pour assecondare la risacca marina."
+  },
+  {
+    "name": "Port de Sète (Jetée Saint-Louis)",
+    "reg": "Occitanie",
+    "coords": [
+      43.3986,
+      3.6986
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades Giganti, Bars, Ombrine",
+    "tips": "Punto strategico de scambio marée. Utiliser plombs piatti a saponetta pour contrastare la courant du canal."
+  },
+  {
+    "name": "Port-Vendres (Jetée extérieur profond)",
+    "reg": "Occitanie",
+    "coords": [
+      42.5214,
+      3.1114
+    ],
+    "type": "Pêche à fond",
+    "target": "Sars à tête, Mostelle, Corbs",
+    "tips": "Zone rocheuse et profonde ai piedi des Pirenei. Innappâtre il verme solitario o strisce de seppia frappât."
+  },
+  {
+    "name": "Grau-du-Roi (Imentréetura Canal marittimo)",
+    "reg": "Occitanie",
+    "coords": [
+      43.5364,
+      4.1347
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars, Daurades, Anguilles",
+    "tips": "Fond vaseux ricco de nutrimento. Ottimi risultati en pêchant à fond de nuit avec il verme americano."
+  },
+  {
+    "name": "Port de Agde (Tratto bas de ligne Hérault)",
+    "reg": "Occitanie",
+    "coords": [
+      33.2864,
+      3.4725
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Bars, Carrelets de mer",
+    "tips": "Fond salmastro. Molto efficace la pêche a feeder (feeder) caricato avec sarda trita et asticots."
+  },
+  {
+    "name": "Port Camargue (Muraglioni canal d'ingresso)",
+    "reg": "Occitanie",
+    "coords": [
+      43.5169,
+      4.1294
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades Reali, Marbrés, Sars",
+    "tips": "Fond sableux pulito. Lancer au centre du canal bloccando la ligne sul fondo, excellente l'arénicole."
+  },
+  {
+    "name": "Port-la-Nouvelle (Canal des lagune extérieur)",
+    "reg": "Occitanie",
+    "coords": [
+      43.0214,
+      3.0514
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades Giganti, Bars, Ombrine",
+    "tips": "Forte courant de marée sul fondo. Utilizzare plombs a piramide lourds pour mantenere ferma l'appât."
+  },
+  {
+    "name": "Port de Gruissan (Jetées d'ingresso esterni)",
+    "reg": "Occitanie",
+    "coords": [
+      43.1039,
+      3.1114
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Marbrés, Raies",
+    "tips": "Sabbia et fango profond. Consigliato l'uso de bas de ligne longs muniti de un piccolo pop-up pour sollevare l'appât."
+  },
+  {
+    "name": "Port de Ajaccio (Jetée jetée de la Citadelle)",
+    "reg": "Corse",
+    "coords": [
+      41.9264,
+      8.7447
+    ],
+    "type": "Pêche à fond",
+    "target": "Gros sars, Daurades Reali",
+    "tips": "Acque très limpides et profonde. Obligatoire : l'uso de calamenti longs in pur fluorocarbone de nuit."
+  },
+  {
+    "name": "Port de Bastia (Digue extérieure Vieux-Port)",
+    "reg": "Corse",
+    "coords": [
+      42.6964,
+      9.4514
+    ],
+    "type": "Pêche à fond",
+    "target": "Sars, Daurades, Congres",
+    "tips": "Lancer au ras des grands scogliere artificiali esterne. Excellent l'appâts du ver marin bibi o du crevette entière."
+  },
+  {
+    "name": "Port de Bonifacio (Banchine interne du fiordo)",
+    "reg": "Corse",
+    "coords": [
+      41.3883,
+      9.1614
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Bars, Rascasses",
+    "tips": "Zone totalmente protetta et profonde. Pêcher corti sul fond vaseux all'ombra des grands bateaux."
+  },
+  {
+    "name": "Port de Calvi (Jetée extérieur sous la fortezza)",
+    "reg": "Corse",
+    "coords": [
+      42.5694,
+      8.7583
+    ],
+    "type": "Pêche à fond",
+    "target": "Gros sars, Tanudes, Corbs",
+    "tips": "Fond rocheux frastagliato très profond. Utiliser montages short-arm sollevate dal fondo pour limitare gli incagli."
+  },
+  {
+    "name": "Port de Propriano (Digue foranea principale)",
+    "reg": "Corse",
+    "coords": [
+      41.6786,
+      8.9014
+    ],
+    "type": "Pêche à fond",
+    "target": "Sars, Daurades, Pageots",
+    "tips": "Fond aperto dans le golfo. Sganciare la montage sul fondo sableux antistante i blocs de béton esterni."
+  },
+  {
+    "name": "Port de Port-Vecchio (Jetées commerciali)",
+    "reg": "Corse",
+    "coords": [
+      41.5914,
+      9.2883
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades Giganti, Marbrés, Bars",
+    "tips": "Fond abrité très calmo. Profiter de l'azione d'attesa nocturne en eschant il couteau o il crabe vivant."
+  },
+  {
+    "name": "Port de Mentone (Vieux Port jetée est)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.7783,
+      7.5086
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Oblades, Sars",
+    "tips": "Acque très limpides al confine italiano. Pêche nocturne fine avec fili dello 0.10 et spallinate très fluide."
+  },
+  {
+    "name": "Port de Monaco (Jetée Rainier III)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.7339,
+      7.4294
+    ],
+    "type": "Bolognese",
+    "target": "Gros sars, Grosses oblades, Bars",
+    "tips": "Fond artificiel profond au-delà de gli 8 metri. Nécessite cannes da 7 o 8 metri et asticots incollati avec ghiaia."
+  },
+  {
+    "name": "Port de Villefranche-sur-Mer (Quai interna)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.7042,
+      7.3114
+    ],
+    "type": "Bolognese",
+    "target": "Oblades, Bars, Saupes",
+    "tips": "Baia profonde et abritée dai vents. Excellent lo street fishing nocturne rasente le cime des bouées et des barche."
+  },
+  {
+    "name": "Port de Nizza (Quai Commerce)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.6947,
+      7.2864
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Sars, Saupes",
+    "tips": "Fond immédiatement profond. Utiliser flotteurs scorrevoli légers o lignes ben raggruppate pour descendre rapidi l'appât."
+  },
+  {
+    "name": "Port de Antibes (Jetée Foraneo Quai Nord)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.5883,
+      7.1294
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Sars, Oblades",
+    "tips": "Jetée extérieur lungo avec massicciata rocheuse artificiel. Profiter de la fin de coup de mer de sirocco en pêchant nella écume."
+  },
+  {
+    "name": "Port de Cannes (Jetée Albert-Edouard)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.5514,
+      7.0169
+    ],
+    "type": "Bolognese",
+    "target": "Grosses oblades, Bars, Sars",
+    "tips": "Acqua très limpide. Pêcher rigorosamente de nuit avec fiondate continue de pochissimi asticots alla volta."
+  },
+  {
+    "name": "Port de Saint-Tropez (Jetée Jean-Réveille)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.2739,
+      6.6386
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Sars, Oblades",
+    "tips": "Ingresso du port turistico. Excellente l'azione all'aube en retenant il flotteur sul taglio de la courant extérieure."
+  },
+  {
+    "name": "Port de Saint-Malo (Jetées interni du bacino)",
+    "reg": "Bretagne",
+    "coords": [
+      48.6447,
+      -2.0169
+    ],
+    "type": "Bolognese",
+    "target": "Bars (Bars), Mulets, Vecchie",
+    "tips": "Fortissima escursione de marée. Pêcher nelle due ore centrali dell'alta marée en retenant la ligne près de alle paratie."
+  },
+  {
+    "name": "Port de Brest (Jetée de la Praye)",
+    "reg": "Bretagne",
+    "coords": [
+      48.3814,
+      -4.4839
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Merlans",
+    "tips": "Zone portuale profonde et battuta da forti courants atlantiche. Utiliser flotteurs da 4-6 grammi et pasture al fromage."
+  },
+  {
+    "name": "Port de Concarneau (Banchine du centro storico)",
+    "reg": "Bretagne",
+    "coords": [
+      47.8714,
+      -3.9164
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets",
+    "tips": "Acque salmastre riparate dalle mura. Excellent lo street fishing nocturne sous i lampioni usando il crevette vivante locale."
+  },
+  {
+    "name": "Port de Lorient (Bacino de Keroman)",
+    "reg": "Bretagne",
+    "coords": [
+      47.7339,
+      -3.3669
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Sgombri",
+    "tips": "Zone portuale commerciale ricca de scarti de pesce. Profiter de la amorcezione avec sardines broyée stesi sul fondo."
+  },
+  {
+    "name": "Port de Quiberon (Port Maria)",
+    "reg": "Bretagne",
+    "coords": [
+      47.4794,
+      -3.1214
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Sars oceanici, Vecchie",
+    "tips": "Jetée esposto alle courants de la penisola. Pêcher all'extérieur du braccio artificiel pendant la marée montante."
+  },
+  {
+    "name": "Port de La Rochelle (Bassin des Chalutiers)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      46.1514,
+      -1.1514
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Daurades",
+    "tips": "Bacino portuale abrité dalle merggiate esterne. Pêcher rasente i piloni de legno et le quais flotteurs de nuit."
+  },
+  {
+    "name": "Port de Bayonne (Embouchure dell'Adour)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      43.5194,
+      -1.4694
+    ],
+    "type": "Bolognese",
+    "target": "Bars giganti, Mulets",
+    "tips": "Forte courant fluviale et salmastra. Nécessite flotteurs a uovo lourds (5-8g) et passate trattenute près de alla sponda."
+  },
+  {
+    "name": "Port de Saint-Jean-de-Luz (Jetée extérieur)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      43.3914,
+      -1.6669
+    ],
+    "type": "Bolognese",
+    "target": "Sars oceanici, Bars, Daurades",
+    "tips": "Baia protetta dalle dighe dans le Golfo de Guascogna. Excellent avec coup de mer extérieure in fin de coup de mer en pêchant all'intérieur."
+  },
+  {
+    "name": "Port de Arcachon (Banchine du port turistico)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      44.6614,
+      -1.1539
+    ],
+    "type": "Bolognese",
+    "target": "Daurades, Bars, Mulets",
+    "tips": "Forti courants dovute allo svuotamento de la laguna (bacino). Pêcher rigorosamente dans les momenti de stasi de la marée."
+  },
+  {
+    "name": "Port de Royan (Imentréetura dell'estuario de la Gironda)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      45.6194,
+      -1.0314
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Ombrine entrée d'oro",
+    "tips": "Acque fangose et ricche de nutrimento. Utilizzare appâts visibili o pasture très cariche all'inizio de la marée calante."
+  },
+  {
+    "name": "Port de Cherbourg (Digue de Querqueville)",
+    "reg": "Normandie",
+    "coords": [
+      49.6639,
+      -1.6947
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Merlans (Tacauds)",
+    "tips": "Una des dighe artificiali più grands du canal de la Manica. Nécessite bolognesi da 7-8 metri et lignes lourds appoggiate sul fondo."
+  },
+  {
+    "name": "Port de Le Havre (Jetée Nord)",
+    "reg": "Normandie",
+    "coords": [
+      49.4839,
+      0.0986
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Sgombri",
+    "tips": "Fond profond commerciale. Profiter de i flussi de marée montante en pêchant all'ombra des grands strutture de cemento."
+  },
+  {
+    "name": "Port de Dieppe (Canal d'ingresso des navi)",
+    "reg": "Normandie",
+    "coords": [
+      49.9294,
+      1.0864
+    ],
+    "type": "Bolognese",
+    "target": "Bars giganti, Mulets, Soles de fondo",
+    "tips": "Canal stretto battuto dalle mere. Pêcher vicinissimo alla massicciata de pietra fermando il flotteur dans les giri de courant."
+  },
+  {
+    "name": "Port de Ouistreham (Port canal des chiuse)",
+    "reg": "Normandie",
+    "coords": [
+      49.2864,
+      -0.2539
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets",
+    "tips": "Sbocco du canal de Caen a mer. Le quais près de alle chiuse sono ottime dopo l'apertura des paratie pour il pesce in cerca de cibo."
+  },
+  {
+    "name": "Port de Fécamp (Jetée Sud)",
+    "reg": "Normandie",
+    "coords": [
+      49.7614,
+      0.3669
+    ],
+    "type": "Bolognese",
+    "target": "Bars, Mulets, Merlus",
+    "tips": "Fonfale caratterizzato da falesie de gesso. Pêcher all'intérieur du canal d'ingresso abrités dai vents settentrionali de nuit."
+  },
+  {
+    "name": "Port de Mentone (Digue foranea est)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.7783,
+      7.5086
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Sars, Marbrés",
+    "tips": "Fond sableux-misto très chiaro. Ideale l'azione nocturne a grande distanza usando fili sottili in bobina."
+  },
+  {
+    "name": "Port de Monaco (Jetée Rainier III)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.7339,
+      7.4294
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades Reali, Gros sars, Congres",
+    "tips": "Fond artificiel très profond. Utiliser plombs lourds scorrevoli et appâtsr il crabe vivant o il ver marin bibi."
+  },
+  {
+    "name": "Port de Villefranche-sur-Mer (Fond de la baia)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.7042,
+      7.3114
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Pageots, Rougets de roche",
+    "tips": "Rada profonde et fangosa avec zone de detriti. Excellent il ledgering leggero nocturne avec l'arénicole."
+  },
+  {
+    "name": "Port de Nizza (Imentréetura Quai Commerce)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.6947,
+      7.2864
+    ],
+    "type": "Pêche à fond",
+    "target": "Sars, Pageots, Rascasses",
+    "tips": "Il fond scende rapidamente au-delà de gli 8 metri. Utiliser plombs aerodinamici et calamenti a due ami sul fondo."
+  },
+  {
+    "name": "Port de Antibes (Jetée Foraneo Quai Nord)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.5883,
+      7.1294
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades Reali, Gros sars",
+    "tips": "Falaises artificiel protesa dans le largo. Innappâtre appâts dure et selettive come la cozza avec guscio o il ver marin bibi."
+  },
+  {
+    "name": "Port de Cannes (Jetée Albert-Edouard)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.5514,
+      7.0169
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Sars, Rougets de roche",
+    "tips": "Lancer fuori dal jetée sulla sable pulita. Utiliser bas de ligne longs in fluorocarbone pour vincere la diffidenza des pesci."
+  },
+  {
+    "name": "Port de Saint-Tropez (Esterno digue Jean-Réveille)",
+    "reg": "Côte d’Azur",
+    "coords": [
+      43.2739,
+      6.6386
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Sars, Marbrés",
+    "tips": "Lancer sulle radure sabbiose tra le praterie de posidonia. Excellent l'appâts du verme americano de nuit."
+  },
+  {
+    "name": "Port de Saint-Malo (Jetées esterni du bacino)",
+    "reg": "Bretagne",
+    "coords": [
+      48.6447,
+      -2.0169
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars, Raies, Rombi",
+    "tips": "Forte escursione de marée. Lancer sul canal sableux profond usando plombs a tenuta (spike) et trancio de sarda."
+  },
+  {
+    "name": "Port de Brest (Banchine esterne de la Praye)",
+    "reg": "Bretagne",
+    "coords": [
+      48.3814,
+      -4.4839
+    ],
+    "type": "Pêche à fond",
+    "target": "Grosse Bars, Rombi, Congres",
+    "tips": "Fond profond avec courants costanti atlantiche. Utilizzare calamenti robusti à fond avec il ver marin bibi o il muriddu."
+  },
+  {
+    "name": "Port de Concarneau (Imentréetura du canal)",
+    "reg": "Bretagne",
+    "coords": [
+      47.8714,
+      -3.9164
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars, Daurades, Soles",
+    "tips": "Fond sableux-vaseux ricco de crostacei. Molto redditizio l'appâts du granchio o du verme solitario."
+  },
+  {
+    "name": "Port de Lorient (Jetées industriali de Keroman)",
+    "reg": "Bretagne",
+    "coords": [
+      47.7339,
+      -3.3669
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars, Congres, Raies",
+    "tips": "Fond vaseux portuale ricco de scarti de pesce. Profiter de la pêche d'attesa nocturne avec la sarda intera sul fondo."
+  },
+  {
+    "name": "Port de Quiberon (Digue extérieure Port Maria)",
+    "reg": "Bretagne",
+    "coords": [
+      47.4794,
+      -3.1214
+    ],
+    "type": "Pêche à fond",
+    "target": "Sars oceanici, Bars, Vecchie",
+    "tips": "Massicciata artificiel rocheuse profonde. Calare l'appât stesa sul fondo rasente la base degli scogli esterni."
+  },
+  {
+    "name": "Port de La Rochelle (Jetées du Bassin des Chalutiers)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      46.1514,
+      -1.1514
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades, Bars, Ombrine",
+    "tips": "Bacino abrité dal moto ondoso. Excellent il ledgering avec feeder (feeder) caricato a pasture chiare et asticots."
+  },
+  {
+    "name": "Port de Bayonne (Argine de la embouchure dell'Adour)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      43.5194,
+      -1.4694
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars giganti, Ombrine entrée d'oro",
+    "tips": "Corrente fluviale violenta sul fondo. Utiliser plombs a piramide lourds et inneschi vistosi come il verme americano."
+  },
+  {
+    "name": "Port de Saint-Jean-de-Luz (Digue interna)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      43.3914,
+      -1.6669
+    ],
+    "type": "Pêche à fond",
+    "target": "Sars oceanici, Daurades, Bars",
+    "tips": "Fond misto protetto dalle forti merggiate. Excellent pendant i picchi de alta marée avec il granchio o il ver marin bibi."
+  },
+  {
+    "name": "Port de Arcachon (Canali esterni du bacino)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      44.6614,
+      -1.1539
+    ],
+    "type": "Pêche à fond",
+    "target": "Daurades Reali, Marbrés Giganti",
+    "tips": "Forti courants dovute allo svuotamento lagunare. Lancer dans les canaloni de sable pulita usando l'arénicole."
+  },
+  {
+    "name": "Port de Royan (Jetées dell'estuario de la Gironda)",
+    "reg": "Nuova Aquitania",
+    "coords": [
+      45.6194,
+      -1.0314
+    ],
+    "type": "Pêche à fond",
+    "target": "Ombrine entrée d'oro, Bars, Mulets",
+    "tips": "Acque fangose ricche de oligoelementi. Utiliser appâts dal forte potere olfattivo come il verme de Rimini o la sarda."
+  },
+  {
+    "name": "Port de Cherbourg (Digue extérieure de Querqueville)",
+    "reg": "Normandie",
+    "coords": [
+      49.6639,
+      -1.6947
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars, Raies, Merlans",
+    "tips": "Una des dighe più grands de la Manica. Nécessite équipement lourde dà fond et bas de ligne corti pour evitare grovigli."
+  },
+  {
+    "name": "Port de Le Havre (Jetée Nord extérieur)",
+    "reg": "Normandie",
+    "coords": [
+      49.4839,
+      0.0986
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars, Soles, Sgombri de fondo",
+    "tips": "Fond sableux-vaseux très profond. Profiter de la marée montante en pêchant à fond stesi sul fango avec l'arénicole."
+  },
+  {
+    "name": "Port de Dieppe (Canal d'ingresso massicciata)",
+    "reg": "Normandie",
+    "coords": [
+      49.9294,
+      1.0864
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars giganti, Soles, Carrelets",
+    "tips": "Canal stretto esposto a forti mere. Lancer radenti alla barriera de pietra usando plombs a tenuta et ver marin coréen."
+  },
+  {
+    "name": "Port de Ouistreham (Sbocco canal des chiuse)",
+    "reg": "Normandie",
+    "coords": [
+      49.2864,
+      -0.2539
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars, Anguilles, Soles",
+    "tips": "Fond vaseux de embouchure salmastra. Profiter de l'apertura des paratie des chiuse en pêchant à fond avec il ver marin bibi."
+  },
+  {
+    "name": "Port de Fécamp (Jetée Sud extérieur)",
+    "reg": "Normandie",
+    "coords": [
+      49.7614,
+      0.3669
+    ],
+    "type": "Pêche à fond",
+    "target": "Bars, Merlus, Carrelets",
+    "tips": "Fond misto a ciottoli et roche calcaire. Excellente la pêche nocturne d'attesa en eschant il couteau o il muriddu."
+  },
+  {
+    "nome": "Rivière Adour a Dax",
+    "lat": 43.7125,
+    "lon": -1.0534,
+    "desc": "Spot fluviale avec courant sostenuta et buona profondeur, parfait pour passate longues controllando la linea.",
+    "technique": "Bolognese",
+    "target": "Chevesnes, barbeaux et gardons",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Digue de Sainte-Barbe (Saint-Jean-de-Luz)",
+    "lat": 43.3958,
+    "lon": -1.6631,
+    "desc": "Structure portuaire et enrochement artificiel abrités de la houle, excellents pour pêcher à fond et entre deux eaux au flotteur.",
+    "technique": "Bolognese",
+    "target": "Bars, sars et mulets",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Port de Capbreton",
+    "lat": 43.6542,
+    "lon": -1.4428,
+    "desc": "Jetée et quais intérieurs abrités où le courant de marée permet des coulées précises avec des appâts naturels.",
+    "technique": "Bolognese",
+    "target": "Bars, daurades et mulets",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Rivière Lot a Villeneuve-sur-Lot",
+    "lat": 44.4072,
+    "lon": 0.7042,
+    "desc": "Rivière large et profonde à courants réguliers, idéale avec des canness longues (6-7 m) et une amorce lourde.",
+    "technique": "Bolognese",
+    "target": "Brèmes, carpes et gardons",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Rivière Charente a Jarnac",
+    "lat": 45.6811,
+    "lon": -0.1772,
+    "desc": "Tronçon de rivière lent et profond, parfait pour la pêche au coup à longue distance en contrôlant la retenue du flotteur.",
+    "technique": "Bolognese",
+    "target": "Gardons, breme et chevesnes",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de Biscarrosse Plage",
+    "lat": 44.4442,
+    "lon": -1.2514,
+    "desc": "Plage océanique exposée typique, excellente pour la pêche à fond lourde (surfcasting) entre les baïnes de marée.",
+    "technique": "Pêche à fond / Surfcasting",
+    "target": "Bars, ombrines et sars",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Banchine de Royan (Estuario de la Gironda)",
+    "lat": 45.6214,
+    "lon": -1.0289,
+    "desc": "Zone d’estuaire à fort courant et fond mixte, idéale pour les plombs lourds qui tiennent sur les rochers ou depuis la jetée.",
+    "technique": "Pêche à fond",
+    "target": "Daurades, bars et ombrines",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Lac de Biscarrosse et Parentis",
+    "lat": 44.3411,
+    "lon": -1.1442,
+    "desc": "Grand lac intérieur avec herbiers aquatiques et fonds sablo-vaseux, parfait pour le carpfishing et le feeder lourd.",
+    "technique": "Pêche à fond / Feeder / Carpfishing",
+    "target": "Carpes, tanches et grands abramidi",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Rivière Dordogna a Bergerac",
+    "lat": 44.8512,
+    "lon": 0.4825,
+    "desc": "Large portion de rivière au fond caillouteux avec enrochements artificiels, idéale pour maintenir le feeder dans le courant.",
+    "technique": "Pêche à fond / Feeder",
+    "target": "Barbeaux, chevesnes et carpes",
+    "region": "Nouvelle-Aquitaine"
+  },
+  {
+    "nome": "Plage de Hendaye (Plage d'Hendaye)",
+    "lat": 43.3725,
+    "lon": -1.7753,
+    "desc": "Plage de sable abritée près de la frontière espagnole, idéale pour une pêche à fond plus légère par mer calme.",
+    "technique": "Pêche à fond / Beach Ledgering",
+    "target": "Marbrés, soles et daurades",
+    "region": "Nouvelle-Aquitaine"
+  }
+]
