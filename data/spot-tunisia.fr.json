@@ -30,7 +30,7 @@
     "tips": ""
   },
   {
-    "nome": "Digue de Menzel Bourguiba (Intérieur lago di Biserta)",
+    "nome": "Digue de Menzel Bourguiba (Intérieur lac di Biserta)",
     "lat": 37.1539,
     "lon": 9.7947,
     "desc": "Spot d'Eging en Tunisie.",
@@ -100,7 +100,7 @@
     "tips": ""
   },
   {
-    "nome": "Jetée de Gammarth Marina",
+    "nome": "Jetée de Gammarth Marine",
     "lat": 36.9364,
     "lon": 10.2914,
     "desc": "Spot d'Eging en Tunisie.",
@@ -110,7 +110,7 @@
     "tips": ""
   },
   {
-    "nome": "Ponton de Radès (Embouchure du canal)",
+    "nome": "Pont de Radès (Embouchure du canal)",
     "lat": 36.8042,
     "lon": 10.2786,
     "desc": "Spot d'Eging en Tunisie.",
@@ -170,7 +170,7 @@
     "tips": ""
   },
   {
-    "nome": "Port de Kélibia (Lato extérieur jetée extérieur)",
+    "nome": "Port de Kélibia ( côté extérieur jetée extérieur)",
     "lat": 36.8364,
     "lon": 11.1169,
     "desc": "Spot d'Eging en Tunisie.",
@@ -1315,7 +1315,7 @@
     "lon": 8.9344,
     "desc": "",
     "technique": "Pêche de fond",
-    "target": "Grossess daurades royales, Mérous bruns, Sars",
+    "target": "Grosses daurades royales, Mérous bruns, Sars",
     "region": "Bizerte",
     "tips": "Spot selvaggio avec roche et posidonie. Requiert lignes robustes à bobine et plombs lourds idrodinamici."
   },
@@ -1415,7 +1415,7 @@
     "lon": 11.1169,
     "desc": "",
     "technique": "Pêche de fond",
-    "target": "Grossess daurades royales, Sars, Pageots",
+    "target": "Grosses daurades royales, Sars, Pageots",
     "region": "Cap Bon",
     "tips": "Spot profond exposé al mer ouvert. Terminali longs à fluorocarbon et hameçons d'acciaio pour resistere aux daurades royales."
   },
@@ -1627,7 +1627,7 @@
     "technique": "Bolognaise",
     "target": "Bars, Sars, Oblades",
     "region": "Sfax",
-    "tips": "Punto de fort échange idrico entre le hauts-fonds lagunari. Pêcher sur le taglio de la courant pendant l'alta marée."
+    "tips": "Point fort échange idrico entre le hauts-fonds lagunari. Pêcher sur le taglio de la courant pendant la marée haute."
   },
   {
     "nome": "Jetée de Aghir (Île de Djerba)",
@@ -1815,7 +1815,7 @@
     "lon": 10.0521,
     "desc": "Grande plage sableuse à au nord du centre-ville, caratterizzata de vastes hauts-fonds entrecoupés de chenaux naturels creati des marées, excellente pour le surfcasting à longue distance.",
     "technique": "Surfcasting",
-    "target": "Grossess daurades royales, marbrés et bars",
+    "target": "Grosses daurades royales, marbrés et bars",
     "region": "Gabès",
     "tips": ""
   },
@@ -2215,7 +2215,7 @@
     "lon": 10.0521,
     "desc": "Grande plage sableuse au nord de Gabès. Caratterizzata de vastes hauts-fonds entrecoupés de chenaux naturels, est uno spot parfait pour présenter les appâts sur le fond à la ricerca des poissons fouilleurs.",
     "technique": "Pêche de fond",
-    "target": "Grossess daurades royales, marbrés et bars",
+    "target": "Grosses daurades royales, marbrés et bars",
     "region": "Gabès",
     "tips": ""
   },
