@@ -1780,10 +1780,11 @@ function showMontature() {
   renderMontature(montatureData);
 }
 function showMontaturaDetail(id) {
-  const m = montatureData.find(x => x.id === id); if (!m) return;
- const imgMontatura = linguaAttuale === "fr"
-  ? m.img.replace("./img/montature/", "./img/montature/fr/")
-  : m.img;
+ const imgMontatura = linguaAttuale === "fr" &&
+  !m.img.includes("20_montatura-eging.jpg") &&
+  !m.img.includes("21_montatura-spinning.jpg")
+    ? m.img.replace("./img/montature/", "./img/montature/fr/")
+    : m.img;
   document.getElementById("content").innerHTML = `
     <div style="animation:fadeIn 0.3s ease; padding-bottom: 20px;">
           <!-- Intestazione -->
