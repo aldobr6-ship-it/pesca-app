@@ -1780,7 +1780,10 @@ function showMontature() {
   renderMontature(montatureData);
 }
 function showMontaturaDetail(id) {
- const imgMontatura = linguaAttuale === "fr" &&
+  const m = montatureData.find(x => x.id === id);
+  if (!m) return;
+
+  const imgMontatura = linguaAttuale === "fr" &&
   !m.img.includes("20_montatura-eging.jpg") &&
   !m.img.includes("21_montatura-spinning.jpg")
     ? m.img.replace("./img/montature/", "./img/montature/fr/")
