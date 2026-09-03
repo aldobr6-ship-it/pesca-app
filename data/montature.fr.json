@@ -17,5 +17,28 @@
   { "id":"minitrave-snodato",         "nome":"Mini-Traîne Articulée 360°",  "emoji":"🔄", "img":"./img/montature/16_minitrave_snodato_360.jpg",     "desc":"Articulation à rotation totale: les divergents suivent le courant. Zéro emmêlement.",  "quando":"Courants variables • Rochers • Avancé",           "esche":"Crevette • Ver de sable • Moule",                   "target":"Dorade • Sar • Marbré",            "video":"https://www.youtube.com/results?search_query=minitrave+snodato+360+gradi+surfcasting" },
   { "id":"terminale-serra",           "nome":"Bas de Ligne Tassergal",      "emoji":"⚠️", "img":"./img/montature/17_terminale_serra.jpg",           "desc":"Bas de ligne en acier multi-brin: les dents du tassergal coupent n'importe quel fil!", "quando":"Juillet–Septembre • Spinning • Surfcasting",           "esche":"Minnow • Jerkbait • Metal jig • Morceau de maquereau",  "target":"Tassergal",                         "video":"https://www.youtube.com/results?search_query=pesce+serra+terminale+acciaio+pesca" },
   { "id":"bandiera",                  "nome":"A Drapeau",                  "emoji":"🚩", "img":"./img/montature/18_bandiera.jpg",                   "desc":"Bras latéral en angle, excellent pour éviter les emmêlements.",                          "quando":"Mer agitée ou en décrue",                       "esche":"Ver de sable • Coréen • Américain • Couteau",                "target":"Bar • Marbré • Sar • Dorade • Maquereau", "video":"https://www.youtube.com/results?search_query=montatura+bandiera+pesca+fondo" },
-  { "id":"running-feeder-rig",        "nome":"Running Feeder Rig",         "emoji":"🎣", "img":"./img/montature/19_running_feeder_rig.jpg",     "desc":"Montage avec mangeoire coulissante, un bas de ligne et un bras avec pop-up.", "quando":"Mer Calme / Plate ou en Décrue",               "esche":"Ver de sable • Coréen • Américain • Asticot • Bibi", "target":"Bar • Marbré • Sar • Dorade • Rouget • Muge • Liche",  "video":"https://www.youtube.com/watch?v=TXRd8M-1jy8" }
+  { "id":"running-feeder-rig",        "nome":"Running Feeder Rig",         "emoji":"🎣", "img":"./img/montature/19_running_feeder_rig.jpg",     "desc":"Montage avec mangeoire coulissante, un bas de ligne et un bras avec pop-up.", "quando":"Mer Calme / Plate ou en Décrue",               "esche":"Ver de sable • Coréen • Américain • Asticot • Bibi", "target":"Bar • Marbré • Sar • Dorade • Rouget • Muge • Liche",  "video":"https://www.youtube.com/watch?v=TXRd8M-1jy8" },
+  ,
+{
+  "id":"montatura-eging",
+  "nome":"Montage Eging",
+  "emoji":"🦑",
+  "img":"./img/montature/20_montatura-eging.jpg",
+  "desc":"Montage dédié à la pêche eging avec un leurre artificiel pour les céphalopodes.",
+  "quando":"Port • Côte rocheuse • Aube • Crépuscule • Nuit",
+  "esche":"Egi • Turlutte",
+  "target":"Seiche • Calamar • Encornet",
+  "video":"https://www.youtube.com/results?search_query=montatura+eging+pesca"
+},
+{
+  "id":"montatura-spinning",
+  "nome":"Montage Spinning",
+  "emoji":"🎣",
+  "img":"./img/montature/21_montatura-spinning.jpg",
+  "desc":"Montage pour la pêche au spinning avec un leurre artificiel et récupération active.",
+  "quando":"Côte rocheuse • Port • Embouchure • Mer agitée",
+  "esche":"Minnow • Jerkbait • Leurre souple • Metal Jig",
+  "target":"Bar • Tassergal • Sériole • Barracuda",
+  "video":"https://www.youtube.com/results?search_query=montatura+spinning+pesca+mare"
+}
 ]
