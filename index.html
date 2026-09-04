@@ -3935,7 +3935,7 @@ window.addEventListener("load", function() {
 // Registrazione del Service Worker per il supporto offline (PWA)
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
-    navigator.serviceWorker.register("./sw.js").catch(function(err) {
+    navigator.serviceWorker.register("./sw.js?v=20260904").catch(function(err) {
       console.log("Service Worker non registrato:", err);
     });
   });
