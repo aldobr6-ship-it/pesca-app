@@ -1496,6 +1496,35 @@ function showSpinning() {
     <div class="card"><b>${t('videoTutorial')}</b><br><a href="${linguaAttuale === 'fr' ? videoTecniche.spinning.fr : videoTecniche.spinning.it}" target="_blank" rel="noopener">${t('guardaSuYoutube')}</a></div>
     <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
 }
+  function apriSpecieEging(index) {
+  const lista = linguaAttuale === "fr"
+    ? [
+        {nome:"Calamar", img:"./img/calamaro.jpg"},
+        {nome:"Seiche", img:"./img/seppia.jpg"},
+        {nome:"Encornet", img:"./img/totano.jpg"}
+      ]
+    : tecnicheData.eging.specie;
+
+  const item = lista[index];
+  const container = document.getElementById("egingSpecieDetail");
+
+  if (!item || !container) return;
+
+  container.innerHTML = `
+    <div style="margin-top:12px;text-align:center;">
+      <img
+        src="${item.img}"
+        alt="${item.nome}"
+        style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;display:block;margin:0 auto;cursor:zoom-in;"
+        onclick="mostraEscaFullscreen(event,'${item.img}','${item.nome}')"
+        onerror="imgFallback(this,'${item.nome} non disponibile')"
+      >
+      <p style="font-size:10px;opacity:0.5;margin:4px 0 0;">
+        🔍 ${linguaAttuale === "fr" ? "Cliquez pour agrandir" : "Clicca per ingrandire"}
+      </p>
+    </div>
+  `;
+}
 function showEging() {
   const dati = tecnicheData.eging;
   const txt = linguaAttuale === "fr" ? egingText.fr : egingText.it;
@@ -1517,7 +1546,20 @@ function showEging() {
     </div>
     <div class="card"><h3>${t('proLabel')}</h3><ul>${txt.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
     <div class="card"><h3>${t('controLabel')}</h3><ul>${txt.contro.map(c=>`<li>${c}</li>`).join("")}</ul></div>
-    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
+    <div class="card">
+  <h3>${t('specieConsigliate')}</h3>
+
+  <div class="mini-container">
+    ${specieList.map((item, index) => `
+      <div class="mini-card"
+           onclick="apriSpecieEging(${index})">
+        ${item.nome}
+      </div>
+    `).join("")}
+  </div>
+
+  <div id="egingSpecieDetail"></div>
+</div>
     <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(dati.esche)}</div>
     <div class="card"><b>${t('videoTutorial')}</b><br><a href="${linguaAttuale === 'fr' ? videoTecniche.eging.fr : videoTecniche.eging.it}" target="_blank" rel="noopener">${t('guardaSuYoutube')}</a></div>
     <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
