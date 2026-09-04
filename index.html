@@ -2348,7 +2348,7 @@ function toggleImageBox(id, imgPath, button) {
 function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
   lista.forEach((item, index) => {
-   const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
+    const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
     html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;text-align:center;"><img src="${item.img}" onclick="event.stopPropagation();mostraEscaFullscreen(event,'${item.img}','${item.nome}')" class="img-box-bg" style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:4px 0 0;">🔍 Tocca per ingrandire</p></div></div>`;
   });
   return html + "</div>";
