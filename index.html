@@ -1917,7 +1917,15 @@ function showMontaturaDetail(id) {
 }
 function mostraPescePopup(nomePesce) {
   let urlImmagine = "";
-  const nomeTargetCercato = nomePesce.trim().toLowerCase();
+  const nomeOriginale = nomePesce.trim().toLowerCase();
+
+const aliasPesce = {
+  "calamar": "calamaro",
+  "seiche": "seppia",
+  "encornet": "totano"
+};
+
+const nomeTargetCercato = aliasPesce[nomeOriginale] || nomeOriginale;
 
   if (typeof specie !== 'undefined') {
     // 1. Prova ricerca esatta sul nome
@@ -1947,10 +1955,18 @@ function mostraPescePopup(nomePesce) {
     }
   }
   // Fallback se non trova nulla nel database specie
-  if (!urlImmagine) {
-    const fileNome = nomePesce.trim().toLowerCase().replace(/\s+/g, '-');
-    urlImmagine = `img/${fileNome}.jpg`;
-  }
+ if (!urlImmagine) {
+  const immaginiTargetFr = {
+    "calamar": "img/calamaro.jpg",
+    "seiche": "img/seppia.jpg",
+    "encornet": "img/totano.jpg"
+  };
+
+  urlImmagine =
+    linguaAttuale === "fr" && immaginiTargetFr[nomeOriginale]
+      ? immaginiTargetFr[nomeOriginale]
+      : `img/${nomeOriginale.replace(/\s+/g, '-')}.jpg`;
+}
   // Generazione Popup Piccolo Bianco
   const vecchioPopup = document.getElementById("pescePopup");
   if (vecchioPopup) vecchioPopup.remove();
