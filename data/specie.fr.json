@@ -16,5 +16,5 @@
   "ricciola":{"nome":"La Sériole","scientifico":"Seriola dumerili","img":"img/ricciola.jpg","descrizione":"Grand prédateur pélagique.","tecniche":"Spinning, traîne","montature":["Traînard / Empile Longue","Plomb Coulissant"],"stagione":[6,7,8,9,10]},
   "totano":{"nome":"L'Encornet / Le Touten","scientifico":"Todarodes sagittatus","img":"img/totano.jpg","descrizione":"Céphalopode pêché en profondeur.","tecniche":"Eging, Pêche au palangrotte","montature":["Paternoster","Plomb Coulissant"],"stagione":[1,2,10,11,12]},
   "seppia":{"nome":"La Seiche","scientifico":"Sepia officinalis","img":"img/seppia.jpg","descrizione":"Céphalopode côtier très répandu.","tecniche":"Eging","montature":["Plomb Coulissant","Paternoster"],"stagione":[4,5,10,11,12]},
-  "barracuda":{"nome":"Barracuda","scientifico":"Sphyraena barracuda","img":"img/barracuda.jpg","descrizione":"Grande predatore costiero rapido e aggressivo.","tecniche":"Spinning","montature":["Montatura Spinning"],"stagione":[5,6,7,8,9,10]}
+ "barracuda":{"nome":"Le Barracuda","scientifico":"Sphyraena barracuda","img":"img/barracuda.jpg","descrizione":"Grand prédateur côtier rapide et agressif.","tecniche":"Spinning","montature":["Montage Spinning"],"stagione":[5,6,7,8,9,10]}
 }
