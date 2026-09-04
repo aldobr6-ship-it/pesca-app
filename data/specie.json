@@ -15,5 +15,6 @@
   "dentice":{"nome":"Dentice","scientifico":"Dentex dentex","img":"img/dentice.jpg","descrizione":"Predatore di fondale roccioso.","tecniche":"Fondo, vivo","montature":["long-arm","trave"],"stagione":[3,4,5,6,7,8,9,10]},
   "ricciola":{"nome":"Ricciola","scientifico":"Seriola dumerili","img":"img/ricciola.jpg","descrizione":"Grande predatore pelagico.","tecniche":"Spinning, traina","montature":["long-arm","piombo-scorrevole"],"stagione":[6,7,8,9,10]},
   "totano":{"nome":"Totano","scientifico":"Todarodes sagittatus","img":"img/totano.jpg","descrizione":"Cefalopode pescato in profondità.","tecniche":"Eging, bolentino","montature":["paternoster","piombo-scorrevole"],"stagione":[1,2,10,11,12]},
-  "seppia":{"nome":"Seppia","scientifico":"Sepia officinalis","img":"img/seppia.jpg","descrizione":"Cefalopode costiero molto diffuso.","tecniche":"Eging","montature":["piombo-scorrevole","paternoster"],"stagione":[4,5,10,11,12]}
+  "seppia":{"nome":"Seppia","scientifico":"Sepia officinalis","img":"img/seppia.jpg","descrizione":"Cefalopode costiero molto diffuso.","tecniche":"Eging","montature":["piombo-scorrevole","paternoster"],"stagione":[4,5,10,11,12]},
+  "barracuda":{  "nome":"Barracuda","scientifico":"Sphyraena barracuda","img":"img/barracuda.jpg","descrizione":"Grande predatore costiero rapido e aggressivo.","tecniche":"Spinning","montature":["Montatura Spinning"],"stagione":[5,6,7,8,9,10]
 }
