@@ -1499,7 +1499,13 @@ function showSpinning() {
 function showEging() {
   const dati = tecnicheData.eging;
   const txt = linguaAttuale === "fr" ? egingText.fr : egingText.it;
-  const specieList = linguaAttuale === "fr" ? [{nome:"Calamar",img:"img/calamaro.jpg"},{nome:"Seiche",img:"img/seppia.jpg"},{nome:"Encornet",img:"img/totano.jpg"}] : dati.specie;
+  const specieList = linguaAttuale === "fr"
+  ? [
+      {nome:"Calamar", img:"./img/calamaro.jpg"},
+      {nome:"Seiche", img:"./img/seppia.jpg"},
+      {nome:"Encornet", img:"./img/totano.jpg"}
+    ]
+  : dati.specie;
   document.getElementById("content").innerHTML = `
     <h2>🦑 Eging</h2>
     <div class="card"><h3>${t('quandoUsarla')}</h3><p>${txt.quando}</p></div>
