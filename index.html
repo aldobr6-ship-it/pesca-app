@@ -2348,8 +2348,26 @@ function toggleImageBox(id, imgPath, button) {
 function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
   lista.forEach((item, index) => {
-    const safeId = "img-" + item.nome.replace(/[^a-zA-Z0-9]/g,"_") + "-" + index;
-    html += `<div class="mini-card" onclick="toggleImgById('${safeId}')">${item.nome}<div id="${safeId}" style="display:none;margin-top:8px;text-align:center;"><img src="${item.img}" onclick="event.stopPropagation();mostraEscaFullscreen(event,'${item.img}','${item.nome}')" class="img-box-bg" style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;" onerror="imgFallback(this,'${item.nome} non disponibile')"><p style="font-size:10px;opacity:0.5;margin:4px 0 0;">🔍 Tocca per ingrandire</p></div></div>`;
+    const safeNome = item.nome.replace(/'/g, "\\'");
+    const safeImg = item.img.replace(/'/g, "\\'");
+    const boxId = "imgBox_" + index + "_" + Math.random().toString(36).slice(2, 8);
+    html += `
+      <div class="mini-card"
+           onclick="document.querySelectorAll('.inline-esca-img').forEach(e=>e.style.display='none');document.getElementById('${boxId}').style.display='block';">
+        ${item.nome}
+        <div id="${boxId}" class="inline-esca-img"
+             style="display:none;margin-top:8px;text-align:center;">
+          <img src="${safeImg}"
+               alt="${safeNome}"
+               onclick="event.stopPropagation();mostraEscaFullscreen(event,'${safeImg}','${safeNome}')"
+               class="img-box-bg"
+               style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;"
+               onerror="imgFallback(this,'${safeNome} non disponibile')">
+          <p style="font-size:10px;opacity:0.5;margin:4px 0 0;">
+            🔍 Tocca per ingrandire
+          </p>
+        </div>
+      </div>`;
   });
   return html + "</div>";
 }
