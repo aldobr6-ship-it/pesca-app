@@ -2401,8 +2401,8 @@ function generaListaCliccabile(lista) {
     const boxId = "imgBox_" + index + "_" + Math.random().toString(36).slice(2, 8);
     html += `
       <div class="mini-card"
-          onclick="const box=document.getElementById('${boxId}');const aperto=box.style.display==='block';document.querySelectorAll('.inline-esca-img').forEach(e=>e.style.display='none');box.style.display=aperto?'none':'block';"
-        ${item.nome}
+    onclick="const box=document.getElementById('${boxId}');const aperto=box.style.display==='block';document.querySelectorAll('.inline-esca-img').forEach(e=>e.style.display='none');box.style.display=aperto?'none':'block';">
+  ${item.nome}
         <div id="${boxId}" class="inline-esca-img"
              style="display:none;margin-top:8px;text-align:center;">
           <img src="${safeImg}"
