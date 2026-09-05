@@ -1,0 +1,48 @@
+{
+ "id": "spinning_classico",
+ "titolo": "Montatura Classica da Spinning (Assetto Treccia-Leader)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 SPECIE TARGET, CONTESTO E CIRCOSTANZE",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "La montatura classica da spinning (conosciuta anche come Assetto Treccia-Leader) è la configurazione universale per la pesca con esche artificiali. A differenza delle tecniche statiche da fondo, non utilizza piombi o travi complessi: la lenza si sviluppa in modo lineare per trasmettere in tempo reale il movimento impartito dal pescatore e le vibrazioni dell'esca. Sfrutta l'inelasticità del filo trecciato in bobina per garantire lanci lunghissimi e ferrate immediate, abbinandola a un finale invisibile e resistente all'abrasione che non insospettisce il predatore.\n\n**Specie Target:** 🎯\n* **Spigole, serra, barracuda, black bass, lucci, trote, cavedani e piccoli tonnetti o leccie amia (a seconda della potenza dell'attrezzatura).**\n\n**Contesto Ideale:**\n* Ovunque ci sia acqua: scogliere naturali, spiagge, moli portuali, foci dei fiumi, torrenti di montagna, grandi laghi e canali di pianura.\n\n**Circostanze d'Uso:**\n* Pesca itinerante e attiva di ricerca quando i predatori sono in attività di caccia (cambi di luce come alba e tramonto, momenti di alta marea, o acque mosse e schiumose).\n* È indispensabile quando serve un controllo totale e istantaneo dell'esca (hardbait, softbait o metalli) e quando è necessario lanciare a grandi distanze con fili molto sottili."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 SCHEMA STRUCTURAL DELLA MONTATURA",
+   "sottotitolo": "Configurazione lineare treccia-leader",
+   "contenuto": "L'intera montatura si sviluppa in linea retta senza snodi laterali o derivazioni. Il trecciato esce dal mulinello, si collega direttamente al finale tramite un nodo idrodinamico e termina con un moschettone rapido per l'aggancio dell'esca.\n\n**Schema Visivo:**\n[Mulinello]\n      │\n(Lenza Madre: Filo Trecciato in bobina)\n      │\n[Nodo di Giunzione: Albright o FG Knot]\n      │\n(Leader: Spezzone di Fluorocarbon - Lunghezza: 70 - 100 cm)\n      │\n[Nodo Palomar o Clinch]\n      │\n[Moschettone Rapido (Snap)]\n      │\n[Esca Artificiale: Hardbait / Softbait / Metal Jig]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ COMPONENTI E DIAMETRI: CONFIGURATION UNICA",
+   "sottotitolo": "Spinning Leggero/Medio X vs Spinning Pesante/Mare Y",
+   "contenuto": "1. **La Lenza Madre** (Il filo in bobina)\n* Caratteristiche: Filo trecciato (Braided Line) a 4 o 8 capi. Non ha elasticità, garantisce una sensibilità massima sulle toccate e permette lanci lunghissimi grazie al diametro ridotto rispetto al nylon.\n* **Spinning Leggero/Medio (X):** Trecciato da 0.10 mm - 0.14 mm (PE 0.6 - 1.0 / circa 10-15 libbre). Ideale per spigole, trote e black bass con esche leggere.\n* **Spinning Pesante/Mare (Y):** Trecciato da 0.18 mm - 0.23 mm (PE 1.5 - 2.5 / circa 25-40 libbre). Neccesario per gestire grosse esche, resistere alle fughe di pesci potenti (serra, barracuda, lucci) e forzare il recupero tra gli scogli.\n\n2. **Il Nodo di Giunzione** (La giunzione treccia-leader)\n* Caratteristiche: Deve essere estremamente compatto e liscio per scivolare dentro gli anelli della canna durante il lancio senza generare attrito o parrucche.\n* **Spinning Leggero/Medio (X):** Nodo Albright o Double Uni Knot. Veloci da fare sul campo, perfetti per fili molto sottili.\n* **Spinning Pesante/Mare (Y):** Nodo FG Knot. È il nodo più sottile e resistente in assoluto, ideale quando si usano treccia e fluorocarbon di diametri generosi per non urtare i passanti della canna.\n\n3. **Il Leader** (Il finale invisibile)\n* Caratteristiche: Spezzone lungo circa 70 - 100 cm in Fluorocarbon. Questo materiale ha lo stesso indice di rifrazione dell'acqua (risultando quasi invisibile) ed è altamente resistente allo sfregamento contro rocce, ostacoli o i denti abrasivi dei pesci.\n* **Spinning Leggero/Medio (X):** Diametro 0.22 mm - 0.28 mm. Offre la massima naturalezza nel movimento di piccoli pesciolini artificiali (minnow) o esche in gomma.\n* **Spinning Pesante/Mare (Y):** Diametro 0.40 mm - 0.50 mm. Indispensabile per proteggere la lenza dai denti del pesce serra o del barracuda e dallo sfregamento sulle rocce vulcaniche o sui moli. (Nota: per il Luccio in acqua dolce si sale fino allo 0.80 mm o si usa un cavetto d'acciaio).\n\n4. **Il Moschettone** (Snap)\n* Caratteristiche: Presa rapida in acciaio armonico senza girella. Serve a cambiare esca in pochi secondi senza dover tagliare e rifare il nodo ogni volta. La forma deve essere a profilo tondo (Wide Snap) per lasciare massima libertà di movimento all'artificiale.\n* **Spinning Leggero/Medio (X):** Misura micro o piccola (10 - 20 libbre). Non appesantisce la testa delle esche piccole, preservandone il nuoto.\n* **Spinning Pesante/Mare (Y):** Misura media e rinforzata (35 - 50 libbre). Struttura solida che non si apre sotto la trazione di morsi violenti o forti correnti."
+  },
+  {
+   "id": "innesco_idrodinamico",
+   "titolo": "🪱 COME INNESCARE L'ESCA IN MODO IDRODINAMICO",
+   "sottotitolo": "Allineamento e bilanciamento degli artificiali",
+   "contenuto": "* **Per lo Spinning Leggero/Medio:** Collega il moschettone direttamente all'anellino sul muso del minnow o del jerkbait. Assicurati che l'anellino spaccato dell'esca (split ring) sia presente se l'esca lo richiede, oppure aggancia lo snap direttamente al corpo metallico dell'esca. L'allineamento deve essere perfetto: se il moschettone è storto o troppo pesante, l'esca tenderà a sbandare di lato o a perdere l'azione di nuoto originale (wobbling/rolling).\n* **Per lo Spinning Pesante:** Se usi esche siliconiche su amo piombato (Jig Head), spingi l'amo dritto nel corpo di gomma facendolo uscire perfettamente al centro del dorso. Un innesco curvo farà ruotare la gomma su se stessa a elica, torcendo il filo. Se usi esche di superficie (Walking the Dog), il moschettone deve essere agganciato piatto per permettere all'esca di compiere le classiche sbandate a 'Z' sul pelo dell'acqua."
+  },
+  {
+   "id": "scelta_spinning",
+   "titolo": "⚓ LA SCELTA DELLO SPINNING (IL PESO DELLE ESCHE)",
+   "sottotitolo": "Potenza di lancio (Casting Weight) e approccio all'acqua",
+   "contenuto": "Nello spinning l'esca stessa funge da zavorra per il lancio. Il peso viene scelto in base alla potenza della canna (Casting Weight).\n\n* **Spinning Leggero/Medio (X):** Artificiali dal peso compreso tra 5g e 21g (piccoli jerk, siliconici da ricerca, cucchiaini rotanti). Permettono un approccio silenzioso e presentazioni naturali in acque limpide.\n* **Spinning Pesante/Mare (Y):** Artificiali dal peso compreso tra 25g e 50g (grandi jerkbait da mare, popper rumorosi, metal jig da distanza). Sono esche progettate per fare molto rumore, muovere molta acqua e farsi notare da grandi distanze o in mezzo alla schiuma delle mareggiate."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 DISTANZA DI LANCIO E TECNICA",
+   "sottotitolo": "Gestione del lancio e azione di recupero",
+   "contenuto": "* **Eging Light / Seppie da Riva (X):** Lancio corto-medio (20 - 40 metri). Si cerca la precisione, rasentando le banchine o lanciando nei corridoi di sabbia tra le praterie di posidonia. Una volta lanciato, si lascia l'Egi scendere fino a toccare il fondo (la treccia si ammoscerà). Il recupero per le seppie è lento: si effettuano 1 o 2 piccole jerkate verso l'alto per far saltare l'esca, seguite da un recupero lentissimo sul fondo intervallato da lunghe pause.\n* **Eging Deep / Calamari in Corrente (Y):** Lancio lungo (40 - 60 metri). Si lancia verso il buio, fuori dal fascio di luce dei lampioni del porto. La tecnica per i calamari prevede la violenta 'jerkata ritmica' (Bishi-Bashi): 3 o 4 colpi di canna secchi verso l'alto per far schizzare l'Egi a galla simulando un gambero terrorizzato, seguiti da una fase di caduta controllata a filo teso. Il calamaro attacca l'esca quasi sempre durante la fase di discesa (fall)."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 ATTREZZATURA IDEALE",
+   "sottotitolo": "Canne e mulinelli consigliati per i due assetti",
+   "contenuto": "* **Eging Light / Seppie da Riva (X):** Canna specifica da Eging con fusto leggero e vetta estremamente sensibile (spesso in carbonio pieno, detta Solid Tip) di lunghezza intorno ai 7'6\" - 8'3\" piedi (2.28m - 2.50m), con un range di lancio per Egi mis. 1.5 - 2.5. Mulinello taglia 2500 leggero, con una frizione che deve essere regolata molto morbida per non strappare la carne dei tentacoli.\n* **Eging Deep / Calamari in Corrente (Y):** Canna da Eging da 8'3\" - 8'6\" piedi (2.50m - 2.59m) con azione Regular-Fast in grado di gestire Egi mis. 2.5 - 3.5. Mulinello robusto taglia 2500 o 3000 (es. con dicitura DH a doppia manovella, molto amata nell'eging per bilanciare la canna durante le jerkate verticali) dotato di una frizione micrometrica impeccabile."
+  }
+ ]
+}
