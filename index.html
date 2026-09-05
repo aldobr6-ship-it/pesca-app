@@ -3959,7 +3959,7 @@ async function caricaGuidaMontatura(idMontatura) {
   const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it'; 
   const suffissoLingua = lang === 'fr' ? '.fr' : '';
    try {
-    // Carica il file italiano (.json) o francese (.fr.json) dalla tua cartella dedicata
+    // Carica il file italiano (.json) o francese (.fr.json) dalla cartella dedicata
     const response = await fetch(`./data/guide_montature/${idMontatura}${suffissoLingua}.json`);
     if (!response.ok) {
       throw new Error(`File non trovato (Status: ${response.status})`);
