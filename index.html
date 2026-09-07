@@ -2379,11 +2379,17 @@ function toggleImageBox(id, imgPath, button) {
     button.classList.remove("active"); currentlyOpenBox = null; currentlyOpenButton = null; return;
   }
  if (box.innerHTML === "") {
+    // Gestione centralizzata del percorso per la lingua francese
+    let finalImgPath = imgPath;
+    if (linguaAttuale === "fr" && !finalImgPath.includes("/fr/")) {
+      finalImgPath = finalImgPath.replace("img/montature/", "img/montature/fr/");
+    }
+
     const img = document.createElement("img");
-    img.src = imgPath;
+    img.src = finalImgPath;
     img.className = "img-box-bg";
     img.style.cssText = "width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;margin-top:10px;display:block;cursor:zoom-in;";
-    img.onclick = (e) => mostraEscaFullscreen(e, imgPath, "Schema montatura");
+    img.onclick = (e) => mostraEscaFullscreen(e, finalImgPath, "Schema montatura");
     img.onerror = function() { imgFallback(this, "Schema non disponibile"); };
     box.appendChild(img);
     const hint = document.createElement("p");
@@ -2395,6 +2401,7 @@ function toggleImageBox(id, imgPath, button) {
   setTimeout(() => box.scrollIntoView({ behavior:"smooth", block:"center" }), 200);
   currentlyOpenBox = box; currentlyOpenButton = button;
 }
+
 function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
   lista.forEach((item, index) => {
