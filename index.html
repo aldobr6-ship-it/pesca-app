@@ -1033,7 +1033,6 @@ const traduzioni = {
     selezionaNazione: "Scegli la nazione di pesca:",
     italia: "🇮🇹 Italia",
     tunisia: "🇹🇳 Tunisia",
-  /* === NUOVE CHIAVI IT === */
     metaPesca: "La tua guida alla pesca in mare",
     temaChiaro: "Tema Chiaro",
     temaScuro: "Tema Scuro",
@@ -1093,6 +1092,10 @@ const traduzioni = {
     regSardegna: "Sardegna",
     regSicilia: "Sicilia",
     guidaTecnicaEsperta: "Guida Tecnica Esperta",
+    piomboScorrevole: "Piombo Scorrevole",
+    bandiera: "Bandiera",
+    runningFeederRig: "Running Feeder Rig",
+
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -1252,6 +1255,10 @@ const traduzioni = {
     regSardegna: "Sardaigne",
     regSicilia: "Sicile",
     guidaTecnicaEsperta: "Guide Technique Experte",
+    piomboScorrevole: "Plomb Coulissant",
+    bandiera: "En Drapeau",
+    runningFeederRig: "Feeder Rig Coulissant",
+
   }
 };
 function t(chiave) {
@@ -1568,6 +1575,13 @@ function showFondo() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${montature.map((m,i)=>`
+      
+      // Converte dinamicamente il nome usando il dizionario se corrisponde a una chiave
+        let nomeVisualizzato = m.nome;
+        if (m.nome === "Piombo Scorrevole") nomeVisualizzato = t('piomboScorrevole');
+        if (m.nome === "Bandiera") nomeVisualizzato = t('bandiera');
+        return `
+        
         <div>
           <button onclick="toggleImageBox('fondoBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${m.nome} <span class="arrow">▼</span></button>
           <div id="fondoBox${i}" class="image-box"></div>
@@ -1597,6 +1611,14 @@ function showFondo() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${dati.montature.map((m,i)=>`
+      
+      // Intercettazione e traduzione dinamica dei pulsanti del Beach Ledgering
+        let nomeVisualizzato = m.nome;
+        if (m.nome === "Running Feeder Rig") nomeVisualizzato = t('runningFeederRig');
+        if (m.nome === "Piombo Scorrevole") nomeVisualizzato = t('piomboScorrevole');
+        // "Long Arm" rimane invariato perché internazionale
+        return `
+        
         <div>
           <button onclick="toggleImageBox('beachBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${m.nome} <span class="arrow">▼</span></button>
           <div id="beachBox${i}" class="image-box"></div>
