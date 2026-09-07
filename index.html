@@ -1096,8 +1096,8 @@ const traduzioni = {
     bandiera: "Bandiera",
     runningFeederRig: "Running Feeder Rig",
     longArmMonobraccio: "Long Arm (Monobraccio lungo)",
-
-
+    blQuando: "Mare calmo, quasi calmo o in leggera scaduta",
+    blAttrezzatura: "In bobina si utilizzano monofili sottili (dallo 0,18 allo 0,22) per favorire la distanza di lancio. Ricorda di legare uno shock leader (spezzone di filo conico o dello 0,35-0,40 lungo circa due volte la canna) per sopportare lo sforzo del lancio.",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -1261,6 +1261,9 @@ const traduzioni = {
     bandiera: "En Drapeau",
     runningFeederRig: "Feeder Rig Coulissant",
     longArmMonobraccio: "Long Arm (Longue Empile)",
+    blQuando: "Mer calme, presque calme ou en fin de houle.",
+    blAttrezzatura: "Dans la bobine, on utilise des monofilaments fins (de 0,18 à 0,22) pour favoriser la distance de lancer. Pensez à raccorder un shock leader (arraché conique ou en 0,35-0,40 d'une longueur d'environ duex fois la canne) pour supporter l'effort du lancer.",
+
   }
 };
 function t(chiave) {
@@ -1601,8 +1604,8 @@ function showFondo() {
   const contro = linguaAttuale === "fr" ? beachLedgeringTextFr.contro : dati.contro;
   document.getElementById("content").innerHTML = `
     <h2>🏖️ Beach Ledgering</h2>
-    <div class="card"><b>${t('quandoUsarla')}</b><br>${dati.quando}</div>
-    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${dati.attrezzatura}</div>
+    <div class="card"><b>${t('quandoUsarla')}</b><br>${linguaAttuale === "fr" ? t('blQuando') : dati.quando}</div>
+    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${linguaAttuale === "fr" ? t('blAttrezzatura') : dati.attrezzatura}</div>
     <div class="card" style="cursor:default;">
       <h3>${t('montatureDedicate')}</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
