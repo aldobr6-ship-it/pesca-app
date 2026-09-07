@@ -3996,6 +3996,13 @@ function formattaTestoGuida(testo) {
 }
 // Funzione per caricare la guida tecnica esperta dal file JSON (Rileva la lingua in automatico)
 async function caricaGuidaMontatura(idMontatura) {
+  const container = document.getElementById("contenitore-guida");
+
+  // 2. SE LA GUIDA È GIÀ APERTA (ha del testo dentro), AL SECONDO CLIC LA CHIUDE E SI FERMA
+  if (container && container.innerHTML !== "") {
+    container.innerHTML = "";
+    return; 
+  }
   // Rileva la lingua globale dell'app (cambia in 'currentLang' se usi quel nome per la variabile)
   const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it'; 
   const suffissoLingua = lang === 'fr' ? '.fr' : '';
