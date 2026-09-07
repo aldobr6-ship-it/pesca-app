@@ -1095,6 +1095,8 @@ const traduzioni = {
     piomboScorrevole: "Piombo Scorrevole",
     bandiera: "Bandiera",
     runningFeederRig: "Running Feeder Rig",
+    longArmMonobraccio: "Long Arm (Monobraccio lungo)",
+
 
   },
   fr: {
@@ -1258,7 +1260,7 @@ const traduzioni = {
     piomboScorrevole: "Plomb Coulissant",
     bandiera: "En Drapeau",
     runningFeederRig: "Feeder Rig Coulissant",
-
+    longArmMonobraccio: "Long Arm (Longue Empile)",
   }
 };
 function t(chiave) {
@@ -1608,7 +1610,7 @@ function showFondo() {
       ${dati.montature.map((m,i)=>`
         <div>
           <button onclick="toggleImageBox('beachBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">
-            📷 ${m.nome === "Running Feeder Rig" ? t('runningFeederRig') : (m.nome === "Piombo Scorrevole" ? t('piomboScorrevole') : m.nome)} <span class="arrow">▼</span>
+            📷 ${m.nome === "Running Feeder Rig" ? t('runningFeederRig') : (m.nome === "Piombo Scorrevole" ? t('piomboScorrevole') : (m.nome === "Long Arm (Monobraccio lungo)" ? t('longArmMonobraccio') : m.nome))} <span class="arrow">▼</span>
           </button>
           <div id="beachBox${i}" class="image-box"></div>
         </div>
