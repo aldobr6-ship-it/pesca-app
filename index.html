@@ -1309,7 +1309,7 @@ function caricaLingua() {
 function aggiornaLabelTema() {
   const label = document.getElementById("temaLabel");
   if (label) {
-    label.textContent = document..classList.contains("dark")
+    label.textContent = document.classList.contains("dark")
       ? (linguaAttuale === "fr" ? "Thème clair" : "Tema Chiaro")
       : (linguaAttuale === "fr" ? "Thème sombre" : "Tema Scuro");
   }
@@ -1327,7 +1327,7 @@ function chiudiApp() {
 <script>
 /* === HOME === */
 function showHome() {
-  document..classList.add("home-active");
+  document.classList.add("home-active");
   document.getElementById("content").innerHTML = `
     <h2 style="margin-top:0;">${t('benvenuto')}</h2>
     <p style="opacity:0.7;margin-bottom:20px;font-size:14px;">${t('seleziona')}</p>
@@ -1782,7 +1782,7 @@ function mostraEscaPopup(nomeEsca) {
         onerror="if(typeof imgFallback === 'function'){imgFallback(this,'Immagine non disponibile')}else{this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>Foto non disponibile</text></svg>';}">
     </div>
   `;
-  document..appendChild(popup);
+  document.appendChild(popup);
 }
 function chiudiEscaPopup(event) {
   const overlay = event.target.closest(".modal-overlay") || document.querySelector(".modal-overlay");
@@ -3057,7 +3057,7 @@ function caricaSpot(){try{return JSON.parse(localStorage.getItem("pescaSpot")||"
 function salvaSpot(spots){localStorage.setItem("pescaSpot",JSON.stringify(spots));}
 function aggiungiSpot(){
   if(!prevCoords){alert("Posizione non disponibile.");return;}
-  document..insertAdjacentHTML("beforeend",`
+  document.insertAdjacentHTML("beforeend",`
     <div class="modal-overlay" id="spotModal" onclick="chiudiModalSpot(event)">
       <div class="modal-box">
         <h3>📌 Salva questo spot</h3>
