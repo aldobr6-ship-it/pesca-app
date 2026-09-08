@@ -1093,7 +1093,13 @@ const traduzioni = {
     regSardegna: "Sardegna",
     regSicilia: "Sicilia",
     guidaTecnicaEsperta: "Guida Tecnica Esperta",
-  },
+    piomboScorrevole: "Piombo Scorrevole",
+    bandiera: "Bandiera",
+    runningFeederRig: "Running Feeder Rig",
+    longArmMonobraccio: "Long Arm (Monobraccio lungo)",
+    blQuando: "Mare calmo, quasi calmo o in leggera scaduta",
+    blAttrezzatura: "In bobina si utilizzano monofili sottili (dallo 0,18 allo 0,22) per favorire la distanza di lancio. Ricorda di legare uno shock leader (spezzone di filo conico o dello 0,35-0,40 lungo circa due volte la canna) per sopportare lo sforzo del lancio.",
+    },
   fr: {
     benvenuto: "Bienvenue 🎣",
     seleziona: "Sélectionnez une section pour commencer",
@@ -1252,7 +1258,13 @@ const traduzioni = {
     regSardegna: "Sardaigne",
     regSicilia: "Sicile",
     guidaTecnicaEsperta: "Guide Technique Experte",
-  }
+     piomboScorrevole: "Plomb Coulissant",
+    bandiera: "En Drapeau",
+    runningFeederRig: "Feeder Rig Coulissant",
+    longArmMonobraccio: "Long Arm (Longue Empile)",
+    blQuando: "Mer calme, presque calme ou en fin de houle.",
+    blAttrezzatura: "Dans la bobine, on utilise des monofilaments fins (de 0,18 à 0,22) pour favoriser la distance de lancer. Pensez à raccorder un shock leader (arraché conique ou en 0,35-0,40 d'une longueur d'environ duex fois la canne) pour supporter l'effort du lancer.",
+   }
 };
 function t(chiave) {
   return traduzioni[linguaAttuale][chiave] || traduzioni.it[chiave] || chiave;
@@ -1446,7 +1458,7 @@ function showSurfcasting() {
 function showGalleggiante() {
   const dati = tecnicheData.galleggiante;
   const txt = linguaAttuale === "fr" ? galleggianteText.fr : galleggianteText.it;
-  const specieList = linguaAttuale === "fr" ? [{nome:"Muge",img:"img/cefalo.jpg"},{nome:"Sar",img:"img/sarago-maggiore.jpg"},{nome:"Oblade",img:"img/occhiata.jpg"},{nome:"Petite dorade",img:"img/orata.jpg"}] : dati.specie;
+  const specieList = linguaAttuale === "fr" ? [{nome:"Muge",img:"img/cefalo.jpg"},{nome:"Sar",img:"img/sarago-maggiore.jpg"},{nome:"Oblade",img:"img/occhiata.jpg"},{nome:"Petite dorade",img:"img/orata.jpg"},{nome:"Salpa",img:"img/salpa.jpg"}] : dati.specie;
   const escheList = linguaAttuale === "fr" ? [{nome:"Asticot",img:"img/bigattino.jpg"},{nome:"Pain",img:"img/pane.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Crevette",img:"img/gambero.jpg"}] : dati.esche;
   document.getElementById("content").innerHTML = `
     <h2>🎈 ${linguaAttuale === "fr" ? "Pêche à la bolognaise" : "Galleggiante"}</h2>
@@ -1457,11 +1469,11 @@ function showGalleggiante() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div>
-          <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggFissoBox','img/montature/fr/22_galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Flotteur Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
           <div id="galleggFissoBox" class="image-box"></div>
         </div>
         <div>
-          <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggScorrBox','img/montature/fr/23_galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Flotteur Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
           <div id="galleggScorrBox" class="image-box"></div>
         </div>
       </div>
