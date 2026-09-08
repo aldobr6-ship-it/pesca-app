@@ -1033,6 +1033,7 @@ const traduzioni = {
     selezionaNazione: "Scegli la nazione di pesca:",
     italia: "🇮🇹 Italia",
     tunisia: "🇹🇳 Tunisia",
+  /* === NUOVE CHIAVI IT === */
     metaPesca: "La tua guida alla pesca in mare",
     temaChiaro: "Tema Chiaro",
     temaScuro: "Tema Scuro",
@@ -1092,12 +1093,6 @@ const traduzioni = {
     regSardegna: "Sardegna",
     regSicilia: "Sicilia",
     guidaTecnicaEsperta: "Guida Tecnica Esperta",
-    piomboScorrevole: "Piombo Scorrevole",
-    bandiera: "Bandiera",
-    runningFeederRig: "Running Feeder Rig",
-    longArmMonobraccio: "Long Arm (Monobraccio lungo)",
-    blQuando: "Mare calmo, quasi calmo o in leggera scaduta",
-    blAttrezzatura: "In bobina si utilizzano monofili sottili (dallo 0,18 allo 0,22) per favorire la distanza di lancio. Ricorda di legare uno shock leader (spezzone di filo conico o dello 0,35-0,40 lungo circa due volte la canna) per sopportare lo sforzo del lancio.",
   },
   fr: {
     benvenuto: "Bienvenue 🎣",
@@ -1257,13 +1252,6 @@ const traduzioni = {
     regSardegna: "Sardaigne",
     regSicilia: "Sicile",
     guidaTecnicaEsperta: "Guide Technique Experte",
-    piomboScorrevole: "Plomb Coulissant",
-    bandiera: "En Drapeau",
-    runningFeederRig: "Feeder Rig Coulissant",
-    longArmMonobraccio: "Long Arm (Longue Empile)",
-    blQuando: "Mer calme, presque calme ou en fin de houle.",
-    blAttrezzatura: "Dans la bobine, on utilise des monofilaments fins (de 0,18 à 0,22) pour favoriser la distance de lancer. Pensez à raccorder un shock leader (arraché conique ou en 0,35-0,40 d'une longueur d'environ duex fois la canne) pour supporter l'effort du lancer.",
-
   }
 };
 function t(chiave) {
@@ -1309,7 +1297,7 @@ function caricaLingua() {
 function aggiornaLabelTema() {
   const label = document.getElementById("temaLabel");
   if (label) {
-    label.textContent = document.classList.contains("dark")
+    label.textContent = document.body.classList.contains("dark")
       ? (linguaAttuale === "fr" ? "Thème clair" : "Tema Chiaro")
       : (linguaAttuale === "fr" ? "Thème sombre" : "Tema Scuro");
   }
@@ -1327,7 +1315,7 @@ function chiudiApp() {
 <script>
 /* === HOME === */
 function showHome() {
-  document.classList.add("home-active");
+  document.body.classList.add("home-active");
   document.getElementById("content").innerHTML = `
     <h2 style="margin-top:0;">${t('benvenuto')}</h2>
     <p style="opacity:0.7;margin-bottom:20px;font-size:14px;">${t('seleziona')}</p>
@@ -1458,7 +1446,7 @@ function showSurfcasting() {
 function showGalleggiante() {
   const dati = tecnicheData.galleggiante;
   const txt = linguaAttuale === "fr" ? galleggianteText.fr : galleggianteText.it;
-  const specieList = linguaAttuale === "fr" ? [{nome:"Muge",img:"img/cefalo.jpg"},{nome:"Sar",img:"img/sarago-maggiore.jpg"},{nome:"Oblade",img:"img/occhiata.jpg"},{nome:"Petite dorade",img:"img/orata.jpg"},{nome:"Salpa",img:"img/salpa.jpg"}] : dati.specie;
+  const specieList = linguaAttuale === "fr" ? [{nome:"Muge",img:"img/cefalo.jpg"},{nome:"Sar",img:"img/sarago-maggiore.jpg"},{nome:"Oblade",img:"img/occhiata.jpg"},{nome:"Petite dorade",img:"img/orata.jpg"}] : dati.specie;
   const escheList = linguaAttuale === "fr" ? [{nome:"Asticot",img:"img/bigattino.jpg"},{nome:"Pain",img:"img/pane.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Crevette",img:"img/gambero.jpg"}] : dati.esche;
   document.getElementById("content").innerHTML = `
     <h2>🎈 ${linguaAttuale === "fr" ? "Pêche à la bolognaise" : "Galleggiante"}</h2>
@@ -1469,11 +1457,11 @@ function showGalleggiante() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div>
-          <button onclick="toggleImageBox('galleggFissoBox','img/montature/23_galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Flotteur Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggFissoBox','img/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
           <div id="galleggFissoBox" class="image-box"></div>
         </div>
         <div>
-          <button onclick="toggleImageBox('galleggScorrBox','img/montature/22_galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Flotteur Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggScorrBox','img/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
           <div id="galleggScorrBox" class="image-box"></div>
         </div>
       </div>
@@ -1553,7 +1541,7 @@ function showEging() {
     <div class="card"><h3>${t('attrezzaturaBase')}</h3><p>${txt.attrezzatura}</p></div>
     <div class="card" style="cursor:default;">
       <h3>${t('montaturaDedicataUnica')}</h3><p>${txt.montatura}</p>
-     <button onclick="toggleImageBox('egingMontaturaBox', linguaAttuale === 'fr' ? './img/montature/fr/20_montatura-eging.jpg' : './img/montature/20_montatura-eging.jpg', this)" class="toggle-btn"> 📷 ${linguaAttuale === "fr" ? "Montage Eging" : "Montatura Eging"} <span class="arrow">▼</span></button>
+      <button onclick="toggleImageBox('egingMontaturaBox','./img/montature/20_montatura-eging.jpg',this)" class="toggle-btn">📷 ${linguaAttuale === "fr" ? "Montage Eging" : "Montatura Eging"} <span class="arrow">▼</span></button>
       <div id="egingMontaturaBox" class="image-box"></div>
     </div>
     <div class="card"><h3>${t('proLabel')}</h3><ul>${txt.pro.map(p=>`<li>${p}</li>`).join("")}</ul></div>
@@ -1569,7 +1557,7 @@ function showEging() {
 function showFondo() {
   const montature = tecnicheData.fondo.montature;
   const txt = linguaAttuale === "fr" ? fondoText.fr : fondoText.it;
-  const specieList = linguaAttuale === "fr" ? [{nome:"Dorade",img:"img/orata.jpg"},{nome:"Sar commun",img:"img/sarago-maggiore.jpg"},{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Rascasse",img:"img/scorfano.jpg"},{nome:"Pageot",img:"img/pagello.jpg"},{nome:"Salpa",img:"img/salpa.jpg"}] : tecnicheData.fondo.specie;
+  const specieList = linguaAttuale === "fr" ? [{nome:"Dorade",img:"img/orata.jpg"},{nome:"Sar commun",img:"img/sarago-maggiore.jpg"},{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Rascasse",img:"img/scorfano.jpg"},{nome:"Pageot",img:"img/pagello.jpg"}] : tecnicheData.fondo.specie;
   const escheList = linguaAttuale === "fr" ? [{nome:"Ver de sable",img:"img/arenicola.jpg"},{nome:"Américain",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Moule",img:"img/cozza.jpg"},{nome:"Couteau",img:"img/cannolicchio.jpg"}] : tecnicheData.fondo.esche;
   document.getElementById("content").innerHTML = `
     <h2>⚓ ${linguaAttuale === "fr" ? "Pêche au Fond" : "Pesca a Fondo"}</h2>
@@ -1580,10 +1568,8 @@ function showFondo() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${montature.map((m,i)=>`
-          <div>
-         <button onclick="toggleImageBox('fondoBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">
-            📷 ${m.nome === "Piombo Scorrevole" ? t('piomboScorrevole') : (m.nome === "Bandiera" ? t('bandiera') : m.nome)} <span class="arrow">▼</span>
-          </button>
+        <div>
+          <button onclick="toggleImageBox('fondoBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${m.nome} <span class="arrow">▼</span></button>
           <div id="fondoBox${i}" class="image-box"></div>
         </div>
       `).join("")}
@@ -1604,17 +1590,15 @@ function showFondo() {
   const contro = linguaAttuale === "fr" ? beachLedgeringTextFr.contro : dati.contro;
   document.getElementById("content").innerHTML = `
     <h2>🏖️ Beach Ledgering</h2>
-    <div class="card"><b>${t('quandoUsarla')}</b><br>${linguaAttuale === "fr" ? t('blQuando') : dati.quando}</div>
-    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${linguaAttuale === "fr" ? t('blAttrezzatura') : dati.attrezzatura}</div>
+    <div class="card"><b>${t('quandoUsarla')}</b><br>${dati.quando}</div>
+    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${dati.attrezzatura}</div>
     <div class="card" style="cursor:default;">
       <h3>${t('montatureDedicate')}</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       ${dati.montature.map((m,i)=>`
         <div>
-          <button onclick="toggleImageBox('beachBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">
-            📷 ${m.nome === "Running Feeder Rig" ? t('runningFeederRig') : (m.nome === "Piombo Scorrevole" ? t('piomboScorrevole') : (m.nome === "Long Arm (Monobraccio lungo)" ? t('longArmMonobraccio') : m.nome))} <span class="arrow">▼</span>
-          </button>
+          <button onclick="toggleImageBox('beachBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${m.nome} <span class="arrow">▼</span></button>
           <div id="beachBox${i}" class="image-box"></div>
         </div>
       `).join("")}
@@ -1727,24 +1711,7 @@ let montatureData = [];
   "granchio vivo":"granchio_vivo", "crabe vivant":"granchio_vivo",
   "calamar":"calamaro",
   "metal jig":"metal-jig",
-  "metal_jig":"metal-jig",
-  "leurre souple": "softbait",
-  "asticot": "bigattino",
-  "ver de sable": "arenicola",
-  "américain": "americano",
-  "coréen": "coreano",
-  "crevette": "gambero",
-  "pain": "pane",
-  "moule": "cozza",
-  "couteau": "cannolicchio",
-  "crabe vivant": "granchio_vivo",
-  "ver de vase": "verme_di_mare",
-  "morceau de calamar": "pezzo_calamaro",
-  "morceau de sarde": "filetti-sarde",
-  "crevette rose": "mazzancolla",
-  "jerkbait": "jerkbait",
-  "popper": "popper",
-  "top water / popper": "popper"   
+  "metal_jig":"metal-jig"
 };
 function slugEsca(nome) {
   const key = nome.toLowerCase().trim();
@@ -1782,7 +1749,7 @@ function mostraEscaPopup(nomeEsca) {
         onerror="if(typeof imgFallback === 'function'){imgFallback(this,'Immagine non disponibile')}else{this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>Foto non disponibile</text></svg>';}">
     </div>
   `;
-  document.appendChild(popup);
+  document.body.appendChild(popup);
 }
 function chiudiEscaPopup(event) {
   const overlay = event.target.closest(".modal-overlay") || document.querySelector(".modal-overlay");
@@ -1790,7 +1757,7 @@ function chiudiEscaPopup(event) {
 }
 function mostraEscaFullscreen(event, img, nome) {
   event.stopPropagation();
-  document..insertAdjacentHTML("beforeend", `
+  document.body.insertAdjacentHTML("beforeend", `
     <div class="fullscreen-overlay" onclick="chiudiEscaFullscreen(event)">
       <span class="fullscreen-spinner">🎣</span>
       <button class="fullscreen-close" onclick="chiudiEscaFullscreen(event)">✕</button>
@@ -1857,10 +1824,11 @@ function showMontaturaDetail(id) {
   const m = montatureData.find(x => x.id === id);
   if (!m) return;
 
- const imgMontatura = linguaAttuale === "fr"
-  ? m.img.replace("./img/montature/", "./img/montature/fr/")
-  : m.img;
-
+  const imgMontatura = linguaAttuale === "fr" &&
+  !m.img.includes("20_montatura-eging.jpg") &&
+  !m.img.includes("21_montatura-spinning.jpg")
+    ? m.img.replace("./img/montature/", "./img/montature/fr/")
+    : m.img;
   document.getElementById("content").innerHTML = `
     <div style="animation:fadeIn 0.3s ease; padding-bottom: 20px;">
           <!-- Intestazione -->
@@ -2006,7 +1974,7 @@ const nomeTargetCercato = aliasPesce[nomeOriginale] || nomeOriginale;
         onerror="if(typeof imgFallback === 'function'){imgFallback(this,'Immagine non disponibile')}else{this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>Foto non disponibile</text></svg>';}">
     </div>
   `;
-  document..appendChild(popup);
+  document.body.appendChild(popup);
 }
 function mostraEscaPopup(nomeEsca) {
   const fileNome = slugEsca(nomeEsca);
@@ -2050,7 +2018,7 @@ function mostraEscaPopup(nomeEsca) {
         ">
     </div>
   `;
-  document..appendChild(popup);
+  document.body.appendChild(popup);
 }
 </script>
 <script>
@@ -2411,17 +2379,11 @@ function toggleImageBox(id, imgPath, button) {
     button.classList.remove("active"); currentlyOpenBox = null; currentlyOpenButton = null; return;
   }
  if (box.innerHTML === "") {
-    // Gestione centralizzata del percorso per la lingua francese
-    let finalImgPath = imgPath;
-    if (linguaAttuale === "fr" && !finalImgPath.includes("/fr/")) {
-      finalImgPath = finalImgPath.replace("img/montature/", "img/montature/fr/");
-    }
-
     const img = document.createElement("img");
-    img.src = finalImgPath;
+    img.src = imgPath;
     img.className = "img-box-bg";
     img.style.cssText = "width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;margin-top:10px;display:block;cursor:zoom-in;";
-    img.onclick = (e) => mostraEscaFullscreen(e, finalImgPath, "Schema montatura");
+    img.onclick = (e) => mostraEscaFullscreen(e, imgPath, "Schema montatura");
     img.onerror = function() { imgFallback(this, "Schema non disponibile"); };
     box.appendChild(img);
     const hint = document.createElement("p");
@@ -2433,7 +2395,6 @@ function toggleImageBox(id, imgPath, button) {
   setTimeout(() => box.scrollIntoView({ behavior:"smooth", block:"center" }), 200);
   currentlyOpenBox = box; currentlyOpenButton = button;
 }
-
 function generaListaCliccabile(lista) {
   let html = "<div class='mini-container'>";
   lista.forEach((item, index) => {
@@ -2811,7 +2772,7 @@ function showCercaSpot() {
       </div>
       <div class="spot-panel-right" id="spotPanelRight">
         <div class="spot-panel-header" id="spotPanelHeader">📍 ${t("spot")} <span id="nomeNazioneBadge"></span></div>
-        <div class="spot-panel-" id="spotPanel"><div id="listaSpotEsplorazione"></div></div>
+        <div class="spot-panel-body" id="spotPanelBody"><div id="listaSpotEsplorazione"></div></div>
       </div>
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">⬅️ ${t('tornaHome')}</button>
@@ -2886,11 +2847,11 @@ function renderizzaListaEMappe(listaSpot) {
     });
   }
   spotItaliaMarkers = [];
-  const panel = document.getElementById("listaSpotEsplorazione");
-  if (!panel) return;
-  panel.innerHTML = "";
+  const panelBody = document.getElementById("listaSpotEsplorazione");
+  if (!panelBody) return;
+  panelBody.innerHTML = "";
   if (!listaSpot || listaSpot.length === 0) {
-    panel.innerHTML = `
+    panelBody.innerHTML = `
       <div class="spot-panel-placeholder">
         <span class="ph-ico">🎣</span>
         <p>${t("nessunSpotZona")}</p>
@@ -2952,7 +2913,7 @@ if (spotItaliaMap) {
     item.onclick = () => {
       onSpotSelezionato(spot);
     };
-    panel.appendChild(item);
+    panelBody.appendChild(item);
   });
 }
 /* === LOGICA POPUP MODALE SALVATAGGIO SPOT === */
@@ -3057,7 +3018,7 @@ function caricaSpot(){try{return JSON.parse(localStorage.getItem("pescaSpot")||"
 function salvaSpot(spots){localStorage.setItem("pescaSpot",JSON.stringify(spots));}
 function aggiungiSpot(){
   if(!prevCoords){alert("Posizione non disponibile.");return;}
-  document.insertAdjacentHTML("beforeend",`
+  document.body.insertAdjacentHTML("beforeend",`
     <div class="modal-overlay" id="spotModal" onclick="chiudiModalSpot(event)">
       <div class="modal-box">
         <h3>📌 Salva questo spot</h3>
@@ -3348,12 +3309,12 @@ function applicaFiltriSpot(){
 }
 function mostraPannelloLista(lista, titolo) {
   const header = document.getElementById("spotPanelHeader");
-  const body = document.getElementById("spotPanelBody"); 
-  if (!header || !) return;
+  const body = document.getElementById("spotPanelBody");
+  if (!header || !body) return;
   header.textContent = `🎣 ${etichettaRegioneSpot(titolo)} (${lista.length})`;
-  .innerHTML = "";
+  body.innerHTML = "";
   if (!lista || lista.length === 0) {
-    .innerHTML = `
+    body.innerHTML = `
       <p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">
         ${t("nessunSpotTrovato")}
       </p>`;
@@ -3375,7 +3336,7 @@ function mostraPannelloLista(lista, titolo) {
       </span>
     `;
     item.onclick = () => onSpotSelezionato(s);
-    .appendChild(item);
+    body.appendChild(item);
   });
   if (isMobile()) {
     setTimeout(() => {
@@ -3411,8 +3372,8 @@ function onSpotSelezionato(spot){
 /* === DETTAGLIO SPOT + SALVATAGGIO === */
 function mostraDettaglioPannello(spot) {
   const header = document.getElementById("spotPanelHeader");
-  const  = document.getElementById("spotPanel");
-  if (!header || !) return;
+  const body = document.getElementById("spotPanelBody");
+  if (!header || !body) return;
   const nome = spot.name || spot.nome || "Spot";
   const regione = spot.reg || spot.region || spot.regione || "Italia";
   const tecnica = spot.type || spot.technique || spot.tecnica || "Non specificata";
@@ -3424,7 +3385,7 @@ function mostraDettaglioPannello(spot) {
   // ID sicuro basato sullo spot, non sull'indice dell'array
   const spotId = encodeURIComponent(nome);
   window.__spotItaliaDettaglio = spot;
-  .innerHTML = `
+  body.innerHTML = `
   <div class="spot-detail-panel">
   <span class="sdp-tag">📍 ${etichettaRegioneSpot(regione)}</span>
   <h3 class="sdp-title">${nome}</h3>
@@ -3605,9 +3566,9 @@ function tornaListaRegione(reg) {
   background: white; border-radius: 20px; padding: 18px;
   margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.09);
 }
-.dark .qp-card { background:#1e293b; color:#e2e8f0; }
+body.dark .qp-card { background:#1e293b; color:#e2e8f0; }
 .qp-card h3 { margin:0 0 14px; font-size:16px; color:#0a2a43; }
-.dark .qp-card h3 { color:#7dd3fc; }
+body.dark .qp-card h3 { color:#7dd3fc; }
 /* Fasce orarie solunar */
 .sol-fasce { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 .sol-fascia {
@@ -3622,8 +3583,8 @@ function tornaListaRegione(reg) {
   background: linear-gradient(135deg,#e0f2fe,#bae6fd);
   border-color: #38bdf8;
 }
-.dark .sol-fascia.major { background:linear-gradient(135deg,#78350f,#92400e); border-color:#f59e0b; }
-.dark .sol-fascia.minor { background:linear-gradient(135deg,#0c4a6e,#075985); border-color:#38bdf8; }
+body.dark .sol-fascia.major { background:linear-gradient(135deg,#78350f,#92400e); border-color:#f59e0b; }
+body.dark .sol-fascia.minor { background:linear-gradient(135deg,#0c4a6e,#075985); border-color:#38bdf8; }
 .sol-fascia .sf-tipo  { font-size:10px; font-weight:800; text-transform:uppercase; opacity:0.6; margin-bottom:4px; }
 .sol-fascia .sf-ora   { font-size:20px; font-weight:900; }
 .sol-fascia .sf-dur   { font-size:11px; opacity:0.65; margin-top:2px; }
@@ -3639,7 +3600,7 @@ function tornaListaRegione(reg) {
 .marea-tipo { font-weight:700; font-size:14px; }
 .marea-ora  { font-size:13px; opacity:0.65; }
 .marea-h    { font-size:13px; font-weight:700; color:#0077b6; }
-.dark .marea-h { color:#38bdf8; }
+body.dark .marea-h { color:#38bdf8; }
 /* Giorni scroll solunar */
 .qp-giorni-scroll { display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; margin-bottom:14px; scrollbar-width:none; }
 .qp-giorni-scroll::-webkit-scrollbar { display:none; }
@@ -3648,7 +3609,7 @@ function tornaListaRegione(reg) {
   padding:12px 8px; text-align:center;
   box-shadow:0 4px 12px rgba(0,0,0,0.09); cursor:default;
 }
-.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
+body.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
 .qp-giorno-card .qgc-nome  { font-size:11px; font-weight:700; opacity:0.6; margin-bottom:4px; }
 .qp-giorno-card .qgc-luna  { font-size:26px; margin:4px 0; }
 .qp-giorno-card .qgc-fase  { font-size:10px; opacity:0.6; margin-bottom:4px; }
@@ -3996,13 +3957,6 @@ function formattaTestoGuida(testo) {
 }
 // Funzione per caricare la guida tecnica esperta dal file JSON (Rileva la lingua in automatico)
 async function caricaGuidaMontatura(idMontatura) {
-  const container = document.getElementById("contenitore-guida");
-
-  // 2. SE LA GUIDA È GIÀ APERTA (ha del testo dentro), AL SECONDO CLIC LA CHIUDE E SI FERMA
-  if (container && container.innerHTML !== "") {
-    container.innerHTML = "";
-    return; 
-  }
   // Rileva la lingua globale dell'app (cambia in 'currentLang' se usi quel nome per la variabile)
   const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it'; 
   const suffissoLingua = lang === 'fr' ? '.fr' : '';
@@ -4098,5 +4052,5 @@ async function apriCapitolo(idMontatura, indiceCapitolo) {
 }
 
 </script>
-</>
+</body>
 </html>
