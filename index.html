@@ -11,7 +11,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 * { box-sizing: border-box; }
-body {
+ {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: linear-gradient(135deg,#eaf4fb,#dbe9f4);
@@ -98,7 +98,7 @@ body.dark .img-box-bg { background:#334155; }
     margin-bottom: 0;
   }
 }
-body.dark .card { background: #1e293b; color: #e2e8f0; }
+.dark .card { background: #1e293b; color: #e2e8f0; }
 .mini-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .mini-card {
   background: #f1f6fa; padding: 7px 13px; border-radius: 12px;
@@ -107,8 +107,11 @@ body.dark .card { background: #1e293b; color: #e2e8f0; }
 }
 .mini-card:hover { transform: translateY(-2px); }
 .mini-card.active { background: linear-gradient(90deg,#0a2a43,#144d73); color: white; transform: scale(1.04); }
-body.dark .mini-card { background: #334155; border: none; }
-body.dark .mini-card.active { background: linear-gradient(90deg,#1e3a8a,#2563eb); }
+.dark .mini-card { background: #334155; border: none; }
+.dark .mini-card.active { background: linear-gradient(90deg,#1e3a8a,#2563eb); }
+  body {
+  padding-bottom: 72px;
+}
 footer {
   position: fixed; /* Modificato da 'd' a 'fixed' per bloccarlo in fondo */
   bottom: 0; 
@@ -124,7 +127,7 @@ footer {
   z-index: 1200;
 }
 
-body.dark footer { background: #1e293b; }
+.dark footer { background: #1e293b; }
 footer button {
   background: none;
   border: none;
@@ -137,12 +140,12 @@ footer button {
   align-items: center;
   gap: 2px;
 }
-body.dark footer button { color: #e2e8f0; }
+.dark footer button { color: #e2e8f0; }
 footer button:hover { color: #0077b6; }
-  body.home-active footer button:not(:last-child) {
+  .home-active footer button:not(:last-child) {
   display: none;
 }
-body.home-active footer {
+.home-active footer {
   justify-content: flex-end;
   padding-right: 14px;
 }
@@ -190,7 +193,7 @@ button:hover { transform: scale(1.03); opacity: 0.92; }
 .image-box.open { max-height: 600px; opacity: 1; }
 .montatura-card { cursor: pointer; text-align: left; padding: 14px 18px; }
 .montatura-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.14); border-left: 4px solid #0a2a43; }
-body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
+.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
 @keyframes fadeInImg { from{opacity:0;transform:scale(0.95);} to{opacity:1;transform:scale(1);} }
 .waves-bg {
@@ -220,7 +223,7 @@ body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
   border-radius:12px; font-size:12px; text-align:center; padding:20px;
   min-height:100px;
 }
-body.dark .img-placeholder { background:#334155; color:#e2e8f0; }
+.dark .img-placeholder { background:#334155; color:#e2e8f0; }
 .img-placeholder .ph-ico { font-size:28px; }
 .logo-anim { font-size: 64px; animation: floatLogo 2s ease-in-out infinite; }
 @keyframes floatLogo { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
@@ -249,7 +252,7 @@ body.dark .img-placeholder { background:#334155; color:#e2e8f0; }
   flex: 0 0 108px; background: white; border-radius: 16px;
   padding: 12px 8px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.09); cursor: default;
 }
-body.dark .giorno-card { background: #1e293b; color: #e2e8f0; }
+.dark .giorno-card { background: #1e293b; color: #e2e8f0; }
 .giorno-card .giorno-nome { font-size: 11px; font-weight:700; opacity:0.6; margin-bottom:4px; }
 .giorno-card .giorno-ico  { font-size: 26px; margin: 4px 0; }
 .giorno-card .giorno-val  { font-size: 13px; font-weight:700; }
@@ -259,9 +262,9 @@ body.dark .giorno-card { background: #1e293b; color: #e2e8f0; }
   background: white; border-radius: 20px; padding: 18px;
   margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.09);
 }
-body.dark .consiglio-card { background: #1e293b; color: #e2e8f0; }
+.dark .consiglio-card { background: #1e293b; color: #e2e8f0; }
 .consiglio-card h3 { margin: 0 0 12px; font-size: 16px; color: #0a2a43; }
-body.dark .consiglio-card h3 { color: #7dd3fc; }
+.dark .consiglio-card h3 { color: #7dd3fc; }
 .consiglio-row {
   display: flex; align-items: flex-start; gap: 10px;
   margin-bottom: 10px; padding-bottom: 10px;
@@ -298,7 +301,7 @@ body.dark .consiglio-card h3 { color: #7dd3fc; }
   margin-bottom: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.07);
   display: flex; align-items: center; gap:11px; cursor: pointer;
 }
-body.dark .spot-item { background: #1e293b; color:#e2e8f0; }
+.dark .spot-item { background: #1e293b; color:#e2e8f0; }
 .spot-item .spot-ico  { font-size:22px; flex-shrink:0; }
 .spot-item .spot-info { flex:1; }
 .spot-item .spot-nome { font-weight:700; font-size:14px; }
@@ -312,21 +315,21 @@ body.dark .spot-item { background: #1e293b; color:#e2e8f0; }
   background:white; width:100%; border-radius:22px 22px 0 0;
   padding:24px 20px 40px; max-height:85vh; overflow-y:auto;
 }
-body.dark .modal-box { background:#1e293b; color:#e2e8f0; }
+.dark .modal-box { background:#1e293b; color:#e2e8f0; }
 .modal-box h3 { margin:0 0 18px; font-size:18px; }
 .modal-input {
   width:100%; padding:12px 14px; border-radius:13px;
   border:1px solid #d0d7de; font-size:14px; margin-bottom:12px;
   box-sizing:border-box; background:white; color:#0a2a43;
 }
-body.dark .modal-input { background:#334155; border-color:#4b5563; color:#e2e8f0; }
+.dark .modal-input { background:#334155; border-color:#4b5563; color:#e2e8f0; }
 .btn-salva-spot {
   background: linear-gradient(90deg,#0a2a43,#144d73);
   color:white; border:none; padding:14px; border-radius:14px;
   font-size:15px; font-weight:700; width:100%; cursor:pointer; margin-top:6px;
 }
 .btn-chiudi-modal { background:#f0f0f0; color:#333; border:none; padding:12px; border-radius:14px; font-size:14px; width:100%; cursor:pointer; margin-top:8px; }
-body.dark .btn-chiudi-modal { background:#334155; color:#e2e8f0; }
+.dark .btn-chiudi-modal { background:#334155; color:#e2e8f0; }
 .prev-loader { text-align:center; padding:60px 20px; }
 .prev-loader .spinner { font-size:48px; animation:floatLogo 1.5s ease-in-out infinite; display:block; margin-bottom:16px; }
 .prev-loader p { opacity:0.6; font-size:14px; }
@@ -384,7 +387,7 @@ body.dark .btn-chiudi-modal { background:#334155; color:#e2e8f0; }
   border-color: #0077b6;
   box-shadow: 0 0 0 3px rgba(0,119,182,0.12);
 }
-body.dark .filtro-select {
+.dark .filtro-select {
   background: #1e293b;
   color: #e2e8f0;
   border-color: #4b5563;
@@ -432,12 +435,12 @@ body.dark .filtro-select {
   box-shadow: 0 4px 18px rgba(0,0,0,0.12); overflow: hidden;
   max-height: 82vh; display: flex; flex-direction: column;
 }
-body.dark .spot-panel-right { background: #1e293b; }
+.dark .spot-panel-right { background: #1e293b; }
 .spot-panel-header {
   background: linear-gradient(90deg,#0a2a43,#144d73);
   padding: 12px 16px; color: white; font-weight: 700; font-size: 14px;
 }
-.spot-panel-body { padding: 14px; flex: 1; overflow-y: auto; }
+.spot-panel- { padding: 14px; flex: 1; overflow-y: auto; }
 .spot-panel-placeholder { text-align: center; padding: 40px 20px; opacity: 0.45; }
 .spot-panel-placeholder .ph-ico { font-size: 40px; display:block; margin-bottom:10px; }
 .spot-panel-placeholder p { font-size: 13px; line-height: 1.6; }
@@ -518,18 +521,18 @@ body.dark .spot-panel-right { background: #1e293b; }
   box-sizing: border-box;
 }
 /* === DARK MODE === */
-body.dark .spot-italia-item {
+.dark .spot-italia-item {
   background: #334155;
   border-color: transparent;
 }
-body.dark .spot-italia-item:hover {
+.dark .spot-italia-item:hover {
   background: #1e3a5f;
 }
-body.dark .spot-italia-item.active {
+.dark .spot-italia-item.active {
   background: #1e3a5f;
   border-left: 3px solid #38bdf8;
 }
-body.dark .si-badge {
+.dark .si-badge {
   background: #1e3a5f;
   color: #7dd3fc;
 }
@@ -637,7 +640,7 @@ body.dark .si-badge {
   box-sizing: border-box;
   min-width: 0;
 }
-body.dark .spot-detail-cell {
+.dark .spot-detail-cell {
   background: #334155;
 }
 .sdc-lbl {
@@ -659,7 +662,7 @@ body.dark .spot-detail-cell {
   padding: 12px 14px;
   margin-bottom: 12px;
 }
-body.dark .spot-detail-tips {
+.dark .spot-detail-tips {
   background: #1e3a5f;
 }
 .spot-detail-tips p {
@@ -668,7 +671,7 @@ body.dark .spot-detail-tips {
   line-height: 1.6;
   color: #1e40af;
 }
-body.dark .spot-detail-tips p {
+.dark .spot-detail-tips p {
   color: #93c5fd;
 }
 .btn-nav-spot {
@@ -702,7 +705,7 @@ body.dark .spot-detail-tips p {
   background:#f0f4f8; color:#0a2a43; border:none; padding:10px; border-radius:12px;
   font-size:13px; width:100%; cursor:pointer; margin-top:8px;
 }
-body.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
+.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
 /* =========================================================
    DETTAGLIO SPOT — MOBILE UNIFORME IT / FR / TN
    ========================================================= */
@@ -810,13 +813,13 @@ body.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
    DARK MODE MOBILE
    ========================================================= */
 @media (max-width: 768px) {
-  body.dark .spot-detail-cell {
+  .dark .spot-detail-cell {
     background: #334155;
   }
-  body.dark .spot-detail-tips {
+  .dark .spot-detail-tips {
     background: #1e3a5f;
   }
-  body.dark .spot-detail-tips p {
+  .dark .spot-detail-tips p {
     color: #93c5fd;
   }
 }
@@ -828,7 +831,7 @@ body.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
   background:white; width:100%; border-radius:22px 22px 0 0;
   padding:22px 20px 44px; max-height:80vh; overflow-y:auto;
 }
-body.dark .modal-spot-box { background:#1e293b; color:#e2e8f0; }
+.dark .modal-spot-box { background:#1e293b; color:#e2e8f0; }
 .msb-tag {
   display:inline-block; background:#e0f2fe; color:#0369a1;
   font-size:10px; font-weight:800; padding:3px 9px;
@@ -837,13 +840,13 @@ body.dark .modal-spot-box { background:#1e293b; color:#e2e8f0; }
 .modal-spot-box h2 { margin:0 0 14px; font-size:20px; font-weight:900; }
 .modal-spot-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
 .modal-spot-cell { background:#f8fafc; border-radius:12px; padding:12px; }
-body.dark .modal-spot-cell { background:#334155; }
+.dark .modal-spot-cell { background:#334155; }
 .msc-lbl { font-size:10px; font-weight:700; opacity:0.5; text-transform:uppercase; margin-bottom:4px; }
 .msc-val { font-size:13px; font-weight:700; }
 .modal-spot-tips { background:#eff6ff; border-radius:14px; padding:13px 15px; margin-bottom:14px; }
-body.dark .modal-spot-tips { background:#1e3a5f; }
+.dark .modal-spot-tips { background:#1e3a5f; }
 .modal-spot-tips p { margin:0; font-size:13px; line-height:1.6; color:#1e40af; }
-body.dark .modal-spot-tips p { color:#93c5fd; }
+.dark .modal-spot-tips p { color:#93c5fd; }
 .btn-navigazione {
   background: linear-gradient(90deg,#0a2a43,#144d73);
   color:white; border:none; padding:14px; border-radius:14px;
@@ -853,10 +856,10 @@ body.dark .modal-spot-tips p { color:#93c5fd; }
   background:#f0f0f0; color:#333; border:none; padding:12px;
   border-radius:14px; font-size:14px; width:100%; cursor:pointer; margin-top:8px;
 }
-body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
+.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
 </style>
 </head>
-<body>
+<>
 <div id="splash">
   <video autoplay muted loop playsinline preload="auto" class="splash-video-full">
     <source src="./img/splash-anim.mp4" type="video/mp4">
@@ -926,18 +929,18 @@ body.dark .btn-chiudi-spot { background:#334155; color:#e2e8f0; }
 <script>
 /* === NAVIGAZIONE + TEMA + CHIUDI APP === */
 function goTo(fn) {
-  document.body.classList.toggle("home-active", fn === showHome);
+  document..classList.toggle("home-active", fn === showHome);
   window.scrollTo({ top: 0, behavior: 'instant' });
   fn();
 }
 function toggleTema() {
-  document.body.classList.toggle("dark");
-  const isDark = document.body.classList.contains("dark");
+  document..classList.toggle("dark");
+  const isDark = document..classList.contains("dark");
   localStorage.setItem("tema", isDark ? "dark" : "light");
   aggiornaLabelTema();
 }
 function caricaTema() {
-  if (localStorage.getItem("tema") === "dark") document.body.classList.add("dark");
+  if (localStorage.getItem("tema") === "dark") document..classList.add("dark");
   aggiornaLabelTema();
 }
   /* === LINGUA === */
@@ -1317,7 +1320,7 @@ function caricaLingua() {
 function aggiornaLabelTema() {
   const label = document.getElementById("temaLabel");
   if (label) {
-    label.textContent = document.body.classList.contains("dark")
+    label.textContent = document..classList.contains("dark")
       ? (linguaAttuale === "fr" ? "Thème clair" : "Tema Chiaro")
       : (linguaAttuale === "fr" ? "Thème sombre" : "Tema Scuro");
   }
@@ -1335,7 +1338,7 @@ function chiudiApp() {
 <script>
 /* === HOME === */
 function showHome() {
-  document.body.classList.add("home-active");
+  document..classList.add("home-active");
   document.getElementById("content").innerHTML = `
     <h2 style="margin-top:0;">${t('benvenuto')}</h2>
     <p style="opacity:0.7;margin-bottom:20px;font-size:14px;">${t('seleziona')}</p>
@@ -1790,7 +1793,7 @@ function mostraEscaPopup(nomeEsca) {
         onerror="if(typeof imgFallback === 'function'){imgFallback(this,'Immagine non disponibile')}else{this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>Foto non disponibile</text></svg>';}">
     </div>
   `;
-  document.body.appendChild(popup);
+  document..appendChild(popup);
 }
 function chiudiEscaPopup(event) {
   const overlay = event.target.closest(".modal-overlay") || document.querySelector(".modal-overlay");
@@ -1798,7 +1801,7 @@ function chiudiEscaPopup(event) {
 }
 function mostraEscaFullscreen(event, img, nome) {
   event.stopPropagation();
-  document.body.insertAdjacentHTML("beforeend", `
+  document..insertAdjacentHTML("beforeend", `
     <div class="fullscreen-overlay" onclick="chiudiEscaFullscreen(event)">
       <span class="fullscreen-spinner">🎣</span>
       <button class="fullscreen-close" onclick="chiudiEscaFullscreen(event)">✕</button>
@@ -2014,7 +2017,7 @@ const nomeTargetCercato = aliasPesce[nomeOriginale] || nomeOriginale;
         onerror="if(typeof imgFallback === 'function'){imgFallback(this,'Immagine non disponibile')}else{this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://w3.org width=%22100%22 height=%22100%22><text y=%2250%%22 x=%2250%%22 text-anchor=%22middle%22 font-family=%22sans-serif%22 font-size=%2212%22 fill=%22%23888%22>Foto non disponibile</text></svg>';}">
     </div>
   `;
-  document.body.appendChild(popup);
+  document..appendChild(popup);
 }
 function mostraEscaPopup(nomeEsca) {
   const fileNome = slugEsca(nomeEsca);
@@ -2058,7 +2061,7 @@ function mostraEscaPopup(nomeEsca) {
         ">
     </div>
   `;
-  document.body.appendChild(popup);
+  document..appendChild(popup);
 }
 </script>
 <script>
@@ -2819,7 +2822,7 @@ function showCercaSpot() {
       </div>
       <div class="spot-panel-right" id="spotPanelRight">
         <div class="spot-panel-header" id="spotPanelHeader">📍 ${t("spot")} <span id="nomeNazioneBadge"></span></div>
-        <div class="spot-panel-body" id="spotPanelBody"><div id="listaSpotEsplorazione"></div></div>
+        <div class="spot-panel-" id="spotPanel"><div id="listaSpotEsplorazione"></div></div>
       </div>
     </div>
     <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">⬅️ ${t('tornaHome')}</button>
@@ -2894,11 +2897,11 @@ function renderizzaListaEMappe(listaSpot) {
     });
   }
   spotItaliaMarkers = [];
-  const panelBody = document.getElementById("listaSpotEsplorazione");
-  if (!panelBody) return;
-  panelBody.innerHTML = "";
+  const panel = document.getElementById("listaSpotEsplorazione");
+  if (!panel) return;
+  panel.innerHTML = "";
   if (!listaSpot || listaSpot.length === 0) {
-    panelBody.innerHTML = `
+    panel.innerHTML = `
       <div class="spot-panel-placeholder">
         <span class="ph-ico">🎣</span>
         <p>${t("nessunSpotZona")}</p>
@@ -2960,7 +2963,7 @@ if (spotItaliaMap) {
     item.onclick = () => {
       onSpotSelezionato(spot);
     };
-    panelBody.appendChild(item);
+    panel.appendChild(item);
   });
 }
 /* === LOGICA POPUP MODALE SALVATAGGIO SPOT === */
@@ -3065,7 +3068,7 @@ function caricaSpot(){try{return JSON.parse(localStorage.getItem("pescaSpot")||"
 function salvaSpot(spots){localStorage.setItem("pescaSpot",JSON.stringify(spots));}
 function aggiungiSpot(){
   if(!prevCoords){alert("Posizione non disponibile.");return;}
-  document.body.insertAdjacentHTML("beforeend",`
+  document..insertAdjacentHTML("beforeend",`
     <div class="modal-overlay" id="spotModal" onclick="chiudiModalSpot(event)">
       <div class="modal-box">
         <h3>📌 Salva questo spot</h3>
@@ -3356,12 +3359,12 @@ function applicaFiltriSpot(){
 }
 function mostraPannelloLista(lista, titolo) {
   const header = document.getElementById("spotPanelHeader");
-  const body = document.getElementById("spotPanelBody");
-  if (!header || !body) return;
+  const  = document.getElementById("spotPanel");
+  if (!header || !) return;
   header.textContent = `🎣 ${etichettaRegioneSpot(titolo)} (${lista.length})`;
-  body.innerHTML = "";
+  .innerHTML = "";
   if (!lista || lista.length === 0) {
-    body.innerHTML = `
+    .innerHTML = `
       <p style="opacity:0.5;text-align:center;padding:20px;font-size:13px;">
         ${t("nessunSpotTrovato")}
       </p>`;
@@ -3383,7 +3386,7 @@ function mostraPannelloLista(lista, titolo) {
       </span>
     `;
     item.onclick = () => onSpotSelezionato(s);
-    body.appendChild(item);
+    .appendChild(item);
   });
   if (isMobile()) {
     setTimeout(() => {
@@ -3419,8 +3422,8 @@ function onSpotSelezionato(spot){
 /* === DETTAGLIO SPOT + SALVATAGGIO === */
 function mostraDettaglioPannello(spot) {
   const header = document.getElementById("spotPanelHeader");
-  const body = document.getElementById("spotPanelBody");
-  if (!header || !body) return;
+  const  = document.getElementById("spotPanel");
+  if (!header || !) return;
   const nome = spot.name || spot.nome || "Spot";
   const regione = spot.reg || spot.region || spot.regione || "Italia";
   const tecnica = spot.type || spot.technique || spot.tecnica || "Non specificata";
@@ -3432,7 +3435,7 @@ function mostraDettaglioPannello(spot) {
   // ID sicuro basato sullo spot, non sull'indice dell'array
   const spotId = encodeURIComponent(nome);
   window.__spotItaliaDettaglio = spot;
-  body.innerHTML = `
+  .innerHTML = `
   <div class="spot-detail-panel">
   <span class="sdp-tag">📍 ${etichettaRegioneSpot(regione)}</span>
   <h3 class="sdp-title">${nome}</h3>
@@ -3613,9 +3616,9 @@ function tornaListaRegione(reg) {
   background: white; border-radius: 20px; padding: 18px;
   margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.09);
 }
-body.dark .qp-card { background:#1e293b; color:#e2e8f0; }
+.dark .qp-card { background:#1e293b; color:#e2e8f0; }
 .qp-card h3 { margin:0 0 14px; font-size:16px; color:#0a2a43; }
-body.dark .qp-card h3 { color:#7dd3fc; }
+.dark .qp-card h3 { color:#7dd3fc; }
 /* Fasce orarie solunar */
 .sol-fasce { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 .sol-fascia {
@@ -3630,8 +3633,8 @@ body.dark .qp-card h3 { color:#7dd3fc; }
   background: linear-gradient(135deg,#e0f2fe,#bae6fd);
   border-color: #38bdf8;
 }
-body.dark .sol-fascia.major { background:linear-gradient(135deg,#78350f,#92400e); border-color:#f59e0b; }
-body.dark .sol-fascia.minor { background:linear-gradient(135deg,#0c4a6e,#075985); border-color:#38bdf8; }
+.dark .sol-fascia.major { background:linear-gradient(135deg,#78350f,#92400e); border-color:#f59e0b; }
+.dark .sol-fascia.minor { background:linear-gradient(135deg,#0c4a6e,#075985); border-color:#38bdf8; }
 .sol-fascia .sf-tipo  { font-size:10px; font-weight:800; text-transform:uppercase; opacity:0.6; margin-bottom:4px; }
 .sol-fascia .sf-ora   { font-size:20px; font-weight:900; }
 .sol-fascia .sf-dur   { font-size:11px; opacity:0.65; margin-top:2px; }
@@ -3647,7 +3650,7 @@ body.dark .sol-fascia.minor { background:linear-gradient(135deg,#0c4a6e,#075985)
 .marea-tipo { font-weight:700; font-size:14px; }
 .marea-ora  { font-size:13px; opacity:0.65; }
 .marea-h    { font-size:13px; font-weight:700; color:#0077b6; }
-body.dark .marea-h { color:#38bdf8; }
+.dark .marea-h { color:#38bdf8; }
 /* Giorni scroll solunar */
 .qp-giorni-scroll { display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; margin-bottom:14px; scrollbar-width:none; }
 .qp-giorni-scroll::-webkit-scrollbar { display:none; }
@@ -3656,7 +3659,7 @@ body.dark .marea-h { color:#38bdf8; }
   padding:12px 8px; text-align:center;
   box-shadow:0 4px 12px rgba(0,0,0,0.09); cursor:default;
 }
-body.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
+.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
 .qp-giorno-card .qgc-nome  { font-size:11px; font-weight:700; opacity:0.6; margin-bottom:4px; }
 .qp-giorno-card .qgc-luna  { font-size:26px; margin:4px 0; }
 .qp-giorno-card .qgc-fase  { font-size:10px; opacity:0.6; margin-bottom:4px; }
@@ -4106,5 +4109,5 @@ async function apriCapitolo(idMontatura, indiceCapitolo) {
 }
 
 </script>
-</body>
+</>
 </html>
