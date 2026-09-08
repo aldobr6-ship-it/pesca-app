@@ -1570,7 +1570,7 @@ function showFondo() {
   const montature = tecnicheData.fondo.montature;
   const txt = linguaAttuale === "fr" ? fondoText.fr : fondoText.it;
   const specieList = linguaAttuale === "fr" ? [{nome:"Dorade",img:"img/orata.jpg"},{nome:"Sar commun",img:"img/sarago-maggiore.jpg"},{nome:"Marbré",img:"img/mormora.jpg"},{nome:"Rascasse",img:"img/scorfano.jpg"},{nome:"Pageot",img:"img/pagello.jpg"}] : tecnicheData.fondo.specie;
-  const escheList = linguaAttuale === "fr" ? [{nome:"Ver de sable",img:"img/arenicola.jpg"},{nome:"Américain",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Moule",img:"img/cozza.jpg"},{nome:"Couteau",img:"img/cannolicchio.jpg"}] : tecnicheData.fondo.esche;
+  const escheList = linguaAttuale === "fr" ? [{nome:"Ver de sable",img:"img/arenicola.jpg"},{nome:"Américain",img:"img/americano.jpg"},{nome:"Bibi",img:"img/bibi.jpg"},{nome:"Coréen",img:"img/coreano.jpg"},{nome:"Moule",img:"img/cozza.jpg"},{nome:"Couteau",img:"img/cannolicchio.jpg"},{nome:"Salpa",img:"img/salpa.jpg"}] : tecnicheData.fondo.esche;
   document.getElementById("content").innerHTML = `
     <h2>⚓ ${linguaAttuale === "fr" ? "Pêche au Fond" : "Pesca a Fondo"}</h2>
     <div class="card"><b>${t('quandoUsarla')}</b><br>${txt.quando}</div>
