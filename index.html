@@ -110,7 +110,7 @@ body.dark .card { background: #1e293b; color: #e2e8f0; }
 body.dark .mini-card { background: #334155; border: none; }
 body.dark .mini-card.active { background: linear-gradient(90deg,#1e3a8a,#2563eb); }
 footer {
-  position: fixed; bottom: 0; left: 0; width: 100%;
+  position: d; bottom: 0; left: 0; width: 100%;
   background: white; display: flex; justify-content: space-around;
   align-items: center; height: 62px;
   box-shadow: 0 -3px 10px rgba(0,0,0,0.10);
@@ -186,13 +186,13 @@ body.dark .montatura-card:hover { border-left: 4px solid #2563eb; }
 @keyframes fadeIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
 @keyframes fadeInImg { from{opacity:0;transform:scale(0.95);} to{opacity:1;transform:scale(1);} }
 .waves-bg {
-  position: fixed; bottom: 0; left: 0; width: 100%; height: 160px;
+  position: d; bottom: 0; left: 0; width: 100%; height: 160px;
   overflow: hidden; z-index: -1; opacity: 0.22; pointer-events: none;
 }
 .waves-bg svg { width: 200%; height: 100%; animation: waveMove 18s linear infinite; fill: #00b4d8; }
 @keyframes waveMove { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
 #splash {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  position: d; top: 0; left: 0; width: 100%; height: 100%;
   background: #0a2a43;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   z-index: 9999; color: white;
@@ -297,7 +297,7 @@ body.dark .spot-item { background: #1e293b; color:#e2e8f0; }
 .spot-item .spot-sub  { font-size:12px; opacity:0.6; margin-top:2px; }
 .spot-item .spot-del  { background:none; border:none; color:#e74c3c; font-size:18px; cursor:pointer; margin-top:0; padding:4px; }
 .modal-overlay {
-  position:fixed; inset:0; background:rgba(0,0,0,0.55);
+  position:d; inset:0; background:rgba(0,0,0,0.55);
   z-index:9000; display:flex; align-items:flex-end; animation: fadeIn 0.2s ease;
 }
 .modal-box {
@@ -813,7 +813,7 @@ body.dark .btn-back-lista { background:#334155; color:#e2e8f0; }
   }
 }
 .modal-spot-overlay {
-  position:fixed; inset:0; background:rgba(0,0,0,0.6);
+  position:d; inset:0; background:rgba(0,0,0,0.6);
   z-index:9500; display:flex; align-items:flex-end; animation: fadeIn 0.2s ease;
 }
 .modal-spot-box {
@@ -1469,11 +1469,11 @@ function showGalleggiante() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div>
-          <button onclick="toggleImageBox('galleggFissoBox','img/montature/galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Flotteur Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggFissoBox','img/montature/23_galleggiante_fisso.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Flotteur Fixe" : "Galleggiante Fisso"} <span class="arrow">▼</span></button>
           <div id="galleggFissoBox" class="image-box"></div>
         </div>
         <div>
-          <button onclick="toggleImageBox('galleggScorrBox','img/montature/galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Flotteur Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
+          <button onclick="toggleImageBox('galleggScorrBox','img/montature/22_galleggiante_scorrevole.jpg',this)" class="toggle-btn" style="max-width:none;width:100%;">📷 ${linguaAttuale === "fr" ? "Flotteur Coulissant" : "Galleggiante Scorrevole"} <span class="arrow">▼</span></button>
           <div id="galleggScorrBox" class="image-box"></div>
         </div>
       </div>
