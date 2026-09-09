@@ -4025,8 +4025,14 @@ function formattaTestoGuida(testo) {
 }
 // Funzione per caricare la guida tecnica esperta dal file JSON (Rileva la lingua in automatico)
 async function caricaGuidaMontatura(idMontatura) {
-  // Rileva la lingua globale dell'app (cambia in 'currentLang' se usi quel nome per la variabile)
-  const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it'; 
+  const container = document.getElementById("contenitore-guida");
+  // Se la guida della stessa montatura è già aperta, la chiude
+  if (container && container.dataset.guidaId === idMontatura) {
+    container.innerHTML = "";
+    delete container.dataset.guidaId;
+    return;
+  }
+  const lang = typeof linguaAttuale !== 'undefined' ? linguaAttuale : 'it';
   const suffissoLingua = lang === 'fr' ? '.fr' : '';
    try {
     // Carica il file italiano (.json) o francese (.fr.json) dalla cartella dedicata
@@ -4036,6 +4042,9 @@ async function caricaGuidaMontatura(idMontatura) {
     }
     const data = await response.json();
     mostraMenuCapitoli(data);
+     if (container) {
+  container.dataset.guidaId = idMontatura;
+}
   } catch (error) {
     console.error("Errore nel caricamento della guida:", error);
     const container = document.getElementById("contenitore-guida");
