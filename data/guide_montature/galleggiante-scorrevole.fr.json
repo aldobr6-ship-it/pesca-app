@@ -1,0 +1,48 @@
+{
+ "id": "galleggiante-scorrevole",
+ "titolo": "Galleggiante Scorrevole (Flotteur Coulissant / Sliding Float Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le montage au Galleggiante Scorrevole (flotteur coulissant) est une technique reine de la pêche en mer. Contrairement au flotteur fixe, le flotteur coulissant glisse librement sur le corps de ligne jusqu'à butter contre un nœud d'arrêt (stopper). Cela permet de pêcher à des profondeurs très importantes (parfois plus de 10-15 mètres) tout en conservant une bannière courte, ce qui rend le lancer simple et précis.\n\n**Espèces Cibles :** 🎯\n* **Le bar (loup), la daurade royale, le sar, l'oblade, le mulet et le Chinchard.**\n\n**Contexte Idéal :**\n* Zones à forte profondeur inaccessibles avec un flotteur fixe : digues rocheuses, grands ports, falaises ou entrées de baies. Ce montage excelle aussi bien pour la pêche de jour à la recherche de sparidés au fond que pour la pêche de nuit entre deux eaux pour le bar.\n\n**Circonstances d'Utilisation :**\n* Présence de fonds importants (supérieurs à la longueur de la canne).\n* Nécessité de présenter un appât de manière naturelle à une profondeur précise en s'adaptant au courant.\n* Recherche de poissons méfiants nécessitant une sensibilité maximale à la touche."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Fonctionnement du système coulissant",
+   "contenuto": "Le montage repose sur la liberté de mouvement du flotteur entre un nœud d'arrêt supérieur (qui règle la profondeur) et une plombée groupée ou étalée au-dessus de l'émerillon.\n\n**Schéma Visuel :**\n[Moulinet / Corps de ligne en Nylon]\n      │\n[Nœud d'arrêt en fil ou Stopper en caoutchouc] (Règle la profondeur de pêche)\n      │\n[Perle de butée (micro-perle)] \n      │\n[FLOTTEUR COULISSANT] (Glisse librement le long du fil)\n      │\n[Gaine silicone / Butée inférieure (optionnelle)]\n      │\n[Plombée : Olive percée ou Billes de plomb fendues]\n      │\n[Perle amortisseur en caoutchouc]\n      │\n[Émerillon baril / Micro-émerillon]\n      │ \n[EMPILE / BAS DE LIGNE] (Fluorocarbone long et discret)\n      │\n[HAMEÇON]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Mère)** (Directement depuis le moulinet)\n* **Mer Calme (X) :** Nylon de 0.20 mm - 0.22 mm. Offre une glisse fluide du flotteur et une grande sensibilité lors de la dérive.\n* **Mer Agitée (Y) :** Nylon de 0.25 mm - 0.28 mm. Plus résistant aux frottements contre les roches et adapté à des plombées plus lourdes.\n\n2. **Le Flotteur (Galleggiante)** (Type poire ou crayon coulissant)\n* **Mer Calme (X) :** Flotteur léger de 4g à 8g. Permet de détecter les touches les plus timides (comme celles des mulets ou des sparidés).\n* **Mer Agitée (Y) :** Flotteur trapu de 10g à 20g. Sa forme bulbeuse offre une meilleure stabilité face aux vagues et au ressac.\n\n3. **La Plombée (Équilibrage)** (Doit calibrer le flotteur à 90% de sa portance)\n* **Mer Calme (X) :** Une olive percée fine (ex: 4g pour un flotteur de 6g) complétée par quelques petits plombs espacés pour une descente lente et naturelle de l'appât.\n* **Mer Agitée (Y) :** Une plombée groupée (ex: olive de 12g bloquée juste au-dessus de l'émerillon) pour traverser rapidement la couche d'eau agitée et atteindre le fond sans dériver trop vite.\n\n4. **L'Empile (Bas de ligne)** (En Fluorocarbone pour une discrétion totale)\n* **Mer Calme (X) :** 0.12 mm - 0.16 mm en Fluorocarbone. Longueur importante (100 cm - 150 cm) pour laisser l'appât évoluer librement dans le courant.\n* **Mer Agitée (Y) :** 0.18 mm - 0.22 mm en Fluorocarbone rigide. Plus court (60 cm - 80 cm) afin d'éviter que le bas de ligne ne s'emmêle autour de la plombée à cause du ressac.\n\n5. **Les Hameçons**\n* **Mer Calme (X) :** Taille 8 - 12 de fer fin à large ouverture (type Crystal ou Chinu), parfaits pour la dandinette, les asticots ou de petits morceaux de vers.\n* **Mer Agitée (Y) :** Taille 4 - 6 de fer fort (type Beak), indispensables pour escher de gros bouquets de vers, des morceaux de sardine ou des crevettes vivantes."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🛠️ Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Préparation pour la distance et pour la tenue",
+   "contenuto": "* **Eschage pour la Discrétion (Mer Calme) :** Enfilez une belle crevette grise vivante par la queue à l'aide d'un hameçon fin. Elle doit pouvoir nager naturellement sous le flotteur. Pour les vers (type coréen ou demi-dure), piquez-les juste par la tête pour leur laisser un maximum de mobilité dans le courant.\n* **Eschage pour la Tenue (Mer Agitée) :** Utilisez une lanière de seiche ou un morceau de sardine (ficelé au fil élastique). L'appât doit être compact pour ne pas offrir de prise excessive au courant, ce qui ferait remonter le montage et saturerait la portance du flotteur."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Modèles aérodynamiques vs ancrage stable",
+   "contenuto": "* **Mer Calme (X) :** Utilisation d'olives interchangeables ou de plombs ronds fendus très doux pour le fil, permettant de modifier l'équilibrage du flotteur en quelques secondes si les conditions changent.\n* **Mer Agitée (Y) :** Une olive lourde et trapue ou un plomb profilé 'torpille' qui descend directement vers le fond de manière rectiligne, empêchant le courant latéral de déporter le montage hors de la zone d'amorçage."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Surpassement della résistance aérodynamique",
+   "contenuto": "* **Mer Calme (X) :** Lancer de précision à courte et moyenne distance (15 - 30 mètres). Le geste doit être fluide (lancer fluide par le bas ou au-dessus de la tête) pour éviter que le flotteur ne vienne heurter violemment la plombée en plein vol.\n* **Mer Agitée (Y) :** Lancer appuyé (30 - 45 mètres). La plombée lourde agit comme un propulseur. Il est conseillé de freiner légèrement le fil juste avant l'impact avec l'eau pour déployer correctement le bas de ligne devant le flotteur.\n* **Technique de pêche :** Gardez toujours une tension minimale sur la bannière (sans couler le flotteur) pour pouvoir ferrer instantanément à la moindre plongée ou au moindre comportement anormal du témoin visuel."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes et moulinets recommandés",
+   "contenuto": "* **Mer Calme (X) :** Canne Bolognaise de 5 à 7 mètres ou canne Match (anglaise) télescopique légère. Moulinet de taille 2500 - 3000 à frein micrométrique, garni d'un Nylon flottant.\n* **Mer Agitée (Y) :** Canne télescopique puissante (type bombette ou lancer lourd) de 4.20m à 4.50m (puissance 20-60g). Moulinet robuste de taille 4000 garni d'un Nylon résistant à l'abrasion."
+  }
+ ]
+}
