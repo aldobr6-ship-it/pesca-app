@@ -1,0 +1,48 @@
+{
+ "id": "galleggiante-fisso",
+ "titolo": "Galleggiante Fisso (Flotteur Fixe / Fixed Float Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Espèces Cibles, Contexte et Circonstances",
+   "sottotitolo": "Espèces, Milieu et Circonstances",
+   "contenuto": "Le montage au Galleggiante Fisso (flotteur fixe) est la technique traditionnelle par excellence pour la pêche de précision à courte distance. Le flotteur est bloqué directement sur le corps de ligne à l'aide de gaines en silicone ou de starlites. La profondeur de pêche maximale est donc limitée par la longueur de la canne (généralement moins de 4-5 mètres). Ce système offre une réactivité immédiate au ferrage et une sensibilité extrême aux touches les plus délicates.\n\n**Espèces Cibles :** 🎯\n* **Le mulet, la saupe, l'oblade, le sar, le bar (loup) et les petits poissons de roche (girelles, rascasses).**\n\n**Contexte Idéal :**\n* Zones de faible à moyenne profondeur (jusqu'à 3-4 mètres max) : ports abrités, canaux maritimes, structures de quais, et petites criques rocheuses peu profondes. C'est le montage roi pour la pêche à la pâte ou aux asticots en bordure.\n\n**Circonstances d'Utilisation :**\n* Fonds peu profonds où le poisson se nourrit activement en surface ou entre deux eaux.\n* Recherche de poissons extrêmement méfiants (comme le mulet) nécessitant une plombée très étalée et discrète.\n* Absence de courants violents ou de vents forts qui déplaceraient trop vite la ligne."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schéma Structural du Montage",
+   "sottotitolo": "Fonctionnement du système fixe",
+   "contenuto": "Dans ce montage, le flotteur est solidaire de la ligne. La plombée est généralement répartie sur le fil pour permettre une descente lente et naturelle de l'appât.\n\n**Schéma Visuel :**\n[Moulinet ou Scion de canne fixe]\n      │\n[FLOTTEUR FIXE] (Bloqué rigidement par 2 ou 3 gaines silicone sur la quille)\n      │\n[Plombée étalée : Série de plombs fendus (grenailles) décroissants]\n      │  (Espacement régulier pour une courbe de descente parfaite)\n      │\n[Micro-émerillon / Nœud de raccord]\n      │ \n[EMPILE / BAS DE LIGNE] (Fluorocarbone très fin et invisible)\n      │\n[HAMEÇON]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Composants et Diamètres : Configuration Unique",
+   "sottotitolo": "Mer Calme X vs Mer Agitée Y",
+   "contenuto": "1. **Le Corps de Ligne (Mère)** (Directement depuis le moulinet ou la pointe de la canne)\n* **Mer Calme (X) :** Nylon ultra-fin de 0.14 mm - 0.18 mm. Assure une présentation parfaite et une neutralité totale face au courant.\n* **Mer Agitée (Y) :** Nylon de 0.20 mm - 0.22 mm. Plus résistant aux frottements contre les structures du quai ou les rochers en cas de ressac.\n\n2. **Le Flotteur (Galleggiante)** (Type carotte, goutte d'eau ou plume)\n* **Mer Calme (X) :** Flotteur ultra-léger de 1g à 3g avec une antenne fine. Idéal pour détecter l'aspiration de l'appât par les mulets.\n* **Mer Agitée (Y) :** Flotteur de 4g à 6g de forme plus ronde (boule) pour ne pas couler ou tressauter sous l'effet des petites vagues.\n\n3. **La Plombée (Équilibrage)** (Doit laisser dépasser uniquement l'antenne)\n* **Mer Calme (X) :** Une chaîne de petits plombs fendus très étalés (styls ou billes microscopiques) pour que l'appât plane lors de la descente.\n* **Mer Agitée (Y) :** Une plombée plus regroupée (un petit plomb olive ou des plombs groupés à 70%) pour stabiliser le flotteur dans la vague.\n\n4. **L'Empile (Bas de ligne)** (En Fluorocarbone souple)\n* **Mer Calme (X) :** 0.10 mm - 0.12 mm en Fluorocarbone. Longueur de 60 cm à 90 cm pour une discrétion maximale en eau claire.\n* **Mer Agitée (Y) :** 0.14 mm - 0.16 mm en Fluorocarbone. Plus court (40 cm - 50 cm) pour éviter le vrillage causé par le mouvement de l'eau.\n\n5. **Les Hameçons**\n* **Mer Calme (X) :** Taille 12 - 16 de fer extra-fin (type Sode ou Crystal), parfaits pour l'asticot, le pain de mie ou la pâte fine.\n* **Mer Agitée (Y) :** Taille 8 - 10 de fer moyen (type Chinu), adaptés pour escher de petits morceaux de vers ou de la chair de crevette."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🛠️ Comment Escher de Façon Hydrodynamique",
+   "sottotitolo": "Préparation pour la distance et pour la tenue",
+   "contenuto": "* **Eschage pour la Discrétion (Mer Calme) :** Piquez un ou deux asticots par la peau du "cul" pour qu'ils gigotent frénétiquement. Si vous pêchez au pain, réalisez une petite pastille de mie de pain non pressée autour de la hampe de l'hameçon pour qu'elle gonfle dans l'eau et masque totalement le piège.\n* **Eschage pour la Tenue (Mer Agitée) :** Utilisez une petite boule de pâte bien collante à base de fromage et de sardine, ou un petit tronçon de ver dur esché fermement pour résister aux tiraillements continus du ressac."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ Le Choix du Plomb",
+   "sottotitolo": "Modèles aérodynamiques vs ancrage stable",
+   "contenuto": "* **Mer Calme (X) :** Plombs fendus en plomb doux calibrés (calibrages fins type n°8, n°10) qui n'écrasent pas le fil et permettent d'ajuster l'équilibrage au milligramme près.\n* **Mer Agitée (Y) :** Plombs ronds plus gros et durs ou mini-plombs torpilles coulissants bloqués, évitant que la plombée ne glisse ou ne s'emmêle lors des lancers répétés dans le vent."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distance de Lancer et Technique",
+   "sottotitolo": "Surpassement della résistance aérodynamique",
+   "contenuto": "* **Mer Calme (X) :** Pêche sous la canne ou lancers très courts (5 - 15 mètres). On dépose délicatement le montage à l'aide d'une canne bolognaise ou d'une canne à emmanchements pour ne pas effrayer le poisson en surface.\n* **Mer Agitée (Y) :** Lancers à courte distance (10 - 20 mètres) au-delà de l'écume des rochers. Le lancer doit être direct et tendu.\n* **Technique de pêche :** Le contrôle de la ligne est primordial : il faut effectuer de légères tirées (aguichage) pour soulever l'appât et le laisser retomber, ce qui déclenche souvent l'attaque réflexe des sars ou des mulets."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Équipement Idéal",
+   "sottotitolo": "Cannes et moulinets recommandés",
+   "contenuto": "* **Mer Calme (X) :** Canne fixe sans moulinet (canne à pointer) de 6 à 8 mètres ou Bolognaise ultra-légère. Moulinet de taille 1000 - 2000 avec un nylon très fluide.\n* **Mer Agitée (Y) :** Canne Bolognaise robuste ou canne anglaise de 4.20m à 5 mètres. Moulinet de taille 2500 - 3000 doté d'un frein avant très précis pour gérer les rushs des poissons dans les rochers."
+  }
+ ]
+}
