@@ -1463,7 +1463,7 @@ function showSurfcasting() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       
       {/* Griglia a 3 colonne reali ad altezza simmetrica estesa */}
-      <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:8px;align-items:stretch;">
+      
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
        ${["minitrave","paternoster","long-arm","short-rovesciato","pulley-rig"].map((id,i)=>{
         const mont = montatureData.find(x=>x.id===id);
