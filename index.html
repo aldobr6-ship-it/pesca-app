@@ -1436,43 +1436,40 @@ function showSurfcasting() {
     <div class="card" style="cursor:default;">
       <h3>${t('montatureDedicate')}</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      
+      {/* Griglia impostata su 3 colonne */}
+      <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:8px;">
         
-        {/* 1. MINITRAVE */}
         <div>
-          <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/14_minitrave.jpg' : './img/montature/14_minitrave.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">
+          <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/14_minitrave.jpg' : './img/montature/14_minitrave.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:11px;padding:6px 2px;">
             📷 ${linguaAttuale === "fr" ? "Mini-trave" : "Minitrave"} <span class="arrow">▼</span>
           </button>
           <div id="surfBox0" class="image-box"></div>
         </div>
 
-        {/* 2. PATERNOSTER */}
         <div>
-          <button onclick="toggleImageBox('surfBox1', linguaAttuale === 'fr' ? './img/montature/fr/06_paternoster.jpg' : './img/montature/06_paternoster.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">
+          <button onclick="toggleImageBox('surfBox1', linguaAttuale === 'fr' ? './img/montature/fr/06_paternoster.jpg' : './img/montature/06_paternoster.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:11px;padding:6px 2px;">
             📷 ${linguaAttuale === "fr" ? "Paternoster" : "Paternoster"} <span class="arrow">▼</span>
           </button>
           <div id="surfBox1" class="image-box"></div>
         </div>
 
-        {/* 3. LONG-ARM */}
         <div>
-          <button onclick="toggleImageBox('surfBox2', linguaAttuale === 'fr' ? './img/montature/fr/03_long_arm.jpg' : './img/montature/03_long_arm.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">
+          <button onclick="toggleImageBox('surfBox2', linguaAttuale === 'fr' ? './img/montature/fr/03_long_arm.jpg' : './img/montature/03_long_arm.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:11px;padding:6px 2px;">
             📷 ${linguaAttuale === "fr" ? "Long-arm" : "Long-arm"} <span class="arrow">▼</span>
           </button>
           <div id="surfBox2" class="image-box"></div>
         </div>
 
-        {/* 4. SHORT-ROVESCIATO */}
         <div>
-          <button onclick="toggleImageBox('surfBox3', linguaAttuale === 'fr' ? './img/montature/fr/01_short_rovesciato.jpg' : './img/montature/01_short_rovesciato.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">
+          <button onclick="toggleImageBox('surfBox3', linguaAttuale === 'fr' ? './img/montature/fr/01_short_rovesciato.jpg' : './img/montature/01_short_rovesciato.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:11px;padding:6px 2px;">
             📷 ${linguaAttuale === "fr" ? "Short Renversé" : "Short Rovesciato"} <span class="arrow">▼</span>
           </button>
           <div id="surfBox3" class="image-box"></div>
         </div>
 
-        {/* 5. PULLEY-RIG */}
         <div>
-          <button onclick="toggleImageBox('surfBox4', linguaAttuale === 'fr' ? './img/montature/fr/10_pulley_rig.jpg' : './img/montature/10_pulley_rig.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">
+          <button onclick="toggleImageBox('surfBox4', linguaAttuale === 'fr' ? './img/montature/fr/10_pulley_rig.jpg' : './img/montature/10_pulley_rig.jpg', this)" class="toggle-btn" style="max-width:none;width:100%;font-size:11px;padding:6px 2px;">
             📷 ${linguaAttuale === "fr" ? "Pulley Rig" : "Pulley Rig"} <span class="arrow">▼</span>
           </button>
           <div id="surfBox4" class="image-box"></div>
@@ -1487,8 +1484,6 @@ function showSurfcasting() {
     <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(dati.esche)}</div>
     <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
 }
-
-
 function showGalleggiante() {
   const dati = tecnicheData.galleggiante;
   const txt = linguaAttuale === "fr" ? galleggianteText.fr : galleggianteText.it;
