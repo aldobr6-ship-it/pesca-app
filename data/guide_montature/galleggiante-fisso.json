@@ -1,0 +1,48 @@
+{
+ "id": "galleggiante-fisso",
+ "titolo": "Galleggiante Fisso (Fixed Float Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "La pesca con il galleggiante fisso è la tecnica tradizionale per eccellenza per la pesca di precisione a corta distanza. Il galleggiante è bloccato direttamente sulla madre lenza tramite gommini in silicone o starlite. La profondità massima di pesca è quindi limitata dalla lunghezza della canna stessa (in genere meno di 4-5 metri). Questo sistema offre una reattività immediata alla ferrata e una sensibilità estrema alle toccate più timide.\n\n**Specie Target:** 🎯\n* **Cefali, salpe, occhiate, saraghi, spigole e piccoli pesci di scoglio (bavose, donzelle, scorfani).**\n\n**Contesto Ideale:**\n* Zone a bassa o media profondità (fino a 3-4 metri al massimo): porti riparati, canali marittimi, strutture di banchine e piccole calette rocciose poco profonde. È la montatura regina per la pesca a canna fissa con la pasta o i bigattini in banchina.\n\n**Circostanze d'Uso:**\n* Fondali bassi dove il pesce si nutre attivamente in superficie o a mezz'acqua.\n* Ricerca di pesci estremamente diffidenti (come il cefalo) che richiedono una piombatura molto aperta, scalata e discreta.\n* Assenza di correnti violente o vento forte che sposterebbero troppo rapidamente la lenza fuori pastura."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Funzionamento del sistema fisso",
+   "contenuto": "In questa montatura, il galleggiante è solidale con la lenza. La piombatura è generalmente ripartita sul filo (scalata) per permettere una discesa lenta e naturale dell'esca.\n\n**Schema Visivo:**\n[Mulinello o Cimino della Canna Fissa]\n      │\n[GALLEGGIANTE FISSO] (Bloccato rigidamente da 2 o 3 passanti in silicone sulla deriva)\n      │\n[Piombatura scalata: Serie di pallini spaccati decrescenti verso il basso]\n      │  (Spaziatura regolare per una curva di discesa perfetta dell'esca)\n      │\n[Micro-girella / Nodo di giunzione]\n      │ \n[FINALE / TERMINALE] (Fluorocarbon molto sottile e invisibile)\n      │\n[AMO]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **La Madre Lenza** (Direttamente dal mulinello o dalla punta della canna)\n* **Mare Calmo (X):** Nylon ultra-fine da 0.14 mm - 0.16 mm. Assicura una presentazione perfetta e una neutralità totale di fronte alla corrente.\n* **Mare Mosso (Y):** Nylon da 0.18 mm - 0.20 mm. Più resistente allo sfregamento contro le strutture della banchina o le rocce in caso di risacca.\n\n2. **Il Galleggiante** (Tipo a carota, a goccia o penna di pavone)\n* **Mare Calmo (X):** Galleggiante ultra-leggero da 1g a 3g con antenna sottile. Ideale per percepire l'aspirazione dell'esca da parte dei cefali.\n* **Mare Mosso (Y):** Galleggiante da 4g a 6g di forma più rotonda (a sfera) per non affondare o sobbalzare continuamente sotto l'effetto delle onde.\n\n3. **La Piombatura (Taratura)** (Deve lasciare fuoriuscire solo l'antenna visiva)\n* **Mare Calmo (X):** Una spallinata di piccoli pallini spaccati molto aperti (styls o pallini microscopici) per far planare l'esca durante la calata.\n* **Mare Mosso (Y):** Una piombatura più raggruppata (un piccolo bilancino o pallini concentrati al 70%) per stabilizzare il galleggiante nella schiuma.\n\n4. **Il Terminale (Finale)** (In Fluorocarbon morbido)\n* **Mare Calmo (X):** 0.10 mm - 0.12 mm in Fluorocarbon. Lunghezza da 60 cm a 90 cm per la massima discrezione in acqua limpida.\n* **Mare Mosso (Y):** 0.14 mm - 0.16 mm in Fluorocarbon. Più corto (40 cm - 50 cm) per evitare i garbugli causati dal movimento vorticoso dell'acqua.\n\n5. **Gli Ami**\n* **Mare Calmo (X):** Misura 12 - 16 a filo extra-fine (tipo Sode o Crystal), perfetti per bigattino, pan di zenzero o pastelle fini.\n* **Mare Mosso (Y):** Misura 8 - 10 a filo medio (tipo Chinu), adatti per innescare piccoli pezzi di verme o polpa di gambero."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🛠️ Come Innescare in Modo Idrodinamico",
+   "sottotitolo": "Preparazione per la distanza e per la tenuta",
+   "contenuto": "* **Innesco per la Discrezione (Mare Calmo):** Appunta uno o due bigattini sottopelle dalla parte opposta alla testa per lasciarli liberi di dimenarsi freneticamente. Se peschi con il pane, realizza un fiocco di mollica non pressata attorno al gambo dell'amo in modo che si gonfi in acqua nascondendo interamente l'insidia.\n* **Innesco per la Tenuta (Mare Mosso):** Utilizza una pallina di pasta ben tenace a base di formaggio e sarda, oppure un piccolo pezzetto di verme sodo innescato saldamente per resistere ai continui strattoni della risacca."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Modèles aerodinamici vs ancoraggio stabile",
+   "contenuto": "* **Mare Calmo (X):** Pallini spaccati in piombo tenero calibrati (misure fini tipo n.8, n.10) che non schiacciano il filo e permettono di regolare la taratura al milligrammo.\n* **Mare Mosso (Y):** Pallini tondi più grandi e duri o mini-torpille scorrevoli bloccate, che evitano che la piombatura scivoli o si ingarbugli durante i lanci ripetuti nel vento."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Superamento della resistenza aerodinamica",
+   "contenuto": "* **Mare Calmo (X):** Pesca sotto punta o lanci cortissimi (5 - 15 metri). Si deposita delicatamente la lenza con l'aiuto di una canna bolognese o di una fissa per non spaventare il pesce in superficie.\n* **Mare Mosso (Y):** Lanci a corta distanza (10 - 20 metri) oltre la schiuma degli scogli. Il lancio deve essere teso e diretto.\n* **Tecnica di pesca:** Il controllo della trattenuta è fondamentale: effettuare continui e leggeri inviti (sollevamenti) per far muovere l'esca stimola l'attacco riflesso di saraghi o occhiate."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canne e mulinelli raccomandati",
+   "contenuto": "* **Mare Calmo (X):** Canna fissa senza mulinello (canna da punta) da 6 a 8 metri o Bolognese ultra-leggera. Mulinello di taglia 1000 - 2000 con un nylon molto fluido.\n* **Mare Mosso (Y):** Canna Bolognese robusta o canna inglese da 4.20m a 5 metri. Mulinello di taglia 2500 - 3000 dotato di una frizione anteriore precisa per gestire le fughe dei pesci tra le rocce."
+  }
+ ]
+}
