@@ -1427,16 +1427,24 @@ function showTecniche() {
     <button onclick="goTo(showHome)" style="width:100%;margin-top:14px;">${t('tornaHome')}</button>`;
 }
 function showSurfcasting() {
-  const txt = linguaAttuale === "fr" ? surfcastingText.fr : surfcastingText.it;
-  
-  // PROTEZIONE CRASH: Se surfcastingDataIt non esiste, usa tecnicheData.surfcasting come salvagente
-  let dati = tecnicheData.surfcasting; 
-  if (linguaAttuale === "fr") {
+  // 1. Controllo di sicurezza preventivo sui testi
+  let txt = { quando: "", attrezzatura: "", pro: "", contro: "" };
+  if (typeof surfcastingText !== "undefined") {
+    txt = linguaAttuale === "fr" ? (surfcastingText.fr || txt) : (surfcastingText.it || txt);
+  }
+
+  // 2. Controllo di sicurezza preventivo sui dati (Specie ed Esche)
+  let dati = { specie: [], esche: [] };
+  if (typeof tecnicheData !== "undefined" && tecnicheData.surfcasting) {
+    dati = tecnicheData.surfcasting;
+  }
+  if (linguaAttuale === "fr" && typeof surfcastingDataFr !== "undefined") {
     dati = surfcastingDataFr;
-  } else if (typeof surfcastingDataIt !== "undefined") {
+  } else if (linguaAttuale === "it" && typeof surfcastingDataIt !== "undefined") {
     dati = surfcastingDataIt;
   }
-  
+
+  // 3. Array locale delle montature con i tuoi file esatti
   const montatureLocali = [
     { id: "surfBox0", img: "14_minitrave.jpg", nome: linguaAttuale === "fr" ? "Mini-trave" : "Minitrave" },
     { id: "surfBox1", img: "06_paternoster.jpg", nome: linguaAttuale === "fr" ? "Paternoster" : "Paternoster" },
@@ -1445,6 +1453,7 @@ function showSurfcasting() {
     { id: "surfBox4", img: "10_pulley_rig.jpg", nome: linguaAttuale === "fr" ? "Pulley Rig" : "Pulley Rig" }
   ];
 
+  // 4. Stampa dell'HTML con layout a 3 COLONNE e pulsanti alti e spaziosi
   document.getElementById("content").innerHTML = `
     <h2>🏖️ Surfcasting</h2>
     <div class="card"><b>${t('quandoUsarla')}</b><br>${txt.quando}</div>
@@ -1453,12 +1462,12 @@ function showSurfcasting() {
       <h3>${t('montatureDedicate')}</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       
-      {/* Layout a colonna singola per garantire altezza e proporzioni identiche allo Spinning */}
-      <div style="display:flex;flex-direction:column;gap:10px;">
+      {/* Griglia a 3 colonne reali ad altezza simmetrica estesa */}
+      <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:8px;align-items:stretch;">
       ${montatureLocali.map(m => `
-        <div style="width:100%;">
-          <button onclick="toggleImageBox('${m.id}', linguaAttuale === 'fr' ? './img/montature/fr/${m.img}' : './img/montature/${m.img}', this)" class="toggle-btn" style="max-width:none;width:100%;padding:12px 16px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;text-align:left;">
-            <span>📷 ${m.nome}</span> <span class="arrow">▼</span>
+        <div style="display:flex;flex-direction:column;height:100%;">
+          <button onclick="toggleImageBox('${m.id}', linguaAttuale === 'fr' ? './img/montature/fr/${m.img}' : './img/montature/${m.img}', this)" class="toggle-btn" style="max-width:none;width:100%;height:100%;min-height:54px;font-size:11px;padding:8px 6px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;text-align:left;line-height:1.2;">
+            <span>📷 ${m.nome}</span> <span class="arrow" style="margin-left:4px;">▼</span>
           </button>
           <div id="${m.id}" class="image-box"></div>
         </div>
@@ -1468,11 +1477,14 @@ function showSurfcasting() {
     </div>
     <div class="card"><b>${t('proLabel')}</b><br>${txt.pro}</div>
     <div class="card"><b>${t('controLabel')}</b><br>${txt.contro}</div>
-    <div class="card"><b>${t('videoTutorial')}</b><br><a href="${linguaAttuale === 'fr' ? videoTecniche.surfcasting.fr : videoTecniche.surfcasting.it}" target="_blank" rel="noopener">${t('guardaSuYoutube')}</a></div>
-    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(dati.specie)}</div>
-    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(dati.esche)}</div>
+    <div class="card"><b>${t('videoTutorial')}</b><br><a href="${typeof videoTecniche !== 'undefined' && videoTecniche.surfcasting ? (linguaAttuale === 'fr' ? videoTecniche.surfcasting.fr : videoTecniche.surfcasting.it) : '#'}" target="_blank" rel="noopener">${t('guardaSuYoutube')}</a></div>
+    <div class="card"><h3>${t('specieConsigliate')}</h3>${typeof generaListaCliccabile === 'function' ? generaListaCliccabile(dati.specie) : ''}</div>
+    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${typeof generaListaCliccabile === 'function' ? generaListaCliccabile(dati.esche) : ''}</div>
     <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
 }
+
+// 5. Rende la funzione disponibile globalmente in minuscolo per evitare l'errore "fn is not a function"
+window.showsurfcasting = showSurfcasting;
 
 
 function showGalleggiante() {
