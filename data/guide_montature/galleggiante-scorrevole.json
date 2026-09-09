@@ -1,0 +1,48 @@
+{
+ "id": "galleggiante-scorrevole",
+ "titolo": "Galleggiante Scorrevole (Sliding Float Rig)",
+ "capitoli": [
+  {
+   "id": "specie_contesto",
+   "titolo": "🎯 Specie Target, Contesto e Circostanze",
+   "sottotitolo": "Specie, Ambiente e Circostanze",
+   "contenuto": "La pesca con il galleggiante scorrevole è una tecnica regina per la pesca in mare. A differenza del galleggiante fisso, quello scorrevole scorre liberamente sulla madre lenza fino a fermarsi contro un nodo d'arresto (stopper). Questo permette di pescare a profondità elevate (anche oltre i 10-15 metri) mantenendo una lenza corta durante il lancio, il che rende il lancio semplice, sicuro e preciso.\n\n**Specie Target:** 🎯\n* **Spigole (lupi di mare), orate, saraghi, occhiate, cefali e sugarelli.**\n\n**Contesto Ideale:**\n* Zone con fondali profondi non raggiungibili con un galleggiante fisso: scogliere artificiali, grandi porti, falesie o imboccature di baie. Questa montatura eccelle sia di giorno alla ricerca di sparidi sul fondo, sia di notte a mezz'acqua per insidiare le spigole.\n\n**Circostanze d'Uso:**\n* Presenza di fondali importanti (superiori alla lunghezza della canna).\n* Necessità di presentare un'esca in modo naturale a una profondità precisa adattandosi alla corrente.\n* Ricerca di pesci diffidenti che richiedono la massima sensibilità sulla toccata."
+  },
+  {
+   "id": "schema_strutturale",
+   "titolo": "📐 Schema Strutturale della Montatura",
+   "sottotitolo": "Funzionamento del sistema scorrevole",
+   "contenuto": "La montatura si basa sulla libertà di movimento del galleggiante tra un nodo d'arresto superiore (che regola la profondità di pesca) e una piombatura (raggruppata o raggruppata/allineata) posizionata sopra la girella.\n\n**Schema Visivo:**\n[Mulinello / Madre Lenza in Nylon]\n      │\n[Nodo d'arresto in filo o Stopper in gomma] (Regola la profondità di pesca)\n      │\n[Perlina di battuta (micro-perlina)] \n      │\n[GALLEGGIANTE SCORREVOLE] (Scorre liberamente lungo il filo)\n      │\n[Tubetto in silicone / Battuta inferiore (opzionale)]\n      │\n[Piombatura: Oliva forata o Spaccati di piombo]\n      │\n[Perlina salvalenza / Ammortizzatore in gomma]\n      │\n[Girella semplice / Micro-girella]\n      │ \n[FINALE / TERMINALE] (Fluorocarbon lungo e discreto)\n      │\n[AMO]"
+  },
+  {
+   "id": "componenti_diametri",
+   "titolo": "🛠️ Componenti e Diametri: Configurazione Unica",
+   "sottotitolo": "Mare Calmo X vs Mare Mosso Y",
+   "contenuto": "1. **La Madre Lenza** (Direttamente dal mulinello)\n* **Mare Calmo (X):** Nylon da 0.20 mm - 0.22 mm. Offre uno scorrimento fluido del galleggiante e un'ottima sensibilità durante la passata.\n* **Mare Mosso (Y):** Nylon da 0.25 mm - 0.28 mm. Più resistente allo sfregamento contro le rocce e adatto a gestire piombature più pesanti.\n\n2. **Il Galleggiante** (Tipo a pera o a penna scorrevole)\n* **Mare Calmo (X):** Galleggiante leggero da 4g a 8g. Permette di intercettare le toccate più timide (come quelle di cefali o sparidi).\n* **Mare Mosso (Y):** Galleggiante piantato/tarchiato da 10g a 20g. La sua forma a uovo offre una stabilità superiore tra le onde e la risacca.\n\n3. **La Piombatura (Taratura)** (Deve tarare il galleggiante al 90% della sua portata)\n* **Mare Calmo (X):** Un'oliva forata leggera (es: 4g per un galleggiante da 6g) completata da qualche piccolo pallino spaccato distanziato per una discesa lenta e naturale dell'esca.\n* **Mare Mosso (Y):** Una piombatura raggruppata (es: oliva da 12g bloccata appena sopra la girella) per attraversare rapidamente la fascia d'acqua superficiale mossa e raggiungere il fondo senza scarrocciare troppo velocemente.\n\n4. **Il Terminale (Finale)** (In Fluorocarbon per una totale invisibilità)\n* **Mare Calmo (X):** 0.12 mm - 0.16 mm in Fluorocarbon. Lunghezza notevole (100 cm - 150 cm) per lasciare l'esca libera di muoversi nella corrente.\n* **Mare Mosso (Y):** 0.18 mm - 0.22 mm in Fluorocarbon rigido. Più corto (60 cm - 80 cm) per evitare che il finale si aggrovigli attorno alla piombatura a causa della risacca.\n\n5. **Gli Ami**\n* **Mare Calmo (X):** Misura 8 - 12 a gambo fine e ampia curvatura (tipo Crystal o Chinu), perfetti per bigattini, pane o piccoli pezzi di verme.\n* **Mare Mosso (Y):** Misura 4 - 6 a filo robusto (tipo Beak), indispensabili per innescare grossi ciuffi di vermi, tranci di sarda o gamberi vivi."
+  },
+  {
+   "id": "inneschi_idrodinamici",
+   "titolo": "🛠️ Come Innescare in Modo Idrodinamico",
+   "sottotitolo": "Preparazione per la distanza e per la tenuta",
+   "contenuto": "* **Innesco per la Discrezione (Mare Calmo):** Innesca un bel gambero grigio vivo dalla coda usando un amo leggero, permettendogli di nuotare in modo naturale sotto il galleggiante. Per i vermi (come il coreano o la saltarello), appuntali semplicemente dalla testa per lasciare loro la massima mobilità nella corrente.\n* **Innesco per la Tenuta (Mare Mosso):** Utilizza una strisciolina di seppia o un pezzo di sarda (legato saldamente con il filo elastico). L'esca deve essere compatta per non offrire troppa resistenza alla corrente, evitando così di far sollevare la montatura e falsare la taratura del galleggiante."
+  },
+  {
+   "id": "scelta_piombo",
+   "titolo": "⚓ La Scelta del Piombo",
+   "sottotitolo": "Modelli aerodinamici vs ancoraggio stabile",
+   "contenuto": "* **Mare Calmo (X):** Utilizzo di olive intercambiabili o pallini spaccati molto morbidi per la lenza, che consentono di modificare la taratura del galleggiante in pochi secondi se cambiano le condizioni di luce o corrente.\n* **Mare Mosso (Y):** Un'oliva pesante e tarchiata o un piombo a profilo 'siluro' (torpilla) che scende verso il fondo in modo rettilineo, impedendo alla corrente laterale di spostare la lenza fuori dalla zona di pasturazione."
+  },
+  {
+   "id": "distanza_tecnica",
+   "titolo": "🏹 Distanza di Lancio e Tecnica",
+   "sottotitolo": "Superamento della resistenza aerodinamica",
+   "contenuto": "* **Mare Calmo (X):** Lancio di precisione a corta e media distanza (15 - 30 metri). Il gesto deve essere fluido (lancio sottomano o fluido dall'alto) per evitare che il galleggiante sbatta violentemente contro la piombatura durante il volo.\n* **Mare Mosso (Y):** Lancio forzato (30 - 45 metri). La piombatura pesante funge da propulsore. Si consiglia di trattenere leggermente il filo del mulinello un attimo prima dell'impatto con l'acqua per stendere correttamente il terminale davanti al galleggiante.\n* **Tecnica di pesca:** Mantieni sempre una tensione minima sulla bando della lenza (senza affondare il galleggiante) per poter ferrare istantaneamente a ogni minima affondata o comportamento anomalo del segnalatore visivo."
+  },
+  {
+   "id": "attrezzatura_ideale",
+   "titolo": "🎣 Attrezzatura Ideale",
+   "sottotitolo": "Canne e mulinelli raccomandati",
+   "contenuto": "* **Mare Calmo (X):** Canna Bolognese da 5 a 7 metri o canna Match (inglese) telescopica leggera. Mulinello di taglia 2500 - 3000 con frizione micrometrica, caricato con un Nylon galleggiante.\n* **Mare Mosso (Y):** Canna telescopica potente (tipo da bombarda o da lancio pesante) da 4.20m a 4.50m (potenza 20-60g). Mulinello robusto di taglia 4000 caricato con un Nylon resistente all'abrasione."
+  }
+ ]
+}
