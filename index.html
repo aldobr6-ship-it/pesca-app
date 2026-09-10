@@ -1432,7 +1432,6 @@ function showSurfcasting() {
   if (typeof surfcastingText !== "undefined") {
     txt = linguaAttuale === "fr" ? (surfcastingText.fr || txt) : (surfcastingText.it || txt);
   }
-
   // 2. Controllo di sicurezza preventivo sui dati (Specie ed Esche)
   let dati = { specie: [], esche: [] };
   if (typeof tecnicheData !== "undefined" && tecnicheData.surfcasting) {
@@ -1467,6 +1466,21 @@ function showSurfcasting() {
         <div style="display:flex;flex-direction:column;height:100%;">
           <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/14_minitrave.jpg' : './img/montature/14_minitrave.jpg', this)"
            class="toggle-btn active">📷 Minitrave<span class="arrow">▼</span></button>
+          </button>
+          <div id="${m.id}" class="image-box"></div>
+        </div>
+         <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/06_paternoster.jpg' : './img/montature/06_paternoster.jpg', this)"
+           class="toggle-btn active">📷 Paternoster<span class="arrow">▼</span></button>
+          </button>
+          <div id="${m.id}" class="image-box"></div>
+        </div>
+        <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/03_long_arm.jpg' : './img/montature/03_long_arm.jpg', this)"
+           class="toggle-btn active">📷 Long Arm<span class="arrow">▼</span></button>
+          </button>
+          <div id="${m.id}" class="image-box"></div>
+        </div>
+        <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/10_pulley_rig.jpg' : './img/montature/10_pulley_rig.jpg', this)"
+           class="toggle-btn active">📷 Pulley Rig<span class="arrow">▼</span></button>
           </button>
           <div id="${m.id}" class="image-box"></div>
         </div>
