@@ -1460,28 +1460,7 @@ function showSurfcasting() {
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
       <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:8px;align-items:stretch;">
            ${montatureLocali.map(m => `
-        <div style="display:flex;flex-direction:column;height:100%;">
-          <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/14_minitrave.jpg' : './img/montature/14_minitrave.jpg', this)"
-           class="toggle-btn active">📷 Minitrave<span class="arrow">▼</span></button>
-          </button>
-          <div id="${m.id}" class="image-box"></div>
-        </div>
-         <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/06_paternoster.jpg' : './img/montature/06_paternoster.jpg', this)"
-           class="toggle-btn active">📷 Paternoster<span class="arrow">▼</span></button>
-          </button>
-          <div id="${m.id}" class="image-box"></div>
-        </div>
-        <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/03_long_arm.jpg' : './img/montature/03_long_arm.jpg', this)"
-           class="toggle-btn active">📷 Long Arm<span class="arrow">▼</span></button>
-          </button>
-          <div id="${m.id}" class="image-box"></div>
-        </div>
-        <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/10_pulley_rig.jpg' : './img/montature/10_pulley_rig.jpg', this)"
-           class="toggle-btn active">📷 Pulley Rig<span class="arrow">▼</span></button>
-          </button>
-          <div id="${m.id}" class="image-box"></div>
-        </div>
-      `).join("")}
+       `).join("")}
       </div>
       </div>
     <div class="card"><b>${t('proLabel')}</b><br>${txt.pro}</div>
