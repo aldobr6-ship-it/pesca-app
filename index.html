@@ -2274,11 +2274,11 @@ function showSpecie() {
   mostraTutteLeSpecie();
 }
 function cardSpecie(key) {
-  return `<div onclick="goTo(()=>showSpecieDetail('${key}'))" style="background: linear-gradient(135deg, #0099db, #0087bd); border-radius: 14px; padding: 10px 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.16); cursor: pointer; text-align: center; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+  return `<div onclick="goTo(()=>showSpecieDetail('${key}'))" style="background: linear-gradient(135deg, rgba(0, 153, 219, 0.85), rgba(0, 135, 189, 0.9)), url('./img/pelle_pesce.jpg'); background-size: cover; background-position: center; border-radius: 14px; padding: 10px 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; text-align: center; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; gap: 4px;">
     <img src="./img/specie_3d.png" alt="${specie[key].nome}" style="width:75px;height:75px;object-fit:contain;">
-    <div style="font-weight: 700; font-size: 13px; line-height: 1.3; color: #ffffff;">${specie[key].nome}</div>
-    <small style="display: block; font-size: 10px; font-weight: 500; opacity: 0.85; margin-top: 3px; color: #ffffff;">
-      ${linguaAttuale === "fr" ? "👆🏻 Cliquez pour voir la photo" : "👆🏻 Clicca per vedere la foto"}
+    <div style="font-weight: 700; font-size: 13px; line-height: 1.3; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">${specie[key].nome}</div>
+    <small style="display: block; font-size: 10px; font-weight: 500; opacity: 0.9; margin-top: 3px; color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+      ${linguaAttuale === "fr" ? "👆 Cliquez pour voir la photo" : "👆 Clicca per vedere la foto"}
     </small>
   </div>`;
 }
