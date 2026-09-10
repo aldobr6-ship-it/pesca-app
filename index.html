@@ -1458,11 +1458,8 @@ function showSurfcasting() {
     <div class="card" style="cursor:default;">
       <h3>${t('montatureDedicate')}</h3>
       <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
-      
-      {/* Griglia a 3 colonne reali ad altezza simmetrica estesa */}
       <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:8px;align-items:stretch;">
-      
-      ${montatureLocali.map(m => `
+           ${montatureLocali.map(m => `
         <div style="display:flex;flex-direction:column;height:100%;">
           <button onclick="toggleImageBox('surfBox0', linguaAttuale === 'fr' ? './img/montature/fr/14_minitrave.jpg' : './img/montature/14_minitrave.jpg', this)"
            class="toggle-btn active">📷 Minitrave<span class="arrow">▼</span></button>
