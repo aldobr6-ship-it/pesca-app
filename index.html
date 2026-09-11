@@ -1680,31 +1680,108 @@ function showFondo() {
 }
   function showBeachLedgering() {
   const dati = tecnicheData.beachledgering;
-  const specieList = linguaAttuale === "fr" ? beachLedgeringDataFr.specie : dati.specie;
-  const escheList = linguaAttuale === "fr" ? beachLedgeringDataFr.esche : dati.esche;
-  const pro = linguaAttuale === "fr" ? beachLedgeringTextFr.pro : dati.pro;
-  const contro = linguaAttuale === "fr" ? beachLedgeringTextFr.contro : dati.contro;
+
+  const quando = linguaAttuale === "fr"
+    ? "Mer calme, presque calme ou en fin de houle."
+    : dati.quando;
+
+  const attrezzatura = linguaAttuale === "fr"
+    ? "Sur la bobine, utiliser des monofilaments fins de 0,18 à 0,22 mm pour favoriser la distance de lancer. Relier un shock leader conique ou en 0,35–0,40 mm, d'une longueur d'environ deux fois celle de la canne, pour supporter l'effort du lancer."
+    : dati.attrezzatura;
+
+  const montatureIt = [
+    {nome:"Running Feeder Rig", img:"img/montature/19_running_feeder_rig.jpg"},
+    {nome:"Long Arm (Monobraccio lungo)", img:"img/montature/03_long_arm.jpg"},
+    {nome:"Piombo Scorrevole", img:"img/montature/12_scorrevole.jpg"}
+  ];
+
+  const montatureFr = [
+    {nome:"Running Feeder Rig", img:"img/montature/fr/19_running_feeder_rig.jpg"},
+    {nome:"Long Arm (Longue Empile)", img:"img/montature/fr/03_long_arm.jpg"},
+    {nome:"Plomb Coulissant", img:"img/montature/fr/12_scorrevole.jpg"}
+  ];
+
+  const montature = linguaAttuale === "fr" ? montatureFr : montatureIt;
+
+  const specieList = linguaAttuale === "fr"
+    ? beachLedgeringDataFr.specie
+    : dati.specie;
+
+  const escheList = linguaAttuale === "fr"
+    ? beachLedgeringDataFr.esche
+    : dati.esche;
+
+  const pro = linguaAttuale === "fr"
+    ? beachLedgeringTextFr.pro
+    : dati.pro;
+
+  const contro = linguaAttuale === "fr"
+    ? beachLedgeringTextFr.contro
+    : dati.contro;
+
   document.getElementById("content").innerHTML = `
     <h2>🏖️ Beach Ledgering</h2>
-    <div class="card"><b>${t('quandoUsarla')}</b><br>${dati.quando}</div>
-    <div class="card"><b>${t('attrezzaturaBase')}</b><br>${dati.attrezzatura}</div>
+
+    <div class="card">
+      <b>${t('quandoUsarla')}</b><br>${quando}
+    </div>
+
+    <div class="card">
+      <b>${t('attrezzaturaBase')}</b><br>${attrezzatura}
+    </div>
+
     <div class="card" style="cursor:default;">
       <h3>${t('montatureDedicate')}</h3>
-      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">${t('toccaSchema')}</p>
+      <p style="font-size:12px;opacity:0.55;margin:0 0 12px;">
+        ${t('toccaSchema')}
+      </p>
+
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-      ${dati.montature.map((m,i)=>`
-        <div>
-          <button onclick="toggleImageBox('beachBox','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;">📷 ${m.nome} <span class="arrow">▼</span></button> 
-       </div>
-      `).join("")}
+        ${montature.map((m,i)=>`
+          <div>
+            <button
+              onclick="toggleImageBox('beachBox${i}','${m.img}',this)"
+              class="toggle-btn"
+              style="max-width:none;width:100%;font-size:12px;"
+            >
+              📷 ${m.nome} <span class="arrow">▼</span>
+            </button>
+            <div id="beachBox${i}" class="image-box"></div>
+          </div>
+        `).join("")}
       </div>
     </div>
-    <div class="card"><b>${t('proLabel')}</b><br>${pro}</div>
-    <div class="card"><b>${t('controLabel')}</b><br>${contro}</div>
-    <div class="card"><h3>${t('specieConsigliate')}</h3>${generaListaCliccabile(specieList)}</div>
-    <div class="card"><h3>${t('escheConsigliateLabel')}</h3>${generaListaCliccabile(escheList)}</div>
-    <div class="card"><b>${t('videoTutorial')}</b><br><a href="${linguaAttuale === 'fr' ? videoTecniche.beachledgering.fr : videoTecniche.beachledgering.it}" target="_blank" rel="noopener">${t('guardaSuYoutube')}</a></div>
-    <button onclick="goTo(showTecniche)">${t('tornaTecniche')}</button>`;
+
+    <div class="card">
+      <b>${t('proLabel')}</b><br>${pro}
+    </div>
+
+    <div class="card">
+      <b>${t('controLabel')}</b><br>${contro}
+    </div>
+
+    <div class="card">
+      <h3>${t('specieConsigliate')}</h3>
+      ${generaListaCliccabile(specieList)}
+    </div>
+
+    <div class="card">
+      <h3>${t('escheConsigliateLabel')}</h3>
+      ${generaListaCliccabile(escheList)}
+    </div>
+
+    <div class="card">
+      <b>${t('videoTutorial')}</b><br>
+      <a href="${linguaAttuale === 'fr' ? videoTecniche.beachledgering.fr : videoTecniche.beachledgering.it}"
+         target="_blank"
+         rel="noopener">
+        ${t('guardaSuYoutube')}
+      </a>
+    </div>
+
+    <button onclick="goTo(showTecniche)">
+      ${t('tornaTecniche')}
+    </button>`;
 }
 </script>
 <script>
