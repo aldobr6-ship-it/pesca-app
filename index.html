@@ -2567,7 +2567,8 @@ function toggleImageBox(id, imgPath, button) {
     img.onerror = function() { imgFallback(this, "Schema non disponibile"); };
     box.appendChild(img);
     const hint = document.createElement("p");
-    hint.style.cssText = "text-align:center;font-size:10px;opacity:0.5;margin:4px 0 0;";
+    hint.style.cssText = "text-align:center;font-size:11px;opacity:0.5;margin:10px auto 0 auto; display:block; width:100%; clear:both;";
+
     hint.textContent = t('toccaIngrandire');
 
     box.appendChild(hint);
