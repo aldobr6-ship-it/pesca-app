@@ -2580,16 +2580,20 @@ function generaListaCliccabile(lista) {
     onclick="const box=document.getElementById('${boxId}');const aperto=box.style.display==='block';document.querySelectorAll('.inline-esca-img').forEach(e=>e.style.display='none');box.style.display=aperto?'none':'block';">
   ${item.nome}
         <div id="${boxId}" class="inline-esca-img"
-             style="display:none;margin-top:8px;text-align:center;">
-          <img src="${safeImg}"
-               alt="${safeNome}"
-               onclick="event.stopPropagation();mostraEscaFullscreen(event,'${safeImg}','${safeNome}')"
-               class="img-box-bg"
-               style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;"
-               onerror="imgFallback(this,'${safeNome} non disponibile')">
-          <p style="font-size:10px;opacity:0.5;margin:4px 0 0;">
-               🔍 ${linguaAttuale === "fr" ? "Cliquez pour agrandir" : "Tocca per ingrandire"}
-            </p>
+     style="display:none;margin-top:8px;text-align:center;">
+
+  <img src="${safeImg}"
+       alt="${safeNome}"
+       onclick="event.stopPropagation();mostraEscaFullscreen(event,'${safeImg}','${safeNome}')"
+       class="img-box-bg"
+       style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;"
+       onerror="imgFallback(this,'${safeNome} non disponibile')">
+
+  <p style="font-size:10px;opacity:0.5;margin:4px 0 0;">
+    🔍 ${linguaAttuale === "fr" ? "Cliquez pour agrandir" : "Tocca per ingrandire"}
+  </p>
+
+</div>
         </div>
       </div>`;
   });
