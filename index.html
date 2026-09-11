@@ -2588,8 +2588,8 @@ function generaListaCliccabile(lista) {
                style="width:100%;max-width:260px;height:180px;object-fit:contain;border-radius:12px;cursor:zoom-in;"
                onerror="imgFallback(this,'${safeNome} non disponibile')">
           <p style="font-size:10px;opacity:0.5;margin:4px 0 0;">
-            🔍 Tocca per ingrandire
-          </p>
+               🔍 ${linguaAttuale === "fr" ? "Cliquez pour agrandir" : "Tocca per ingrandire"}
+            </p>
         </div>
       </div>`;
   });
