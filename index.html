@@ -2567,7 +2567,8 @@ function toggleImageBox(id, imgPath, button) {
     box.appendChild(img);
     const hint = document.createElement("p");
     hint.style.cssText = "text-align:center;font-size:10px;opacity:0.5;margin:4px 0 0;";
-    hint.textContent = + t('toccaIngrandire');
+    hint.textContent = t('toccaIngrandire');
+
     box.appendChild(hint);
   }
   box.classList.add("open"); button.classList.add("active");
