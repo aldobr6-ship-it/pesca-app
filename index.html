@@ -2597,13 +2597,13 @@ function generaListaCliccabile(lista) {
   <p style="font-size:10px;opacity:0.5;margin:4px 0 0;">
     🔍 ${linguaAttuale === "fr" ? "Cliquez pour agrandir" : "Tocca per ingrandire"}
   </p>
-
-</div>
-        </div>
-      </div>`;
+     </div>
+        </div>`;
   });
+
   return html + "</div>";
 }
+
 function generaMiniCard(lista, tipo) {
   if (!lista || lista.length === 0) return "<p style='opacity:0.6'>Nessun elemento disponibile</p>";
   return `<div class="mini-container">${lista.map((item,index)=>`<div class="mini-card" onclick="apriDettaglio('${tipo}',${index})">${item.nome}</div>`).join("")}</div><div id="${tipo}-detail"></div>`;
