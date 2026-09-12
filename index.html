@@ -3857,7 +3857,7 @@ function showQuandoPescare() {
               ${isFR ? "Accès GPS refusé" : "Accesso GPS Bloccato"}
             </h3>
             <p style="font-size:13px; line-height:1.5; opacity:0.75; margin:0 0 16px 0;">
-              ${isFR ? "L'accès à la position est bloqué. Pour l'activer, cliquez sur l'icône de cadenas ou de boussole dans la barre d'adresse de votre navigateur et autorisez la localisation." : "Il sito non ha il permesso di accedere alla tua posizione. Per sbloccarlo, clicca sull'icona del lucchetto o della bussola nella barra degli indirizzi del browser in alto e seleziona 'Consenti'."}
+              ${isFR ? "L'accès à la position est bloqué. Pour l'activer, cliquez sur l'icône de cadenas o de boussole dans la barre d'adresse de votre navigateur et autorisez la localisation." : "Il sito non ha il permesso di accedere alla tua posizione. Per sbloccarlo, clicca sull'icona del lucchetto o della bussola nella barra degli indirizzi del browser in alto e seleziona 'Consenti'."}
             </p>
             <button onclick="renderQuandoPescare(${latDefault}, ${lonDefault})" style="width:100%; padding:12px; border-radius:12px; font-weight:bold; background:#6c757d; color:white; border:none; cursor:pointer; margin-bottom:8px;">
               ${isFR ? "Continuer sans GPS (" + nomeCapitale + ")" : "Continua senza GPS (Usa " + nomeCapitale + ")"}
@@ -3874,6 +3874,7 @@ function showQuandoPescare() {
     { enableHighAccuracy: true, timeout: 5000 }
   );
 }
+
 async function renderQuandoPescare(lat, lon) {
   const ora = new Date();
   let mareeOggi = [];
