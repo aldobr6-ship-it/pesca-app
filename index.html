@@ -3818,14 +3818,7 @@ function showQuandoPescare() {
   if (!navigator.geolocation) {
     renderQuandoPescare(41.9, 12.5); return;
   }
-  const usa = confirm(t('confermaGPS'));
-  if (!usa) { renderQuandoPescare(41.9, 12.5); return; }
-  navigator.geolocation.getCurrentPosition(
-    pos => renderQuandoPescare(pos.coords.latitude, pos.coords.longitude),
-    ()  => renderQuandoPescare(41.9, 12.5),
-    { enableHighAccuracy: true, timeout: 8000 }
-  );
-}
+  
 async function renderQuandoPescare(lat, lon) {
   const ora = new Date();
   let mareeOggi = [];
