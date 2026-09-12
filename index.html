@@ -3820,15 +3820,28 @@ function showQuandoPescare() {
       <p style="opacity:0.6; font-size:14px; margin:0;">${isFR ? "Tentative de connexion au GPS..." : "Rilevamento della posizione GPS in corso..."}</p>
     </div>`;
 
+  // Configurazione coordinate di default basate sulla nazione attiva (IT, FR, TN)
+  let latDefault = 41.9028, lonDefault = 12.4964; // Italia (Roma)
+  let nomeCapitale = isFR ? "Rome" : "Roma";
+
+  if (nazioneAttiva === "fr") { 
+    latDefault = 48.8566; 
+    lonDefault = 2.3522; // Francia (Parigi)
+    nomeCapitale = isFR ? "Paris" : "Parigi";
+  } else if (nazioneAttiva === "tn") { 
+    latDefault = 36.8065; 
+    lonDefault = 10.1815; // Tunisia (Tunisi)
+    nomeCapitale = isFR ? "Tunis" : "Tunisi";
+  }
+
   if (!navigator.geolocation) {
-    renderQuandoPescare(41.9, 12.5); 
+    renderQuandoPescare(latDefault, lonDefault); 
     return;
   }
 
   // 2. Richiesta della posizione con gestione avanzata dell'errore di blocco privacy
   navigator.geolocation.getCurrentPosition(
     pos => {
-      // Il GPS è attivo e ha dato il consenso: renderizza i dati reali
       renderQuandoPescare(pos.coords.latitude, pos.coords.longitude);
     },
     error => {
@@ -3843,22 +3856,21 @@ function showQuandoPescare() {
             <p style="font-size:13px; line-height:1.5; opacity:0.75; margin:0 0 16px 0;">
               ${isFR ? "L'accès à la position est bloqué. Pour l'activer, cliquez sur l'icône de cadenas ou de boussole dans la barre d'adresse de votre navigateur et autorisez la localisation." : "Il sito non ha il permesso di accedere alla tua posizione. Per sbloccarlo, clicca sull'icona del lucchetto o della bussola nella barra degli indirizzi del browser in alto e seleziona 'Consenti'."}
             </p>
-            <button onclick="renderQuandoPescare(41.9, 12.5)" style="width:100%; padding:12px; border-radius:12px; font-weight:bold; background:#6c757d; color:white; border:none; cursor:pointer; margin-bottom:8px;">
-              ${isFR ? "Continuer sans GPS (Rome)" : "Continua senza GPS (Usa Roma)"}
+            <button onclick="renderQuandoPescare(${latDefault}, ${lonDefault})" style="width:100%; padding:12px; border-radius:12px; font-weight:bold; background:#6c757d; color:white; border:none; cursor:pointer; margin-bottom:8px;">
+              ${isFR ? "Continuer sans GPS (" + nomeCapitale + ")" : "Continua senza GPS (Usa " + nomeCapitale + ")"}
             </button>
             <button onclick="goTo(showQuandoPescare)" style="width:100%; padding:12px; border-radius:12px; font-weight:bold; background:linear-gradient(90deg,#0a2a43,#144d73); color:white; border:none; cursor:pointer; margin:0;">
               ${t('riprova')}
             </button>
           </div>`;
       } else {
-        // Altri errori (es. timeout o segnale assente): scivola sulla posizione di default
-        renderQuandoPescare(41.9, 12.5);
+        // Altri errori (es. timeout o segnale assente): usa la capitale della nazione corretta
+        renderQuandoPescare(latDefault, lonDefault);
       }
     },
     { enableHighAccuracy: true, timeout: 5000 }
   );
 }
-
 async function renderQuandoPescare(lat, lon) {
   const ora = new Date();
   let mareeOggi = [];
