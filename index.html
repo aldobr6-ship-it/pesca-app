@@ -3810,21 +3810,55 @@ body.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
 <script>
 /* === QUANDO PESCARE OGGI === */
 function showQuandoPescare() {
+  const isFR = (typeof linguaAttuale !== 'undefined' && linguaAttuale === 'fr');
+
+  // 1. Schermata iniziale di caricamento standard
   document.getElementById("content").innerHTML = `
-    <div class="qp-loader">
-      <span class="spinner">🌙</span>
-      <p>${t('calcoloCondizioni')}</p>
+    <div class="qp-loader" style="text-align:center; padding:40px 20px;">
+      <span class="spinner" style="font-size:48px; display:block; margin-bottom:16px; animation: floatLogo 1.5s ease-in-out infinite;">🌙</span>
+      <h3>${isFR ? "Calcul Solunaire" : "Calcolo Condizioni"}</h3>
+      <p style="opacity:0.6; font-size:14px; margin:0;">${isFR ? "Tentative de connexion au GPS..." : "Rilevamento della posizione GPS in corso..."}</p>
     </div>`;
+
   if (!navigator.geolocation) {
-    renderQuandoPescare(41.9, 12.5); return;
- }
-  // QUESTO È IL PEZZO DA INSERIRE ADESSO:
+    renderQuandoPescare(41.9, 12.5); 
+    return;
+  }
+
+  // 2. Richiesta della posizione con gestione avanzata dell'errore di blocco privacy
   navigator.geolocation.getCurrentPosition(
-    pos => renderQuandoPescare(pos.coords.latitude, pos.coords.longitude),
-    ()  => renderQuandoPescare(41.9, 12.5),
+    pos => {
+      // Il GPS è attivo e ha dato il consenso: renderizza i dati reali
+      renderQuandoPescare(pos.coords.latitude, pos.coords.longitude);
+    },
+    error => {
+      // Il browser o il telefono ha rifiutato l'accesso (Errore 1 = PERMISSION_DENIED)
+      if (error.code === 1) {
+        document.getElementById("content").innerHTML = `
+          <div class="card" style="text-align:center; padding:24px 18px; border-radius:20px; box-shadow:0 6px 18px rgba(0,0,0,0.08); cursor:default; max-width:400px; margin:20px auto; animation:fadeIn 0.3s ease;">
+            <span style="font-size:40px; display:block; margin-bottom:12px;">⚠️</span>
+            <h3 style="margin:0 0 8px 0; color:#e74c3c;">
+              ${isFR ? "Accès GPS refusé" : "Accesso GPS Bloccato"}
+            </h3>
+            <p style="font-size:13px; line-height:1.5; opacity:0.75; margin:0 0 16px 0;">
+              ${isFR ? "L'accès à la position est bloqué. Pour l'activer, cliquez sur l'icône de cadenas ou de boussole dans la barre d'adresse de votre navigateur et autorisez la localisation." : "Il sito non ha il permesso di accedere alla tua posizione. Per sbloccarlo, clicca sull'icona del lucchetto o della bussola nella barra degli indirizzi del browser in alto e seleziona 'Consenti'."}
+            </p>
+            <button onclick="renderQuandoPescare(41.9, 12.5)" style="width:100%; padding:12px; border-radius:12px; font-weight:bold; background:#6c757d; color:white; border:none; cursor:pointer; margin-bottom:8px;">
+              ${isFR ? "Continuer sans GPS (Rome)" : "Continua senza GPS (Usa Roma)"}
+            </button>
+            <button onclick="goTo(showQuandoPescare)" style="width:100%; padding:12px; border-radius:12px; font-weight:bold; background:linear-gradient(90deg,#0a2a43,#144d73); color:white; border:none; cursor:pointer; margin:0;">
+              ${t('riprova')}
+            </button>
+          </div>`;
+      } else {
+        // Altri errori (es. timeout o segnale assente): scivola sulla posizione di default
+        renderQuandoPescare(41.9, 12.5);
+      }
+    },
     { enableHighAccuracy: true, timeout: 5000 }
   );
-} 
+}
+
 async function renderQuandoPescare(lat, lon) {
   const ora = new Date();
   let mareeOggi = [];
