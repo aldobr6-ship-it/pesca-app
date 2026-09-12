@@ -3867,7 +3867,7 @@ function showQuandoPescare() {
             </button>
           </div>`;
       } else {
-        // Altri errori (es. timeout o segnale assente): usa la capitale della nazione corretta
+        // Altri errori: usa la capitale della nazione corretta
         renderQuandoPescare(latDefault, lonDefault);
       }
     },
@@ -3875,9 +3875,18 @@ function showQuandoPescare() {
   );
 }
 
+/* === RENDERING DEI DATI DI CALCOLO === */
 async function renderQuandoPescare(lat, lon) {
   const ora = new Date();
   let mareeOggi = [];
+  try {
+    const res = await fetch(`https://open-meteo.com{lat}&longitude=${lon}&hourly=sea_level_height_msl&timezone=Europe%2FRome&forecast_days=1`);
+    const dati = await res.json();
+    mareeOggi = calcolaMareeDaHourly(dati.hourly?.sea_level_height_msl || [], dati.hourly?.time || []);
+  } catch(e) { 
+    mareeOggi = []; 
+  }
+
   try {
     const res = await fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=sea_level_height_msl&timezone=Europe%2FRome&forecast_days=1`);
     const dati = await res.json();
