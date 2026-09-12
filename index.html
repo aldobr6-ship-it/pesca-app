@@ -1674,9 +1674,9 @@ function showFondo() {
     {nome:"Piombo Scorrevole", img:"img/montature/12_scorrevole.jpg"}
   ];
   const montatureFr = [
-    {nome:"Running Feeder Rig", img:"img/montature/fr/19_running_feeder_rig.jpg"},
-    {nome:"Long Arm (Longue Empile)", img:"img/montature/fr/03_long_arm.jpg"},
-    {nome:"Plomb Coulissant", img:"img/montature/fr/12_scorrevole.jpg"}
+    {nome:"Running Feeder Rig", img:"img/montature/19_running_feeder_rig.jpg"},
+    {nome:"Long Arm (Longue Empile)", img:"img/montature/03_long_arm.jpg"},
+    {nome:"Plomb Coulissant", img:"img/montature/12_scorrevole.jpg"}
   ];
   const montature = linguaAttuale === "fr" ? montatureFr : montatureIt;
   const specieList = linguaAttuale === "fr"
@@ -1708,11 +1708,7 @@ function showFondo() {
         ${montature.map((m,i)=>`
           <div>
             <button
-              onclick="toggleImageBox('beachBox${i}','${m.img}',this)"
-              class="toggle-btn"
-              style="max-width:none;width:100%;font-size:12px;"
-            >
-              📷 ${m.nome} <span class="arrow">▼</span>
+              onclick="toggleImageBox('beachBox${i}','${m.img}',this)" class="toggle-btn" style="max-width:none;width:100%;font-size:12px;" >📷 ${m.nome} <span class="arrow">▼</span>
             </button>
             <div id="beachBox${i}" class="image-box"></div>
           </div>
