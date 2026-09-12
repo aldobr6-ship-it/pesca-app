@@ -2804,12 +2804,14 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
     </div>
     <div class="spot-list" id="spotList">${renderSpotList(miei_spots)}</div>
     <div style="margin:20px 0 10px;">
-      <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
-        ${testobottone}
-      </button>
-    </div>
-    <button onclick="goTo(showPrevisioni)" style="width:100%;">${t('aggiornaPrevisioni')}</button><br>
-  `;
+    <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
+      ${testobottone}
+    </button>
+  </div>
+  <button onclick="goTo(showPrevisioni)" style="width:100%; margin-bottom: 8px;">${t('aggiornaPrevisioni')}</button>
+  <button onclick="goTo(showHome)" style="width:100%; background:#6c757d; margin-top:0;">🏠 ${t('tornaHome')}</button><br>
+`;
+
   setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
 }
 function cambiaNazioneHome(nazione) {
@@ -2958,9 +2960,9 @@ function showCercaSpot() {
         <div class="spot-panel-header" id="spotPanelHeader">📍 ${t("spot")} <span id="nomeNazioneBadge"></span></div>
         <div class="spot-panel-body" id="spotPanelBody"><div id="listaSpotEsplorazione"></div></div>
       </div>
-    </div>
-    <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">⬅️ ${t('tornaHome')}</button>
-    <!-- Modal Personalizzata per Salvare lo Spot -->
+      </div>
+      <button onclick="goTo(showHome)" style="width:100%; margin-top:14px; background:#0a2a43;">🏠 ${t('tornaHome')}</button>
+            <!-- Modal Personalizzata per Salvare lo Spot -->
     <div id="saveSpotModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
       <div style="background:white; padding:20px; border-radius:12px; width:90%; max-width:400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
         <h3 style="margin-top:0; color:#0a2a43;">${t("salvaSpotTitolo")}</h3>
