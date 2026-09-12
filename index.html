@@ -2809,9 +2809,7 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
     </button>
   </div>
   <button onclick="goTo(showPrevisioni)" style="width:100%; margin-bottom: 8px;">${t('aggiornaPrevisioni')}</button>
-  <button onclick="goTo(showHome)" style="width:100%; background:#6c757d; margin-top:0;">🏠 ${t('tornaHome')}</button><br>
-`;
-
+  `;
   setTimeout(() => initMappaPrevisioni(lat, lon, miei_spots), 100);
 }
 function cambiaNazioneHome(nazione) {
@@ -3938,7 +3936,9 @@ async function renderQuandoPescare(lat, lon) {
       <h3>${t('consiglioGiorno')}</h3>
       ${generaConsiglioPesca(lunaInfo, solunar, ora)}
     </div>
-    <button onclick="goTo(showQuandoPescare)" style="width:100%;">${t('aggiornaBtn')}</button><br>`;
+    <button onclick="goTo(showQuandoPescare)" style="width:100%; margin-bottom: 8px;">${t('aggiornaBtn')}</button>
+    <button onclick="goTo(showHome)" style="width:100%; background:#6c757d; margin-top:0;">🏠 ${t('tornaHome')}</button><br>`;
+
 }
 /* ── CALCOLO FASE LUNA ── */
 function calcolaFaseLuna(data) {
