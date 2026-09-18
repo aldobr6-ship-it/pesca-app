@@ -1039,7 +1039,7 @@ const traduzioni = {
     temaScuro: "Tema Scuro",
     uscitaConferma: "Vuoi uscire dall'app?\n\nSe non si chiude automaticamente, chiudi la scheda del browser manualmente.",
     chiusuraBloccata: "Il browser non ha permesso la chiusura automatica.\nChiudi manualmente questa scheda.",
-    gpsNonDisponibile: "📍 GPS non disponibile. Prévisions basées sur la capitale.",
+    gpsNonDisponibile: "📍 GPS non disponibile. Previsioni basate sulla capitale.",
     sereno: "Sereno",
     pocoNuvole: "Poco nuv.",
     coperto: "Coperto",
@@ -1376,12 +1376,12 @@ const tecnicheListIt = [
   { nome:"Beach Ledgering", img:"./img/beach ledgering_foto.png", desc:"Spiaggia, mare calmo", fn:"showBeachLedgering" },
 ];
 const tecnicheListFr = [
-  { nome:"Surfcasting", img:"./img/surfcasting_foto.png", desc:"Spiaggia, piombi pesanti", fn:"showSurfcasting" },
-  { nome:"Spinning", img:"./img/spinning_foto.png", desc:"Esche artificiali da riva", fn:"showSpinning" },
-  { nome:"Eging", img:"./img/eging_foto.png", desc:"Seppie e calamari", fn:"showEging" },
-  { nome:"Pêche à fond", img:"./img/pesca fondo_foto.png", desc:"Porto e scogliera", fn:"showFondo" },
-  { nome:"Pêche à la Bolonaise / Pêche à l’anglaise", img:"./img/bolognese_foto.png", desc:"Tecnica precisa e leggera", fn:"showGalleggiante" },
-  { nome:"Beach Ledgering", img:"./img/beach ledgering_foto.png", desc:"Spiaggia, mare calmo", fn:"showBeachLedgering" },
+  { nome:"Surfcasting", img:"./img/surfcasting_foto.png", desc:"Plage, plombs lourds", fn:"showSurfcasting" },
+  { nome:"Spinning", img:"./img/spinning_foto.png", desc:"Leurres artificiels du bord", fn:"showSpinning" },
+  { nome:"Eging", img:"./img/eging_foto.png", desc:"Seiches et calamars", fn:"showEging" },
+  { nome:"Pêche à fond", img:"./img/pesca fondo_foto.png", desc:"Port et côte rocheuse", fn:"showFondo" },
+  { nome:"Pêche à la Bolonaise / Pêche à l’anglaise", img:"./img/bolognese_foto.png", desc:"Technique précise et légère", fn:"showGalleggiante" },
+  { nome:"Beach Ledgering", img:"./img/beach ledgering_foto.png", desc:"Plage, mer calme", fn:"showBeachLedgering" },
 ];
 const videoTecniche = {
 surfcasting: {
@@ -1767,9 +1767,7 @@ function cardNodo(n) {
         >
         ${n.nome}
         <small style="display:block;font-size:10px;font-weight:500;opacity:0.8;margin-top:3px;">
-          ${linguaAttuale === "fr"
-            ? "👆 Cliquez pour voir la photo"
-            : "👆 Clicca per vedere la foto"}
+          ${linguaAttuale === "fr" ? "👆 Cliquez pour voir la photo" : "👆 Clicca per vedere la foto"}
         </small>
       </button>
       <div
@@ -3879,20 +3877,15 @@ function showQuandoPescare() {
 async function renderQuandoPescare(lat, lon) {
   const ora = new Date();
   let mareeOggi = [];
-  try {
-    const res = await fetch(`https://open-meteo.com{lat}&longitude=${lon}&hourly=sea_level_height_msl&timezone=Europe%2FRome&forecast_days=1`);
-    const dati = await res.json();
-    mareeOggi = calcolaMareeDaHourly(dati.hourly?.sea_level_height_msl || [], dati.hourly?.time || []);
-  } catch(e) { 
-    mareeOggi = []; 
-  }
-
-  try {
+   try {
     const res = await fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=sea_level_height_msl&timezone=Europe%2FRome&forecast_days=1`);
     const dati = await res.json();
-    mareeOggi = calcolaMareeDaHourly(dati.hourly?.sea_level_height_msl || [], dati.hourly?.time || []);
-  } catch(e) { 
-    mareeOggi = []; 
+    mareeOggi = calcolaMareeDaHourly(
+      dati.hourly?.sea_level_height_msl || [],
+      dati.hourly?.time || []
+    );
+  } catch(e) {
+    mareeOggi = [];
   }
   const lunaInfo   = calcolaFaseLuna(ora);
   const solunar    = calcolaSolunar(lat, lon, ora);
@@ -3950,6 +3943,7 @@ async function renderQuandoPescare(lat, lon) {
       ${generaConsiglioPesca(lunaInfo, solunar, ora)}
     </div>
     <button onclick="goTo(showQuandoPescare)" style="width:100%; margin-bottom: 8px;">${t('aggiornaBtn')}</button>
+    `;
     }
 /* ── CALCOLO FASE LUNA ── */
 function calcolaFaseLuna(data) {
