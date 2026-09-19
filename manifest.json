@@ -7,7 +7,7 @@
   "display": "standalone",
   "background_color": "#0a2a43",
   "theme_color": "#0a2a43",
-  "description": "AdelTechnic FISH App - Guida alla pesca in mare",
+  "description": "Guida alla pesca in mare con tecniche, specie, montature, nodi, spot e meteo.",
   "orientation": "portrait",
   "icons": [
     { "src": "icon-192-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
@@ -17,7 +17,7 @@
     "fr": {
       "name": "AdelTechnic-FISH",
       "short_name": "AdelTechnic-FISH",
-      "description": "AdelTechnic FISH App - Votre guide pour la pêche en mer"
+      "description": "Guide de pêche en mer avec techniques, espèces, montages, nœuds, spots et météo."
     }
   }
 }
