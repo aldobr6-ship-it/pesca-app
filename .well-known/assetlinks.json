@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.aldobr6_ship_it.pescaapp",
+        "sha256_cert_fingerprints": ["85:63:71:F1:7A:C4:BB:D1:BE:DC:15:B2:E0:0C:80:64:82:77:08:C4:A5:8B:46:96:86:9D:29:B1:63:79:38:C3"]
+      }
+    }]
