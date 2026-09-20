@@ -1003,8 +1003,10 @@ const traduzioni = {
     posizioneSpot: "🗺️ La tua posizione & Spot",
     salvaSpotBtn: "📌 Salva spot",
     mieiSpot: "📌 I miei spot",
-    esportaJson: "⬇️ Esporta JSON",
-    importaJson: "⬆️ Importa JSON",
+    esportaSpot: "⬇️ Esporta spot",
+    importaSpot: "⬆️ Importa spot",
+    infoEsportaImportaSpot: "💾 Gli spot salvati nei miei spot possono essere esportati come copia di sicurezza e reimportati in seguito per recuperarli.",
+    tornaMeteoSpot: "⬅️ Torna a Meteo & Spot",
     cercaSpotItalia: "🗺️ Cerca Spot Italia",
     aggiornaPrevisioni: "🔄 Aggiorna previsioni",
     rilevamentoPosizione: "Rilevamento posizione in corso…",
@@ -1168,8 +1170,10 @@ const traduzioni = {
     posizioneSpot: "🗺️ Votre position & Spots",
     salvaSpotBtn: "📌 Sauvegarder le spot",
     mieiSpot: "📌 Mes spots",
-    esportaJson: "⬇️ Exporter JSON",
-    importaJson: "⬆️ Importer JSON",
+    esportaSpot: "⬇️ Exporter les spots",
+    importaSpot: "⬆️ Importer les spots",
+    infoEsportaImportaSpot: "💾 Les spots enregistrés dans Mes spots peuvent être exportés comme copie de sauvegarde puis importés plus tard pour les récupérer.",
+    tornaMeteoSpot: "⬅️ Retour à Météo & Spot",
     cercaSpotItalia: "🗺️ Chercher un Spot en Italie",
     aggiornaPrevisioni: "🔄 Actualiser les prévisions",
     rilevamentoPosizione: "Détection de la position en cours",
@@ -2796,10 +2800,13 @@ function renderPrevisioni(lat, lon, marine, meteo, usaFallback) {
     </div>
     <h3 style="margin:15px 0 6px;font-size:15px;opacity:0.7;">${t('mieiSpot')} (${miei_spots.length})</h3>
     <div class="spot-io-row">
-      <button class="btn-esporta" onclick="esportaSpot()">${t('esportaJson')}</button>
-      <button class="btn-importa" onclick="document.getElementById('importInput').click()">${t('importaJson')}</button>
-      <input type="file" id="importInput" accept=".json" style="display:none" onchange="importaSpot(event)">
+    <button class="btn-esporta" onclick="esportaSpot()">${t('esportaSpot')}</button>
+    <button class="btn-importa" onclick="document.getElementById('importInput').click()">${t('importaSpot')}</button>
+    <input type="file" id="importInput" accept=".json" style="display:none" onchange="importaSpot(event)">
     </div>
+    <p style="font-size:12px;opacity:0.6;text-align:center;margin:8px 4px 12px;">
+    ${t('infoEsportaImportaSpot')}
+    </p>
     <div class="spot-list" id="spotList">${renderSpotList(miei_spots)}</div>
     <div style="margin:20px 0 10px;">
     <button onclick="goTo(showCercaSpot)" style="width:100%;background:linear-gradient(135deg,#0077b6,#00b4d8);font-size:16px;padding:14px;border-radius:18px;font-weight:800;letter-spacing:0.5px;">
@@ -2960,7 +2967,12 @@ function showCercaSpot() {
         <div class="spot-panel-body" id="spotPanelBody"><div id="listaSpotEsplorazione"></div></div>
       </div>
       </div>
-      <button onclick="goTo(showHome)" style="width:100%; margin-top:14px; background:#0a2a43;"> ${t('tornaHome')}</button>
+        <button onclick="goTo(showPrevisioni)" style="width:100%; margin-top:14px;">
+        ${t('tornaMeteoSpot')}
+       </button>
+       <button onclick="goTo(showHome)" style="width:100%; margin-top:8px; background:#0a2a43;">
+       ${t('tornaHome')}
+       </button>
             <!-- Modal Personalizzata per Salvare lo Spot -->
     <div id="saveSpotModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;">
       <div style="background:white; padding:20px; border-radius:12px; width:90%; max-width:400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
@@ -3942,9 +3954,15 @@ async function renderQuandoPescare(lat, lon) {
       <h3>${t('consiglioGiorno')}</h3>
       ${generaConsiglioPesca(lunaInfo, solunar, ora)}
     </div>
-    <button onclick="goTo(showQuandoPescare)" style="width:100%; margin-bottom: 8px;">${t('aggiornaBtn')}</button>
-    `;
-    }
+        <button onclick="goTo(showQuandoPescare)" style="width:100%; margin-bottom: 8px;">
+        ${t('aggiornaBtn')}
+        </button>
+
+        <button onclick="goTo(showHome)" style="width:100%; margin-top:8px;">
+         ${t('tornaHome')}
+       </button>
+  `;
+}
 /* ── CALCOLO FASE LUNA ── */
 function calcolaFaseLuna(data) {
   const riferimento = new Date("2000-01-06T18:14:00Z");
