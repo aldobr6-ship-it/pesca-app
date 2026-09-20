@@ -3807,15 +3807,15 @@ body.dark .marea-h { color:#38bdf8; }
   box-shadow:0 4px 12px rgba(0,0,0,0.09); cursor:default;
 }
 body.dark .qp-giorno-card { background:#1e293b; color:#e2e8f0; }
-.qp-giorno-card .qgc-nome  { font-size:11px; font-weight:700; opacity:0.6; margin-bottom:4px; }
+.qp-giorno-card .qgc-nome  { font-size:12px; font-weight:700; opacity:0.8; margin-bottom:4px; }
 .qp-giorno-card .qgc-luna  { font-size:26px; margin:4px 0; }
-.qp-giorno-card .qgc-fase  { font-size:10px; opacity:0.6; margin-bottom:4px; }
-.qp-giorno-card .qgc-rate  { font-size:13px; }
-.qp-giorno-card .qgc-major { font-size:11px; opacity:0.75; margin-top:3px; }
+.qp-giorno-card .qgc-fase  { font-size:11px; opacity:0.8; margin-bottom:4px; }
+.qp-giorno-card .qgc-rate  { font-size:14px; }
+.qp-giorno-card .qgc-major { font-size:12px; opacity:0.85; margin-top:3px; }
 /* Loader */
 .qp-loader { text-align:center; padding:60px 20px; }
 .qp-loader .spinner { font-size:48px; animation:floatLogo 1.5s ease-in-out infinite; display:block; margin-bottom:16px; }
-.qp-loader p { opacity:0.6; font-size:14px; }
+.qp-loader p { opacity:0.8; font-size:15px; }
 </style>
 <!-- ============================================================
      BLOCCO JS — QUANDO PESCARE (Solunar + Maree + Luna)
@@ -3930,10 +3930,10 @@ async function renderQuandoPescare(lat, lon) {
             <div class="sf-dur">${s.tipo === "major" ? t('circaOre') : t('circaUnOra')}</div>
           </div>`).join("")}
       </div>
-      <p style="font-size:12px;opacity:0.55;margin:14px 0 0;text-align:center;">
-        ${t('majorMinorInfo')}
+      <p style="font-size:13px;opacity:0.8;margin:14px 0 0;text-align:center;">
+      ${t('majorMinorInfo')}
       </p>
-    </div>
+     </div>
     <div class="qp-card">
       <h3>${t('mareeOggi')}</h3>
       ${mareeOggi.length > 0 ? mareeOggi.map(m=>`
